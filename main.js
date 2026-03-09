@@ -79,8 +79,8 @@ function initHeroCanvas() {
     // Move camera further back on smaller screens
     camera.position.z = width < 768 ? 14 : 9;
 
-    // Shift camera slightly left so the sphere sits on the right side of the screen on desktop
-    camera.position.x = width > 992 ? -2.0 : 0;
+    // Keep camera centered
+    camera.position.x = 0;
 
     camera.position.y = 1.0; // Angle down slightly
 
@@ -332,7 +332,7 @@ function initHeroCanvas() {
         renderer.setSize(width, height);
         camera.aspect = width / height;
         camera.position.z = width < 768 ? 14 : 9;
-        camera.position.x = width > 992 ? -2.0 : 0;
+        camera.position.x = 0;
         camera.updateProjectionMatrix();
     });
 
