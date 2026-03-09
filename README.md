@@ -16,9 +16,14 @@ The website features a modern, premium design system with a specific aesthetic:
   - Used across the entire site for a sophisticated, trustworthy, and modern feel.
 
 ### UI Effects
-- **Glassmorphism**: Content cards and floating elements utilize frosted glass textures with subtle golden borders and background blur (`backdrop-filter`) to create a futuristic layered effect.
+- **Apple Vision OS Liquid Glass**:
+  - **Floating Pills**: Use aggressive rounding. `border-radius: 100px;` for thin strips (navbars, toolbars) and `border-radius: 64px;` for large content containers (hero, floating windows).
+  - **Backdrop Blur**: Strong frosted glass effect. `backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);` applied over a translucent white/dark background (e.g., `rgba(255, 255, 255, 0.08)` or `rgba(10, 10, 10, 0.6)`).
+  - **Specular Inner Highlight**: The crucial "liquid" effect. Use `inset 0 1px 1px rgba(255, 255, 255, 0.3)` internally on the top edge to mimic light catching the rim.
+  - **Depth Shadow**: Strong outer drop shadow lifting elements off the background. E.g., `box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);`
+- **Glassmorphism**: Standard content cards utilize minimal frosted glass textures with subtle golden borders and background blur (`backdrop-filter`) to create a futuristic layered effect.
 - **Scroll Reveal**: Sections smoothly fade in and slide up as you scroll down the page.
-- **Micro-interactions**: Hover effects on buttons and cards that elevate elements and add soft golden shadows.
+- **Micro-interactions**: Liquid glass hover effects that encase elements in soft translucent bubbles.
 
 ## Content Structure
 

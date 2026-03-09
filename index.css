@@ -169,23 +169,35 @@ img {
    ======================= */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    border-radius: 100px;
     z-index: 1000;
-    padding: 20px 40px;
+    padding: 15px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: background var(--transition-mid), padding var(--transition-mid), backdrop-filter var(--transition-mid);
+    background: rgba(255, 255, 255, 0.08);
+    /* Brighter glass base */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Frosted rim */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    /* Drop shadow + inner top highlight */
+    transition: all var(--transition-mid);
 }
 
 .navbar.scrolled {
-    background: rgba(5, 5, 5, 0.85);
+    background: rgba(10, 10, 10, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 14px 40px;
-    border-bottom: 1px solid var(--glass-border);
+    padding: 12px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 .nav-logo {
@@ -199,10 +211,9 @@ img {
 
 .nav-logo .logo-image {
     position: absolute;
-    top: -45px;
-    /* Adjust this to center the logo relative to the navbar */
+    top: -35px;
     left: 20px;
-    height: 160px;
+    height: 130px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -214,8 +225,9 @@ img {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 36px;
-    padding-left: 140px;
+    gap: 16px;
+    /* slightly reduce gap since padding is added */
+    padding-left: 120px;
     /* Make room for absolute positioned logo */
 }
 
@@ -223,27 +235,20 @@ img {
     font-size: var(--fs-small);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
-    transition: color var(--transition-fast);
+    transition: all var(--transition-fast);
     position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: var(--gold);
-    transition: width var(--transition-mid);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid transparent;
 }
 
 .nav-links a:hover {
     color: var(--white);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-cta {
@@ -312,7 +317,7 @@ img {
     max-width: 1400px;
     height: calc(100vh - 140px);
     min-height: 600px;
-    border-radius: 24px;
+    border-radius: 64px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
