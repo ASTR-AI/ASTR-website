@@ -197,23 +197,26 @@ img {
     letter-spacing: 2px;
 }
 
-.nav-logo .logo-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 900;
-    color: var(--black);
+.nav-logo .logo-image {
+    position: absolute;
+    top: -45px;
+    /* Adjust this to center the logo relative to the navbar */
+    left: 20px;
+    height: 160px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    z-index: 1002;
+    pointer-events: none;
+    /* Allows clicking links behind the transparent parts */
 }
 
 .nav-links {
     display: flex;
     align-items: center;
     gap: 36px;
+    padding-left: 140px;
+    /* Make room for absolute positioned logo */
 }
 
 .nav-links a {
@@ -299,7 +302,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 40px 40px 40px;
+    padding: 85px 40px 10px 40px;
     background: #101010;
 }
 
@@ -349,8 +352,11 @@ img {
 .hero-corner.top-left {
     top: 50px;
     left: 50px;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     line-height: 1.4;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
 }
 
 .hero-corner.bottom-left {
@@ -393,7 +399,7 @@ img {
     .hero-corner.top-left {
         top: 30px;
         left: 30px;
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     .hero-corner.bottom-left {
@@ -416,6 +422,7 @@ img {
     .hero-corner.top-left {
         top: 20px;
         left: 20px;
+        font-size: 1.1rem;
     }
 
     .hero-corner.bottom-left {
