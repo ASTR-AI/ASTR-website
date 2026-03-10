@@ -778,185 +778,148 @@ img {
     font-size: var(--fs-body);
 }
 
-.adaptive-content {
+.adaptive-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
+    align-items: flex-start;
+    /* Crucial for sticky */
+}
+
+/* Left Column: Scrolling Text */
+.adaptive-text-column {
+    padding: 20vh 0 40vh 0;
+    /* Huge padding so they scroll into the center */
+}
+
+.adaptive-text-block {
+    min-height: 80vh;
+    /* Make each block take up the screen */
     display: flex;
     flex-direction: column;
-    gap: 80px;
-    padding: 40px 0;
-    max-width: 1000px;
-    margin: 0 auto;
+    justify-content: center;
+    opacity: 0.2;
+    /* Default faded */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
 }
 
-/* Background Wire */
-.connecting-wire {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 100%;
-    z-index: 0;
-    opacity: 0.3;
+.adaptive-text-block.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.wire-path {
-    stroke: var(--gold-dim);
-    stroke-width: 2;
-    stroke-dasharray: 8 8;
-    animation: wireScroll 30s linear infinite;
-}
-
-.wire-node {
-    fill: var(--gold);
-    box-shadow: 0 0 10px var(--gold);
-}
-
-@keyframes wireScroll {
-    from {
-        stroke-dashoffset: 0;
-    }
-
-    to {
-        stroke-dashoffset: 1000;
-    }
-}
-
-/* Liquid Glass Layout Blocks */
-.adaptive-block {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    width: 70%;
-    position: relative;
-    z-index: 1;
-
-    /* Apple Vision OS styling */
-    padding: 40px;
-    border-radius: 64px;
-    background: rgba(10, 10, 10, 0.4);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(200, 162, 78, 0.15);
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.5),
-        inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.adaptive-block:hover {
-    transform: translateY(-8px);
-    background: rgba(15, 15, 15, 0.5);
-    border-color: rgba(200, 162, 78, 0.4);
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.7),
-        0 0 40px rgba(200, 162, 78, 0.08),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-
-.block-left {
-    align-self: flex-start;
-    text-align: left;
-    flex-direction: row-reverse;
-}
-
-.block-right {
-    align-self: flex-end;
-    text-align: left;
-}
-
-.block-text {
-    flex: 1;
-}
-
-.block-text h3 {
-    font-size: var(--fs-h2);
+.adaptive-text-block h3 {
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     color: var(--white);
+    letter-spacing: -0.01em;
 }
 
-.block-text p {
+.adaptive-text-block p {
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
 }
 
-/* Doodles */
-.block-doodle {
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
+/* Right Column: Sticky Visuals */
+.adaptive-visual-column {
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.adaptive-block:hover .block-doodle {
-    transform: scale(1.05);
+.sticky-visual-wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.doodle-svg {
+/* The Massive Blueprint SVG */
+.massive-blueprint-svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 8px rgba(200, 162, 78, 0.4));
-    transition: filter 0.4s ease;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
+    overflow: visible;
 }
 
-.adaptive-block:hover .doodle-svg {
-    filter: drop-shadow(0 0 15px rgba(200, 162, 78, 0.8));
+.blueprint-stroke {
+    stroke: rgba(200, 162, 78, 0.3);
+    transition: all 0.5s ease;
 }
 
-.doodle-stroke {
-    stroke: var(--gold);
+.blueprint-fill {
+    fill: rgba(200, 162, 78, 0.3);
+    transition: all 0.5s ease;
 }
 
-.doodle-fill {
-    fill: var(--gold);
+.blueprint-connecting-line {
+    stroke: rgba(200, 162, 78, 0.3);
+    stroke-width: 1;
+    stroke-dasharray: 4 4;
+    transition: all 0.5s ease;
 }
 
-.doodle-spin {
-    animation: slowSpin 20s linear infinite;
+/* Active Node States triggered by JS */
+.bp-node {
+    opacity: 0.4;
     transform-origin: center;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-@keyframes slowSpin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+.bp-node.active {
+    opacity: 1;
 }
 
-/* Responsive adjustment for scatter */
+.bp-node.active .blueprint-stroke {
+    stroke: var(--gold);
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.8));
+}
+
+.bp-node.active .blueprint-fill {
+    fill: var(--gold);
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.8));
+}
+
+.bp-node.active .blueprint-connecting-line {
+    stroke: var(--gold);
+    stroke-width: 2;
+    stroke-dasharray: none;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-    .adaptive-block {
-        width: 100%;
-        gap: 20px;
-        padding: 30px;
-        border-radius: 40px;
-        /* slightly smaller radius on mobile */
+    .adaptive-split-container {
+        grid-template-columns: 1fr;
     }
 
-    .block-left {
-        flex-direction: column-reverse;
-        align-items: flex-start;
+    .adaptive-visual-column {
+        position: relative;
+        height: 50vh;
+        order: -1;
+        /* Move graphic above text on mobile */
     }
 
-    .block-right {
-        flex-direction: column;
-        align-items: flex-start;
+    .adaptive-text-column {
+        padding: 0;
     }
 
-    .connecting-wire {
-        left: 20px;
-    }
-
-    .block-text h3 {
-        font-size: var(--fs-h3);
+    .adaptive-text-block {
+        min-height: 50vh;
     }
 }
 

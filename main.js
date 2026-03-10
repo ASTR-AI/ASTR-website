@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initScrollReveal();
     initHeroCanvas();
+    initBlueprintScroll();
 });
 
 /* --- Navbar scroll effect & mobile menu --- */
@@ -454,3 +455,41 @@ function initHeroCanvas() {
     animate();
 }
 
+/* --- Adaptive Solutions: Sticky Split-Screen Blueprint Tracker --- */
+function initBlueprintScroll() {
+    const textBlocks = document.querySelectorAll('.adaptive-text-block');
+    const svgNodes = [
+        document.getElementById('svg-node-1'),
+        document.getElementById('svg-node-2'),
+        document.getElementById('svg-node-3'),
+        document.getElementById('svg-node-4')
+    ];
+
+    if (textBlocks.length === 0 || svgNodes.includes(null)) return;
+
+    // Use Intersection Observer to determine which text block is currently in the center of the screen
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove active class from all
+                textBlocks.forEach(block => block.classList.remove('active'));
+                svgNodes.forEach(node => node.classList.remove('active'));
+
+                // Add active class to the current intersecting block
+                entry.target.classList.add('active');
+
+                // Determine index and activate corresponding SVG node
+                const index = Array.from(textBlocks).indexOf(entry.target);
+                if (index > -1 && svgNodes[index]) {
+                    svgNodes[index].classList.add('active');
+                }
+            }
+        });
+    }, {
+        // Trigger when the element crosses the middle 40% of the viewport height
+        rootMargin: '-30% 0px -30% 0px',
+        threshold: 0
+    });
+
+    textBlocks.forEach(block => observer.observe(block));
+}
