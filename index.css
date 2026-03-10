@@ -734,9 +734,7 @@ img {
    ======================= */
 .adaptive-solutions {
     background: #050505;
-    padding: 120px 40px;
     position: relative;
-    overflow: hidden;
     color: var(--white);
 }
 
@@ -761,7 +759,7 @@ img {
 .adaptive-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto 100px;
+    margin: 0 auto 60px;
     position: relative;
     z-index: 2;
 }
@@ -778,38 +776,60 @@ img {
     font-size: var(--fs-body);
 }
 
+/* Scroll Track & Sticky Container */
+.adaptive-scroll-track {
+    position: relative;
+    height: 400vh;
+    /* 4 sections */
+}
+
+.adaptive-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 40px;
+}
+
 .adaptive-split-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
-    align-items: flex-start;
-    /* Crucial for sticky */
+    align-items: center;
 }
 
-/* Left Column: Scrolling Text */
+/* Left Column: Fixed Text */
 .adaptive-text-column {
-    padding: 20vh 0 40vh 0;
-    /* Huge padding so they scroll into the center */
+    position: relative;
+    height: 400px;
+    /* Space to hold text blocks */
+    display: flex;
+    align-items: center;
 }
 
 .adaptive-text-block {
-    min-height: 80vh;
-    /* Make each block take up the screen */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0.2;
-    /* Default faded */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) translateY(20px);
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    /* so invisible blocks don't capture clicks */
     transition: opacity 0.5s ease, transform 0.5s ease;
-    transform: translateY(20px);
 }
 
 .adaptive-text-block.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-50%) translateY(0);
+    pointer-events: auto;
 }
 
 .adaptive-text-block h3 {
@@ -829,9 +849,8 @@ img {
 
 /* Right Column: Sticky Visuals */
 .adaptive-visual-column {
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    position: relative;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

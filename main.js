@@ -457,6 +457,7 @@ function initHeroCanvas() {
 
 /* --- Adaptive Solutions: Sticky Split-Screen Blueprint Tracker --- */
 function initBlueprintScroll() {
+    const track = document.getElementById('adaptiveScrollTrack');
     const textBlocks = document.querySelectorAll('.adaptive-text-block');
     const svgNodes = [
         document.getElementById('svg-node-1'),
@@ -465,31 +466,33 @@ function initBlueprintScroll() {
         document.getElementById('svg-node-4')
     ];
 
-    if (textBlocks.length === 0 || svgNodes.includes(null)) return;
+    if (!track || textBlocks.length === 0 || svgNodes.includes(null)) return;
 
-    // Use Intersection Observer to determine which text block is currently in the center of the screen
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Remove active class from all
-                textBlocks.forEach(block => block.classList.remove('active'));
-                svgNodes.forEach(node => node.classList.remove('active'));
+    function handleScroll() {
+        const rect = track.getBoundingClientRect();
+        const scrollDistance = rect.height - window.innerHeight;
 
-                // Add active class to the current intersecting block
-                entry.target.classList.add('active');
+        if (scrollDistance <= 0) return;
 
-                // Determine index and activate corresponding SVG node
-                const index = Array.from(textBlocks).indexOf(entry.target);
-                if (index > -1 && svgNodes[index]) {
-                    svgNodes[index].classList.add('active');
-                }
+        let progress = -rect.top / scrollDistance;
+        progress = Math.max(0, Math.min(1, progress));
+
+        const totalBlocks = textBlocks.length;
+        let index = Math.floor(progress * totalBlocks);
+        if (index >= totalBlocks) index = totalBlocks - 1;
+
+        textBlocks.forEach((block, i) => {
+            if (i === index) {
+                block.classList.add('active');
+                svgNodes[i].classList.add('active');
+            } else {
+                block.classList.remove('active');
+                svgNodes[i].classList.remove('active');
             }
         });
-    }, {
-        // Trigger when the element crosses the middle 40% of the viewport height
-        rootMargin: '-30% 0px -30% 0px',
-        threshold: 0
-    });
+    }
 
-    textBlocks.forEach(block => observer.observe(block));
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll(); // init once on load
 }
