@@ -730,6 +730,237 @@ img {
 }
 
 /* =======================
+   ADAPTIVE SOLUTIONS (Dark + Blueprint)
+   ======================= */
+.adaptive-solutions {
+    background: #050505;
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+    color: var(--white);
+}
+
+/* Ambient Ambient Glow behind the wire */
+.adaptive-solutions::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(200, 162, 78, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.relative-container {
+    position: relative;
+}
+
+.adaptive-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.adaptive-header h2 {
+    font-size: var(--fs-h1);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.adaptive-header p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: var(--fs-body);
+}
+
+.adaptive-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 40px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Background Wire */
+.connecting-wire {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.wire-path {
+    stroke: var(--gold-dim);
+    stroke-width: 2;
+    stroke-dasharray: 8 8;
+    animation: wireScroll 30s linear infinite;
+}
+
+.wire-node {
+    fill: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+}
+
+@keyframes wireScroll {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: 1000;
+    }
+}
+
+/* Liquid Glass Layout Blocks */
+.adaptive-block {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 70%;
+    position: relative;
+    z-index: 1;
+
+    /* Apple Vision OS styling */
+    padding: 40px;
+    border-radius: 64px;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(200, 162, 78, 0.15);
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.adaptive-block:hover {
+    transform: translateY(-8px);
+    background: rgba(15, 15, 15, 0.5);
+    border-color: rgba(200, 162, 78, 0.4);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(200, 162, 78, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.block-left {
+    align-self: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+}
+
+.block-right {
+    align-self: flex-end;
+    text-align: left;
+}
+
+.block-text {
+    flex: 1;
+}
+
+.block-text h3 {
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.block-text p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Doodles */
+.block-doodle {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.adaptive-block:hover .block-doodle {
+    transform: scale(1.05);
+}
+
+.doodle-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 8px rgba(200, 162, 78, 0.4));
+    transition: filter 0.4s ease;
+}
+
+.adaptive-block:hover .doodle-svg {
+    filter: drop-shadow(0 0 15px rgba(200, 162, 78, 0.8));
+}
+
+.doodle-stroke {
+    stroke: var(--gold);
+}
+
+.doodle-fill {
+    fill: var(--gold);
+}
+
+.doodle-spin {
+    animation: slowSpin 20s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes slowSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustment for scatter */
+@media (max-width: 900px) {
+    .adaptive-block {
+        width: 100%;
+        gap: 20px;
+        padding: 30px;
+        border-radius: 40px;
+        /* slightly smaller radius on mobile */
+    }
+
+    .block-left {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .block-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .connecting-wire {
+        left: 20px;
+    }
+
+    .block-text h3 {
+        font-size: var(--fs-h3);
+    }
+}
+
+/* =======================
    FUTURE & TRUST SECTION (Light)
    ======================= */
 .future {
