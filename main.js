@@ -3,11 +3,77 @@
    =================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initLenis();
     initNavbar();
     initScrollReveal();
     initHeroCanvas();
     initBlueprintScroll();
 });
+
+/* --- Lenis: Smooth Scroll --- */
+function initLenis() {
+    if (typeof Lenis === 'undefined') return;
+
+    const lenis = new Lenis({
+        duration: 1.0, // Reduced from 1.2 for snappier feel
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 1.1, // Added for better response
+        touchMultiplier: 2,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    // --- GSAP Section Snapping ---
+    const sections = ['#hero', '#adaptive', '#pillars', '#future', '#footer'];
+    
+    // Check if we are on the landing page (index.html)
+    if (document.getElementById('hero')) {
+        ScrollTrigger.create({
+            start: 0,
+            end: "max",
+            snap: {
+                snapTo: (value) => {
+                    const sectionElements = sections.map(id => document.querySelector(id)).filter(el => el !== null);
+                    const positions = [];
+                    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+                    sectionElements.forEach(el => {
+                        const pos = el.offsetTop / totalHeight;
+                        positions.push(pos);
+
+                        // Special case for the long adaptive section (4 steps)
+                        if (el.id === 'adaptive') {
+                            const height = el.offsetHeight;
+                            // Add snap points for step 2, 3, and 4
+                            positions.push((el.offsetTop + height * 0.25) / totalHeight);
+                            positions.push((el.offsetTop + height * 0.50) / totalHeight);
+                            positions.push((el.offsetTop + height * 0.75) / totalHeight);
+                        }
+                    });
+                    
+                    // Sort positions numerically
+                    positions.sort((a, b) => a - b);
+                    
+                    let closest = positions.reduce((prev, curr) => {
+                        return (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
+                    });
+                    
+                    return closest;
+                },
+                duration: { min: 0.2, max: 0.5 },
+                delay: 0.2, // Increased delay to allow manual scrolling to settle
+                ease: "power1.inOut"
+            }
+        });
+    }
+}
 
 /* --- Navbar scroll effect & mobile menu --- */
 function initNavbar() {
@@ -480,6 +546,12 @@ function initBlueprintScroll() {
         const totalBlocks = textBlocks.length;
         let index = Math.floor(progress * totalBlocks);
         if (index >= totalBlocks) index = totalBlocks - 1;
+
+        if (index % 2 === 1) {
+            track.classList.add('layout-reverse');
+        } else {
+            track.classList.remove('layout-reverse');
+        }
 
         textBlocks.forEach((block, i) => {
             if (i === index) {
