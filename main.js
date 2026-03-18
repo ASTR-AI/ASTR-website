@@ -46,12 +46,15 @@ function initLenis() {
 
                     sectionElements.forEach(el => {
                         const pos = el.offsetTop / totalHeight;
-                        positions.push(pos);
 
-                        // Special case for sections that might need custom logic (optional)
                         if (el.id === 'adaptive') {
-                            // We only snap to the START of the adaptive section here.
-                            // Internal card snapping is handled by the dedicated ScrollTrigger in initBlueprintScroll.
+                            // Add snap points for each card (4 cards = 3 transitions of 100vh each)
+                            const step = window.innerHeight / totalHeight;
+                            for (let i = 0; i < 4; i++) {
+                                positions.push(pos + (i * step));
+                            }
+                        } else {
+                            positions.push(pos);
                         }
                     });
                     
@@ -61,6 +64,17 @@ function initLenis() {
                     let closest = positions.reduce((prev, curr) => {
                         return (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
                     });
+
+                    // Safeguard: If we are within the adaptive section's pinned range, 
+                    // return the current value and let its own ScrollTrigger handle snapping.
+                    const adaptive = document.getElementById('adaptive');
+                    if (adaptive) {
+                        const start = adaptive.offsetTop / totalHeight;
+                        const end = (adaptive.offsetTop + (3.5 * window.innerHeight)) / totalHeight;
+                        if (value > start + 0.01 && value < end - 0.01) {
+                            return value; 
+                        }
+                    }
                     
                     return closest;
                 },
