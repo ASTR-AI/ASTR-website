@@ -46,15 +46,15 @@ function initLenis() {
 
                     sectionElements.forEach(el => {
                         const pos = el.offsetTop / totalHeight;
-                        positions.push(pos);
 
-                        // Special case for the long adaptive section (4 steps)
                         if (el.id === 'adaptive') {
-                            const height = el.offsetHeight;
-                            // Add snap points for step 2, 3, and 4
-                            positions.push((el.offsetTop + height * 0.25) / totalHeight);
-                            positions.push((el.offsetTop + height * 0.50) / totalHeight);
-                            positions.push((el.offsetTop + height * 0.75) / totalHeight);
+                            // Add snap points for each card (4 cards = 3 transitions of 100vh each)
+                            const step = window.innerHeight / totalHeight;
+                            for (let i = 0; i < 4; i++) {
+                                positions.push(pos + (i * step));
+                            }
+                        } else {
+                            positions.push(pos);
                         }
                     });
                     
@@ -64,6 +64,17 @@ function initLenis() {
                     let closest = positions.reduce((prev, curr) => {
                         return (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
                     });
+
+                    // Safeguard: If we are within the adaptive section's pinned range, 
+                    // return the current value and let its own ScrollTrigger handle snapping.
+                    const adaptive = document.getElementById('adaptive');
+                    if (adaptive) {
+                        const start = adaptive.offsetTop / totalHeight;
+                        const end = (adaptive.offsetTop + (3.5 * window.innerHeight)) / totalHeight;
+                        if (value > start + 0.01 && value < end - 0.01) {
+                            return value; 
+                        }
+                    }
                     
                     return closest;
                 },
@@ -521,50 +532,293 @@ function initHeroCanvas() {
     animate();
 }
 
-/* --- Adaptive Solutions: Sticky Split-Screen Blueprint Tracker --- */
+/* --- Adaptive Solutions: Interactive UI Mockup Simulation --- */
 function initBlueprintScroll() {
     const track = document.getElementById('adaptiveScrollTrack');
     const textBlocks = document.querySelectorAll('.adaptive-text-block');
-    const svgNodes = [
-        document.getElementById('svg-node-1'),
-        document.getElementById('svg-node-2'),
-        document.getElementById('svg-node-3'),
-        document.getElementById('svg-node-4')
-    ];
+    const simStates = document.querySelectorAll('.sim-state');
+    const thinkingState = document.getElementById('thinking-state');
+    const tabPill = document.querySelector('.tab-pill');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    
+    // Simulation specific elements
+    const typewriterEl = document.getElementById('typewriter-software');
+    const progressContainer = document.getElementById('progress-software-container');
+    const progressFill = document.getElementById('progress-software-fill');
+    const progressPercent = document.getElementById('progress-software-percent');
+    const boundingBoxesContainer = document.getElementById('bounding-boxes');
+    
+    if (!track || textBlocks.length === 0) return;
 
-    if (!track || textBlocks.length === 0 || svgNodes.includes(null)) return;
+    let currentIndex = -1;
+    let isTransitioning = false;
+    let typewriterInterval;
+    let mobileAutoplayInterval;
 
-    function handleScroll() {
-        const rect = track.getBoundingClientRect();
-        const scrollDistance = rect.height - window.innerHeight;
+    // --- Tab Switcher Logic ---
+    tabBtns.forEach((btn, idx) => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            tabPill.style.transform = `translateX(${idx * 100}%)`;
+        });
+    });
 
-        if (scrollDistance <= 0) return;
+    function showThinking(callback) {
+        thinkingState.classList.add('active');
+        setTimeout(() => {
+            thinkingState.classList.remove('active');
+            if (callback) callback();
+        }, 800);
+    }
 
-        let progress = -rect.top / scrollDistance;
-        progress = Math.max(0, Math.min(1, progress));
+    function resetAnimations() {
+        if (typewriterInterval) clearTimeout(typewriterInterval);
+        if (progressContainer) progressContainer.style.display = 'none';
+        if (progressFill) progressFill.style.width = '0%';
+        if (boundingBoxesContainer) boundingBoxesContainer.innerHTML = '';
+        document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active'));
+        document.querySelectorAll('.flow-particle').forEach(p => p.classList.remove('animating'));
+    }
 
-        const totalBlocks = textBlocks.length;
-        let index = Math.floor(progress * totalBlocks);
-        if (index >= totalBlocks) index = totalBlocks - 1;
-
-        if (index % 2 === 1) {
-            track.classList.add('layout-reverse');
-        } else {
-            track.classList.remove('layout-reverse');
-        }
-
-        textBlocks.forEach((block, i) => {
-            if (i === index) {
-                block.classList.add('active');
-                svgNodes[i].classList.add('active');
+    function runSoftwareSim() {
+        resetAnimations();
+        if (!typewriterEl) return;
+        typewriterEl.innerHTML = '';
+        
+        const text = "Compiling architecture for high-concurrency hospital ERP... \nInitializing core modules... \nOptimizing database schema...";
+        let i = 0;
+        
+        function type() {
+            if (i < text.length) {
+                const char = text.charAt(i);
+                typewriterEl.innerHTML += char === '\n' ? '<br>' : char;
+                i++;
+                
+                let speed = 30;
+                if (char === '.') speed = 200;
+                if (text.substring(i, i+10).includes('concurrency')) speed = 80;
+                
+                typewriterInterval = setTimeout(type, speed);
             } else {
-                block.classList.remove('active');
-                svgNodes[i].classList.remove('active');
+                if (progressContainer) {
+                    progressContainer.style.display = 'block';
+                    gsap.to(progressFill, {
+                        width: '100%',
+                        duration: 2,
+                        ease: "power1.inOut",
+                        onUpdate: function() {
+                            const p = Math.round(this.progress() * 100);
+                            if (progressPercent) progressPercent.innerText = p + '%';
+                        }
+                    });
+                }
             }
+        }
+        type();
+    }
+
+    function runAISim() {
+        resetAnimations();
+        if (!boundingBoxesContainer) return;
+        const boxes = [
+            { top: '20%', left: '15%', w: '80px', h: '120px', label: 'VEHICLE 98%' },
+            { top: '40%', left: '60%', w: '60px', h: '90px', label: 'PERSON 95%' },
+            { top: '15%', left: '70%', w: '100px', h: '140px', label: 'VEHICLE 92%' },
+            { top: '60%', left: '25%', w: '70px', h: '110px', label: 'PERSON 88%' }
+        ];
+
+        boxes.forEach((box, i) => {
+            setTimeout(() => {
+                const el = document.createElement('div');
+                el.className = 'bounding-box';
+                el.style.top = box.top;
+                el.style.left = box.left;
+                el.style.width = box.w;
+                el.style.height = box.h;
+                el.innerHTML = `<span class="label">${box.label}</span>`;
+                boundingBoxesContainer.appendChild(el);
+                setTimeout(() => el.classList.add('active'), 50);
+            }, i * 400);
         });
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
-    handleScroll(); // init once on load
+    function runWorkflowSim() {
+        resetAnimations();
+        const nodes = ['node-input', 'node-process', 'node-action'];
+        const particles = document.querySelectorAll('.flow-particle');
+        
+        nodes.forEach((id, i) => {
+            setTimeout(() => {
+                const node = document.getElementById(id);
+                if (node) node.classList.add('active');
+                if (i < particles.length) {
+                    particles[i].classList.add('animating');
+                }
+            }, i * 600);
+        });
+    }
+
+    function updateSimulation(index) {
+        if (currentIndex === index) return;
+        
+        isTransitioning = true;
+        showThinking(() => {
+            simStates.forEach((state, i) => {
+                state.classList.remove('active');
+                if (i === index) {
+                    state.classList.add('active');
+                    if (i === 0) runSoftwareSim();
+                    if (i === 1) runAISim();
+                    if (i === 2) runWorkflowSim();
+                }
+            });
+            currentIndex = index;
+            isTransitioning = false;
+        });
+    }
+
+    // --- GSAP ScrollTrigger Implementation ---
+    const mm = gsap.matchMedia();
+    
+    mm.add("(min-width: 901px)", () => {
+        const isSmallScreen = window.innerWidth <= 1100;
+        const offsetVal = isSmallScreen ? 15 : 20;
+        const totalBlocks = textBlocks.length;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: track,
+                start: "top top",
+                end: "+=300%", // 100% per transition
+                scrub: 1,      // Smooth scrubbing lag
+                pin: true,     // Pin the section
+                snap: {
+                    snapTo: 1 / (totalBlocks - 1),
+                    duration: { min: 0.2, max: 0.5 },
+                    delay: 0,
+                    ease: "power2.out"
+                },
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    const index = Math.round(progress * (totalBlocks - 1));
+                    
+                    if (index !== currentIndex && !isTransitioning) {
+                        updateSimulation(index);
+                        // Sync Tabs
+                        if (index < 2) tabBtns[0].click();
+                        else tabBtns[1].click();
+                    }
+
+                    // Update active class
+                    textBlocks.forEach((block, i) => {
+                        const blockProgress = (progress * (totalBlocks - 1)) - i;
+                        if (Math.abs(blockProgress) < 0.25) {
+                            block.classList.add('active');
+                        } else {
+                            block.classList.remove('active');
+                        }
+                    });
+                }
+            }
+        });
+
+        // Initialize stack positions
+        textBlocks.forEach((block, i) => {
+            gsap.set(block, {
+                xPercent: -50,
+                yPercent: -50,
+                x: i * offsetVal,
+                y: i * offsetVal,
+                scale: 1 - (i * 0.04),
+                opacity: 1 - (i * 0.15),
+                zIndex: totalBlocks - i,
+                rotation: 0
+            });
+        });
+
+        // Create the shuffle sequence
+        for (let i = 0; i < totalBlocks - 1; i++) {
+            const label = `step-${i}`;
+            tl.addLabel(label);
+
+            // 1. Exit current card
+            tl.to(textBlocks[i], {
+                y: -150,
+                rotation: -10,
+                opacity: 0,
+                ease: "power2.out"
+            }, label);
+
+            // 2. Advance the rest of the stack
+            for (let j = i + 1; j < totalBlocks; j++) {
+                const newDepth = j - (i + 1);
+                tl.to(textBlocks[j], {
+                    x: newDepth * offsetVal,
+                    y: newDepth * offsetVal,
+                    scale: 1 - (newDepth * 0.04),
+                    opacity: 1 - (newDepth * 0.15),
+                    ease: "power2.out"
+                }, label);
+            }
+        }
+        tl.addLabel(`step-${totalBlocks - 1}`);
+
+        // Click-to-Shuffle Logic for Desktop
+        textBlocks.forEach((block, i) => {
+            block.addEventListener('click', () => {
+                const st = tl.scrollTrigger;
+                const targetScroll = st.start + (i / (totalBlocks - 1)) * (st.end - st.start);
+                gsap.to(window, {
+                    scrollTo: targetScroll,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        return () => {
+            if (tl.scrollTrigger) tl.scrollTrigger.kill();
+        };
+    });
+
+    // --- Mobile Auto-play logic ---
+    function startMobileAutoplay() {
+        if (mobileAutoplayInterval) clearInterval(mobileAutoplayInterval);
+        let mobileIndex = 0;
+        
+        mobileAutoplayInterval = setInterval(() => {
+            if (window.innerWidth <= 900) {
+                mobileIndex = (mobileIndex + 1) % textBlocks.length;
+                if (mobileIndex < 2) tabBtns[0].click();
+                else tabBtns[1].click();
+                updateSimulation(mobileIndex);
+                
+                textBlocks.forEach((block, i) => {
+                    if (i === mobileIndex) {
+                        block.classList.add('active');
+                        gsap.set(block, { opacity: 1, scale: 1, xPercent: -50, yPercent: -50, x: 0, y: 0, rotation: 0 });
+                    } else {
+                        block.classList.remove('active');
+                        gsap.set(block, { opacity: 0 });
+                    }
+                });
+            }
+        }, 5000);
+    }
+
+    if (window.innerWidth <= 900) {
+        startMobileAutoplay();
+    }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 900) {
+            if (!mobileAutoplayInterval) startMobileAutoplay();
+        } else {
+            if (mobileAutoplayInterval) {
+                clearInterval(mobileAutoplayInterval);
+                mobileAutoplayInterval = null;
+            }
+        }
+    }, { passive: true });
 }
