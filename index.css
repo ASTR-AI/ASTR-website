@@ -590,7 +590,7 @@ img {
    PILLARS SECTION (Dark + Glassmorphism)
    ======================= */
 .pillars {
-    background: var(--black-rich);
+    background: #050505;
     padding: var(--section-padding);
     position: relative;
     overflow: hidden;
