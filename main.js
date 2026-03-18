@@ -48,9 +48,11 @@ function initLenis() {
                         const pos = el.offsetTop / totalHeight;
 
                         if (el.id === 'adaptive') {
-                            // Add snap points for each card (4 cards = 3 transitions of 100vh each)
-                            const step = window.innerHeight / totalHeight;
-                            for (let i = 0; i < 4; i++) {
+                            const sectionScrollDist = el.offsetHeight - window.innerHeight;
+                            const totalBlocks = document.querySelectorAll('.adaptive-text-block').length;
+                            const step = (sectionScrollDist / (totalBlocks - 1)) / totalHeight;
+                            
+                            for (let i = 0; i < totalBlocks; i++) {
                                 positions.push(pos + (i * step));
                             }
                         } else {
@@ -70,7 +72,9 @@ function initLenis() {
                     const adaptive = document.getElementById('adaptive');
                     if (adaptive) {
                         const start = adaptive.offsetTop / totalHeight;
-                        const end = (adaptive.offsetTop + (3.5 * window.innerHeight)) / totalHeight;
+                        const scrollDist = adaptive.offsetHeight - window.innerHeight;
+                        const end = (adaptive.offsetTop + scrollDist) / totalHeight;
+                        
                         if (value > start + 0.01 && value < end - 0.01) {
                             return value; 
                         }
@@ -690,8 +694,8 @@ function initBlueprintScroll() {
             scrollTrigger: {
                 trigger: track,
                 start: "top top",
-                end: "+=300%", // 100% per transition
-                scrub: 1,      // Smooth scrubbing lag
+                end: "+=140%", // Adjusted for 240vh track (240vh - 100vh viewport = 140vh)
+                scrub: 1.5,      // Smooth scrubbing lag
                 pin: true,     // Pin the section
                 snap: {
                     snapTo: 1 / (totalBlocks - 1),

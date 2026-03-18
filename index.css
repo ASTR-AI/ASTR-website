@@ -766,7 +766,7 @@ img {
 /* Scroll Track & Sticky Container */
 .adaptive-scroll-track {
     position: relative;
-    height: 400vh; /* 100vh per block */
+    height: 240vh; /* Balanced for 4 cards */
 }
 
 .adaptive-sticky-container {
