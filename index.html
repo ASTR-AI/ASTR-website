@@ -73,119 +73,157 @@
                 <div class="container relative-container"
                     style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
                     <div class="adaptive-split-container">
-                        <!-- Left Column: Scrolling Text -->
+                        <!-- Left Column: Scrolling Text (Command Interface) -->
                         <div class="adaptive-text-column">
                             <div class="adaptive-text-block" id="block-1">
-                                <h3>Custom Software</h3>
+                                <div class="status-tag">[ MODULE_01 ]</div>
+                                <h3>01 // CORE_ARCHITECTURE</h3>
                                 <p>High-performance applications built from the ground up to solve your specific
-                                    business
-                                    challenges.</p>
+                                    business challenges.</p>
+                                <div class="block-metadata">STATUS: SYSTEM_OPTIMIZED // CORE: v1.0.4</div>
                             </div>
 
                             <div class="adaptive-text-block" id="block-2">
-                                <h3>AI Agent Integration</h3>
+                                <div class="status-tag">[ MODULE_02 ]</div>
+                                <h3>02 // NEURAL_NET_SYNERGY</h3>
                                 <p>Infuse your existing systems with Computer Vision and Machine Learning for smarter,
                                     predictive operations.</p>
+                                <div class="block-metadata">SENSORS: 12 // SYNC: 0.04ms // UPTIME: 100%</div>
                             </div>
 
                             <div class="adaptive-text-block" id="block-3">
-                                <h3>Workflow Optimization</h3>
+                                <div class="status-tag">[ MODULE_03 ]</div>
+                                <h3>03 // ECOSYSTEM_FLOW</h3>
                                 <p>Connect fragmented tools into one unified ecosystem to automate tasks and eliminate
                                     operational silos.</p>
+                                <div class="block-metadata">NODES: 42 // THROUGHPUT: 1.2GB/s // LATENCY: 8ms</div>
                             </div>
 
                             <div class="adaptive-text-block" id="block-4">
-                                <h3>End-to-End Support</h3>
+                                <div class="status-tag">[ MODULE_04 ]</div>
+                                <h3>04 // SYSTEM_VIGILANCE</h3>
                                 <p>Dedicated monitoring and proactive maintenance to ensure your technology performs at
-                                    its peak
-                                    24/7.</p>
+                                    its peak 24/7.</p>
+                                <div class="block-metadata">THREATS: 0 // HEARTBEAT: NOMINAL // PKT_LOSS: 0%</div>
                             </div>
                         </div>
 
                         <!-- Right Column: Sticky Massive Visual -->
                         <div class="adaptive-visual-column">
                             <div class="sticky-visual-wrapper">
-                                <!-- Massive Cohesive SVG Blueprint -->
-                                <svg viewBox="0 0 400 600" class="massive-blueprint-svg">
-                                    <!-- Base structural grid -->
-                                    <g class="blueprint-grid" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"
-                                        fill="none">
-                                        <path
-                                            d="M50 0 V600 M100 0 V600 M150 0 V600 M200 0 V600 M250 0 V600 M300 0 V600 M350 0 V600" />
-                                        <path
-                                            d="M0 50 H400 M0 100 H400 M0 150 H400 M0 200 H400 M0 250 H400 M0 300 H400 M0 350 H400 M0 400 H400 M0 450 H400 M0 500 H400 M0 550 H400" />
-                                    </g>
+                                <!-- High-Fidelity App Window Mockup -->
+                                <div class="app-window reveal">
+                                    <div class="app-header">
+                                        <div class="app-dots">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                        <div class="tab-switcher">
+                                            <div class="tab-pill"></div>
+                                            <button class="tab-btn active" data-tab="systems">Systems</button>
+                                            <button class="tab-btn" data-tab="intelligence">Intelligence</button>
+                                        </div>
+                                        <div class="app-window-label">ASTR_CORE_v1.0</div>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="grid-overlay"></div>
+                                        
+                                        <!-- Thinking State Overlay -->
+                                        <div class="thinking-state" id="thinking-state">
+                                            <div class="thinking-logo">
+                                                <img src="Pictures/without bg.png" alt="ASTR AI Logo">
+                                            </div>
+                                            <div class="thinking-dots">
+                                                <span></span><span></span><span></span>
+                                            </div>
+                                        </div>
 
-                                    <!-- The Core Node (Always visible) -->
-                                    <g class="blueprint-core">
-                                        <circle cx="200" cy="300" r="40" fill="none" class="blueprint-stroke"
-                                            stroke-width="2" stroke-dasharray="10 5" />
-                                        <circle cx="200" cy="300" r="28" fill="none" class="blueprint-stroke"
-                                            stroke-width="1" opacity="0.5" />
-                                        <circle cx="200" cy="300" r="8" class="blueprint-fill" />
-                                    </g>
+                                        <div class="simulation-container">
+                                            <!-- State 1: Custom Software -->
+                                            <div class="sim-state active" id="sim-software">
+                                                <div class="terminal-header">
+                                                    <span class="terminal-title">System Architecture Compiler</span>
+                                                </div>
+                                                <div class="terminal-body">
+                                                    <div class="typewriter-text" id="typewriter-software"></div>
+                                                    <div class="progress-container" id="progress-software-container" style="display:none;">
+                                                        <div class="progress-label">Compiling...</div>
+                                                        <div class="progress-track">
+                                                            <div class="progress-fill" id="progress-software-fill"></div>
+                                                        </div>
+                                                        <div class="progress-percent" id="progress-software-percent">0%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                    <!-- Node 1: Software Architecture (Top Left) -->
-                                    <g class="bp-node bp-node-1" id="svg-node-1">
-                                        <path d="M200 300 L100 150" class="blueprint-connecting-line" />
-                                        <rect x="60" y="110" width="80" height="80" fill="none" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <rect x="70" y="120" width="60" height="60" fill="none" class="blueprint-stroke"
-                                            stroke-width="1" stroke-dasharray="4" />
-                                        <circle cx="100" cy="150" r="12" fill="#121212" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <circle cx="100" cy="150" r="4" class="blueprint-fill" />
-                                    </g>
+                                            <!-- State 2: AI Integration (Traffic Guard) -->
+                                            <div class="sim-state" id="sim-ai">
+                                                <div class="dashboard-header">
+                                                    <div class="status-indicator">● LIVE</div>
+                                                    <span>TRAFFIC_GUARD_OS</span>
+                                                </div>
+                                                <div class="traffic-display">
+                                                    <div class="scan-line"></div>
+                                                    <div class="bounding-boxes" id="bounding-boxes">
+                                                        <!-- Dynamic boxes will be added here -->
+                                                    </div>
+                                                    <div class="data-overlays">
+                                                        <div class="data-item">OBJ_DETECTION: <span class="blue-text">ACTIVE</span></div>
+                                                        <div class="data-item">LATENCY: <span class="blue-text">12ms</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                    <!-- Node 2: Neural Net (Top Right) -->
-                                    <g class="bp-node bp-node-2" id="svg-node-2">
-                                        <path d="M200 300 L320 180" class="blueprint-connecting-line" />
-                                        <circle cx="320" cy="180" r="35" fill="none" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <circle cx="295" cy="160" r="6" class="blueprint-fill" />
-                                        <circle cx="345" cy="160" r="6" class="blueprint-fill" />
-                                        <circle cx="295" cy="205" r="6" class="blueprint-fill" />
-                                        <circle cx="345" cy="205" r="6" class="blueprint-fill" />
-                                        <line x1="300" y1="165" x2="340" y2="200" class="blueprint-stroke"
-                                            stroke-width="1" />
-                                        <line x1="340" y1="165" x2="300" y2="200" class="blueprint-stroke"
-                                            stroke-width="1" />
-                                    </g>
+                                            <!-- State 3: Workflow Optimization -->
+                                            <div class="sim-state" id="sim-workflow">
+                                                <div class="flowchart-container">
+                                                    <div class="flow-node" id="node-input">
+                                                        <div class="node-icon">IN</div>
+                                                        <span>INPUT</span>
+                                                    </div>
+                                                    <div class="flow-connector" id="conn-1">
+                                                        <div class="flow-particle"></div>
+                                                    </div>
+                                                    <div class="flow-node" id="node-process">
+                                                        <div class="node-icon">PR</div>
+                                                        <span>PROCESS</span>
+                                                    </div>
+                                                    <div class="flow-connector" id="conn-2">
+                                                        <div class="flow-particle"></div>
+                                                    </div>
+                                                    <div class="flow-node" id="node-action">
+                                                        <div class="node-icon">AC</div>
+                                                        <span>ACTION</span>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                    <!-- Node 3: Flowchart Ecosystem (Bottom Left) -->
-                                    <g class="bp-node bp-node-3" id="svg-node-3">
-                                        <path d="M200 300 L120 450" class="blueprint-connecting-line" />
-                                        <rect x="65" y="420" width="110" height="60" rx="8" fill="none"
-                                            class="blueprint-stroke" stroke-width="2" />
-                                        <rect x="80" y="405" width="80" height="90" rx="8" fill="none"
-                                            class="blueprint-stroke" stroke-width="1" stroke-dasharray="5" />
-                                        <circle cx="120" cy="450" r="6" class="blueprint-fill" />
-                                        <circle cx="85" cy="450" r="4" class="blueprint-fill" />
-                                        <circle cx="155" cy="450" r="4" class="blueprint-fill" />
-                                        <line x1="95" y1="450" x2="110" y2="450" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <line x1="130" y1="450" x2="145" y2="450" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                    </g>
-
-                                    <!-- Node 4: Support Shield/Crosshair (Bottom Right) -->
-                                    <g class="bp-node bp-node-4" id="svg-node-4">
-                                        <path d="M200 300 L300 480" class="blueprint-connecting-line" />
-                                        <circle cx="300" cy="480" r="45" fill="none" class="blueprint-stroke"
-                                            stroke-width="1.5" stroke-dasharray="15 10" />
-                                        <circle cx="300" cy="480" r="60" fill="none" class="blueprint-stroke"
-                                            stroke-width="0.5" opacity="0.4" />
-                                        <line x1="300" y1="425" x2="300" y2="445" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <line x1="300" y1="515" x2="300" y2="535" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <line x1="245" y1="480" x2="265" y2="480" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <line x1="335" y1="480" x2="355" y2="480" class="blueprint-stroke"
-                                            stroke-width="2" />
-                                        <circle cx="300" cy="480" r="8" class="blueprint-fill" />
-                                    </g>
-                                </svg>
+                                            <!-- State 4: End-to-End Support -->
+                                            <div class="sim-state" id="sim-support">
+                                                <div class="heartbeat-section">
+                                                    <div class="metric-card">
+                                                        <div class="metric-label">SYSTEM HEALTH</div>
+                                                        <div class="metric-value">EXCELLENT</div>
+                                                    </div>
+                                                    <div class="graph-container">
+                                                        <svg viewBox="0 0 400 150" class="heartbeat-svg">
+                                                            <path class="heartbeat-path" d="M0,75 L40,75 L50,75 L60,20 L75,130 L90,75 L110,75 L150,75 L160,10 L175,140 L190,75 L230,75 L240,75 L250,30 L265,120 L280,75 L320,75 L360,75 L370,50 L385,100 L400,75" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="uptime-footer">
+                                                        <div class="uptime-item">
+                                                            <span class="label">UPTIME</span>
+                                                            <span class="value gold-text">99.99%</span>
+                                                        </div>
+                                                        <div class="uptime-item">
+                                                            <span class="label">RESPONSE</span>
+                                                            <span class="value blue-text">FAST</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
