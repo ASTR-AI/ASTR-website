@@ -32,7 +32,7 @@ function initLenis() {
 
     // --- GSAP Section Snapping ---
     const sections = ['#hero', '#adaptive', '#pillars', '#future', '#footer'];
-    
+
     // Check if we are on the landing page (index.html)
     if (document.getElementById('hero')) {
         ScrollTrigger.create({
@@ -57,14 +57,14 @@ function initLenis() {
                             positions.push((el.offsetTop + height * 0.75) / totalHeight);
                         }
                     });
-                    
+
                     // Sort positions numerically
                     positions.sort((a, b) => a - b);
-                    
+
                     let closest = positions.reduce((prev, curr) => {
                         return (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
                     });
-                    
+
                     return closest;
                 },
                 duration: { min: 0.2, max: 0.5 },
@@ -568,3 +568,159 @@ function initBlueprintScroll() {
     window.addEventListener('resize', handleScroll, { passive: true });
     handleScroll(); // init once on load
 }
+/* ── Three Pillars: Orbital Stage (CSS + JS) ── */
+/* ── config ── */
+const PILLARS = [
+    {
+        id: 'pillarAI', num: '01', title: 'AI Solutions', angle: -90,
+        desc: 'Custom software, AI agent integration & workflow optimisation to transform operations end-to-end.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 2 1 3 2 4l-5 7h14l-5-7c1-1 2-2 2-4a4 4 0 0 0-4-4z"/><path d="M12 18v4"/></svg>`,
+        gfDur: '5.2s', gfDelay: '0s'
+    },
+    {
+        id: 'pillarInfra', num: '02', title: 'Infrastructure', angle: 30,
+        desc: 'Advanced IT hardware & smart ecosystems — including centralised command and control rooms.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>`,
+        gfDur: '4.6s', gfDelay: '-1.5s'
+    },
+    {
+        id: 'pillarDrone', num: '03', title: 'Drone Solutions', angle: 150,
+        desc: 'The ASTR Drone Network for surveillance, logistics & infrastructure inspection at scale.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/><circle cx="5" cy="5" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/></svg>`,
+        gfDur: '5.8s', gfDelay: '-0.8s'
+    }
+];
+
+const stage = document.getElementById('stage');
+const stageRect = () => stage.getBoundingClientRect();
+const CX = () => stage.offsetWidth / 2;
+const CY = () => stage.offsetHeight / 2;
+const RADIUS = () => stage.offsetWidth * 0.36;
+
+/* ── build stars ── */
+const starContainer = document.getElementById('stars');
+for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2 + 0.5;
+    s.style.cssText = `
+    left:${Math.random() * 100}%;top:${Math.random() * 100}%;
+    width:${size}px;height:${size}px;
+    --dur:${2 + Math.random() * 4}s;
+    --delay:${-Math.random() * 5}s;
+    --min:${0.05 + Math.random() * 0.1};
+    --max:${0.3 + Math.random() * 0.5};
+  `;
+    starContainer.appendChild(s);
+}
+
+/* ── build pillar nodes + spokes ── */
+function placeNodes() {
+    // remove old
+    stage.querySelectorAll('.pillar-node,.spoke,.spoke-dot').forEach(e => e.remove());
+
+    const cx = CX(), cy = CY(), r = RADIUS();
+
+    PILLARS.forEach((p, i) => {
+        const rad = (p.angle * Math.PI) / 180;
+        const nx = cx + r * Math.cos(rad);
+        const ny = cy + r * Math.sin(rad);
+
+        /* spoke */
+        const dx = nx - cx, dy = ny - cy;
+        const len = Math.sqrt(dx * dx + dy * dy);
+        const angD = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        const spoke = document.createElement('div');
+        spoke.className = 'spoke';
+        spoke.style.cssText = `width:${len * 0.72}px;transform:rotate(${angD}deg);margin-left:-1px;`;
+        stage.appendChild(spoke);
+
+        /* travelling dot */
+        const dot = document.createElement('div');
+        dot.className = 'spoke-dot';
+        dot.style.cssText = `
+      --tx:${dx * 0.68}px;--ty:${dy * 0.68}px;
+      --ts-dur:${2.5 + i}s;--ts-delay:${-i * 0.9}s;
+    `;
+        stage.appendChild(dot);
+
+        /* node */
+        const node = document.createElement('div');
+        node.className = 'pillar-node';
+        node.id = p.id;
+        node.style.cssText = `transform:translate(${nx - cx}px,${ny - cy}px)`;
+
+        /* decide text alignment based on angle */
+        const isLeft = Math.cos(rad) < -0.3;
+        const isRight = Math.cos(rad) > 0.3;
+        const flexDir = 'column';
+        let bodyStyle = 'transform:translate(-50%,-50%);';
+        if (isLeft) bodyStyle = 'transform:translate(-88%,-50%);align-items:flex-end;text-align:right;';
+        if (isRight) bodyStyle = 'transform:translate(-12%,-50%);align-items:flex-start;text-align:left;';
+
+        const connStyle = isLeft
+            ? 'margin-left:auto;margin-right:31px;'
+            : 'margin-left:31px;';
+
+        node.innerHTML = `
+      <div class="node-body" style="${bodyStyle}">
+        <div class="node-gem" style="--gf-dur:${p.gfDur};--gf-delay:${p.gfDelay}">
+          ${p.icon}
+        </div>
+        <div class="node-connector" style="${connStyle}"></div>
+        <div class="node-label">
+          <div class="node-number">${p.num}</div>
+          <div class="node-title">${p.title}</div>
+          <div class="node-desc">${p.desc}</div>
+          <a href="#" class="node-link">
+            Learn more
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>`;
+
+        stage.appendChild(node);
+    });
+}
+
+placeNodes();
+window.addEventListener('resize', placeNodes);
+
+/* ── slow orbital rotation (entire stage) ── */
+let stageAngle = 0;
+function rotateStage() {
+    stageAngle += 0.012;
+    /* rotate ONLY the spokes+dots by rotating the stage lightly,
+       but keep the nucleus text upright by counter-rotating nucleus */
+    const nucleus = document.querySelector('.nucleus');
+    if (nucleus) nucleus.style.transform = `translate(-50%,-50%) rotate(${-stageAngle}deg)`;
+
+    /* gently rotate orbits */
+    document.querySelectorAll('.orbit-ring').forEach((r, i) => {
+        const base = [0, 30, 60][i];
+        r.style.transform = `translate(-50%,-50%) rotateX(72deg) rotateZ(${base + stageAngle * 0.4 * (i + 1) * 0.5}deg)`;
+    });
+
+    requestAnimationFrame(rotateStage);
+}
+rotateStage();
+
+/* ── parallax on mouse move ── */
+document.addEventListener('mousemove', e => {
+    const w = window.innerWidth, h = window.innerHeight;
+    const dx = (e.clientX / w - 0.5) * 2;
+    const dy = (e.clientY / h - 0.5) * 2;
+    stage.style.transform = `perspective(900px) rotateX(${dy * -4}deg) rotateY(${dx * 5}deg)`;
+    starContainer.style.transform = `translate(${dx * -14}px,${dy * -10}px)`;
+});
+document.addEventListener('mouseleave', () => {
+    stage.style.transform = '';
+    starContainer.style.transform = '';
+});
+
+/* ── node gem hover glow pulse ── */
+document.addEventListener('mouseover', e => {
+    const gem = e.target.closest('.node-gem');
+    if (gem) gem.style.setProperty('--glow', 'rgba(201,168,76,0.35)');
+});
