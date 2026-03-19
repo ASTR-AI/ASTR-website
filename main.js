@@ -595,7 +595,12 @@ const stage = document.getElementById('stage');
 const stageRect = () => stage.getBoundingClientRect();
 const CX = () => stage.offsetWidth / 2;
 const CY = () => stage.offsetHeight / 2;
-const RADIUS = () => stage.offsetWidth * 0.36;
+const RADIUS = () => {
+    const width = window.innerWidth;
+    if (width < 480) return stage.offsetWidth * 0.32;
+    if (width < 768) return stage.offsetWidth * 0.34;
+    return stage.offsetWidth * 0.36;
+};
 
 /* ── build stars ── */
 const starContainer = document.getElementById('stars');

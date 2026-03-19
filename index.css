@@ -656,7 +656,7 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-size: 10px;
+    font-size: clamp(9px, 2vw, 11px);
     font-weight: 500;
     letter-spacing: 0.26em;
     text-transform: uppercase;
@@ -668,7 +668,7 @@ img {
 .section-tag::after {
     content: '';
     display: block;
-    width: 40px;
+    width: clamp(20px, 5vw, 40px);
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold));
 }
@@ -679,7 +679,7 @@ img {
 
 .pillars-header h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(28px, 6vw, 64px);
     font-weight: 300;
     line-height: 1.1;
     color: #eee8dc;
@@ -693,7 +693,7 @@ img {
 }
 
 .pillars-header p {
-    font-size: 16.3px;
+    font-size: clamp(14px, 2.5vw, 16.5px);
     color: var(--muted);
     max-width: 440px;
     margin: 0 auto;
@@ -704,8 +704,8 @@ img {
 /* ===== ORBITAL STAGE ===== */
 .orbital-stage {
     position: relative;
-    width: min(680px, 90vw);
-    height: min(680px, 90vw);
+    width: min(680px, 92vw);
+    height: min(680px, 92vw);
     flex-shrink: 0;
 }
 
@@ -715,19 +715,14 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
+    width: clamp(80px, 20vw, 120px);
+    height: clamp(80px, 20vw, 120px);
     z-index: 20;
 }
 
 @media (max-width: 480px) {
-    .nucleus {
-        width: 90px;
-        height: 90px;
-    }
-
     .nucleus-logo {
-        font-size: 10px;
+        font-size: clamp(8px, 2.5vw, 10px);
     }
 }
 
@@ -814,44 +809,54 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: clamp(140px, 45vw, 200px);
+    width: clamp(130px, 35vw, 200px);
     cursor: pointer;
     transition: filter 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .node-body {
+        width: clamp(110px, 30vw, 150px);
+    }
+}
+
 @media (max-width: 480px) {
     .node-title {
-        font-size: 18px;
+        font-size: clamp(14px, 4vw, 18px);
     }
 
     .node-desc {
-        font-size: 11px;
-        line-height: 1.5;
+        font-size: clamp(10px, 2.5vw, 12px);
+        line-height: 1.4;
     }
 
     .node-gem {
-        width: 48px;
-        height: 48px;
+        width: clamp(40px, 12vw, 48px);
+        height: clamp(40px, 12vw, 48px);
     }
 
     .node-connector {
         height: 12px;
-        margin-left: 23px;
+        margin-left: 20px;
     }
 
     /* Adjust alignment for small screens */
     .node-body {
-        width: 130px;
+        width: clamp(100px, 40vw, 130px);
     }
 }
 
 @media (max-width: 360px) {
     .node-body {
-        width: 110px;
+        width: 90px;
     }
 
     .node-title {
-        font-size: 16px;
+        font-size: 13px;
+    }
+    
+    .node-desc {
+        display: none; /* Hide description on extremely small screens to save space */
     }
 }
 
@@ -861,8 +866,8 @@ img {
 
 /* floating gem */
 .node-gem {
-    width: 64px;
-    height: 64px;
+    width: clamp(48px, 15vw, 64px);
+    height: clamp(48px, 15vw, 64px);
     border-radius: 16px;
     background: rgba(12, 10, 6, 0.9);
     border: 1px solid rgba(201, 168, 76, 0.25);
@@ -966,7 +971,7 @@ img {
 
 .node-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 25.2px;
+    font-size: clamp(18px, 5vw, 25.2px);
     letter-spacing: 0.07em;
     color: #ede8dc;
     margin-bottom: 8px;
@@ -974,7 +979,7 @@ img {
 }
 
 .node-desc {
-    font-size: 14.2px;
+    font-size: clamp(11px, 3vw, 14.2px);
     line-height: 1.7;
     color: var(--muted);
     max-width: 180px;
@@ -990,7 +995,7 @@ img {
     align-items: center;
     gap: 6px;
     margin-top: 10px;
-    font-size: 10px;
+    font-size: clamp(8px, 2vw, 10px);
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -1090,18 +1095,19 @@ img {
 /* ===== BOTTOM LABELS ROW ===== */
 .pillars-legend {
     display: flex;
-    gap: 60px;
+    gap: clamp(20px, 10vw, 60px);
     justify-content: center;
     margin-top: 56px;
     position: relative;
     z-index: 10;
+    flex-wrap: wrap;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 11px;
+    font-size: clamp(9px, 2.5vw, 11px);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
