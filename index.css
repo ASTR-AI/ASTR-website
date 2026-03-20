@@ -598,146 +598,225 @@ img {
 }
 
 /* =======================
-   PILLARS SECTION (Dark + Glassmorphism)
+   PILLARS SECTION (Interactive Showcase)
    ======================= */
 .pillars {
     background: #050505;
     padding: var(--section-padding);
     position: relative;
-    overflow: hidden;
-}
-
-/* Ambient glow behind cards */
-.pillars::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200, 162, 78, 0.06) 0%, transparent 70%);
-    pointer-events: none;
+    z-index: 15;
 }
 
 .pillars-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto 72px;
+    margin: 0 auto 56px;
 }
 
 .pillars-header h2 {
-    font-size: var(--fs-h1);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    font-size: var(--fs-h2);
+    margin-bottom: 24px;
 }
 
 .pillars-header p {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: var(--fs-body);
+    color: var(--light-gray);
+    font-size: 1.1rem;
 }
 
-.pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-}
-
-.pillar-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border-gold);
-    border-radius: var(--radius-lg);
-    padding: 44px 36px;
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+/* The Stage */
+.pillar-display-stage {
+    background: #1a1a1a; /* Dark base */
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.05), transparent); /* Subtle Gold Glow */
+    border-radius: 24px;
+    padding: 60px;
+    min-height: 500px;
+    display: flex;
     position: relative;
     overflow: hidden;
-    transition: transform var(--transition-mid), border-color var(--transition-mid), box-shadow var(--transition-mid);
+    font-family: var(--font-family);
 }
 
-.pillar-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+/* Tab Bar */
+.pillar-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 
-.pillar-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(200, 162, 78, 0.04) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-.pillar-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(200, 162, 78, 0.35);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(200, 162, 78, 0.06);
-}
-
-.pillar-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, rgba(200, 162, 78, 0.15), rgba(200, 162, 78, 0.05));
-    border: 1px solid rgba(200, 162, 78, 0.2);
+.tab-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #888;
+    padding: 10px 20px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: 0.3s;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 28px;
-    position: relative;
-    z-index: 1;
-}
-
-.pillar-icon svg {
-    width: 28px;
-    height: 28px;
-    color: var(--gold);
-}
-
-.pillar-card h3 {
-    font-size: var(--fs-h3);
-    font-weight: 700;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-}
-
-.pillar-card p {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.95rem;
-    line-height: 1.85;
-    position: relative;
-    z-index: 1;
-}
-
-.pillar-card .card-link {
-    display: inline-flex;
-    align-items: center;
     gap: 8px;
-    margin-top: 24px;
-    font-size: var(--fs-small);
-    font-weight: 600;
+    font-family: var(--font-family);
+}
+
+.tab-btn.active {
+    background: #fff;
+    color: #000;
+}
+
+/* The Content Layout */
+.pillar-content {
+    display: none; /* Hidden by default */
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
+}
+
+.pillar-content.active {
+    display: grid;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* The Info Card (Floating) */
+.desc-card {
+    background: #000;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    font-family: var(--font-family);
+}
+
+/* Mockup Side: Terminal Level Font */
+.mockup-side {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; /* High-end terminal fonts */
+}
+
+.window-frame {
+    width: 100%;
+    max-width: 500px;
+    background: #080808;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.window-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.window-body {
+    padding: 24px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.dashboard-mockup, .telemetry-mockup {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+.dash-value, .dash-label, .dash-status, .telemetry-overlay, .label {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+.pillar-features {
+    padding: 0;
+    margin: 20px 0;
+    list-style: none;
+}
+
+.pillar-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+
+.pillar-features li::before {
+    content: "•";
     color: var(--gold);
-    position: relative;
-    z-index: 1;
-    transition: gap var(--transition-fast);
 }
 
-.pillar-card .card-link:hover {
-    gap: 14px;
+.card-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.pillar-card .card-link svg {
-    width: 16px;
-    height: 16px;
-    transition: transform var(--transition-fast);
+/* Terminal High-Fidelity Refinements */
+.window-frame.terminal-window {
+    height: 400px; /* Set a strict height so it CANNOT expand */
+    max-height: 400px; 
+    display: flex;
+    flex-direction: column;
+    background: #0a0a0a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Keeps the bottom rounded corners clean */
+}
+
+.scrollable-terminal {
+    flex: 1 1 auto; /* Tells it to fill the remaining space of the 400px parent */
+    height: 0; /* CRITICAL FIX: Forces flexbox to use overflow instead of expanding the parent */
+    overflow-y: auto;
+    padding: 15px;
+    
+    /* The Fade Mask */
+    mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+
+.log-line {
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+.log-line.success {
+    color: #4CAF50;
+}
+
+/* The Custom Dark Mode Scrollbar */
+.scrollable-terminal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-terminal::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.scrollable-terminal::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+}
+
+.scrollable-terminal:hover::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.3); /* ASTR Gold on hover */
+}
+
+/* Mobile Responsive */
+@media (max-width: 1100px) {
+    .pillar-content {
+        grid-template-columns: 1fr;
+    }
+    .pillar-display-stage {
+        padding: 30px;
+    }
 }
 
 /* =======================

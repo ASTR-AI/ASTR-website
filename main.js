@@ -1,12 +1,12 @@
 /* ===================================
    ASTR AI — Main JavaScript
    =================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initScrollReveal();
     initHeroCanvas();
     initEcosystemGraph();
+    initPillarTabs();
 });
 
 /* --- Navbar scroll effect & mobile menu --- */
@@ -739,5 +739,34 @@ function initEcosystemGraph() {
     setTimeout(() => {
         graph.resetView();
     }, 500);
+}
+
+/* --- Pillar Showcase: Tab Switching Logic --- */
+function initPillarTabs() {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.pillar-content');
+
+    if (!tabs.length || !contents.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-pillar');
+            if (!target) return; // Skip non-pillar tabs if any
+
+            // Update Tabs
+            tabs.forEach(t => {
+                if(t.getAttribute('data-pillar')) t.classList.remove('active');
+            });
+            tab.classList.add('active');
+
+            // Update Content with transition
+            contents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `content-${target}`) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
 }
 
