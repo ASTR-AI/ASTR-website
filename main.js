@@ -1,90 +1,13 @@
 /* ===================================
    ASTR AI — Main JavaScript
    =================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
-    initLenis();
     initNavbar();
     initScrollReveal();
     initHeroCanvas();
-    initBlueprintScroll();
+    initEcosystemGraph();
+    initPillarTabs();
 });
-
-/* --- Lenis: Smooth Scroll --- */
-function initLenis() {
-    if (typeof Lenis === 'undefined') return;
-
-    const lenis = new Lenis({
-        duration: 1.0, // Reduced from 1.2 for snappier feel
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        wheelMultiplier: 1.1, // Added for better response
-        touchMultiplier: 2,
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    // --- GSAP Section Snapping ---
-    const sections = ['#hero', '#adaptive', '#pillars', '#future', '#footer'];
-    
-    // Check if we are on the landing page (index.html)
-    if (document.getElementById('hero')) {
-        ScrollTrigger.create({
-            start: 0,
-            end: "max",
-            snap: {
-                snapTo: (value) => {
-                    const sectionElements = sections.map(id => document.querySelector(id)).filter(el => el !== null);
-                    const positions = [];
-                    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-                    sectionElements.forEach(el => {
-                        const pos = el.offsetTop / totalHeight;
-
-                        if (el.id === 'adaptive') {
-                            // Add snap points for each card (4 cards = 3 transitions of 100vh each)
-                            const step = window.innerHeight / totalHeight;
-                            for (let i = 0; i < 4; i++) {
-                                positions.push(pos + (i * step));
-                            }
-                        } else {
-                            positions.push(pos);
-                        }
-                    });
-                    
-                    // Sort positions numerically
-                    positions.sort((a, b) => a - b);
-                    
-                    let closest = positions.reduce((prev, curr) => {
-                        return (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
-                    });
-
-                    // Safeguard: If we are within the adaptive section's pinned range, 
-                    // return the current value and let its own ScrollTrigger handle snapping.
-                    const adaptive = document.getElementById('adaptive');
-                    if (adaptive) {
-                        const start = adaptive.offsetTop / totalHeight;
-                        const end = (adaptive.offsetTop + (3.5 * window.innerHeight)) / totalHeight;
-                        if (value > start + 0.01 && value < end - 0.01) {
-                            return value; 
-                        }
-                    }
-                    
-                    return closest;
-                },
-                duration: { min: 0.2, max: 0.5 },
-                delay: 0.2, // Increased delay to allow manual scrolling to settle
-                ease: "power1.inOut"
-            }
-        });
-    }
-}
 
 /* --- Navbar scroll effect & mobile menu --- */
 function initNavbar() {
@@ -532,293 +455,318 @@ function initHeroCanvas() {
     animate();
 }
 
-/* --- Adaptive Solutions: Interactive UI Mockup Simulation --- */
-function initBlueprintScroll() {
-    const track = document.getElementById('adaptiveScrollTrack');
-    const textBlocks = document.querySelectorAll('.adaptive-text-block');
-    const simStates = document.querySelectorAll('.sim-state');
-    const thinkingState = document.getElementById('thinking-state');
-    const tabPill = document.querySelector('.tab-pill');
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    
-    // Simulation specific elements
-    const typewriterEl = document.getElementById('typewriter-software');
-    const progressContainer = document.getElementById('progress-software-container');
-    const progressFill = document.getElementById('progress-software-fill');
-    const progressPercent = document.getElementById('progress-software-percent');
-    const boundingBoxesContainer = document.getElementById('bounding-boxes');
-    
-    if (!track || textBlocks.length === 0) return;
+/* --- Intelligence Ecosystem: Physics-Based Knowledge Graph --- */
+class EcosystemGraph {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        if (!this.container) return;
 
-    let currentIndex = -1;
-    let isTransitioning = false;
-    let typewriterInterval;
-    let mobileAutoplayInterval;
+        this.width = this.container.offsetWidth;
+        this.height = this.container.offsetHeight;
+        this.nodes = [];
+        this.links = [];
+        this.hoveredNode = null;
 
-    // --- Tab Switcher Logic ---
-    tabBtns.forEach((btn, idx) => {
-        btn.addEventListener('click', () => {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            tabPill.style.transform = `translateX(${idx * 100}%)`;
+        this.initData();
+        this.initSVG();
+        this.initPhysics();
+        this.animate();
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            this.width = this.container.offsetWidth;
+            this.height = this.container.offsetHeight;
+            this.svg.setAttribute("viewBox", `-${this.width/2} -${this.height/2} ${this.width} ${this.height}`);
         });
-    });
-
-    function showThinking(callback) {
-        thinkingState.classList.add('active');
-        setTimeout(() => {
-            thinkingState.classList.remove('active');
-            if (callback) callback();
-        }, 800);
     }
 
-    function resetAnimations() {
-        if (typewriterInterval) clearTimeout(typewriterInterval);
-        if (progressContainer) progressContainer.style.display = 'none';
-        if (progressFill) progressFill.style.width = '0%';
-        if (boundingBoxesContainer) boundingBoxesContainer.innerHTML = '';
-        document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active'));
-        document.querySelectorAll('.flow-particle').forEach(p => p.classList.remove('animating'));
-    }
+    initData() {
+        // Central Core
+        const core = { id: 'ASTR AI', type: 'core', x: 0, y: 0, vx: 0, vy: 0 };
+        this.nodes.push(core);
 
-    function runSoftwareSim() {
-        resetAnimations();
-        if (!typewriterEl) return;
-        typewriterEl.innerHTML = '';
-        
-        const text = "Compiling architecture for high-concurrency hospital ERP... \nInitializing core modules... \nOptimizing database schema...";
-        let i = 0;
-        
-        function type() {
-            if (i < text.length) {
-                const char = text.charAt(i);
-                typewriterEl.innerHTML += char === '\n' ? '<br>' : char;
-                i++;
-                
-                let speed = 30;
-                if (char === '.') speed = 200;
-                if (text.substring(i, i+10).includes('concurrency')) speed = 80;
-                
-                typewriterInterval = setTimeout(type, speed);
-            } else {
-                if (progressContainer) {
-                    progressContainer.style.display = 'block';
-                    gsap.to(progressFill, {
-                        width: '100%',
-                        duration: 2,
-                        ease: "power1.inOut",
-                        onUpdate: function() {
-                            const p = Math.round(this.progress() * 100);
-                            if (progressPercent) progressPercent.innerText = p + '%';
-                        }
-                    });
-                }
-            }
-        }
-        type();
-    }
-
-    function runAISim() {
-        resetAnimations();
-        if (!boundingBoxesContainer) return;
-        const boxes = [
-            { top: '20%', left: '15%', w: '80px', h: '120px', label: 'VEHICLE 98%' },
-            { top: '40%', left: '60%', w: '60px', h: '90px', label: 'PERSON 95%' },
-            { top: '15%', left: '70%', w: '100px', h: '140px', label: 'VEHICLE 92%' },
-            { top: '60%', left: '25%', w: '70px', h: '110px', label: 'PERSON 88%' }
+        const categories = [
+            { id: 'Custom Software', sub: ['FEFO Logic', 'Cloud ERP', 'Telemetry'] },
+            { id: 'AI Integration', sub: ['Neural Nets', 'Comp. Vision', 'Agents'] },
+            { id: 'Workflow Opt.', sub: ['Automation', 'Silo Sync', 'Flow Map'] },
+            { id: 'System Support', sub: ['Vigilance', 'Uptime', 'Security'] }
         ];
 
-        boxes.forEach((box, i) => {
-            setTimeout(() => {
-                const el = document.createElement('div');
-                el.className = 'bounding-box';
-                el.style.top = box.top;
-                el.style.left = box.left;
-                el.style.width = box.w;
-                el.style.height = box.h;
-                el.innerHTML = `<span class="label">${box.label}</span>`;
-                boundingBoxesContainer.appendChild(el);
-                setTimeout(() => el.classList.add('active'), 50);
-            }, i * 400);
+        // Organic, irregular angles (radians) — NOT evenly spaced
+        const catAngles = [
+            -1.2,   // Custom Software: upper-left (~-69°)
+             0.4,   // AI Integration: right-ish (~23°)
+             2.3,   // Workflow Opt.: lower-left (~132°)
+             3.9    // System Support: lower-right (~223°)
+        ];
+        // Vary distances per category for organic feel
+        const catDistMultipliers = [0.28, 0.32, 0.26, 0.30];
+
+        categories.forEach((cat, i) => {
+            const angle = catAngles[i];
+            const dist = Math.min(this.width, this.height) * catDistMultipliers[i];
+            const catNode = { 
+                id: cat.id, 
+                type: 'category', 
+                x: Math.cos(angle) * dist, 
+                y: Math.sin(angle) * dist,
+                vx: 0, vy: 0 
+            };
+            this.nodes.push(catNode);
+            this.links.push({ source: core, target: catNode });
+
+            cat.sub.forEach((sub, j) => {
+                // Spread sub-nodes at irregular offsets around the category
+                const offsets = [-0.55, 0.1, 0.65];
+                const subAngle = angle + offsets[j];
+                const subDistVariance = 0.85 + Math.random() * 0.3; // 0.85–1.15x
+                const subDist = Math.min(this.width, this.height) * 0.42 * subDistVariance;
+                const subNode = { 
+                    id: sub, 
+                    type: 'sub', 
+                    x: Math.cos(subAngle) * subDist, 
+                    y: Math.sin(subAngle) * subDist,
+                    vx: 0, vy: 0 
+                };
+                this.nodes.push(subNode);
+                this.links.push({ source: catNode, target: subNode });
+            });
         });
     }
 
-    function runWorkflowSim() {
-        resetAnimations();
-        const nodes = ['node-input', 'node-process', 'node-action'];
-        const particles = document.querySelectorAll('.flow-particle');
-        
-        nodes.forEach((id, i) => {
-            setTimeout(() => {
-                const node = document.getElementById(id);
-                if (node) node.classList.add('active');
-                if (i < particles.length) {
-                    particles[i].classList.add('animating');
-                }
-            }, i * 600);
-        });
+    initSVG() {
+        this.svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        this.svg.setAttribute("viewBox", `-${this.width/2} -${this.height/2} ${this.width} ${this.height}`);
+        this.svg.style.width = '100%';
+        this.svg.style.height = '100%';
+        this.container.appendChild(this.svg);
+
+        // Defs for gradient definitions
+        this.defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+        this.svg.appendChild(this.defs);
+
+        this.gLinks = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        this.gNodes = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        this.svg.appendChild(this.gLinks);
+        this.svg.appendChild(this.gNodes);
+
+        this.renderElements();
     }
 
-    function updateSimulation(index) {
-        if (currentIndex === index) return;
-        
-        isTransitioning = true;
-        showThinking(() => {
-            simStates.forEach((state, i) => {
-                state.classList.remove('active');
-                if (i === index) {
-                    state.classList.add('active');
-                    if (i === 0) runSoftwareSim();
-                    if (i === 1) runAISim();
-                    if (i === 2) runWorkflowSim();
-                }
-            });
-            currentIndex = index;
-            isTransitioning = false;
-        });
-    }
+    renderElements() {
+        // Create fading gradient lines for each link
+        this.links.forEach((link, idx) => {
+            // Create a unique gradient per link
+            const gradId = `edge-grad-${idx}`;
+            const grad = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+            grad.setAttribute("id", gradId);
+            grad.setAttribute("gradientUnits", "userSpaceOnUse");
 
-    // --- GSAP ScrollTrigger Implementation ---
-    const mm = gsap.matchMedia();
-    
-    mm.add("(min-width: 901px)", () => {
-        const isSmallScreen = window.innerWidth <= 1100;
-        const offsetVal = isSmallScreen ? 15 : 20;
-        const totalBlocks = textBlocks.length;
+            const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+            stop1.setAttribute("offset", "0%");
+            stop1.setAttribute("stop-color", "rgba(212, 175, 55, 0.25)");
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: track,
-                start: "top top",
-                end: "+=300%", // 100% per transition
-                scrub: 1,      // Smooth scrubbing lag
-                pin: true,     // Pin the section
-                snap: {
-                    snapTo: 1 / (totalBlocks - 1),
-                    duration: { min: 0.2, max: 0.5 },
-                    delay: 0,
-                    ease: "power2.out"
-                },
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    const index = Math.round(progress * (totalBlocks - 1));
-                    
-                    if (index !== currentIndex && !isTransitioning) {
-                        updateSimulation(index);
-                        // Sync Tabs
-                        if (index < 2) tabBtns[0].click();
-                        else tabBtns[1].click();
-                    }
+            const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+            stop2.setAttribute("offset", "100%");
+            stop2.setAttribute("stop-color", "rgba(212, 175, 55, 0)");
 
-                    // Update active class
-                    textBlocks.forEach((block, i) => {
-                        const blockProgress = (progress * (totalBlocks - 1)) - i;
-                        if (Math.abs(blockProgress) < 0.25) {
-                            block.classList.add('active');
-                        } else {
-                            block.classList.remove('active');
-                        }
-                    });
-                }
-            }
+            grad.appendChild(stop1);
+            grad.appendChild(stop2);
+            this.defs.appendChild(grad);
+
+            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("class", "edge-line");
+            line.setAttribute("stroke", `url(#${gradId})`);
+            link.el = line;
+            link.gradEl = grad;
+            this.gLinks.appendChild(line);
         });
 
-        // Initialize stack positions
-        textBlocks.forEach((block, i) => {
-            gsap.set(block, {
-                xPercent: -50,
-                yPercent: -50,
-                x: i * offsetVal,
-                y: i * offsetVal,
-                scale: 1 - (i * 0.04),
-                opacity: 1 - (i * 0.15),
-                zIndex: totalBlocks - i,
-                rotation: 0
-            });
-        });
-
-        // Create the shuffle sequence
-        for (let i = 0; i < totalBlocks - 1; i++) {
-            const label = `step-${i}`;
-            tl.addLabel(label);
-
-            // 1. Exit current card
-            tl.to(textBlocks[i], {
-                y: -150,
-                rotation: -10,
-                opacity: 0,
-                ease: "power2.out"
-            }, label);
-
-            // 2. Advance the rest of the stack
-            for (let j = i + 1; j < totalBlocks; j++) {
-                const newDepth = j - (i + 1);
-                tl.to(textBlocks[j], {
-                    x: newDepth * offsetVal,
-                    y: newDepth * offsetVal,
-                    scale: 1 - (newDepth * 0.04),
-                    opacity: 1 - (newDepth * 0.15),
-                    ease: "power2.out"
-                }, label);
-            }
-        }
-        tl.addLabel(`step-${totalBlocks - 1}`);
-
-        // Click-to-Shuffle Logic for Desktop
-        textBlocks.forEach((block, i) => {
-            block.addEventListener('click', () => {
-                const st = tl.scrollTrigger;
-                const targetScroll = st.start + (i / (totalBlocks - 1)) * (st.end - st.start);
-                gsap.to(window, {
-                    scrollTo: targetScroll,
-                    duration: 0.8,
-                    ease: "power2.out"
-                });
-            });
-        });
-
-        return () => {
-            if (tl.scrollTrigger) tl.scrollTrigger.kill();
-        };
-    });
-
-    // --- Mobile Auto-play logic ---
-    function startMobileAutoplay() {
-        if (mobileAutoplayInterval) clearInterval(mobileAutoplayInterval);
-        let mobileIndex = 0;
-        
-        mobileAutoplayInterval = setInterval(() => {
-            if (window.innerWidth <= 900) {
-                mobileIndex = (mobileIndex + 1) % textBlocks.length;
-                if (mobileIndex < 2) tabBtns[0].click();
-                else tabBtns[1].click();
-                updateSimulation(mobileIndex);
+        this.nodes.forEach(node => {
+            const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.setAttribute("class", `node-group ${node.type}`);
+            
+            if (node.type === 'core') {
+                const imgSize = 230; // Increased from 100
+                const logo = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                logo.setAttributeNS("http://www.w3.org/1999/xlink", "href", "Pictures/without bg.png");
+                logo.setAttribute("width", imgSize);
+                logo.setAttribute("height", imgSize);
+                logo.setAttribute("x", -imgSize / 2);
+                logo.setAttribute("y", -imgSize / 2);
+                group.appendChild(logo);
+            } else {
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("r", node.type === 'category' ? 6 : 3);
+                circle.setAttribute("class", `node-circle ${node.type}`);
                 
-                textBlocks.forEach((block, i) => {
-                    if (i === mobileIndex) {
-                        block.classList.add('active');
-                        gsap.set(block, { opacity: 1, scale: 1, xPercent: -50, yPercent: -50, x: 0, y: 0, rotation: 0 });
-                    } else {
-                        block.classList.remove('active');
-                        gsap.set(block, { opacity: 0 });
-                    }
-                });
+                const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                text.textContent = node.id;
+                text.setAttribute("dy", node.type === 'sub' ? 16 : 28);
+                text.setAttribute("text-anchor", "middle");
+                text.setAttribute("class", `node-text ${node.type}`);
+
+                group.appendChild(circle);
+                group.appendChild(text);
             }
-        }, 5000);
+
+            node.el = group;
+
+            group.addEventListener('mouseenter', () => this.setHover(node));
+            group.addEventListener('mouseleave', () => this.setHover(null));
+            
+            this.gNodes.appendChild(group);
+        });
     }
 
-    if (window.innerWidth <= 900) {
-        startMobileAutoplay();
+    setHover(node) {
+        this.hoveredNode = node;
+        const allLines = this.container.querySelectorAll('.edge-line');
+        allLines.forEach(l => l.classList.remove('active'));
+
+        if (node) {
+            this.highlightPath(node);
+        }
     }
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth <= 900) {
-            if (!mobileAutoplayInterval) startMobileAutoplay();
-        } else {
-            if (mobileAutoplayInterval) {
-                clearInterval(mobileAutoplayInterval);
-                mobileAutoplayInterval = null;
+    highlightPath(node) {
+        this.links.forEach(link => {
+            if (link.target === node) {
+                link.el.classList.add('active');
+                this.highlightPath(link.source);
+            }
+        });
+    }
+
+    initPhysics() {
+        this.k = 0.04;
+        this.repulsion = 800;
+        this.damping = 0.9;
+    }
+
+    updatePhysics() {
+        // 1. Repulsion (Many-body)
+        for (let i = 0; i < this.nodes.length; i++) {
+            const nodeA = this.nodes[i];
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const nodeB = this.nodes[j];
+                const dx = nodeB.x - nodeA.x;
+                const dy = nodeB.y - nodeA.y;
+                const distSq = dx * dx + dy * dy + 0.1;
+                const force = this.repulsion / distSq;
+                const fx = (dx / Math.sqrt(distSq)) * force;
+                const fy = (dy / Math.sqrt(distSq)) * force;
+                nodeA.vx -= fx; nodeA.vy -= fy;
+                nodeB.vx += fx; nodeB.vy += fy;
             }
         }
-    }, { passive: true });
+
+        // 2. Springs
+        this.links.forEach(link => {
+            const dx = link.target.x - link.source.x;
+            const dy = link.target.y - link.source.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const targetDist = link.source.type === 'core' ? Math.min(this.width, this.height) * 0.32 : Math.min(this.width, this.height) * 0.14;
+            const force = (dist - targetDist) * this.k;
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+            link.source.vx += fx; link.source.vy += fy;
+            link.target.vx -= fx; link.target.vy -= fy;
+        });
+
+        // 3. Apply and Damp
+        this.nodes.forEach(node => {
+            if (node.type === 'core') return; // Pin center
+            node.x += node.vx;
+            node.y += node.vy;
+            node.vx *= this.damping;
+            node.vy *= this.damping;
+
+            node.el.setAttribute("transform", `translate(${node.x}, ${node.y})`);
+        });
+
+        this.links.forEach(link => {
+            link.el.setAttribute("x1", link.source.x);
+            link.el.setAttribute("y1", link.source.y);
+            link.el.setAttribute("x2", link.target.x);
+            link.el.setAttribute("y2", link.target.y);
+
+            // Update gradient coordinates so the fade follows the line direction
+            if (link.gradEl) {
+                link.gradEl.setAttribute("x1", link.source.x);
+                link.gradEl.setAttribute("y1", link.source.y);
+                link.gradEl.setAttribute("x2", link.target.x);
+                link.gradEl.setAttribute("y2", link.target.y);
+            }
+        });
+    }
+
+    panTo(categoryName) {
+        const node = this.nodes.find(n => n.id === categoryName);
+        if (!node) return;
+
+        // Subtle pan to focus on the category
+        const viewWidth = Math.max(this.width, 500);
+        const viewHeight = Math.max(this.height, 500);
+        gsap.to(this.svg, {
+            attr: { viewBox: `${node.x - viewWidth/2} ${node.y - viewHeight/2} ${viewWidth} ${viewHeight}` },
+            duration: 1.2,
+            ease: "power2.inOut"
+        });
+    }
+
+    resetView() {
+        gsap.to(this.svg, {
+            attr: { viewBox: `-${this.width/2} -${this.height/2} ${this.width} ${this.height}` },
+            duration: 1.2,
+            ease: "power2.inOut"
+        });
+    }
+
+    animate() {
+        this.updatePhysics();
+        requestAnimationFrame(() => this.animate());
+    }
 }
+
+function initEcosystemGraph() {
+    const graph = new EcosystemGraph('ecosystem-graph');
+    const textBlocks = document.querySelectorAll('.adaptive-text-block');
+    
+    if (!graph.container || textBlocks.length === 0) return;
+
+    // Show the full ecosystem by default instead of panning to categories on scroll
+    setTimeout(() => {
+        graph.resetView();
+    }, 500);
+}
+
+/* --- Pillar Showcase: Tab Switching Logic --- */
+function initPillarTabs() {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.pillar-content');
+
+    if (!tabs.length || !contents.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-pillar');
+            if (!target) return; // Skip non-pillar tabs if any
+
+            // Update Tabs
+            tabs.forEach(t => {
+                if(t.getAttribute('data-pillar')) t.classList.remove('active');
+            });
+            tab.classList.add('active');
+
+            // Update Content with transition
+            contents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `content-${target}`) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
