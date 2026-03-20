@@ -492,9 +492,19 @@ class EcosystemGraph {
             { id: 'System Support', sub: ['Vigilance', 'Uptime', 'Security'] }
         ];
 
+        // Organic, irregular angles (radians) — NOT evenly spaced
+        const catAngles = [
+            -1.2,   // Custom Software: upper-left (~-69°)
+             0.4,   // AI Integration: right-ish (~23°)
+             2.3,   // Workflow Opt.: lower-left (~132°)
+             3.9    // System Support: lower-right (~223°)
+        ];
+        // Vary distances per category for organic feel
+        const catDistMultipliers = [0.28, 0.32, 0.26, 0.30];
+
         categories.forEach((cat, i) => {
-            const angle = (i / categories.length) * Math.PI * 2 - Math.PI / 2;
-            const dist = Math.min(this.width, this.height) * 0.22;
+            const angle = catAngles[i];
+            const dist = Math.min(this.width, this.height) * catDistMultipliers[i];
             const catNode = { 
                 id: cat.id, 
                 type: 'category', 
@@ -506,8 +516,11 @@ class EcosystemGraph {
             this.links.push({ source: core, target: catNode });
 
             cat.sub.forEach((sub, j) => {
-                const subAngle = angle + (j - 1) * 0.35;
-                const subDist = Math.min(this.width, this.height) * 0.36;
+                // Spread sub-nodes at irregular offsets around the category
+                const offsets = [-0.55, 0.1, 0.65];
+                const subAngle = angle + offsets[j];
+                const subDistVariance = 0.85 + Math.random() * 0.3; // 0.85–1.15x
+                const subDist = Math.min(this.width, this.height) * 0.42 * subDistVariance;
                 const subNode = { 
                     id: sub, 
                     type: 'sub', 
@@ -528,6 +541,10 @@ class EcosystemGraph {
         this.svg.style.height = '100%';
         this.container.appendChild(this.svg);
 
+        // Defs for gradient definitions
+        this.defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+        this.svg.appendChild(this.defs);
+
         this.gLinks = document.createElementNS("http://www.w3.org/2000/svg", "g");
         this.gNodes = document.createElementNS("http://www.w3.org/2000/svg", "g");
         this.svg.appendChild(this.gLinks);
@@ -537,10 +554,31 @@ class EcosystemGraph {
     }
 
     renderElements() {
-        this.links.forEach(link => {
+        // Create fading gradient lines for each link
+        this.links.forEach((link, idx) => {
+            // Create a unique gradient per link
+            const gradId = `edge-grad-${idx}`;
+            const grad = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+            grad.setAttribute("id", gradId);
+            grad.setAttribute("gradientUnits", "userSpaceOnUse");
+
+            const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+            stop1.setAttribute("offset", "0%");
+            stop1.setAttribute("stop-color", "rgba(212, 175, 55, 0.25)");
+
+            const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+            stop2.setAttribute("offset", "100%");
+            stop2.setAttribute("stop-color", "rgba(212, 175, 55, 0)");
+
+            grad.appendChild(stop1);
+            grad.appendChild(stop2);
+            this.defs.appendChild(grad);
+
             const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
             line.setAttribute("class", "edge-line");
+            line.setAttribute("stroke", `url(#${gradId})`);
             link.el = line;
+            link.gradEl = grad;
             this.gLinks.appendChild(line);
         });
 
@@ -652,6 +690,14 @@ class EcosystemGraph {
             link.el.setAttribute("y1", link.source.y);
             link.el.setAttribute("x2", link.target.x);
             link.el.setAttribute("y2", link.target.y);
+
+            // Update gradient coordinates so the fade follows the line direction
+            if (link.gradEl) {
+                link.gradEl.setAttribute("x1", link.source.x);
+                link.gradEl.setAttribute("y1", link.source.y);
+                link.gradEl.setAttribute("x2", link.target.x);
+                link.gradEl.setAttribute("y2", link.target.y);
+            }
         });
     }
 

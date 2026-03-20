@@ -898,15 +898,14 @@ img {
 }
 
 .edge-line {
-    stroke: rgba(212, 175, 55, 0.12);
-    stroke-width: 1;
+    stroke-width: 1.2;
     fill: none;
-    transition: stroke 0.5s ease, stroke-width 0.5s ease;
+    transition: stroke-width 0.5s ease, opacity 0.5s ease;
 }
 
 .edge-line.active {
-    stroke: rgba(212, 175, 55, 0.5);
-    stroke-width: 1.5;
+    stroke-width: 2;
+    opacity: 1;
 }
 
 .node-circle {
