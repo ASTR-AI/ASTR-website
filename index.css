@@ -625,8 +625,8 @@ img {
 
 /* The Stage */
 .pillar-display-stage {
-    background: #1a1a1a; /* Dark base */
-    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.05), transparent); /* Subtle Gold Glow */
+    background: #080808; /* Deep space black */
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.07), transparent 70%);
     border-radius: 24px;
     padding: 60px;
     min-height: 500px;
@@ -634,6 +634,28 @@ img {
     position: relative;
     overflow: hidden;
     font-family: var(--font-family);
+}
+
+/* The Blueprint Grid Background */
+.pillar-display-stage::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none; 
+    z-index: 0;
+    animation: slowDrift 60s linear infinite;
+}
+
+@keyframes slowDrift {
+    0% { background-position: 0px 0px; }
+    100% { background-position: 200px 200px; }
 }
 
 /* Tab Bar */
@@ -670,6 +692,8 @@ img {
     gap: 40px;
     align-items: center;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .pillar-content.active {
@@ -718,10 +742,116 @@ img {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.mac-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.mac-dot.close { background: #FF5F56; }
+.mac-dot.minimize { background: #FFBD2E; }
+.mac-dot.maximize { background: #27C93F; }
+
+.window-title {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .window-body {
     padding: 24px;
     font-size: 0.85rem;
     line-height: 1.6;
+}
+
+/* Remove padding for full-bleed mockups */
+.window-body.dashboard-mockup, 
+.window-body.telemetry-mockup {
+    padding: 0;
+}
+
+/* Infrastructure Dashboard Refinements */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+    background: #080808;
+}
+
+.dash-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.dash-card.wide { grid-column: span 2; }
+
+/* Drone Telemetry Refinements */
+.telemetry-mockup {
+    position: relative;
+    height: 350px;
+    background: #080808;
+    overflow: hidden;
+}
+
+.map-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #080808 100%);
+}
+
+.map-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.detection-box {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: 80px;
+    height: 60px;
+    border: 1px solid var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.detection-box .label {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: var(--gold);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 900;
+    padding: 2px 6px;
+    white-space: nowrap;
+}
+
+.telemetry-overlay {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--gold);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
 }
 
 .dashboard-mockup, .telemetry-mockup {
