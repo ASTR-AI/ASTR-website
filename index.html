@@ -217,49 +217,56 @@
                 <!-- Infrastructure Content -->
                 <div class="pillar-content" id="content-infra">
                     <div class="mockup-side">
-                        <div class="window-frame">
-                            <div class="window-header">
-                                <div class="window-controls">
-                                    <span class="mac-dot close"></span>
-                                    <span class="mac-dot minimize"></span>
-                                    <span class="mac-dot maximize"></span>
-                                </div>
-                                <span class="window-title">central_command_dashboard.sys</span>
-                            </div>
-                            <div class="window-body dashboard-mockup">
-                                <div class="dashboard-grid">
-                                    <div class="dash-card">
-                                        <span class="dash-label">NETWORK_UPTIME</span>
-                                        <span class="dash-value gold-text">99.99%</span>
-                                        <div class="dash-graph"><div class="line"></div></div>
-                                    </div>
-                                    <div class="dash-card">
-                                        <span class="dash-label">SMART_NODES</span>
-                                        <span class="dash-value">1,242</span>
-                                        <span class="dash-status">ACTIVE</span>
-                                    </div>
-                                    <div class="dash-card wide">
-                                        <span class="dash-label">COMMAND_CENTER_HEALTH</span>
-                                        <div class="health-bars">
-                                            <span></span><span></span><span></span><span></span><span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="blueprint-stage">
+                            <div class="blueprint-grid"></div>
+                            <svg class="blueprint-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Isometric Desk Outline -->
+                                <path class="blueprint-line" d="M200 150 L300 100 L200 50 L100 100 Z" />
+                                <path class="blueprint-line" d="M100 100 L100 120 L200 170 L200 150" />
+                                <path class="blueprint-line" d="M300 100 L300 120 L200 170" />
+                                
+                                <!-- Isometric Server Racks -->
+                                <g transform="translate(-50, 40)">
+                                    <path class="blueprint-line" d="M50 150 L80 135 L80 85 L50 100 Z" />
+                                    <path class="blueprint-line" d="M80 135 L110 150 L110 100 L80 85" />
+                                    <path class="blueprint-line" d="M50 100 L80 85 L110 100" />
+                                    <line class="blueprint-line" x1="55" y1="110" x2="75" y2="100" />
+                                    <line class="blueprint-line" x1="55" y1="120" x2="75" y2="110" />
+                                    <line class="blueprint-line" x1="55" y1="130" x2="75" y2="120" />
+                                </g>
+
+                                <g transform="translate(180, 40)">
+                                    <path class="blueprint-line" d="M50 150 L80 135 L80 85 L50 100 Z" />
+                                    <path class="blueprint-line" d="M80 135 L110 150 L110 100 L80 85" />
+                                    <path class="blueprint-line" d="M50 100 L80 85 L110 100" />
+                                    <line class="blueprint-line" x1="55" y1="110" x2="75" y2="100" />
+                                    <line class="blueprint-line" x1="55" y1="120" x2="75" y2="110" />
+                                    <line class="blueprint-line" x1="55" y1="130" x2="75" y2="120" />
+                                </g>
+
+                                <!-- Connection Lines -->
+                                <path class="blueprint-line" d="M110 140 L150 160 L200 140" stroke-dasharray="5,5" />
+                                <path class="blueprint-line" d="M290 140 L250 160 L200 140" stroke-dasharray="5,5" />
+                            </svg>
                         </div>
                     </div>
                     <div class="info-side">
-                        <div class="desc-card">
-                            <h3>Infrastructure</h3>
-                            <p>We build the foundation for a digital future by supplying advanced IT hardware and integrating smart ecosystems like centralized control rooms.</p>
-                        </div>
-                        <div class="desc-card feature-card">
-                            <ul class="pillar-features">
-                                <li><strong>Centralized Control Rooms (CCC)</strong> <span>Unified command centers.</span></li>
-                                <li><strong>High-Density Server Hardware</strong> <span>Powerful compute foundations.</span></li>
-                                <li><strong>Smart Building OS Integration</strong> <span>Digital-physical convergence.</span></li>
-                            </ul>
-
+                        <div class="bento-grid">
+                            <div class="bento-card">
+                                <span class="bento-tag">Command Center</span>
+                                <h4>Centralized Control Rooms</h4>
+                                <p>Integrated mission control ecosystems for real-time monitoring and centralized operational intelligence.</p>
+                            </div>
+                            <div class="bento-card">
+                                <span class="bento-tag">Compute Node</span>
+                                <h4>High-Density Hardware</h4>
+                                <p>Supply and integration of advanced server clusters designed for massive parallel processing and AI training workloads.</p>
+                            </div>
+                            <div class="bento-card">
+                                <span class="bento-tag">Building OS</span>
+                                <h4>Smart Ecosystems</h4>
+                                <p>Digital twin integration for infrastructure management, optimizing energy and security protocols.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
