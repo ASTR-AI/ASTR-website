@@ -138,26 +138,41 @@
             </div>
 
             <!-- Pillar Tabs Navigation -->
-            <div class="pillar-tabs reveal">
-                <button class="tab-btn active" data-pillar="ai">
-                    <span class="tab-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 2 1 3 2 4l-5 7h14l-5-7c1-1 2-2 2-4a4 4 0 0 0-4-4z"/><path d="M12 18v4"/></svg>
-                    </span>
-                    AI Solutions
+            <nav class="segmented-control reveal">
+                <span class="nav-highlight"></span>
+                
+                <button class="nav-item active" data-pillar="ai">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2L14.5 9L22 11.5L14.5 14L12 21L9.5 14L2 11.5L9.5 9L12 2Z" />
+                    <path d="M12 8L13 11L16 12L13 13L12 16L11 13L8 12L11 11L12 8Z" opacity="0.5" />
+                  </svg>
+                  AI Solutions
                 </button>
-                <button class="tab-btn" data-pillar="infra">
-                    <span class="tab-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                    </span>
-                    Infrastructure
+              
+                <button class="nav-item" data-pillar="infra">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="4" width="18" height="4" rx="1" />
+                    <rect x="3" y="10" width="18" height="4" rx="1" />
+                    <rect x="3" y="16" width="18" height="4" rx="1" />
+                    <circle cx="7" cy="6" r="0.5" fill="currentColor" />
+                    <circle cx="7" cy="12" r="0.5" fill="currentColor" />
+                    <circle cx="7" cy="18" r="0.5" fill="currentColor" />
+                  </svg>
+                  Infrastructure
                 </button>
-                <button class="tab-btn" data-pillar="drone">
-                    <span class="tab-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/><circle cx="5" cy="5" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/></svg>
-                    </span>
-                    Drone Solutions
+              
+                <button class="nav-item" data-pillar="drone">
+                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="2.5" />
+                    <path d="M4.5 4.5L9.5 9.5M14.5 14.5L19.5 19.5M19.5 4.5L14.5 9.5M9.5 14.5L4.5 19.5" />
+                    <circle cx="4.5" cy="4.5" r="1.5" />
+                    <circle cx="19.5" cy="4.5" r="1.5" />
+                    <circle cx="4.5" cy="19.5" r="1.5" />
+                    <circle cx="19.5" cy="19.5" r="1.5" />
+                  </svg>
+                  Drone Solutions
                 </button>
-            </div>
+            </nav>
 
             <div class="pillar-display-stage reveal">
                 <!-- AI Content -->
@@ -187,12 +202,14 @@
                         <div class="desc-card">
                             <h3>AI Solutions</h3>
                             <p>We deliver custom-crafted innovation, including custom software development, AI agent integration, and workflow optimization to transform your operations.</p>
+                        </div>
+                        <div class="desc-card feature-card">
                             <ul class="pillar-features">
-                                <li>Custom ERP & CRM Engines</li>
-                                <li>Intelligent Agentic Workflows</li>
-                                <li>Predictive Supply Chain Logic</li>
+                                <li><strong>Custom ERP & CRM Engines</strong> <span>Tailored digital backbones.</span></li>
+                                <li><strong>Intelligent Agentic Workflows</strong> <span>Autonomous task execution.</span></li>
+                                <li><strong>Predictive Supply Chain Logic</strong> <span>Future-proof inventory.</span></li>
                             </ul>
-                            <a href="#" class="card-link">Learn more &rarr;</a>
+
                         </div>
                     </div>
                 </div>
@@ -235,12 +252,14 @@
                         <div class="desc-card">
                             <h3>Infrastructure</h3>
                             <p>We build the foundation for a digital future by supplying advanced IT hardware and integrating smart ecosystems like centralized control rooms.</p>
+                        </div>
+                        <div class="desc-card feature-card">
                             <ul class="pillar-features">
-                                <li>Centralized Control Rooms (CCC)</li>
-                                <li>High-Density Server Hardware</li>
-                                <li>Smart Building OS Integration</li>
+                                <li><strong>Centralized Control Rooms (CCC)</strong> <span>Unified command centers.</span></li>
+                                <li><strong>High-Density Server Hardware</strong> <span>Powerful compute foundations.</span></li>
+                                <li><strong>Smart Building OS Integration</strong> <span>Digital-physical convergence.</span></li>
                             </ul>
-                            <a href="#" class="card-link">Learn more &rarr;</a>
+
                         </div>
                     </div>
                 </div>
@@ -258,34 +277,53 @@
                                 <span class="window-title">drone_telemetry_feed.os</span>
                             </div>
                             <div class="window-body telemetry-mockup">
-                                <div class="map-bg">
-                                    <div class="map-grid"></div>
-                                    <div class="drone-path"></div>
-                                    <div class="drone-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 2 20 20M2 22 22 2"/></svg>
-                                    </div>
-                                    <div class="detection-box">
-                                        <span class="label">VEHICLE_01 [98%]</span>
-                                    </div>
-                                </div>
-                                <div class="telemetry-overlay">
-                                    <span>ALT: 120m</span>
-                                    <span>SPD: 42km/h</span>
-                                    <span>BATT: 88%</span>
+                                <div class="drone-container">
+                                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                                        <circle class="orbit-ring" cx="200" cy="200" r="180" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="8, 12" />
+                                        
+                                        <circle cx="200" cy="200" r="120" fill="none" stroke="#333" stroke-width="1" />
+                                    
+                                        <g class="arms" stroke="#555" stroke-width="2">
+                                          <line x1="200" y1="200" x2="100" y2="100" />
+                                          <line x1="200" y1="200" x2="300" y2="100" />
+                                          <line x1="200" y1="200" x2="100" y2="300" />
+                                          <line x1="200" y1="200" x2="300" y2="300" />
+                                        </g>
+                                    
+                                        <g class="hub">
+                                          <circle cx="200" cy="200" r="30" fill="#1a1a1a" stroke="#d4af37" stroke-width="2" />
+                                          <circle class="pulse" cx="200" cy="200" r="8" fill="#d4af37" />
+                                        </g>
+                                    
+                                        <g class="drones">
+                                          <circle class="drone" cx="100" cy="100" r="25" />
+                                          <circle class="drone" cx="300" cy="100" r="25" />
+                                          <circle class="drone" cx="100" cy="300" r="25" />
+                                          <circle class="drone" cx="300" cy="300" r="25" />
+                                        </g>
+                                      </svg>
+                                      
+                                      <div class="label">
+                                        <h3>Module 03</h3>
+                                        <h2>Multi-Drone Coordination</h2>
+                                        <p>Swarm intelligence synchronization for complex operations.</p>
+                                      </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="info-side">
                         <div class="desc-card">
-                            <h3>Drone Solutions</h3>
-                            <p>We provide the ASTR Drone Network for surveillance, scalable logistics, and infrastructure inspection — enabling aerial intelligence at scale.</p>
+                            <h3>ASTR Drone Solutions</h3>
+                            <p>Strategic integration of world-class aerial technology. We bridge the gap between operational needs and elite manufacturing, delivering custom-configured drone systems for mission-critical tasks.</p>
+                        </div>
+                        <div class="desc-card feature-card">
                             <ul class="pillar-features">
-                                <li>ASTR Traffic Guard OS</li>
-                                <li>Automated Perimeter Patrols</li>
-                                <li>Scalable Logistics Networks</li>
+                                <li><strong>Surveillance (ISR):</strong> <span>Persistent monitoring & intelligence.</span></li>
+                                <li><strong>Logistics:</strong> <span>Scalable autonomous delivery networks.</span></li>
+                                <li><strong>Tactical:</strong> <span>Precision-guided loitering munitions.</span></li>
                             </ul>
-                            <a href="#" class="card-link">Learn more &rarr;</a>
+
                         </div>
                     </div>
                 </div>
