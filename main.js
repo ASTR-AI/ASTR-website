@@ -743,23 +743,36 @@ function initEcosystemGraph() {
 
 /* --- Pillar Showcase: Tab Switching Logic --- */
 function initPillarTabs() {
-    const tabs = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.nav-item');
     const contents = document.querySelectorAll('.pillar-content');
+    const slider = document.querySelector('.nav-highlight');
 
-    if (!tabs.length || !contents.length) return;
+    if (!tabs.length || !contents.length || !slider) return;
+
+    function moveSlider(tab) {
+        slider.style.width = `${tab.offsetWidth}px`;
+        slider.style.left = `${tab.offsetLeft}px`;
+    }
+
+    // Initialize slider position
+    const activeTab = document.querySelector('.nav-item.active');
+    if (activeTab) {
+        setTimeout(() => moveSlider(activeTab), 50);
+    }
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const target = tab.getAttribute('data-pillar');
-            if (!target) return; // Skip non-pillar tabs if any
+            if (!target) return;
 
             // Update Tabs
-            tabs.forEach(t => {
-                if(t.getAttribute('data-pillar')) t.classList.remove('active');
-            });
+            tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
-            // Update Content with transition
+            // Move the background highlight
+            moveSlider(tab);
+
+            // Update Content
             contents.forEach(content => {
                 content.classList.remove('active');
                 if (content.id === `content-${target}`) {
@@ -767,6 +780,12 @@ function initPillarTabs() {
                 }
             });
         });
+    });
+
+    // Handle window resize to keep slider aligned
+    window.addEventListener('resize', () => {
+        const currentActive = document.querySelector('.nav-item.active');
+        if (currentActive) moveSlider(currentActive);
     });
 }
 
