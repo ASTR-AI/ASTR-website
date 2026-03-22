@@ -12,7 +12,9 @@
 - [x] **Three Synergistic Pillars**: Dark theme glassmorphism cards for AI, Infrastructure, and Drones.
 - [x] **Pioneering the Future**: Light theme section highlighting R&D, Trust, and Talent.
 - [x] **Footer**: Comprehensive footer with contact info and social links.
-- [x] **Navigation**: Functional navbar linking the landing page sections and the dedicated Philosophy page.
+- [x] **Navigation**: 
+    - [x] Functional navbar linking the landing page sections and the dedicated Philosophy page.
+    - [x] **Spacing Refinement**: Increased top padding/margin for the `.segmented-control` navigation bar to `32px` for better separation from the section heading.
 - [x] **Scroll Reveal System**: IntersectionObserver-based animations for elements as they enter the viewport.
 - [x] **Advanced Animation Engine**: Integrated **GSAP (GreenSock)** and **ScrollTrigger** for high-performance scripted animations.
 - [x] **Smooth Scroll & Snapping**: Implemented **Lenis** smooth scrolling with GSAP-powered **Section Snapping**.

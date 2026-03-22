@@ -716,7 +716,7 @@ img {
 .segmented-control {
     display: flex;
     width: fit-content;
-    margin: 0 auto 48px auto; /* Centered with more space */
+    margin: 32px auto 48px auto; /* Added 32px top margin for better header separation */
     position: relative;
     background: #0a0a0a;
     padding: 4px;
@@ -1239,11 +1239,11 @@ img {
 
 /* Antigravity Inline Split Layout (Outside display stage) */
 .antigravity-split-inline {
-    margin: 33px auto 0 auto;
+    margin: 48px auto 0 auto;
     max-width: 1000px;
     display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 80px;
+    grid-template-columns: 30% 70%;
+    gap: 70px;
     align-items: start;
     width: 100%;
     padding: 0 40px;
@@ -1265,25 +1265,27 @@ img {
 
 .build-title {
     font-family: 'Lora', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     text-transform: capitalize;
-    line-height: 1.1;
+    line-height: 1.4;
     margin: 0;
     color: var(--white);
-    text-align: left;
+    text-align: center;
+    padding-right: 0px;
 }
 
 .build-description {
-    font-family: var(--font-family);
-    font-size: var(--fs-body);
+    font-family: 'Lora', serif;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.55);
     max-width: 550px;
     margin: 0;
     text-align: left;
+    justify-content: right;
     letter-spacing: 0.02em;
 }
 
@@ -1291,7 +1293,7 @@ img {
     .antigravity-split-inline {
         grid-template-columns: 1fr;
         gap: 24px;
-        margin-top: 60px;
+        margin-top: 40px;
         padding: 0 20px;
     }
 }
