@@ -626,9 +626,11 @@ img {
 /* The Stage */
 .pillar-display-stage {
     background: #050505;
-    border-radius: 24px;
-    padding: 60px;
-    min-height: 500px;
+    border-radius: 32px;
+    padding: 40px; /* Reduced for compactness */
+    min-height: 480px;
+    max-width: 1000px; /* Compact width */
+    margin: 0 auto; /* Center to screen */
     display: flex;
     position: relative;
     overflow: hidden;
@@ -712,7 +714,9 @@ img {
 
 /* Segmented Control Navigation */
 .segmented-control {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto 48px auto; /* Centered with more space */
     position: relative;
     background: #0a0a0a;
     padding: 4px;
@@ -720,7 +724,6 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    margin-bottom: 40px;
     gap: 0;
     z-index: 100;
 }
