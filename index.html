@@ -175,6 +175,11 @@
             </nav>
 
             <div class="pillar-display-stage reveal">
+                <!-- Background Elements -->
+                <div class="stage-stars"></div>
+                <div class="nebula-orb orb-1"></div>
+                <div class="nebula-orb orb-2"></div>
+
                 <!-- AI Content -->
                 <div class="pillar-content active" id="content-ai">
                     <div class="mockup-side">
@@ -216,56 +221,33 @@
 
                 <!-- Infrastructure Content -->
                 <div class="pillar-content" id="content-infra">
-                    <div class="mockup-side">
-                        <div class="blueprint-stage">
-                            <div class="blueprint-grid"></div>
-                            <svg class="blueprint-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Isometric Desk Outline -->
-                                <path class="blueprint-line" d="M200 150 L300 100 L200 50 L100 100 Z" />
-                                <path class="blueprint-line" d="M100 100 L100 120 L200 170 L200 150" />
-                                <path class="blueprint-line" d="M300 100 L300 120 L200 170" />
-                                
-                                <!-- Isometric Server Racks -->
-                                <g transform="translate(-50, 40)">
-                                    <path class="blueprint-line" d="M50 150 L80 135 L80 85 L50 100 Z" />
-                                    <path class="blueprint-line" d="M80 135 L110 150 L110 100 L80 85" />
-                                    <path class="blueprint-line" d="M50 100 L80 85 L110 100" />
-                                    <line class="blueprint-line" x1="55" y1="110" x2="75" y2="100" />
-                                    <line class="blueprint-line" x1="55" y1="120" x2="75" y2="110" />
-                                    <line class="blueprint-line" x1="55" y1="130" x2="75" y2="120" />
-                                </g>
-
-                                <g transform="translate(180, 40)">
-                                    <path class="blueprint-line" d="M50 150 L80 135 L80 85 L50 100 Z" />
-                                    <path class="blueprint-line" d="M80 135 L110 150 L110 100 L80 85" />
-                                    <path class="blueprint-line" d="M50 100 L80 85 L110 100" />
-                                    <line class="blueprint-line" x1="55" y1="110" x2="75" y2="100" />
-                                    <line class="blueprint-line" x1="55" y1="120" x2="75" y2="110" />
-                                    <line class="blueprint-line" x1="55" y1="130" x2="75" y2="120" />
-                                </g>
-
-                                <!-- Connection Lines -->
-                                <path class="blueprint-line" d="M110 140 L150 160 L200 140" stroke-dasharray="5,5" />
-                                <path class="blueprint-line" d="M290 140 L250 160 L200 140" stroke-dasharray="5,5" />
-                            </svg>
+                    <div class="solution-grid">
+                        <div class="visual-pane">
+                            <canvas id="infraCanvas"></canvas>
                         </div>
-                    </div>
-                    <div class="info-side">
-                        <div class="bento-grid">
-                            <div class="bento-card">
-                                <span class="bento-tag">Command Center</span>
-                                <h4>Centralized Control Rooms</h4>
-                                <p>Integrated mission control ecosystems for real-time monitoring and centralized operational intelligence.</p>
-                            </div>
-                            <div class="bento-card">
-                                <span class="bento-tag">Compute Node</span>
-                                <h4>High-Density Hardware</h4>
-                                <p>Supply and integration of advanced server clusters designed for massive parallel processing and AI training workloads.</p>
-                            </div>
-                            <div class="bento-card">
-                                <span class="bento-tag">Building OS</span>
-                                <h4>Smart Ecosystems</h4>
-                                <p>Digital twin integration for infrastructure management, optimizing energy and security protocols.</p>
+
+                        <div class="content-pane">
+                            <div class="infra-table">
+                                <div class="infra-table-row header">
+                                    <div class="col-cap">Capability</div>
+                                    <div class="col-impact">Strategic Impact</div>
+                                </div>
+                                <div class="infra-table-row">
+                                    <div class="col-cap">Innovation Labs</div>
+                                    <div class="col-impact">Rapidly test and iterate on AI models in a dedicated, custom-built sandbox.</div>
+                                </div>
+                                <div class="infra-table-row">
+                                    <div class="col-cap">Centers of Excellence</div>
+                                    <div class="col-impact">Centralize your AI talent with high-performance infrastructure and shared resources.</div>
+                                </div>
+                                <div class="infra-table-row">
+                                    <div class="col-cap">HPC Clusters</div>
+                                    <div class="col-impact">Scale massive workloads with custom-configured, high-density server hardware.</div>
+                                </div>
+                                <div class="infra-table-row">
+                                    <div class="col-cap">Data Vaults</div>
+                                    <div class="col-impact">Secure, decentralized architecture designed for mission-critical data sovereignty.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -335,6 +317,19 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Infrastructure-Specific Build Footer (Visible only when Infra is active) -->
+            <div class="antigravity-split-inline" id="infra-build-footer">
+                <div class="left-col">
+                    <h2 class="build-title">Build</h2>
+                </div>
+                <div class="right-col">
+                    <p class="build-description">
+                        We help you build the right foundation for your AI projects. Instead of sticking to just one brand, we pick the best hardware from leading global companies to create a custom setup for you. Whether you need an Innovation Lab, a Center of Excellence, or a Secure Data Centre, we handle the entire setup to ensure your system is powerful and stays running 24/7.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </section>
 
