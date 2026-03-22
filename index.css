@@ -625,8 +625,7 @@ img {
 
 /* The Stage */
 .pillar-display-stage {
-    background: #080808; /* Deep space black */
-    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.07), transparent 70%);
+    background: #050505;
     border-radius: 24px;
     padding: 60px;
     min-height: 500px;
@@ -634,28 +633,81 @@ img {
     position: relative;
     overflow: hidden;
     font-family: var(--font-family);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
 }
 
-/* The Blueprint Grid Background */
+/* Liquid Space Background */
 .pillar-display-stage::before {
     content: '';
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none; 
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(230, 205, 153, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(200, 162, 78, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(10, 10, 10, 1) 0%, #050505 100%);
     z-index: 0;
-    animation: slowDrift 60s linear infinite;
 }
 
-@keyframes slowDrift {
-    0% { background-position: 0px 0px; }
-    100% { background-position: 200px 200px; }
+/* Star Field */
+.stage-stars {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 20% 50%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(2px 2px at 40% 80%, #fff, transparent),
+        radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 80% 40%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 90%, rgba(255,255,255,0.4), transparent);
+    background-size: 400px 400px;
+    opacity: 0.3;
+    animation: spaceDrift 100s linear infinite;
+    z-index: 1;
+}
+
+/* Drifting Nebula Orbs */
+.nebula-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: none;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(230, 205, 153, 0.1);
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: rgba(200, 162, 78, 0.08);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -5s;
+}
+
+@keyframes spaceDrift {
+    from { background-position: 0 0; }
+    to { background-position: 400px 800px; }
+}
+
+@keyframes floatOrb {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(50px, 30px) scale(1.1); }
+}
+
+/* Updated Stage Content Z-index */
+.pillar-content, .segmented-control {
+    position: relative;
+    z-index: 10;
 }
 
 /* Segmented Control Navigation */
@@ -745,6 +797,10 @@ img {
 .pillar-content.active {
     display: grid;
     animation: fadeIn 0.5s ease;
+}
+
+#content-infra.active {
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -945,7 +1001,107 @@ img {
     padding: 0;
 }
 
-/* Infrastructure: Cyber-Blueprint Aesthetic */
+:root {
+    /* Existing variables ... */
+    --accent-cyan: #00f2ff;
+}
+
+/* Infrastructure: High-Density Data-Vault Schematic */
+.doodle-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+.doodle-svg {
+    width: 85%;
+    height: 85%;
+    overflow: visible;
+}
+
+/* Technical Details */
+.rack-chassis {
+    fill: #0a0a0a;
+    stroke: rgba(212, 175, 55, 0.3);
+    stroke-width: 1;
+}
+
+.rack-mesh {
+    opacity: 0.1;
+}
+
+.server-blade {
+    fill: #111;
+    stroke: rgba(212, 175, 55, 0.1);
+    stroke-width: 0.5;
+}
+
+.led-matrix {
+    fill: #1a1a1a;
+}
+
+.data-conduit {
+    fill: none;
+    stroke: var(--gold-dim);
+    stroke-width: 0.5;
+    stroke-dasharray: 2, 4;
+    opacity: 0.3;
+}
+
+/* Sequential Power Sequence */
+.pillar-content.active .rack-unit {
+    animation: rackFadeIn 1s ease forwards;
+}
+
+.pillar-content.active .rack-unit:nth-child(1) { animation-delay: 0.2s; }
+.pillar-content.active .rack-unit:nth-child(2) { animation-delay: 0.8s; }
+.pillar-content.active .rack-unit:nth-child(3) { animation-delay: 1.4s; }
+
+@keyframes rackFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Active Status Indicators (Matrix Style) */
+.pillar-content.active .led-active {
+    animation: ledBlink 1.5s infinite alternate;
+}
+
+@keyframes ledBlink {
+    0% { fill: #1a1a1a; filter: none; }
+    50% { fill: var(--gold); filter: drop-shadow(0 0 3px var(--gold)); }
+    100% { fill: #1a1a1a; filter: none; }
+}
+
+/* Data Flow Animation */
+.pillar-content.active .data-flow-line {
+    stroke-dasharray: 10, 20;
+    animation: flowData 4s linear infinite;
+    stroke: var(--gold);
+    opacity: 0.6;
+}
+
+@keyframes flowData {
+    from { stroke-dashoffset: 60; }
+    to { stroke-dashoffset: 0; }
+}
+
+/* Perspective Breathing */
+.pillar-content.active .doodle-svg {
+    animation: perspectiveShift 8s ease-in-out infinite alternate;
+}
+
+@keyframes perspectiveShift {
+    from { transform: perspective(1000px) rotateX(2deg) rotateY(-1deg); }
+    to { transform: perspective(1000px) rotateX(0deg) rotateY(1deg); }
+}
+
+/* Infrastructure: Cyber-Blueprint Aesthetic (Keeping as backup or secondary) */
 .blueprint-stage {
     position: relative;
     width: 100%;
@@ -988,55 +1144,87 @@ img {
     to { stroke-dashoffset: 0; }
 }
 
-/* Infrastructure: Bento-style Cards */
-.bento-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+/* Infrastructure: Solution Grid Layout */
+.solution-grid {
+    display: flex;
+    gap: 48px;
+    align-items: center; /* Center horizontally */
+    justify-content: center;
     width: 100%;
 }
 
-.bento-card {
+.visual-pane {
+    width: 380px; /* Fixed square size */
+    height: 380px;
+    aspect-ratio: 1 / 1;
+    background: #080808;
+    border-radius: 32px; /* More rounded for liquid feel */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0; /* Prevent squashing */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+#infraCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.content-pane {
+    flex: 1;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.info-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
     padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.4s ease;
 }
 
-.bento-card:hover {
+.info-card:hover {
     background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(0, 255, 255, 0.3);
+    border-color: rgba(0, 242, 255, 0.3);
     transform: translateY(-4px);
 }
 
-.bento-card h4 {
+.info-card h3 {
     font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    color: #fff; /* White text for titles */
-    margin-bottom: 12px;
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 12px 0;
+    letter-spacing: 0.5px;
 }
 
-.bento-card p {
+.info-card p {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6); /* Slightly brighter white for body */
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
 }
 
-.bento-tag {
+.badge {
     display: inline-block;
     font-size: 10px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    color: #fff; /* White text for tags */
-    background: rgba(0, 255, 255, 0.2); /* Keep cyan background for brand context */
+    color: #00f2ff;
+    border: 1px solid rgba(0, 242, 255, 0.3);
     padding: 4px 8px;
     border-radius: 4px;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    background: rgba(0, 242, 255, 0.05);
 }
 
 /* Drone Telemetry Refinements */

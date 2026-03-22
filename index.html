@@ -175,6 +175,11 @@
             </nav>
 
             <div class="pillar-display-stage reveal">
+                <!-- Background Elements -->
+                <div class="stage-stars"></div>
+                <div class="nebula-orb orb-1"></div>
+                <div class="nebula-orb orb-2"></div>
+
                 <!-- AI Content -->
                 <div class="pillar-content active" id="content-ai">
                     <div class="mockup-side">
@@ -216,56 +221,21 @@
 
                 <!-- Infrastructure Content -->
                 <div class="pillar-content" id="content-infra">
-                    <div class="mockup-side">
-                        <div class="blueprint-stage">
-                            <div class="blueprint-grid"></div>
-                            <svg class="blueprint-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Isometric Desk Outline -->
-                                <path class="blueprint-line" d="M200 150 L300 100 L200 50 L100 100 Z" />
-                                <path class="blueprint-line" d="M100 100 L100 120 L200 170 L200 150" />
-                                <path class="blueprint-line" d="M300 100 L300 120 L200 170" />
-                                
-                                <!-- Isometric Server Racks -->
-                                <g transform="translate(-50, 40)">
-                                    <path class="blueprint-line" d="M50 150 L80 135 L80 85 L50 100 Z" />
-                                    <path class="blueprint-line" d="M80 135 L110 150 L110 100 L80 85" />
-                                    <path class="blueprint-line" d="M50 100 L80 85 L110 100" />
-                                    <line class="blueprint-line" x1="55" y1="110" x2="75" y2="100" />
-                                    <line class="blueprint-line" x1="55" y1="120" x2="75" y2="110" />
-                                    <line class="blueprint-line" x1="55" y1="130" x2="75" y2="120" />
-                                </g>
-
-                                <g transform="translate(180, 40)">
-                                    <path class="blueprint-line" d="M50 150 L80 135 L80 85 L50 100 Z" />
-                                    <path class="blueprint-line" d="M80 135 L110 150 L110 100 L80 85" />
-                                    <path class="blueprint-line" d="M50 100 L80 85 L110 100" />
-                                    <line class="blueprint-line" x1="55" y1="110" x2="75" y2="100" />
-                                    <line class="blueprint-line" x1="55" y1="120" x2="75" y2="110" />
-                                    <line class="blueprint-line" x1="55" y1="130" x2="75" y2="120" />
-                                </g>
-
-                                <!-- Connection Lines -->
-                                <path class="blueprint-line" d="M110 140 L150 160 L200 140" stroke-dasharray="5,5" />
-                                <path class="blueprint-line" d="M290 140 L250 160 L200 140" stroke-dasharray="5,5" />
-                            </svg>
+                    <div class="solution-grid">
+                        <div class="visual-pane">
+                            <canvas id="infraCanvas"></canvas>
                         </div>
-                    </div>
-                    <div class="info-side">
-                        <div class="bento-grid">
-                            <div class="bento-card">
-                                <span class="bento-tag">Command Center</span>
-                                <h4>Centralized Control Rooms</h4>
-                                <p>Integrated mission control ecosystems for real-time monitoring and centralized operational intelligence.</p>
+
+                        <div class="content-pane">
+                            <div class="info-card">
+                                <span class="badge">COE CENTER</span>
+                                <h3>Active Intelligence Operations</h3>
+                                <p>Our Tier-1 technical team doesn't just monitor—we build. We operationalize infrastructure to ensure 99.9% uptime and mission-critical reliability.</p>
                             </div>
-                            <div class="bento-card">
-                                <span class="bento-tag">Compute Node</span>
-                                <h4>High-Density Hardware</h4>
-                                <p>Supply and integration of advanced server clusters designed for massive parallel processing and AI training workloads.</p>
-                            </div>
-                            <div class="bento-card">
-                                <span class="bento-tag">Building OS</span>
-                                <h4>Smart Ecosystems</h4>
-                                <p>Digital twin integration for infrastructure management, optimizing energy and security protocols.</p>
+                            <div class="info-card">
+                                <span class="badge">HPC CLUSTER</span>
+                                <h3>Data Vault Architecture</h3>
+                                <p>High-density server hardware custom-configured for massive AI workloads and decentralized processing.</p>
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroCanvas();
     initEcosystemGraph();
     initPillarTabs();
+    initInfraCanvas();
 });
 
 /* --- Navbar scroll effect & mobile menu --- */
@@ -777,6 +778,8 @@ function initPillarTabs() {
                 content.classList.remove('active');
                 if (content.id === `content-${target}`) {
                     content.classList.add('active');
+                    // Dispatch custom event for canvas resizing
+                    window.dispatchEvent(new Event('pillarTabChanged'));
                 }
             });
         });
@@ -787,5 +790,112 @@ function initPillarTabs() {
         const currentActive = document.querySelector('.nav-item.active');
         if (currentActive) moveSlider(currentActive);
     });
+}
+
+/* --- Infrastructure Showcase: Particle Data Vault --- */
+function initInfraCanvas() {
+    const canvas = document.getElementById('infraCanvas');
+    if (!canvas) return;
+
+    if (typeof THREE === 'undefined') return;
+
+    const container = canvas.parentElement;
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    function resize() {
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+    }
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000); // 1:1 aspect for the square pane
+    camera.position.z = 16;
+    camera.position.y = 6;
+    camera.lookAt(0, 0, 0);
+
+    // Create a 3D Grid of Particles (The Data Vault)
+    const gridSize = 7; // Reduced grid size for better clarity in the smaller pane
+    const spacing = 0.9; 
+    const particleCount = gridSize * gridSize * gridSize;
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+    const sizes = new Float32Array(particleCount);
+
+    const colorGold = new THREE.Color(0xE6CD99);
+    const colorDim = new THREE.Color(0x222222); 
+
+    let idx = 0;
+    for (let x = 0; x < gridSize; x++) {
+        for (let y = 0; y < gridSize; y++) {
+            for (let z = 0; z < gridSize; z++) {
+                positions[idx * 3] = (x - (gridSize - 1) / 2) * spacing;
+                positions[idx * 3 + 1] = (y - (gridSize - 1) / 2) * spacing;
+                positions[idx * 3 + 2] = (z - (gridSize - 1) / 2) * spacing;
+
+                colorDim.toArray(colors, idx * 3);
+                sizes[idx] = 1.0;
+                idx++;
+            }
+        }
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+    const material = new THREE.PointsMaterial({
+        size: 0.1,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Initial resize
+    resize();
+    window.addEventListener('resize', resize);
+    window.addEventListener('pillarTabChanged', resize);
+
+    const clock = new THREE.Clock();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const time = clock.getElapsedTime();
+
+        points.rotation.y += 0.002;
+        points.rotation.x = Math.sin(time * 0.5) * 0.1;
+
+        const posAttr = geometry.attributes.position;
+        const colorAttr = geometry.attributes.color;
+
+        // Data Pulse Animation
+        for (let i = 0; i < particleCount; i++) {
+            const y = posAttr.getY(i);
+            const x = posAttr.getX(i);
+            
+            // Create a traveling "wave" of data light
+            const pulse = Math.sin(y * 0.5 - time * 3.0) + Math.cos(x * 0.5 + time * 2.0);
+            const intensity = Math.max(0, pulse > 1.5 ? 1.0 : 0.2);
+
+            if (intensity > 0.5) {
+                colorGold.toArray(colors, i * 3);
+            } else {
+                colorDim.toArray(colors, i * 3);
+            }
+        }
+        colorAttr.needsUpdate = true;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
 }
 
