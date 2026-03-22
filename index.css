@@ -1180,11 +1180,120 @@ img {
 
 .content-pane {
     flex: 1;
-    max-width: 450px;
+    max-width: 580px; /* Widened slightly for table */
     display: flex;
     flex-direction: column;
     gap: 16px;
     min-width: 0;
+}
+
+/* Infrastructure Scannable Table */
+.infra-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.infra-table-row {
+    display: flex;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Minimalist divider */
+    gap: 32px;
+    transition: background 0.4s ease;
+}
+
+.infra-table-row.header {
+    padding: 0 0 16px 0;
+    border-bottom: 2px solid rgba(230, 205, 153, 0.3); /* Golden header line */
+}
+
+.infra-table-row.header div {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.col-cap {
+    flex: 0 0 180px; /* Fixed width for capability column */
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.col-impact {
+    flex: 1;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.infra-table-row:not(.header):hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.infra-table-row:not(.header):hover .col-cap {
+    color: var(--gold-light);
+}
+
+/* Antigravity Inline Split Layout (Outside display stage) */
+.antigravity-split-inline {
+    margin: 33px auto 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 80px;
+    align-items: start;
+    width: 100%;
+    padding: 0 40px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#infra-build-footer {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#infra-build-footer.visible {
+    display: grid;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.build-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--white);
+    text-align: left;
+}
+
+.build-description {
+    font-family: var(--font-family);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 550px;
+    margin: 0;
+    text-align: left;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 992px) {
+    .antigravity-split-inline {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 60px;
+        padding: 0 20px;
+    }
 }
 
 .info-card {

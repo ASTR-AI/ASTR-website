@@ -782,8 +782,27 @@ function initPillarTabs() {
                     window.dispatchEvent(new Event('pillarTabChanged'));
                 }
             });
+
+            // Toggle Build Footer visibility (only for Infrastructure)
+            const buildFooter = document.getElementById('infra-build-footer');
+            if (buildFooter) {
+                if (target === 'infra') {
+                    buildFooter.classList.add('visible');
+                } else {
+                    buildFooter.classList.remove('visible');
+                }
+            }
         });
     });
+
+    // Initial check for Build Footer (in case Infra is active on load)
+    const activeTabOnLoad = document.querySelector('.nav-item.active');
+    const buildFooter = document.getElementById('infra-build-footer');
+    if (activeTabOnLoad && buildFooter) {
+        if (activeTabOnLoad.getAttribute('data-pillar') === 'infra') {
+            buildFooter.classList.add('visible');
+        }
+    }
 
     // Handle window resize to keep slider aligned
     window.addEventListener('resize', () => {
