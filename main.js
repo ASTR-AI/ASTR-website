@@ -845,17 +845,20 @@ function initPillarTabs() {
   const tabs = document.querySelectorAll('.nav-item');
   const contents = document.querySelectorAll('.pillar-content');
   const slider = document.querySelector('.nav-highlight');
+  const stage = document.querySelector('.pillar-display-stage');
 
-  if (!tabs.length || !contents.length || !slider) return;
+  if (!tabs.length || !contents.length || !slider || !stage) return;
 
   function moveSlider(tab) {
     slider.style.width = `${tab.offsetWidth}px`;
     slider.style.left = `${tab.offsetLeft}px`;
   }
 
-  // Initialize slider position
+  // Initialize slider position and stage attribute
   const activeTab = document.querySelector('.nav-item.active');
   if (activeTab) {
+    const initialTarget = activeTab.getAttribute('data-pillar');
+    stage.setAttribute('data-active-pillar', initialTarget);
     setTimeout(() => moveSlider(activeTab), 50);
   }
 
@@ -863,6 +866,9 @@ function initPillarTabs() {
     tab.addEventListener('click', () => {
       const target = tab.getAttribute('data-pillar');
       if (!target) return;
+
+      // Update Stage Attribute for CSS targeting
+      stage.setAttribute('data-active-pillar', target);
 
       // Update Tabs
       tabs.forEach((t) => t.classList.remove('active'));

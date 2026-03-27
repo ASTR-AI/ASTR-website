@@ -398,24 +398,26 @@
         </nav>
 
         <div
-          class="pillar-display-stage reveal bg-[#050505] rounded-[32px] p-[40px] min-h-[480px] max-w-[1000px] mx-auto flex relative overflow-hidden font-lora border border-white/5 shadow-[0_40px_100px_rgba(0,0,0,0.8)] max-[1100px]:p-[30px]"
+          class="pillar-display-stage reveal bg-[#050505] rounded-[64px] p-[64px] min-h-[520px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.05)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px]"
         >
           <!-- Background Elements -->
           <div class="stage-stars"></div>
+          <div class="stardust"></div>
           <div class="nebula-orb orb-1"></div>
           <div class="nebula-orb orb-2"></div>
+          <div class="neutron-star-core"></div>
 
           <!-- AI Content -->
           <div
-            class="pillar-content active hidden [&.active]:grid grid-cols-[1.5fr_1fr] gap-[40px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
+            class="pillar-content active hidden [&.active]:grid grid-cols-[1.2fr_1fr] gap-[64px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
             id="content-ai"
           >
             <div class="mockup-side w-full flex justify-center font-mono">
               <div
-                class="window-frame terminal-window w-full max-w-[500px] h-[400px] max-h-[400px] flex flex-col bg-[#0a0a0a] rounded-[12px] border border-white/10 overflow-hidden"
+                class="window-frame terminal-window w-full max-w-[520px] h-[420px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[20px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)]"
               >
                 <div
-                  class="window-header bg-white/5 py-[12px] px-[16px] flex items-center justify-between border-b border-white/5"
+                  class="window-header bg-white/5 py-[12px] px-[20px] flex items-center justify-between border-b border-white/10"
                 >
                   <div class="window-controls flex gap-[8px]">
                     <span class="mac-dot close"></span>
@@ -423,12 +425,12 @@
                     <span class="mac-dot maximize"></span>
                   </div>
                   <span
-                    class="window-title font-mono text-[0.75rem] text-white/40"
-                    >inventory_optimizer.py</span
+                    class="window-title font-mono text-[0.7rem] text-white/30 uppercase tracking-[1px]"
+                    >optimizer_v3.core</span
                   >
                 </div>
                 <div
-                  class="window-body code-text scrollable-terminal flex-1 h-0 overflow-y-auto p-[15px] text-[0.85rem] leading-[1.6]"
+                  class="window-body code-text scrollable-terminal flex-1 h-0 overflow-y-auto p-[20px] text-[0.85rem] leading-[1.6]"
                   id="terminal-feed"
                 >
                   <div class="log-line mb-[6px]">
@@ -475,55 +477,92 @@
                 </div>
               </div>
             </div>
-            <div class="info-side flex flex-col gap-[20px] w-full">
-              <div
-                class="desc-card bg-gradient-to-br from-white/5 to-white/1 backdrop-blur-[25px] saturate-[180%] p-[32px] rounded-[24px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 relative overflow-hidden group/card hover:-translate-y-[5px] hover:scale-[1.01] hover:border-white/25 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]"
-              >
+            <div class="info-side flex flex-col gap-[32px] w-full">
+              <div class="main-info">
                 <h3
-                  class="font-cinzel text-[1.25rem] text-[#E6CD99] mb-[12px] tracking-[1px] uppercase z-10 relative"
+                  class="font-cinzel text-[28px] text-[#E6CD99] mb-[16px] tracking-[2px] uppercase z-10 relative"
                 >
                   AI Solutions
                 </h3>
                 <p
-                  class="text-white/60 text-[0.8rem] leading-[1.6] m-0 z-10 relative"
+                  class="font-lora text-[16px] leading-[1.6] text-white/80 m-0 z-10 relative"
                 >
-                  We deliver custom-crafted innovation, including custom
-                  software development, AI agent integration, and workflow
-                  optimization to transform your operations.
+                  We build custom digital intelligence that integrates deeply
+                  into your operations. From complex enterprise engines to
+                  autonomous agents, we transform how you work.
                 </p>
               </div>
-              <div
-                class="desc-card feature-card p-[24px] w-fit min-w-[320px] self-start bg-gradient-to-br from-white/5 to-white/1 backdrop-blur-[25px] saturate-[180%] rounded-[24px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 relative overflow-hidden group/card hover:-translate-y-[5px] hover:scale-[1.01] hover:border-white/25 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]"
-              >
-                <ul class="pillar-features z-10 relative">
-                  <li>
-                    <strong
-                      class="text-white text-[0.75rem] mb-[1px] tracking-[0.5px]"
-                      >Custom ERP & CRM Engines</strong
-                    >
-                    <span class="text-[0.7rem] text-white/45 leading-[1.3]"
-                      >Tailored digital backbones.</span
-                    >
-                  </li>
-                  <li>
-                    <strong
-                      class="text-white text-[0.75rem] mb-[1px] tracking-[0.5px]"
-                      >Intelligent Agentic Workflows</strong
-                    >
-                    <span class="text-[0.7rem] text-white/45 leading-[1.3]"
-                      >Autonomous task execution.</span
-                    >
-                  </li>
-                  <li>
-                    <strong
-                      class="text-white text-[0.75rem] mb-[1px] tracking-[0.5px]"
-                      >Predictive Supply Chain Logic</strong
-                    >
-                    <span class="text-[0.7rem] text-white/45 leading-[1.3]"
-                      >Future-proof inventory.</span
-                    >
-                  </li>
-                </ul>
+
+              <div class="neural-path-container relative mt-[20px] pl-[40px]">
+                <!-- The Vertical Data Rail -->
+                <div class="absolute left-[15px] top-[10px] bottom-[10px] w-[2px] bg-white/5 overflow-hidden">
+                  <div class="rail-pulse absolute top-0 left-0 w-full h-[60px] bg-gradient-to-b from-transparent via-[#E6CD99]/40 to-transparent"></div>
+                </div>
+
+                <div class="path-nodes flex flex-col gap-[32px]">
+                  <!-- Server Node 1 -->
+                  <div class="path-node group relative cursor-pointer">
+                    <!-- Connector Bridge -->
+                    <div class="absolute left-[-25px] top-[24px] w-[25px] h-[1px] bg-white/10 group-hover:bg-[#E6CD99]/30 transition-colors"></div>
+                    <!-- Node Dot -->
+                    <div class="absolute left-[-30px] top-[20px] w-[10px] h-[10px] rounded-full bg-[#1a1a1a] border border-white/20 group-hover:border-[#E6CD99] group-hover:shadow-[0_0_10px_#E6CD99] z-10 transition-all"></div>
+                    
+                    <div class="node-card p-[24px] rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-[20px] transition-all duration-500 group-hover:bg-white/[0.05] group-hover:border-white/10 group-hover:translate-x-[10px]">
+                      <div class="flex items-center gap-[20px]">
+                        <div class="node-icon shrink-0 w-[40px] h-[40px] rounded-[10px] bg-[#E6CD99]/5 flex items-center justify-center border border-[#E6CD99]/10 text-[#E6CD99] group-hover:bg-[#E6CD99]/10 transition-all">
+                          <svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                          </svg>
+                        </div>
+                        <div class="node-info">
+                          <h4 class="font-cinzel text-[0.9rem] text-white/90 tracking-[1.5px] uppercase mb-[2px]">Custom ERP & CRM</h4>
+                          <p class="font-lora text-[13px] text-white/40 leading-relaxed m-0 group-hover:text-white/60 transition-colors">Deep operational intelligence tailored to your business.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Server Node 2 -->
+                  <div class="path-node group relative cursor-pointer ml-[15px]">
+                    <div class="absolute left-[-40px] top-[24px] w-[40px] h-[1px] bg-white/10 group-hover:bg-[#E6CD99]/30 transition-colors"></div>
+                    <div class="absolute left-[-45px] top-[20px] w-[10px] h-[10px] rounded-full bg-[#1a1a1a] border border-white/20 group-hover:border-[#E6CD99] group-hover:shadow-[0_0_10px_#E6CD99] z-10 transition-all"></div>
+                    
+                    <div class="node-card p-[24px] rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-[20px] transition-all duration-500 group-hover:bg-white/[0.05] group-hover:border-white/10 group-hover:translate-x-[10px]">
+                      <div class="flex items-center gap-[20px]">
+                        <div class="node-icon shrink-0 w-[40px] h-[40px] rounded-[10px] bg-[#E6CD99]/5 flex items-center justify-center border border-[#E6CD99]/10 text-[#E6CD99] group-hover:bg-[#E6CD99]/10 transition-all">
+                          <svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                          </svg>
+                        </div>
+                        <div class="node-info">
+                          <h4 class="font-cinzel text-[0.9rem] text-white/90 tracking-[1.5px] uppercase mb-[2px]">Agentic Workflows</h4>
+                          <p class="font-lora text-[13px] text-white/40 leading-relaxed m-0 group-hover:text-white/60 transition-colors">Autonomous LLM agents that execute multi-step tasks.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Server Node 3 -->
+                  <div class="path-node group relative cursor-pointer">
+                    <div class="absolute left-[-25px] top-[24px] w-[25px] h-[1px] bg-white/10 group-hover:bg-[#E6CD99]/30 transition-colors"></div>
+                    <div class="absolute left-[-30px] top-[20px] w-[10px] h-[10px] rounded-full bg-[#1a1a1a] border border-white/20 group-hover:border-[#E6CD99] group-hover:shadow-[0_0_10px_#E6CD99] z-10 transition-all"></div>
+                    
+                    <div class="node-card p-[24px] rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-[20px] transition-all duration-500 group-hover:bg-white/[0.05] group-hover:border-white/10 group-hover:translate-x-[10px]">
+                      <div class="flex items-center gap-[20px]">
+                        <div class="node-icon shrink-0 w-[40px] h-[40px] rounded-[10px] bg-[#E6CD99]/5 flex items-center justify-center border border-[#E6CD99]/10 text-[#E6CD99] group-hover:bg-[#E6CD99]/10 transition-all">
+                          <svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M3 12h3m12 0h3M12 3v3m0 12v3" />
+                          </svg>
+                        </div>
+                        <div class="node-info">
+                          <h4 class="font-cinzel text-[0.9rem] text-white/90 tracking-[1.5px] uppercase mb-[2px]">Predictive Logic</h4>
+                          <p class="font-lora text-[13px] text-white/40 leading-relaxed m-0 group-hover:text-white/60 transition-colors">Future-proof inventory and supply chain data.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -622,15 +661,15 @@
 
           <!-- Drone Content -->
           <div
-            class="pillar-content hidden [&.active]:grid grid-cols-[1.5fr_1fr] gap-[40px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
+            class="pillar-content hidden [&.active]:grid grid-cols-[1.2fr_1fr] gap-[64px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
             id="content-drone"
           >
             <div class="mockup-side w-full flex justify-center font-mono">
               <div
-                class="window-frame w-full max-w-[500px] bg-[#080808] rounded-[12px] border border-white/10 overflow-hidden"
+                class="window-frame w-full max-w-[520px] bg-[#0a0a0a]/90 backdrop-blur-[20px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)]"
               >
                 <div
-                  class="window-header bg-white/5 py-[12px] px-[16px] flex items-center justify-between border-b border-white/5"
+                  class="window-header bg-white/5 py-[12px] px-[20px] flex items-center justify-between border-b border-white/10"
                 >
                   <div class="window-controls flex gap-[8px]">
                     <span class="mac-dot close"></span>
@@ -638,18 +677,18 @@
                     <span class="mac-dot maximize"></span>
                   </div>
                   <span
-                    class="window-title font-mono text-[0.75rem] text-white/40"
+                    class="window-title font-mono text-[0.7rem] text-white/30 uppercase tracking-[1px]"
                     >drone_telemetry_feed.os</span
                   >
                 </div>
                 <div
-                  class="window-body telemetry-mockup p-0 font-mono relative h-[350px] bg-[#080808] overflow-hidden"
+                  class="window-body telemetry-mockup p-0 font-mono relative h-[380px] bg-[#080808] overflow-hidden"
                 >
-                  <div class="drone-container">
+                  <div class="drone-container relative h-full w-full flex items-center justify-center">
                     <svg
                       viewBox="0 0 400 400"
                       xmlns="http://www.w3.org/2000/svg"
-                      class="max-w-[90%] max-h-[90%]"
+                      class="max-w-[85%] max-h-[85%] opacity-80"
                     >
                       <circle
                         class="orbit-ring"
@@ -678,13 +717,13 @@
                         <line x1="200" y1="200" x2="300" y2="300" />
                       </g>
 
-                      <g class="hub">
+                      <g class="core">
                         <circle
                           cx="200"
                           cy="200"
                           r="30"
                           fill="#1a1a1a"
-                          stroke="#d4af37"
+                          stroke="#E6CD99"
                           stroke-width="2"
                         />
                         <circle
@@ -692,80 +731,134 @@
                           cx="200"
                           cy="200"
                           r="8"
-                          fill="#d4af37"
+                          fill="#E6CD99"
                         />
                       </g>
 
                       <g class="drones">
-                        <circle class="drone" cx="100" cy="100" r="25" />
-                        <circle class="drone" cx="300" cy="100" r="25" />
-                        <circle class="drone" cx="100" cy="300" r="25" />
-                        <circle class="drone" cx="300" cy="300" r="25" />
+                        <circle class="drone" cx="100" cy="100" r="20" />
+                        <circle class="drone" cx="300" cy="100" r="20" />
+                        <circle class="drone" cx="100" cy="300" r="20" />
+                        <circle class="drone" cx="300" cy="300" r="20" />
                       </g>
                     </svg>
 
-                    <div class="label">
-                      <h3>Module 03</h3>
-                      <h2>Multi-Drone Coordination</h2>
-                      <p>
-                        Swarm intelligence synchronization<br />for complex
-                        operations.
+                    <div class="label absolute bottom-[24px] left-[24px] right-[24px] p-[20px] bg-black/60 backdrop-blur-[12px] rounded-[16px] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                      <div class="flex items-center gap-[8px] mb-[6px]">
+                        <span class="w-[8px] h-[8px] rounded-full bg-[#E6CD99] animate-pulse"></span>
+                        <h3 class="text-[#E6CD99] text-[0.65rem] font-bold uppercase tracking-[2px] m-0">Module 03</h3>
+                      </div>
+                      <h2 class="text-white text-[1rem] font-bold mb-[4px] uppercase tracking-[1px] font-cinzel">Multi-Drone Coordination</h2>
+                      <p class="text-white/50 text-[0.75rem] leading-[1.5] m-0 font-lora">
+                        Swarm intelligence synchronization for mission-critical operations.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="info-side flex flex-col gap-[20px] w-full">
-              <div
-                class="desc-card bg-gradient-to-br from-white/5 to-white/1 backdrop-blur-[25px] saturate-[180%] p-[32px] rounded-[24px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 relative overflow-hidden group/card hover:-translate-y-[5px] hover:scale-[1.01] hover:border-white/25 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]"
-              >
+            <div class="info-side flex flex-col gap-[32px] w-full">
+              <div class="main-info">
                 <h3
-                  class="font-cinzel text-[1.25rem] text-[#E6CD99] mb-[12px] tracking-[1px] uppercase z-10 relative"
+                  class="font-cinzel text-[28px] text-[#E6CD99] mb-[16px] tracking-[2px] uppercase z-10 relative"
                 >
-                  ASTR Drone Solutions
+                  Drone Solutions
                 </h3>
                 <p
-                  class="text-white/60 text-[0.8rem] leading-[1.6] m-0 z-10 relative"
+                  class="font-lora text-[16px] leading-[1.6] text-white/80 m-0 z-10 relative"
                 >
-                  Strategic integration of world-class aerial technology. We
-                  bridge the gap between operational needs and elite
-                  manufacturing, delivering custom-configured drone systems for
-                  mission-critical tasks.
+                  Strategic integration of world-class aerial technology. We 
+                  deliver custom-configured drone systems for intelligence, 
+                  logistics, and tactical deployment.
                 </p>
               </div>
-              <div
-                class="desc-card feature-card p-[24px] w-fit min-w-[320px] self-start bg-gradient-to-br from-white/5 to-white/1 backdrop-blur-[25px] saturate-[180%] rounded-[24px] border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4),inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 relative overflow-hidden group/card hover:-translate-y-[5px] hover:scale-[1.01] hover:border-white/25 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 hover:shadow-[0_15px_45px_rgba(0,0,0,0.6)]"
-              >
-                <ul class="pillar-features z-10 relative">
-                  <li>
-                    <strong
-                      class="text-white text-[0.75rem] mb-[1px] tracking-[0.5px]"
-                      >Surveillance (ISR):</strong
+
+              <div class="drone-capabilities flex flex-col gap-[16px] w-full">
+                <!-- Cap 1 -->
+                <div
+                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
+                >
+                  <div
+                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
                     >
-                    <span class="text-[0.7rem] text-white/45 leading-[1.3]"
-                      >Persistent monitoring & intelligence.</span
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <h4
+                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
                     >
-                  </li>
-                  <li>
-                    <strong
-                      class="text-white text-[0.75rem] mb-[1px] tracking-[0.5px]"
-                      >Logistics:</strong
+                      Surveillance (ISR)
+                    </h4>
+                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
+                      Persistent monitoring and real-time intelligence.
+                    </p>
+                  </div>
+                </div>
+                <!-- Cap 2 -->
+                <div
+                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
+                >
+                  <div
+                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
                     >
-                    <span class="text-[0.7rem] text-white/45 leading-[1.3]"
-                      >Scalable autonomous delivery networks.</span
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <h4
+                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
                     >
-                  </li>
-                  <li>
-                    <strong
-                      class="text-white text-[0.75rem] mb-[1px] tracking-[0.5px]"
-                      >Tactical:</strong
+                      Logistics & Delivery
+                    </h4>
+                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
+                      Scalable autonomous networks for rapid transport.
+                    </p>
+                  </div>
+                </div>
+                <!-- Cap 3 -->
+                <div
+                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
+                >
+                  <div
+                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
                     >
-                    <span class="text-[0.7rem] text-white/45 leading-[1.3]"
-                      >Precision-guided loitering munitions.</span
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <h4
+                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
                     >
-                  </li>
-                </ul>
+                      Tactical Systems
+                    </h4>
+                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
+                      Precision-guided solutions for mission safety.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
