@@ -533,84 +533,76 @@
             class="pillar-content hidden [&.active]:grid grid-cols-[1.5fr_1fr] gap-[40px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
             id="content-infra"
           >
-            <div
-              class="solution-grid flex gap-[48px] items-center justify-center w-full"
-            >
+            <div class="mockup-side w-full flex justify-center">
               <div
-                class="visual-pane w-[380px] h-[380px] aspect-square bg-[#080808] rounded-[32px] border border-white/10 flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)]"
+                class="visual-pane w-full max-w-[500px] h-[400px] max-h-[400px] bg-[#080808] rounded-[12px] border border-white/10 flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)]"
               >
                 <canvas id="infraCanvas" class="w-full h-full block"></canvas>
               </div>
+            </div>
 
-              <div
-                class="content-pane flex-1 max-w-[580px] flex flex-col gap-[16px] min-w-0"
-              >
-                <div class="infra-table flex flex-col w-full">
+            <div class="info-side flex flex-col gap-[20px] w-full">
+              <div class="infra-table flex flex-col w-full z-10 relative">
+                <div
+                  class="infra-table-row header flex py-0 pb-[12px] gap-[24px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.65rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
+                >
+                  <div class="col-cap flex-none w-[120px]">Capability</div>
+                  <div class="col-impact flex-1">Impact</div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
                   <div
-                    class="infra-table-row header flex py-0 pb-[16px] gap-[32px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.75rem] [&>div]:font-bold [&>div]:tracking-[2px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
+                    class="col-cap flex-none w-[120px] text-[0.85rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                   >
-                    <div class="col-cap flex-none w-[180px]">Capability</div>
-                    <div class="col-impact flex-1">Strategic Impact</div>
+                    Innovation Labs
                   </div>
                   <div
-                    class="infra-table-row group flex py-[24px] border-b border-white/10 gap-[32px] transition-colors duration-400 hover:bg-white/5"
+                    class="col-impact flex-1 text-[0.75rem] leading-[1.5] text-white/50"
                   >
-                    <div
-                      class="col-cap flex-none w-[180px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
-                    >
-                      Innovation Labs
-                    </div>
-                    <div
-                      class="col-impact flex-1 text-[0.85rem] leading-[1.6] text-white/50"
-                    >
-                      Rapidly test and iterate on AI models in a dedicated,
-                      custom-built sandbox.
-                    </div>
+                    Rapidly test and iterate on AI models in a dedicated sandbox.
+                  </div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[120px] text-[0.85rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    Centers of Excellence
                   </div>
                   <div
-                    class="infra-table-row group flex py-[24px] border-b border-white/10 gap-[32px] transition-colors duration-400 hover:bg-white/5"
+                    class="col-impact flex-1 text-[0.75rem] leading-[1.5] text-white/50"
                   >
-                    <div
-                      class="col-cap flex-none w-[180px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
-                    >
-                      Centers of Excellence
-                    </div>
-                    <div
-                      class="col-impact flex-1 text-[0.85rem] leading-[1.6] text-white/50"
-                    >
-                      Centralize your AI talent with high-performance
-                      infrastructure and shared resources.
-                    </div>
+                    Centralize your AI talent with shared high-performance resources.
+                  </div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[120px] text-[0.85rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    HPC Clusters
                   </div>
                   <div
-                    class="infra-table-row group flex py-[24px] border-b border-white/10 gap-[32px] transition-colors duration-400 hover:bg-white/5"
+                    class="col-impact flex-1 text-[0.75rem] leading-[1.5] text-white/50"
                   >
-                    <div
-                      class="col-cap flex-none w-[180px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
-                    >
-                      HPC Clusters
-                    </div>
-                    <div
-                      class="col-impact flex-1 text-[0.85rem] leading-[1.6] text-white/50"
-                    >
-                      Scale massive workloads with custom-configured,
-                      high-density server hardware.
-                    </div>
+                    Scale massive workloads with custom-configured server hardware.
+                  </div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[120px] text-[0.85rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    Data Vaults
                   </div>
                   <div
-                    class="infra-table-row group flex py-[24px] border-b border-white/10 gap-[32px] transition-colors duration-400 hover:bg-white/5"
+                    class="col-impact flex-1 text-[0.75rem] leading-[1.5] text-white/50"
                   >
-                    <div
-                      class="col-cap flex-none w-[180px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
-                    >
-                      Data Vaults
-                    </div>
-                    <div
-                      class="col-impact flex-1 text-[0.85rem] leading-[1.6] text-white/50"
-                    >
-                      Secure, decentralized architecture designed for
-                      mission-critical data sovereignty.
-                    </div>
+                    Secure, decentralized architecture designed for mission-critical data sovereignty.
                   </div>
                 </div>
               </div>
@@ -770,12 +762,12 @@
 
         <!-- Infrastructure-Specific Build Footer (Visible only when Infra is active) -->
         <div
-          class="antigravity-split-inline hidden opacity-0 translate-y-[20px] my-[20px] mx-auto mb-[50px] max-w-[1000px] grid-cols-[30%_70%] gap-[70px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[20px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
+          class="antigravity-split-inline hidden opacity-0 translate-y-[20px] mt-[48px] mx-auto mb-[50px] max-w-[1000px] grid-cols-[30%_70%] gap-[70px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[20px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
           id="infra-build-footer"
         >
           <div class="left-col">
             <h2
-              class="build-title font-lora text-[24px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-center"
+              class="build-title font-lora text-[18px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-left"
             >
               Build
             </h2>
