@@ -1,0 +1,37 @@
+{
+  "name": "astr-website",
+  "version": "1.0.0",
+  "description": "A high-fidelity UI/UX web design for a deep-tech company named 'ASTR AI'.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anubhav100j/ASTR-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anubhav100j/ASTR-website/issues"
+  },
+  "homepage": "https://github.com/anubhav100j/ASTR-website#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.4.0",
+    "postcss": "^8.5.8",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.0.3"
+  }
+}

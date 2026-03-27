@@ -1,494 +1,1299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASTR AI — Intelligence for What Matters</title>
-    <meta name="description"
-        content="ASTR AI builds next-generation intelligent systems for AI solutions, infrastructure, and drone networks. Advanced System for Technology, Robotics and AI." />
-    <meta name="keywords"
-        content="ASTR AI, artificial intelligence, deep tech, AI solutions, drone network, robotics, smart infrastructure" />
+    <meta
+      name="description"
+      content="ASTR AI builds next-generation intelligent systems for AI solutions, infrastructure, and drone networks. Advanced System for Technology, Robotics and AI."
+    />
+    <meta
+      name="keywords"
+      content="ASTR AI, artificial intelligence, deep tech, AI solutions, drone network, robotics, smart infrastructure"
+    />
     <link rel="stylesheet" href="index.css" />
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' fill='%23c8a24e' width='100' height='100'/><text x='50' y='68' font-size='50' font-weight='900' text-anchor='middle' fill='%23000'>A</text></svg>" />
-</head>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' fill='%23c8a24e' width='100' height='100'/><text x='50' y='68' font-size='50' font-weight='900' text-anchor='middle' fill='%23000'>A</text></svg>"
+    />
+  </head>
 
-
-<body>
-
+  <body>
     <!-- ====== NAVIGATION ====== -->
-    <nav class="navbar" id="navbar">
-        <a href="#" class="nav-logo">
-            <img src="Pictures/without%20bg.png" alt="ASTR AI Logo" class="logo-image">
-        </a>
-        <div class="nav-links" id="navLinks">
-            <a href="philosophy.html">Philosophy</a>
-            <a href="#pillars">Solutions</a>
-            <a href="#future">R&amp;D</a>
-            <a href="#footer">Contact</a>
-        </div>
-        <div class="nav-hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <nav
+      class="navbar fixed top-[20px] left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[1200px] rounded-[100px] z-[1000] py-[15px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[20px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)]"
+      id="navbar"
+    >
+      <a
+        href="#"
+        class="nav-logo flex items-center gap-[10px] text-[1.4rem] font-extrabold tracking-[2px]"
+      >
+        <img
+          src="Pictures/without%20bg.png"
+          alt="ASTR AI Logo"
+          class="logo-image bg-transparent absolute -top-[35px] left-[20px] h-[130px] w-auto block object-contain z-[1002] pointer-events-none"
+        />
+      </a>
+      <div
+        class="nav-links flex items-center gap-[16px] pl-[120px]"
+        id="navLinks"
+      >
+        <a
+          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[20px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)]"
+          href="philosophy.html"
+          >Philosophy</a
+        >
+        <a
+          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[20px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)]"
+          href="#pillars"
+          >Solutions</a
+        >
+        <a
+          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[20px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)]"
+          href="#future"
+          >R&amp;D</a
+        >
+        <a
+          class="nav-cta py-[10px] px-[24px] bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)]"
+          href="#footer"
+          >Contact</a
+        >
+      </div>
+      <div
+        class="nav-hamburger hidden flex-col gap-[5px] cursor-pointer z-[1001] max-[768px]:flex"
+        id="hamburger"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
 
     <!-- ====== SECTION 1: HERO (Dark) ====== -->
-    <section class="hero" id="hero">
-        <div class="hero-glass reveal">
-            <div class="hero-bg">
-                <canvas id="heroCanvas"></canvas>
-            </div>
-
-            <div class="hero-corner top-left reveal reveal-delay-1">
-                Intelligence for<br>What Matters
-            </div>
-
-            <div class="hero-corner bottom-left reveal reveal-delay-2">
-                Est. 2025 | Startup India Recognized
-            </div>
-
-            <div class="hero-corner bottom-right reveal reveal-delay-3">
-                <a href="#pillars" class="hero-explore">
-                    Explore &rarr;
-                    
-                </a>
-            </div>
+    <section
+      class="hero relative min-h-screen flex items-center justify-center pt-[85px] pb-[10px] px-[40px] bg-[#101010] max-[992px]:pt-[90px] max-[992px]:px-[20px]"
+      id="hero"
+    >
+      <div
+        class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-140px)] min-h-[600px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4),inner_0_0_0_1px_rgba(255,255,255,0.05)] backdrop-blur-[20px] overflow-hidden max-[992px]:h-[calc(100vh-110px)] max-[992px]:rounded-[20px] max-[576px]:min-h-[500px]"
+      >
+        <div class="hero-bg absolute inset-0 z-0">
+          <canvas id="heroCanvas" class="w-full h-full block"></canvas>
         </div>
+
+        <div
+          class="hero-corner top-left reveal reveal-delay-1 absolute z-10 text-gold uppercase tracking-[2px] leading-[1.4] text-[1.5rem] top-[50px] left-[50px] max-[992px]:top-[30px] max-[992px]:left-[30px] max-[992px]:text-[1.25rem] max-[576px]:top-[20px] max-[576px]:left-[20px] max-[576px]:text-[1.1rem]"
+        >
+          Intelligence for<br />What Matters
+        </div>
+
+        <div
+          class="hero-corner bottom-left reveal reveal-delay-2 absolute z-10 text-white/70 tracking-[0.5px] text-[0.95rem] bottom-[50px] left-[50px] max-[992px]:bottom-[30px] max-[992px]:left-[30px] max-[992px]:text-[0.85rem] max-[576px]:bottom-[20px] max-[576px]:left-[20px] max-[576px]:text-[0.75rem] max-[576px]:max-w-[60%]"
+        >
+          Est. 2025 | Startup India Recognized
+        </div>
+
+        <div
+          class="hero-corner bottom-right reveal reveal-delay-3 absolute z-10 bottom-[50px] right-[50px] max-[992px]:bottom-[30px] max-[992px]:right-[30px] max-[576px]:bottom-[20px] max-[576px]:right-[20px]"
+        >
+          <a
+            href="#pillars"
+            class="hero-explore inline-flex items-center gap-[8px] text-[1.05rem] text-white transition-all duration-200 hover:opacity-80 hover:translate-x-[4px]"
+          >
+            Explore &rarr;
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- ====== NEW SECTION: ADAPTIVE SOLUTIONS (Claude-style) ====== -->
-    <section class="adaptive-solutions" id="adaptive">
-        <div class="adaptive-section-label">
-            <span class="section-tag">Methodology</span>
-            <h2 class="reveal">Adaptive Solutions for <br><span class="gold-text">Modern Challenges.</span></h2>
-        </div>
-        
-        <div class="adaptive-split-layout">
-            <!-- Left Column: Text Blocks -->
-            <div class="adaptive-text-column">
-                <div class="adaptive-text-block" id="block-1">
-                    <div class="adaptive-block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                            <polyline points="2 17 12 22 22 17"/>
-                            <polyline points="2 12 12 17 22 12"/>
-                        </svg>
-                    </div>
-                    <h3>Custom Software Development</h3>
-                    <p>High-performance applications built from the ground up to solve your specific business challenges — from custom ERPs to intelligent automation platforms.</p>
-                </div>
+    <section
+      class="adaptive-solutions bg-[#0a0a0a] relative text-white z-10 py-[80px]"
+      id="adaptive"
+    >
+      <div
+        class="adaptive-section-label text-center max-w-[800px] mx-auto mb-[80px] px-[20px]"
+      >
+        <span
+          class="section-tag inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
+          >Methodology</span
+        >
+        <h2
+          class="reveal text-[clamp(1.5rem,3vw,2.5rem)] mt-[20px] font-bold leading-[1.2] [&>br]:hidden max-[768px]:[&>br]:block"
+        >
+          Adaptive Solutions for <br /><span
+            class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+            >Modern Challenges.</span
+          >
+        </h2>
+      </div>
 
-                <div class="adaptive-block-divider"></div>
-
-                <div class="adaptive-text-block" id="block-2">
-                    <div class="adaptive-block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2a4 4 0 0 0-4 4c0 2 1 3 2 4l-5 7h14l-5-7c1-1 2-2 2-4a4 4 0 0 0-4-4z"/>
-                            <path d="M12 18v4"/>
-                        </svg>
-                    </div>
-                    <h3>AI Integration & Intelligence</h3>
-                    <p>Infuse your existing systems with Computer Vision, Machine Learning, and AI agents for smarter, predictive operations across your workflow.</p>
-                </div>
-
-                <div class="adaptive-block-divider"></div>
-
-                <div class="adaptive-text-block" id="block-3">
-                    <div class="adaptive-block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="2" y1="12" x2="22" y2="12"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
-                    </div>
-                    <h3>Workflow Optimization</h3>
-                    <p>Connect fragmented tools into one unified ecosystem to automate tasks, eliminate operational silos, and streamline your entire operation.</p>
-                </div>
-
-                <div class="adaptive-block-divider"></div>
-
-                <div class="adaptive-text-block" id="block-4">
-                    <div class="adaptive-block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>System Monitoring & Support</h3>
-                    <p>Dedicated monitoring and proactive maintenance to ensure your technology performs at its peak, 24/7 — with zero downtime tolerance.</p>
-                </div>
+      <div
+        class="adaptive-split-layout grid grid-cols-[38%_62%] relative items-start max-[900px]:grid-cols-1"
+      >
+        <!-- Left Column: Text Blocks -->
+        <div
+          class="adaptive-text-column relative flex flex-col pt-[120px] px-[60px] pb-[80px] z-[5] max-[900px]:pt-[80px] max-[900px]:px-[24px] max-[900px]:pb-[40px] max-[900px]:order-2 max-[480px]:pt-[60px] max-[480px]:px-[20px]"
+        >
+          <div
+            class="adaptive-text-block py-[32px] transition-opacity duration-600 opacity-100 max-[900px]:py-[24px]"
+            id="block-1"
+          >
+            <div
+              class="adaptive-block-icon w-[36px] h-[36px] rounded-[10px] bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center mb-[16px] text-[#E6CD99] [&>svg]:w-[18px] [&>svg]:h-[18px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
+              </svg>
             </div>
+            <h3
+              class="text-[1.25rem] font-bold mb-[10px] text-white leading-[1.3] max-[480px]:text-[1.1rem]"
+            >
+              Custom Software Development
+            </h3>
+            <p class="text-white/50 leading-[1.75] text-[0.925rem] m-0">
+              High-performance applications built from the ground up to solve
+              your specific business challenges — from custom ERPs to
+              intelligent automation platforms.
+            </p>
+          </div>
 
-            <!-- Right Column: Full-bleed Ecosystem Graph -->
-            <div class="adaptive-visual-column">
-                <div id="ecosystem-graph"></div>
+          <div
+            class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-[rgba(212,175,55,0.2)] to-white/5"
+          ></div>
+
+          <div
+            class="adaptive-text-block py-[32px] transition-opacity duration-600 opacity-100 max-[900px]:py-[24px]"
+            id="block-2"
+          >
+            <div
+              class="adaptive-block-icon w-[36px] h-[36px] rounded-[10px] bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center mb-[16px] text-[#E6CD99] [&>svg]:w-[18px] [&>svg]:h-[18px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a4 4 0 0 0-4 4c0 2 1 3 2 4l-5 7h14l-5-7c1-1 2-2 2-4a4 4 0 0 0-4-4z"
+                />
+                <path d="M12 18v4" />
+              </svg>
             </div>
+            <h3
+              class="text-[1.25rem] font-bold mb-[10px] text-white leading-[1.3] max-[480px]:text-[1.1rem]"
+            >
+              AI Integration & Intelligence
+            </h3>
+            <p class="text-white/50 leading-[1.75] text-[0.925rem] m-0">
+              Infuse your existing systems with Computer Vision, Machine
+              Learning, and AI agents for smarter, predictive operations across
+              your workflow.
+            </p>
+          </div>
+
+          <div
+            class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-[rgba(212,175,55,0.2)] to-white/5"
+          ></div>
+
+          <div
+            class="adaptive-text-block py-[32px] transition-opacity duration-600 opacity-100 max-[900px]:py-[24px]"
+            id="block-3"
+          >
+            <div
+              class="adaptive-block-icon w-[36px] h-[36px] rounded-[10px] bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center mb-[16px] text-[#E6CD99] [&>svg]:w-[18px] [&>svg]:h-[18px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg>
+            </div>
+            <h3
+              class="text-[1.25rem] font-bold mb-[10px] text-white leading-[1.3] max-[480px]:text-[1.1rem]"
+            >
+              Workflow Optimization
+            </h3>
+            <p class="text-white/50 leading-[1.75] text-[0.925rem] m-0">
+              Connect fragmented tools into one unified ecosystem to automate
+              tasks, eliminate operational silos, and streamline your entire
+              operation.
+            </p>
+          </div>
+
+          <div
+            class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-[rgba(212,175,55,0.2)] to-white/5"
+          ></div>
+
+          <div
+            class="adaptive-text-block py-[32px] transition-opacity duration-600 opacity-100 max-[900px]:py-[24px]"
+            id="block-4"
+          >
+            <div
+              class="adaptive-block-icon w-[36px] h-[36px] rounded-[10px] bg-[rgba(212,175,55,0.1)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center mb-[16px] text-[#E6CD99] [&>svg]:w-[18px] [&>svg]:h-[18px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3
+              class="text-[1.25rem] font-bold mb-[10px] text-white leading-[1.3] max-[480px]:text-[1.1rem]"
+            >
+              System Monitoring & Support
+            </h3>
+            <p class="text-white/50 leading-[1.75] text-[0.925rem] m-0">
+              Dedicated monitoring and proactive maintenance to ensure your
+              technology performs at its peak, 24/7 — with zero downtime
+              tolerance.
+            </p>
+          </div>
         </div>
+
+        <!-- Right Column: Full-bleed Ecosystem Graph -->
+        <div
+          class="adaptive-visual-column sticky top-0 flex items-center justify-center h-screen overflow-hidden max-[900px]:min-h-[50vh] max-[900px]:order-1"
+        >
+          <div
+            id="ecosystem-graph"
+            class="absolute inset-0 w-full h-full z-[2]"
+          ></div>
+        </div>
+      </div>
     </section>
 
     <!-- ====== SECTION 3: THREE PILLARS (Interactive Showcase) ====== -->
-    <section class="pillars" id="pillars">
-        <div class="container">
-            <div class="pillars-header">
-                <span class="section-tag">Our Verticals</span>
-                <h2 class="reveal">Synergistic <span class="gold-text">Pillars.</span></h2>
-                <p class="reveal reveal-delay-1">Each pillar reinforces the others — creating a unified ecosystem of intelligent technology.</p>
-            </div>
-
-            <!-- Pillar Tabs Navigation -->
-            <nav class="segmented-control reveal">
-                <span class="nav-highlight"></span>
-                
-                <button class="nav-item active" data-pillar="ai">
-                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M12 2L14.5 9L22 11.5L14.5 14L12 21L9.5 14L2 11.5L9.5 9L12 2Z" />
-                    <path d="M12 8L13 11L16 12L13 13L12 16L11 13L8 12L11 11L12 8Z" opacity="0.5" />
-                  </svg>
-                  AI Solutions
-                </button>
-              
-                <button class="nav-item" data-pillar="infra">
-                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="3" y="4" width="18" height="4" rx="1" />
-                    <rect x="3" y="10" width="18" height="4" rx="1" />
-                    <rect x="3" y="16" width="18" height="4" rx="1" />
-                    <circle cx="7" cy="6" r="0.5" fill="currentColor" />
-                    <circle cx="7" cy="12" r="0.5" fill="currentColor" />
-                    <circle cx="7" cy="18" r="0.5" fill="currentColor" />
-                  </svg>
-                  Infrastructure
-                </button>
-              
-                <button class="nav-item" data-pillar="drone">
-                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="12" cy="12" r="2.5" />
-                    <path d="M4.5 4.5L9.5 9.5M14.5 14.5L19.5 19.5M19.5 4.5L14.5 9.5M9.5 14.5L4.5 19.5" />
-                    <circle cx="4.5" cy="4.5" r="1.5" />
-                    <circle cx="19.5" cy="4.5" r="1.5" />
-                    <circle cx="4.5" cy="19.5" r="1.5" />
-                    <circle cx="19.5" cy="19.5" r="1.5" />
-                  </svg>
-                  Drone Solutions
-                </button>
-            </nav>
-
-            <div class="pillar-display-stage reveal">
-                <!-- Background Elements -->
-                <div class="stage-stars"></div>
-                <div class="nebula-orb orb-1"></div>
-                <div class="nebula-orb orb-2"></div>
-
-                <!-- AI Content -->
-                <div class="pillar-content active" id="content-ai">
-                    <div class="mockup-side">
-                        <div class="window-frame terminal-window">
-                            <div class="window-header">
-                                <div class="window-controls">
-                                    <span class="mac-dot close"></span>
-                                    <span class="mac-dot minimize"></span>
-                                    <span class="mac-dot maximize"></span>
-                                </div>
-                                <span class="window-title">inventory_optimizer.py</span>
-                            </div>
-                            <div class="window-body code-text scrollable-terminal" id="terminal-feed">
-                                <div class="log-line"><span class="code-comment"># Initializing ASTR_CORE v2.1</span></div>
-                                <div class="log-line"><span class="gold-text">[LOG]</span> Scanning Hospital Inventory Nodes...</div>
-                                <div class="log-line"><span class="gold-text">[LOG]</span> Applying FEFO Logic (First-Expired-First-Out)</div>
-                                <div class="log-line"><span class="gold-text">[LOG]</span> Rerouting supply chain to Node_B</div>
-                                <div class="log-line success">Success: Optimized 42 workflows / Wastage reduced 18%</div>
-                                <div class="log-line"><span class="code-comment"># Monitoring active nodes...</span></div>
-                                <div class="log-line"><span class="gold-text">[LOG]</span> Pulse check: All systems nominal.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-side">
-                        <div class="desc-card">
-                            <h3>AI Solutions</h3>
-                            <p>We deliver custom-crafted innovation, including custom software development, AI agent integration, and workflow optimization to transform your operations.</p>
-                        </div>
-                        <div class="desc-card feature-card">
-                            <ul class="pillar-features">
-                                <li><strong>Custom ERP & CRM Engines</strong> <span>Tailored digital backbones.</span></li>
-                                <li><strong>Intelligent Agentic Workflows</strong> <span>Autonomous task execution.</span></li>
-                                <li><strong>Predictive Supply Chain Logic</strong> <span>Future-proof inventory.</span></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Infrastructure Content -->
-                <div class="pillar-content" id="content-infra">
-                    <div class="solution-grid">
-                        <div class="visual-pane">
-                            <canvas id="infraCanvas"></canvas>
-                        </div>
-
-                        <div class="content-pane">
-                            <div class="infra-table">
-                                <div class="infra-table-row header">
-                                    <div class="col-cap">Capability</div>
-                                    <div class="col-impact">Strategic Impact</div>
-                                </div>
-                                <div class="infra-table-row">
-                                    <div class="col-cap">Innovation Labs</div>
-                                    <div class="col-impact">Rapidly test and iterate on AI models in a dedicated, custom-built sandbox.</div>
-                                </div>
-                                <div class="infra-table-row">
-                                    <div class="col-cap">Centers of Excellence</div>
-                                    <div class="col-impact">Centralize your AI talent with high-performance infrastructure and shared resources.</div>
-                                </div>
-                                <div class="infra-table-row">
-                                    <div class="col-cap">HPC Clusters</div>
-                                    <div class="col-impact">Scale massive workloads with custom-configured, high-density server hardware.</div>
-                                </div>
-                                <div class="infra-table-row">
-                                    <div class="col-cap">Data Vaults</div>
-                                    <div class="col-impact">Secure, decentralized architecture designed for mission-critical data sovereignty.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drone Content -->
-                <div class="pillar-content" id="content-drone">
-                    <div class="mockup-side">
-                        <div class="window-frame">
-                            <div class="window-header">
-                                <div class="window-controls">
-                                    <span class="mac-dot close"></span>
-                                    <span class="mac-dot minimize"></span>
-                                    <span class="mac-dot maximize"></span>
-                                </div>
-                                <span class="window-title">drone_telemetry_feed.os</span>
-                            </div>
-                            <div class="window-body telemetry-mockup">
-                                <div class="drone-container">
-                                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                                        <circle class="orbit-ring" cx="200" cy="200" r="180" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="8, 12" />
-                                        
-                                        <circle cx="200" cy="200" r="120" fill="none" stroke="#333" stroke-width="1" />
-                                    
-                                        <g class="arms" stroke="#555" stroke-width="2">
-                                          <line x1="200" y1="200" x2="100" y2="100" />
-                                          <line x1="200" y1="200" x2="300" y2="100" />
-                                          <line x1="200" y1="200" x2="100" y2="300" />
-                                          <line x1="200" y1="200" x2="300" y2="300" />
-                                        </g>
-                                    
-                                        <g class="hub">
-                                          <circle cx="200" cy="200" r="30" fill="#1a1a1a" stroke="#d4af37" stroke-width="2" />
-                                          <circle class="pulse" cx="200" cy="200" r="8" fill="#d4af37" />
-                                        </g>
-                                    
-                                        <g class="drones">
-                                          <circle class="drone" cx="100" cy="100" r="25" />
-                                          <circle class="drone" cx="300" cy="100" r="25" />
-                                          <circle class="drone" cx="100" cy="300" r="25" />
-                                          <circle class="drone" cx="300" cy="300" r="25" />
-                                        </g>
-                                      </svg>
-                                      
-                                      <div class="label">
-                                        <h3>Module 03</h3>
-                                        <h2>Multi-Drone Coordination</h2>
-                                        <p>Swarm intelligence synchronization for complex operations.</p>
-                                      </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info-side">
-                        <div class="desc-card">
-                            <h3>ASTR Drone Solutions</h3>
-                            <p>Strategic integration of world-class aerial technology. We bridge the gap between operational needs and elite manufacturing, delivering custom-configured drone systems for mission-critical tasks.</p>
-                        </div>
-                        <div class="desc-card feature-card">
-                            <ul class="pillar-features">
-                                <li><strong>Surveillance (ISR):</strong> <span>Persistent monitoring & intelligence.</span></li>
-                                <li><strong>Logistics:</strong> <span>Scalable autonomous delivery networks.</span></li>
-                                <li><strong>Tactical:</strong> <span>Precision-guided loitering munitions.</span></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Infrastructure-Specific Build Footer (Visible only when Infra is active) -->
-            <div class="antigravity-split-inline" id="infra-build-footer">
-                <div class="left-col">
-                    <h2 class="build-title">Build</h2>
-                </div>
-                <div class="right-col">
-                    <p class="build-description">
-                        We help you build the right foundation for your AI projects. Instead of sticking to just one brand, we pick the best hardware from leading global companies to create a custom setup for you. Whether you need an Innovation Lab, a Center of Excellence, or a Secure Data Centre, we handle the entire setup to ensure your system is powerful and stays running 24/7.
-                    </p>
-                </div>
-            </div>
-
+    <section
+      class="pillars bg-[#050505] py-section-y px-section-x relative z-[15]"
+      id="pillars"
+    >
+      <div class="container max-w-container mx-auto w-full">
+        <div
+          class="pillars-header text-center max-w-[680px] mx-auto mb-[141px]"
+        >
+          <span
+            class="section-tag inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
+            >Our Verticals</span
+          >
+          <h2
+            class="reveal text-[clamp(1.5rem,3vw,2.5rem)] mb-[24px] font-bold"
+          >
+            Synergistic
+            <span
+              class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+              >Pillars.</span
+            >
+          </h2>
+          <p class="reveal reveal-delay-1 text-[#888888] text-[1.1rem]">
+            Each pillar reinforces the others — creating a unified ecosystem of
+            intelligent technology.
+          </p>
         </div>
+
+        <!-- Pillar Tabs Navigation -->
+        <nav
+          class="segmented-control reveal flex w-fit mx-auto mt-[32px] mb-[48px] relative bg-[#0a0a0a] p-[4px] rounded-[100px] border border-white/10 backdrop-blur-[12px] gap-0 z-[100]"
+        >
+          <span
+            class="nav-highlight absolute top-[4px] left-[4px] h-[calc(100%-8px)] bg-white/10 border border-white/10 rounded-[100px] transition-all duration-500 z-0 pointer-events-none"
+          ></span>
+
+          <button
+            class="nav-item active group relative bg-transparent border-none text-[#888888] py-[8px] px-[20px] rounded-[100px] cursor-pointer transition-colors duration-400 flex items-center gap-[10px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+            data-pillar="ai"
+          >
+            <svg
+              class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-[#E6CD99] group-[.active]:text-white group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M12 2L14.5 9L22 11.5L14.5 14L12 21L9.5 14L2 11.5L9.5 9L12 2Z"
+              />
+              <path
+                d="M12 8L13 11L16 12L13 13L12 16L11 13L8 12L11 11L12 8Z"
+                opacity="0.5"
+              />
+            </svg>
+            AI Solutions
+          </button>
+
+          <button
+            class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[20px] rounded-[100px] cursor-pointer transition-colors duration-400 flex items-center gap-[10px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+            data-pillar="infra"
+          >
+            <svg
+              class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-[#E6CD99] group-[.active]:text-white group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="4" width="18" height="4" rx="1" />
+              <rect x="3" y="10" width="18" height="4" rx="1" />
+              <rect x="3" y="16" width="18" height="4" rx="1" />
+              <circle cx="7" cy="6" r="0.5" fill="currentColor" />
+              <circle cx="7" cy="12" r="0.5" fill="currentColor" />
+              <circle cx="7" cy="18" r="0.5" fill="currentColor" />
+            </svg>
+            Infrastructure
+          </button>
+
+          <button
+            class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[20px] rounded-[100px] cursor-pointer transition-colors duration-400 flex items-center gap-[10px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+            data-pillar="drone"
+          >
+            <svg
+              class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-[#E6CD99] group-[.active]:text-white group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="12" r="2.5" />
+              <path
+                d="M4.5 4.5L9.5 9.5M14.5 14.5L19.5 19.5M19.5 4.5L14.5 9.5M9.5 14.5L4.5 19.5"
+              />
+              <circle cx="4.5" cy="4.5" r="1.5" />
+              <circle cx="19.5" cy="4.5" r="1.5" />
+              <circle cx="4.5" cy="19.5" r="1.5" />
+              <circle cx="19.5" cy="19.5" r="1.5" />
+            </svg>
+            Drone Solutions
+          </button>
+        </nav>
+
+        <div
+          class="pillar-display-stage reveal bg-[#050505] rounded-[64px] p-[64px] min-h-[520px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.05)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px]"
+        >
+          <!-- Background Elements -->
+          <div class="stage-stars"></div>
+          <div class="stardust"></div>
+          <div class="nebula-orb orb-1"></div>
+          <div class="nebula-orb orb-2"></div>
+          <div class="neutron-star-core"></div>
+
+          <!-- AI Content -->
+          <div
+            class="pillar-content active hidden [&.active]:grid grid-cols-[1.2fr_1fr] gap-[64px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
+            id="content-ai"
+          >
+            <div class="mockup-side w-full flex justify-center font-mono">
+              <div
+                class="window-frame terminal-window w-full max-w-[520px] h-[420px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[20px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)]"
+              >
+                <div
+                  class="window-header bg-white/5 py-[12px] px-[20px] flex items-center justify-between border-b border-white/10"
+                >
+                  <div class="window-controls flex gap-[8px]">
+                    <span class="mac-dot close"></span>
+                    <span class="mac-dot minimize"></span>
+                    <span class="mac-dot maximize"></span>
+                  </div>
+                  <span
+                    class="window-title font-mono text-[0.7rem] text-white/30 uppercase tracking-[1px]"
+                    >optimizer_v3.core</span
+                  >
+                </div>
+                <div
+                  class="window-body code-text scrollable-terminal flex-1 h-0 overflow-y-auto p-[20px] text-[0.85rem] leading-[1.6]"
+                  id="terminal-feed"
+                >
+                  <div class="log-line mb-[6px]">
+                    <span class="code-comment text-[#6a9955]"
+                      ># Initializing ASTR_CORE v2.1</span
+                    >
+                  </div>
+                  <div class="log-line mb-[6px]">
+                    <span
+                      class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+                      >[LOG]</span
+                    >
+                    Scanning Hospital Inventory Nodes...
+                  </div>
+                  <div class="log-line mb-[6px]">
+                    <span
+                      class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+                      >[LOG]</span
+                    >
+                    Applying FEFO Logic (First-Expired-First-Out)
+                  </div>
+                  <div class="log-line mb-[6px]">
+                    <span
+                      class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+                      >[LOG]</span
+                    >
+                    Rerouting supply chain to Node_B
+                  </div>
+                  <div class="log-line success text-[#4CAF50] mb-[6px]">
+                    Success: Optimized 42 workflows / Wastage reduced 18%
+                  </div>
+                  <div class="log-line mb-[6px]">
+                    <span class="code-comment text-[#6a9955]"
+                      ># Monitoring active nodes...</span
+                    >
+                  </div>
+                  <div class="log-line mb-[6px]">
+                    <span
+                      class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+                      >[LOG]</span
+                    >
+                    Pulse check: All systems nominal.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="info-side flex flex-col gap-[32px] w-full">
+              <div class="main-info">
+                <h3
+                  class="font-cinzel text-[28px] text-[#E6CD99] mb-[16px] tracking-[2px] uppercase z-10 relative"
+                >
+                  AI Solutions
+                </h3>
+                <p
+                  class="font-lora text-[16px] leading-[1.6] text-white/80 m-0 z-10 relative"
+                >
+                  We build custom digital intelligence that integrates deeply
+                  into your operations. From complex enterprise engines to
+                  autonomous agents, we transform how you work.
+                </p>
+              </div>
+
+              <div class="neural-path-container relative mt-[20px] pl-[40px]">
+                <!-- The Vertical Data Rail -->
+                <div class="absolute left-[15px] top-[10px] bottom-[10px] w-[2px] bg-white/5 overflow-hidden">
+                  <div class="rail-pulse absolute top-0 left-0 w-full h-[60px] bg-gradient-to-b from-transparent via-[#E6CD99]/40 to-transparent"></div>
+                </div>
+
+                <div class="path-nodes flex flex-col gap-[32px]">
+                  <!-- Server Node 1 -->
+                  <div class="path-node group relative cursor-pointer">
+                    <!-- Connector Bridge -->
+                    <div class="absolute left-[-25px] top-[24px] w-[25px] h-[1px] bg-white/10 group-hover:bg-[#E6CD99]/30 transition-colors"></div>
+                    <!-- Node Dot -->
+                    <div class="absolute left-[-30px] top-[20px] w-[10px] h-[10px] rounded-full bg-[#1a1a1a] border border-white/20 group-hover:border-[#E6CD99] group-hover:shadow-[0_0_10px_#E6CD99] z-10 transition-all"></div>
+                    
+                    <div class="node-card p-[24px] rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-[20px] transition-all duration-500 group-hover:bg-white/[0.05] group-hover:border-white/10 group-hover:translate-x-[10px]">
+                      <div class="flex items-center gap-[20px]">
+                        <div class="node-icon shrink-0 w-[40px] h-[40px] rounded-[10px] bg-[#E6CD99]/5 flex items-center justify-center border border-[#E6CD99]/10 text-[#E6CD99] group-hover:bg-[#E6CD99]/10 transition-all">
+                          <svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                          </svg>
+                        </div>
+                        <div class="node-info">
+                          <h4 class="font-cinzel text-[0.9rem] text-white/90 tracking-[1.5px] uppercase mb-[2px]">Custom ERP & CRM</h4>
+                          <p class="font-lora text-[13px] text-white/40 leading-relaxed m-0 group-hover:text-white/60 transition-colors">Deep operational intelligence tailored to your business.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Server Node 2 -->
+                  <div class="path-node group relative cursor-pointer ml-[15px]">
+                    <div class="absolute left-[-40px] top-[24px] w-[40px] h-[1px] bg-white/10 group-hover:bg-[#E6CD99]/30 transition-colors"></div>
+                    <div class="absolute left-[-45px] top-[20px] w-[10px] h-[10px] rounded-full bg-[#1a1a1a] border border-white/20 group-hover:border-[#E6CD99] group-hover:shadow-[0_0_10px_#E6CD99] z-10 transition-all"></div>
+                    
+                    <div class="node-card p-[24px] rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-[20px] transition-all duration-500 group-hover:bg-white/[0.05] group-hover:border-white/10 group-hover:translate-x-[10px]">
+                      <div class="flex items-center gap-[20px]">
+                        <div class="node-icon shrink-0 w-[40px] h-[40px] rounded-[10px] bg-[#E6CD99]/5 flex items-center justify-center border border-[#E6CD99]/10 text-[#E6CD99] group-hover:bg-[#E6CD99]/10 transition-all">
+                          <svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                          </svg>
+                        </div>
+                        <div class="node-info">
+                          <h4 class="font-cinzel text-[0.9rem] text-white/90 tracking-[1.5px] uppercase mb-[2px]">Agentic Workflows</h4>
+                          <p class="font-lora text-[13px] text-white/40 leading-relaxed m-0 group-hover:text-white/60 transition-colors">Autonomous LLM agents that execute multi-step tasks.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Server Node 3 -->
+                  <div class="path-node group relative cursor-pointer">
+                    <div class="absolute left-[-25px] top-[24px] w-[25px] h-[1px] bg-white/10 group-hover:bg-[#E6CD99]/30 transition-colors"></div>
+                    <div class="absolute left-[-30px] top-[20px] w-[10px] h-[10px] rounded-full bg-[#1a1a1a] border border-white/20 group-hover:border-[#E6CD99] group-hover:shadow-[0_0_10px_#E6CD99] z-10 transition-all"></div>
+                    
+                    <div class="node-card p-[24px] rounded-[16px] bg-white/[0.02] border border-white/5 backdrop-blur-[20px] transition-all duration-500 group-hover:bg-white/[0.05] group-hover:border-white/10 group-hover:translate-x-[10px]">
+                      <div class="flex items-center gap-[20px]">
+                        <div class="node-icon shrink-0 w-[40px] h-[40px] rounded-[10px] bg-[#E6CD99]/5 flex items-center justify-center border border-[#E6CD99]/10 text-[#E6CD99] group-hover:bg-[#E6CD99]/10 transition-all">
+                          <svg class="w-[20px] h-[20px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M3 12h3m12 0h3M12 3v3m0 12v3" />
+                          </svg>
+                        </div>
+                        <div class="node-info">
+                          <h4 class="font-cinzel text-[0.9rem] text-white/90 tracking-[1.5px] uppercase mb-[2px]">Predictive Logic</h4>
+                          <p class="font-lora text-[13px] text-white/40 leading-relaxed m-0 group-hover:text-white/60 transition-colors">Future-proof inventory and supply chain data.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Infrastructure Content -->
+          <div
+            class="pillar-content hidden [&.active]:grid grid-cols-[1.5fr_1fr] gap-[40px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
+            id="content-infra"
+          >
+            <div class="mockup-side w-full flex justify-center">
+              <div
+                class="visual-pane w-[380px] h-[380px] bg-[#080808]/50 backdrop-blur-[10px] rounded-full border border-white/10 flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_0_50px_rgba(230,205,153,0.1),inset_0_0_20px_rgba(255,255,255,0.05)] group/infra-core"
+              >
+                <!-- Outer rotating ring decoration -->
+                <div
+                  class="absolute inset-[-10px] border border-dashed border-white/5 rounded-full animate-[spin_30s_linear_infinite] pointer-events-none"
+                ></div>
+                <!-- Inner glow -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-tr from-[#E6CD99]/10 to-transparent opacity-30 group-hover/infra-core:opacity-50 transition-opacity duration-700"
+                ></div>
+                <canvas
+                  id="infraCanvas"
+                  class="w-full h-full block scale-110"
+                ></canvas>
+              </div>
+            </div>
+
+            <div class="info-side flex flex-col gap-[20px] w-full">
+              <div class="infra-table flex flex-col w-full z-10 relative">
+                <div
+                  class="infra-table-row header flex py-0 pb-[12px] gap-[24px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.8rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
+                >
+                  <div class="col-cap flex-none w-[160px]">Capability</div>
+                  <div class="col-impact flex-1">Impact</div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    Innovation Labs
+                  </div>
+                  <div
+                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                  >
+                    Rapidly test and iterate on AI models in a dedicated sandbox.
+                  </div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    Centers of Excellence
+                  </div>
+                  <div
+                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                  >
+                    Centralize your AI talent with shared high-performance resources.
+                  </div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    HPC Clusters
+                  </div>
+                  <div
+                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                  >
+                    Scale massive workloads with custom-configured server hardware.
+                  </div>
+                </div>
+                <div
+                  class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                >
+                  <div
+                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                  >
+                    Data Vaults
+                  </div>
+                  <div
+                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                  >
+                    Secure, decentralized architecture designed for mission-critical data sovereignty.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drone Content -->
+          <div
+            class="pillar-content hidden [&.active]:grid grid-cols-[1.2fr_1fr] gap-[64px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
+            id="content-drone"
+          >
+            <div class="mockup-side w-full flex justify-center font-mono">
+              <div
+                class="window-frame w-full max-w-[520px] bg-[#0a0a0a]/90 backdrop-blur-[20px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)]"
+              >
+                <div
+                  class="window-header bg-white/5 py-[12px] px-[20px] flex items-center justify-between border-b border-white/10"
+                >
+                  <div class="window-controls flex gap-[8px]">
+                    <span class="mac-dot close"></span>
+                    <span class="mac-dot minimize"></span>
+                    <span class="mac-dot maximize"></span>
+                  </div>
+                  <span
+                    class="window-title font-mono text-[0.7rem] text-white/30 uppercase tracking-[1px]"
+                    >drone_telemetry_feed.os</span
+                  >
+                </div>
+                <div
+                  class="window-body telemetry-mockup p-0 font-mono relative h-[380px] bg-[#080808] overflow-hidden"
+                >
+                  <div class="drone-container relative h-full w-full flex items-center justify-center">
+                    <svg
+                      viewBox="0 0 400 400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="max-w-[85%] max-h-[85%] opacity-80"
+                    >
+                      <circle
+                        class="orbit-ring"
+                        cx="200"
+                        cy="200"
+                        r="180"
+                        fill="none"
+                        stroke="#444"
+                        stroke-width="1"
+                        stroke-dasharray="8, 12"
+                      />
+
+                      <circle
+                        cx="200"
+                        cy="200"
+                        r="120"
+                        fill="none"
+                        stroke="#333"
+                        stroke-width="1"
+                      />
+
+                      <g class="arms" stroke="#555" stroke-width="2">
+                        <line x1="200" y1="200" x2="100" y2="100" />
+                        <line x1="200" y1="200" x2="300" y2="100" />
+                        <line x1="200" y1="200" x2="100" y2="300" />
+                        <line x1="200" y1="200" x2="300" y2="300" />
+                      </g>
+
+                      <g class="core">
+                        <circle
+                          cx="200"
+                          cy="200"
+                          r="30"
+                          fill="#1a1a1a"
+                          stroke="#E6CD99"
+                          stroke-width="2"
+                        />
+                        <circle
+                          class="pulse"
+                          cx="200"
+                          cy="200"
+                          r="8"
+                          fill="#E6CD99"
+                        />
+                      </g>
+
+                      <g class="drones">
+                        <circle class="drone" cx="100" cy="100" r="20" />
+                        <circle class="drone" cx="300" cy="100" r="20" />
+                        <circle class="drone" cx="100" cy="300" r="20" />
+                        <circle class="drone" cx="300" cy="300" r="20" />
+                      </g>
+                    </svg>
+
+                    <div class="label absolute bottom-[24px] left-[24px] right-[24px] p-[20px] bg-black/60 backdrop-blur-[12px] rounded-[16px] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                      <div class="flex items-center gap-[8px] mb-[6px]">
+                        <span class="w-[8px] h-[8px] rounded-full bg-[#E6CD99] animate-pulse"></span>
+                        <h3 class="text-[#E6CD99] text-[0.65rem] font-bold uppercase tracking-[2px] m-0">Module 03</h3>
+                      </div>
+                      <h2 class="text-white text-[1rem] font-bold mb-[4px] uppercase tracking-[1px] font-cinzel">Multi-Drone Coordination</h2>
+                      <p class="text-white/50 text-[0.75rem] leading-[1.5] m-0 font-lora">
+                        Swarm intelligence synchronization for mission-critical operations.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="info-side flex flex-col gap-[32px] w-full">
+              <div class="main-info">
+                <h3
+                  class="font-cinzel text-[28px] text-[#E6CD99] mb-[16px] tracking-[2px] uppercase z-10 relative"
+                >
+                  Drone Solutions
+                </h3>
+                <p
+                  class="font-lora text-[16px] leading-[1.6] text-white/80 m-0 z-10 relative"
+                >
+                  Strategic integration of world-class aerial technology. We 
+                  deliver custom-configured drone systems for intelligence, 
+                  logistics, and tactical deployment.
+                </p>
+              </div>
+
+              <div class="drone-capabilities flex flex-col gap-[16px] w-full">
+                <!-- Cap 1 -->
+                <div
+                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
+                >
+                  <div
+                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <h4
+                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
+                    >
+                      Surveillance (ISR)
+                    </h4>
+                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
+                      Persistent monitoring and real-time intelligence.
+                    </p>
+                  </div>
+                </div>
+                <!-- Cap 2 -->
+                <div
+                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
+                >
+                  <div
+                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <h4
+                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
+                    >
+                      Logistics & Delivery
+                    </h4>
+                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
+                      Scalable autonomous networks for rapid transport.
+                    </p>
+                  </div>
+                </div>
+                <!-- Cap 3 -->
+                <div
+                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
+                >
+                  <div
+                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <div class="cap-text">
+                    <h4
+                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
+                    >
+                      Tactical Systems
+                    </h4>
+                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
+                      Precision-guided solutions for mission safety.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Infrastructure-Specific Build Footer (Visible only when Infra is active) -->
+        <div
+          class="antigravity-split-inline hidden opacity-0 translate-y-[20px] mt-[48px] mx-auto mb-[50px] max-w-[1000px] grid-cols-[30%_70%] gap-[70px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[20px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
+          id="infra-build-footer"
+        >
+          <div class="left-col">
+            <h2
+              class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-left"
+            >
+              Build
+            </h2>
+          </div>
+          <div class="right-col">
+            <p
+              class="build-description font-lora text-[16px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
+            >
+              We help you build the right foundation for your AI projects.
+              Instead of sticking to just one brand, we pick the best hardware
+              from leading global companies to create a custom setup for you.
+              Whether you need an Innovation Lab, a Center of Excellence, or a
+              Secure Data Centre, we handle the entire setup to ensure your
+              system is powerful and stays running 24/7.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ====== SECTION 4: PIONEERING THE FUTURE (Light) ====== -->
-    <section class="future" id="future">
-        <div class="container">
-            <div class="future-header">
-                <span class="section-tag" style="color: var(--gold-dim);">Research &amp; Development</span>
-                <h2 class="reveal">Bridging R&amp;D With <span
-                        style="background: linear-gradient(135deg, var(--gold), var(--gold-dim)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Market-Ready
-                        Applications.</span></h2>
-                <p class="reveal reveal-delay-1">From fundamental research to deployed products — we close the gap
-                    between academic breakthroughs and real-world impact.</p>
-            </div>
-
-            <div class="future-grid">
-                <!-- R&D Focus -->
-                <div class="future-card reveal" id="futureRD">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="3" />
-                            <path d="M12 1v4" />
-                            <path d="M12 19v4" />
-                            <path d="M4.22 4.22l2.83 2.83" />
-                            <path d="M16.95 16.95l2.83 2.83" />
-                            <path d="M1 12h4" />
-                            <path d="M19 12h4" />
-                            <path d="M4.22 19.78l2.83-2.83" />
-                            <path d="M16.95 7.05l2.83-2.83" />
-                        </svg>
-                    </div>
-                    <div class="card-number">01</div>
-                    <h3>Deep-Tech R&amp;D</h3>
-                    <p>We lead deep-tech research and development to redefine human-machine collaboration, pushing the
-                        boundaries of what intelligent systems can achieve.</p>
-                </div>
-
-                <!-- Government Trust -->
-                <div class="future-card reveal reveal-delay-1" id="futureTrust">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                    </div>
-                    <div class="card-number">02</div>
-                    <h3>Government Trust</h3>
-                    <p>Securing government contracts builds a high-level systemic trust architecture, establishing
-                        credibility while funding our most ambitious research programs.</p>
-                </div>
-
-                <!-- Talent Pipeline -->
-                <div class="future-card reveal reveal-delay-2" id="futureTalent">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
-                    </div>
-                    <div class="card-number">03</div>
-                    <h3>Talent Pipeline</h3>
-                    <p>We empower the next generation by building infrastructure and curricula for AI education,
-                        ensuring a steady stream of skilled professionals for the industry.</p>
-                </div>
-            </div>
+    <section
+      class="future bg-[#050505] py-section-y px-section-x relative border-t border-white/10 z-[10]"
+      id="future"
+    >
+      <div class="container max-w-container mx-auto w-full">
+        <div class="future-header text-center max-w-[800px] mx-auto mb-[80px]">
+          <span
+            class="section-tag inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
+            >Research &amp; Development</span
+          >
+          <h2 class="reveal text-[clamp(2rem,4vw,3rem)] mb-[24px] font-bold">
+            Bridging R&amp;D With
+            <span
+              class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+              >Market-Ready Applications.</span
+            >
+          </h2>
+          <p
+            class="reveal reveal-delay-1 text-[1.1rem] text-[#888888] leading-[1.6]"
+          >
+            From fundamental research to deployed products — we close the gap
+            between academic breakthroughs and real-world impact.
+          </p>
         </div>
+
+        <div
+          class="future-grid grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[32px] mt-[64px]"
+        >
+          <!-- R&D Focus -->
+          <div
+            class="future-card reveal bg-[#0a0a0a] p-[40px] rounded-[24px] border border-white/10 transition-all duration-300 relative overflow-hidden group hover:-translate-y-[5px] hover:border-[rgba(230,205,153,0.3)] hover:shadow-[0_20px_40px_rgba(230,205,153,0.05)] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-br before:from-[rgba(230,205,153,0.05)] before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 before:pointer-events-none group-hover:before:opacity-100"
+            id="futureRD"
+          >
+            <div
+              class="card-icon w-[48px] h-[48px] rounded-[12px] bg-white/5 flex items-center justify-center mb-[24px] text-[#E6CD99] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#E6CD99]/10"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 1v4" />
+                <path d="M12 19v4" />
+                <path d="M4.22 4.22l2.83 2.83" />
+                <path d="M16.95 16.95l2.83 2.83" />
+                <path d="M1 12h4" />
+                <path d="M19 12h4" />
+                <path d="M4.22 19.78l2.83-2.83" />
+                <path d="M16.95 7.05l2.83-2.83" />
+              </svg>
+            </div>
+            <div
+              class="card-number absolute top-[40px] right-[40px] font-mono text-[1rem] text-white/10 font-bold transition-colors duration-300 group-hover:text-[rgba(230,205,153,0.2)]"
+            >
+              01
+            </div>
+            <h3 class="text-[1.25rem] mb-[16px] font-lora">
+              Deep-Tech R&amp;D
+            </h3>
+            <p class="text-[0.95rem] text-[#888888] leading-[1.6]">
+              We lead deep-tech research and development to redefine
+              human-machine collaboration, pushing the boundaries of what
+              intelligent systems can achieve.
+            </p>
+          </div>
+
+          <!-- Government Trust -->
+          <div
+            class="future-card reveal reveal-delay-1 bg-[#0a0a0a] p-[40px] rounded-[24px] border border-white/10 transition-all duration-300 relative overflow-hidden group hover:-translate-y-[5px] hover:border-[rgba(230,205,153,0.3)] hover:shadow-[0_20px_40px_rgba(230,205,153,0.05)] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-br before:from-[rgba(230,205,153,0.05)] before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 before:pointer-events-none group-hover:before:opacity-100"
+            id="futureTrust"
+          >
+            <div
+              class="card-icon w-[48px] h-[48px] rounded-[12px] bg-white/5 flex items-center justify-center mb-[24px] text-[#E6CD99] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#E6CD99]/10"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div
+              class="card-number absolute top-[40px] right-[40px] font-mono text-[1rem] text-white/10 font-bold transition-colors duration-300 group-hover:text-[rgba(230,205,153,0.2)]"
+            >
+              02
+            </div>
+            <h3 class="text-[1.25rem] mb-[16px] font-lora">Government Trust</h3>
+            <p class="text-[0.95rem] text-[#888888] leading-[1.6]">
+              Securing government contracts builds a high-level systemic trust
+              architecture, establishing credibility while funding our most
+              ambitious research programs.
+            </p>
+          </div>
+
+          <!-- Talent Pipeline -->
+          <div
+            class="future-card reveal reveal-delay-2 bg-[#0a0a0a] p-[40px] rounded-[24px] border border-white/10 transition-all duration-300 relative overflow-hidden group hover:-translate-y-[5px] hover:border-[rgba(230,205,153,0.3)] hover:shadow-[0_20px_40px_rgba(230,205,153,0.05)] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-br before:from-[rgba(230,205,153,0.05)] before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 before:pointer-events-none group-hover:before:opacity-100"
+            id="futureTalent"
+          >
+            <div
+              class="card-icon w-[48px] h-[48px] rounded-[12px] bg-white/5 flex items-center justify-center mb-[24px] text-[#E6CD99] transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#E6CD99]/10"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div
+              class="card-number absolute top-[40px] right-[40px] font-mono text-[1rem] text-white/10 font-bold transition-colors duration-300 group-hover:text-[rgba(230,205,153,0.2)]"
+            >
+              03
+            </div>
+            <h3 class="text-[1.25rem] mb-[16px] font-lora">Talent Pipeline</h3>
+            <p class="text-[0.95rem] text-[#888888] leading-[1.6]">
+              We empower the next generation by building infrastructure and
+              curricula for AI education, ensuring a steady stream of skilled
+              professionals for the industry.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ====== SECTION 5: FOOTER / CONTACT (Dark) ====== -->
-    <footer class="footer" id="footer">
-        <div class="footer-top container">
-            <div class="footer-brand">
-                <h3>ASTR <span class="gold-text">AI</span></h3>
-                <p>Automate and simplify your business operations with secure solutions designed for the future.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Twitter/X">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Solutions</h4>
-                <a href="#">AI Integration</a>
-                <a href="#">Drone Network</a>
-                <a href="#">Smart Infrastructure</a>
-                <a href="#">Custom Software</a>
-                <a href="#">Workflow Automation</a>
-            </div>
-
-            <div class="footer-col">
-                <h4>Company</h4>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Research</a>
-                <a href="#">Partners</a>
-                <a href="#">Press</a>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <div class="footer-contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                    <span><a href="mailto:hello@astrai.in">hello@astrai.in</a></span>
-                </div>
-                <div class="footer-contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
-                    <span><a href="tel:+917009281329">+91 70092 81329</a></span>
-                </div>
-                <div class="footer-contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <span>22/44 A Harnam Nagar,<br />Kapurthala, Punjab, 144601</span>
-                </div>
-            </div>
+    <footer
+      class="footer bg-black pt-[100px] border-t border-white/10 font-inter"
+      id="footer"
+    >
+      <div
+        class="footer-top container max-w-container mx-auto w-full flex justify-between flex-wrap gap-[60px] pb-[60px] border-b border-white/10 max-[768px]:flex-col max-[768px]:gap-[40px]"
+      >
+        <div class="footer-brand flex-1 min-w-[300px]">
+          <h3
+            class="text-[1.5rem] font-bold tracking-[2px] mb-[20px] font-lora"
+          >
+            ASTR
+            <span
+              class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+              >AI</span
+            >
+          </h3>
+          <p class="text-[#888888] leading-[1.6] max-w-[320px] mb-[32px]">
+            Automate and simplify your business operations with secure solutions
+            designed for the future.
+          </p>
+          <div class="social-links flex gap-[16px]">
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              class="w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 transition-all duration-300 hover:text-[#E6CD99] hover:border-[#E6CD99] hover:-translate-y-[3px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="Twitter/X"
+              class="w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 transition-all duration-300 hover:text-[#E6CD99] hover:border-[#E6CD99] hover:-translate-y-[3px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="Instagram"
+              class="w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 transition-all duration-300 hover:text-[#E6CD99] hover:border-[#E6CD99] hover:-translate-y-[3px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div class="footer-bottom container">
-            <p>&copy; 2026 ASTR AI. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
+        <div class="footer-col flex flex-col gap-[16px] min-w-[150px]">
+          <h4 class="text-[1.1rem] font-semibold mb-[8px] text-white">
+            Solutions
+          </h4>
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >AI Integration</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Drone Network</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Smart Infrastructure</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Custom Software</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Workflow Automation</a
+          >
         </div>
+
+        <div class="footer-col flex flex-col gap-[16px] min-w-[150px]">
+          <h4 class="text-[1.1rem] font-semibold mb-[8px] text-white">
+            Company
+          </h4>
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Careers</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Research</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Partners</a
+          >
+          <a
+            href="#"
+            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Press</a
+          >
+        </div>
+
+        <div class="footer-col flex flex-col gap-[16px] min-w-[150px]">
+          <h4 class="text-[1.1rem] font-semibold mb-[8px] text-white">
+            Contact
+          </h4>
+          <div
+            class="footer-contact-item flex items-start gap-[12px] text-[#888888] mb-[12px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-[#E6CD99] shrink-0 mt-[4px]"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span
+              ><a
+                href="mailto:hello@astrai.in"
+                class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+                >hello@astrai.in</a
+              ></span
+            >
+          </div>
+          <div
+            class="footer-contact-item flex items-start gap-[12px] text-[#888888] mb-[12px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-[#E6CD99] shrink-0 mt-[4px]"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            <span
+              ><a
+                href="tel:+917009281329"
+                class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+                >+91 70092 81329</a
+              ></span
+            >
+          </div>
+          <div
+            class="footer-contact-item flex items-start gap-[12px] text-[#888888] mb-[12px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-[#E6CD99] shrink-0 mt-[4px]"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>22/44 A Harnam Nagar,<br />Kapurthala, Punjab, 144601</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="footer-bottom container max-w-container mx-auto w-full py-[32px] flex justify-between items-center text-[0.9rem] text-[#666666] max-[768px]:flex-col max-[768px]:gap-[16px] max-[768px]:text-center"
+      >
+        <p>&copy; 2026 ASTR AI. All rights reserved.</p>
+        <div class="footer-bottom-links flex gap-[24px]">
+          <a
+            href="#"
+            class="text-[#666666] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Privacy Policy</a
+          >
+          <a
+            href="#"
+            class="text-[#666666] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
     </footer>
 
     <!-- ====== SCRIPTS ====== -->
@@ -498,7 +1303,6 @@
 
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="main.js"></script>
-</body>
-
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
