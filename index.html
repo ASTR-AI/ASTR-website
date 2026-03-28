@@ -553,7 +553,7 @@
             <div class="info-side flex flex-col gap-[20px] w-full">
               <div class="infra-table flex flex-col w-full z-10 relative">
                 <div
-                  class="infra-table-row header flex py-0 pb-[12px] gap-[24px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.8rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
+                  class="infra-table-row header flex py-0 pb-[12px] gap-[24px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.7rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
                 >
                   <div class="col-cap flex-none w-[160px]">Capability</div>
                   <div class="col-impact flex-1">Impact</div>
@@ -562,12 +562,12 @@
                   class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
                 >
                   <div
-                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                    class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                   >
                     Innovation Labs
                   </div>
                   <div
-                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                    class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
                     Rapidly test and iterate on AI models in a dedicated sandbox.
                   </div>
@@ -576,12 +576,12 @@
                   class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
                 >
                   <div
-                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                    class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                   >
                     Centers of Excellence
                   </div>
                   <div
-                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                    class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
                     Centralize your AI talent with shared high-performance resources.
                   </div>
@@ -590,12 +590,12 @@
                   class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
                 >
                   <div
-                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                    class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                   >
                     HPC Clusters
                   </div>
                   <div
-                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                    class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
                     Scale massive workloads with custom-configured server hardware.
                   </div>
@@ -604,12 +604,12 @@
                   class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
                 >
                   <div
-                    class="col-cap flex-none w-[160px] text-[1.1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                    class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                   >
                     Data Vaults
                   </div>
                   <div
-                    class="col-impact flex-1 text-[1rem] leading-[1.6] text-white/75"
+                    class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
                     Secure, decentralized architecture designed for mission-critical data sovereignty.
                   </div>
@@ -623,98 +623,8 @@
             class="pillar-content hidden [&.active]:grid grid-cols-[1.2fr_1fr] gap-[64px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
             id="content-drone"
           >
-            <div class="mockup-side w-full flex justify-center font-mono">
-              <div
-                class="window-frame w-full max-w-[520px] bg-[#0a0a0a]/90 backdrop-blur-[20px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)]"
-              >
-                <div
-                  class="window-header bg-white/5 py-[12px] px-[20px] flex items-center justify-between border-b border-white/10"
-                >
-                  <div class="window-controls flex gap-[8px]">
-                    <span class="mac-dot close"></span>
-                    <span class="mac-dot minimize"></span>
-                    <span class="mac-dot maximize"></span>
-                  </div>
-                  <span
-                    class="window-title font-mono text-[0.7rem] text-white/30 uppercase tracking-[1px]"
-                    >drone_telemetry_feed.os</span
-                  >
-                </div>
-                <div
-                  class="window-body telemetry-mockup p-0 font-mono relative h-[380px] bg-[#080808] overflow-hidden"
-                >
-                  <div class="drone-container relative h-full w-full flex items-center justify-center">
-                    <svg
-                      viewBox="0 0 400 400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="max-w-[85%] max-h-[85%] opacity-80"
-                    >
-                      <circle
-                        class="orbit-ring"
-                        cx="200"
-                        cy="200"
-                        r="180"
-                        fill="none"
-                        stroke="#444"
-                        stroke-width="1"
-                        stroke-dasharray="8, 12"
-                      />
-
-                      <circle
-                        cx="200"
-                        cy="200"
-                        r="120"
-                        fill="none"
-                        stroke="#333"
-                        stroke-width="1"
-                      />
-
-                      <g class="arms" stroke="#555" stroke-width="2">
-                        <line x1="200" y1="200" x2="100" y2="100" />
-                        <line x1="200" y1="200" x2="300" y2="100" />
-                        <line x1="200" y1="200" x2="100" y2="300" />
-                        <line x1="200" y1="200" x2="300" y2="300" />
-                      </g>
-
-                      <g class="core">
-                        <circle
-                          cx="200"
-                          cy="200"
-                          r="30"
-                          fill="#1a1a1a"
-                          stroke="#E6CD99"
-                          stroke-width="2"
-                        />
-                        <circle
-                          class="pulse"
-                          cx="200"
-                          cy="200"
-                          r="8"
-                          fill="#E6CD99"
-                        />
-                      </g>
-
-                      <g class="drones">
-                        <circle class="drone" cx="100" cy="100" r="20" />
-                        <circle class="drone" cx="300" cy="100" r="20" />
-                        <circle class="drone" cx="100" cy="300" r="20" />
-                        <circle class="drone" cx="300" cy="300" r="20" />
-                      </g>
-                    </svg>
-
-                    <div class="label absolute bottom-[24px] left-[24px] right-[24px] p-[20px] bg-black/60 backdrop-blur-[12px] rounded-[16px] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                      <div class="flex items-center gap-[8px] mb-[6px]">
-                        <span class="w-[8px] h-[8px] rounded-full bg-[#E6CD99] animate-pulse"></span>
-                        <h3 class="text-[#E6CD99] text-[0.65rem] font-bold uppercase tracking-[2px] m-0">Module 03</h3>
-                      </div>
-                      <h2 class="text-white text-[1rem] font-bold mb-[4px] uppercase tracking-[1px] font-cinzel">Multi-Drone Coordination</h2>
-                      <p class="text-white/50 text-[0.75rem] leading-[1.5] m-0 font-lora">
-                        Swarm intelligence synchronization for mission-critical operations.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="mockup-side w-full flex justify-center h-[420px] relative">
+              <canvas id="droneCanvas" class="w-full h-full block cursor-crosshair"></canvas>
             </div>
             <div class="info-side flex flex-col gap-[32px] w-full">
               <div class="main-info">
@@ -830,14 +740,14 @@
         >
           <div class="left-col">
             <h2
-              class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-left"
+              class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-right max-[992px]:text-left"
             >
               Build
             </h2>
           </div>
           <div class="right-col">
             <p
-              class="build-description font-lora text-[16px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
+              class="build-description font-lora text-[14px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
             >
               We help you build the right foundation for your AI projects.
               Instead of sticking to just one brand, we pick the best hardware

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEcosystemGraph();
   initPillarTabs();
   initInfraCanvas();
+  initDroneCanvas();
 });
 
 /* --- Navbar scroll effect & mobile menu --- */
@@ -1026,3 +1027,305 @@ function initInfraCanvas() {
 
   animate();
 }
+
+/* --- Drone Solutions: Professional Industrial 3D Drone --- */
+function initDroneCanvas() {
+  const canvas = document.getElementById('droneCanvas');
+  if (!canvas) return;
+  if (typeof THREE === 'undefined') return;
+
+  const container = canvas.parentElement;
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    alpha: true,
+    antialias: true,
+  });
+
+  function resize() {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera.position.set(0, 5, 12);
+  camera.lookAt(0, 0, 0);
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+  scene.add(ambientLight);
+  const pointLight = new THREE.PointLight(0xe6cd99, 1.2);
+  pointLight.position.set(5, 10, 5);
+  scene.add(pointLight);
+
+  const droneGroup = new THREE.Group();
+  droneGroup.scale.setScalar(0.75);
+  scene.add(droneGroup);
+
+  const colorGold = new THREE.Color(0xe6cd99);
+  const colorDark = new THREE.Color(0x1a1a1a);
+  const colorGrey = new THREE.Color(0x444444);
+
+  // Materials
+  const bodyMat = new THREE.MeshPhongMaterial({ 
+    color: colorDark, 
+    specular: colorGold, 
+    shininess: 100,
+    flatShading: true
+  });
+  
+  const goldWireMat = new THREE.MeshBasicMaterial({ 
+    color: colorGold, 
+    wireframe: true, 
+    transparent: true, 
+    opacity: 0.4 
+  });
+
+  const glowingMat = new THREE.MeshBasicMaterial({ 
+    color: colorGold, 
+    transparent: true, 
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending 
+  });
+
+  // 1. Central Chassis (Industrial Octagon)
+  const chassisGeo = new THREE.CylinderGeometry(1.5, 1.7, 0.7, 8);
+  const chassis = new THREE.Mesh(chassisGeo, bodyMat);
+  droneGroup.add(chassis);
+  
+  const chassisWire = new THREE.Mesh(chassisGeo, goldWireMat);
+  chassisWire.scale.setScalar(1.01);
+  droneGroup.add(chassisWire);
+
+  // 2. Battery / Power Module (Top)
+  const batteryGeo = new THREE.BoxGeometry(1.2, 0.4, 2.0);
+  const battery = new THREE.Mesh(batteryGeo, bodyMat);
+  battery.position.y = 0.5;
+  droneGroup.add(battery);
+
+  // 3. Professional Arms (Reinforced Truss)
+  const armLength = 4.0;
+  const armCount = 4;
+  for(let i=0; i < armCount; i++) {
+    const angle = (i * Math.PI) / 2 + Math.PI / 4;
+    const armGroup = new THREE.Group();
+    armGroup.rotation.y = angle;
+    droneGroup.add(armGroup);
+
+    // Main Tube
+    const tubeGeo = new THREE.CylinderGeometry(0.12, 0.18, armLength, 6);
+    tubeGeo.rotateZ(Math.PI / 2);
+    tubeGeo.translate(armLength / 2, 0, 0);
+    const tube = new THREE.Mesh(tubeGeo, bodyMat);
+    armGroup.add(tube);
+
+    // Support Truss (Wireframe)
+    const truss = new THREE.Mesh(tubeGeo, goldWireMat);
+    truss.scale.set(1, 1.5, 1.5);
+    armGroup.add(truss);
+
+    // 4. Heavy Duty Motors & Rotors
+    const motorPos = armLength;
+    const motorGroup = new THREE.Group();
+    motorGroup.position.x = motorPos;
+    armGroup.add(motorGroup);
+
+    const motorGeo = new THREE.CylinderGeometry(0.4, 0.4, 0.6, 8);
+    const motor = new THREE.Mesh(motorGeo, bodyMat);
+    motorGroup.add(motor);
+
+    const rotorGroup = new THREE.Group();
+    rotorGroup.position.y = 0.4;
+    motorGroup.add(rotorGroup);
+
+    // Triple Blades (Carbon Fiber Look)
+    for(let j=0; j < 3; j++) {
+      const bladeGeo = new THREE.BoxGeometry(2.5, 0.03, 0.2);
+      bladeGeo.translate(1.25, 0, 0);
+      const blade = new THREE.Mesh(bladeGeo, bodyMat);
+      blade.rotation.y = (j * Math.PI * 2) / 3;
+      rotorGroup.add(blade);
+    }
+    
+    // Rotor Blur Disc
+    const blurGeo = new THREE.CircleGeometry(2.6, 32);
+    const blurMat = new THREE.MeshBasicMaterial({ 
+      color: colorGold, 
+      transparent: true, 
+      opacity: 0.05, 
+      side: THREE.DoubleSide,
+      blending: THREE.AdditiveBlending
+    });
+    const blur = new THREE.Mesh(blurGeo, blurMat);
+    blur.rotation.x = Math.PI / 2;
+    rotorGroup.add(blur);
+    
+    // Status LED
+    const ledGeo = new THREE.SphereGeometry(0.1, 8, 8);
+    const led = new THREE.Mesh(ledGeo, glowingMat.clone());
+    led.position.set(0, -0.4, 0);
+    motorGroup.add(led);
+  }
+
+  // 5. Landing Gear (Retractable Style)
+  const gearGroup = new THREE.Group();
+  droneGroup.add(gearGroup);
+
+  const legGeo = new THREE.CylinderGeometry(0.1, 0.1, 1.5);
+  legGeo.translate(0, -0.75, 0);
+  legGeo.rotateZ(0.3);
+  
+  const footGeo = new THREE.BoxGeometry(0.2, 0.1, 1.0);
+  footGeo.translate(0, -1.5, 0);
+
+  const legs = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
+  legs.forEach(l => {
+    const leg = new THREE.Mesh(legGeo, bodyMat);
+    leg.position.set(l[0] * 0.8, -0.3, l[1] * 0.8);
+    leg.rotation.y = Math.atan2(l[1], l[0]) + Math.PI/2;
+    gearGroup.add(leg);
+    
+    const foot = new THREE.Mesh(footGeo, bodyMat);
+    foot.position.set(l[0] * 1.1, -0.3, l[1] * 1.1);
+    foot.rotation.y = Math.atan2(l[1], l[0]) + Math.PI/2;
+    gearGroup.add(foot);
+  });
+
+  // 6. Sensor Payload (Gimbal & LiDAR)
+  const payloadGroup = new THREE.Group();
+  payloadGroup.position.y = -0.6;
+  droneGroup.add(payloadGroup);
+
+  const gimbalBase = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.2, 16), bodyMat);
+  payloadGroup.add(gimbalBase);
+
+  const cameraBall = new THREE.Mesh(new THREE.SphereGeometry(0.45, 16, 16), bodyMat);
+  cameraBall.position.y = -0.4;
+  payloadGroup.add(cameraBall);
+
+  // LiDAR Beam (Cone)
+  const beamGeo = new THREE.ConeGeometry(3, 10, 32, 1, true);
+  beamGeo.translate(0, -5, 0);
+  const beamMat = new THREE.MeshBasicMaterial({
+    color: colorGold,
+    transparent: true,
+    opacity: 0.1,
+    blending: THREE.AdditiveBlending,
+    side: THREE.DoubleSide
+  });
+  const beam = new THREE.Mesh(beamGeo, beamMat);
+  payloadGroup.add(beam);
+
+  // 7. Landing Pad (Industrial Grid Base)
+  const padGroup = new THREE.Group();
+  padGroup.position.y = -6;
+  scene.add(padGroup);
+
+  // Main Grid
+  const gridSize = 12;
+  const gridDivisions = 6;
+  const gridHelper = new THREE.GridHelper(gridSize, gridDivisions, colorGold, colorGrey);
+  gridHelper.material.transparent = true;
+  gridHelper.material.opacity = 0.2;
+  padGroup.add(gridHelper);
+
+  // Corner Brackets (Industrial L-shapes)
+  const bracketSize = 1.5;
+  const corners = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
+  
+  corners.forEach(c => {
+    const bracketGroup = new THREE.Group();
+    bracketGroup.position.set(c[0] * (gridSize/2), 0, c[1] * (gridSize/2));
+    padGroup.add(bracketGroup);
+
+    const bLineMat = new THREE.LineBasicMaterial({ color: colorGold, transparent: true, opacity: 0.6 });
+    
+    // Horizontal corner lines
+    const hpts = [
+      new THREE.Vector3(-c[0] * bracketSize, 0, 0),
+      new THREE.Vector3(0, 0, 0),
+      new THREE.Vector3(0, 0, -c[1] * bracketSize)
+    ];
+    const bGeo = new THREE.BufferGeometry().setFromPoints(hpts);
+    const bLine = new THREE.Line(bGeo, bLineMat);
+    bracketGroup.add(bLine);
+  });
+
+  // Perimeter Lights (Corners and Mid-points)
+  const padLights = [];
+  const lightPositions = [
+    [6, 0, 6], [-6, 0, 6], [6, 0, -6], [-6, 0, -6],
+    [6, 0, 0], [-6, 0, 0], [0, 0, 6], [0, 0, -6]
+  ];
+
+  lightPositions.forEach(pos => {
+    const lightGeo = new THREE.BoxGeometry(0.2, 0.1, 0.2);
+    const light = new THREE.Mesh(lightGeo, glowingMat.clone());
+    light.position.set(pos[0], 0.05, pos[2]);
+    padGroup.add(light);
+    padLights.push(light);
+  });
+
+  // Interaction State
+  let mouseX = 0;
+  let mouseY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('pillarTabChanged', resize);
+  resize();
+
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const time = clock.getElapsedTime();
+
+    // 1. Stable Flight Physics
+    droneGroup.position.y = Math.sin(time * 0.8) * 0.2; // Very stable hover
+    droneGroup.position.x = Math.cos(time * 0.4) * 0.1;
+    
+    // Professional Tilting
+    const targetTiltX = -mouseY * 0.2;
+    const targetTiltZ = -mouseX * 0.3;
+    const targetRotY = mouseX * 0.5;
+
+    droneGroup.rotation.x += (targetTiltX - droneGroup.rotation.x) * 0.04;
+    droneGroup.rotation.z += (targetTiltZ - droneGroup.rotation.z) * 0.04;
+    droneGroup.rotation.y += (targetRotY - droneGroup.rotation.y) * 0.03;
+
+    // 2. Component Animations
+    droneGroup.traverse(child => {
+      if (child.type === 'Group' && child.children.length > 2) {
+        // This is a rotor group
+        child.children.forEach(rotorChild => {
+          if (rotorChild.type === 'Mesh' && rotorChild.geometry.type === 'BoxGeometry') {
+            rotorChild.rotation.y += 0.6;
+          }
+        });
+      }
+    });
+
+    // 3. Sensor & HUD Animation
+    beam.rotation.y = time * 2;
+    beam.scale.setScalar(1 + Math.sin(time * 4) * 0.05);
+
+    // 4. Pad Light Sequence
+    padLights.forEach((light, i) => {
+      light.material.opacity = 0.3 + Math.sin(time * 3 + i * 0.5) * 0.5;
+    });
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+}
+
+
