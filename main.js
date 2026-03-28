@@ -618,43 +618,14 @@ class EcosystemGraph {
   }
 
   renderElements() {
-    // Create fading gradient lines for each link
+    // Create lines for each link
     this.links.forEach((link, idx) => {
-      // Create a unique gradient per link
-      const gradId = `edge-grad-${idx}`;
-      const grad = document.createElementNS(
-        'http://www.w3.org/2000/svg',
-        'linearGradient'
-      );
-      grad.setAttribute('id', gradId);
-      grad.setAttribute('gradientUnits', 'userSpaceOnUse');
-
-      const stop1 = document.createElementNS(
-        'http://www.w3.org/2000/svg',
-        'stop'
-      );
-      stop1.setAttribute('offset', '0%');
-      stop1.setAttribute('stop-color', 'rgba(212, 175, 55, 0.25)');
-
-      const stop2 = document.createElementNS(
-        'http://www.w3.org/2000/svg',
-        'stop'
-      );
-      stop2.setAttribute('offset', '100%');
-      stop2.setAttribute('stop-color', 'rgba(212, 175, 55, 0)');
-
-      grad.appendChild(stop1);
-      grad.appendChild(stop2);
-      this.defs.appendChild(grad);
-
       const line = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'line'
       );
       line.setAttribute('class', 'edge-line');
-      line.setAttribute('stroke', `url(#${gradId})`);
       link.el = line;
-      link.gradEl = grad;
       this.gLinks.appendChild(line);
     });
 
@@ -782,17 +753,37 @@ class EcosystemGraph {
     });
 
     this.links.forEach((link) => {
-      link.el.setAttribute('x1', link.source.x);
-      link.el.setAttribute('y1', link.source.y);
-      link.el.setAttribute('x2', link.target.x);
-      link.el.setAttribute('y2', link.target.y);
+      // --- LOGO CLIPPING LOGIC ---
+      // Instead of starting at (0,0), lines from core start at the logo's edge
+      const logoRadius = 85; // Approximate radius where the logo's visual weight ends
+      
+      let x1 = link.source.x;
+      let y1 = link.source.y;
+      let x2 = link.target.x;
+      let y2 = link.target.y;
+
+      if (link.source.type === 'core') {
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > logoRadius) {
+          // Move start point to the edge of the logo
+          x1 = x1 + (dx / dist) * logoRadius;
+          y1 = y1 + (dy / dist) * logoRadius;
+        }
+      }
+
+      link.el.setAttribute('x1', x1);
+      link.el.setAttribute('y1', y1);
+      link.el.setAttribute('x2', x2);
+      link.el.setAttribute('y2', y2);
 
       // Update gradient coordinates so the fade follows the line direction
       if (link.gradEl) {
-        link.gradEl.setAttribute('x1', link.source.x);
-        link.gradEl.setAttribute('y1', link.source.y);
-        link.gradEl.setAttribute('x2', link.target.x);
-        link.gradEl.setAttribute('y2', link.target.y);
+        link.gradEl.setAttribute('x1', x1);
+        link.gradEl.setAttribute('y1', y1);
+        link.gradEl.setAttribute('x2', x2);
+        link.gradEl.setAttribute('y2', y2);
       }
     });
   }
@@ -814,6 +805,19 @@ class EcosystemGraph {
   }
 
   resetView() {
+    if (confirm('This will reset your custom infrastructure view. Are you sure?')) {
+      gsap.to(this.svg, {
+        attr: {
+          viewBox: `-${this.width / 2} -${this.height / 2} ${this.width} ${this.height}`,
+        },
+        duration: 1.2,
+        ease: 'power2.inOut',
+      });
+    }
+  }
+
+  // Add a non-confirming version for internal use
+  internalResetView() {
     gsap.to(this.svg, {
       attr: {
         viewBox: `-${this.width / 2} -${this.height / 2} ${this.width} ${this.height}`,
@@ -837,11 +841,34 @@ function initEcosystemGraph() {
 
   // Show the full ecosystem by default instead of panning to categories on scroll
   setTimeout(() => {
-    graph.resetView();
+    graph.internalResetView();
   }, 500);
 }
 
 /* --- Pillar Showcase: Tab Switching Logic --- */
+/* --- State Handling: Empty & Error states --- */
+function showPillarState(state) {
+  const allStates = document.querySelectorAll('.pillar-state');
+  const allContent = document.querySelectorAll('.pillar-content');
+
+  allStates.forEach((s) => s.classList.add('hidden'));
+
+  if (state === 'normal') {
+    const activeTab = document.querySelector('.nav-item.active');
+    if (activeTab) {
+      const target = activeTab.getAttribute('data-pillar');
+      const targetContent = document.getElementById(`content-${target}`);
+      if (targetContent) targetContent.classList.add('active');
+    }
+  } else {
+    const stateEl = document.getElementById(`pillar-state-${state}`);
+    if (stateEl) {
+      allContent.forEach((c) => c.classList.remove('active'));
+      stateEl.classList.remove('hidden');
+    }
+  }
+}
+
 function initPillarTabs() {
   const tabs = document.querySelectorAll('.nav-item');
   const contents = document.querySelectorAll('.pillar-content');
@@ -867,6 +894,9 @@ function initPillarTabs() {
     tab.addEventListener('click', () => {
       const target = tab.getAttribute('data-pillar');
       if (!target) return;
+
+      // Reset any active states when switching tabs
+      showPillarState('normal');
 
       // Update Stage Attribute for CSS targeting
       stage.setAttribute('data-active-pillar', target);

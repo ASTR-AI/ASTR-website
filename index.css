@@ -366,7 +366,7 @@
   }
 
   .cap-item:hover {
-    @apply -translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_2px_rgba(255,255,255,0.1)];
+    @apply -translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)];
     background: rgba(255, 255, 255, 0.08);
   }
 
@@ -528,17 +528,18 @@
     font-family: var(--font-family-lora);
   }
   .edge-line {
-    stroke-width: 1.2;
+    stroke-width: 0.5;
     fill: none;
     transition:
-      stroke-width 0.5s ease,
-      opacity 0.5s ease;
-    stroke: rgba(255, 255, 255, 0.2);
+      stroke-width 0.4s ease,
+      opacity 0.4s ease,
+      stroke 0.4s ease;
+    stroke: rgba(230, 205, 153, 0.2);
   }
   .edge-line.active {
-    stroke-width: 2;
+    stroke-width: 1.2;
     opacity: 1;
-    stroke: var(--color-gold-DEFAULT);
+    stroke: #E6CD99 !important;
   }
   .node-circle {
     fill: #0a0a0a;
