@@ -1062,7 +1062,7 @@ function initDroneCanvas() {
   scene.add(pointLight);
 
   const droneGroup = new THREE.Group();
-  droneGroup.scale.setScalar(0.75);
+  droneGroup.scale.setScalar(0.9);
   scene.add(droneGroup);
 
   const colorGold = new THREE.Color(0xe6cd99);

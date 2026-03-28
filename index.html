@@ -398,7 +398,7 @@
         </nav>
 
         <div
-          class="pillar-display-stage reveal bg-[#050505] rounded-[64px] p-[64px] min-h-[520px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.05)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px]"
+          class="pillar-display-stage reveal bg-[#050505] rounded-[64px] py-[48px] px-[64px] min-h-[520px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.05)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px]"
         >
           <!-- Background Elements -->
           <div class="stage-stars"></div>
@@ -620,115 +620,73 @@
 
           <!-- Drone Content -->
           <div
-            class="pillar-content hidden [&.active]:grid grid-cols-[1.2fr_1fr] gap-[64px] items-center w-full relative z-[10] max-[1100px]:grid-cols-1"
+            class="pillar-content hidden [&.active]:flex flex-col items-center w-full relative z-[10]"
             id="content-drone"
           >
-            <div class="mockup-side w-full flex justify-center h-[420px] relative">
-              <canvas id="droneCanvas" class="w-full h-full block cursor-crosshair"></canvas>
+            <!-- Top Center: Header & Description -->
+            <div class="drone-header-top text-center max-w-[850px] mb-[40px]">
+              <h3
+                class="font-cinzel text-[32px] text-[#E6CD99] mb-[20px] tracking-[3px] uppercase z-10 relative"
+              >
+                Drone Solutions
+              </h3>
+              <p
+                class="font-lora text-[17px] leading-[1.7] text-white/70 m-0 z-10 relative"
+              >
+                Strategic integration of world-class aerial technology. We 
+                deliver custom-configured drone systems for intelligence, 
+                logistics, and tactical deployment.
+              </p>
             </div>
-            <div class="info-side flex flex-col gap-[32px] w-full">
-              <div class="main-info">
-                <h3
-                  class="font-cinzel text-[28px] text-[#E6CD99] mb-[16px] tracking-[2px] uppercase z-10 relative"
-                >
-                  Drone Solutions
-                </h3>
-                <p
-                  class="font-lora text-[16px] leading-[1.6] text-white/80 m-0 z-10 relative"
-                >
-                  Strategic integration of world-class aerial technology. We 
-                  deliver custom-configured drone systems for intelligence, 
-                  logistics, and tactical deployment.
-                </p>
+
+            <!-- Lower Grid: Drone in Center, Caps Around -->
+            <div class="drone-main-layout grid grid-cols-[1fr_1.8fr_1fr] gap-[48px] items-center w-full max-[1100px]:grid-cols-1 mt-0">
+              
+              <!-- Left Side Capability -->
+              <div class="drone-cap-left flex flex-col gap-[24px] text-right max-[1100px]:text-center z-20">
+                <div class="cap-item group flex flex-col gap-[12px]">
+                  <h4
+                    class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
+                  >
+                    Surveillance (ISR)
+                  </h4>
+                  <p class="font-lora text-[11px] text-white/50 leading-[1.6]">
+                    Persistent monitoring and real-time intelligence.
+                  </p>
+                </div>
               </div>
 
-              <div class="drone-capabilities flex flex-col gap-[16px] w-full">
-                <!-- Cap 1 -->
-                <div
-                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
-                >
-                  <div
-                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
-                  >
-                    <svg
-                      class="w-[20px] h-[20px]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                  </div>
-                  <div class="cap-text">
-                    <h4
-                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
-                    >
-                      Surveillance (ISR)
-                    </h4>
-                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
-                      Persistent monitoring and real-time intelligence.
-                    </p>
-                  </div>
-                </div>
+              <!-- Center: Drone Animation -->
+              <div class="drone-mockup-center w-full flex justify-center h-[340px] relative z-10 transform -translate-y-[48px]">
+                <canvas id="droneCanvas" class="w-full h-full block cursor-crosshair"></canvas>
+              </div>
+
+              <!-- Right Side Capabilities -->
+              <div class="drone-cap-right flex flex-col gap-[24px] text-left max-[1100px]:text-center z-20">
                 <!-- Cap 2 -->
-                <div
-                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
-                >
-                  <div
-                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                <div class="cap-item group flex flex-col gap-[12px]">
+                  <h4
+                    class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
                   >
-                    <svg
-                      class="w-[20px] h-[20px]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                    </svg>
-                  </div>
-                  <div class="cap-text">
-                    <h4
-                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
-                    >
-                      Logistics & Delivery
-                    </h4>
-                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
-                      Scalable autonomous networks for rapid transport.
-                    </p>
-                  </div>
+                    Logistics & Delivery
+                  </h4>
+                  <p class="font-lora text-[11px] text-white/50 leading-[1.6]">
+                    Scalable autonomous networks for rapid transport.
+                  </p>
                 </div>
                 <!-- Cap 3 -->
-                <div
-                  class="cap-item group flex items-start gap-[16px] p-[20px] rounded-[24px] bg-white/[0.03] border border-white/5 backdrop-blur-[10px] transition-all duration-300 hover:bg-white/[0.07] hover:border-white/15"
-                >
-                  <div
-                    class="cap-icon shrink-0 w-[40px] h-[40px] rounded-full bg-[#E6CD99]/10 flex items-center justify-center border border-[#E6CD99]/20 text-[#E6CD99] group-hover:scale-110 transition-transform duration-300"
+                <div class="cap-item group flex flex-col gap-[12px]">
+                  <h4
+                    class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
                   >
-                    <svg
-                      class="w-[20px] h-[20px]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
-                  </div>
-                  <div class="cap-text">
-                    <h4
-                      class="font-cinzel text-[1.1rem] text-white mb-[4px] tracking-[0.5px]"
-                    >
-                      Tactical Systems
-                    </h4>
-                    <p class="font-lora text-[14px] text-white/50 leading-[1.5]">
-                      Precision-guided solutions for mission safety.
-                    </p>
-                  </div>
+                    Tactical Systems
+                  </h4>
+                  <p class="font-lora text-[11px] text-white/50 leading-[1.6]">
+                    Precision-guided solutions for mission safety.
+                  </p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
