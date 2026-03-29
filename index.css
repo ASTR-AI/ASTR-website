@@ -225,21 +225,98 @@
     background: radial-gradient(circle at 70% 30%, rgba(230, 205, 153, 0.08) 0%, transparent 60%);
   }
 
-  /* 3. DRONE THEME: Stratospheric Telemetry */
-  .pillar-display-stage[data-active-pillar='drone']::before {
-    background: 
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(230, 205, 153, 0.05) 40px),
-      radial-gradient(ellipse at 50% 0%, rgba(230, 205, 153, 0.1) 0%, transparent 70%),
-      #050505;
-    background-size: 100% 40px, 100% 100%, 100% 100%;
-  }
-
   .pillar-display-stage[data-active-pillar='drone']::after {
     content: '';
     @apply absolute inset-0 z-0 pointer-events-none;
-    background: linear-gradient(to bottom, transparent, rgba(230, 205, 153, 0.02) 50%, transparent 51%);
-    background-size: 100% 200%;
-    animation: radarSweep 8s linear infinite;
+    /* Composite HUD & Telemetry Layers */
+    background: 
+      /* 1. Grid Intersection Dots */
+      radial-gradient(circle at 1px 1px, rgba(173, 203, 218, 0.2) 1px, transparent 0),
+      /* 2. Secondary Sub-Grid (Very Fine) */
+      linear-gradient(to right, rgba(173, 203, 218, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(173, 203, 218, 0.03) 1px, transparent 1px),
+      /* 3. Primary Perspective Floor Grid */
+      linear-gradient(to right, rgba(173, 203, 218, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(173, 203, 218, 0.08) 1px, transparent 1px),
+      /* 4. HUD Corner Brackets */
+      linear-gradient(to right, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to bottom, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to left, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to bottom, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to right, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to top, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to left, #ADCBDA 15px, transparent 15px),
+      linear-gradient(to top, #ADCBDA 15px, transparent 15px);
+    
+    background-size: 
+      40px 40px, /* Dots */
+      20px 20px, 20px 20px, /* Sub-grid */
+      80px 80px, 80px 80px, /* Primary Grid */
+      20px 1px, 1px 20px, 20px 1px, 1px 20px, 20px 1px, 1px 20px, 20px 1px, 1px 20px; /* Brackets */
+    
+    background-position: 
+      center bottom, /* Dots */
+      center bottom, center bottom, /* Sub-grid */
+      center bottom, center bottom, /* Primary Grid */
+      60px 60px, 60px 60px, 
+      calc(100% - 60px) 60px, calc(100% - 60px) 60px, 
+      60px calc(100% - 60px), 60px calc(100% - 60px), 
+      calc(100% - 60px) calc(100% - 60px), calc(100% - 60px) calc(100% - 60px);
+    
+    background-repeat: repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    opacity: 0.6;
+    display: block;
+    mask-image: linear-gradient(to bottom, transparent 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, black 100%);
+    transform-origin: bottom center;
+    transform: perspective(800px) rotateX(40deg) scale(2.2);
+  }
+
+  /* 3. Cinematic High-Altitude HUD */
+  .pillar-display-stage[data-active-pillar='drone']::before {
+    @apply absolute inset-0 z-0 pointer-events-none;
+    content: '';
+    background: 
+      /* Atmosphere Horizon Limb */
+      radial-gradient(ellipse at 50% 100%, rgba(210, 247, 255, 0.15) 0%, transparent 60%),
+      /* Top Sky Ambient */
+      radial-gradient(circle at 50% -10%, rgba(173, 203, 218, 0.1) 0%, transparent 70%),
+      /* Deep Void */
+      radial-gradient(circle at 50% 50%, #0a0a0a 0%, #050505 100%);
+  }
+
+  /* Separate Left Telemetry using a pseudo on nebula-orb */
+  .pillar-display-stage[data-active-pillar='drone'] .orb-1::before {
+    content: 'ALT: 12,400FT\A HDG: 342.5\A TRK: ON';
+    @apply absolute top-[60px] left-[90px] font-mono text-[8px] text-[#ADCBDA]/40 whitespace-pre z-20 pointer-events-none uppercase tracking-[2px] blur-0;
+    filter: none;
+  }
+
+  /* Separate Right Telemetry */
+  .pillar-display-stage[data-active-pillar='drone'] .neutron-star-core {
+    @apply opacity-30 flex flex-col items-end gap-[4px] p-0 border-none shadow-none bg-none;
+    top: 60px;
+    right: 90px;
+    left: auto;
+    transform: none;
+    width: auto;
+    height: auto;
+    animation: none;
+    z-index: 50;
+  }
+  .pillar-display-stage[data-active-pillar='drone'] .neutron-star-core::before {
+    display: none;
+  }
+  .pillar-display-stage[data-active-pillar='drone'] .neutron-star-core::after {
+    content: 'SQK: 7000\A LAT: 42.8N\A LON: 11.4E';
+    display: block;
+    @apply font-mono text-[8px] text-[#ADCBDA]/40 whitespace-pre uppercase tracking-[2px] text-right;
+    mask-image: none;
+    -webkit-mask-image: none;
+    position: static;
+    border: none;
+    animation: none;
+    filter: none;
   }
 
   /* Theme Animations */
@@ -251,6 +328,21 @@
   @keyframes radarSweep {
     from { background-position: 0 -100%; }
     to { background-position: 0 100%; }
+  }
+
+  @keyframes telemetryFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 400px; }
+  }
+
+  @keyframes pulseGlow {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.6; transform: scale(1.05); }
+  }
+
+  @keyframes gridPerspective {
+    from { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    to { transform: perspective(500px) rotateX(60deg) translateY(40px); }
   }
 
   /* Sophisticated Golden Neutron Star for AI */
@@ -366,7 +458,7 @@
   }
 
   .cap-item:hover {
-    @apply -translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_2px_rgba(255,255,255,0.1)];
+    @apply -translate-y-1 shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)];
     background: rgba(255, 255, 255, 0.08);
   }
 
@@ -528,17 +620,18 @@
     font-family: var(--font-family-lora);
   }
   .edge-line {
-    stroke-width: 1.2;
+    stroke-width: 0.5;
     fill: none;
     transition:
-      stroke-width 0.5s ease,
-      opacity 0.5s ease;
-    stroke: rgba(255, 255, 255, 0.2);
+      stroke-width 0.4s ease,
+      opacity 0.4s ease,
+      stroke 0.4s ease;
+    stroke: rgba(230, 205, 153, 0.2);
   }
   .edge-line.active {
-    stroke-width: 2;
+    stroke-width: 1.2;
     opacity: 1;
-    stroke: var(--color-gold-DEFAULT);
+    stroke: #E6CD99 !important;
   }
   .node-circle {
     fill: #0a0a0a;
@@ -669,4 +762,14 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* SVG Path Drawing Animation */
+.draw-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 2.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.reveal.visible .draw-path {
+  stroke-dashoffset: 0;
 }
