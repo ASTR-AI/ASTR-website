@@ -763,3 +763,13 @@
     transform: translateY(0);
   }
 }
+
+/* SVG Path Drawing Animation */
+.draw-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 2.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.reveal.visible .draw-path {
+  stroke-dashoffset: 0;
+}

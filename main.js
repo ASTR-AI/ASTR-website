@@ -9,7 +9,40 @@ document.addEventListener('DOMContentLoaded', () => {
   initPillarTabs();
   initInfraCanvas();
   initDroneCanvas();
+  initAnomalyConsole();
 });
+
+/* --- Problem Section: Anomaly Console Logic --- */
+function initAnomalyConsole() {
+  const tags = document.querySelectorAll('.anomaly-tag');
+  const contents = document.querySelectorAll('.anomaly-content');
+
+  if (!tags.length || !contents.length) return;
+
+  tags.forEach((tag) => {
+    tag.addEventListener('click', () => {
+      const targetId = tag.getAttribute('data-anomaly');
+
+      // Update Tags
+      tags.forEach((t) => t.classList.remove('active'));
+      tag.classList.add('active');
+
+      // Update Content
+      contents.forEach((content) => {
+        content.classList.remove('active');
+        if (content.id === `anomaly-content-${targetId}`) {
+          content.classList.add('active');
+        }
+      });
+    });
+  });
+
+  // Set first one active by default
+  if (tags[0] && contents[0]) {
+    tags[0].classList.add('active');
+    contents[0].classList.add('active');
+  }
+}
 
 /* --- Navbar scroll effect & mobile menu --- */
 function initNavbar() {
@@ -918,8 +951,10 @@ function initPillarTabs() {
         }
       });
 
-      // Toggle Build Footer visibility (only for Infrastructure)
+      // Toggle Build/Deploy Footer visibility
       const buildFooter = document.getElementById('infra-build-footer');
+      const deployFooter = document.getElementById('drone-deploy-footer');
+      
       if (buildFooter) {
         if (target === 'infra') {
           buildFooter.classList.add('visible');
@@ -927,16 +962,25 @@ function initPillarTabs() {
           buildFooter.classList.remove('visible');
         }
       }
+
+      if (deployFooter) {
+        if (target === 'drone') {
+          deployFooter.classList.add('visible');
+        } else {
+          deployFooter.classList.remove('visible');
+        }
+      }
     });
   });
 
-  // Initial check for Build Footer (in case Infra is active on load)
+  // Initial check for Footers
   const activeTabOnLoad = document.querySelector('.nav-item.active');
   const buildFooter = document.getElementById('infra-build-footer');
-  if (activeTabOnLoad && buildFooter) {
-    if (activeTabOnLoad.getAttribute('data-pillar') === 'infra') {
-      buildFooter.classList.add('visible');
-    }
+  const deployFooter = document.getElementById('drone-deploy-footer');
+  if (activeTabOnLoad) {
+    const target = activeTabOnLoad.getAttribute('data-pillar');
+    if (buildFooter && target === 'infra') buildFooter.classList.add('visible');
+    if (deployFooter && target === 'drone') deployFooter.classList.add('visible');
   }
 
   // Handle window resize to keep slider aligned
