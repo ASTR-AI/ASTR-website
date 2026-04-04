@@ -4,13 +4,69 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initScrollReveal();
+  initTextAnimate();
   initHeroCanvas();
   initEcosystemGraph();
   initPillarTabs();
   initInfraCanvas();
   initDroneCanvas();
   initAnomalyConsole();
+  initBlueprintCTA();
+  initCTAParticles();
 });
+
+/* --- Magic UI: Text Animation (Blur In) --- */
+function initTextAnimate() {
+  const elements = document.querySelectorAll('.text-animate');
+
+  elements.forEach((el) => {
+    const type = el.getAttribute('data-animate-type') || 'word';
+    const text = el.innerText.trim();
+    
+    // Split based on type: word or character
+    const items = type === 'word' ? text.split(' ') : text.split('');
+
+    el.innerHTML = '';
+    items.forEach((item, index) => {
+      if (item === '\n') {
+        el.appendChild(document.createElement('br'));
+      } else if (item === ' ' && type === 'char') {
+        el.innerHTML += ' ';
+      } else {
+        const span = document.createElement('span');
+        span.className = 'text-animate-char';
+        span.textContent = item;
+        el.appendChild(span);
+        
+        // Add space after word if it's word-level animation and not the last word
+        if (type === 'word' && index < items.length - 1) {
+          el.appendChild(document.createTextNode(' '));
+        }
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const spans = el.querySelectorAll('.text-animate-char');
+            const stagger = type === 'word' ? 80 : 40; // Slower stagger for words, faster for chars
+            
+            spans.forEach((span, index) => {
+              setTimeout(() => {
+                span.classList.add('visible');
+              }, index * stagger);
+            });
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+  });
+}
 
 /* --- Problem Section: Anomaly Console Logic --- */
 function initAnomalyConsole() {
@@ -60,14 +116,14 @@ function initNavbar() {
 
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+    navLinks.classList.toggle('nav-active');
   });
 
   // Close menu on link click
   navLinks.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
+      navLinks.classList.remove('nav-active');
     });
   });
 }
@@ -111,23 +167,40 @@ function initHeroCanvas() {
     alpha: true,
     antialias: true,
   });
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for mobile performance
 
-  let width = canvas.offsetWidth;
-  let height = canvas.offsetHeight;
-  renderer.setSize(width, height);
-
+  const container = canvas.parentElement;
   const scene = new THREE.Scene();
 
-  // Camera
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  // Move camera further back on smaller screens
-  camera.position.z = width < 768 ? 14 : 9;
+  // Camera initialization
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
 
-  // Keep camera centered
-  camera.position.x = 0;
+  function updateSize() {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
 
-  camera.position.y = 1.0; // Angle down slightly
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+
+    // Dynamic positioning for mobile vs desktop
+    if (w < 768) {
+      // Mobile: Perfectly centered, move camera back to fit logo
+      camera.position.y = 0;
+      // Adjust Z distance based on portrait aspect ratio
+      const aspect = w / h;
+      camera.position.z = aspect < 0.6 ? 18 : 14;
+    } else {
+      // Desktop: Keep the slightly elevated aesthetic
+      camera.position.y = 1.0;
+      camera.position.z = 9;
+    }
+
+    camera.lookAt(0, 0, 0);
+    camera.updateProjectionMatrix();
+  }
+
+  // Initial call
+  updateSize();
 
   // ---- Particle System Geometry & Materials ----
   const particleCount = 15000;
@@ -388,30 +461,34 @@ function initHeroCanvas() {
   core.rotation.x = Math.PI / 8;
   scene.add(core);
 
-  // Mouse interaction parameters
+  // Mouse & Touch interaction
   let mouseX = 0;
   let mouseY = 0;
   let targetX = 0;
   let targetY = 0;
-  let windowHalfX = width / 2;
-  let windowHalfY = height / 2;
+
+  function updateInput(x, y) {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    mouseX = (x - w / 2) * 0.0005;
+    mouseY = (y - h / 2) * 0.0005;
+  }
 
   document.addEventListener('mousemove', (event) => {
-    mouseX = (event.clientX - windowHalfX) * 0.0005;
-    mouseY = (event.clientY - windowHalfY) * 0.0005;
+    updateInput(event.clientX, event.clientY);
   });
-  window.addEventListener('resize', () => {
-    width = canvas.offsetWidth;
-    height = canvas.offsetHeight;
-    windowHalfX = width / 2;
-    windowHalfY = height / 2;
 
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.position.z = width < 768 ? 14 : 9;
-    camera.position.x = 0;
-    camera.updateProjectionMatrix();
-  });
+  document.addEventListener(
+    'touchmove',
+    (event) => {
+      if (event.touches.length > 0) {
+        updateInput(event.touches[0].clientX, event.touches[0].clientY);
+      }
+    },
+    { passive: true }
+  );
+
+  window.addEventListener('resize', updateSize);
 
   // ---- Animation State Machine ----
   const clock = new THREE.Clock();
@@ -789,7 +866,7 @@ class EcosystemGraph {
       // --- LOGO CLIPPING LOGIC ---
       // Instead of starting at (0,0), lines from core start at the logo's edge
       const logoRadius = 85; // Approximate radius where the logo's visual weight ends
-      
+
       let x1 = link.source.x;
       let y1 = link.source.y;
       let x2 = link.target.x;
@@ -838,7 +915,9 @@ class EcosystemGraph {
   }
 
   resetView() {
-    if (confirm('This will reset your custom infrastructure view. Are you sure?')) {
+    if (
+      confirm('This will reset your custom infrastructure view. Are you sure?')
+    ) {
       gsap.to(this.svg, {
         attr: {
           viewBox: `-${this.width / 2} -${this.height / 2} ${this.width} ${this.height}`,
@@ -954,7 +1033,7 @@ function initPillarTabs() {
       // Toggle Build/Deploy Footer visibility
       const buildFooter = document.getElementById('infra-build-footer');
       const deployFooter = document.getElementById('drone-deploy-footer');
-      
+
       if (buildFooter) {
         if (target === 'infra') {
           buildFooter.classList.add('visible');
@@ -980,7 +1059,8 @@ function initPillarTabs() {
   if (activeTabOnLoad) {
     const target = activeTabOnLoad.getAttribute('data-pillar');
     if (buildFooter && target === 'infra') buildFooter.classList.add('visible');
-    if (deployFooter && target === 'drone') deployFooter.classList.add('visible');
+    if (deployFooter && target === 'drone')
+      deployFooter.classList.add('visible');
   }
 
   // Handle window resize to keep slider aligned
@@ -1124,7 +1204,12 @@ function initDroneCanvas() {
   }
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(
+    45,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
   camera.position.set(0, 5, 12);
   camera.lookAt(0, 0, 0);
 
@@ -1144,32 +1229,32 @@ function initDroneCanvas() {
   const colorGrey = new THREE.Color(0x444444);
 
   // Materials
-  const bodyMat = new THREE.MeshPhongMaterial({ 
-    color: colorDark, 
-    specular: colorGold, 
+  const bodyMat = new THREE.MeshPhongMaterial({
+    color: colorDark,
+    specular: colorGold,
     shininess: 100,
-    flatShading: true
-  });
-  
-  const goldWireMat = new THREE.MeshBasicMaterial({ 
-    color: colorGold, 
-    wireframe: true, 
-    transparent: true, 
-    opacity: 0.4 
+    flatShading: true,
   });
 
-  const glowingMat = new THREE.MeshBasicMaterial({ 
-    color: colorGold, 
-    transparent: true, 
+  const goldWireMat = new THREE.MeshBasicMaterial({
+    color: colorGold,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.4,
+  });
+
+  const glowingMat = new THREE.MeshBasicMaterial({
+    color: colorGold,
+    transparent: true,
     opacity: 0.8,
-    blending: THREE.AdditiveBlending 
+    blending: THREE.AdditiveBlending,
   });
 
   // 1. Central Chassis (Industrial Octagon)
   const chassisGeo = new THREE.CylinderGeometry(1.5, 1.7, 0.7, 8);
   const chassis = new THREE.Mesh(chassisGeo, bodyMat);
   droneGroup.add(chassis);
-  
+
   const chassisWire = new THREE.Mesh(chassisGeo, goldWireMat);
   chassisWire.scale.setScalar(1.01);
   droneGroup.add(chassisWire);
@@ -1183,7 +1268,7 @@ function initDroneCanvas() {
   // 3. Professional Arms (Reinforced Truss)
   const armLength = 4.0;
   const armCount = 4;
-  for(let i=0; i < armCount; i++) {
+  for (let i = 0; i < armCount; i++) {
     const angle = (i * Math.PI) / 2 + Math.PI / 4;
     const armGroup = new THREE.Group();
     armGroup.rotation.y = angle;
@@ -1216,27 +1301,27 @@ function initDroneCanvas() {
     motorGroup.add(rotorGroup);
 
     // Triple Blades (Carbon Fiber Look)
-    for(let j=0; j < 3; j++) {
+    for (let j = 0; j < 3; j++) {
       const bladeGeo = new THREE.BoxGeometry(2.5, 0.03, 0.2);
       bladeGeo.translate(1.25, 0, 0);
       const blade = new THREE.Mesh(bladeGeo, bodyMat);
       blade.rotation.y = (j * Math.PI * 2) / 3;
       rotorGroup.add(blade);
     }
-    
+
     // Rotor Blur Disc
     const blurGeo = new THREE.CircleGeometry(2.6, 32);
-    const blurMat = new THREE.MeshBasicMaterial({ 
-      color: colorGold, 
-      transparent: true, 
-      opacity: 0.05, 
+    const blurMat = new THREE.MeshBasicMaterial({
+      color: colorGold,
+      transparent: true,
+      opacity: 0.05,
       side: THREE.DoubleSide,
-      blending: THREE.AdditiveBlending
+      blending: THREE.AdditiveBlending,
     });
     const blur = new THREE.Mesh(blurGeo, blurMat);
     blur.rotation.x = Math.PI / 2;
     rotorGroup.add(blur);
-    
+
     // Status LED
     const ledGeo = new THREE.SphereGeometry(0.1, 8, 8);
     const led = new THREE.Mesh(ledGeo, glowingMat.clone());
@@ -1251,20 +1336,25 @@ function initDroneCanvas() {
   const legGeo = new THREE.CylinderGeometry(0.1, 0.1, 1.5);
   legGeo.translate(0, -0.75, 0);
   legGeo.rotateZ(0.3);
-  
+
   const footGeo = new THREE.BoxGeometry(0.2, 0.1, 1.0);
   footGeo.translate(0, -1.5, 0);
 
-  const legs = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
-  legs.forEach(l => {
+  const legs = [
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1],
+  ];
+  legs.forEach((l) => {
     const leg = new THREE.Mesh(legGeo, bodyMat);
     leg.position.set(l[0] * 0.8, -0.3, l[1] * 0.8);
-    leg.rotation.y = Math.atan2(l[1], l[0]) + Math.PI/2;
+    leg.rotation.y = Math.atan2(l[1], l[0]) + Math.PI / 2;
     gearGroup.add(leg);
-    
+
     const foot = new THREE.Mesh(footGeo, bodyMat);
     foot.position.set(l[0] * 1.1, -0.3, l[1] * 1.1);
-    foot.rotation.y = Math.atan2(l[1], l[0]) + Math.PI/2;
+    foot.rotation.y = Math.atan2(l[1], l[0]) + Math.PI / 2;
     gearGroup.add(foot);
   });
 
@@ -1273,10 +1363,16 @@ function initDroneCanvas() {
   payloadGroup.position.y = -0.6;
   droneGroup.add(payloadGroup);
 
-  const gimbalBase = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.2, 16), bodyMat);
+  const gimbalBase = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.5, 0.5, 0.2, 16),
+    bodyMat
+  );
   payloadGroup.add(gimbalBase);
 
-  const cameraBall = new THREE.Mesh(new THREE.SphereGeometry(0.45, 16, 16), bodyMat);
+  const cameraBall = new THREE.Mesh(
+    new THREE.SphereGeometry(0.45, 16, 16),
+    bodyMat
+  );
   cameraBall.position.y = -0.4;
   payloadGroup.add(cameraBall);
 
@@ -1288,7 +1384,7 @@ function initDroneCanvas() {
     transparent: true,
     opacity: 0.1,
     blending: THREE.AdditiveBlending,
-    side: THREE.DoubleSide
+    side: THREE.DoubleSide,
   });
   const beam = new THREE.Mesh(beamGeo, beamMat);
   payloadGroup.add(beam);
@@ -1301,27 +1397,41 @@ function initDroneCanvas() {
   // Main Grid
   const gridSize = 12;
   const gridDivisions = 6;
-  const gridHelper = new THREE.GridHelper(gridSize, gridDivisions, colorGold, colorGrey);
+  const gridHelper = new THREE.GridHelper(
+    gridSize,
+    gridDivisions,
+    colorGold,
+    colorGrey
+  );
   gridHelper.material.transparent = true;
   gridHelper.material.opacity = 0.2;
   padGroup.add(gridHelper);
 
   // Corner Brackets (Industrial L-shapes)
   const bracketSize = 1.5;
-  const corners = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
-  
-  corners.forEach(c => {
+  const corners = [
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1],
+  ];
+
+  corners.forEach((c) => {
     const bracketGroup = new THREE.Group();
-    bracketGroup.position.set(c[0] * (gridSize/2), 0, c[1] * (gridSize/2));
+    bracketGroup.position.set(c[0] * (gridSize / 2), 0, c[1] * (gridSize / 2));
     padGroup.add(bracketGroup);
 
-    const bLineMat = new THREE.LineBasicMaterial({ color: colorGold, transparent: true, opacity: 0.6 });
-    
+    const bLineMat = new THREE.LineBasicMaterial({
+      color: colorGold,
+      transparent: true,
+      opacity: 0.6,
+    });
+
     // Horizontal corner lines
     const hpts = [
       new THREE.Vector3(-c[0] * bracketSize, 0, 0),
       new THREE.Vector3(0, 0, 0),
-      new THREE.Vector3(0, 0, -c[1] * bracketSize)
+      new THREE.Vector3(0, 0, -c[1] * bracketSize),
     ];
     const bGeo = new THREE.BufferGeometry().setFromPoints(hpts);
     const bLine = new THREE.Line(bGeo, bLineMat);
@@ -1331,11 +1441,17 @@ function initDroneCanvas() {
   // Perimeter Lights (Corners and Mid-points)
   const padLights = [];
   const lightPositions = [
-    [6, 0, 6], [-6, 0, 6], [6, 0, -6], [-6, 0, -6],
-    [6, 0, 0], [-6, 0, 0], [0, 0, 6], [0, 0, -6]
+    [6, 0, 6],
+    [-6, 0, 6],
+    [6, 0, -6],
+    [-6, 0, -6],
+    [6, 0, 0],
+    [-6, 0, 0],
+    [0, 0, 6],
+    [0, 0, -6],
   ];
 
-  lightPositions.forEach(pos => {
+  lightPositions.forEach((pos) => {
     const lightGeo = new THREE.BoxGeometry(0.2, 0.1, 0.2);
     const light = new THREE.Mesh(lightGeo, glowingMat.clone());
     light.position.set(pos[0], 0.05, pos[2]);
@@ -1365,7 +1481,7 @@ function initDroneCanvas() {
     // 1. Stable Flight Physics
     droneGroup.position.y = Math.sin(time * 0.8) * 0.2; // Very stable hover
     droneGroup.position.x = Math.cos(time * 0.4) * 0.1;
-    
+
     // Professional Tilting
     const targetTiltX = -mouseY * 0.2;
     const targetTiltZ = -mouseX * 0.3;
@@ -1376,11 +1492,14 @@ function initDroneCanvas() {
     droneGroup.rotation.y += (targetRotY - droneGroup.rotation.y) * 0.03;
 
     // 2. Component Animations
-    droneGroup.traverse(child => {
+    droneGroup.traverse((child) => {
       if (child.type === 'Group' && child.children.length > 2) {
         // This is a rotor group
-        child.children.forEach(rotorChild => {
-          if (rotorChild.type === 'Mesh' && rotorChild.geometry.type === 'BoxGeometry') {
+        child.children.forEach((rotorChild) => {
+          if (
+            rotorChild.type === 'Mesh' &&
+            rotorChild.geometry.type === 'BoxGeometry'
+          ) {
             rotorChild.rotation.y += 0.6;
           }
         });
@@ -1402,4 +1521,232 @@ function initDroneCanvas() {
   animate();
 }
 
+/* ==========================================================================
+   CTA BLUEPRINT LOGIC
+   ========================================================================== */
+function initBlueprintCTA() {
+  const nodes = document.querySelectorAll('.blueprint-node');
+  const submitBtn = document.getElementById('blueprint-submit');
+  const logCount = document.getElementById('log-count');
+  const logStatus = document.getElementById('log-status');
+  const lines = document.querySelectorAll('.blueprint-line');
 
+  if (!submitBtn) return;
+
+  let selectedParams = new Set();
+
+  function updateEmailLink() {
+    const paramsList = Array.from(selectedParams).join(', ');
+    const subject =
+      selectedParams.size > 0
+        ? `Technical Consultation: ${paramsList}`
+        : 'Technical Consultation Inquiry';
+
+    const body =
+      selectedParams.size > 0
+        ? `Initiating technical consultation for the following subsystems:%0D%0A- ${paramsList}%0D%0A%0D%0APlease provide additional mission details here:`
+        : 'I would like to initiate a technical consultation regarding ASTR AI solutions.%0D%0A%0D%0APlease provide mission details here:';
+
+    submitBtn.href = `mailto:hello@astrai.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    if (logCount)
+      logCount.textContent = selectedParams.size.toString().padStart(2, '0');
+    if (logStatus)
+      logStatus.textContent =
+        selectedParams.size > 0 ? 'CONFIG_ACTIVE' : 'READY';
+
+    lines.forEach((line) => {
+      if (selectedParams.size > 0) {
+        line.style.stroke = 'var(--color-gold-DEFAULT)';
+        line.style.strokeOpacity = '0.4';
+        line.style.strokeDasharray = '4 4';
+      } else {
+        line.style.stroke = 'rgba(255,255,255,0.1)';
+        line.style.strokeOpacity = '1';
+        line.style.strokeDasharray = 'none';
+      }
+    });
+  }
+
+  updateEmailLink();
+
+  nodes.forEach((node) => {
+    node.addEventListener('click', () => {
+      const paramName = node.getAttribute('data-param');
+
+      if (selectedParams.has(paramName)) {
+        selectedParams.delete(paramName);
+        node.classList.remove('selected');
+      } else {
+        selectedParams.add(paramName);
+        node.classList.add('selected');
+      }
+
+      updateEmailLink();
+    });
+  });
+}
+
+/* --- CTA Section: Particle "CONNECT" Animation --- */
+function initCTAParticles() {
+  const canvas = document.getElementById('cta-particle-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const mouse = { x: null, y: null, radius: 100 };
+
+  function resize() {
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+    init();
+  }
+
+  canvas.parentElement.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  canvas.parentElement.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  class Particle {
+    constructor(x, y, color) {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.baseX = x;
+      this.baseY = y;
+      
+      // Cosmic Orbit Properties
+      this.angle = Math.random() * Math.PI * 2;
+      this.velocity = Math.random() * 0.02 + 0.01;
+      this.radius = Math.random() * 100 + 50;
+      
+      this.size = 1.2;
+      this.color = color;
+      this.density = Math.random() * 20 + 1;
+      this.formationStartTime = null; 
+    }
+
+    draw() {
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    update(now) {
+      if (!this.formationStartTime) return;
+      
+      const elapsed = now - this.formationStartTime;
+      const isForming = elapsed > 2000; // 2s drift before forming
+
+      let isNearMouse = false;
+      if (mouse.x !== null && mouse.y !== null) {
+        let dxMouse = mouse.x - this.x;
+        let dyMouse = mouse.y - this.y;
+        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse) + 0.0001;
+        
+        if (distMouse < mouse.radius) {
+          isNearMouse = true;
+          const force = (mouse.radius - distMouse) / mouse.radius;
+          const dirX = (dxMouse / distMouse) * force * this.density;
+          const dirY = (dyMouse / distMouse) * force * this.density;
+          this.x -= dirX;
+          this.y -= dirY;
+        }
+      }
+
+      if (!isNearMouse) {
+        if (isForming) {
+          // High-fidelity Lerp to target
+          const dxTarget = this.baseX - this.x;
+          const dyTarget = this.baseY - this.y;
+          
+          // Use a spring-like attraction
+          this.x += dxTarget * 0.05;
+          this.y += dyTarget * 0.05;
+        } else {
+          // Cinematic Cosmic Vortex
+          this.angle += this.velocity;
+          const centerX = canvas.width / 2;
+          const centerY = canvas.height / 2;
+          
+          const targetX = centerX + Math.cos(this.angle) * this.radius;
+          const targetY = centerY + Math.sin(this.angle) * this.radius;
+          
+          this.x += (targetX - this.x) * 0.02;
+          this.y += (targetY - this.y) * 0.02;
+        }
+      }
+    }
+  }
+
+  function init() {
+    particles = [];
+    const goldColor = '#e6cd99';
+
+    const tempCanvas = document.createElement('canvas');
+    const tempCtx = tempCanvas.getContext('2d');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+
+    const fontSize = Math.min(canvas.width / 8, 56);
+    tempCtx.fillStyle = 'white';
+    tempCtx.font = `bold ${fontSize}px Cinzel`;
+    tempCtx.textAlign = 'center';
+    tempCtx.textBaseline = 'middle';
+    
+    const lineHeight = fontSize * 1.2;
+    tempCtx.fillText('INNOVATE', tempCanvas.width / 2, tempCanvas.height / 2 - lineHeight / 2);
+    tempCtx.fillText('WITH US!', tempCanvas.width / 2, tempCanvas.height / 2 + lineHeight / 2);
+
+    const textData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+
+    const step = 4;
+    for (let y = 0; y < textData.height; y += step) {
+      for (let x = 0; x < textData.width; x += step) {
+        if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
+          particles.push(new Particle(x, y, goldColor));
+        }
+      }
+    }
+  }
+
+  let animationId;
+  let isVisible = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        // Reset formation timer for all particles when it scrolls into view
+        const startTime = Date.now();
+        particles.forEach(p => p.formationStartTime = startTime);
+        animate();
+      } else {
+        cancelAnimationFrame(animationId);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(canvas.parentElement);
+
+  function animate() {
+    if (!isVisible) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const now = Date.now();
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].draw();
+      particles[i].update(now);
+    }
+    animationId = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+}
