@@ -13,7 +13,164 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnomalyConsole();
   initBlueprintCTA();
   initCTAParticles();
+  initPremiumAnimations();
 });
+
+/* --- Premium Editorial Animations (Master Reveal System) --- */
+function initPremiumAnimations() {
+  console.log('Initializing Premium Master Animations...');
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.error('GSAP or ScrollTrigger NOT FOUND');
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. Universal Reveal Elements (Replacing basic CSS reveals)
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach((el) => {
+    // Determine delay from CSS classes if present
+    let delay = 0;
+    if (el.classList.contains('reveal-delay-1')) delay = 0.2;
+    if (el.classList.contains('reveal-delay-2')) delay = 0.4;
+    if (el.classList.contains('reveal-delay-3')) delay = 0.6;
+    if (el.classList.contains('reveal-delay-4')) delay = 0.8;
+
+    gsap.fromTo(
+      el,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        delay: delay,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  });
+
+  // 2. Specialized GSAP Reveals (Containers)
+  const gsapReveals = document.querySelectorAll('.gsap-reveal');
+  gsapReveals.forEach((el) => {
+    const type = el.getAttribute('data-reveal-type') || 'stagger';
+    if (type === 'stagger') {
+      const children = el.children;
+      gsap.fromTo(
+        children,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            onEnter: () => {
+              // Ensure container becomes visible when children start animating
+              gsap.set(el, { visibility: 'visible', opacity: 1 });
+            },
+          },
+        }
+      );
+    }
+  });
+
+  // 3. Journal Item Surgical Parallax
+  const journalItems = document.querySelectorAll('.journal-item');
+  journalItems.forEach((item) => {
+    const img = item.querySelector('.w-\\[45\\%\\]');
+    const content = item.querySelector('.flex-1');
+
+    if (img) {
+      gsap.fromTo(
+        img,
+        { scale: 0.9, opacity: 0, y: 60 },
+        {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 90%',
+          },
+        }
+      );
+    }
+
+    if (content) {
+      const elements = content.children;
+      gsap.fromTo(
+        elements,
+        { opacity: 0, x: 20 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+          },
+        }
+      );
+    }
+  });
+
+  // 4. Hero Specific Entrance
+  const heroGlass = document.querySelector('.hero-glass');
+  if (heroGlass) {
+    gsap.set('.hero-corner', { opacity: 0, y: 20 });
+    gsap.fromTo(
+      heroGlass,
+      { scale: 1.15, opacity: 0, y: 100 },
+      {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        duration: 2.5,
+        ease: 'expo.out',
+        onComplete: () => {
+          gsap.to('.hero-corner', {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            duration: 1.2,
+            ease: 'power3.out',
+          });
+        },
+      }
+    );
+  }
+
+  // 5. CTA Terminal Panel Entrance
+  const ctaPanel = document.getElementById('cta-panel');
+  if (ctaPanel) {
+    gsap.fromTo(
+      ctaPanel,
+      { y: 80, scale: 0.9, opacity: 0 },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.8,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: ctaPanel,
+          start: 'top 92%',
+        },
+      }
+    );
+  }
+}
 
 /* --- Magic UI: Text Animation (Blur In) --- */
 function initTextAnimate() {
@@ -22,7 +179,7 @@ function initTextAnimate() {
   elements.forEach((el) => {
     const type = el.getAttribute('data-animate-type') || 'word';
     const text = el.innerText.trim();
-    
+
     // Split based on type: word or character
     const items = type === 'word' ? text.split(' ') : text.split('');
 
@@ -37,7 +194,7 @@ function initTextAnimate() {
         span.className = 'text-animate-char';
         span.textContent = item;
         el.appendChild(span);
-        
+
         // Add space after word if it's word-level animation and not the last word
         if (type === 'word' && index < items.length - 1) {
           el.appendChild(document.createTextNode(' '));
@@ -51,7 +208,7 @@ function initTextAnimate() {
           if (entry.isIntersecting) {
             const spans = el.querySelectorAll('.text-animate-char');
             const stagger = type === 'word' ? 80 : 40; // Slower stagger for words, faster for chars
-            
+
             spans.forEach((span, index) => {
               setTimeout(() => {
                 span.classList.add('visible');
@@ -128,25 +285,13 @@ function initNavbar() {
   });
 }
 
-/* --- Scroll reveal animation --- */
+/* --- Scroll reveal animation (REPLACED BY GSAP initPremiumAnimations) --- */
 function initScrollReveal() {
+  /*
   const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px',
-    }
-  );
-
+  ...
   reveals.forEach((el) => observer.observe(el));
+  */
 }
 
 /* --- Hero Canvas: Cosmic Astra / Star Visualization (Three.js WebGL) --- */
@@ -1619,16 +1764,16 @@ function initCTAParticles() {
       this.y = Math.random() * canvas.height;
       this.baseX = x;
       this.baseY = y;
-      
+
       // Cosmic Orbit Properties
       this.angle = Math.random() * Math.PI * 2;
       this.velocity = Math.random() * 0.02 + 0.01;
       this.radius = Math.random() * 100 + 50;
-      
+
       this.size = 1.2;
       this.color = color;
       this.density = Math.random() * 20 + 1;
-      this.formationStartTime = null; 
+      this.formationStartTime = null;
     }
 
     draw() {
@@ -1641,7 +1786,7 @@ function initCTAParticles() {
 
     update(now) {
       if (!this.formationStartTime) return;
-      
+
       const elapsed = now - this.formationStartTime;
       const isForming = elapsed > 2000; // 2s drift before forming
 
@@ -1649,8 +1794,9 @@ function initCTAParticles() {
       if (mouse.x !== null && mouse.y !== null) {
         let dxMouse = mouse.x - this.x;
         let dyMouse = mouse.y - this.y;
-        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse) + 0.0001;
-        
+        let distMouse =
+          Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse) + 0.0001;
+
         if (distMouse < mouse.radius) {
           isNearMouse = true;
           const force = (mouse.radius - distMouse) / mouse.radius;
@@ -1666,7 +1812,7 @@ function initCTAParticles() {
           // High-fidelity Lerp to target
           const dxTarget = this.baseX - this.x;
           const dyTarget = this.baseY - this.y;
-          
+
           // Use a spring-like attraction
           this.x += dxTarget * 0.05;
           this.y += dyTarget * 0.05;
@@ -1675,10 +1821,10 @@ function initCTAParticles() {
           this.angle += this.velocity;
           const centerX = canvas.width / 2;
           const centerY = canvas.height / 2;
-          
+
           const targetX = centerX + Math.cos(this.angle) * this.radius;
           const targetY = centerY + Math.sin(this.angle) * this.radius;
-          
+
           this.x += (targetX - this.x) * 0.02;
           this.y += (targetY - this.y) * 0.02;
         }
@@ -1700,12 +1846,25 @@ function initCTAParticles() {
     tempCtx.font = `bold ${fontSize}px Cinzel`;
     tempCtx.textAlign = 'center';
     tempCtx.textBaseline = 'middle';
-    
-    const lineHeight = fontSize * 1.2;
-    tempCtx.fillText('INNOVATE', tempCanvas.width / 2, tempCanvas.height / 2 - lineHeight / 2);
-    tempCtx.fillText('WITH US!', tempCanvas.width / 2, tempCanvas.height / 2 + lineHeight / 2);
 
-    const textData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+    const lineHeight = fontSize * 1.2;
+    tempCtx.fillText(
+      'INNOVATE',
+      tempCanvas.width / 2,
+      tempCanvas.height / 2 - lineHeight / 2
+    );
+    tempCtx.fillText(
+      'WITH US!',
+      tempCanvas.width / 2,
+      tempCanvas.height / 2 + lineHeight / 2
+    );
+
+    const textData = tempCtx.getImageData(
+      0,
+      0,
+      tempCanvas.width,
+      tempCanvas.height
+    );
 
     const step = 4;
     for (let y = 0; y < textData.height; y += step) {
@@ -1720,19 +1879,22 @@ function initCTAParticles() {
   let animationId;
   let isVisible = false;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      isVisible = entry.isIntersecting;
-      if (isVisible) {
-        // Reset formation timer for all particles when it scrolls into view
-        const startTime = Date.now();
-        particles.forEach(p => p.formationStartTime = startTime);
-        animate();
-      } else {
-        cancelAnimationFrame(animationId);
-      }
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          // Reset formation timer for all particles when it scrolls into view
+          const startTime = Date.now();
+          particles.forEach((p) => (p.formationStartTime = startTime));
+          animate();
+        } else {
+          cancelAnimationFrame(animationId);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
   observer.observe(canvas.parentElement);
 

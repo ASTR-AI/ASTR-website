@@ -24,6 +24,13 @@
 @layer components {
   /* --- Reused specific logic that's too tedious for inline utilities --- */
 
+  /* GSAP Managed Reveals (Prevention of FOUC) */
+  .gsap-reveal > *,
+  #cta-panel {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
   /* Scroll Animations */
   .reveal {
     opacity: 0;
@@ -78,16 +85,25 @@
   .footer-hud-panel:hover {
     border-color: rgba(230, 205, 153, 0.2);
   }
-  
+
   .radar-sweep {
     @apply absolute inset-0 pointer-events-none opacity-20;
-    background: conic-gradient(from 0deg at 50% 50%, var(--color-gold-DEFAULT) 0deg, transparent 90deg, transparent 360deg);
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      var(--color-gold-DEFAULT) 0deg,
+      transparent 90deg,
+      transparent 360deg
+    );
     animation: radarSweep 4s linear infinite;
   }
 
   @keyframes radarSweep {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .vertical-text {
@@ -100,8 +116,12 @@
   }
 
   @keyframes telemetryData {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
   }
 
   .footer-link-pill {
@@ -122,12 +142,20 @@
   /* Ethereal Architectural Styles (Global) */
   .ethereal-aura {
     @apply absolute inset-0 pointer-events-none;
-    background: radial-gradient(circle at 50% 50%, rgba(230, 205, 153, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(230, 205, 153, 0.08) 0%,
+      transparent 70%
+    );
   }
 
   .halogen-leak {
     @apply absolute bottom-0 left-0 w-full h-[300px] pointer-events-none;
-    background: linear-gradient(to top, rgba(230, 205, 153, 0.05) 0%, transparent 100%);
+    background: linear-gradient(
+      to top,
+      rgba(230, 205, 153, 0.05) 0%,
+      transparent 100%
+    );
   }
 
   .arch-link {
@@ -995,8 +1023,12 @@
   }
 
   @keyframes liquidFloat {
-    0% { transform: translate(-10%, -10%); }
-    100% { transform: translate(10%, 10%); }
+    0% {
+      transform: translate(-10%, -10%);
+    }
+    100% {
+      transform: translate(10%, 10%);
+    }
   }
 
   .node-base {
