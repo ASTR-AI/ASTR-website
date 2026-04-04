@@ -22,7 +22,7 @@
   <body>
     <!-- ====== NAVIGATION ====== -->
     <nav
-      class="navbar fixed top-[32px] left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-[1200px] rounded-[100px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[20px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)]"
+      class="navbar fixed top-[32px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] max-[768px]:w-[calc(100%-32px)] max-[768px]:px-[24px]"
       id="navbar"
     >
       <a
@@ -32,36 +32,36 @@
         <img
           src="Pictures/without%20bg.png"
           alt="ASTR AI Logo"
-          class="logo-image bg-transparent absolute -top-[32px] left-[24px] h-[128px] w-auto block object-contain z-[1002] pointer-events-none"
+          class="logo-image bg-transparent absolute -top-[32px] left-[24px] h-[128px] w-auto block object-contain z-[1002] pointer-events-none max-[768px]:h-[96px] max-[768px]:-top-[24px] max-[768px]:left-[16px]"
         />
       </a>
       <div
-        class="nav-links flex items-center gap-[16px] pl-[128px]"
+        class="nav-links flex items-center gap-[16px] pl-[128px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:right-[-100%] max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[#0a0a0a]/95 max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:right-0"
         id="navLinks"
       >
         <a
-          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[20px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)]"
+          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)] max-[768px]:text-[1.25rem]"
           href="philosophy.html"
           >Philosophy</a
         >
         <a
-          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[20px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)]"
+          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)] max-[768px]:text-[1.25rem]"
           href="solutions.html"
           >Solutions</a
         >
         <a
-          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[20px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)]"
+          class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)] max-[768px]:text-[1.25rem]"
           href="#rd"
           >R&amp;D</a
         >
         <a
-          class="nav-cta py-[12px] px-[24px] bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)]"
+          class="nav-cta py-[12px] px-[24px] bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)] max-[768px]:text-[1.25rem]"
           href="#footer"
-          >Contact</a
+          >Contact Us</a
         >
       </div>
       <div
-        class="nav-hamburger hidden flex-col gap-[4px] cursor-pointer z-[1001] max-[768px]:flex"
+        class="nav-hamburger hidden flex-col gap-[4px] cursor-pointer z-[1001] max-[768px]:flex [&>span]:w-6 [&>span]:h-[2px] [&>span]:bg-white [&>span]:transition-all [&>span]:duration-300 [&.active>span:nth-child(1)]:rotate-45 [&.active>span:nth-child(1)]:translate-y-[6px] [&.active>span:nth-child(2)]:opacity-0 [&.active>span:nth-child(3)]:-rotate-45 [&.active>span:nth-child(3)]:-translate-y-[6px]"
         id="hamburger"
       >
         <span></span>
@@ -70,13 +70,13 @@
       </div>
     </nav>
 
-    <!-- ====== SECTION 1: HERO (Dark) ====== -->
+    <!-- ====== SECTION 1: HERO (Visual Statement) ====== -->
     <section
-      class="hero relative min-h-screen flex items-center justify-center pt-[88px] pb-[8px] px-[40px] bg-[#101010] max-[992px]:pt-[88px] max-[992px]:px-[24px]"
+      class="hero relative min-h-screen flex items-center justify-center pt-[88px] pb-[8px] px-[40px] bg-[#101010] max-[992px]:pt-[88px] max-[992px]:px-[24px] max-[576px]:px-[16px]"
       id="hero"
     >
       <div
-        class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-140px)] min-h-[600px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)] backdrop-blur-[20px] overflow-hidden max-[992px]:h-[calc(100vh-110px)] max-[992px]:rounded-[20px] max-[576px]:min-h-[500px]"
+        class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-144px)] min-h-[600px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_24px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)] backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-112px)] max-[992px]:rounded-[24px] max-[576px]:h-[calc(100vh-96px)] max-[576px]:min-h-[500px]"
       >
         <div class="hero-bg absolute inset-0 z-0">
           <canvas id="heroCanvas" class="w-full h-full block"></canvas>
@@ -113,25 +113,116 @@
       id="problem"
     >
       <div class="container max-w-container mx-auto">
-
         <!-- Section Header -->
-        <div class="mb-[100px] reveal flex flex-col items-center text-center">
-          <span class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]">
+        <div class="mb-[96px] reveal flex flex-col items-center text-center">
+          <span
+            class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
+          >
             Technical Audit // 2025
           </span>
-          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-[24px] text-white">
-            Identifying the <span class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent">Integration Gap.</span>
+          <h2
+            class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-[24px] text-white"
+          >
+            Identifying the
+            <span
+              class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+              >Integration Gap.</span
+            >
           </h2>
         </div>
 
         <div class="flex flex-col gap-[64px]">
-          
           <!-- Item 01 -->
-          <div class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col">
+          <div
+            class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+          >
             <!-- Left Side: Image (Wide 21:9) -->
-            <div class="w-[45%] max-[992px]:w-full aspect-[21/9] bg-white/5 rounded-[8px] overflow-hidden border border-white/10 relative shrink-0">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <div
+              class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-90"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 400 171"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <radialGradient
+                      id="singularityGlow"
+                      cx="50%"
+                      cy="50%"
+                      r="50%"
+                    >
+                      <stop offset="0%" stop-color="#fff" stop-opacity="0.4" />
+                      <stop
+                        offset="100%"
+                        stop-color="#E6CD99"
+                        stop-opacity="0"
+                      />
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Intelligence Singularity -->
+                  <g
+                    transform="translate(200, 85)"
+                    fill="none"
+                    stroke="#E6CD99"
+                    stroke-width="0.5"
+                  >
+                    <circle r="40" stroke-opacity="0.1" />
+                    <!-- Orbital Shells -->
+                    <ellipse
+                      rx="60"
+                      ry="20"
+                      transform="rotate(0)"
+                      stroke-opacity="0.3"
+                    />
+                    <ellipse
+                      rx="60"
+                      ry="20"
+                      transform="rotate(60)"
+                      stroke-opacity="0.2"
+                    />
+                    <ellipse
+                      rx="60"
+                      ry="20"
+                      transform="rotate(120)"
+                      stroke-opacity="0.2"
+                    />
+                    <!-- Core Nodes -->
+                    <g fill="#E6CD99">
+                      <circle
+                        cx="0"
+                        cy="0"
+                        r="8"
+                        fill="url(#singularityGlow)"
+                        stroke="none"
+                      />
+                      <circle cx="60" cy="0" r="1.5" />
+                      <circle cx="-30" cy="17" r="1.5" />
+                      <circle cx="-30" cy="-17" r="1.5" />
+                    </g>
+                    <!-- Pulse Lines -->
+                    <path
+                      d="M-80 0 L-60 0 M60 0 L80 0 M0 -80 L0 -60 M0 60 L0 80"
+                      stroke-opacity="0.4"
+                    />
+                  </g>
+                  <g
+                    font-family="monospace"
+                    font-size="5"
+                    fill="#E6CD99"
+                    fill-opacity="0.5"
+                    letter-spacing="2"
+                  >
+                    <text x="20" y="30">INTEL_COOR_v2.5</text>
+                    <text x="310" y="150">NEURAL_ARRAY_ACTIVE</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -139,23 +230,35 @@
             <div class="flex-1 w-full flex flex-col justify-between">
               <div>
                 <hr class="border-t border-white/10 mb-[16px]" />
-                
+
                 <!-- Header Row -->
                 <div class="flex justify-between items-center">
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-[#E6CD99]">Category: Intelligence</span>
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20">Audit // 2025</span>
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                    >Category: Intelligence</span
+                  >
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                    >Audit // 2025</span
+                  >
                 </div>
               </div>
 
               <!-- Body Row: Bottom Aligned -->
-              <div class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]">
+              <div
+                class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+              >
                 <div class="title-col">
-                  <h3 class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0">Intelligence without physical agency.</h3>
+                  <h3
+                    class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                  >
+                    Intelligence without physical agency.
+                  </h3>
                 </div>
                 <div class="desc-col flex items-end">
                   <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
-                    AI systems remain trapped in data centers, disconnected 
-                    from the physical environments where insights are needed most.
+                    AI systems remain trapped in data centers, disconnected from
+                    the physical environments where insights are needed most.
                   </p>
                 </div>
               </div>
@@ -163,11 +266,103 @@
           </div>
 
           <!-- Item 02 -->
-          <div class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col">
+          <div
+            class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+          >
             <!-- Left Side: Image (Wide 21:9) -->
-            <div class="w-[45%] max-[992px]:w-full aspect-[21/9] bg-white/5 rounded-[8px] overflow-hidden border border-white/10 relative shrink-0">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div
+              class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-90"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 400 171"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Kinetic Chassis (Exploded Isometric) -->
+                  <g
+                    transform="translate(200, 85)"
+                    fill="none"
+                    stroke="#E6CD99"
+                    stroke-width="0.5"
+                  >
+                    <!-- Base Ring -->
+                    <ellipse
+                      cx="0"
+                      cy="30"
+                      rx="70"
+                      ry="25"
+                      stroke-opacity="0.3"
+                    />
+                    <!-- Mid Core -->
+                    <ellipse cx="0" cy="0" rx="50" ry="18" stroke-width="1.5" />
+                    <ellipse
+                      cx="0"
+                      cy="0"
+                      rx="45"
+                      ry="16"
+                      stroke-opacity="0.2"
+                    />
+                    <!-- Top Ring -->
+                    <ellipse
+                      cx="0"
+                      cy="-30"
+                      rx="70"
+                      ry="25"
+                      stroke-opacity="0.3"
+                    />
+
+                    <!-- Vertical Connectors -->
+                    <line
+                      x1="-70"
+                      y1="30"
+                      x2="-70"
+                      y2="-30"
+                      stroke-dasharray="2 4"
+                      stroke-opacity="0.2"
+                    />
+                    <line
+                      x1="70"
+                      y1="30"
+                      x2="70"
+                      y2="-30"
+                      stroke-dasharray="2 4"
+                      stroke-opacity="0.2"
+                    />
+
+                    <!-- Piston Details -->
+                    <rect
+                      x="-5"
+                      y="-50"
+                      width="10"
+                      height="40"
+                      stroke-opacity="0.6"
+                    />
+                    <rect
+                      x="-3"
+                      y="-45"
+                      width="6"
+                      height="30"
+                      fill="#E6CD99"
+                      fill-opacity="0.1"
+                      stroke="none"
+                    />
+                  </g>
+                  <g
+                    font-family="monospace"
+                    font-size="5"
+                    fill="#E6CD99"
+                    fill-opacity="0.5"
+                    letter-spacing="1"
+                  >
+                    <text x="280" y="40">CHASSIS_EXPLODE_v4</text>
+                    <text x="35" y="150">AXIS_LOCK: TRUE</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -175,23 +370,36 @@
             <div class="flex-1 w-full flex flex-col justify-between">
               <div>
                 <hr class="border-t border-white/10 mb-[16px]" />
-                
+
                 <!-- Header Row -->
                 <div class="flex justify-between items-center">
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-[#E6CD99]">Category: Hardware</span>
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20">Audit // 2025</span>
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                    >Category: Hardware</span
+                  >
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                    >Audit // 2025</span
+                  >
                 </div>
               </div>
 
               <!-- Body Row: Bottom Aligned -->
-              <div class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]">
+              <div
+                class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+              >
                 <div class="title-col">
-                  <h3 class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0">The mechanical blind spot of robotics.</h3>
+                  <h3
+                    class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                  >
+                    The mechanical blind spot of robotics.
+                  </h3>
                 </div>
                 <div class="desc-col flex items-end">
                   <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
-                    Advanced hardware lacks the unified "brain" required for 
-                    real-time coordination. True autonomy requires a software-to-hardware bridge.
+                    Advanced hardware lacks the unified "brain" required for
+                    real-time coordination. True autonomy requires a
+                    software-to-hardware bridge.
                   </p>
                 </div>
               </div>
@@ -199,11 +407,100 @@
           </div>
 
           <!-- Item 03 -->
-          <div class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col">
+          <div
+            class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+          >
             <!-- Left Side: Image (Wide 21:9) -->
-            <div class="w-[45%] max-[992px]:w-full aspect-[21/9] bg-white/5 rounded-[8px] overflow-hidden border border-white/10 relative shrink-0">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            <div
+              class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-90"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 400 171"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Monolithic Grid (Vertical Isometric Pillars) -->
+                  <g
+                    transform="translate(200, 110)"
+                    stroke="#E6CD99"
+                    stroke-width="0.5"
+                    fill="none"
+                  >
+                    <!-- Pillar 1 (Tall) -->
+                    <g transform="translate(-40, 0)">
+                      <path
+                        d="M-15 0 L0 -8 L15 0 L0 8 Z"
+                        fill="#E6CD99"
+                        fill-opacity="0.1"
+                      />
+                      <path d="M-15 0 L-15 -60 L0 -68 L15 -60 L15 0" />
+                      <line
+                        x1="0"
+                        y1="8"
+                        x2="0"
+                        y2="-68"
+                        stroke-opacity="0.2"
+                      />
+                    </g>
+                    <!-- Pillar 2 (Mid) -->
+                    <g transform="translate(0, -10)">
+                      <path
+                        d="M-15 0 L0 -8 L15 0 L0 8 Z"
+                        fill="#E6CD99"
+                        fill-opacity="0.2"
+                      />
+                      <path
+                        d="M-15 0 L-15 -40 L0 -48 L15 -40 L15 0"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="0"
+                        y1="8"
+                        x2="0"
+                        y2="-48"
+                        stroke-opacity="0.2"
+                      />
+                    </g>
+                    <!-- Pillar 3 (Tall) -->
+                    <g transform="translate(40, 0)">
+                      <path
+                        d="M-15 0 L0 -8 L15 0 L0 8 Z"
+                        fill="#E6CD99"
+                        fill-opacity="0.1"
+                      />
+                      <path d="M-15 0 L-15 -60 L0 -68 L15 -60 L15 0" />
+                      <line
+                        x1="0"
+                        y1="8"
+                        x2="0"
+                        y2="-68"
+                        stroke-opacity="0.2"
+                      />
+                    </g>
+
+                    <!-- Connectivity Veins -->
+                    <path
+                      d="M-40 -30 L40 -30 M-40 -50 L40 -50"
+                      stroke-dasharray="2 4"
+                      stroke-opacity="0.3"
+                    />
+                  </g>
+                  <g
+                    font-family="monospace"
+                    font-size="5"
+                    fill="#E6CD99"
+                    fill-opacity="0.5"
+                    letter-spacing="1"
+                  >
+                    <text x="20" y="30">GRID_STRUCT_ROOT</text>
+                    <text x="320" y="150">UPTIME: 100%</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -211,29 +508,40 @@
             <div class="flex-1 w-full flex flex-col justify-between">
               <div>
                 <hr class="border-t border-white/10 mb-[16px]" />
-                
+
                 <!-- Header Row -->
                 <div class="flex justify-between items-center">
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-[#E6CD99]">Category: Foundation</span>
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20">Audit // 2025</span>
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                    >Category: Foundation</span
+                  >
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                    >Audit // 2025</span
+                  >
                 </div>
               </div>
 
               <!-- Body Row: Bottom Aligned -->
-              <div class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]">
+              <div
+                class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+              >
                 <div class="title-col">
-                  <h3 class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0">Infrastructure at the edge of failure.</h3>
+                  <h3
+                    class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                  >
+                    Infrastructure at the edge of failure.
+                  </h3>
                 </div>
                 <div class="desc-col flex items-end">
                   <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
-                    Legacy foundations were not built for modern AI growth. 
-                    We architect the custom bedrock for future operations.
+                    Legacy foundations were not built for modern AI growth. We
+                    architect the custom bedrock for future operations.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -269,14 +577,14 @@
         <div class="max-w-[1100px] mx-auto w-full">
           <!-- Pillar Tabs Navigation -->
           <nav
-            class="segmented-control reveal flex w-fit ml-0 mt-[80px] mb-[48px] relative bg-[#0a0a0a] p-[4px] rounded-[100px] border border-white/10 backdrop-blur-[12px] gap-0 z-[100]"
+            class="segmented-control reveal flex w-fit ml-0 mt-[80px] mb-[48px] relative bg-[#0a0a0a] p-[4px] rounded-[96px] border border-white/10 backdrop-blur-[12px] gap-0 z-[100]"
           >
             <span
-              class="nav-highlight absolute top-[4px] left-[4px] h-[calc(100%-8px)] bg-white/10 border border-white/10 rounded-[100px] transition-all duration-500 z-0 pointer-events-none"
+              class="nav-highlight absolute top-[4px] left-[4px] h-[calc(100%-8px)] bg-white/10 border border-white/10 rounded-[96px] transition-all duration-500 z-0 pointer-events-none"
             ></span>
 
             <button
-              class="nav-item active group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[100px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+              class="nav-item active group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
               data-pillar="ai"
             >
               <svg
@@ -298,7 +606,7 @@
             </button>
 
             <button
-              class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[100px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+              class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
               data-pillar="infra"
             >
               <svg
@@ -319,7 +627,7 @@
             </button>
 
             <button
-              class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[100px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+              class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
               data-pillar="drone"
             >
               <svg
@@ -344,7 +652,7 @@
         </div>
 
         <div
-          class="pillar-display-stage reveal bg-[#050505] rounded-[64px] py-[48px] px-[64px] min-h-[450px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.3)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px]"
+          class="pillar-display-stage reveal bg-[#050505] rounded-[64px] py-[48px] px-[64px] min-h-[450px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.3)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px] max-[768px]:px-[24px] max-[768px]:py-[40px] max-[768px]:min-h-[auto]"
         >
           <!-- Background Elements -->
           <div class="stage-stars"></div>
@@ -358,8 +666,17 @@
             class="pillar-state hidden absolute inset-0 z-[50] flex flex-col items-center justify-center p-[40px] text-center bg-[#050505]/80 backdrop-blur-[10px]"
             id="pillar-state-empty"
           >
-            <h3 class="font-lora text-[24px] text-[#E6CD99] mb-[16px] tracking-[1px] uppercase">No data available</h3>
-            <p class="font-lora text-[16px] leading-[1.6] text-white/80 max-w-[500px]">We're currently scaling our infrastructure. Check back shortly for live telemetry.</p>
+            <h3
+              class="font-lora text-[24px] text-[#E6CD99] mb-[16px] tracking-[1px] uppercase"
+            >
+              No data available
+            </h3>
+            <p
+              class="font-lora text-[16px] leading-[1.6] text-white/80 max-w-[500px]"
+            >
+              We're currently scaling our infrastructure. Check back shortly for
+              live telemetry.
+            </p>
           </div>
 
           <div
@@ -367,9 +684,28 @@
             id="pillar-state-error"
           >
             <div class="mb-[24px] text-[#EF4444]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
             </div>
-            <p class="font-lora text-[16px] leading-[1.6] text-white/80 max-w-[500px]">Connection timeout. Please refresh the page to reconnect to the Astra grid.</p>
+            <p
+              class="font-lora text-[16px] leading-[1.6] text-white/80 max-w-[500px]"
+            >
+              Connection timeout. Please refresh the page to reconnect to the
+              Astra grid.
+            </p>
           </div>
 
           <!-- AI Content -->
@@ -379,7 +715,7 @@
           >
             <div class="mockup-side w-full flex justify-center font-mono">
               <div
-                class="window-frame terminal-window w-full max-w-[520px] h-[416px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[20px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)]"
+                class="window-frame terminal-window w-full max-w-[520px] h-[416px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[24px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)]"
               >
                 <div
                   class="window-header bg-white/5 py-[12px] px-[24px] flex items-center justify-between border-b border-white/10"
@@ -458,34 +794,76 @@
                 </p>
               </div>
 
-              <div class="solutions-table-grid grid grid-cols-3 w-full mt-[40px] max-[768px]:grid-cols-1 max-[768px]:border-none">
+              <div
+                class="solutions-table-grid grid grid-cols-3 w-full mt-[40px] max-[768px]:grid-cols-1 max-[768px]:border-none"
+              >
                 <!-- Headers Row -->
                 <div class="py-[16px] px-[16px] relative">
-                  <h4 class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0">Custom ERP & CRM</h4>
-                  <div class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"></div>
+                  <h4
+                    class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
+                  >
+                    Custom ERP & CRM
+                  </h4>
+                  <div
+                    class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
+                  ></div>
                 </div>
                 <div class="py-[16px] px-[16px] relative max-[768px]:pt-[24px]">
-                  <h4 class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0">Agentic Workflows</h4>
-                  <div class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"></div>
+                  <h4
+                    class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
+                  >
+                    Agentic Workflows
+                  </h4>
+                  <div
+                    class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
+                  ></div>
                 </div>
                 <div class="py-[16px] px-[16px] max-[768px]:pt-[24px]">
-                  <h4 class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0">Predictive Logic</h4>
+                  <h4
+                    class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
+                  >
+                    Predictive Logic
+                  </h4>
                 </div>
-                
+
                 <!-- Row Divider (Fading Horizontal) -->
-                <div class="col-span-3 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-[8px] max-[768px]:hidden"></div>
-                
+                <div
+                  class="col-span-3 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-[8px] max-[768px]:hidden"
+                ></div>
+
                 <!-- Content Row -->
-                <div class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] relative max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5">
-                  <p class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300">Deep operational intelligence tailored to your business.</p>
-                  <div class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"></div>
+                <div
+                  class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] relative max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5"
+                >
+                  <p
+                    class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300"
+                  >
+                    Deep operational intelligence tailored to your business.
+                  </p>
+                  <div
+                    class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
+                  ></div>
                 </div>
-                <div class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] relative max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5">
-                  <p class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300">Autonomous LLM agents that execute multi-step tasks.</p>
-                  <div class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"></div>
+                <div
+                  class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] relative max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5"
+                >
+                  <p
+                    class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300"
+                  >
+                    Autonomous LLM agents that execute multi-step tasks.
+                  </p>
+                  <div
+                    class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
+                  ></div>
                 </div>
-                <div class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5">
-                  <p class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300">Future-proof inventory and supply chain data.</p>
+                <div
+                  class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5"
+                >
+                  <p
+                    class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300"
+                  >
+                    Future-proof inventory and supply chain data.
+                  </p>
                 </div>
               </div>
             </div>
@@ -534,7 +912,8 @@
                   <div
                     class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
-                    Rapidly test and iterate on AI models in a dedicated sandbox.
+                    Rapidly test and iterate on AI models in a dedicated
+                    sandbox.
                   </div>
                 </div>
                 <div
@@ -548,7 +927,8 @@
                   <div
                     class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
-                    Centralize your AI talent with shared high-performance resources.
+                    Centralize your AI talent with shared high-performance
+                    resources.
                   </div>
                 </div>
                 <div
@@ -562,7 +942,8 @@
                   <div
                     class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
-                    Scale massive workloads with custom-configured server hardware.
+                    Scale massive workloads with custom-configured server
+                    hardware.
                   </div>
                 </div>
                 <div
@@ -576,7 +957,8 @@
                   <div
                     class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
                   >
-                    Secure, decentralized architecture designed for mission-critical data sovereignty.
+                    Secure, decentralized architecture designed for
+                    mission-critical data sovereignty.
                   </div>
                 </div>
               </div>
@@ -589,21 +971,26 @@
             id="content-drone"
           >
             <!-- Top Center: Header & Description -->
-            <div class="drone-header-top text-center max-w-[850px] mb-[40px] pt-[24px]">
+            <div
+              class="drone-header-top text-center max-w-[850px] mb-[40px] pt-[24px]"
+            >
               <p
                 class="font-lora text-[17px] leading-[1.7] text-white/70 m-0 z-10 relative"
               >
-                Strategic integration of world-class aerial technology. We 
-                deliver custom-configured drone systems for intelligence, 
+                Strategic integration of world-class aerial technology. We
+                deliver custom-configured drone systems for intelligence,
                 logistics, and tactical deployment.
               </p>
             </div>
 
             <!-- Lower Grid: Drone in Center, Caps Around -->
-            <div class="drone-main-layout grid grid-cols-[1fr_1.8fr_1fr] gap-[48px] items-center w-full max-[1100px]:grid-cols-1 mt-0">
-              
+            <div
+              class="drone-main-layout grid grid-cols-[1fr_1.8fr_1fr] gap-[48px] items-center w-full max-[1100px]:grid-cols-1 mt-0"
+            >
               <!-- Left Side Capability -->
-              <div class="drone-cap-left flex flex-col gap-[24px] text-right max-[1100px]:text-center z-20">
+              <div
+                class="drone-cap-left flex flex-col gap-[24px] text-right max-[1100px]:text-center z-20"
+              >
                 <div class="cap-item group flex flex-col gap-[16px]">
                   <h4
                     class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
@@ -617,12 +1004,19 @@
               </div>
 
               <!-- Center: Drone Animation -->
-              <div class="drone-mockup-center w-full flex justify-center h-[336px] relative z-10 transform -translate-y-[48px]">
-                <canvas id="droneCanvas" class="w-full h-full block cursor-crosshair"></canvas>
+              <div
+                class="drone-mockup-center w-full flex justify-center h-[336px] relative z-10 transform -translate-y-[48px]"
+              >
+                <canvas
+                  id="droneCanvas"
+                  class="w-full h-full block cursor-crosshair"
+                ></canvas>
               </div>
 
               <!-- Right Side Capabilities -->
-              <div class="drone-cap-right flex flex-col gap-[24px] text-left max-[1100px]:text-center z-20">
+              <div
+                class="drone-cap-right flex flex-col gap-[24px] text-left max-[1100px]:text-center z-20"
+              >
                 <!-- Cap 2 -->
                 <div class="cap-item group flex flex-col gap-[16px]">
                   <h4
@@ -646,14 +1040,13 @@
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
 
         <!-- Infrastructure-Specific Build Footer (Visible only when Infra is active) -->
         <div
-          class="antigravity-split-inline hidden opacity-0 translate-y-[20px] mt-[48px] mx-auto mb-[48px] max-w-[1000px] grid-cols-[30%_70%] gap-[64px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[24px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
+          class="antigravity-split-inline hidden opacity-0 translate-y-[24px] mt-[48px] mx-auto mb-[48px] max-w-[1000px] grid-cols-[30%_70%] gap-[64px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[24px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
           id="infra-build-footer"
         >
           <div class="left-col">
@@ -679,7 +1072,7 @@
 
         <!-- Drone-Specific Deploy Footer (Visible only when Drone is active) -->
         <div
-          class="antigravity-split-inline hidden opacity-0 translate-y-[20px] mt-[48px] mx-auto mb-[48px] max-w-[1000px] grid-cols-[30%_70%] gap-[64px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[24px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
+          class="antigravity-split-inline hidden opacity-0 translate-y-[24px] mt-[48px] mx-auto mb-[48px] max-w-[1000px] grid-cols-[30%_70%] gap-[64px] items-start w-full px-[40px] transition-all duration-500 max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:mt-[40px] max-[992px]:px-[24px] [&.visible]:grid [&.visible]:opacity-100 [&.visible]:translate-y-0"
           id="drone-deploy-footer"
         >
           <div class="left-col">
@@ -693,10 +1086,12 @@
             <p
               class="build-description font-lora text-[16px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
             >
-              ASTR AI specializes in the strategic integration of advanced, 'Made in India' drone systems
-              Partnering with top domestic manufacturers, we deliver government-compliant hardware paired 
-              with custom software and tactical oversight. From ISR to logistics, we provide the mission-ready 
-              solutions you need, exactly to your specifications.
+              ASTR AI specializes in the strategic integration of advanced,
+              'Made in India' drone systems Partnering with top domestic
+              manufacturers, we deliver government-compliant hardware paired
+              with custom software and tactical oversight. From ISR to
+              logistics, we provide the mission-ready solutions you need,
+              exactly to your specifications.
             </p>
           </div>
         </div>
@@ -709,25 +1104,125 @@
       id="rd"
     >
       <div class="container max-w-container mx-auto">
-        
         <!-- Section Header -->
-        <div class="mb-[100px] reveal flex flex-col items-center text-center">
-          <span class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]">
+        <div class="mb-[96px] reveal flex flex-col items-center text-center">
+          <span
+            class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
+          >
             Future Horizons // R&D
           </span>
-          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-[24px] text-white">
-            Bridging R&D With <span class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent">Market-Ready Impact.</span>
+          <h2
+            class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-[24px] text-white"
+          >
+            Bridging R&D With
+            <span
+              class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
+              >Market-Ready Impact.</span
+            >
           </h2>
         </div>
 
         <div class="flex flex-col gap-[64px]">
-          
           <!-- R&D Item 01 -->
-          <div class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col">
+          <div
+            class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+          >
             <!-- Left Side: Image (Wide 21:9) -->
-            <div class="w-[45%] max-[992px]:w-full aspect-[21/9] bg-white/5 rounded-[8px] overflow-hidden border border-white/10 relative shrink-0">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4"/><path d="M12 19v4"/><path d="M4.22 4.22l2.83 2.83"/><path d="M16.95 16.95l2.83 2.83"/><path d="M1 12h4"/><path d="M19 12h4"/><path d="M4.22 19.78l2.83-2.83"/><path d="M16.95 7.05l2.83-2.83"/></svg>
+            <div
+              class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-90"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 400 171"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <filter id="frostNoise_RD01_V2">
+                      <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.65"
+                        numOctaves="3"
+                      />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0"
+                      />
+                    </filter>
+                    <radialGradient
+                      id="coreGlow_RD01_V2"
+                      cx="50%"
+                      cy="50%"
+                      r="60%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#E6CD99"
+                        stop-opacity="0.4"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#E6CD99"
+                        stop-opacity="0"
+                      />
+                    </radialGradient>
+                  </defs>
+                  <rect
+                    width="100%"
+                    height="100%"
+                    filter="url(#frostNoise_RD01_V2)"
+                    opacity="0.2"
+                  />
+                  <rect
+                    width="100%"
+                    height="100%"
+                    fill="url(#coreGlow_RD01_V2)"
+                  />
+
+                  <!-- Neural Lattice (Distorted Grid) -->
+                  <g
+                    stroke="#E6CD99"
+                    stroke-width="0.3"
+                    fill="none"
+                    transform="translate(200, 85)"
+                  >
+                    <path
+                      d="M-150 -50 Q0 20 150 -50 M-150 0 Q0 70 150 0 M-150 50 Q0 120 150 50"
+                      stroke-opacity="0.3"
+                    />
+                    <path
+                      d="M-100 -80 Q-20 0 -100 80 M0 -80 Q80 0 0 80 M100 -80 Q180 0 100 80"
+                      stroke-opacity="0.3"
+                    />
+                    <!-- Shards -->
+                    <path
+                      d="M-20 -10 L10 -25 L30 -5 L5 15 Z"
+                      fill="#E6CD99"
+                      fill-opacity="0.1"
+                      stroke-opacity="0.6"
+                    />
+                    <circle r="4" fill="#E6CD99" />
+                    <circle
+                      r="15"
+                      stroke-dasharray="2 4"
+                      stroke-opacity="0.4"
+                    />
+                  </g>
+                  <g
+                    font-family="monospace"
+                    font-size="5"
+                    fill="#E6CD99"
+                    fill-opacity="0.5"
+                    letter-spacing="2"
+                  >
+                    <text x="20" y="30">SINGULARITY_V.01</text>
+                    <text x="320" y="150">LATTICE_STABLE</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -736,20 +1231,33 @@
               <div>
                 <hr class="border-t border-white/10 mb-[16px]" />
                 <div class="flex justify-between items-center">
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-[#E6CD99]">Focus: Deep-Tech Research</span>
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20">Active // 2025</span>
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                    >Focus: Deep-Tech Research</span
+                  >
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                    >Active // 2025</span
+                  >
                 </div>
               </div>
 
               <!-- Body Row: Bottom Aligned -->
-              <div class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]">
+              <div
+                class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+              >
                 <div class="title-col">
-                  <h3 class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0">Redefining the boundaries of human-machine agency.</h3>
+                  <h3
+                    class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                  >
+                    Redefining the boundaries of human-machine agency.
+                  </h3>
                 </div>
                 <div class="desc-col flex items-end">
                   <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
-                    We lead fundamental R&D to unify digital intelligence 
-                    with physical execution, creating systems that adapt in real-time.
+                    We lead fundamental R&D to unify digital intelligence with
+                    physical execution, creating systems that adapt in
+                    real-time.
                   </p>
                 </div>
               </div>
@@ -757,11 +1265,85 @@
           </div>
 
           <!-- R&D Item 02 -->
-          <div class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col">
+          <div
+            class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+          >
             <!-- Left Side: Image (Wide 21:9) -->
-            <div class="w-[45%] max-[992px]:w-full aspect-[21/9] bg-white/5 rounded-[8px] overflow-hidden border border-white/10 relative shrink-0">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div
+              class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-90"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 400 171"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <radialGradient id="slabGlow" cx="50%" cy="50%" r="50%">
+                      <stop
+                        offset="0%"
+                        stop-color="#E6CD99"
+                        stop-opacity="0.3"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#E6CD99"
+                        stop-opacity="0"
+                      />
+                    </radialGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#slabGlow)" />
+
+                  <!-- Crystalline Ledger (Isometric Shards) -->
+                  <g
+                    transform="translate(200, 85)"
+                    stroke="#E6CD99"
+                    stroke-width="0.5"
+                    fill="none"
+                  >
+                    <!-- Layer 1 -->
+                    <g transform="translate(0, -20)">
+                      <path
+                        d="M-60 0 L0 -30 L60 0 L0 30 Z"
+                        fill="#E6CD99"
+                        fill-opacity="0.05"
+                      />
+                      <path d="M-60 0 L-60 10 L0 40 L60 10 L60 0" />
+                      <path d="M0 30 L0 40" />
+                    </g>
+                    <!-- Layer 2 -->
+                    <g transform="translate(0, 10)">
+                      <path
+                        d="M-50 0 L0 -25 L50 0 L0 25 Z"
+                        fill="#E6CD99"
+                        fill-opacity="0.1"
+                      />
+                      <path
+                        d="M-50 0 L-50 10 L0 35 L50 10 L50 0"
+                        stroke-opacity="0.5"
+                      />
+                    </g>
+                    <!-- Connection Lines -->
+                    <path
+                      d="M0 -30 L0 40"
+                      stroke-dasharray="2 2"
+                      stroke-opacity="0.3"
+                    />
+                  </g>
+                  <g
+                    font-family="monospace"
+                    font-size="5"
+                    fill="#E6CD99"
+                    fill-opacity="0.5"
+                  >
+                    <text x="270" y="60">HASH_0x44F</text>
+                    <text x="270" y="100">BLOCK_VERIFIED</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -770,20 +1352,33 @@
               <div>
                 <hr class="border-t border-white/10 mb-[16px]" />
                 <div class="flex justify-between items-center">
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-[#E6CD99]">Focus: Trust Architecture</span>
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20">Verified // 2025</span>
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                    >Focus: Trust Architecture</span
+                  >
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                    >Verified // 2025</span
+                  >
                 </div>
               </div>
 
               <!-- Body Row: Bottom Aligned -->
-              <div class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]">
+              <div
+                class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+              >
                 <div class="title-col">
-                  <h3 class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0">Establishing systemic trust via high-level contracts.</h3>
+                  <h3
+                    class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                  >
+                    Establishing systemic trust via high-level contracts.
+                  </h3>
                 </div>
                 <div class="desc-col flex items-end">
                   <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
-                    Securing mission-critical infrastructure builds the credibility 
-                    needed to fund and deploy our most ambitious research programs.
+                    Securing mission-critical infrastructure builds the
+                    credibility needed to fund and deploy our most ambitious
+                    research programs.
                   </p>
                 </div>
               </div>
@@ -791,11 +1386,84 @@
           </div>
 
           <!-- R&D Item 03 -->
-          <div class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col">
+          <div
+            class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+          >
             <!-- Left Side: Image (Wide 21:9) -->
-            <div class="w-[45%] max-[992px]:w-full aspect-[21/9] bg-white/5 rounded-[8px] overflow-hidden border border-white/10 relative shrink-0">
-              <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div
+              class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+            >
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-90"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 400 171"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <radialGradient
+                      id="coreGlow_RD03_V2"
+                      cx="50%"
+                      cy="50%"
+                      r="50%"
+                    >
+                      <stop offset="0%" stop-color="#fff" stop-opacity="0.3" />
+                      <stop
+                        offset="100%"
+                        stop-color="#E6CD99"
+                        stop-opacity="0"
+                      />
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Orbital Knowledge Engine -->
+                  <g
+                    transform="translate(200, 85)"
+                    fill="none"
+                    stroke="#E6CD99"
+                    stroke-width="0.5"
+                  >
+                    <circle
+                      r="20"
+                      fill="url(#coreGlow_RD03_V2)"
+                      stroke-width="1"
+                    />
+                    <circle
+                      r="40"
+                      stroke-dasharray="5 10"
+                      stroke-opacity="0.3"
+                    />
+                    <circle
+                      r="60"
+                      stroke-dasharray="2 8"
+                      stroke-opacity="0.2"
+                    />
+
+                    <!-- Particles -->
+                    <g fill="#E6CD99">
+                      <circle cx="35" cy="-20" r="1.5" />
+                      <circle cx="-50" cy="30" r="1" />
+                      <circle cx="10" cy="55" r="2" fill-opacity="0.6" />
+                    </g>
+
+                    <!-- Talent Streams -->
+                    <path d="M-150 80 Q-75 80 0 20" stroke-opacity="0.2" />
+                    <path d="M150 80 Q75 80 0 20" stroke-opacity="0.2" />
+                  </g>
+                  <g
+                    font-family="monospace"
+                    font-size="5"
+                    fill="#E6CD99"
+                    fill-opacity="0.5"
+                    letter-spacing="1"
+                  >
+                    <text x="35" y="150">TALENT_FLUX: MAX</text>
+                    <text x="280" y="30">CORE_SYNC_ACTIVE</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -804,26 +1472,182 @@
               <div>
                 <hr class="border-t border-white/10 mb-[16px]" />
                 <div class="flex justify-between items-center">
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-[#E6CD99]">Focus: Talent Pipeline</span>
-                  <span class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20">Ongoing // 2025</span>
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                    >Focus: Talent Pipeline</span
+                  >
+                  <span
+                    class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                    >Ongoing // 2025</span
+                  >
                 </div>
               </div>
 
               <!-- Body Row: Bottom Aligned -->
-              <div class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]">
+              <div
+                class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+              >
                 <div class="title-col">
-                  <h3 class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0">Empowering the next generation of engineers.</h3>
+                  <h3
+                    class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                  >
+                    Empowering the next generation of engineers.
+                  </h3>
                 </div>
                 <div class="desc-col flex items-end">
                   <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
-                    We develop the infrastructure and curricula for AI education, 
-                    ensuring a steady stream of experts for our industry ecosystems.
+                    We develop the infrastructure and curricula for AI
+                    education, ensuring a steady stream of experts for our
+                    industry ecosystems.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ====== SECTION 4.5: CTA / HOLOGRAPHIC HUB ====== -->
+    <section
+      class="relative py-section-y border-t border-white/10 bg-[#050505] overflow-hidden"
+      id="cta-blueprint"
+    >
+      <!-- Background Ambient Glow -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: radial-gradient(
+            circle at 50% 50%,
+            rgba(230, 205, 153, 0.05) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+
+      <div
+        class="container max-w-container mx-auto px-section-x relative z-10 flex flex-col items-center"
+      >
+        <!-- Section Header -->
+        <div class="text-center mb-[64px] max-w-[700px] reveal">
+          <span
+            class="font-mono text-[0.75rem] uppercase tracking-[3px] text-[var(--color-gold-DEFAULT)] mb-[16px] block flex items-center justify-center gap-2"
+          >
+            <span
+              class="inline-block w-2 h-2 rounded-full bg-[var(--color-gold-DEFAULT)] animate-pulse"
+            ></span>
+            System Deployment Gateway
+          </span>
+          <h2
+            class="font-lora text-h2 font-medium text-white leading-tight mb-[20px]"
+          >
+            Ready to integrate ASTR AI?
+          </h2>
+          <p class="text-white/50 text-body font-inter">
+            Configure your technical requirements on the terminal below to
+            <span class="text-white">establish a secure connection</span> with
+            our engineering team.
+          </p>
+        </div>
+
+        <!-- The Holographic Interface -->
+        <div
+          class="w-full max-w-[1100px] relative bg-[#0a0a0a] border border-white/10 rounded-[12px] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-xl reveal reveal-delay-1 group"
+        >
+          <!-- HUD Decorations -->
+          <div class="hud-bracket hud-bracket-tl"></div>
+          <div class="hud-bracket hud-bracket-tr"></div>
+          <div class="hud-bracket hud-bracket-bl"></div>
+          <div class="hud-bracket hud-bracket-br"></div>
+
+          <!-- Top Status Bar -->
+          <div
+            class="border-b border-white/10 px-[24px] py-[12px] flex justify-between items-center bg-white/[0.02]"
+          >
+            <div
+              id="blueprint-hud"
+              class="font-mono text-[0.6rem] uppercase tracking-[2px] text-white/40"
+            >
+              STATUS:
+              <span class="text-[var(--color-gold-DEFAULT)]"
+                >UPLINK_READY_TO_TRANSMIT</span
+              >
+            </div>
+            <div
+              class="flex gap-4 font-mono text-[0.5rem] text-white/20 uppercase tracking-[1px]"
+            >
+              <span class="hidden sm:inline">ASTR_CORE_v1.0</span>
+              <span class="text-[var(--color-gold-DEFAULT)] animate-pulse"
+                >● LIVE</span
+              >
+            </div>
+          </div>
+
+          <div class="flex flex-row max-[992px]:flex-col">
+            <!-- Left Panel: Particle CTA Visual -->
+            <div class="flex-1 min-h-[380px] max-[768px]:min-h-[300px] relative flex items-center justify-center p-[32px] border-r border-white/10 max-[992px]:border-r-0 max-[992px]:border-b bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden">
+              
+              <!-- Particle Canvas -->
+              <canvas id="cta-particle-canvas" class="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-700"></canvas>
+
+              <!-- Optional Label -->
+              <div class="absolute top-4 left-6 font-mono text-[0.5rem] text-white/20 uppercase tracking-[2px] z-10">
+                ASTR_UPLINK_STATUS: STANDBY
+              </div>
+            </div>
+
+            <!-- Right Panel: The Primary Action Area -->
+            <div class="w-[420px] max-[992px]:w-full p-[40px] max-[576px]:p-[24px] bg-gradient-to-br from-white/[0.03] to-transparent flex flex-col justify-center items-center text-center relative shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]">
+              <div class="relative w-full">
+                <!-- Heading to Description: mb-4 (16px) -->
+                <h3 class="font-lora text-[1.5rem] text-white font-medium leading-tight mb-4 uppercase tracking-[1px] text-animate" data-animate-type="char">
+                  Start Your <br />Journey With ASTR AI.
+                </h3>
+                
+                <!-- Description to Log: mb-10 (40px) -->
+                <p class="text-white/50 text-[0.85rem] leading-relaxed mb-10 font-lora max-w-[320px] mx-auto text-animate" data-animate-type="word">
+                  Connect with our specialists to architect your AI infrastructure. We turn mission-critical requirements into scalable reality.
+                </p>
+
+                <!-- Redesigned Telemetry Log -->
+                <!-- Log to Button: mb-16 (64px) -->
+                <div id="telemetry-log" class="p-4 bg-black/40 border border-white/5 rounded-[4px] backdrop-blur-md relative overflow-hidden group/monitor max-w-[320px] mx-auto w-full mb-16">
+                  <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-gold-DEFAULT)]/5 to-transparent opacity-0 group-hover/monitor:opacity-100 transition-opacity duration-700"></div>
+                  <div class="relative z-10 space-y-2">
+                    <div class="flex justify-between items-center font-mono text-[0.55rem] tracking-[1px]">
+                      <span class="text-white/30 uppercase">Selection_Buffer</span>
+                      <span class="text-[var(--color-gold-DEFAULT)] font-bold" id="log-count">00</span>
+                    </div>
+                    <div class="flex justify-between items-center font-mono text-[0.55rem] tracking-[1px]">
+                      <span class="text-white/30 uppercase">Link_Status</span>
+                      <div class="flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-[var(--color-gold-DEFAULT)] animate-pulse"></span>
+                        <span class="text-white/70 font-bold" id="log-status">READY</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button to Info: space-y-8 (32px) -->
+              <div class="space-y-8 w-full flex flex-col items-center">
+                <a href="mailto:hello@astrai.in?subject=Technical Consultation Inquiry" id="blueprint-submit" class="liquid-glass-button group/btn shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(230,205,153,0.1)] !py-2.5 !px-5 !text-[0.7rem] w-fit whitespace-nowrap">
+                  <span class="relative z-10">Establish Connection</span>
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="relative z-10 group-hover/btn:translate-x-1 transition-transform">
+                    <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+
+                <div class="text-center group/email pt-2">
+                  <span class="font-mono text-[0.55rem] text-white/20 uppercase tracking-[2px] block mb-2">Secure Channel</span>
+                  <a href="mailto:hello@astrai.in" class="inline-flex flex-col items-center">
+                    <span class="font-mono text-[0.95rem] text-white/70 group-hover/email:text-[var(--color-gold-DEFAULT)] transition-colors duration-300">hello@astrai.in</span>
+                    <div class="w-0 h-[1px] bg-[var(--color-gold-DEFAULT)] group-hover/email:w-full transition-all duration-500 mt-0.5"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

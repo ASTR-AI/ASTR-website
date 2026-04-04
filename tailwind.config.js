@@ -51,8 +51,8 @@ module.exports = {
         xs: '0.75rem',
       },
       spacing: {
-        'section-y': 'clamp(80px, 10vw, 140px)',
-        'section-x': 'clamp(20px, 5vw, 80px)',
+        'section-y': 'clamp(80px, 10vw, 144px)',
+        'section-x': 'clamp(24px, 5vw, 80px)',
       },
       maxWidth: {
         container: '1200px',
@@ -61,7 +61,7 @@ module.exports = {
         glass: '0 8px 32px rgba(0, 0, 0, 0.4)',
       },
       backdropBlur: {
-        glass: '20px',
+        glass: '24px',
       },
       transitionTimingFunction: {
         'ease-out': 'cubic-bezier(0.16, 1, 0.3, 1)',

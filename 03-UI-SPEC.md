@@ -15,13 +15,13 @@ created: 2026-03-27
 
 ## Design System
 
-| Property | Value |
-|----------|-------|
-| Tool | none |
-| Preset | not applicable |
-| Component library | none (manual HTML/CSS) |
-| Icon library | Phosphor Icons / Lucide |
-| Font | Lora (Body), Cinzel (Headings) |
+| Property          | Value                          |
+| ----------------- | ------------------------------ |
+| Tool              | none                           |
+| Preset            | not applicable                 |
+| Component library | none (manual HTML/CSS)         |
+| Icon library      | Phosphor Icons / Lucide        |
+| Font              | Lora (Body), Cinzel (Headings) |
 
 ---
 
@@ -29,17 +29,18 @@ created: 2026-03-27
 
 Declared values (multiples of 8-point scale):
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| xs | 4px | Icon gaps, inline padding |
-| sm | 8px | Compact element spacing |
-| md | 16px | Default element spacing |
-| lg | 24px | Section padding |
-| xl | 32px | Layout gaps (Navbar spacing) |
-| 2xl | 48px | Infrastructure Footer Top Margin |
-| 3xl | 64px | Large Container Border Radius |
+| Token | Value | Usage                            |
+| ----- | ----- | -------------------------------- |
+| xs    | 4px   | Icon gaps, inline padding        |
+| sm    | 8px   | Compact element spacing          |
+| md    | 16px  | Default element spacing          |
+| lg    | 24px  | Section padding                  |
+| xl    | 32px  | Layout gaps (Navbar spacing)     |
+| 2xl   | 48px  | Infrastructure Footer Top Margin |
+| 3xl   | 64px  | Large Container Border Radius    |
 
-Exceptions: 
+Exceptions:
+
 - `100px` Border Radius for Navbars (Liquid Glass refinement).
 - `50px` Bottom Margin for Infrastructure Footer.
 
@@ -49,14 +50,15 @@ Exceptions:
 
 Aligned with **Claude (Anthropic)** readability standards for text-heavy sections.
 
-| Role | Size | Weight | Line Height |
-|------|------|--------|-------------|
-| Body (Primary) | 16px | 400 | 1.6 |
-| Body (Small) | 14px | 400 | 1.5 |
-| Heading (H2) | 28px | 700 | 1.2 |
-| Display (Hero) | 88px | 700 | 1.1 |
+| Role           | Size | Weight | Line Height |
+| -------------- | ---- | ------ | ----------- |
+| Body (Primary) | 16px | 400    | 1.6         |
+| Body (Small)   | 14px | 400    | 1.5         |
+| Heading (H2)   | 28px | 700    | 1.2         |
+| Display (Hero) | 88px | 700    | 1.1         |
 
 ### Refinement: Infrastructure Build Footer
+
 - **Previous**: 13px Lora, leading-1.6, `white/60` (opacity 0.6).
 - **New Contract**: 16px Lora, leading-1.6, `white/80` (opacity 0.8).
 - **Rationale**: 16px is the minimum for high-legibility desktop body text. Increased opacity to 0.8 ensures WCAG AA contrast on dark backgrounds while maintaining a "muted" feel compared to primary headings.
@@ -65,12 +67,12 @@ Aligned with **Claude (Anthropic)** readability standards for text-heavy section
 
 ## Color
 
-| Role | Value | Usage |
-|------|-------|-------|
-| Dominant (60%) | #121212 | Main Background |
-| Secondary (30%) | #1a1a1a | Section Backgrounds, Cards |
-| Accent (10%) | #E6CD99 | Borders, Active States, Highlights |
-| Destructive | #EF4444 | Error/Warning icons only |
+| Role            | Value   | Usage                              |
+| --------------- | ------- | ---------------------------------- |
+| Dominant (60%)  | #121212 | Main Background                    |
+| Secondary (30%) | #1a1a1a | Section Backgrounds, Cards         |
+| Accent (10%)    | #E6CD99 | Borders, Active States, Highlights |
+| Destructive     | #EF4444 | Error/Warning icons only           |
 
 Accent reserved for: Borders (0.2 opacity), Active links, Hover states, and "Glow" effects.
 
@@ -80,33 +82,33 @@ Accent reserved for: Borders (0.2 opacity), Active links, Hover states, and "Glo
 
 New visual constraints for "Liquid Glass" aesthetic:
 
-| Property | Value | Usage |
-|----------|-------|-------|
-| Corner Radius (Nav) | 100px | Navigation bars, segmented controls |
-| Corner Radius (Card) | 64px | Large section containers |
-| Specular Highlight | `inset 0 1px 1px rgba(255,255,255,0.3)` | Upper-inner edge of glass containers |
-| Backdrop Blur | 20px | All glass elements |
-| Glass Border | `1px solid rgba(255,255,255,0.08)` | Standard container border |
+| Property             | Value                                   | Usage                                |
+| -------------------- | --------------------------------------- | ------------------------------------ |
+| Corner Radius (Nav)  | 100px                                   | Navigation bars, segmented controls  |
+| Corner Radius (Card) | 64px                                    | Large section containers             |
+| Specular Highlight   | `inset 0 1px 1px rgba(255,255,255,0.3)` | Upper-inner edge of glass containers |
+| Backdrop Blur        | 20px                                    | All glass elements                   |
+| Glass Border         | `1px solid rgba(255,255,255,0.08)`      | Standard container border            |
 
 ---
 
 ## Copywriting Contract
 
-| Element | Copy |
-|---------|------|
-| Primary CTA | "Get Started" / "Explore Infrastructure" |
-| Empty state heading | "No data available" |
-| Empty state body | "We're currently scaling our infrastructure. Check back shortly for live telemetry." |
-| Error state | "Connection timeout. Please refresh the page to reconnect to the Astra grid." |
-| Destructive confirmation | Reset View: "This will reset your custom infrastructure view. Are you sure?" |
+| Element                  | Copy                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| Primary CTA              | "Get Started" / "Explore Infrastructure"                                             |
+| Empty state heading      | "No data available"                                                                  |
+| Empty state body         | "We're currently scaling our infrastructure. Check back shortly for live telemetry." |
+| Error state              | "Connection timeout. Please refresh the page to reconnect to the Astra grid."        |
+| Destructive confirmation | Reset View: "This will reset your custom infrastructure view. Are you sure?"         |
 
 ---
 
 ## Registry Safety
 
-| Registry | Blocks Used | Safety Gate |
-|----------|-------------|-------------|
-| none | none | not required |
+| Registry | Blocks Used | Safety Gate  |
+| -------- | ----------- | ------------ |
+| none     | none        | not required |
 
 ---
 
