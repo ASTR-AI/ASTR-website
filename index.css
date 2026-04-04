@@ -24,8 +24,9 @@
 @layer components {
   /* --- Reused specific logic that's too tedious for inline utilities --- */
 
-  /* GSAP Managed Reveals (Prevention of FOUC for children) */
-  .gsap-reveal > * {
+  /* GSAP Managed Reveals (Prevention of FOUC) */
+  .gsap-reveal > *,
+  #cta-panel {
     opacity: 0;
     will-change: opacity, transform;
   }

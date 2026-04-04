@@ -150,6 +150,26 @@ function initPremiumAnimations() {
       }
     );
   }
+
+  // 5. CTA Terminal Panel Entrance
+  const ctaPanel = document.getElementById('cta-panel');
+  if (ctaPanel) {
+    gsap.fromTo(
+      ctaPanel,
+      { y: 80, scale: 0.9, opacity: 0 },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.8,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: ctaPanel,
+          start: 'top 92%',
+        },
+      }
+    );
+  }
 }
 
 /* --- Magic UI: Text Animation (Blur In) --- */
