@@ -70,6 +70,87 @@
   .nav-hamburger span {
     @apply w-6 h-[2px] bg-white transition-all duration-200;
   }
+
+  /* Mission Control Footer Components */
+  .footer-hud-panel {
+    @apply bg-[#1a1a1a] border border-white/5 rounded-sm p-6 relative overflow-hidden transition-all duration-500;
+  }
+  .footer-hud-panel:hover {
+    border-color: rgba(230, 205, 153, 0.2);
+  }
+  
+  .radar-sweep {
+    @apply absolute inset-0 pointer-events-none opacity-20;
+    background: conic-gradient(from 0deg at 50% 50%, var(--color-gold-DEFAULT) 0deg, transparent 90deg, transparent 360deg);
+    animation: radarSweep 4s linear infinite;
+  }
+
+  @keyframes radarSweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .telemetry-scroll {
+    animation: telemetryData 20s linear infinite;
+  }
+
+  @keyframes telemetryData {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  .footer-link-pill {
+    @apply px-4 py-1.5 border border-white/10 rounded-full text-[0.7rem] font-mono uppercase tracking-[2px] text-white/40 transition-all duration-300;
+  }
+  .footer-link-pill:hover {
+    @apply text-[var(--color-gold-DEFAULT)];
+    background-color: var(--color-gold-bg);
+    border-color: rgba(230, 205, 153, 0.3);
+  }
+
+  .mission-control-title {
+    @apply font-cinzel text-white/5 pointer-events-none select-none;
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 1;
+  }
+
+  /* Ethereal Architectural Footer Styles */
+  .footer-aura {
+    background: radial-gradient(circle at 50% 50%, rgba(230, 205, 153, 0.08) 0%, transparent 70%);
+  }
+
+  .footer-halogen-leak {
+    @apply absolute bottom-0 left-0 w-full h-[300px] pointer-events-none;
+    background: linear-gradient(to top, rgba(230, 205, 153, 0.05) 0%, transparent 100%);
+  }
+
+  .arch-link {
+    @apply relative text-white/40 transition-colors duration-500 font-lora text-[1rem] inline-block py-1;
+  }
+  .arch-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-[1px] bg-[var(--color-gold-DEFAULT)] transition-all duration-500;
+    width: 0;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .arch-link:hover {
+    @apply text-white;
+  }
+  .arch-link:hover::after {
+    @apply w-full;
+  }
+
+  .system-metadata {
+    @apply font-mono text-[0.625rem] text-white/20 uppercase tracking-[2px] flex items-center gap-4;
+  }
+  .system-metadata .separator {
+    @apply w-[1px] h-3 bg-white/10 mx-2;
+  }
   .nav-hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
