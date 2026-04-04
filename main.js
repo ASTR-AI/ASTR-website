@@ -22,7 +22,7 @@ function initTextAnimate() {
   elements.forEach((el) => {
     const type = el.getAttribute('data-animate-type') || 'word';
     const text = el.innerText.trim();
-    
+
     // Split based on type: word or character
     const items = type === 'word' ? text.split(' ') : text.split('');
 
@@ -37,7 +37,7 @@ function initTextAnimate() {
         span.className = 'text-animate-char';
         span.textContent = item;
         el.appendChild(span);
-        
+
         // Add space after word if it's word-level animation and not the last word
         if (type === 'word' && index < items.length - 1) {
           el.appendChild(document.createTextNode(' '));
@@ -51,7 +51,7 @@ function initTextAnimate() {
           if (entry.isIntersecting) {
             const spans = el.querySelectorAll('.text-animate-char');
             const stagger = type === 'word' ? 80 : 40; // Slower stagger for words, faster for chars
-            
+
             spans.forEach((span, index) => {
               setTimeout(() => {
                 span.classList.add('visible');
@@ -1619,16 +1619,16 @@ function initCTAParticles() {
       this.y = Math.random() * canvas.height;
       this.baseX = x;
       this.baseY = y;
-      
+
       // Cosmic Orbit Properties
       this.angle = Math.random() * Math.PI * 2;
       this.velocity = Math.random() * 0.02 + 0.01;
       this.radius = Math.random() * 100 + 50;
-      
+
       this.size = 1.2;
       this.color = color;
       this.density = Math.random() * 20 + 1;
-      this.formationStartTime = null; 
+      this.formationStartTime = null;
     }
 
     draw() {
@@ -1641,7 +1641,7 @@ function initCTAParticles() {
 
     update(now) {
       if (!this.formationStartTime) return;
-      
+
       const elapsed = now - this.formationStartTime;
       const isForming = elapsed > 2000; // 2s drift before forming
 
@@ -1649,8 +1649,9 @@ function initCTAParticles() {
       if (mouse.x !== null && mouse.y !== null) {
         let dxMouse = mouse.x - this.x;
         let dyMouse = mouse.y - this.y;
-        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse) + 0.0001;
-        
+        let distMouse =
+          Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse) + 0.0001;
+
         if (distMouse < mouse.radius) {
           isNearMouse = true;
           const force = (mouse.radius - distMouse) / mouse.radius;
@@ -1666,7 +1667,7 @@ function initCTAParticles() {
           // High-fidelity Lerp to target
           const dxTarget = this.baseX - this.x;
           const dyTarget = this.baseY - this.y;
-          
+
           // Use a spring-like attraction
           this.x += dxTarget * 0.05;
           this.y += dyTarget * 0.05;
@@ -1675,10 +1676,10 @@ function initCTAParticles() {
           this.angle += this.velocity;
           const centerX = canvas.width / 2;
           const centerY = canvas.height / 2;
-          
+
           const targetX = centerX + Math.cos(this.angle) * this.radius;
           const targetY = centerY + Math.sin(this.angle) * this.radius;
-          
+
           this.x += (targetX - this.x) * 0.02;
           this.y += (targetY - this.y) * 0.02;
         }
@@ -1700,12 +1701,25 @@ function initCTAParticles() {
     tempCtx.font = `bold ${fontSize}px Cinzel`;
     tempCtx.textAlign = 'center';
     tempCtx.textBaseline = 'middle';
-    
-    const lineHeight = fontSize * 1.2;
-    tempCtx.fillText('INNOVATE', tempCanvas.width / 2, tempCanvas.height / 2 - lineHeight / 2);
-    tempCtx.fillText('WITH US!', tempCanvas.width / 2, tempCanvas.height / 2 + lineHeight / 2);
 
-    const textData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+    const lineHeight = fontSize * 1.2;
+    tempCtx.fillText(
+      'INNOVATE',
+      tempCanvas.width / 2,
+      tempCanvas.height / 2 - lineHeight / 2
+    );
+    tempCtx.fillText(
+      'WITH US!',
+      tempCanvas.width / 2,
+      tempCanvas.height / 2 + lineHeight / 2
+    );
+
+    const textData = tempCtx.getImageData(
+      0,
+      0,
+      tempCanvas.width,
+      tempCanvas.height
+    );
 
     const step = 4;
     for (let y = 0; y < textData.height; y += step) {
@@ -1720,19 +1734,22 @@ function initCTAParticles() {
   let animationId;
   let isVisible = false;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      isVisible = entry.isIntersecting;
-      if (isVisible) {
-        // Reset formation timer for all particles when it scrolls into view
-        const startTime = Date.now();
-        particles.forEach(p => p.formationStartTime = startTime);
-        animate();
-      } else {
-        cancelAnimationFrame(animationId);
-      }
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          // Reset formation timer for all particles when it scrolls into view
+          const startTime = Date.now();
+          particles.forEach((p) => (p.formationStartTime = startTime));
+          animate();
+        } else {
+          cancelAnimationFrame(animationId);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
   observer.observe(canvas.parentElement);
 
