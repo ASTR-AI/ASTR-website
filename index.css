@@ -24,6 +24,12 @@
 @layer components {
   /* --- Reused specific logic that's too tedious for inline utilities --- */
 
+  /* GSAP Managed Reveals (Prevention of FOUC for children) */
+  .gsap-reveal > * {
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+
   /* Scroll Animations */
   .reveal {
     opacity: 0;

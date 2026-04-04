@@ -19,6 +19,7 @@ export default [
         ...globals.es2021,
         THREE: 'readonly',
         gsap: 'readonly',
+        ScrollTrigger: 'readonly',
       },
       ecmaVersion: 'latest',
       sourceType: 'module',

@@ -13,7 +13,144 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnomalyConsole();
   initBlueprintCTA();
   initCTAParticles();
+  initPremiumAnimations();
 });
+
+/* --- Premium Editorial Animations (Master Reveal System) --- */
+function initPremiumAnimations() {
+  console.log('Initializing Premium Master Animations...');
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.error('GSAP or ScrollTrigger NOT FOUND');
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. Universal Reveal Elements (Replacing basic CSS reveals)
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach((el) => {
+    // Determine delay from CSS classes if present
+    let delay = 0;
+    if (el.classList.contains('reveal-delay-1')) delay = 0.2;
+    if (el.classList.contains('reveal-delay-2')) delay = 0.4;
+    if (el.classList.contains('reveal-delay-3')) delay = 0.6;
+    if (el.classList.contains('reveal-delay-4')) delay = 0.8;
+
+    gsap.fromTo(
+      el,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        delay: delay,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  });
+
+  // 2. Specialized GSAP Reveals (Containers)
+  const gsapReveals = document.querySelectorAll('.gsap-reveal');
+  gsapReveals.forEach((el) => {
+    const type = el.getAttribute('data-reveal-type') || 'stagger';
+    if (type === 'stagger') {
+      const children = el.children;
+      gsap.fromTo(
+        children,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            onEnter: () => {
+              // Ensure container becomes visible when children start animating
+              gsap.set(el, { visibility: 'visible', opacity: 1 });
+            },
+          },
+        }
+      );
+    }
+  });
+
+  // 3. Journal Item Surgical Parallax
+  const journalItems = document.querySelectorAll('.journal-item');
+  journalItems.forEach((item) => {
+    const img = item.querySelector('.w-\\[45\\%\\]');
+    const content = item.querySelector('.flex-1');
+
+    if (img) {
+      gsap.fromTo(
+        img,
+        { scale: 0.9, opacity: 0, y: 60 },
+        {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 90%',
+          },
+        }
+      );
+    }
+
+    if (content) {
+      const elements = content.children;
+      gsap.fromTo(
+        elements,
+        { opacity: 0, x: 20 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+          },
+        }
+      );
+    }
+  });
+
+  // 4. Hero Specific Entrance
+  const heroGlass = document.querySelector('.hero-glass');
+  if (heroGlass) {
+    gsap.set('.hero-corner', { opacity: 0, y: 20 });
+    gsap.fromTo(
+      heroGlass,
+      { scale: 1.15, opacity: 0, y: 100 },
+      {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        duration: 2.5,
+        ease: 'expo.out',
+        onComplete: () => {
+          gsap.to('.hero-corner', {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            duration: 1.2,
+            ease: 'power3.out',
+          });
+        },
+      }
+    );
+  }
+}
 
 /* --- Magic UI: Text Animation (Blur In) --- */
 function initTextAnimate() {
@@ -128,25 +265,13 @@ function initNavbar() {
   });
 }
 
-/* --- Scroll reveal animation --- */
+/* --- Scroll reveal animation (REPLACED BY GSAP initPremiumAnimations) --- */
 function initScrollReveal() {
+  /*
   const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px',
-    }
-  );
-
+  ...
   reveals.forEach((el) => observer.observe(el));
+  */
 }
 
 /* --- Hero Canvas: Cosmic Astra / Star Visualization (Three.js WebGL) --- */
