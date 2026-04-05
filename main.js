@@ -2,7 +2,7 @@
    ASTR AI — Main JavaScript
    =================================== */
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
+  // initNavbar is now handled by the <astr-navbar> component in components.js
   initScrollReveal();
   initTextAnimate();
   initHeroCanvas();
@@ -258,33 +258,6 @@ function initAnomalyConsole() {
 }
 
 /* --- Navbar scroll effect & mobile menu --- */
-function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('nav-active');
-  });
-
-  // Close menu on link click
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('nav-active');
-    });
-  });
-}
-
 /* --- Scroll reveal animation (REPLACED BY GSAP initPremiumAnimations) --- */
 function initScrollReveal() {
   /*
