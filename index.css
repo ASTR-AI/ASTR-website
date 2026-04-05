@@ -1038,6 +1038,42 @@
   .iso-face {
     transition: all 0.5s ease;
   }
+  @keyframes sunRayPulse {
+    0% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+    }
+    100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+  }
+
+  .sun-rays {
+    @apply absolute top-[45%] left-1/2 w-[180%] h-[1000px] pointer-events-none;
+    background: 
+      /* Central Glow behind the text */
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(230, 205, 153, 0.3) 0%,
+        rgba(230, 205, 153, 0.1) 40%,
+        transparent 75%
+      ),
+      /* Rays radiating from center */
+      repeating-conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(230, 205, 153, 0.04) 5deg,
+        transparent 15deg
+      );
+    filter: blur(50px);
+    animation: sunRayPulse 20s ease-in-out infinite;
+    z-index: 0;
+  }
 }
 
 @layer utilities {
