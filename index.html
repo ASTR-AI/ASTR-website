@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASTR AI — Coming Soon</title>
-    <meta name="description" content="Advanced System for Technology, Robotics and AI. Intelligence for What Matters. Coming Soon.">
+    <meta name="description" content="Advanced System for Technology, Robotics and AI. Pioneering next-generation intelligent systems.">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' fill='%23e6cd99' width='100' height='100'/><text x='50' y='68' font-size='50' font-weight='900' text-anchor='middle' fill='%23000'>A</text></svg>">
@@ -17,11 +16,13 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ASTR AI — Coming Soon">
     <meta name="twitter:description" content="Intelligence for What Matters. Coming Soon.">
+
     <!-- Google Fonts: Lora -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS for quick styling -->
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -42,66 +43,43 @@
         }
     </script>
     <style>
-        body {
-            background-color: #050505;
-            color: white;
-            margin: 0;
-            overflow: hidden;
-            font-family: 'Lora', serif;
-        }
-        canvas {
-            display: block;
+        body { background-color: #050505; color: white; margin: 0; overflow: hidden; font-family: 'Lora', serif; }
+        #comingSoonCanvas { 
+            display: block; 
+            width: 100vw !important; 
+            height: 100vh !important;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
         .ethereal-aura {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 80vh;
-            background: radial-gradient(circle, rgba(230, 205, 153, 0.05) 0%, rgba(5, 5, 5, 0) 70%);
-            pointer-events: none;
-            z-index: 0;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80vw; height: 80vh; background: radial-gradient(circle, rgba(230, 205, 153, 0.05) 0%, rgba(5, 5, 5, 0) 70%);
+            pointer-events: none; z-index: 0;
         }
         .liquid-glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.4),
-                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="ethereal-aura"></div>
-    
-    <!-- Hero Canvas -->
-    <div class="fixed inset-0 z-10">
-        <canvas id="comingSoonCanvas"></canvas>
-    </div>
+    <div class="fixed inset-0 z-10"><canvas id="comingSoonCanvas"></canvas></div>
 
-    <!-- UI Overlay -->
-    <div class="relative z-20 min-h-screen flex flex-col items-center justify-between p-8 md:p-12">
+    <div class="relative z-20 min-h-screen flex flex-col items-center justify-between p-6 md:p-12">
         <!-- Header -->
-        <div class="w-full flex flex-col md:flex-row justify-between items-start gap-8">
-            <div class="flex items-center gap-6">
-                <img src="Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[70px] md:h-[90px] w-auto block object-contain" />
-                <div class="flex flex-col">
-                    <div class="flex items-center gap-2">
-                         <div class="h-[1px] w-4 bg-gold/50"></div>
-                         <div class="text-white text-[0.65rem] md:text-[0.75rem] font-extrabold tracking-[0.2em] uppercase">
-                            <span class="text-gold">A</span>dvanced 
-                            <span class="text-gold ml-1.5">S</span>ystem 
-                            <span class="lowercase italic font-serif text-white/30 ml-1 normal-case tracking-normal">for</span>
-                         </div>
-                    </div>
-                    <div class="text-white text-[0.65rem] md:text-[0.75rem] font-extrabold tracking-[0.2em] uppercase mt-0.5 ml-6">
-                        <span class="text-gold">T</span>echnology, 
-                        <span class="text-gold">R</span>obotics 
-                        <span class="text-gold">&</span> 
-                        <span class="text-gold">AI</span>
+        <div class="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-6 text-white">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <img src="Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] md:h-[90px] w-auto block object-contain" />
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                     <div class="text-white text-[0.6rem] md:text-[0.75rem] font-extrabold tracking-[0.2em] uppercase">
+                        <span class="text-gold">A</span>dvanced <span class="text-gold ml-1.5">S</span>ystem 
+                        <span class="lowercase italic font-serif text-white/30 ml-1 normal-case tracking-normal">for</span>
+                     </div>
+                    <div class="text-white text-[0.6rem] md:text-[0.75rem] font-extrabold tracking-[0.2em] uppercase mt-0.5">
+                        <span class="text-gold">T</span>echnology, <span class="text-gold">R</span>obotics <span class="text-gold">&</span> <span class="text-gold">AI</span>
                     </div>
                 </div>
             </div>
@@ -113,17 +91,14 @@
             </div>
         </div>
 
-        <!-- Center Content (Text is formed by particles) -->
-        <div class="flex-1 flex items-center justify-center">
-            <!-- This area is kept clear for the particle animation -->
-        </div>
+        <div class="flex-1"></div>
 
         <!-- Footer -->
         <div class="w-full max-w-5xl">
-            <div class="liquid-glass rounded-[40px] p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="liquid-glass rounded-[40px] p-10 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                    <h3 class="text-gold text-sm font-bold uppercase tracking-[2px] mb-2">Pioneering Deep-Tech</h3>
-                    <p class="text-white/70 text-xs md:text-sm max-w-sm">Building next-generation intelligent systems across AI solutions, smart infrastructure, and drone networks.</p>
+                    <h3 class="text-gold text-[1.1rem] md:text-sm font-bold uppercase tracking-[2px] mb-2">Pioneering Deep-Tech</h3>
+                    <p class="text-white/70 text-[0.9rem] md:text-sm max-w-sm">Building next-generation intelligent systems across AI solutions, smart infrastructure, and drone networks.</p>
                 </div>
                 
                 <div class="flex flex-wrap justify-center md:justify-end items-center gap-6 md:gap-8">
@@ -143,269 +118,193 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-8 flex justify-center gap-6 text-[0.6rem] uppercase tracking-[3px] text-white/30 font-bold">
-                <span>AI SOLUTIONS</span>
-                <span class="text-gold/30">•</span>
-                <span>INFRASTRUCTURE</span>
-                <span class="text-gold/30">•</span>
-                <span>DRONE NETWORKS</span>
+            <div class="mt-4 md:mt-8 flex justify-center items-center gap-4 md:gap-6 text-[0.55rem] md:text-[0.6rem] uppercase tracking-[2px] md:tracking-[3px] text-white/20 font-bold px-4">
+                <span>AI SOLUTIONS</span> <span class="text-gold/20">•</span> <span>INFRASTRUCTURE</span> <span class="text-gold/20">•</span> <span>DRONE NETWORKS</span>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Wait for fonts to load to ensure canvas text is correct
-            if (document.fonts) {
-                document.fonts.ready.then(() => {
-                    initComingSoon();
-                });
-            } else {
-                // Fallback for older browsers
-                setTimeout(initComingSoon, 1000);
-            }
-        });
+        document.addEventListener('DOMContentLoaded', initComingSoon);
 
         async function initComingSoon() {
             const canvas = document.getElementById('comingSoonCanvas');
             if (!canvas) return;
 
-            const renderer = new THREE.WebGLRenderer({
-                canvas: canvas,
-                alpha: true,
-                antialias: true,
-            });
+            const isMobile = window.innerWidth < 768;
+            const isNarrow = window.innerWidth < 480;
+            const particleCount = isMobile ? 2000 : 35000;
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 10;
-
-            function updateSize() {
-                const w = window.innerWidth;
-                const h = window.innerHeight;
-                renderer.setSize(w, h);
-                camera.aspect = w / h;
-                
-                if (w < 768) {
-                    camera.position.z = 15;
-                } else {
-                    camera.position.z = 10;
-                }
-                camera.updateProjectionMatrix();
-            }
-
-            window.addEventListener('resize', updateSize);
-            updateSize();
-
-            // ---- Particle Logic ----
-            const particleCount = 35000;
+            
             const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-
-            // Shape Targets
+            const posArray = new Float32Array(particleCount * 3);
+            const colorArray = new Float32Array(particleCount * 3);
             const targets = {
-                sphere: new Float32Array(particleCount * 3),
                 astr: new Float32Array(particleCount * 3),
-                soon: new Float32Array(particleCount * 3),
+                soon: new Float32Array(particleCount * 3)
             };
 
             const colorGold = new THREE.Color(0xe6cd99);
             const colorWhite = new THREE.Color(0xffffff);
 
-            // 1. Sphere Target
+            // Initialize with Random Start (Starfield)
             for (let i = 0; i < particleCount; i++) {
-                const u = Math.random();
-                const v = Math.random();
-                const theta = 2 * Math.PI * u;
-                const phi = Math.acos(2 * v - 1);
-                const r = 3.5 + Math.random() * 0.5;
-
-                targets.sphere[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-                targets.sphere[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-                targets.sphere[i * 3 + 2] = r * Math.cos(phi);
-
-                // Initial positions (random in space)
-                positions[i * 3] = (Math.random() - 0.5) * 20;
-                positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-                positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+                posArray[i * 3] = (Math.random() - 0.5) * 40;
+                posArray[i * 3 + 1] = (Math.random() - 0.5) * 40;
+                posArray[i * 3 + 2] = (Math.random() - 0.5) * 30;
 
                 const mixedColor = colorGold.clone().lerp(colorWhite, Math.random() * 0.3);
-                colors[i * 3] = mixedColor.r;
-                colors[i * 3 + 1] = mixedColor.g;
-                colors[i * 3 + 2] = mixedColor.b;
+                colorArray[i * 3] = mixedColor.r;
+                colorArray[i * 3 + 1] = mixedColor.g;
+                colorArray[i * 3 + 2] = mixedColor.b;
             }
 
-            // 2. Image-based Points (for ASTR AI logo)
-            function createImagePoints(imageSrc, targetArray, scale = 1, yOffset = 0) {
-                return new Promise((resolve) => {
-                    const img = new Image();
-                    img.onload = () => {
-                        const tCanvas = document.createElement('canvas');
-                        const tCtx = tCanvas.getContext('2d');
-                        
-                        // Set standard width and calculate height based on aspect ratio
-                        const standardWidth = 1000;
-                        const aspect = img.width / img.height;
-                        tCanvas.width = standardWidth;
-                        tCanvas.height = standardWidth / aspect;
-                        
-                        tCtx.drawImage(img, 0, 0, tCanvas.width, tCanvas.height);
-
-                        const imageData = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height);
-                        const points = [];
-                        
-                        // Sample pixels based on alpha threshold
-                        // Use a step to ensure we cover the whole logo with the particleCount
-                        const step = Math.ceil(Math.sqrt(points.length / (particleCount * 0.8))) || 2;
-                        
-                        const sampledPoints = [];
-                        for (let y = 0; y < tCanvas.height; y += 2) {
-                            for (let x = 0; x < tCanvas.width; x += 2) {
-                                if (imageData.data[(y * tCanvas.width + x) * 4 + 3] > 128) {
-                                    sampledPoints.push({
-                                        x: (x - tCanvas.width / 2) * 0.012 * scale,
-                                        y: (tCanvas.height / 2 - y) * 0.012 * scale + yOffset,
-                                        z: (Math.random() - 0.5) * 0.1
-                                    });
-                                }
-                            }
-                        }
-
-                        // Distribute points into the target array
-                        for (let i = 0; i < particleCount; i++) {
-                            const p = sampledPoints[i % sampledPoints.length];
-                            targetArray[i * 3] = p.x;
-                            targetArray[i * 3 + 1] = p.y;
-                            targetArray[i * 3 + 2] = p.z;
-                        }
-                        resolve();
-                    };
-                    img.src = imageSrc;
-                });
-            }
-
-            // 3. Text Target (for COMING SOON)
-            function createTextPoints(text, targetArray, scale = 1, yOffset = 0) {
-                const tCanvas = document.createElement('canvas');
-                const tCtx = tCanvas.getContext('2d');
-                tCanvas.width = 1000;
-                tCanvas.height = 300;
-                
-                tCtx.fillStyle = 'white';
-                tCtx.font = '900 120px sans-serif';
-                tCtx.textAlign = 'center';
-                tCtx.textBaseline = 'middle';
-                tCtx.fillText(text, tCanvas.width / 2, tCanvas.height / 2);
-
-                const imageData = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height);
-                const points = [];
-                for (let y = 0; y < tCanvas.height; y += 2) {
-                    for (let x = 0; x < tCanvas.width; x += 2) {
-                        if (imageData.data[(y * tCanvas.width + x) * 4 + 3] > 128) {
-                            points.push({
-                                x: (x - tCanvas.width / 2) * 0.015 * scale,
-                                y: (tCanvas.height / 2 - y) * 0.015 * scale + yOffset,
-                                z: (Math.random() - 0.5) * 0.1
-                            });
-                        }
-                    }
-                }
-
-                for (let i = 0; i < particleCount; i++) {
-                    const p = points[i % points.length];
-                    targetArray[i * 3] = p.x;
-                    targetArray[i * 3 + 1] = p.y;
-                    targetArray[i * 3 + 2] = p.z;
-                }
-            }
-
-            await createImagePoints('Pictures/ASTR LOGO TEXT.png', targets.astr, 0.6);
-            createTextPoints('COMING SOON', targets.soon, 0.5);
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
 
             const material = new THREE.PointsMaterial({
-                size: 0.012,
-                vertexColors: true,
+                size: isMobile ? 0.10 : 0.012, 
+                vertexColors: true, 
                 transparent: true,
-                opacity: 0.8,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false,
-                sizeAttenuation: true,
+                opacity: 0.85, 
+                blending: THREE.AdditiveBlending, 
+                depthWrite: false, 
+                sizeAttenuation: true
             });
 
             const particles = new THREE.Points(geometry, material);
+            particles.baseY = 0;
+            particles.baseX = 0;
             scene.add(particles);
 
-            // Animation
-            let currentTarget = 'sphere';
-            function morphTo(targetName) {
-                const targetData = targets[targetName];
-                const posAttr = geometry.attributes.position;
+            function updateSize() {
+                const w = window.innerWidth, h = window.innerHeight;
+                renderer.setSize(w, h);
+                camera.aspect = w / h;
                 
-                // Reset rotation when morphing to text to ensure it's front-facing
-                if (targetName !== 'sphere') {
-                    gsap.to(particles.rotation, {
-                        x: 0,
-                        y: 0,
-                        z: 0,
-                        duration: 2,
-                        ease: "power2.inOut"
-                    });
+                if (w < 480) {
+                    // Refined for 430x932 - Lower Position
+                    camera.position.z = 23;
+                    camera.position.y = -0.8; 
+                    camera.lookAt(0, -0.8, 0);
+                    particles.baseY = 0.4;
+                    particles.baseX = 0;
+                    const s = 0.75;
+                    particles.scale.set(s, s, s);
+                } else if (w < 768) {
+                    camera.position.z = 24;
+                    camera.position.y = -1.0; 
+                    camera.lookAt(0, -1.0, 0);
+                    particles.baseY = 1.8;
+                    particles.baseX = 0;
+                    const s = 0.85;
+                    particles.scale.set(s, s, s);
+                } else {
+                    camera.position.z = 12;
+                    camera.position.y = 0;
+                    camera.lookAt(0, 0, 0);
+                    particles.baseY = 0;
+                    particles.baseX = 0;
+                    particles.scale.set(1, 1, 1);
                 }
-
-                for (let i = 0; i < particleCount; i++) {
-                    gsap.to(posAttr.array, {
-                        [i * 3]: targetData[i * 3],
-                        [i * 3 + 1]: targetData[i * 3 + 1],
-                        [i * 3 + 2]: targetData[i * 3 + 2],
-                        duration: 3,
-                        ease: "expo.inOut",
-                        delay: Math.random() * 0.8,
-                        onUpdate: () => {
-                            posAttr.needsUpdate = true;
-                        }
-                    });
-                }
-                currentTarget = targetName;
+                
+                camera.updateProjectionMatrix();
             }
+            window.addEventListener('resize', updateSize);
+            updateSize();
 
-            // Cycle through targets
-            setTimeout(() => morphTo('astr'), 1500);
-            setTimeout(() => morphTo('soon'), 8000);
-            
-            // Loop back or stay at soon
-            setInterval(() => {
-                const next = currentTarget === 'soon' ? 'astr' : 'soon';
-                morphTo(next);
-            }, 12000);
+            let time = 0, currentTargetName = 'astr';
+            const morphTargetArray = new Float32Array(particleCount * 3);
+            morphTargetArray.set(posArray); // Start at random positions
 
-            let time = 0;
             function animate() {
                 requestAnimationFrame(animate);
                 time += 0.005;
+                const pos = geometry.attributes.position.array;
                 
-                // Subtle "float" movement instead of rotation
-                if (currentTarget === 'sphere') {
-                    particles.rotation.y += 0.002;
-                    particles.rotation.x += 0.001;
-                } else {
-                    // Very subtle sway for text to keep it "alive" without losing legibility
-                    particles.position.y = Math.sin(time) * 0.1;
-                    particles.position.x = Math.cos(time * 0.5) * 0.1;
+                // Smooth Lerping
+                for (let i = 0; i < particleCount * 3; i++) {
+                    pos[i] += (morphTargetArray[i] - pos[i]) * 0.04;
                 }
+                geometry.attributes.position.needsUpdate = true;
 
+                // Subtle sway/breathing added to base position
+                particles.position.y = (particles.baseY || 0) + Math.sin(time) * 0.15;
+                particles.position.x = (particles.baseX || 0) + Math.cos(time * 0.5) * 0.15;
+                
                 renderer.render(scene, camera);
             }
             animate();
+
+            function morphTo(name) {
+                currentTargetName = name;
+                morphTargetArray.set(targets[name]);
+            }
+
+            async function loadAssets() {
+                // ASTR Logo
+                const img = new Image();
+                img.src = 'Pictures/ASTR%20LOGO%20TEXT.png';
+                await new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = reject;
+                });
+                const tCanvas = document.createElement('canvas'), tCtx = tCanvas.getContext('2d');
+                tCanvas.width = 1000; tCanvas.height = 1000 / (img.width / img.height);
+                tCtx.drawImage(img, 0, 0, tCanvas.width, tCanvas.height);
+                const data = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height).data;
+                const points = [];
+                for (let y = 0; y < tCanvas.height; y += 2) {
+                    for (let x = 0; x < tCanvas.width; x += 2) {
+                        if (data[(y * tCanvas.width + x) * 4 + 3] > 128) {
+                            points.push({ x: (x - tCanvas.width / 2) * 0.012, y: (tCanvas.height / 2 - y) * 0.012 });
+                        }
+                    }
+                }
+                for (let i = 0; i < particleCount; i++) {
+                    const p = points[Math.floor((i * points.length) / particleCount)];
+                    // Reduced jitter for legibility, increased depth for 3D feel
+                    const jitter = isMobile ? (Math.random() - 0.5) * 0.05 : 0;
+                    targets.astr[i * 3] = (p.x * 0.8) + jitter; 
+                    targets.astr[i * 3 + 1] = (p.y * 0.8) + jitter; 
+                    targets.astr[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
+                }
+                // COMING SOON Text
+                tCanvas.height = 300; tCtx.clearRect(0,0,1000,300);
+                tCtx.fillStyle = 'white'; tCtx.font = '900 120px sans-serif'; tCtx.textAlign = 'center'; tCtx.textBaseline = 'middle';
+                tCtx.fillText('COMING SOON', 500, 150);
+                const tData = tCtx.getImageData(0, 0, 1000, 300).data;
+                const tPoints = [];
+                for (let y = 0; y < 300; y += 2) {
+                    for (let x = 0; x < 1000; x += 2) {
+                        if (tData[(y * 1000 + x) * 4 + 3] > 128) {
+                            tPoints.push({ x: (x - 500) * 0.015, y: (150 - y) * 0.015 });
+                        }
+                    }
+                }
+                for (let i = 0; i < particleCount; i++) {
+                    const p = tPoints[Math.floor((i * tPoints.length) / particleCount)];
+                    const jitter = isMobile ? (Math.random() - 0.5) * 0.05 : 0;
+                    targets.soon[i * 3] = (p.x * 0.7) + jitter; 
+                    targets.soon[i * 3 + 1] = (p.y * 0.7) + jitter; 
+                    targets.soon[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
+                }
+                // Start sequence immediately
+                morphTo('astr');
+                setTimeout(() => morphTo('soon'), 8000);
+                setInterval(() => morphTo(currentTargetName === 'soon' ? 'astr' : 'soon'), 12000);
+            }
+            loadAssets().catch(() => {
+                // Fallback: just show COMING SOON if logo fails
+                morphTo('soon');
+            });
         }
     </script>
 </body>

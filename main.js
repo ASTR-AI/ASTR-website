@@ -302,18 +302,21 @@ function initHeroCanvas() {
 
     // Dynamic positioning for mobile vs desktop
     if (w < 768) {
-      // Mobile: Perfectly centered, move camera back to fit logo
-      camera.position.y = 0;
+      // Mobile: Move camera up and back
+      camera.position.y = 2; 
       // Adjust Z distance based on portrait aspect ratio
       const aspect = w / h;
-      camera.position.z = aspect < 0.6 ? 18 : 14;
+      // Further back for very narrow/tall devices like iPhone 14/15 Pro Max (430x932)
+      // aspect for 430x932 is ~0.46
+      camera.position.z = aspect < 0.5 ? 32 : (aspect < 0.6 ? 28 : 24);
+      camera.lookAt(0, 2, 0);
     } else {
       // Desktop: Perfectly centered
       camera.position.y = 0;
       camera.position.z = 9;
+      camera.lookAt(0, 0, 0);
     }
 
-    camera.lookAt(0, 0, 0);
     camera.updateProjectionMatrix();
   }
 
@@ -349,7 +352,10 @@ function initHeroCanvas() {
 
     const logoImageData = logoCtx.getImageData(0, 0, logoCanvas.width, logoCanvas.height);
     const logoPixels = [];
-    const scaleDivisor = 180; // Increased to make the logo smaller and fit better
+    const isMobile = window.innerWidth < 768;
+    const isNarrow = window.innerWidth < 480;
+    // Decrease divisor on mobile to make it LARGER (more prominent particles)
+    const scaleDivisor = isNarrow ? 120 : (isMobile ? 140 : 180); 
 
     // Extract non-transparent pixels (the logo)
     for (let y = 0; y < logoCanvas.height; y += 1) {
@@ -366,7 +372,7 @@ function initHeroCanvas() {
     if (logoPixels.length === 0) logoPixels.push({ x: 0, y: 0 });
 
     // ---- Particle System Geometry & Materials ----
-    const particleCount = 15000;
+    const particleCount = isMobile ? 8000 : 15000;
     const geometry = new THREE.BufferGeometry();
 
     const positions = new Float32Array(particleCount * 3);
@@ -398,9 +404,14 @@ function initHeroCanvas() {
 
       // 2. Exact Logo Shape (from Image)
       const lp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
-      shapeTargets.astra[i * 3] = lp.x;
-      shapeTargets.astra[i * 3 + 1] = lp.y;
-      shapeTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * 0.15;
+      // Shift logo up on mobile to use empty space (balanced)
+      const yOffset = isNarrow ? 3.5 : (isMobile ? 3.0 : 0);
+      // Add jitter on mobile so particles are not "crowded" (spread them out)
+      const jitter = isMobile ? (Math.random() - 0.5) * 0.35 : 0;
+      
+      shapeTargets.astra[i * 3] = lp.x + jitter;
+      shapeTargets.astra[i * 3 + 1] = lp.y + yOffset + jitter;
+      shapeTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * (isMobile ? 0.35 : 0.15);
 
       // 3. Sun
       const isRay = Math.random() > 0.7;
@@ -447,7 +458,7 @@ function initHeroCanvas() {
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: 0.04,
+      size: isMobile ? 0.15 : 0.04,
       vertexColors: true,
       transparent: true,
       opacity: 0.8,
@@ -460,7 +471,7 @@ function initHeroCanvas() {
     scene.add(particles);
 
     // ---- Inner Core (Bright Central Star) ----
-    const coreCount = 2000;
+    const coreCount = isMobile ? 800 : 2000;
     const coreGeometry = new THREE.BufferGeometry();
     const corePositions = new Float32Array(coreCount * 3);
     const coreOriginals = new Float32Array(coreCount * 3);
@@ -493,8 +504,11 @@ function initHeroCanvas() {
       coreTargets.planet[i * 3 + 2] = cz * 1.2;
 
       const clp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
-      coreTargets.astra[i * 3] = clp.x;
-      coreTargets.astra[i * 3 + 1] = clp.y;
+      const cyOffset = isNarrow ? 3.5 : (isMobile ? 3.0 : 0);
+      const cJitter = isMobile ? (Math.random() - 0.5) * 0.35 : 0;
+      
+      coreTargets.astra[i * 3] = clp.x + cJitter;
+      coreTargets.astra[i * 3 + 1] = clp.y + cyOffset + cJitter;
       coreTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
 
       corePositions[i * 3] = cx;
@@ -510,7 +524,7 @@ function initHeroCanvas() {
     coreGeometry.setAttribute('aTarget', new THREE.BufferAttribute(coreTargets.sphere, 3));
 
     const coreMaterial = new THREE.PointsMaterial({
-      size: 0.03,
+      size: isMobile ? 0.12 : 0.03,
       color: 0xffffff,
       transparent: true,
       opacity: 0.9,
@@ -602,12 +616,17 @@ function initHeroCanvas() {
         oz += (tz - oz) * LERP_SPEED;
         origAttribute.setXYZ(i, ox, oy, oz);
 
-        const freq = 1.0;
-        const wave1 = Math.sin(ox * freq + time) * Math.cos(oy * freq + time) * Math.sin(oz * freq + time);
-        const wave2 = Math.sin(ox * freq * 1.5 - time) * Math.cos(oy * freq * 1.5 + time) * 0.5;
-        const noise = wave1 + wave2;
-        const scale = 1 + noise * currentNoiseScale;
-        posAttribute.setXYZ(i, ox * scale, oy * scale, oz * scale);
+        if (isMobile) {
+          // Skip expensive wave math on mobile for performance
+          posAttribute.setXYZ(i, ox, oy, oz);
+        } else {
+          const freq = 1.0;
+          const wave1 = Math.sin(ox * freq + time) * Math.cos(oy * freq + time) * Math.sin(oz * freq + time);
+          const wave2 = Math.sin(ox * freq * 1.5 - time) * Math.cos(oy * freq * 1.5 + time) * 0.5;
+          const noise = wave1 + wave2;
+          const scale = 1 + noise * currentNoiseScale;
+          posAttribute.setXYZ(i, ox * scale, oy * scale, oz * scale);
+        }
       }
       origAttribute.needsUpdate = true;
       posAttribute.needsUpdate = true;
@@ -1612,7 +1631,8 @@ function initCTAParticles() {
 
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const mouse = { x: null, y: null, radius: 100 };
+  const isMobile = window.innerWidth < 768;
+  const mouse = { x: null, y: null, radius: isMobile ? 60 : 100 };
 
   function resize() {
     canvas.width = canvas.parentElement.offsetWidth;
@@ -1739,7 +1759,8 @@ function initCTAParticles() {
       tempCanvas.height
     );
 
-    const step = 4;
+    const isMobile = window.innerWidth < 768;
+    const step = isMobile ? 8 : 4;
     for (let y = 0; y < textData.height; y += step) {
       for (let x = 0; x < textData.width; x += step) {
         if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
