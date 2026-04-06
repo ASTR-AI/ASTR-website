@@ -72,7 +72,7 @@
         <!-- Header -->
         <div class="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-6 text-white">
             <div class="flex flex-col md:flex-row items-center gap-4">
-                <img src="Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] md:h-[90px] w-auto block object-contain" />
+                <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] md:h-[90px] w-auto block object-contain" />
                 <div class="flex flex-col items-center md:items-start text-center md:text-left">
                      <div class="text-white text-[0.6rem] md:text-[0.75rem] font-extrabold tracking-[0.2em] uppercase">
                         <span class="text-gold">A</span>dvanced <span class="text-gold ml-1.5">S</span>ystem 
@@ -249,35 +249,9 @@
             }
 
             async function loadAssets() {
-                // ASTR Logo
-                const img = new Image();
-                img.src = 'Pictures/ASTR%20LOGO%20TEXT.png';
-                await new Promise((resolve, reject) => {
-                    img.onload = resolve;
-                    img.onerror = reject;
-                });
+                // 1. Generate COMING SOON Text FIRST (Canvas-based, no image dependency)
                 const tCanvas = document.createElement('canvas'), tCtx = tCanvas.getContext('2d');
-                tCanvas.width = 1000; tCanvas.height = 1000 / (img.width / img.height);
-                tCtx.drawImage(img, 0, 0, tCanvas.width, tCanvas.height);
-                const data = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height).data;
-                const points = [];
-                for (let y = 0; y < tCanvas.height; y += 2) {
-                    for (let x = 0; x < tCanvas.width; x += 2) {
-                        if (data[(y * tCanvas.width + x) * 4 + 3] > 128) {
-                            points.push({ x: (x - tCanvas.width / 2) * 0.012, y: (tCanvas.height / 2 - y) * 0.012 });
-                        }
-                    }
-                }
-                for (let i = 0; i < particleCount; i++) {
-                    const p = points[Math.floor((i * points.length) / particleCount)];
-                    // Reduced jitter for legibility, increased depth for 3D feel
-                    const jitter = isMobile ? (Math.random() - 0.5) * 0.05 : 0;
-                    targets.astr[i * 3] = (p.x * 0.8) + jitter; 
-                    targets.astr[i * 3 + 1] = (p.y * 0.8) + jitter; 
-                    targets.astr[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
-                }
-                // COMING SOON Text
-                tCanvas.height = 300; tCtx.clearRect(0,0,1000,300);
+                tCanvas.width = 1000; tCanvas.height = 300; tCtx.clearRect(0,0,1000,300);
                 tCtx.fillStyle = 'white'; tCtx.font = '900 120px sans-serif'; tCtx.textAlign = 'center'; tCtx.textBaseline = 'middle';
                 tCtx.fillText('COMING SOON', 500, 150);
                 const tData = tCtx.getImageData(0, 0, 1000, 300).data;
@@ -296,15 +270,49 @@
                     targets.soon[i * 3 + 1] = (p.y * 0.7) + jitter; 
                     targets.soon[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
                 }
-                // Start sequence immediately
-                morphTo('astr');
-                setTimeout(() => morphTo('soon'), 8000);
-                setInterval(() => morphTo(currentTargetName === 'soon' ? 'astr' : 'soon'), 12000);
+
+                // 2. Try Loading ASTR Logo
+                try {
+                    const img = new Image();
+                    img.src = '/Pictures/ASTR LOGO TEXT.png';
+                    await new Promise((resolve, reject) => {
+                        img.onload = resolve;
+                        img.onerror = () => reject(new Error('Logo load failed'));
+                    });
+                    
+                    tCanvas.width = 1000; tCanvas.height = 1000 / (img.width / img.height);
+                    tCtx.drawImage(img, 0, 0, tCanvas.width, tCanvas.height);
+                    const data = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height).data;
+                    const points = [];
+                    for (let y = 0; y < tCanvas.height; y += 2) {
+                        for (let x = 0; x < tCanvas.width; x += 2) {
+                            if (data[(y * tCanvas.width + x) * 4 + 3] > 128) {
+                                points.push({ x: (x - tCanvas.width / 2) * 0.012, y: (tCanvas.height / 2 - y) * 0.012 });
+                            }
+                        }
+                    }
+                    for (let i = 0; i < particleCount; i++) {
+                        const p = points[Math.floor((i * points.length) / particleCount)];
+                        const jitter = isMobile ? (Math.random() - 0.5) * 0.05 : 0;
+                        targets.astr[i * 3] = (p.x * 0.8) + jitter; 
+                        targets.astr[i * 3 + 1] = (p.y * 0.8) + jitter; 
+                        targets.astr[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
+                    }
+                    
+                    // If logo loaded, start with it
+                    morphTo('astr');
+                    setTimeout(() => morphTo('soon'), 8000);
+                    setInterval(() => morphTo(currentTargetName === 'soon' ? 'astr' : 'soon'), 12000);
+                } catch (e) {
+                    console.error(e.message);
+                    // Fallback to only 'soon' if logo fails
+                    morphTo('soon');
+                    setInterval(() => morphTo('soon'), 12000);
+                }
             }
-            loadAssets().catch(() => {
-                // Fallback: just show COMING SOON if logo fails
-                morphTo('soon');
-            });
+            loadAssets();
+        }
+    </script>
         }
     </script>
 </body>
