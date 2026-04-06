@@ -155,7 +155,7 @@
             }
         });
 
-        function initComingSoon() {
+        async function initComingSoon() {
             const canvas = document.getElementById('comingSoonCanvas');
             if (!canvas) return;
 
@@ -226,7 +226,56 @@
                 colors[i * 3 + 2] = mixedColor.b;
             }
 
-            // 2 & 3. Text Targets
+            // 2. Image-based Points (for ASTR AI logo)
+            function createImagePoints(imageSrc, targetArray, scale = 1, yOffset = 0) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const tCanvas = document.createElement('canvas');
+                        const tCtx = tCanvas.getContext('2d');
+                        
+                        // Set standard width and calculate height based on aspect ratio
+                        const standardWidth = 1000;
+                        const aspect = img.width / img.height;
+                        tCanvas.width = standardWidth;
+                        tCanvas.height = standardWidth / aspect;
+                        
+                        tCtx.drawImage(img, 0, 0, tCanvas.width, tCanvas.height);
+
+                        const imageData = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height);
+                        const points = [];
+                        
+                        // Sample pixels based on alpha threshold
+                        // Use a step to ensure we cover the whole logo with the particleCount
+                        const step = Math.ceil(Math.sqrt(points.length / (particleCount * 0.8))) || 2;
+                        
+                        const sampledPoints = [];
+                        for (let y = 0; y < tCanvas.height; y += 2) {
+                            for (let x = 0; x < tCanvas.width; x += 2) {
+                                if (imageData.data[(y * tCanvas.width + x) * 4 + 3] > 128) {
+                                    sampledPoints.push({
+                                        x: (x - tCanvas.width / 2) * 0.012 * scale,
+                                        y: (tCanvas.height / 2 - y) * 0.012 * scale + yOffset,
+                                        z: (Math.random() - 0.5) * 0.1
+                                    });
+                                }
+                            }
+                        }
+
+                        // Distribute points into the target array
+                        for (let i = 0; i < particleCount; i++) {
+                            const p = sampledPoints[i % sampledPoints.length];
+                            targetArray[i * 3] = p.x;
+                            targetArray[i * 3 + 1] = p.y;
+                            targetArray[i * 3 + 2] = p.z;
+                        }
+                        resolve();
+                    };
+                    img.src = imageSrc;
+                });
+            }
+
+            // 3. Text Target (for COMING SOON)
             function createTextPoints(text, targetArray, scale = 1, yOffset = 0) {
                 const tCanvas = document.createElement('canvas');
                 const tCtx = tCanvas.getContext('2d');
@@ -261,8 +310,8 @@
                 }
             }
 
-            createTextPoints('ASTR AI', targets.astr, 1.2);
-            createTextPoints('COMING SOON', targets.soon, 0.8);
+            await createImagePoints('Pictures/ASTR LOGO TEXT.png', targets.astr, 0.6);
+            createTextPoints('COMING SOON', targets.soon, 0.5);
 
             geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
