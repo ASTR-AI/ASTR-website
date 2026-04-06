@@ -25,7 +25,8 @@
 
 ## Pending Tasks ⏳
 
-- [ ] **Mobile Responsiveness (Journal)**:
+- [x] **Mobile Responsiveness**:
+  - [x] **Particle Optimization**: Reduced counts and simplified loops for Three.js and Canvas systems on mobile.
   - [ ] Optimize 21:9 image stacking for mobile screens (likely shift to 16:9 or full-width).
   - [ ] Adjust journal title/description alignment for smaller viewports.
 - [ ] **Engagement Blueprint (New Suggestion)**:
