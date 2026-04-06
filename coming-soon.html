@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTR AI — Coming Soon</title>
+    <meta name="description" content="Advanced System for Technology, Robotics and AI. Intelligence for What Matters. Coming Soon.">
+    <!-- Google Fonts: Lora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for quick styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#e6cd99',
+                            dim: '#cba864',
+                        },
+                        space: '#050505',
+                    },
+                    fontFamily: {
+                        lora: ['Lora', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Lora', serif;
+        }
+        canvas {
+            display: block;
+        }
+        .ethereal-aura {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, rgba(230, 205, 153, 0.05) 0%, rgba(5, 5, 5, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="ethereal-aura"></div>
+    
+    <!-- Hero Canvas -->
+    <div class="fixed inset-0 z-10">
+        <canvas id="comingSoonCanvas"></canvas>
+    </div>
+
+    <!-- UI Overlay -->
+    <div class="relative z-20 min-h-screen flex flex-col items-center justify-between p-8 md:p-12">
+        <!-- Header -->
+        <div class="w-full flex justify-between items-start">
+            <div class="flex flex-col">
+                <span class="text-gold tracking-[4px] uppercase text-[0.7rem] font-bold mb-1">Advanced System for</span>
+                <span class="text-white text-xl md:text-2xl font-bold tracking-tight">Technology, Robotics & AI</span>
+            </div>
+            <div class="hidden md:block text-right">
+                <span class="text-white/40 text-[0.7rem] uppercase tracking-widest">Est. 2025</span>
+            </div>
+        </div>
+
+        <!-- Center Content (Text is formed by particles, this is a fallback/additional info) -->
+        <div class="text-center">
+            <h1 class="text-white/20 text-sm uppercase tracking-[10px] mb-4 opacity-0 transition-opacity duration-1000" id="hint-text">Intelligence for What Matters.</h1>
+        </div>
+
+        <!-- Footer -->
+        <div class="w-full max-w-5xl">
+            <div class="liquid-glass rounded-[40px] p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h3 class="text-gold text-sm font-bold uppercase tracking-[2px] mb-2">Pioneering Deep-Tech</h3>
+                    <p class="text-white/70 text-xs md:text-sm max-w-sm">Building next-generation intelligent systems across AI solutions, smart infrastructure, and drone networks.</p>
+                </div>
+                
+                <div class="flex gap-4 md:gap-8">
+                    <div class="flex flex-col items-center md:items-end">
+                        <span class="text-white/40 text-[0.6rem] uppercase tracking-widest mb-1">Status</span>
+                        <span class="text-gold text-xs font-bold uppercase">System Initialization</span>
+                    </div>
+                    <div class="w-[1px] h-8 bg-white/10"></div>
+                    <div class="flex flex-col items-center md:items-end">
+                        <span class="text-white/40 text-[0.6rem] uppercase tracking-widest mb-1">Location</span>
+                        <span class="text-white text-xs font-bold uppercase">Bengaluru, IN</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-center gap-6 text-[0.6rem] uppercase tracking-[3px] text-white/30 font-bold">
+                <span>AI SOLUTIONS</span>
+                <span class="text-gold/30">•</span>
+                <span>INFRASTRUCTURE</span>
+                <span class="text-gold/30">•</span>
+                <span>DRONE NETWORKS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for fonts to load to ensure canvas text is correct
+            if (document.fonts) {
+                document.fonts.ready.then(() => {
+                    initComingSoon();
+                });
+            } else {
+                // Fallback for older browsers
+                setTimeout(initComingSoon, 1000);
+            }
+            
+            setTimeout(() => {
+                const hint = document.getElementById('hint-text');
+                if (hint) hint.classList.remove('opacity-0');
+            }, 3000);
+        });
+
+        function initComingSoon() {
+            const canvas = document.getElementById('comingSoonCanvas');
+            if (!canvas) return;
+
+            const renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                alpha: true,
+                antialias: true,
+            });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 10;
+
+            function updateSize() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                renderer.setSize(w, h);
+                camera.aspect = w / h;
+                
+                if (w < 768) {
+                    camera.position.z = 15;
+                } else {
+                    camera.position.z = 10;
+                }
+                camera.updateProjectionMatrix();
+            }
+
+            window.addEventListener('resize', updateSize);
+            updateSize();
+
+            // ---- Particle Logic ----
+            const particleCount = 10000;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            // Shape Targets
+            const targets = {
+                sphere: new Float32Array(particleCount * 3),
+                astr: new Float32Array(particleCount * 3),
+                soon: new Float32Array(particleCount * 3),
+            };
+
+            const colorGold = new THREE.Color(0xe6cd99);
+            const colorWhite = new THREE.Color(0xffffff);
+
+            // 1. Sphere Target
+            for (let i = 0; i < particleCount; i++) {
+                const u = Math.random();
+                const v = Math.random();
+                const theta = 2 * Math.PI * u;
+                const phi = Math.acos(2 * v - 1);
+                const r = 3.5 + Math.random() * 0.5;
+
+                targets.sphere[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+                targets.sphere[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+                targets.sphere[i * 3 + 2] = r * Math.cos(phi);
+
+                // Initial positions (random in space)
+                positions[i * 3] = (Math.random() - 0.5) * 20;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+
+                const mixedColor = colorGold.clone().lerp(colorWhite, Math.random() * 0.3);
+                colors[i * 3] = mixedColor.r;
+                colors[i * 3 + 1] = mixedColor.g;
+                colors[i * 3 + 2] = mixedColor.b;
+            }
+
+            // 2 & 3. Text Targets
+            function createTextPoints(text, targetArray, scale = 1, yOffset = 0) {
+                const tCanvas = document.createElement('canvas');
+                const tCtx = tCanvas.getContext('2d');
+                tCanvas.width = 1000;
+                tCanvas.height = 300;
+                
+                tCtx.fillStyle = 'white';
+                tCtx.font = 'bold 120px Lora';
+                tCtx.textAlign = 'center';
+                tCtx.textBaseline = 'middle';
+                tCtx.fillText(text, tCanvas.width / 2, tCanvas.height / 2);
+
+                const imageData = tCtx.getImageData(0, 0, tCanvas.width, tCanvas.height);
+                const points = [];
+                for (let y = 0; y < tCanvas.height; y += 2) {
+                    for (let x = 0; x < tCanvas.width; x += 2) {
+                        if (imageData.data[(y * tCanvas.width + x) * 4 + 3] > 128) {
+                            points.push({
+                                x: (x - tCanvas.width / 2) * 0.015 * scale,
+                                y: (tCanvas.height / 2 - y) * 0.015 * scale + yOffset,
+                                z: (Math.random() - 0.5) * 0.1
+                            });
+                        }
+                    }
+                }
+
+                for (let i = 0; i < particleCount; i++) {
+                    const p = points[i % points.length];
+                    targetArray[i * 3] = p.x;
+                    targetArray[i * 3 + 1] = p.y;
+                    targetArray[i * 3 + 2] = p.z;
+                }
+            }
+
+            createTextPoints('ASTR AI', targets.astr, 1.2);
+            createTextPoints('COMING SOON', targets.soon, 0.8);
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.035,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+            });
+
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            // Animation
+            let currentTarget = 'sphere';
+            function morphTo(targetName) {
+                const targetData = targets[targetName];
+                const posAttr = geometry.attributes.position;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    gsap.to(posAttr.array, {
+                        [i * 3]: targetData[i * 3],
+                        [i * 3 + 1]: targetData[i * 3 + 1],
+                        [i * 3 + 2]: targetData[i * 3 + 2],
+                        duration: 2.5,
+                        ease: "power3.inOut",
+                        delay: Math.random() * 0.5,
+                        onUpdate: () => {
+                            posAttr.needsUpdate = true;
+                        }
+                    });
+                }
+                currentTarget = targetName;
+            }
+
+            // Cycle through targets
+            setTimeout(() => morphTo('astr'), 1500);
+            setTimeout(() => morphTo('soon'), 6000);
+            setTimeout(() => {
+                // Loop back or stay at soon
+                setInterval(() => {
+                    const next = currentTarget === 'soon' ? 'astr' : 'soon';
+                    morphTo(next);
+                }, 8000);
+            }, 10000);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particles.rotation.y += 0.001;
+                particles.rotation.x += 0.0005;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>

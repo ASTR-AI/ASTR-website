@@ -5,6 +5,7 @@
 // --- NAVBAR COMPONENT ---
 class AstrNavbar extends HTMLElement {
   connectedCallback() {
+    this.style.display = 'block';
     this.innerHTML = `
       <nav
         class="navbar fixed top-[32px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] max-[768px]:w-[calc(100%-32px)] max-[768px]:px-[24px]"
@@ -15,7 +16,7 @@ class AstrNavbar extends HTMLElement {
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px]"
         >
           <img
-            src="Pictures/without%20bg%2002.png"
+            src="Pictures/without bg 02.png"
             alt="ASTR AI Logo"
             class="logo-image bg-transparent absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] pointer-events-none max-[768px]:h-[48px] max-[768px]:top-[0.15em] max-[768px]:left-[16px]"
           />
@@ -64,6 +65,8 @@ class AstrNavbar extends HTMLElement {
     const hamburger = this.querySelector('#hamburger');
     const navLinks = this.querySelector('#navLinks');
 
+    if (!navbar || !hamburger || !navLinks) return;
+
     // Scroll Effect
     window.addEventListener('scroll', () => {
       if (window.scrollY > 60) {
@@ -102,6 +105,7 @@ class AstrNavbar extends HTMLElement {
 // --- FOOTER COMPONENT ---
 class AstrFooter extends HTMLElement {
   connectedCallback() {
+    this.style.display = 'block';
     this.innerHTML = `
       <footer class="bg-transparent pt-section-y pb-16 relative overflow-hidden" id="footer">
         <div class="sun-rays"></div>
@@ -109,7 +113,7 @@ class AstrFooter extends HTMLElement {
           <!-- Architectural Signature Header -->
           <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-[120px]">
             <div class="space-y-6">
-              <img src="Pictures/without%20bg%2002.png" alt="ASTR AI Logo" class="h-[80px] max-[768px]:h-[60px] w-auto block object-contain mb-8" />
+              <img src="Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] max-[768px]:h-[60px] w-auto block object-contain mb-8" />
               <p class="text-white/40 leading-relaxed font-lora text-[1.1rem] max-w-[400px] italic">
                 "Architecting intelligence for mission-critical frontiers."
               </p>
