@@ -17,86 +17,43 @@
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' fill='%23c8a24e' width='100' height='100'/><text x='50' y='68' font-size='50' font-weight='900' text-anchor='middle' fill='%23000'>A</text></svg>"
     />
+    <script src="components.js" defer></script>
   </head>
 
-  <body
-    class="bg-[#050505] text-white overflow-x-hidden font-inter antialiased pt-[150px]"
-  >
-    <!-- ====== NAVIGATION ====== -->
-    <!-- ====== NAVIGATION ====== -->
-    <nav
-      class="navbar fixed w-full z-[1000] p-[20px_40px] flex justify-between items-center transition-all duration-400 font-inter top-0 left-0 max-[768px]:p-[15px_20px]"
-      id="navbar"
-    >
-      <a
-        href="index.html"
-        class="nav-logo flex items-center h-[50px] relative z-[1001] max-[768px]:h-[40px]"
-      >
-        <img
-          src="Pictures/without%20bg.png"
-          alt="ASTR AI Logo"
-          class="logo-image h-full object-contain"
-        />
-      </a>
-      <div
-        class="nav-links flex gap-[32px] items-center text-[0.95rem] font-medium max-[768px]:fixed max-[768px]:top-0 max-[768px]:right-[-100%] max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[rgba(5,5,5,0.95)] max-[768px]:backdrop-blur-[15px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[40px] max-[768px]:text-[1.5rem] max-[768px]:transition-right max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:right-0"
-        id="navLinks"
-      >
-        <a
-          href="philosophy.html"
-          class="text-white relative no-underline transition-colors duration-300 hover:text-[#E6CD99]"
-          >Philosophy</a
-        >
-        <a
-          href="index.html#pillars"
-          class="text-white relative no-underline transition-colors duration-300 hover:text-[#E6CD99]"
-          >Solutions</a
-        >
-        <a
-          href="index.html#future"
-          class="text-white relative no-underline transition-colors duration-300 hover:text-[#E6CD99]"
-          >R&amp;D</a
-        >
-        <a
-          href="#footer"
-          class="text-white relative no-underline transition-colors duration-300 hover:text-[#E6CD99]"
-          >Contact</a
-        >
-      </div>
-      <div
-        class="nav-hamburger hidden flex-col justify-center gap-[6px] w-[30px] h-[30px] cursor-pointer z-[1001] max-[768px]:flex [&>span]:w-full [&>span]:h-[2px] [&>span]:bg-white [&>span]:transition-all [&>span]:duration-300 [&.toggle>span:nth-child(1)]:translate-y-[8px] [&.toggle>span:nth-child(1)]:rotate-45 [&.toggle>span:nth-child(2)]:opacity-0 [&.toggle>span:nth-child(3)]:-translate-y-[8px] [&.toggle>span:nth-child(3)]:-rotate-45"
-        id="hamburger"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
+  <body class="bg-black text-white font-lora selection:bg-gold/30 selection:text-gold antialiased overflow-x-hidden">
+    <astr-navbar></astr-navbar>
 
-    <!-- ====== SECTION 2: PHILOSOPHY (Light) ====== -->
-    <!-- ====== SECTION 2: PHILOSOPHY (Light) ====== -->
-    <section
-      class="philosophy min-h-[calc(100vh-150px)] flex items-center py-section-y px-section-x relative z-[15]"
-      id="philosophy"
-    >
-      <div class="container max-w-container mx-auto w-full">
-        <div
-          class="philosophy-grid grid grid-cols-2 gap-[60px] items-center max-[992px]:grid-cols-1 max-[992px]:gap-[40px]"
-        >
-          <div class="philosophy-left flex flex-col gap-[24px]">
-            <span
-              class="section-tag inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
-              >Who We Are</span
-            >
-            <h2
-              class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold font-lora"
-            >
-              Our Name is Our
+    <main class="pt-[180px]">
+      <!-- Journal Metadata Bar -->
+      <div class="container max-w-[1300px] mx-auto px-12 mb-12">
+        <div class="flex items-center gap-6 py-4 border-y border-white/5">
+          <span class="font-mono text-[0.65rem] text-gold tracking-[3px] uppercase">Foundation_Log</span>
+          <span class="w-[1px] h-3 bg-white/10"></span>
+          <span class="font-mono text-[0.65rem] text-white/20 tracking-[2px] uppercase">Ref: ETH_001</span>
+        </div>
+      </div>
+
+      <!-- ====== SECTION 2: PHILOSOPHY ====== -->
+      <section
+        class="philosophy min-h-screen flex items-center pb-24 relative z-[15]"
+        id="philosophy"
+      >
+        <div class="container max-w-[1300px] mx-auto px-12">
+          <div
+            class="philosophy-grid grid grid-cols-2 gap-[80px] items-start max-[992px]:grid-cols-1 max-[992px]:gap-[40px]"
+          >
+            <div class="philosophy-left flex flex-col gap-[24px]">
               <span
-                class="accent gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
-                >Philosophy.</span
+                class="font-mono text-[0.7rem] uppercase tracking-[4px] text-gold/60 block"
+                >Who We Are</span
               >
-            </h2>
+              <h2
+                class="reveal text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight"
+              >
+                Our Name is Our <br />
+                <span class="italic font-light text-white/90">Philosophy.</span>
+              </h2>
+              <div class="w-24 h-[1px] bg-gold/30 my-4"></div>
             <p
               class="reveal reveal-delay-1 text-[#a0a0a0] text-[1.1rem] leading-[1.8]"
             >
@@ -264,269 +221,12 @@
       </div>
     </section>
 
-    <!-- ====== SECTION 5: FOOTER / CONTACT (Dark) ====== -->
-    <!-- ====== SECTION 5: FOOTER / CONTACT (Dark) ====== -->
-    <footer
-      class="footer bg-black pt-[100px] border-t border-white/10 font-inter"
-      id="footer"
-    >
-      <div
-        class="footer-top container max-w-container mx-auto w-full flex justify-between flex-wrap gap-[60px] pb-[60px] border-b border-white/10 max-[768px]:flex-col max-[768px]:gap-[40px]"
-      >
-        <div class="footer-brand flex-1 min-w-[300px]">
-          <h3
-            class="text-[1.5rem] font-bold tracking-[2px] mb-[20px] font-lora"
-          >
-            ASTR
-            <span
-              class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
-              >AI</span
-            >
-          </h3>
-          <p class="text-[#888888] leading-[1.6] max-w-[320px] mb-[32px]">
-            Automate and simplify your business operations with secure solutions
-            designed for the future.
-          </p>
-          <div class="social-links flex gap-[16px]">
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              class="w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 transition-all duration-300 hover:text-[#E6CD99] hover:border-[#E6CD99] hover:-translate-y-[3px]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              aria-label="Twitter/X"
-              class="w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 transition-all duration-300 hover:text-[#E6CD99] hover:border-[#E6CD99] hover:-translate-y-[3px]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
-                />
-              </svg>
-            </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              class="w-[40px] h-[40px] rounded-full border border-white/20 flex items-center justify-center text-white/70 transition-all duration-300 hover:text-[#E6CD99] hover:border-[#E6CD99] hover:-translate-y-[3px]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-col flex flex-col gap-[16px] min-w-[150px]">
-          <h4 class="text-[1.1rem] font-semibold mb-[8px] text-white">
-            Solutions
-          </h4>
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >AI Integration</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Drone Network</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Smart Infrastructure</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Custom Software</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Workflow Automation</a
-          >
-        </div>
-
-        <div class="footer-col flex flex-col gap-[16px] min-w-[150px]">
-          <h4 class="text-[1.1rem] font-semibold mb-[8px] text-white">
-            Company
-          </h4>
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >About Us</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Careers</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Research</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Partners</a
-          >
-          <a
-            href="#"
-            class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Press</a
-          >
-        </div>
-
-        <div class="footer-col flex flex-col gap-[16px] min-w-[150px]">
-          <h4 class="text-[1.1rem] font-semibold mb-[8px] text-white">
-            Contact
-          </h4>
-          <div
-            class="footer-contact-item flex items-start gap-[12px] text-[#888888] mb-[12px]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-[#E6CD99] shrink-0 mt-[4px]"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            <span
-              ><a
-                href="mailto:hello@astrai.in"
-                class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-                >hello@astrai.in</a
-              ></span
-            >
-          </div>
-          <div
-            class="footer-contact-item flex items-start gap-[12px] text-[#888888] mb-[12px]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-[#E6CD99] shrink-0 mt-[4px]"
-            >
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-              />
-            </svg>
-            <span
-              ><a
-                href="tel:+917009281329"
-                class="text-[#888888] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-                >+91 70092 81329</a
-              ></span
-            >
-          </div>
-          <div
-            class="footer-contact-item flex items-start gap-[12px] text-[#888888] mb-[12px]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-[#E6CD99] shrink-0 mt-[4px]"
-            >
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span>22/44 A Harnam Nagar,<br />Kapurthala, Punjab, 144601</span>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="footer-bottom container max-w-container mx-auto w-full py-[32px] flex justify-between items-center text-[0.9rem] text-[#666666] max-[768px]:flex-col max-[768px]:gap-[16px] max-[768px]:text-center"
-      >
-        <p>&copy; 2026 ASTR AI. All rights reserved.</p>
-        <div class="footer-bottom-links flex gap-[24px]">
-          <a
-            href="#"
-            class="text-[#666666] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Privacy Policy</a
-          >
-          <a
-            href="#"
-            class="text-[#666666] transition-colors duration-300 hover:text-[#E6CD99] no-underline"
-            >Terms of Service</a
-          >
-        </div>
-      </div>
-    </footer>
+    <astr-footer></astr-footer>
 
     <!-- ====== SCRIPTS ====== -->
-    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Lenis (Smooth Scroll) -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-
     <script type="module" src="main.js"></script>
   </body>
 </html>
