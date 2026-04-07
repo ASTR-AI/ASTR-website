@@ -1806,3 +1806,123 @@ function initCTAParticles() {
   window.addEventListener('resize', resize);
   resize();
 }
+
+/* ==========================================================================
+   SOLUTIONS PAGE EXPANSION LOGIC
+   ========================================================================== */
+function initSolutionsExpansion() {
+  // 1. Before & After Slider
+  const baContainer = document.querySelector('.ba-container');
+  if (baContainer) {
+    const afterState = baContainer.querySelector('.ba-after');
+    const handle = baContainer.querySelector('.ba-handle');
+    let isDragging = false;
+
+    const moveSlider = (e) => {
+      if (!isDragging) return;
+      const rect = baContainer.getBoundingClientRect();
+      let x = (e.clientX || e.touches?.[0].clientX) - rect.left;
+      x = Math.max(0, Math.min(x, rect.width)); // clamp
+      const percent = (x / rect.width) * 100;
+      
+      handle.style.left = `${percent}%`;
+      afterState.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+    };
+
+    baContainer.addEventListener('mousedown', () => isDragging = true);
+    baContainer.addEventListener('touchstart', () => { isDragging = true; }, {passive: true});
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('mousemove', moveSlider);
+    window.addEventListener('touchmove', moveSlider, {passive: true});
+  }
+
+  // 2. Accordion
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const content = item.querySelector('.accordion-content');
+      
+      const isActive = item.classList.contains('active');
+      
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.maxHeight = '0px';
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // 3. Tabs
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Deactivate all
+      tabBtns.forEach(b => {
+        b.classList.remove('active', 'bg-white/10', 'text-white');
+        b.classList.add('text-white/50');
+      });
+      tabPanes.forEach(p => {
+        p.classList.remove('active', 'opacity-100');
+        p.classList.add('opacity-0', 'pointer-events-none');
+        p.style.zIndex = '0';
+      });
+
+      // Activate clicked
+      btn.classList.add('active', 'bg-white/10', 'text-white');
+      btn.classList.remove('text-white/50');
+      const targetId = btn.getAttribute('data-target');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('active', 'opacity-100');
+        targetPane.classList.remove('opacity-0', 'pointer-events-none');
+        targetPane.style.zIndex = '10';
+      }
+    });
+  });
+
+  // 4. Timeline ScrollTrigger
+  const timelineSection = document.querySelector('.timeline-section');
+  if (timelineSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const steps = document.querySelectorAll('.timeline-step');
+    const line = document.getElementById('timeline-progress-line');
+
+    if (line) {
+      gsap.to(line, {
+        height: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.timeline-wrapper',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      });
+    }
+
+    steps.forEach((step, i) => {
+      gsap.to(step, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: step,
+          start: 'top 60%',
+          toggleClass: 'active'
+        }
+      });
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initSolutionsExpansion();
+});
+

@@ -26,6 +26,11 @@
   - [x] **Vite Multi-Page Build**: Configured `vite.config.js` to build `index.html`, `main-site.html`, `philosophy.html`, and `solutions.html`.
   - [x] **"Coming Soon" Isolation**: Kept the public `index.html` as a "Coming Soon" page while allowing development on `main-site.html`.
   - [x] **Internal Navigation**: Updated `components.js` to link internal navigation to the development version (`main-site.html`).
+- [x] **Solutions Page Expansion**:
+  - [x] **Impact Visualization**: Added an interactive Before & After slider comparing legacy workflows with ASTR AI.
+  - [x] **Capabilities Deep-Dive**: Created an accordion translating complex deep tech (Computer Vision, ML, ERPs) into plain English.
+  - [x] **Industry Use Cases**: Implemented a tabbed interface showcasing solutions for Logistics, Healthcare, and Manufacturing.
+  - [x] **Engagement Blueprint**: Implemented a vertical timeline detailing the "How We Work" phases (Audit -> Prototype -> Integrate -> Scale).
 
 ## Pending Tasks ⏳
 
@@ -33,8 +38,6 @@
   - [x] **Particle Optimization**: Reduced counts and simplified loops for Three.js and Canvas systems on mobile.
   - [ ] Optimize 21:9 image stacking for mobile screens (likely shift to 16:9 or full-width).
   - [ ] Adjust journal title/description alignment for smaller viewports.
-- [ ] **Engagement Blueprint (New Suggestion)**:
-  - [ ] Implement a "Mission Phases" horizontal timeline (Audit -> Prototype -> Scale).
 - [ ] **Technical Stack (New Suggestion)**:
   - [ ] Add a monochrome "Built on Industry Standards" logo cloud (NVIDIA, AWS, etc.).
 - [ ] **Liquid Glass UI Effects**:
