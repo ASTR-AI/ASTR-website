@@ -1187,3 +1187,57 @@
 .reveal.visible .draw-path {
   stroke-dashoffset: 0;
 }
+
+/* ==========================================================================
+   SOLUTIONS PAGE EXPANSION STYLES
+   ========================================================================== */
+
+/* Before & After Slider */
+.ba-container {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.ba-handle {
+  will-change: left, transform;
+}
+
+/* Accordion */
+.accordion-header {
+  transition: background-color 0.3s ease;
+}
+.accordion-header:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+  border-color: var(--color-gold-DEFAULT);
+  color: var(--color-gold-DEFAULT);
+}
+.accordion-item.active .accordion-content {
+  opacity: 1;
+}
+
+/* Tabs */
+.tab-btn.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+.tab-pane {
+  visibility: hidden;
+}
+.tab-pane.active {
+  visibility: visible;
+}
+
+/* Timeline */
+.timeline-step.active {
+  opacity: 1;
+}
+.timeline-step.active .step-circle {
+  border-color: var(--color-gold-DEFAULT);
+  background-color: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
