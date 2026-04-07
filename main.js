@@ -325,7 +325,7 @@ function initHeroCanvas() {
 
   // ---- Logo Pixel Sampling from Image ----
   const logoImg = new Image();
-  logoImg.src = 'Pictures/ASTR%20LOGO%20TEXT.png';
+  logoImg.src = '/Pictures/ASTR LOGO TEXT.png';
   logoImg.onload = () => {
     const logoCanvas = document.createElement('canvas');
     const logoCtx = logoCanvas.getContext('2d');
@@ -789,7 +789,7 @@ class EcosystemGraph {
         logo.setAttributeNS(
           'http://www.w3.org/1999/xlink',
           'href',
-          'Pictures/without bg 02.png'
+          '/Pictures/without bg 02.png'
         );
         logo.setAttribute('width', imgSize);
         logo.setAttribute('height', imgSize);

@@ -22,6 +22,10 @@
 - [x] **Navigation & Footer**:
   - [x] Functional navbar with scrolled state transitions.
   - [x] Dual-footer logic for Infrastructure vs. Drone states.
+- [x] **Development Workflow & Deployment Strategy**:
+  - [x] **Vite Multi-Page Build**: Configured `vite.config.js` to build `index.html`, `main-site.html`, `philosophy.html`, and `solutions.html`.
+  - [x] **"Coming Soon" Isolation**: Kept the public `index.html` as a "Coming Soon" page while allowing development on `main-site.html`.
+  - [x] **Internal Navigation**: Updated `components.js` to link internal navigation to the development version (`main-site.html`).
 
 ## Pending Tasks ⏳
 

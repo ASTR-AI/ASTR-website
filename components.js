@@ -12,12 +12,11 @@ class AstrNavbar extends HTMLElement {
         id="navbar"
       >
         <a
-          href="index.html"
+          href="main-site.html"
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px]"
         >
           <img
-            src="Pictures/without bg 02.png"
-            alt="ASTR AI Logo"
+            src="/Pictures/without bg 02.png"            alt="ASTR AI Logo"
             class="logo-image bg-transparent absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] pointer-events-none max-[768px]:h-[48px] max-[768px]:top-[0.15em] max-[768px]:left-[16px]"
           />
         </a>
@@ -113,7 +112,7 @@ class AstrFooter extends HTMLElement {
           <!-- Architectural Signature Header -->
           <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-[120px]">
             <div class="space-y-6">
-              <img src="Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] max-[768px]:h-[60px] w-auto block object-contain mb-8" />
+              <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] max-[768px]:h-[60px] w-auto block object-contain mb-8" />
               <p class="text-white/40 leading-relaxed font-lora text-[1.1rem] max-w-[400px] italic">
                 "Architecting intelligence for mission-critical frontiers."
               </p>
