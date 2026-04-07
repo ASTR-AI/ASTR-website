@@ -12,7 +12,7 @@ class AstrNavbar extends HTMLElement {
         id="navbar"
       >
         <a
-          href="index.html"
+          href="main-site.html"
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px]"
         >
           <img

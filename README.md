@@ -50,21 +50,38 @@ The landing page features 5 distinct sections:
 
 ## Technologies Used
 
-- HTML5 (Semantic Structure)
-- Vanilla CSS3 (Custom Properties/Tokens, Flexbox, Grid, Animations, No preprocessors needed)
-- Vanilla JavaScript (IntersectionObserver for scroll animations, Canvas API for the interactive neural network background)
-- No external frameworks or libraries, keeping the bundle incredibly lightweight and fast.
+- **Vite**: Next-generation frontend tooling for fast builds and hot module replacement.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **Three.js & GSAP**: For high-performance 3D particle systems and cinematic animations.
+- **Vanilla HTML/JS**: Core architecture for maximum performance and portability.
+
+## Development Workflow
+
+The project is configured for **Continuous Development vs. Deployment**. 
+
+- `index.html`: The public "Coming Soon" page (what visitors see at `astrai.in/`).
+- `main-site.html`: The actual website currently in development.
+- `philosophy.html` & `solutions.html`: Internal sub-pages.
 
 ## Running Locally
 
-To run the site locally, simply serve the directory with any HTTP server. For example:
+To start the development server:
 
 ```sh
-# Using Node.js http-server
-npx http-server . -p 8080
-
-# Using Python
-python3 -m http.server 8080
+npm run dev
 ```
 
-Then visit `http://localhost:8080` in your web browser.
+- **To preview the Coming Soon page**: Visit `http://localhost:5173/`
+- **To develop the actual site**: Visit `http://localhost:5173/main-site.html`
+
+Internal navigation in `components.js` is currently mapped to `main-site.html` to allow for a seamless development experience between sub-pages.
+
+## Deployment & Building
+
+To build the project for production:
+
+```sh
+npm run build
+```
+
+The build output will be in the `dist/` directory, including all development pages. When ready for full launch, simply rename `main-site.html` to `index.html`.
