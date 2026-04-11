@@ -667,13 +667,29 @@ function initHeroCanvas() {
       mouseY = (y - h / 2) * 0.0005;
     }
 
-    document.addEventListener('mousemove', (event) => {
-      updateInput(event.clientX, event.clientY);
+    container.addEventListener('mousemove', (event) => {
+      const rect = container.getBoundingClientRect();
+      updateInput(event.clientX - rect.left, event.clientY - rect.top);
+    });
+
+    container.addEventListener('mouseleave', () => {
+      mouseX = 0;
+      mouseY = 0;
     });
 
     document.addEventListener('touchmove', (event) => {
       if (event.touches.length > 0) {
-        updateInput(event.touches[0].clientX, event.touches[0].clientY);
+        const rect = container.getBoundingClientRect();
+        // Check if touch is within hero container
+        const touch = event.touches[0];
+        if (
+          touch.clientX >= rect.left &&
+          touch.clientX <= rect.right &&
+          touch.clientY >= rect.top &&
+          touch.clientY <= rect.bottom
+        ) {
+          updateInput(touch.clientX - rect.left, touch.clientY - rect.top);
+        }
       }
     }, { passive: true });
 
@@ -685,7 +701,7 @@ function initHeroCanvas() {
     let currentShapeIndex = 0;
     let morphTimer = 0;
     const MORPH_INTERVAL = 8.0;
-    const LERP_SPEED = 0.015;
+    const LERP_SPEED = 0.04;
     let currentNoiseScale = 0.35;
 
     function animate() {
@@ -1619,9 +1635,17 @@ function initDroneCanvas() {
   let mouseX = 0;
   let mouseY = 0;
 
-  document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    mouseX = (x / container.clientWidth) * 2 - 1;
+    mouseY = -(y / container.clientHeight) * 2 + 1;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    mouseX = 0;
+    mouseY = 0;
   });
 
   window.addEventListener('resize', resize);
