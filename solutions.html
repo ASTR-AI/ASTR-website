@@ -462,19 +462,18 @@
           </div>
 
           <!-- Tab Content -->
-          <div class="tab-content-container relative min-h-[400px]">
+          <div class="tab-content-container relative min-h-[400px] mb-8">
             <!-- Logistics -->
             <div class="tab-pane active absolute inset-0 transition-all duration-500 opacity-100 z-10" id="tab-logistics">
               <div class="glass-panel p-12 rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
                 <div class="flex-1">
-                  <h3 class="text-3xl font-bold mb-6">Smarter Supply Chains</h3>
+                  <h3 class="text-3xl font-bold mb-6">Logistics & Distribution</h3>
                   <ul class="space-y-4">
-                    <li class="flex items-start gap-4 text-white/70"><span class="text-gold">✦</span> Dynamic route optimization based on real-time traffic and weather.</li>
-                    <li class="flex items-start gap-4 text-white/70"><span class="text-gold">✦</span> Automated inventory tracking using computer vision in warehouses.</li>
-                    <li class="flex items-start gap-4 text-white/70"><span class="text-gold">✦</span> Predictive maintenance for delivery fleets to prevent breakdowns.</li>
+                    <li class="flex items-start gap-4 text-white/70"><span class="text-gold">✦</span> AI-driven inventory intelligence for large-scale warehouse operations.</li>
+                    <li class="flex items-start gap-4 text-white/70"><span class="text-gold">✦</span> Real-time drone telemetry for automated yard management and site security.</li>
+                    <li class="flex items-start gap-4 text-white/70"><span class="text-gold">✦</span> Unified data systems for predictive supply chain resilience.</li>
                   </ul>
-                </div>
-                <div class="flex-1 w-full aspect-video rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden">
+                </div>                <div class="flex-1 w-full aspect-video rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden">
                   <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
                   <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </div>
@@ -517,6 +516,20 @@
               </div>
             </div>
           </div>
+
+          <!-- Custom Architecture Footer (Styled like Landing Page Pillars) -->
+          <div class="antigravity-split-inline reveal mt-12 mx-auto max-w-[1000px] grid grid-cols-[30%_70%] gap-12 items-start w-full px-[40px] max-[992px]:grid-cols-1 max-[992px]:gap-[24px] max-[992px]:px-[24px]">
+            <div class="left-col">
+              <h2 class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-right max-[992px]:text-left">
+                Architect
+              </h2>
+            </div>
+            <div class="right-col">
+              <p class="build-description font-lora text-[16px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left tracking-[0.02em]">
+                While we have deep expertise in these verticals, our core strength lies in <span class="text-gold font-medium">architecting custom intelligence.</span> We build bespoke software ecosystems tailored specifically to your unique operational requirements, ensuring every line of code serves your mission-critical goals.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -528,57 +541,72 @@
             How We <span class="italic font-light text-white/90">Work.</span>
           </h2>
 
-          <div class="timeline-wrapper relative max-w-[900px] mx-auto">
-            <!-- Connecting Line Base -->
-            <div class="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 transform md:-translate-x-1/2 z-0"></div>
-            <!-- Animated Progress Line -->
-            <div id="timeline-progress-line" class="absolute left-[24px] md:left-1/2 top-0 w-[2px] bg-gold shadow-[0_0_10px_rgba(212,175,55,0.5)] transform md:-translate-x-1/2 z-[1] origin-top" style="height: 0%;"></div>
+          <div class="timeline-wrapper relative max-w-[900px] mx-auto pt-8">
+            <!-- Curved SVG Path Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none hidden md:block" style="margin-left: -50px; margin-right: -50px;">
+              <svg width="1000" height="100%" viewBox="0 0 1000 1200" preserveAspectRatio="none" fill="none" class="w-full h-full opacity-20">
+                <!-- Base Path (Dashed) -->
+                <path id="timeline-base-path" d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200" stroke="white" stroke-width="2" stroke-dasharray="8 8" />
+              </svg>
+            </div>
+            
+            <!-- Curved SVG Path Progress -->
+            <div class="absolute inset-0 z-[1] pointer-events-none hidden md:block" style="margin-left: -50px; margin-right: -50px;">
+              <svg width="1000" height="100%" viewBox="0 0 1000 1200" preserveAspectRatio="none" fill="none" class="w-full h-full">
+                <!-- Progress Path (Animated) -->
+                <path id="timeline-progress-path" d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200" stroke="#E6CD99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(230,205,153,0.5));" />
+              </svg>
+            </div>
+
+            <!-- Mobile Straight Line (Fall-back) -->
+            <div class="absolute left-[24px] top-0 bottom-0 w-[2px] bg-white/10 md:hidden z-0"></div>
+            <div id="timeline-progress-line-mobile" class="absolute left-[24px] top-0 w-[2px] bg-gold md:hidden z-[1] origin-top" style="height: 0%;"></div>
 
             <!-- Steps -->
-            <div class="space-y-24 relative z-10">
-              <!-- Step 1 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-opacity duration-500">
-                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[70px] md:pl-0 order-2 md:order-1 mt-4 md:mt-0">
+            <div class="space-y-32 md:space-y-48 relative z-10">
+              <!-- Step 1 (Text Left, Circle Right) -->
+              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
+                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[70px] md:pl-0 order-2 md:order-1 mt-4 md:mt-0 transition-transform duration-700">
                   <h3 class="text-2xl font-bold mb-2">1. Audit & Discover</h3>
                   <p class="text-white/60">We start by understanding your bottlenecks. We analyze your workflows, data, and existing tech stack to find the highest-ROI opportunities.</p>
                 </div>
-                <div class="absolute left-[24px] md:left-1/2 w-[50px] h-[50px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-colors duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
+                <div class="absolute left-[24px] md:left-[75%] w-[54px] h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
                   <span class="font-mono text-gold font-bold">01</span>
                 </div>
                 <div class="md:w-5/12 order-3"></div>
               </div>
 
-              <!-- Step 2 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-opacity duration-500">
+              <!-- Step 2 (Text Right, Circle Left) -->
+              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
                 <div class="md:w-5/12 order-3 md:order-1"></div>
-                <div class="absolute left-[24px] md:left-1/2 w-[50px] h-[50px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-colors duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
+                <div class="absolute left-[24px] md:left-[25%] w-[54px] h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
                   <span class="font-mono text-gold font-bold">02</span>
                 </div>
-                <div class="md:w-5/12 text-left pl-[70px] md:pl-12 order-2 md:order-3 mt-4 md:mt-0">
+                <div class="md:w-5/12 text-left pl-[70px] md:pl-12 order-2 md:order-3 mt-4 md:mt-0 transition-transform duration-700">
                   <h3 class="text-2xl font-bold mb-2">2. Prototype</h3>
                   <p class="text-white/60">We rapidly build a functioning Proof of Concept (PoC). This lets you touch, feel, and test the solution without committing to a massive rollout.</p>
                 </div>
               </div>
 
-              <!-- Step 3 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-opacity duration-500">
-                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[70px] md:pl-0 order-2 md:order-1 mt-4 md:mt-0">
+              <!-- Step 3 (Text Left, Circle Right) -->
+              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
+                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[70px] md:pl-0 order-2 md:order-1 mt-4 md:mt-0 transition-transform duration-700">
                   <h3 class="text-2xl font-bold mb-2">3. Integrate</h3>
                   <p class="text-white/60">Once approved, we seamlessly wire the solution into your daily operations. We ensure it talks to your existing software without disrupting your business.</p>
                 </div>
-                <div class="absolute left-[24px] md:left-1/2 w-[50px] h-[50px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-colors duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
+                <div class="absolute left-[24px] md:left-[75%] w-[54px] h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
                   <span class="font-mono text-gold font-bold">03</span>
                 </div>
                 <div class="md:w-5/12 order-3"></div>
               </div>
 
-              <!-- Step 4 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-opacity duration-500">
+              <!-- Step 4 (Text Right, Circle Left) -->
+              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
                 <div class="md:w-5/12 order-3 md:order-1"></div>
-                <div class="absolute left-[24px] md:left-1/2 w-[50px] h-[50px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-colors duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
+                <div class="absolute left-[24px] md:left-[25%] w-[54px] h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2 mt-[-10px] md:mt-0">
                   <span class="font-mono text-gold font-bold">04</span>
                 </div>
-                <div class="md:w-5/12 text-left pl-[70px] md:pl-12 order-2 md:order-3 mt-4 md:mt-0">
+                <div class="md:w-5/12 text-left pl-[70px] md:pl-12 order-2 md:order-3 mt-4 md:mt-0 transition-transform duration-700">
                   <h3 class="text-2xl font-bold mb-2">4. Scale & Support</h3>
                   <p class="text-white/60">Deployment isn't the end. We monitor the system 24/7, pushing updates, optimizing performance, and scaling the infrastructure as you grow.</p>
                 </div>

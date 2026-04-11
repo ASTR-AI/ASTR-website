@@ -17,7 +17,7 @@ class AstrNavbar extends HTMLElement {
         >
           <img
             src="/Pictures/without bg 02.png"            alt="ASTR AI Logo"
-            class="logo-image bg-transparent absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] pointer-events-none max-[768px]:h-[48px] max-[768px]:top-[0.15em] max-[768px]:left-[16px]"
+            class="logo-image bg-transparent absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] max-[768px]:h-[48px] max-[768px]:top-[0.15em] max-[768px]:left-[16px]"
           />
         </a>
         <div

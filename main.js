@@ -1956,30 +1956,98 @@ function initSolutionsExpansion() {
     gsap.registerPlugin(ScrollTrigger);
     
     const steps = document.querySelectorAll('.timeline-step');
-    const line = document.getElementById('timeline-progress-line');
+    const progressPath = document.getElementById('timeline-progress-path');
+    const progressLineMobile = document.getElementById('timeline-progress-line-mobile');
 
-    if (line) {
-      gsap.to(line, {
+    // Desktop: Curved SVG Path Animation
+    if (progressPath && window.innerWidth >= 768) {
+      const pathLength = progressPath.getTotalLength();
+      
+      // Initialize path
+      gsap.set(progressPath, { 
+        strokeDasharray: pathLength, 
+        strokeDashoffset: pathLength 
+      });
+
+      gsap.to(progressPath, {
+        strokeDashoffset: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.timeline-wrapper',
+          start: 'top 60%',
+          end: 'bottom 60%',
+          scrub: true
+        }
+      });
+    }
+
+    // Mobile: Straight Line Animation (Fallback)
+    if (progressLineMobile && window.innerWidth < 768) {
+      gsap.to(progressLineMobile, {
         height: '100%',
         ease: 'none',
         scrollTrigger: {
           trigger: '.timeline-wrapper',
-          start: 'top center',
-          end: 'bottom center',
+          start: 'top 60%',
+          end: 'bottom 60%',
           scrub: true
         }
       });
     }
 
     steps.forEach((step, i) => {
+      const circle = step.querySelector('.step-circle');
+      const content = step.querySelector('div:not(.absolute)'); // Targeting the content columns
+      const isEven = i % 2 !== 0;
+
+      // Animate the entire step container opacity
       gsap.to(step, {
         opacity: 1,
         scrollTrigger: {
           trigger: step,
-          start: 'top 60%',
-          toggleClass: 'active'
+          start: 'top 75%',
+          end: 'top 25%',
+          toggleActions: 'play reverse play reverse',
+          onEnter: () => step.classList.add('active'),
+          onLeaveBack: () => step.classList.remove('active')
         }
       });
+
+      // Animate the circle (scale and border)
+      if (circle) {
+        gsap.fromTo(circle, 
+          { scale: 0.8, borderColor: 'rgba(255,255,255,0.2)' },
+          {
+            scale: 1.2,
+            borderColor: '#E6CD99',
+            backgroundColor: 'rgba(230,205,153,0.1)',
+            duration: 0.6,
+            scrollTrigger: {
+              trigger: step,
+              start: 'top 60%',
+              toggleActions: 'play reverse play reverse'
+            }
+          }
+        );
+      }
+
+      // Animate the text content (slide in)
+      if (content) {
+        gsap.fromTo(content,
+          { x: isEven ? 40 : -40, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: step,
+              start: 'top 75%',
+              toggleActions: 'play reverse play reverse'
+            }
+          }
+        );
+      }
     });
   }
 }
