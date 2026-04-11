@@ -59,7 +59,10 @@
 
       <!-- ====== SECTION: PHILOSOPHY CLEAN ====== -->
       <section class="philosophy-clean pb-32 relative z-[15]" id="philosophy">
-        <div class="container max-w-[1300px] mx-auto px-12">
+        <!-- Top Blur Fade -->
+        <div class="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black to-transparent z-20 pointer-events-none"></div>
+        
+        <div class="container max-w-[1300px] mx-auto px-12 relative z-10">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             
             <!-- Left Side: The Origin (The Core Piece) -->
@@ -171,12 +174,12 @@
       </section>
 
       <!-- ====== SECTION: CLASSICAL ARCHITECTURAL PILLARS ====== -->
-      <section class="pillars-classical py-48 border-t border-white/5 relative overflow-hidden bg-black">
+      <section class="pillars-classical py-48 relative overflow-hidden bg-black">
         <!-- Blueprint Grid Background (Subtle) -->
         <div class="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
 
         <div class="container max-w-[1300px] mx-auto px-12 relative z-10">
-          <div class="text-center mb-32 reveal">
+          <div class="text-center mb-44 reveal">
             <span class="font-mono text-[0.7rem] text-gold/60 tracking-[6px] uppercase block mb-4">Structural_Foundations</span>
             <h3 class="text-5xl font-bold tracking-tight">The Three <span class="italic font-light text-white/80">Pillars.</span></h3>
             <div class="mt-6 font-caveat text-white/20 text-[1.4rem]">// Ancient_Engineering_X_Modern_Logic</div>
@@ -324,6 +327,57 @@
 
           </div>
         </div>
+      </section>
+      <!-- ====== SECTION: THE FINAL BLUEPRINT (CTA) ====== -->
+      <section class="final-blueprint py-60 relative overflow-hidden">
+        <!-- Background Grid (Very Subtle) -->
+        <div class="absolute inset-0 z-0 opacity-[0.01] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
+        
+        <div class="container max-w-[1300px] mx-auto px-12 relative z-10">
+          <div class="max-w-[900px] mx-auto text-center">
+            <!-- Metadata Header -->
+            <div class="reveal mb-12 flex items-center justify-center gap-6">
+              <span class="w-12 h-px bg-gold/30"></span>
+              <span class="font-mono text-[0.65rem] text-gold/60 tracking-[5px] uppercase">Strategic_Intent</span>
+              <span class="w-12 h-px bg-gold/30"></span>
+            </div>
+
+            <!-- The Core Quote -->
+            <h2 class="reveal text-[clamp(2.5rem,5vw,5rem)] font-bold leading-[1.1] tracking-tight mb-16">
+              We don't just build <br />
+              <span class="italic font-light text-white/90">technology;</span> 
+              we architect <br />
+              <span class="text-gold">precision.</span>
+            </h2>
+
+            <!-- Call to Action -->
+            <div class="reveal flex flex-col items-center gap-12">
+              <a href="solutions.html" class="group relative px-12 py-5 border border-gold/30 rounded-full overflow-hidden transition-all duration-700 hover:border-gold">
+                <div class="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors duration-700"></div>
+                <div class="relative flex items-center gap-4">
+                  <span class="font-mono text-[0.7rem] text-gold tracking-[3px] uppercase font-bold">Explore_Solutions</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform group-hover:translate-x-1 transition-transform duration-500">
+                    <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="#c8a24e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
+
+              <!-- Architect's Signature -->
+              <div class="relative">
+                <span class="font-caveat text-white/20 text-[1.6rem] block -rotate-3 transition-colors duration-700 group-hover:text-gold/40">
+                  // Architect's_Final_Note_Verified
+                </span>
+                <!-- Technical Stamp -->
+                <div class="absolute -right-16 -top-4 w-12 h-12 rounded-full border border-white/5 flex items-center justify-center opacity-20">
+                  <span class="font-mono text-[0.5rem] text-white/40">ASTR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Bottom Blur -->
+        <div class="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none"></div>
       </section>
     </main>
 
