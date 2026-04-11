@@ -14,7 +14,126 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlueprintCTA();
   initCTAParticles();
   initPremiumAnimations();
+  initRDAnimations();
 });
+
+/* --- R&D Page Specialized Animations --- */
+function initRDAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  // 0. Hero Sequence (Coordinated Entrance)
+  const heroMetadata = document.querySelector('.rd-hero-metadata');
+  const heroTitle = document.querySelector('.rd-hero-title');
+  const heroDesc = document.querySelector('.rd-hero-description');
+  const heroCTA = document.querySelector('.rd-hero-cta');
+
+  if (heroTitle) {
+    const heroTl = gsap.timeline({ delay: 0.5 });
+    
+    heroTl.fromTo(heroMetadata, 
+      { opacity: 0, y: -20 }, 
+      { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+    )
+    .fromTo(heroTitle, 
+      { opacity: 0, y: 40 }, 
+      { opacity: 1, y: 0, duration: 1.5, ease: 'expo.out' }, 
+      '-=0.6'
+    )
+    .fromTo(heroDesc, 
+      { opacity: 0, y: 20 }, 
+      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, 
+      '-=1'
+    )
+    .fromTo(heroCTA, 
+      { opacity: 0, scale: 0.9 }, 
+      { opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.7)' }, 
+      '-=0.8'
+    );
+  }
+
+  // 1. Journal Entry Staggered Reveal
+  const journalEntries = document.querySelectorAll('.rd-journal .relative.pl-12');
+  if (journalEntries.length > 0) {
+    gsap.fromTo(
+      journalEntries,
+      { x: -30, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+        stagger: 0.3,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: '.rd-journal',
+          start: 'top 90%',
+        },
+      }
+    );
+  }
+
+  // 2. Monolith Sequence
+  const monolithSeal = document.querySelector('.monolith-seal-container');
+  const monolithLines = document.querySelectorAll('.rd-monolith svg line');
+  const monolithPillars = document.querySelectorAll('.monolith-pillar');
+
+  if (monolithSeal) {
+    // Initial State
+    gsap.set([monolithSeal, monolithPillars], { opacity: 0 });
+    gsap.set(monolithSeal, { scale: 0.8 });
+    gsap.set(monolithPillars, { y: 30 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.rd-monolith',
+        start: 'top 85%', // Trigger even earlier for better visibility
+      },
+    });
+
+    tl.to(monolithSeal, { 
+      scale: 1, 
+      opacity: 1, 
+      duration: 1.2, 
+      ease: 'expo.out' 
+    })
+    .to(monolithLines, { 
+      opacity: 0.2, 
+      duration: 1, 
+      stagger: 0.1,
+      ease: 'power2.out' 
+    }, '-=0.6') // Fade in lines as seal finishes
+    .to(monolithPillars, { 
+      y: 0, 
+      opacity: 1, 
+      duration: 1, 
+      stagger: 0.1, 
+      ease: 'power3.out' 
+    }, '-=0.8'); // Overlap with lines and seal
+
+    // Subtle Floating for Monolith Pillars
+    monolithPillars.forEach((pillar, i) => {
+      gsap.to(pillar, {
+        y: '+=8',
+        duration: 2.5 + i * 0.4,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: i * 0.2,
+      });
+    });
+  }
+
+  // 3. Track Cards Hover Enhancement (Surgical GSAP)
+  const trackCards = document.querySelectorAll('.research-tracks .group');
+  trackCards.forEach((card) => {
+    const note = card.querySelector('.font-caveat');
+    card.addEventListener('mouseenter', () => {
+      gsap.to(note, { opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(note, { opacity: 0, y: 10, duration: 0.4, ease: 'power2.in' });
+    });
+  });
+}
 
 /* --- Premium Editorial Animations (Master Reveal System) --- */
 function initPremiumAnimations() {
@@ -46,7 +165,7 @@ function initPremiumAnimations() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 90%',
+          start: 'top 95%',
           toggleActions: 'play none none none',
         },
       }
@@ -66,11 +185,11 @@ function initPremiumAnimations() {
           y: 0,
           opacity: 1,
           duration: 1,
-          stagger: 0.2,
+          stagger: 0.15,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 85%',
+            start: 'top 92%',
             onEnter: () => {
               // Ensure container becomes visible when children start animating
               gsap.set(el, { visibility: 'visible', opacity: 1 });

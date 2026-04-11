@@ -36,7 +36,7 @@ class AstrNavbar extends HTMLElement {
           >
           <a
             class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-[#D1D5DB] hover:bg-white/5 hover:backdrop-blur-[10px] hover:border-white/10 hover:shadow-[0_4px_10px_rgba(0,0,0,0.2)] max-[768px]:text-[1.25rem]"
-            href="index.html#rd"
+            href="rd.html"
             >R&amp;D</a
           >
           <a
@@ -141,7 +141,7 @@ class AstrFooter extends HTMLElement {
                 <li><a href="#" class="arch-link">AI Integration</a></li>
                 <li><a href="#" class="arch-link">Neural Networks</a></li>
                 <li><a href="#" class="arch-link">System Audit</a></li>
-                <li><a href="#" class="arch-link">R&D Roadmap</a></li>
+                <li><a href="rd.html" class="arch-link">R&D Roadmap</a></li>
               </ul>
             </div>
             <div class="space-y-10">
