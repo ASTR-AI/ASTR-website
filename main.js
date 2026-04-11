@@ -1888,7 +1888,69 @@ function initSolutionsExpansion() {
     });
   });
 
-  // 4. Timeline ScrollTrigger
+  // 4. Strategic Choice Entry Animations (The Slider Section)
+  const strategicSection = document.querySelector('.before-after-section');
+  if (strategicSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const card = strategicSection.querySelector('.ba-container');
+    const annotations = strategicSection.querySelectorAll('.xl\\:flex.flex-col .relative.pl-4');
+    const mobileNotes = strategicSection.querySelectorAll('.xl\\:hidden .relative.pl-8');
+
+    // Card Entrance
+    if (card) {
+      gsap.fromTo(card, 
+        { scale: 0.95, opacity: 0, y: 40 },
+        { 
+          scale: 1, 
+          opacity: 1, 
+          y: 0, 
+          duration: 1.5, 
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+          }
+        }
+      );
+    }
+
+    // Desktop Annotations Stagger
+    if (annotations.length > 0) {
+      gsap.fromTo(annotations,
+        { x: -30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: strategicSection.querySelector('.xl\\:flex'),
+            start: "top 80%",
+          }
+        }
+      );
+    }
+
+    // Mobile Notes Stagger
+    if (mobileNotes.length > 0) {
+      gsap.fromTo(mobileNotes,
+        { x: -20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: strategicSection.querySelector('.xl\\:hidden'),
+            start: "top 90%",
+          }
+        }
+      );
+    }
+  }
+
+  // 5. Timeline ScrollTrigger
   const timelineSection = document.querySelector('.timeline-section');
   if (timelineSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
