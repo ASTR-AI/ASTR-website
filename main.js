@@ -1888,36 +1888,166 @@ function initSolutionsExpansion() {
     });
   });
 
-  // 4. Timeline ScrollTrigger
+  // 4. Strategic Choice Entry Animations (The Slider Section)
+  const strategicSection = document.querySelector('.before-after-section');
+  if (strategicSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const card = strategicSection.querySelector('.ba-container');
+    const annotations = strategicSection.querySelectorAll('.xl\\:flex.flex-col .relative.pl-4');
+    const mobileNotes = strategicSection.querySelectorAll('.xl\\:hidden .relative.pl-8');
+
+    // Card Entrance
+    if (card) {
+      gsap.fromTo(card, 
+        { scale: 0.95, opacity: 0, y: 40 },
+        { 
+          scale: 1, 
+          opacity: 1, 
+          y: 0, 
+          duration: 1.5, 
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+          }
+        }
+      );
+    }
+
+    // Desktop Annotations Stagger
+    if (annotations.length > 0) {
+      gsap.fromTo(annotations,
+        { x: -30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: strategicSection.querySelector('.xl\\:flex'),
+            start: "top 80%",
+          }
+        }
+      );
+    }
+
+    // Mobile Notes Stagger
+    if (mobileNotes.length > 0) {
+      gsap.fromTo(mobileNotes,
+        { x: -20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: strategicSection.querySelector('.xl\\:hidden'),
+            start: "top 90%",
+          }
+        }
+      );
+    }
+  }
+
+  // 5. Timeline ScrollTrigger
   const timelineSection = document.querySelector('.timeline-section');
   if (timelineSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
     
     const steps = document.querySelectorAll('.timeline-step');
-    const line = document.getElementById('timeline-progress-line');
+    const progressPath = document.getElementById('timeline-progress-path');
+    const progressLineMobile = document.getElementById('timeline-progress-line-mobile');
 
-    if (line) {
-      gsap.to(line, {
+    // Desktop: Curved SVG Path Animation
+    if (progressPath && window.innerWidth >= 768) {
+      const pathLength = progressPath.getTotalLength();
+      
+      // Initialize path
+      gsap.set(progressPath, { 
+        strokeDasharray: pathLength, 
+        strokeDashoffset: pathLength 
+      });
+
+      gsap.to(progressPath, {
+        strokeDashoffset: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.timeline-wrapper',
+          start: 'top 60%',
+          end: 'bottom 60%',
+          scrub: true
+        }
+      });
+    }
+
+    // Mobile: Straight Line Animation (Fallback)
+    if (progressLineMobile && window.innerWidth < 768) {
+      gsap.to(progressLineMobile, {
         height: '100%',
         ease: 'none',
         scrollTrigger: {
           trigger: '.timeline-wrapper',
-          start: 'top center',
-          end: 'bottom center',
+          start: 'top 60%',
+          end: 'bottom 60%',
           scrub: true
         }
       });
     }
 
     steps.forEach((step, i) => {
+      const circle = step.querySelector('.step-circle');
+      const content = step.querySelector('div:not(.absolute)'); // Targeting the content columns
+      const isEven = i % 2 !== 0;
+
+      // Animate the entire step container opacity
       gsap.to(step, {
         opacity: 1,
         scrollTrigger: {
           trigger: step,
-          start: 'top 60%',
-          toggleClass: 'active'
+          start: 'top 75%',
+          end: 'top 25%',
+          toggleActions: 'play reverse play reverse',
+          onEnter: () => step.classList.add('active'),
+          onLeaveBack: () => step.classList.remove('active')
         }
       });
+
+      // Animate the circle (scale and border)
+      if (circle) {
+        gsap.fromTo(circle, 
+          { scale: 0.8, borderColor: 'rgba(255,255,255,0.2)' },
+          {
+            scale: 1.2,
+            borderColor: '#E6CD99',
+            backgroundColor: 'rgba(230,205,153,0.1)',
+            duration: 0.6,
+            scrollTrigger: {
+              trigger: step,
+              start: 'top 60%',
+              toggleActions: 'play reverse play reverse'
+            }
+          }
+        );
+      }
+
+      // Animate the text content (slide in)
+      if (content) {
+        gsap.fromTo(content,
+          { x: isEven ? 40 : -40, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: step,
+              start: 'top 75%',
+              toggleActions: 'play reverse play reverse'
+            }
+          }
+        );
+      }
     });
   }
 }
