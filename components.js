@@ -106,94 +106,111 @@ class AstrFooter extends HTMLElement {
   connectedCallback() {
     this.style.display = 'block';
     this.innerHTML = `
-      <footer class="bg-transparent pt-section-y pb-16 relative overflow-hidden" id="footer">
-        <div class="sun-rays"></div>
-        <div class="container max-w-[1300px] mx-auto px-12 relative z-10">
-          <!-- Architectural Signature Header -->
-          <div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-[120px]">
-            <div class="space-y-6">
-              <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-[80px] max-[768px]:h-[60px] w-auto block object-contain mb-8" />
-              <p class="text-white/40 leading-relaxed font-lora text-[1.1rem] max-w-[400px] italic">
-                "Architecting intelligence for mission-critical frontiers."
-              </p>
+      <footer class="bg-[#050505] pt-32 pb-16 relative overflow-hidden border-t border-white/5" id="footer">
+        <!-- Blueprint Grid Background (Subtle) -->
+        <div class="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
+        
+        <div class="container max-w-[1300px] mx-auto px-6 lg:px-12 relative z-10">
+          
+          <!-- Metadata Header Line -->
+          <div class="flex items-center gap-6 mb-24 opacity-40">
+            <span class="font-mono text-[0.6rem] text-gold tracking-[4px] uppercase">Archive_Closure</span>
+            <div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+            <span class="font-mono text-[0.5rem] text-white/20 uppercase tracking-[2px]">EOF_SYSTEM_READY</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-32">
+            
+            <!-- Column 1: Brand & Philosophy (6/12) -->
+            <div class="lg:col-span-6 space-y-12">
+              <div class="space-y-8">
+                <div class="space-y-2">
+                  <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-16 w-auto block object-contain" />
+                  <span class="block font-mono text-[0.6rem] text-gold/60 uppercase tracking-[4px]">Private Limited</span>
+                </div>
+                <h2 class="font-cinzel text-3xl lg:text-4xl font-bold tracking-tight leading-[1.1]">
+                  Architecting <span class="italic font-light opacity-60 text-white/80">Intelligence.</span>
+                </h2>
+                <div class="relative max-w-[450px]">
+                  <p class="text-white/40 text-lg leading-relaxed italic">
+                    Building the foundations for a future where autonomy and human-centric logic coexist in perfect synchronization.
+                  </p>
+                  <!-- Handwritten Annotation -->
+                  <div class="absolute -bottom-16 left-0">
+                    <span class="font-caveat text-gold/40 text-[1.4rem] block -rotate-2">
+                      // Not just code—a mission for the collective.
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="flex flex-col items-start lg:items-end gap-12">
-              <div class="flex gap-12">
-                <a href="#" class="arch-link">LinkedIn</a>
-                <a href="#" class="arch-link">X / Twitter</a>
-                <a href="#" class="arch-link">Instagram</a>
-              </div>
-              <div class="text-start lg:text-end">
-                <span class="block font-mono text-[0.75rem] text-[var(--color-gold-DEFAULT)]/40 uppercase tracking-[4px] mb-4 font-semibold">Mission Briefing</span>
-                <a href="mailto:hello@astrai.in" class="text-[clamp(1.25rem,3vw,1.75rem)] text-white hover:text-[var(--color-gold-DEFAULT)] transition-colors duration-500 font-lora font-light">
+            <!-- Column 2: Navigation (3/12) -->
+            <div class="lg:col-span-3 space-y-10">
+              <h4 class="font-mono text-[0.65rem] text-gold/60 uppercase tracking-[4px] border-b border-white/5 pb-4">Internal_Links</h4>
+              <ul class="space-y-4">
+                <li><a href="philosophy.html" class="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                  <span class="w-1.5 h-[1px] bg-gold/20 group-hover:w-4 transition-all"></span>
+                  Philosophy
+                </a></li>
+                <li><a href="solutions.html" class="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                  <span class="w-1.5 h-[1px] bg-gold/20 group-hover:w-4 transition-all"></span>
+                  Solutions
+                </a></li>
+                <li><a href="rd.html" class="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                  <span class="w-1.5 h-[1px] bg-gold/20 group-hover:w-4 transition-all"></span>
+                  R&D Lab
+                </a></li>
+                <li><a href="mission-docs.html#careers" class="group flex items-center gap-3 text-white/40 hover:text-white transition-colors">
+                  <span class="w-1.5 h-[1px] bg-gold/20 group-hover:w-4 transition-all"></span>
+                  Careers
+                </a></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Contact & Social (3/12) -->
+            <div class="lg:col-span-3 space-y-10">
+              <h4 class="font-mono text-[0.65rem] text-gold/60 uppercase tracking-[4px] border-b border-white/5 pb-4">Communication</h4>
+              <div class="space-y-8">
+                <a href="mailto:hello@astrai.in" class="block font-lora text-xl text-white/80 hover:text-gold transition-colors">
                   hello@astrai.in
                 </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Floating Link Columns -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-20 mb-[160px]">
-            <div class="space-y-10">
-              <h4 class="text-white/20 font-semibold text-[0.75rem] uppercase tracking-[4px] font-mono">Intelligence</h4>
-              <ul class="space-y-6">
-                <li><a href="#" class="arch-link">AI Integration</a></li>
-                <li><a href="#" class="arch-link">Neural Networks</a></li>
-                <li><a href="#" class="arch-link">System Audit</a></li>
-                <li><a href="rd.html" class="arch-link">R&D Roadmap</a></li>
-              </ul>
-            </div>
-            <div class="space-y-10">
-              <h4 class="text-white/20 font-semibold text-[0.75rem] uppercase tracking-[4px] font-mono">Operations</h4>
-              <ul class="space-y-6">
-                <li><a href="#" class="arch-link">Drone Fleet Ops</a></li>
-                <li><a href="#" class="arch-link">Infrastructure</a></li>
-                <li><a href="#" class="arch-link">Edge Security</a></li>
-                <li><a href="#" class="arch-link">Logic Core</a></li>
-              </ul>
-            </div>
-            <div class="space-y-10">
-              <h4 class="text-white/20 font-semibold text-[0.75rem] uppercase tracking-[4px] font-mono">Company</h4>
-              <ul class="space-y-6">
-                <li><a href="philosophy.html" class="arch-link">Philosophy</a></li>
-                <li><a href="solutions.html" class="arch-link">Solutions</a></li>
-                <li><a href="#" class="arch-link">Careers</a></li>
-                <li><a href="#" class="arch-link">Research</a></li>
-              </ul>
-            </div>
-            <div class="space-y-10">
-              <h4 class="text-white/20 font-semibold text-[0.75rem] uppercase tracking-[4px] font-mono">Status</h4>
-              <div class="space-y-8">
-                <div class="flex items-center gap-3">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-gold-DEFAULT)] animate-pulse"></span>
-                  <span class="font-mono text-[0.7rem] text-white/40 uppercase tracking-widest">Systems_Nominal</span>
+                <div class="flex gap-8">
+                  <a href="https://www.linkedin.com/company/astr-ai/?viewAsMember=true" target="_blank" class="text-white/20 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono">LinkedIn</a>
+                  <a href="https://instagram.com/astrai.in" target="_blank" class="text-white/20 hover:text-white transition-colors text-sm uppercase tracking-widest font-mono">Instagram</a>
                 </div>
-                <p class="text-white/20 font-lora text-[0.95rem] leading-relaxed">
-                  22/44 A Harnam Nagar,<br />Kapurthala, Punjab, India
-                </p>
+                <div class="pt-4 space-y-2">
+                  <span class="font-mono text-[0.6rem] text-white/20 uppercase block tracking-widest">Base_Ops</span>
+                  <p class="text-white/40 text-xs leading-relaxed font-mono">
+                    22/44 A HARNAM NAGAR,<br />KAPURTHALA, PB, INDIA
+                  </p>
+                </div>
               </div>
+            </div>
+
+          </div>
+
+          <!-- Final Metadata Bar -->
+          <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 font-mono text-[0.6rem] uppercase tracking-[3px] text-white/20">
+            <div class="flex flex-wrap justify-center md:justify-start gap-8">
+              <span>&copy; 2026 ASTR AI PRIVATE LIMITED</span>
+              <span class="hidden md:inline text-white/5">|</span>
+              <span class="flex items-center gap-2">
+                <span class="w-1 h-1 rounded-full bg-green-500/40"></span>
+                Uptime: 99.9%
+              </span>
+              <span class="hidden md:inline text-white/5">|</span>
+              <span>v1.0.4_LATEST</span>
+            </div>
+            
+            <div class="flex gap-8">
+              <a href="mission-docs.html#privacy" class="hover:text-white transition-colors">Privacy</a>
+              <a href="mission-docs.html#terms" class="hover:text-white transition-colors">Terms</a>
             </div>
           </div>
 
-          <!-- Ethereal Metadata Bar -->
-          <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="system-metadata">
-              <span>&copy; 2026 ASTR AI</span>
-              <span class="separator"></span>
-              <span>v1.0.4_MISSION_CRITICAL</span>
-              <span class="separator"></span>
-              <span>UPTIME: 99.99%</span>
-            </div>
-            <div class="flex gap-12 font-mono text-[0.6rem] uppercase tracking-[4px]">
-              <a href="#" class="text-white/20 hover:text-white transition-colors">Privacy</a>
-              <a href="#" class="text-white/20 hover:text-white transition-colors">Terms</a>
-            </div>
-          </div>
-          <div class="mt-20 pb-8 text-center border-t border-white/5 pt-12">
-            <p class="text-white/40 text-[0.75rem] max-[480px]:text-[0.65rem] uppercase tracking-[4px] max-[480px]:tracking-[2px] font-mono font-medium">
-              Developed by ASTR AI PRIVATE LIMITED &bull; MADE WITH AI
-            </p>
+          <div class="mt-16 text-center opacity-30">
+            <p class="font-mono text-[0.5rem] tracking-[6px] uppercase">Architected by ASTR AI Collective &bull; Built with AI</p>
           </div>
         </div>
       </footer>
