@@ -31,18 +31,25 @@
   - [x] **Capabilities Deep-Dive**: Created an accordion translating complex deep tech (Computer Vision, ML, ERPs) into plain English.
   - [x] **Industry Use Cases**: Implemented a tabbed interface showcasing solutions for Logistics, Healthcare, and Manufacturing.
   - [x] **Engagement Blueprint**: Implemented a vertical timeline detailing the "How We Work" phases (Audit -> Prototype -> Integrate -> Scale).
+- [x] **Mobile Responsiveness**:
+  - [x] **Particle Optimization**: Reduced counts and simplified loops for Three.js and Canvas systems on mobile.
+  - [x] **21:9 Image Polish**: Optimized image stacking and vertical gaps for journal items on mobile screens.
+  - [x] **Typography & Alignment**: Implemented responsive titles and corrected description alignment for vertical stacking.
 
 ## Pending Tasks ⏳
 
-- [x] **Mobile Responsiveness**:
-  - [x] **Particle Optimization**: Reduced counts and simplified loops for Three.js and Canvas systems on mobile.
-  - [ ] Optimize 21:9 image stacking for mobile screens (likely shift to 16:9 or full-width).
-  - [ ] Adjust journal title/description alignment for smaller viewports.
 - [ ] **Technical Stack (New Suggestion)**:
   - [ ] Add a monochrome "Built on Industry Standards" logo cloud (NVIDIA, AWS, etc.).
-- [ ] **Liquid Glass UI Effects**:
-  - [ ] Expand the "Specular Inner Highlight" to all primary glass containers.
+- [x] **Liquid Glass UI Effects**:
+  - [x] **Specular Inner Highlight**: Implemented a thick 2px highlight and bottom rim reflection to primary glass containers.
   - [ ] Refine "Backdrop Blur" consistency across different background intensities.
+- [x] **430x932 Mobile Optimization**:
+  - [x] **Hero Glass Scaling**: Reduced hero height from 100vh to a capped 65vh/550px for tall mobile screens.
+  - [x] **Condensed Spacing**: Reduced section header margins and journal item gaps to increase content density on mobile.
+  - [x] **Navbar Polish**: Moved fixed navbar closer to the top on mobile to save vertical space.
+  - [x] **Horizontal Overflow Fix**: Resolved "scroll to left" issues by scaling the Infra visual pane, stacking table rows, and enabling horizontal scroll for Pillar Navigation.
+  - [x] **Strict Viewport Constraints**: Applied `100vw` / `overflow-x: hidden` to `html`/`body` and constrained all major containers (`hero-glass`, `pillar-stage`) to prevent any horizontal scroll on 430px wide screens.
+  - [x] **Navbar Structural Fix**: Replaced transform-based centering with margin-auto to fix mobile menu positioning and adjusted logo flex behavior for perfect mobile alignment.
 - [ ] **Asset Optimization**:
   - [ ] Replace SVG placeholders in Journal entries with real high-fidelity cinematic renders/photos.
 

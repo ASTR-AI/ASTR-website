@@ -51,11 +51,11 @@
     <main class="relative z-10">
       <!-- SECTION 1: HERO -->
       <section
-        class="hero relative min-h-screen flex items-center justify-center pt-[88px] pb-[8px] px-[40px] max-[992px]:pt-[88px] max-[992px]:px-[24px] max-[576px]:pt-[72px] max-[576px]:px-[12px]"
+        class="hero relative min-h-screen flex items-center justify-center pt-[88px] pb-[8px] px-[40px] max-[992px]:pt-[88px] max-[992px]:px-[24px] max-[576px]:pt-[72px] max-[576px]:px-[16px]"
         id="hero"
       >
         <div
-          class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-144px)] min-h-[600px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_24px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)] backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-112px)] max-[992px]:rounded-[24px] max-[576px]:h-[calc(100vh-100px)] max-[576px]:min-h-[450px]"
+          class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-144px)] min-h-[600px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_24px_40px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(255,255,255,0.1)] backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-112px)] max-[992px]:rounded-[24px] max-[576px]:h-[65vh] max-[576px]:max-h-[550px] max-[576px]:min-h-[400px] max-[576px]:rounded-[32px] max-[576px]:max-w-[calc(100vw-32px)]"
         >
           <div class="hero-bg absolute inset-0 z-0">
             <canvas id="heroCanvas" class="w-full h-full block"></canvas>
@@ -93,7 +93,7 @@
       >
         <div class="container max-w-container mx-auto relative z-10">
           <!-- Section Header -->
-          <div class="mb-16 reveal flex flex-col items-center text-center">
+          <div class="mb-16 max-[576px]:mb-10 reveal flex flex-col items-center text-center">
             <span
               class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
             >
@@ -112,12 +112,12 @@
           </div>
 
           <div
-            class="flex flex-col gap-12 gsap-reveal"
+            class="flex flex-col gap-12 max-[576px]:gap-8 gsap-reveal"
             data-reveal-type="stagger"
           >
             <!-- Item 01 -->
             <div
-              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
@@ -233,16 +233,16 @@
 
                 <!-- Body Row: Bottom Aligned -->
                 <div
-                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px] max-[768px]:pt-[16px]"
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
                     >
                       Intelligence without physical agency.
                     </h3>
                   </div>
-                  <div class="desc-col flex items-end">
+                  <div class="desc-col flex items-end max-[768px]:items-start">
                     <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
                       AI systems remain trapped in data centers, disconnected
                       from the physical environments where insights are needed
@@ -255,7 +255,7 @@
 
             <!-- Item 02 -->
             <div
-              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
@@ -380,16 +380,16 @@
 
                 <!-- Body Row: Bottom Aligned -->
                 <div
-                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px] max-[768px]:pt-[16px]"
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
                     >
                       The mechanical blind spot of robotics.
                     </h3>
                   </div>
-                  <div class="desc-col flex items-end">
+                  <div class="desc-col flex items-end max-[768px]:items-start">
                     <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
                       Advanced hardware lacks the unified "brain" required for
                       real-time coordination. True autonomy requires a
@@ -402,7 +402,7 @@
 
             <!-- Item 03 -->
             <div
-              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
@@ -518,16 +518,16 @@
 
                 <!-- Body Row: Bottom Aligned -->
                 <div
-                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px] max-[768px]:pt-[16px]"
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
                     >
                       Infrastructure at the edge of failure.
                     </h3>
                   </div>
-                  <div class="desc-col flex items-end">
+                  <div class="desc-col flex items-end max-[768px]:items-start">
                     <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
                       Legacy foundations were not built for modern AI growth. We
                       architect the custom bedrock for future operations.
@@ -570,7 +570,7 @@
           >
             <!-- Pillar Tabs Navigation -->
             <nav
-              class="segmented-control reveal flex w-fit ml-0 mt-[80px] mb-[48px] relative bg-[#0a0a0a] p-[4px] rounded-[96px] border border-white/10 backdrop-blur-[12px] gap-0 z-[100]"
+              class="segmented-control reveal flex w-fit max-[576px]:w-full max-[576px]:max-w-full box-border max-[576px]:overflow-x-auto max-[576px]:justify-start [&::-webkit-scrollbar]:hidden ml-0 mt-[80px] mb-[48px] relative bg-[#0a0a0a] p-[4px] rounded-[96px] border border-white/10 backdrop-blur-[12px] gap-0 z-[100]"
             >
               <span
                 class="nav-highlight absolute top-[4px] left-[4px] h-[calc(100%-8px)] bg-white/10 border border-white/10 rounded-[96px] transition-all duration-500 z-0 pointer-events-none"
@@ -645,7 +645,7 @@
           </div>
 
           <div
-            class="pillar-display-stage reveal bg-[#050505] rounded-[64px] py-[48px] px-[64px] min-h-[450px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.3)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px] max-[768px]:px-[24px] max-[768px]:py-[40px] max-[768px]:min-h-[auto]"
+            class="pillar-display-stage reveal bg-[#050505] rounded-[64px] py-[48px] px-[64px] min-h-[450px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.3)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px] max-[768px]:px-[16px] max-[768px]:py-[32px] max-[768px]:min-h-[auto] max-[768px]:max-w-[calc(100vw-48px)]"
           >
             <!-- Background Elements -->
             <div class="stage-stars"></div>
@@ -708,7 +708,7 @@
             >
               <div class="mockup-side w-full flex justify-center font-mono">
                 <div
-                  class="window-frame terminal-window w-full max-w-[520px] h-[416px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[24px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)]"
+                  class="window-frame terminal-window w-full max-w-[520px] max-[576px]:max-w-full h-[416px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[24px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)]"
                 >
                   <div
                     class="window-header bg-white/5 py-[12px] px-[24px] flex items-center justify-between border-b border-white/10"
@@ -788,74 +788,45 @@
                 </div>
 
                 <div
-                  class="solutions-table-grid grid grid-cols-3 w-full mt-[40px] max-[768px]:grid-cols-1 max-[768px]:border-none"
+                  class="grid grid-cols-3 gap-12 w-full mt-[40px] max-[768px]:grid-cols-1 max-[768px]:gap-10"
                 >
-                  <!-- Headers Row -->
-                  <div class="py-[16px] px-[16px] relative">
+                  <!-- Item 1 -->
+                  <div class="flex flex-col gap-3">
                     <h4
                       class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
                     >
                       Custom ERP & CRM
                     </h4>
-                    <div
-                      class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
-                    ></div>
+                    <p
+                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0"
+                    >
+                      Deep operational intelligence tailored to your business.
+                    </p>
                   </div>
-                  <div
-                    class="py-[16px] px-[16px] relative max-[768px]:pt-[24px]"
-                  >
+
+                  <!-- Item 2 -->
+                  <div class="flex flex-col gap-3">
                     <h4
                       class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
                     >
                       Agentic Workflows
                     </h4>
-                    <div
-                      class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
-                    ></div>
+                    <p
+                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0"
+                    >
+                      Autonomous LLM agents that execute multi-step tasks.
+                    </p>
                   </div>
-                  <div class="py-[16px] px-[16px] max-[768px]:pt-[24px]">
+
+                  <!-- Item 3 -->
+                  <div class="flex flex-col gap-3">
                     <h4
                       class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
                     >
                       Predictive Logic
                     </h4>
-                  </div>
-
-                  <!-- Row Divider (Fading Horizontal) -->
-                  <div
-                    class="col-span-3 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-[8px] max-[768px]:hidden"
-                  ></div>
-
-                  <!-- Content Row -->
-                  <div
-                    class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] relative max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5"
-                  >
                     <p
-                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300"
-                    >
-                      Deep operational intelligence tailored to your business.
-                    </p>
-                    <div
-                      class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
-                    ></div>
-                  </div>
-                  <div
-                    class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] relative max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5"
-                  >
-                    <p
-                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300"
-                    >
-                      Autonomous LLM agents that execute multi-step tasks.
-                    </p>
-                    <div
-                      class="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent max-[768px]:hidden"
-                    ></div>
-                  </div>
-                  <div
-                    class="py-[24px] !pt-[8px] px-[16px] group transition-colors duration-300 hover:bg-white/[0.02] max-[768px]:py-[12px] max-[768px]:border-b max-[768px]:border-white/5"
-                  >
-                    <p
-                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0 group-hover:text-white/80 transition-colors duration-300"
+                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0"
                     >
                       Future-proof inventory and supply chain data.
                     </p>
@@ -871,7 +842,7 @@
             >
               <div class="mockup-side w-full flex justify-center">
                 <div
-                  class="visual-pane w-[380px] h-[380px] bg-[#080808]/50 backdrop-blur-[10px] rounded-full border border-white/10 flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_0_50px_rgba(230,205,153,0.1),inset_0_0_20px_rgba(255,255,255,0.05)] group/infra-core"
+                  class="visual-pane w-[380px] h-[380px] max-[576px]:w-[280px] max-[576px]:h-[280px] bg-[#080808]/50 backdrop-blur-[10px] rounded-full border border-white/10 flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_0_50px_rgba(230,205,153,0.1),inset_0_0_20px_rgba(255,255,255,0.05)] group/infra-core"
                 >
                   <!-- Outer rotating ring decoration -->
                   <div
@@ -891,16 +862,16 @@
               <div class="info-side flex flex-col gap-[24px] w-full">
                 <div class="infra-table flex flex-col w-full z-10 relative">
                   <div
-                    class="infra-table-row header flex py-0 pb-[12px] gap-[24px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.7rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
+                    class="infra-table-row header flex max-[576px]:flex-col py-0 pb-[12px] gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.7rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
                   >
                     <div class="col-cap flex-none w-[160px]">Capability</div>
                     <div class="col-impact flex-1">Impact</div>
                   </div>
                   <div
-                    class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                     >
                       Innovation Labs
                     </div>
@@ -912,10 +883,10 @@
                     </div>
                   </div>
                   <div
-                    class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                     >
                       Centers of Excellence
                     </div>
@@ -927,10 +898,10 @@
                     </div>
                   </div>
                   <div
-                    class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                     >
                       HPC Clusters
                     </div>
@@ -942,10 +913,10 @@
                     </div>
                   </div>
                   <div
-                    class="infra-table-row group flex py-[16px] border-b border-white/5 gap-[24px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
                     >
                       Data Vaults
                     </div>
@@ -1103,7 +1074,7 @@
       <section class="rd-section py-section-y px-section-x relative" id="rd">
         <div class="container max-w-container mx-auto relative z-10">
           <!-- Section Header -->
-          <div class="mb-16 reveal flex flex-col items-center text-center">
+          <div class="mb-16 max-[576px]:mb-10 reveal flex flex-col items-center text-center">
             <span
               class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
             >
@@ -1120,10 +1091,10 @@
             </h2>
           </div>
 
-          <div class="flex flex-col gap-12">
+          <div class="flex flex-col gap-12 max-[576px]:gap-8">
             <!-- R&D Item 01 -->
             <div
-              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
@@ -1242,16 +1213,16 @@
 
                 <!-- Body Row: Bottom Aligned -->
                 <div
-                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px] max-[768px]:pt-[16px]"
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
                     >
                       Redefining the boundaries of human-machine agency.
                     </h3>
                   </div>
-                  <div class="desc-col flex items-end">
+                  <div class="desc-col flex items-end max-[768px]:items-start">
                     <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
                       We lead fundamental R&D to unify digital intelligence with
                       physical execution, creating systems that adapt in
@@ -1264,7 +1235,7 @@
 
             <!-- R&D Item 02 -->
             <div
-              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
@@ -1363,16 +1334,16 @@
 
                 <!-- Body Row: Bottom Aligned -->
                 <div
-                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px] max-[768px]:pt-[16px]"
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
                     >
                       Establishing systemic trust via high-level contracts.
                     </h3>
                   </div>
-                  <div class="desc-col flex items-end">
+                  <div class="desc-col flex items-end max-[768px]:items-start">
                     <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
                       Securing mission-critical infrastructure builds the
                       credibility needed to fund and deploy our most ambitious
@@ -1385,7 +1356,7 @@
 
             <!-- R&D Item 03 -->
             <div
-              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col"
+              class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
@@ -1487,16 +1458,16 @@
 
                 <!-- Body Row: Bottom Aligned -->
                 <div
-                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px]"
+                  class="grid grid-cols-[1.2fr_1fr] gap-[32px] max-[768px]:grid-cols-1 max-[768px]:gap-[12px] pt-[24px] max-[768px]:pt-[16px]"
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[1.5rem] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
                     >
                       Empowering the next generation of engineers.
                     </h3>
                   </div>
-                  <div class="desc-col flex items-end">
+                  <div class="desc-col flex items-end max-[768px]:items-start">
                     <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
                       We develop the infrastructure and curricula for AI
                       education, ensuring a steady stream of experts for our

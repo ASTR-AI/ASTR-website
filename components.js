@@ -8,20 +8,20 @@ class AstrNavbar extends HTMLElement {
     this.style.display = 'block';
     this.innerHTML = `
       <nav
-        class="navbar fixed top-[32px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] max-[768px]:w-[calc(100%-32px)] max-[768px]:px-[24px]"
+        class="navbar fixed top-[32px] max-[768px]:top-[16px] left-[24px] right-[24px] max-[768px]:left-[16px] max-[768px]:right-[16px] mx-auto w-auto max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] max-[768px]:px-[24px]"
         id="navbar"
       >
         <a
           href="main-site.html"
-          class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px]"
+          class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px] max-[768px]:w-auto"
         >
           <img
             src="/Pictures/without bg 02.png"            alt="ASTR AI Logo"
-            class="logo-image bg-transparent absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] max-[768px]:h-[48px] max-[768px]:top-[0.15em] max-[768px]:left-[16px]"
+            class="logo-image bg-transparent max-[768px]:relative absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] max-[768px]:h-[40px] max-[768px]:top-0 max-[768px]:left-0"
           />
         </a>
         <div
-          class="nav-links flex items-center gap-[16px] pl-[128px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:right-[-100%] max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[#0a0a0a]/95 max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:right-0"
+          class="nav-links flex items-center gap-[16px] pl-[128px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:left-0 max-[768px]:translate-x-full max-[768px]:opacity-0 max-[768px]:pointer-events-none max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[#0a0a0a]/95 max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:translate-x-0 [&.nav-active]:opacity-100 [&.nav-active]:pointer-events-auto"
           id="navLinks"
         >
           <a
