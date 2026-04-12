@@ -51,11 +51,11 @@
     <main class="relative z-10">
       <!-- SECTION 1: HERO -->
       <section
-        class="hero relative min-h-screen flex items-center justify-center pt-[88px] pb-[8px] px-[40px] max-[992px]:pt-[88px] max-[992px]:px-[24px] max-[576px]:pt-[72px] max-[576px]:px-[16px]"
+        class="hero relative flex items-start justify-center pt-[128px] pb-[40px] px-[40px] max-[992px]:pt-[120px] max-[992px]:px-[24px] max-[576px]:pt-[108px] max-[576px]:px-[16px]"
         id="hero"
       >
         <div
-          class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-144px)] min-h-[600px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_24px_40px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(255,255,255,0.1)] backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-112px)] max-[992px]:rounded-[24px] max-[576px]:h-[65vh] max-[576px]:max-h-[550px] max-[576px]:min-h-[400px] max-[576px]:rounded-[32px] max-[576px]:max-w-[calc(100vw-32px)]"
+          class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-200px)] min-h-[550px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_24px_40px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(255,255,255,0.1)] backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-160px)] max-[992px]:rounded-[24px] max-[576px]:h-[55vh] max-[576px]:max-h-[480px] max-[576px]:min-h-[380px] max-[576px]:rounded-[32px] max-[576px]:max-w-[calc(100vw-32px)]"
         >
           <div class="hero-bg absolute inset-0 z-0">
             <canvas id="heroCanvas" class="w-full h-full block"></canvas>
@@ -88,7 +88,7 @@
 
       <!-- SECTION 2: THE FRAGMENTED REALITY (Technical Audit Journal) -->
       <section
-        class="problem-section py-section-y px-section-x relative"
+        class="problem-section pt-[32px] pb-section-y px-section-x relative"
         id="problem"
       >
         <div class="container max-w-container mx-auto relative z-10">
@@ -112,7 +112,7 @@
           </div>
 
           <div
-            class="flex flex-col gap-12 max-[576px]:gap-8 gsap-reveal"
+            class="flex flex-col gap-32 max-[576px]:gap-24 gsap-reveal"
             data-reveal-type="stagger"
           >
             <!-- Item 01 -->
@@ -1091,7 +1091,7 @@
             </h2>
           </div>
 
-          <div class="flex flex-col gap-12 max-[576px]:gap-8">
+          <div class="flex flex-col gap-32 max-[576px]:gap-24">
             <!-- R&D Item 01 -->
             <div
               class="journal-item flex flex-row gap-[48px] max-[992px]:flex-col max-[992px]:gap-[24px]"
@@ -1542,10 +1542,10 @@
               </div>
             </div>
 
-            <div class="flex flex-row max-[992px]:col-col">
-              <!-- Left Panel: Particle CTA Visual -->
+            <div class="flex flex-col">
+              <!-- Top Panel: Particle CTA Visual (Visual Hook) -->
               <div
-                class="flex-1 min-h-[380px] max-[768px]:min-h-[300px] relative flex items-center justify-center p-[32px] border-r border-white/10 max-[992px]:border-r-0 max-[992px]:border-b bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden"
+                class="w-full min-h-[320px] max-[768px]:min-h-[260px] relative flex items-center justify-center p-[32px] border-b border-white/10 bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden"
               >
                 <!-- Particle Canvas -->
                 <canvas
@@ -1561,17 +1561,17 @@
                 </div>
               </div>
 
-              <!-- Right Panel: The Primary Action Area -->
+              <!-- Bottom Panel: The Primary Action Area -->
               <div
-                class="w-[420px] max-[992px]:w-full p-[40px] max-[576px]:p-[24px] bg-gradient-to-br from-white/[0.03] to-transparent flex flex-col justify-center items-center text-center relative shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]"
+                class="w-full p-[48px] max-[576px]:p-[32px] bg-gradient-to-br from-white/[0.03] to-transparent flex flex-col justify-center items-center text-center relative shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]"
               >
                 <div class="relative w-full">
                   <!-- Heading to Description: mb-4 (16px) -->
                   <h3
-                    class="font-lora text-[1.5rem] text-white font-medium leading-tight mb-4 uppercase tracking-[1px] text-animate"
+                    class="font-lora text-[1.5rem] text-white font-medium leading-tight mb-4 uppercase tracking-[2px] text-animate"
                     data-animate-type="char"
                   >
-                    Start Your <br />Journey With ASTR AI.
+                    Start Your Journey <br />With ASTR AI
                   </h3>
 
                   <!-- Description to Log: mb-10 (40px) -->
