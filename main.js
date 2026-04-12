@@ -15,7 +15,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initCTAParticles();
   initPremiumAnimations();
   initRDAnimations();
+  initPhilosophyAnimations();
 });
+
+/* --- Philosophy Page Specialized Animations --- */
+function initPhilosophyAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  const pillars = document.querySelectorAll('.pillar-reveal');
+  if (pillars.length > 0) {
+    gsap.fromTo(
+      pillars,
+      { 
+        y: 150, 
+        scale: 0.8, 
+        opacity: 0 
+      },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: 'back.out(1.4)',
+        scrollTrigger: {
+          trigger: '.pillars-classical',
+          start: 'top 85%',
+        },
+      }
+    );
+  }
+}
 
 /* --- R&D Page Specialized Animations --- */
 function initRDAnimations() {
