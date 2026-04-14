@@ -52,8 +52,8 @@ module.exports = {
         xs: '0.75rem',
       },
       spacing: {
-        'section-y': 'clamp(48px, 6vw, 80px)',
-        'section-y-large': 'clamp(80px, 10vw, 120px)',
+        'section-y': 'clamp(64px, 8vw, 100px)',
+        'section-y-large': 'clamp(100px, 12vw, 160px)',
         'section-x': 'clamp(24px, 5vw, 80px)',
       },
       maxWidth: {
