@@ -1,9 +1,50 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./*.html', './main.js', './components.js'],
+  darkMode: ["class"],
+  content: ['./*.html', './main.js', './components.js', "./components/**/*.{js,jsx}", "./lib/**/*.{js,jsx}"],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        destructive: {
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
+        popover: {
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
+        },
         black: {
           DEFAULT: '#121212',
           rich: '#1a1a1a',
@@ -42,6 +83,7 @@ module.exports = {
         cinzel: ['Cinzel', 'serif'],
         handwritten: ['Caveat', 'cursive'],
         caveat: ['Caveat', 'cursive'],
+        sans: ['Geist Variable', 'sans-serif'],
       },
       fontSize: {
         hero: 'clamp(3rem, 6vw, 5.5rem)',
@@ -71,13 +113,27 @@ module.exports = {
         'ease-in-out': 'cubic-bezier(0.65, 0, 0.35, 1)',
       },
       borderRadius: {
-        sm: '8px',
-        md: '16px',
-        lg: '24px',
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
         xl: '32px',
         '2xl': '64px',
       },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

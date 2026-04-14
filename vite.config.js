@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
+    react(),
     {
       name: 'dev-link-logger',
       configureServer(server) {
@@ -18,6 +20,11 @@ export default defineConfig({
       },
     },
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './'),
+    },
+  },
   build: {
     rollupOptions: {
       input: {
@@ -25,6 +32,7 @@ export default defineConfig({
         site: resolve(__dirname, 'main-site.html'),
         philosophy: resolve(__dirname, 'philosophy.html'),
         solutions: resolve(__dirname, 'solutions.html'),
+        rd: resolve(__dirname, 'rd.html'),
       },
     },
   },
