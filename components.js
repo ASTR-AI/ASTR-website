@@ -208,7 +208,7 @@ class AstrFooter extends HTMLElement {
                 </a>
                 <!-- Handwritten Annotation -->
                 <div class="absolute -top-8 -right-12 hidden lg:block pointer-events-none">
-                  <span class="font-caveat text-gold/40 text-[1.4rem] -rotate-6 whitespace-nowrap">// Architecting Intelligence</span>
+                  <span class="font-caveat text-gold/40 text-[1.4rem] -rotate-6 whitespace-nowrap pb-1 leading-tight block">// Architecting Intelligence</span>
                 </div>
               </div>
               
@@ -317,7 +317,7 @@ class AstrFooter extends HTMLElement {
             </div>
             
             <div class="flex items-center gap-6">
-              <span class="font-caveat text-white/20 text-[1.2rem] -rotate-2 select-none">// Mission_Success</span>
+              <span class="font-caveat text-white/20 text-[1.2rem] -rotate-2 pb-1 leading-tight select-none block">// Mission_Success</span>
               <div class="px-3 py-1 border border-white/10 rounded-sm font-mono text-[0.5rem] text-white/20">v1.0.7</div>
             </div>
           </div>

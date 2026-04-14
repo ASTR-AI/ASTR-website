@@ -41,6 +41,7 @@ module.exports = {
         lora: ['Lora', 'serif'],
         cinzel: ['Cinzel', 'serif'],
         handwritten: ['Caveat', 'cursive'],
+        caveat: ['Caveat', 'cursive'],
       },
       fontSize: {
         hero: 'clamp(3rem, 6vw, 5.5rem)',

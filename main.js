@@ -40,7 +40,7 @@ function initPhilosophyAnimations() {
         ease: 'back.out(1.4)',
         scrollTrigger: {
           trigger: '.pillars-classical',
-          start: 'top 85%',
+          start: 'top 95%',
         },
       }
     );
@@ -95,7 +95,7 @@ function initRDAnimations() {
         ease: 'power4.out',
         scrollTrigger: {
           trigger: '.rd-journal',
-          start: 'top 90%',
+          start: 'top 95%',
         },
       }
     );
@@ -115,7 +115,7 @@ function initRDAnimations() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.rd-monolith',
-        start: 'top 85%', // Trigger even earlier for better visibility
+        start: 'top 95%', // Trigger even earlier for better visibility
       },
     });
 
@@ -179,10 +179,11 @@ function initPremiumAnimations() {
   reveals.forEach((el) => {
     // Determine delay from CSS classes if present
     let delay = 0;
-    if (el.classList.contains('reveal-delay-1')) delay = 0.2;
-    if (el.classList.contains('reveal-delay-2')) delay = 0.4;
-    if (el.classList.contains('reveal-delay-3')) delay = 0.6;
-    if (el.classList.contains('reveal-delay-4')) delay = 0.8;
+    if (el.classList.contains('reveal-delay-1')) delay = 0.1;
+    if (el.classList.contains('reveal-delay-2')) delay = 0.2;
+    if (el.classList.contains('reveal-delay-3')) delay = 0.3;
+    if (el.classList.contains('reveal-delay-4')) delay = 0.4;
+    if (el.classList.contains('reveal-delay-5')) delay = 0.5;
 
     gsap.fromTo(
       el,
@@ -195,7 +196,7 @@ function initPremiumAnimations() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 95%',
+          start: 'top 100%',
           toggleActions: 'play none none none',
         },
       }
@@ -219,7 +220,7 @@ function initPremiumAnimations() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 92%',
+            start: 'top 98%',
             onEnter: () => {
               // Ensure container becomes visible when children start animating
               gsap.set(el, { visibility: 'visible', opacity: 1 });
@@ -248,7 +249,7 @@ function initPremiumAnimations() {
           ease: 'power4.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 90%',
+            start: 'top 95%',
           },
         }
       );
@@ -267,7 +268,7 @@ function initPremiumAnimations() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 85%',
+            start: 'top 95%',
           },
         }
       );
@@ -314,7 +315,7 @@ function initPremiumAnimations() {
         ease: 'expo.out',
         scrollTrigger: {
           trigger: ctaPanel,
-          start: 'top 92%',
+          start: 'top 98%',
         },
       }
     );
