@@ -1076,7 +1076,7 @@
 
   .sun-rays {
     @apply absolute top-[45%] left-1/2 w-[180%] h-[1000px] pointer-events-none;
-    background: 
+    background:
       /* Central Glow behind the text */
       radial-gradient(
         circle at 50% 50%,
@@ -1095,8 +1095,65 @@
     animation: sunRayPulse 20s ease-in-out infinite;
     z-index: 0;
   }
-}
 
+  /* --- Liquid Glass UI Component --- */
+  .liquid-glass-card {
+    @apply relative p-6 text-white bg-black/20 backdrop-blur-sm border border-white/50 rounded-lg shadow-[inset_0_1px_0px_rgba(255,255,255,0.75),0_0_9px_rgba(0,0,0,0.2),0_3px_8px_rgba(0,0,0,0.15)] transition-all duration-300;
+  }
+  .liquid-glass-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg bg-gradient-to-br from-white/60 via-transparent to-transparent opacity-70 pointer-events-none;
+  }
+  .liquid-glass-card::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg bg-gradient-to-tl from-white/30 via-transparent to-transparent opacity-50 pointer-events-none;
+  }
+
+  /* --- Navigation Indicator --- */
+  .nav-indicator {
+    @apply absolute top-[6px] bottom-[6px] h-auto pointer-events-none z-0 rounded-[24px] bg-white/10 backdrop-blur-[10px] border border-white/10 shadow-[inset_0_1px_0px_rgba(255,255,255,0.4),0_2px_10px_rgba(0,0,0,0.2)] opacity-0;
+    transition:
+      left 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      width 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.3s ease;
+    will-change: left, width, transform;
+  }
+  .nav-indicator::before {
+    content: '';
+    @apply absolute inset-0 rounded-[24px] bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-40 pointer-events-none;
+  }
+
+  /* Liquid Movement Effects */
+  .nav-indicator.moving-right {
+    transform-origin: left center;
+    animation: liquidStretchRight 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .nav-indicator.moving-left {
+    transform-origin: right center;
+    animation: liquidStretchLeft 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .nav-indicator.pulse::after {
+    content: '';
+    @apply absolute inset-0 rounded-[24px] bg-white opacity-0 pointer-events-none;
+    animation: liquidPulse 0.6s ease-out;
+  }
+
+  @keyframes liquidStretchRight {
+    0% { transform: scale(1, 1) skewX(0deg); }
+    35% { transform: scale(1.6, 0.8) skewX(-15deg); }
+    100% { transform: scale(1, 1) skewX(0deg); }
+  }
+  @keyframes liquidStretchLeft {
+    0% { transform: scale(1, 1) skewX(0deg); }
+    35% { transform: scale(1.6, 0.8) skewX(15deg); }
+    100% { transform: scale(1, 1) skewX(0deg); }
+  }
+  @keyframes liquidPulse {
+    0% { transform: scale(0.95, 0.9); opacity: 0; }
+    50% { transform: scale(1.02, 1.05); opacity: 0.15; }
+    100% { transform: scale(1, 1); opacity: 0; }
+  }
+}
 @layer utilities {
   .text-shadow-glow {
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
