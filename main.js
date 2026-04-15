@@ -15,7 +15,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initCTAParticles();
   initPremiumAnimations();
   initRDAnimations();
+  initPhilosophyAnimations();
 });
+
+/* --- Philosophy Page Specialized Animations --- */
+function initPhilosophyAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  const pillars = document.querySelectorAll('.pillar-reveal');
+  if (pillars.length > 0) {
+    gsap.fromTo(
+      pillars,
+      { 
+        y: 150, 
+        scale: 0.8, 
+        opacity: 0 
+      },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: 'back.out(1.4)',
+        scrollTrigger: {
+          trigger: '.pillars-classical',
+          start: 'top 95%',
+        },
+      }
+    );
+  }
+}
 
 /* --- R&D Page Specialized Animations --- */
 function initRDAnimations() {
@@ -65,7 +95,7 @@ function initRDAnimations() {
         ease: 'power4.out',
         scrollTrigger: {
           trigger: '.rd-journal',
-          start: 'top 90%',
+          start: 'top 95%',
         },
       }
     );
@@ -85,7 +115,7 @@ function initRDAnimations() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.rd-monolith',
-        start: 'top 85%', // Trigger even earlier for better visibility
+        start: 'top 95%', // Trigger even earlier for better visibility
       },
     });
 
@@ -149,10 +179,11 @@ function initPremiumAnimations() {
   reveals.forEach((el) => {
     // Determine delay from CSS classes if present
     let delay = 0;
-    if (el.classList.contains('reveal-delay-1')) delay = 0.2;
-    if (el.classList.contains('reveal-delay-2')) delay = 0.4;
-    if (el.classList.contains('reveal-delay-3')) delay = 0.6;
-    if (el.classList.contains('reveal-delay-4')) delay = 0.8;
+    if (el.classList.contains('reveal-delay-1')) delay = 0.1;
+    if (el.classList.contains('reveal-delay-2')) delay = 0.2;
+    if (el.classList.contains('reveal-delay-3')) delay = 0.3;
+    if (el.classList.contains('reveal-delay-4')) delay = 0.4;
+    if (el.classList.contains('reveal-delay-5')) delay = 0.5;
 
     gsap.fromTo(
       el,
@@ -165,7 +196,7 @@ function initPremiumAnimations() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 95%',
+          start: 'top 100%',
           toggleActions: 'play none none none',
         },
       }
@@ -189,7 +220,7 @@ function initPremiumAnimations() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 92%',
+            start: 'top 98%',
             onEnter: () => {
               // Ensure container becomes visible when children start animating
               gsap.set(el, { visibility: 'visible', opacity: 1 });
@@ -218,7 +249,7 @@ function initPremiumAnimations() {
           ease: 'power4.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 90%',
+            start: 'top 95%',
           },
         }
       );
@@ -237,7 +268,7 @@ function initPremiumAnimations() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 85%',
+            start: 'top 95%',
           },
         }
       );
@@ -284,7 +315,7 @@ function initPremiumAnimations() {
         ease: 'expo.out',
         scrollTrigger: {
           trigger: ctaPanel,
-          start: 'top 92%',
+          start: 'top 98%',
         },
       }
     );
@@ -473,6 +504,7 @@ function initHeroCanvas() {
     const logoPixels = [];
     const isMobile = window.innerWidth < 768;
     const isNarrow = window.innerWidth < 480;
+    
     // Decrease divisor on mobile to make it LARGER (more prominent particles)
     const scaleDivisor = isNarrow ? 120 : (isMobile ? 140 : 180); 
 
@@ -491,7 +523,8 @@ function initHeroCanvas() {
     if (logoPixels.length === 0) logoPixels.push({ x: 0, y: 0 });
 
     // ---- Particle System Geometry & Materials ----
-    const particleCount = isMobile ? 8000 : 15000;
+    // SIGNIFICANTLY reduced counts for mobile to prevent "squished" or "over-dense" look
+    const particleCount = isNarrow ? 4800 : (isMobile ? 7000 : 15000);
     const geometry = new THREE.BufferGeometry();
 
     const positions = new Float32Array(particleCount * 3);
@@ -577,7 +610,7 @@ function initHeroCanvas() {
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: isMobile ? 0.15 : 0.04,
+      size: isNarrow ? 0.10 : (isMobile ? 0.12 : 0.04),
       vertexColors: true,
       transparent: true,
       opacity: 0.8,
@@ -590,7 +623,7 @@ function initHeroCanvas() {
     scene.add(particles);
 
     // ---- Inner Core (Bright Central Star) ----
-    const coreCount = isMobile ? 800 : 2000;
+    const coreCount = isNarrow ? 400 : (isMobile ? 600 : 2000);
     const coreGeometry = new THREE.BufferGeometry();
     const corePositions = new Float32Array(coreCount * 3);
     const coreOriginals = new Float32Array(coreCount * 3);
@@ -643,7 +676,7 @@ function initHeroCanvas() {
     coreGeometry.setAttribute('aTarget', new THREE.BufferAttribute(coreTargets.sphere, 3));
 
     const coreMaterial = new THREE.PointsMaterial({
-      size: isMobile ? 0.12 : 0.03,
+      size: isNarrow ? 0.08 : (isMobile ? 0.10 : 0.03),
       color: 0xffffff,
       transparent: true,
       opacity: 0.9,
@@ -751,17 +784,13 @@ function initHeroCanvas() {
         oz += (tz - oz) * LERP_SPEED;
         origAttribute.setXYZ(i, ox, oy, oz);
 
-        if (isMobile) {
-          // Skip expensive wave math on mobile for performance
-          posAttribute.setXYZ(i, ox, oy, oz);
-        } else {
-          const freq = 1.0;
-          const wave1 = Math.sin(ox * freq + time) * Math.cos(oy * freq + time) * Math.sin(oz * freq + time);
-          const wave2 = Math.sin(ox * freq * 1.5 - time) * Math.cos(oy * freq * 1.5 + time) * 0.5;
-          const noise = wave1 + wave2;
-          const scale = 1 + noise * currentNoiseScale;
-          posAttribute.setXYZ(i, ox * scale, oy * scale, oz * scale);
-        }
+        // Re-enabled wave math for mobile (slightly simplified)
+        const freq = isMobile ? 0.8 : 1.0;
+        const wave1 = Math.sin(ox * freq + time) * Math.cos(oy * freq + time) * Math.sin(oz * freq + time);
+        const wave2 = isMobile ? 0 : (Math.sin(ox * freq * 1.5 - time) * Math.cos(oy * freq * 1.5 + time) * 0.5);
+        const noise = wave1 + wave2;
+        const scale = 1 + noise * currentNoiseScale;
+        posAttribute.setXYZ(i, ox * scale, oy * scale, oz * scale);
       }
       origAttribute.needsUpdate = true;
       posAttribute.needsUpdate = true;
@@ -781,7 +810,14 @@ function initHeroCanvas() {
         coy += (cty - coy) * LERP_SPEED;
         coz += (ctz - coz) * LERP_SPEED;
         coreOrigAttr.setXYZ(i, cox, coy, coz);
-        corePosAttr.setXYZ(i, cox, coy, coz);
+
+        // Consistency: Apply same wave logic to core
+        const cfreq = isMobile ? 0.8 : 1.0;
+        const cwave1 = Math.sin(cox * cfreq + time) * Math.cos(coy * cfreq + time) * Math.sin(coz * cfreq + time);
+        const cwave2 = isMobile ? 0 : (Math.sin(cox * cfreq * 1.5 - time) * Math.cos(coy * cfreq * 1.5 + time) * 0.5);
+        const cnoise = cwave1 + cwave2;
+        const cscale = 1 + cnoise * currentNoiseScale;
+        corePosAttr.setXYZ(i, cox * cscale, coy * cscale, coz * cscale);
       }
       coreOrigAttr.needsUpdate = true;
       corePosAttr.needsUpdate = true;
@@ -1806,7 +1842,7 @@ function initCTAParticles() {
       this.velocity = Math.random() * 0.02 + 0.01;
       this.radius = Math.random() * 100 + 50;
 
-      this.size = 1.2;
+      this.size = 1.0;
       this.color = color;
       this.density = Math.random() * 20 + 1;
       this.formationStartTime = null;
@@ -1877,22 +1913,16 @@ function initCTAParticles() {
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
 
-    const fontSize = Math.min(canvas.width / 8, 56);
+    const fontSize = Math.min(canvas.width / 12, 40);
     tempCtx.fillStyle = 'white';
     tempCtx.font = `bold ${fontSize}px Cinzel`;
     tempCtx.textAlign = 'center';
     tempCtx.textBaseline = 'middle';
 
-    const lineHeight = fontSize * 1.2;
     tempCtx.fillText(
-      'INNOVATE',
+      'INNOVATE WITH US!',
       tempCanvas.width / 2,
-      tempCanvas.height / 2 - lineHeight / 2
-    );
-    tempCtx.fillText(
-      'WITH US!',
-      tempCanvas.width / 2,
-      tempCanvas.height / 2 + lineHeight / 2
+      tempCanvas.height / 2
     );
 
     const textData = tempCtx.getImageData(
@@ -1902,8 +1932,8 @@ function initCTAParticles() {
       tempCanvas.height
     );
 
-    const isMobile = window.innerWidth < 768;
-    const step = isMobile ? 8 : 4;
+    // Increased density for clearer readability
+    const step = 3; 
     for (let y = 0; y < textData.height; y += step) {
       for (let x = 0; x < textData.width; x += step) {
         if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
