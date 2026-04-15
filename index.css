@@ -576,40 +576,40 @@
       /* 1. Grid Intersection Dots */
       radial-gradient(
         circle at 1px 1px,
-        rgba(173, 203, 218, 0.2) 1px,
+        rgba(230, 205, 153, 0.15) 1px,
         transparent 0
       ),
       /* 2. Secondary Sub-Grid (Very Fine) */
         linear-gradient(
           to right,
-          rgba(173, 203, 218, 0.03) 1px,
+          rgba(230, 205, 153, 0.02) 1px,
           transparent 1px
         ),
       linear-gradient(
         to bottom,
-        rgba(173, 203, 218, 0.03) 1px,
+        rgba(230, 205, 153, 0.02) 1px,
         transparent 1px
       ),
       /* 3. Primary Perspective Floor Grid */
         linear-gradient(
           to right,
-          rgba(173, 203, 218, 0.08) 1px,
+          rgba(230, 205, 153, 0.05) 1px,
           transparent 1px
         ),
       linear-gradient(
         to bottom,
-        rgba(173, 203, 218, 0.08) 1px,
+        rgba(230, 205, 153, 0.05) 1px,
         transparent 1px
       ),
-      /* 4. HUD Corner Brackets */
-        linear-gradient(to right, #adcbda 15px, transparent 15px),
-      linear-gradient(to bottom, #adcbda 15px, transparent 15px),
-      linear-gradient(to left, #adcbda 15px, transparent 15px),
-      linear-gradient(to bottom, #adcbda 15px, transparent 15px),
-      linear-gradient(to right, #adcbda 15px, transparent 15px),
-      linear-gradient(to top, #adcbda 15px, transparent 15px),
-      linear-gradient(to left, #adcbda 15px, transparent 15px),
-      linear-gradient(to top, #adcbda 15px, transparent 15px);
+      /* 4. HUD Corner Brackets (Gold) */
+        linear-gradient(to right, #E6CD99 15px, transparent 15px),
+      linear-gradient(to bottom, #E6CD99 15px, transparent 15px),
+      linear-gradient(to left, #E6CD99 15px, transparent 15px),
+      linear-gradient(to bottom, #E6CD99 15px, transparent 15px),
+      linear-gradient(to right, #E6CD99 15px, transparent 15px),
+      linear-gradient(to top, #E6CD99 15px, transparent 15px),
+      linear-gradient(to left, #E6CD99 15px, transparent 15px),
+      linear-gradient(to top, #E6CD99 15px, transparent 15px);
 
     background-size:
       40px 40px,
@@ -657,16 +657,16 @@
     @apply absolute inset-0 z-0 pointer-events-none;
     content: '';
     background: 
-      /* Atmosphere Horizon Limb */
+      /* Atmosphere Horizon Limb (Warm Glow) */
       radial-gradient(
         ellipse at 50% 100%,
-        rgba(210, 247, 255, 0.15) 0%,
+        rgba(230, 205, 153, 0.1) 0%,
         transparent 60%
       ),
-      /* Top Sky Ambient */
+      /* Top Sky Ambient (Subtle Amber) */
         radial-gradient(
           circle at 50% -10%,
-          rgba(173, 203, 218, 0.1) 0%,
+          rgba(200, 162, 78, 0.05) 0%,
           transparent 70%
         ),
       /* Deep Void */
@@ -676,7 +676,7 @@
   /* Separate Left Telemetry using a pseudo on nebula-orb */
   .pillar-display-stage[data-active-pillar='drone'] .orb-1::before {
     content: 'ALT: 12,400FT\A HDG: 342.5\A TRK: ON';
-    @apply absolute top-[60px] left-[90px] font-mono text-[8px] text-[#ADCBDA]/40 whitespace-pre z-20 pointer-events-none uppercase tracking-[2px] blur-0;
+    @apply absolute top-[60px] left-[90px] font-mono text-[8px] text-[#E6CD99]/40 whitespace-pre z-20 pointer-events-none uppercase tracking-[2px] blur-0;
     filter: none;
   }
 
@@ -698,7 +698,7 @@
   .pillar-display-stage[data-active-pillar='drone'] .neutron-star-core::after {
     content: 'SQK: 7000\A LAT: 42.8N\A LON: 11.4E';
     display: block;
-    @apply font-mono text-[8px] text-[#ADCBDA]/40 whitespace-pre uppercase tracking-[2px] text-right;
+    @apply font-mono text-[8px] text-[#E6CD99]/40 whitespace-pre uppercase tracking-[2px] text-right;
     mask-image: none;
     -webkit-mask-image: none;
     position: static;
@@ -774,10 +774,18 @@
 
   @media (max-width: 1100px) {
     .pillar-display-stage .neutron-star-core {
-      top: 240px; /* Centered behind the 416px terminal on mobile */
+      top: 240px; /* Centered behind the 416px terminal on tablet */
       left: 50%;
       width: 180px;
       height: 180px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .pillar-display-stage .neutron-star-core {
+      top: 170px; /* Centered behind the 280px terminal on phone */
+      width: 110px;
+      height: 110px;
     }
   }
 

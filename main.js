@@ -497,13 +497,14 @@ function initHeroCanvas() {
     // Dynamic positioning for mobile vs desktop
     if (w < 768) {
       // Mobile: Move camera up and back
-      camera.position.y = 2; 
+      camera.position.y = 2.2; 
       // Adjust Z distance based on portrait aspect ratio
       const aspect = w / h;
-      // Further back for very narrow/tall devices like iPhone 14/15 Pro Max (430x932)
+      // Closer for narrow/tall devices like iPhone 14/15 Pro Max (430x932)
       // aspect for 430x932 is ~0.46
-      camera.position.z = aspect < 0.5 ? 32 : (aspect < 0.6 ? 28 : 24);
-      camera.lookAt(0, 2, 0);
+      // Previous Z=32 was too far back. Z=25-28 provides better presence.
+      camera.position.z = aspect < 0.5 ? 26 : (aspect < 0.6 ? 25 : 24);
+      camera.lookAt(0, 2.2, 0);
     } else {
       // Desktop: Perfectly centered
       camera.position.y = 0;
@@ -550,7 +551,7 @@ function initHeroCanvas() {
     const isNarrow = window.innerWidth < 480;
     
     // Decrease divisor on mobile to make it LARGER (more prominent particles)
-    const scaleDivisor = isNarrow ? 120 : (isMobile ? 140 : 180); 
+    const scaleDivisor = isNarrow ? 105 : (isMobile ? 130 : 180); 
 
     // Extract non-transparent pixels (the logo)
     for (let y = 0; y < logoCanvas.height; y += 1) {
@@ -568,7 +569,7 @@ function initHeroCanvas() {
 
     // ---- Particle System Geometry & Materials ----
     // SIGNIFICANTLY reduced counts for mobile to prevent "squished" or "over-dense" look
-    const particleCount = isNarrow ? 4800 : (isMobile ? 7000 : 15000);
+    const particleCount = isNarrow ? 5200 : (isMobile ? 7000 : 15000);
     const geometry = new THREE.BufferGeometry();
 
     const positions = new Float32Array(particleCount * 3);
@@ -601,13 +602,13 @@ function initHeroCanvas() {
       // 2. Exact Logo Shape (from Image)
       const lp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
       // Shift logo up on mobile to use empty space (balanced)
-      const yOffset = isNarrow ? 3.5 : (isMobile ? 3.0 : 0);
+      const yOffset = isNarrow ? 4.2 : (isMobile ? 3.5 : 0);
       // Add jitter on mobile so particles are not "crowded" (spread them out)
-      const jitter = isMobile ? (Math.random() - 0.5) * 0.35 : 0;
+      const jitter = isMobile ? (Math.random() - 0.5) * 0.45 : 0;
       
       shapeTargets.astra[i * 3] = lp.x + jitter;
       shapeTargets.astra[i * 3 + 1] = lp.y + yOffset + jitter;
-      shapeTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * (isMobile ? 0.35 : 0.15);
+      shapeTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * (isMobile ? 0.45 : 0.15);
 
       // 3. Sun
       const isRay = Math.random() > 0.7;

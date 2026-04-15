@@ -16,12 +16,13 @@ class AstrNavbar extends HTMLElement {
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px] max-[768px]:w-auto"
         >
           <img
-            src="/Pictures/without bg 02.png"            alt="ASTR AI Logo"
-            class="logo-image bg-transparent max-[768px]:relative absolute top-[0.4em] left-[24px] h-[64px] w-auto block object-contain z-[1002] max-[768px]:h-[40px] max-[768px]:top-0 max-[768px]:left-0"
+            src="/Pictures/without bg 02.png"
+            alt="ASTR AI Logo"
+            class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px]"
           />
         </a>
         <div
-          class="nav-links flex items-center gap-[16px] pl-[128px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:left-0 max-[768px]:translate-x-full max-[768px]:opacity-0 max-[768px]:pointer-events-none max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[#0a0a0a]/95 max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:translate-x-0 [&.nav-active]:opacity-100 [&.nav-active]:pointer-events-auto relative"
+          class="nav-links flex items-center gap-[16px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:left-0 max-[768px]:translate-x-full max-[768px]:opacity-0 max-[768px]:pointer-events-none max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[#0a0a0a]/95 max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:translate-x-0 [&.nav-active]:opacity-100 [&.nav-active]:pointer-events-auto relative"
           id="navLinks"
         >
           <div class="nav-indicator hidden md:block" id="navIndicator"></div>
@@ -39,11 +40,6 @@ class AstrNavbar extends HTMLElement {
             class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="rd.html"
             >R&amp;D</a
-          >
-          <a
-            class="nav-cta py-[12px] px-[24px] font-tech bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)] focus-visible:ring-2 focus-visible:ring-gold outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
-            href="connect.html"
-            >Contact Us</a
           >
         </div>
         <div
