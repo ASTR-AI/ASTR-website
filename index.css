@@ -104,12 +104,28 @@
     --sidebar-ring: oklch(0.556 0 0);
   }
   * {
-    @apply border-border outline-ring;
+    @apply border-border outline-ring cursor-default;
+  }
+  
+  a, button, [role="button"], input[type="submit"], input[type="button"], .cursor-pointer {
+    cursor: pointer;
+    @apply outline-none transition-all duration-200;
+  }
+  
+  a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+    @apply ring-2 ring-gold/50 ring-offset-2 ring-offset-black;
   }
 }
 
 @layer components {
-  /* --- Reused specific logic that's too tedious for inline utilities --- */
+  /* --- Glassmorphism Utilities --- */
+  .glass-premium {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300;
+  }
+  
+  .glass-premium:hover {
+    @apply bg-white/10 border-white/20 shadow-[0_8px_32px_0_rgba(230,205,153,0.1)];
+  }
 
   /* GSAP Managed Reveals (Prevention of FOUC) */
   .gsap-reveal > *,
@@ -1173,15 +1189,10 @@
 
   /* --- Liquid Glass UI Component --- */
   .liquid-glass-card {
-    @apply relative p-6 text-white bg-black/20 backdrop-blur-sm border border-white/50 rounded-lg shadow-[inset_0_1px_0px_rgba(255,255,255,0.75),0_0_9px_rgba(0,0,0,0.2),0_3px_8px_rgba(0,0,0,0.15)] transition-all duration-300;
+    @apply relative p-6 text-white bg-white/5 backdrop-blur-[24px] border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300;
   }
-  .liquid-glass-card::before {
-    content: '';
-    @apply absolute inset-0 rounded-lg bg-gradient-to-br from-white/60 via-transparent to-transparent opacity-70 pointer-events-none;
-  }
-  .liquid-glass-card::after {
-    content: '';
-    @apply absolute inset-0 rounded-lg bg-gradient-to-tl from-white/30 via-transparent to-transparent opacity-50 pointer-events-none;
+  .liquid-glass-card:hover {
+    @apply border-white/20 bg-white/8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_12px_48px_rgba(230,205,153,0.1)];
   }
 
   /* --- Navigation Indicator --- */

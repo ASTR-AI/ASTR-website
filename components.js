@@ -26,22 +26,22 @@ class AstrNavbar extends HTMLElement {
         >
           <div class="nav-indicator hidden md:block" id="navIndicator"></div>
           <a
-            class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white max-[768px]:text-[1.25rem] z-10"
+            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="philosophy.html"
             >Philosophy</a
           >
           <a
-            class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white max-[768px]:text-[1.25rem] z-10"
+            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="solutions.html"
             >Solutions</a
           >
           <a
-            class="text-[0.875rem] font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white max-[768px]:text-[1.25rem] z-10"
+            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="rd.html"
             >R&amp;D</a
           >
           <a
-            class="nav-cta py-[12px] px-[24px] bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)] max-[768px]:text-[1.25rem] z-10"
+            class="nav-cta py-[12px] px-[24px] font-tech bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)] focus-visible:ring-2 focus-visible:ring-gold outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="#footer"
             >Contact Us</a
           >
@@ -243,16 +243,16 @@ class AstrFooter extends HTMLElement {
                   Intelligence
                 </h4>
                 <ul class="space-y-5">
-                  <li><a href="philosophy.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300">
-                    <span class="font-lora">Philosophy</span>
+                  <li><a href="philosophy.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                    <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">Philosophy</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_P01</span>
                   </a></li>
-                  <li><a href="solutions.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300">
-                    <span class="font-lora">Solutions</span>
+                  <li><a href="solutions.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                    <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">Solutions</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_S01</span>
                   </a></li>
-                  <li><a href="rd.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300">
-                    <span class="font-lora">R&D Lab</span>
+                  <li><a href="rd.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                    <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">R&D Lab</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_R01</span>
                   </a></li>
                 </ul>
@@ -339,6 +339,80 @@ class AstrFooter extends HTMLElement {
 
 
 
+// --- TELEMETRY HUD COMPONENT ---
+class AstrTelemetry extends HTMLElement {
+  connectedCallback() {
+    this.style.display = 'block';
+    this.innerHTML = `
+      <div class="telemetry-hud absolute inset-0 pointer-events-none z-20 overflow-hidden opacity-40 font-mono">
+        <!-- Corner Markers -->
+        <div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-gold/30"></div>
+        <div class="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-gold/30"></div>
+        <div class="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-gold/30"></div>
+        <div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-gold/30"></div>
+
+        <!-- Scanning Line -->
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent animate-scan"></div>
+
+        <!-- Coordinates Label (Rotating) -->
+        <div class="absolute top-12 left-12 text-[0.6rem] text-gold/60 tracking-[3px] uppercase">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-gold/40 animate-pulse"></span>
+            LAT: <span id="lat-val">00.0000</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1">
+            <span class="w-2 h-2 rounded-full border border-gold/40"></span>
+            LON: <span id="lon-val">00.0000</span>
+          </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="absolute bottom-12 right-12 text-right">
+          <div class="text-[0.5rem] text-white/20 uppercase tracking-[4px] mb-1">System_Integrity</div>
+          <div class="text-[0.7rem] text-gold/60 uppercase tracking-[2px] font-bold">
+            <span id="status-text">Scanning...</span>
+            <span class="inline-block w-[2px] h-3 bg-gold/60 ml-1 animate-cursor"></span>
+          </div>
+        </div>
+
+        <!-- Vertical Altitude Marker -->
+        <div class="absolute right-12 top-1/2 -translate-y-1/2 h-32 flex flex-col justify-between items-end opacity-20">
+          <div class="w-4 h-[1px] bg-white"></div>
+          <div class="w-8 h-[1px] bg-white"></div>
+          <div class="w-4 h-[1px] bg-white"></div>
+          <div class="w-4 h-[1px] bg-white"></div>
+          <div class="w-12 h-[1px] bg-gold"></div>
+          <div class="w-4 h-[1px] bg-white"></div>
+        </div>
+      </div>
+    `;
+
+    this.initTelemetry();
+  }
+
+  initTelemetry() {
+    const latVal = this.querySelector('#lat-val');
+    const lonVal = this.querySelector('#lon-val');
+    const statusText = this.querySelector('#status-text');
+    
+    const statuses = ['Analyzing_Flow', 'Optimizing_Logic', 'Syncing_Nodes', 'ASTR_OS_v1.07', 'Mission_Active'];
+    let statusIndex = 0;
+
+    setInterval(() => {
+      if (latVal) latVal.innerText = (Math.random() * 90).toFixed(4);
+      if (lonVal) lonVal.innerText = (Math.random() * 180).toFixed(4);
+    }, 2000);
+
+    setInterval(() => {
+      if (statusText) {
+        statusIndex = (statusIndex + 1) % statuses.length;
+        statusText.innerText = statuses[statusIndex];
+      }
+    }, 4500);
+  }
+}
+
 // Define Custom Elements
 customElements.define('astr-navbar', AstrNavbar);
 customElements.define('astr-footer', AstrFooter);
+customElements.define('astr-telemetry', AstrTelemetry);

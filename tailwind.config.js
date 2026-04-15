@@ -84,6 +84,8 @@ module.exports = {
         handwritten: ['Caveat', 'cursive'],
         caveat: ['Caveat', 'cursive'],
         sans: ['Geist Variable', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+        tech: ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {
         hero: 'clamp(3rem, 6vw, 5.5rem)',

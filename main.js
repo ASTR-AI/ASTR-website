@@ -322,7 +322,7 @@ function initPremiumAnimations() {
   }
 }
 
-/* --- Magic UI: Text Animation (Blur In) --- */
+/* --- Magic UI: Text Animation (Blur In & Typewriter) --- */
 function initTextAnimate() {
   const elements = document.querySelectorAll('.text-animate');
 
@@ -330,8 +330,29 @@ function initTextAnimate() {
     const type = el.getAttribute('data-animate-type') || 'word';
     const text = el.innerText.trim();
 
+    if (type === 'typewriter') {
+      el.innerHTML = '';
+      const cursor = document.createElement('span');
+      cursor.className = 'terminal-cursor inline-block w-[2px] h-[1em] bg-gold ml-1 align-middle opacity-0';
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              typeWriterEffect(el, text, cursor);
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(el);
+      return;
+    }
+
     // Split based on type: word or character
     const items = type === 'word' ? text.split(' ') : text.split('');
+    // ... rest of the original word/char splitting logic ...
 
     el.innerHTML = '';
     items.forEach((item, index) => {
@@ -373,6 +394,29 @@ function initTextAnimate() {
 
     observer.observe(el);
   });
+}
+
+/* --- Typewriter Effect Logic --- */
+function typeWriterEffect(el, text, cursorEl) {
+  let i = 0;
+  el.appendChild(cursorEl);
+  gsap.to(cursorEl, { opacity: 1, repeat: -1, yoyo: true, duration: 0.4 });
+  
+  function type() {
+    if (i < text.length) {
+      const char = text.charAt(i);
+      const span = document.createElement('span');
+      span.textContent = char;
+      el.insertBefore(span, cursorEl);
+      i++;
+      setTimeout(type, Math.random() * 50 + 20);
+    } else {
+      setTimeout(() => {
+        gsap.to(cursorEl, { opacity: 0, duration: 0.5 });
+      }, 2000);
+    }
+  }
+  type();
 }
 
 /* --- Problem Section: Anomaly Console Logic --- */
