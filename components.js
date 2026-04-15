@@ -1,3 +1,4 @@
+console.log('ASTR Components Loaded');
 /* ===================================
    ASTR AI — Global Components
    =================================== */

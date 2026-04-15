@@ -33,6 +33,8 @@ export default defineConfig({
         philosophy: resolve(__dirname, 'philosophy.html'),
         solutions: resolve(__dirname, 'solutions.html'),
         rd: resolve(__dirname, 'rd.html'),
+        connect: resolve(__dirname, 'connect.html'),
+        missiondocs: resolve(__dirname, 'mission-docs.html'),
       },
     },
   },
