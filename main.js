@@ -1817,17 +1817,9 @@ function initBlueprintCTA() {
 
   function updateEmailLink() {
     const paramsList = Array.from(selectedParams).join(', ');
-    const subject =
-      selectedParams.size > 0
-        ? `Technical Consultation: ${paramsList}`
-        : 'Technical Consultation Inquiry';
-
-    const body =
-      selectedParams.size > 0
-        ? `Initiating technical consultation for the following subsystems:%0D%0A- ${paramsList}%0D%0A%0D%0APlease provide additional mission details here:`
-        : 'I would like to initiate a technical consultation regarding ASTR AI solutions.%0D%0A%0D%0APlease provide mission details here:';
-
-    submitBtn.href = `mailto:hello@astrai.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const queryString = selectedParams.size > 0 ? `?params=${encodeURIComponent(paramsList)}` : '';
+    
+    submitBtn.href = `connect.html${queryString}`;
 
     if (logCount)
       logCount.textContent = selectedParams.size.toString().padStart(2, '0');

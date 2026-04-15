@@ -42,7 +42,7 @@ class AstrNavbar extends HTMLElement {
           >
           <a
             class="nav-cta py-[12px] px-[24px] font-tech bg-gradient-to-br from-[#E6CD99] to-[#cba864] text-[#121212] font-bold rounded-[50px] text-[0.875rem] transition-transform duration-200 hover:-translate-y-[2px] hover:shadow-[0_8px_30px_rgba(230,205,153,0.35)] focus-visible:ring-2 focus-visible:ring-gold outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
-            href="#footer"
+            href="connect.html"
             >Contact Us</a
           >
         </div>
@@ -177,7 +177,7 @@ class AstrNavbar extends HTMLElement {
 class AstrFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <footer class="relative bg-black pt-32 pb-16 overflow-hidden border-t border-white/10" id="footer">
+      <footer class="relative pt-32 pb-16 overflow-hidden border-t border-white/10" id="footer">
         <!-- Blueprint Grid Background -->
         <div class="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
 
@@ -274,9 +274,13 @@ class AstrFooter extends HTMLElement {
                   Communication
                 </h4>
                 <div class="space-y-10">
+                  <a href="connect.html" class="block group">
+                    <span class="font-mono text-[0.55rem] text-gold uppercase tracking-[2px] block mb-2">Establish_Connection</span>
+                    <span class="font-lora text-xl text-white group-hover:text-gold transition-colors duration-300">Technical Portal →</span>
+                  </a>
                   <a href="mailto:hello@astrai.in" class="block group">
                     <span class="font-mono text-[0.55rem] text-white/20 uppercase tracking-[2px] block mb-2">Secure_Uplink</span>
-                    <span class="font-lora text-xl text-white/80 group-hover:text-gold transition-colors duration-300">hello@astrai.in</span>
+                    <span class="font-lora text-lg text-white/80 group-hover:text-gold transition-colors duration-300">hello@astrai.in</span>
                   </a>
                   <div class="flex gap-12">
                     <a href="https://www.linkedin.com/company/astr-ai/" target="_blank" class="group flex flex-col gap-1">

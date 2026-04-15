@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASTR AI — Connect | ASTRAI.in</title>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="components.js" defer></script>
+    
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,400&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' fill='%23c8a24e' width='100' height='100'/><text x='50' y='68' font-size='50' font-weight='900' text-anchor='middle' fill='%23000'>A</text></svg>"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: {
+                DEFAULT: '#e6cd99',
+                dim: '#cba864',
+              },
+              space: '#050505',
+            },
+            fontFamily: {
+              cinzel: ['Cinzel', 'serif'],
+              lora: ['Lora', 'serif'],
+              space: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Override reveal to be visible initially if scripts fail, or for better GSAP control */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: none !important; /* Let GSAP handle it */
+      }
+
+      .success-overlay {
+        position: fixed;
+        inset: 0;
+        background: #000;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .success-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .corner-bracket {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #e6cd99;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      .bracket-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+      .bracket-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+      .bracket-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+      .bracket-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+      .ethereal-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 205, 153, 0.05) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .establish-btn {
+        transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(12px);
+      }
+      .establish-btn:hover {
+        backdrop-filter: blur(24px);
+        letter-spacing: 0.5em !important;
+      }
+      
+      .data-streak {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(230, 205, 153, 0.2), transparent);
+        transform: translateX(-100%);
+        pointer-events: none;
+      }
+      .establish-btn:hover .data-streak {
+        animation: dataStreak 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes dataStreak {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+
+      .field-focus-glow {
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient(circle at center, rgba(230, 205, 153, 0.03) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        pointer-events: none;
+      }
+      .group:focus-within .field-focus-glow {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-[#050505] text-white font-lora antialiased selection:bg-gold/30 selection:text-gold overflow-x-hidden">
+    <!-- Overlays -->
+    <div class="scanline-overlay"></div>
+    <div class="grain-overlay"></div>
+    <div class="ethereal-bg" id="etherealBg"></div>
+
+    <!-- HUD Elements -->
+    <div class="hud-element top-6 left-6 opacity-40">// PROTOCOL: ASTR_V4_CONNECT</div>
+    <div class="hud-element top-6 right-6 opacity-40">// NODE: OLYMPUS [37.77 N, 122.41 W]</div>
+    <div class="hud-element bottom-6 left-6 opacity-40">// ENCRYPTION: 2048_RSA_ACTIVE</div>
+    <div class="hud-element bottom-6 right-6 flex items-center gap-2 opacity-40">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold/60" id="statusDot"></span>
+      // SYSTEM_STATUS: STABLE
+    </div>
+
+    <astr-navbar></astr-navbar>
+
+    <div class="success-overlay" id="successOverlay">
+      <div class="text-center px-6">
+        <div class="w-20 h-20 rounded-full border border-gold/20 flex items-center justify-center mx-auto mb-10">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e6cd99" stroke-width="1"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 class="text-3xl font-cinzel font-bold mb-4 tracking-widest uppercase">Uplink Established</h2>
+        <p class="text-white/30 text-lg italic mb-12 max-w-xs mx-auto">Mission parameters synchronized.</p>
+        <a href="main-site.html" class="liquid-glass-button !py-4 !px-12 uppercase tracking-widest text-[0.65rem] font-bold">Close Channel</a>
+      </div>
+    </div>
+
+    <main class="relative pt-[clamp(120px,15vh,200px)] pb-32 z-10" id="mainContent">
+      <div class="container max-w-[750px] mx-auto px-8">
+        <!-- Hero Section -->
+        <header class="mb-24 reveal">
+          <h1 class="font-cinzel text-5xl md:text-6xl font-bold mb-6 tracking-wider leading-[1.1]">
+            Connect With The <br /><span class="text-gold">Architecture.</span>
+          </h1>
+          <p class="font-lora text-xl text-white/40 italic leading-relaxed">
+            Initiate a technical consultation with our principal architects.
+          </p>
+        </header>
+
+        <!-- Form Container -->
+        <div class="relative reveal">
+          <!-- Brackets -->
+          <div class="corner-bracket bracket-tl"></div>
+          <div class="corner-bracket bracket-tr"></div>
+          <div class="corner-bracket bracket-bl"></div>
+          <div class="corner-bracket bracket-br"></div>
+
+          <form id="connectForm" class="space-y-16 py-12">
+            <!-- Identifier -->
+            <div class="space-y-2 group relative">
+              <div class="field-focus-glow"></div>
+              <label for="name" class="block font-space font-medium text-[0.75rem] uppercase tracking-[0.2em] text-white/40 group-focus-within:text-gold group-focus-within:-translate-y-0.5 transition-all duration-500">IDENTIFIER</label>
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required 
+                  placeholder="e.g. Director of Engineering"
+                  class="w-full bg-transparent border-none outline-none py-3 font-lora text-lg text-white placeholder:text-white/10 placeholder:italic transition-all"
+                >
+                <div class="field-bottom-line"></div>
+              </div>
+            </div>
+
+            <!-- Channel -->
+            <div class="space-y-2 group relative">
+              <div class="field-focus-glow"></div>
+              <label for="email" class="block font-space font-medium text-[0.75rem] uppercase tracking-[0.2em] text-white/40 group-focus-within:text-gold group-focus-within:-translate-y-0.5 transition-all duration-500">CHANNEL</label>
+              <div class="relative">
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  placeholder="email@org.com"
+                  class="w-full bg-transparent border-none outline-none py-3 font-lora text-lg text-white placeholder:text-white/10 placeholder:italic transition-all"
+                >
+                <div class="field-bottom-line"></div>
+              </div>
+            </div>
+
+            <!-- Entity -->
+            <div class="space-y-2 group relative">
+              <div class="field-focus-glow"></div>
+              <label for="org" class="block font-space font-medium text-[0.75rem] uppercase tracking-[0.2em] text-white/40 group-focus-within:text-gold group-focus-within:-translate-y-0.5 transition-all duration-500">ENTITY</label>
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="org" 
+                  name="org" 
+                  required 
+                  placeholder="Organization Name"
+                  class="w-full bg-transparent border-none outline-none py-3 font-lora text-lg text-white placeholder:text-white/10 placeholder:italic transition-all"
+                >
+                <div class="field-bottom-line"></div>
+              </div>
+            </div>
+
+            <input type="hidden" id="industry" name="industry">
+
+            <!-- Mission Parameters -->
+            <div class="space-y-2 group relative">
+              <div class="field-focus-glow"></div>
+              <label for="message" class="block font-space font-medium text-[0.75rem] uppercase tracking-[0.2em] text-white/40 group-focus-within:text-gold group-focus-within:-translate-y-0.5 transition-all duration-500">MISSION PARAMETERS</label>
+              <div class="relative">
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="3" 
+                  required 
+                  placeholder="Briefly describe the technical challenge..."
+                  class="w-full bg-transparent border-none outline-none py-3 font-lora text-lg text-white placeholder:text-white/10 placeholder:italic transition-all resize-none"
+                ></textarea>
+                <div class="field-bottom-line"></div>
+              </div>
+            </div>
+
+            <!-- Submit CTA -->
+            <div class="pt-12">
+              <button 
+                type="submit" 
+                id="submitBtn"
+                class="liquid-glass-button establish-btn group/btn w-full md:w-fit !py-5 !px-16 uppercase tracking-[0.4em] text-[0.75rem] font-bold overflow-hidden relative"
+              >
+                <span class="relative z-10">[ESTABLISH_CONNECTION]</span>
+                <div class="data-streak"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <astr-footer></astr-footer>
+
+    <script>
+      // Global reveal handler for elements rendered by components
+      function triggerReveals() {
+        if (typeof gsap !== 'undefined') {
+          gsap.to('.reveal', {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power4.out',
+            overwrite: true
+          });
+        } else {
+          // Fallback if GSAP is not loaded
+          document.querySelectorAll('.reveal').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          });
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Initial reveal for static elements
+        setTimeout(triggerReveals, 100);
+
+        // Re-run reveal check when components might have finished rendering
+        setTimeout(triggerReveals, 500);
+        setTimeout(triggerReveals, 1000);
+
+        // --- GSAP High-Fidelity Cursor Follow ---
+        const etherealBg = document.getElementById('etherealBg');
+        if (etherealBg && typeof gsap !== 'undefined') {
+          const xTo = gsap.quickTo(etherealBg, "--mouse-x", {duration: 0.8, ease: "power3"}),
+                yTo = gsap.quickTo(etherealBg, "--mouse-y", {duration: 0.8, ease: "power3"});
+
+          window.addEventListener('mousemove', (e) => {
+            xTo((e.clientX / window.innerWidth) * 100);
+            yTo((e.clientY / window.innerHeight) * 100);
+          });
+        }
+
+        // --- HUD Status Pulse ---
+        const statusDot = document.getElementById('statusDot');
+        if (statusDot && typeof gsap !== 'undefined') {
+          gsap.to(statusDot, {
+            opacity: 0.2,
+            repeat: -1,
+            yoyo: true,
+            duration: 2.5,
+            ease: "power2.inOut"
+          });
+        }
+
+        // --- Form Logic & URL Params ---
+        const form = document.getElementById('connectForm');
+        const mainContent = document.getElementById('mainContent');
+        const successOverlay = document.getElementById('successOverlay');
+        const params = new URLSearchParams(window.location.search);
+        
+        const missionParam = params.get('params');
+        if (missionParam) {
+          const messageField = document.getElementById('message');
+          const industryField = document.getElementById('industry');
+          
+          if (missionParam.includes('infra')) {
+            if (industryField) industryField.value = 'Infrastructure';
+            if (messageField) messageField.value = 'Initiating inquiry regarding Smart Infrastructure Architecture...';
+          } else if (missionParam.includes('drone')) {
+            if (industryField) industryField.value = 'Drone Networks';
+            if (messageField) messageField.value = 'Initiating inquiry regarding Autonomous Drone Network Deployment...';
+          } else if (missionParam.includes('ai')) {
+            if (industryField) industryField.value = 'AI Solutions';
+            if (messageField) messageField.value = 'Initiating inquiry regarding Custom AI Intelligence Systems...';
+          }
+        }
+
+        if (form) {
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn ? submitBtn.querySelector('span') : null;
+            
+            if (btnText) btnText.innerText = 'SYNCHRONIZING...';
+            if (submitBtn) {
+              submitBtn.style.opacity = '0.7';
+              submitBtn.style.pointerEvents = 'none';
+            }
+
+            // Simulate API call with high-fidelity transition
+            setTimeout(() => {
+              if (typeof gsap !== 'undefined') {
+                gsap.to(mainContent, {
+                  opacity: 0,
+                  filter: 'blur(30px)',
+                  duration: 1.2,
+                  ease: "power4.inOut",
+                  onComplete: () => {
+                    if (successOverlay) {
+                      successOverlay.classList.add('active');
+                      gsap.from(successOverlay.querySelector('.text-center'), {
+                        y: 40,
+                        opacity: 0,
+                        duration: 1.5,
+                        ease: 'expo.out'
+                      });
+                    }
+                  }
+                });
+              } else if (successOverlay) {
+                successOverlay.classList.add('active');
+              }
+            }, 1800);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
