@@ -57,10 +57,9 @@ The landing page features 5 distinct sections:
 
 ## Development Workflow
 
-The project is configured for **Continuous Development vs. Deployment**. 
+The project is configured for **Continuous Development**. 
 
-- `index.html`: The public "Coming Soon" page (what visitors see at `astrai.in/`).
-- `main-site.html`: The actual website currently in development.
+- `index.html`: The Main Site (formerly `coming-soon.html` placeholder).
 - `philosophy.html` & `solutions.html`: Internal sub-pages.
 
 ## Running Locally
@@ -71,10 +70,9 @@ To start the development server:
 npm run dev
 ```
 
-- **To preview the Coming Soon page**: Visit `http://localhost:5173/`
-- **To develop the actual site**: Visit `http://localhost:5173/main-site.html`
+- **To preview and develop the site**: Visit `http://localhost:5173/`
 
-Internal navigation in `components.js` is currently mapped to `main-site.html` to allow for a seamless development experience between sub-pages.
+Internal navigation in `components.js` is mapped to `index.html` for a seamless development experience between sub-pages.
 
 ## Deployment & Building
 
@@ -84,4 +82,4 @@ To build the project for production:
 npm run build
 ```
 
-The build output will be in the `dist/` directory, including all development pages. When ready for full launch, simply rename `main-site.html` to `index.html`.
+The build output will be in the `dist/` directory, including all pages.

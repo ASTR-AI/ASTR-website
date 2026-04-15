@@ -12,7 +12,7 @@ class AstrNavbar extends HTMLElement {
         id="navbar"
       >
         <a
-          href="main-site.html"
+          href="index.html"
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px] max-[768px]:w-auto"
         >
           <img
@@ -126,7 +126,7 @@ class AstrNavbar extends HTMLElement {
     // Highlight Active Link & Event Listeners
     links.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === currentPath || (currentPath === 'main-site.html' && href === 'main-site.html')) {
+      if (href === currentPath) {
         link.classList.add('text-white');
         link.classList.remove('text-white/70');
         activeLink = link;

@@ -62,21 +62,21 @@ function initRDAnimations() {
     
     heroTl.fromTo(heroMetadata, 
       { opacity: 0, y: -20 }, 
-      { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+      { opacity: 1, autoAlpha: 1, y: 0, duration: 1, ease: 'power2.out' }
     )
     .fromTo(heroTitle, 
       { opacity: 0, y: 40 }, 
-      { opacity: 1, y: 0, duration: 1.5, ease: 'expo.out' }, 
+      { opacity: 1, autoAlpha: 1, y: 0, duration: 1.5, ease: 'expo.out' }, 
       '-=0.6'
     )
     .fromTo(heroDesc, 
       { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, 
+      { opacity: 1, autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out' }, 
       '-=1'
     )
     .fromTo(heroCTA, 
       { opacity: 0, scale: 0.9 }, 
-      { opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.7)' }, 
+      { opacity: 1, autoAlpha: 1, scale: 1, duration: 1, ease: 'back.out(1.7)' }, 
       '-=0.8'
     );
   }

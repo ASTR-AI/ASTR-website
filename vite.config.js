@@ -14,7 +14,7 @@ export default defineConfig({
           const port = isObject ? address.port : server.config.server.port;
           const protocol = server.config.server.https ? 'https' : 'http';
           setTimeout(() => {
-            console.log(`\n  \x1b[33m➜\x1b[0m  \x1b[1mDevelopment Site\x1b[0m: \x1b[36m${protocol}://localhost:${port}/main-site.html\x1b[0m\n`);
+            console.log(`\n  \x1b[33m➜\x1b[0m  \x1b[1mProduction Site\x1b[0m: \x1b[36m${protocol}://localhost:${port}/index.html\x1b[0m\n`);
           }, 100);
         });
       },
@@ -29,7 +29,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        site: resolve(__dirname, 'main-site.html'),
+        comingsoon: resolve(__dirname, 'coming-soon.html'),
         philosophy: resolve(__dirname, 'philosophy.html'),
         solutions: resolve(__dirname, 'solutions.html'),
         rd: resolve(__dirname, 'rd.html'),

@@ -10,7 +10,7 @@ title: Mobile Responsivity Fixes (Hero Logo)
 **Phase Objective:** Resolve clipping and crowding issues for the 'ASTR AI' particle logo on mobile viewports (< 768px). Utilize empty space at the top of the screen and ensure the full branding is visible.
 
 **Context:** 
-- Upstream: `main-site.html`, `main.js`, `index.html`.
+- Upstream: `index.html` (Main Site), `main.js`, `coming-soon.html` (former placeholder).
 - Tech Stack: Tailwind CSS, Three.js.
 
 ## 2. Design Tokens (Overrides for Mobile)
