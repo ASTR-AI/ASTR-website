@@ -26,17 +26,17 @@ class AstrNavbar extends HTMLElement {
         >
           <div class="nav-indicator hidden md:block" id="navIndicator"></div>
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="philosophy.html"
             >Philosophy</a
           >
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="solutions.html"
             >Solutions</a
           >
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="rd.html"
             >R&amp;D</a
           >
@@ -116,10 +116,10 @@ class AstrNavbar extends HTMLElement {
         void indicator.offsetWidth; // Trigger reflow for animation restart
         indicator.classList.add(direction, 'pulse');
         
-        // Remove classes after animation completes (600ms)
+        // Remove classes after animation completes (900ms to match new viscous CSS)
         animationTimeout = setTimeout(() => {
           indicator.classList.remove('moving-left', 'moving-right', 'pulse');
-        }, 600);
+        }, 900);
       }
 
       indicator.style.left = `${offsetLeft}px`;

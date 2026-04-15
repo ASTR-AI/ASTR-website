@@ -450,10 +450,11 @@
 
           <!-- Tabs -->
           <div class="tabs-wrapper flex justify-center mb-8 md:mb-12">
-            <div class="flex gap-1 md:gap-2 p-1.5 md:p-2 rounded-[64px] bg-white/5 border border-white/10 backdrop-blur-md overflow-x-auto no-scrollbar">
-              <button class="tab-btn active px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 bg-white/10 text-white whitespace-nowrap" data-target="tab-logistics">Logistics</button>
-              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap" data-target="tab-healthcare">Healthcare</button>
-              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap" data-target="tab-manufacturing">Manufacturing</button>
+            <div class="segmented-control flex gap-1 md:gap-2 p-1.5 md:p-2 rounded-[64px] bg-white/5 border border-white/10 backdrop-blur-md overflow-x-auto no-scrollbar relative">
+              <span class="nav-highlight"></span>
+              <button class="tab-btn active px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white whitespace-nowrap z-10" data-target="tab-logistics">Logistics</button>
+              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10" data-target="tab-healthcare">Healthcare</button>
+              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10" data-target="tab-manufacturing">Manufacturing</button>
             </div>
           </div>
 

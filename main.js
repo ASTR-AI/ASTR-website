@@ -1241,7 +1241,27 @@ function initPillarTabs() {
 
   if (!tabs.length || !contents.length || !slider || !stage) return;
 
+  let animationTimeout = null;
+
   function moveSlider(tab) {
+    if (!slider || !tab) return;
+
+    const currentLeft = parseFloat(slider.style.left) || 0;
+    const targetLeft = tab.offsetLeft;
+
+    if (currentLeft !== 0 && Math.abs(currentLeft - targetLeft) > 5) {
+      const direction = targetLeft > currentLeft ? 'moving-right' : 'moving-left';
+
+      if (animationTimeout) clearTimeout(animationTimeout);
+      slider.classList.remove('moving-left', 'moving-right', 'pulse');
+      void slider.offsetWidth; // Trigger reflow
+      slider.classList.add(direction, 'pulse');
+
+      animationTimeout = setTimeout(() => {
+        slider.classList.remove('moving-left', 'moving-right', 'pulse');
+      }, 900);
+    }
+
     slider.style.width = `${tab.offsetWidth}px`;
     slider.style.left = `${tab.offsetLeft}px`;
   }
@@ -2076,14 +2096,47 @@ function initSolutionsExpansion() {
     });
   });
 
-  // 3. Tabs
+  // 3. Industry Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabPanes = document.querySelectorAll('.tab-pane');
+  const industrySlider = document.querySelector('.industries-section .nav-highlight');
+  let industryAnimTimeout = null;
+
+  function moveIndustrySlider(tab) {
+    if (!industrySlider || !tab) return;
+    
+    const currentLeft = parseFloat(industrySlider.style.left) || 0;
+    const targetLeft = tab.offsetLeft;
+
+    if (currentLeft !== 0 && Math.abs(currentLeft - targetLeft) > 5) {
+      const direction = targetLeft > currentLeft ? 'moving-right' : 'moving-left';
+      
+      if (industryAnimTimeout) clearTimeout(industryAnimTimeout);
+      industrySlider.classList.remove('moving-left', 'moving-right', 'pulse');
+      void industrySlider.offsetWidth;
+      industrySlider.classList.add(direction, 'pulse');
+
+      industryAnimTimeout = setTimeout(() => {
+        industrySlider.classList.remove('moving-left', 'moving-right', 'pulse');
+      }, 900);
+    }
+
+    industrySlider.style.width = `${tab.offsetWidth}px`;
+    industrySlider.style.left = `${tab.offsetLeft}px`;
+    industrySlider.style.opacity = '1';
+  }
+
+  // Initialize
+  const initialTab = document.querySelector('.tab-btn.active');
+  if (initialTab) {
+    setTimeout(() => moveIndustrySlider(initialTab), 100);
+  }
+
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       // Deactivate all
       tabBtns.forEach(b => {
-        b.classList.remove('active', 'bg-white/10', 'text-white');
+        b.classList.remove('active', 'text-white');
         b.classList.add('text-white/50');
       });
       tabPanes.forEach(p => {
@@ -2093,8 +2146,10 @@ function initSolutionsExpansion() {
       });
 
       // Activate clicked
-      btn.classList.add('active', 'bg-white/10', 'text-white');
+      btn.classList.add('active', 'text-white');
       btn.classList.remove('text-white/50');
+      moveIndustrySlider(btn);
+
       const targetId = btn.getAttribute('data-target');
       const targetPane = document.getElementById(targetId);
       if (targetPane) {

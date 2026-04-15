@@ -1195,49 +1195,90 @@
     @apply border-white/20 bg-white/8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_12px_48px_rgba(230,205,153,0.1)];
   }
 
-  /* --- Navigation Indicator --- */
-  .nav-indicator {
-    @apply absolute top-[6px] bottom-[6px] h-auto pointer-events-none z-0 rounded-[24px] bg-white/10 backdrop-blur-[10px] border border-white/10 shadow-[inset_0_1px_0px_rgba(255,255,255,0.4),0_2px_10px_rgba(0,0,0,0.2)] opacity-0;
+  /* --- Navigation Indicator (Viscous Droplet) --- */
+  .nav-indicator, .nav-highlight {
+    @apply absolute pointer-events-none z-0 bg-white/[0.12] backdrop-blur-[32px] border border-white/20 shadow-[inset_0_2px_6px_rgba(255,255,255,0.3),0_15px_35px_rgba(0,0,0,0.5)];
     transition:
-      left 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-      width 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-      opacity 0.3s ease;
+      left 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      width 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.4s ease;
     will-change: left, width, transform;
   }
-  .nav-indicator::before {
-    content: '';
-    @apply absolute inset-0 rounded-[24px] bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-40 pointer-events-none;
+
+  .nav-indicator {
+    @apply top-[4px] bottom-[4px] rounded-[32px] opacity-0;
   }
 
-  /* Liquid Movement Effects */
-  .nav-indicator.moving-right {
-    transform-origin: left center;
-    animation: liquidStretchRight 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .nav-indicator.moving-left {
-    transform-origin: right center;
-    animation: liquidStretchLeft 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .nav-indicator.pulse::after {
-    content: '';
-    @apply absolute inset-0 rounded-[24px] bg-white opacity-0 pointer-events-none;
-    animation: liquidPulse 0.6s ease-out;
+  .nav-highlight {
+    @apply top-[4px] h-[calc(100%-8px)] rounded-[96px];
   }
 
-  @keyframes liquidStretchRight {
-    0% { transform: scale(1, 1) skewX(0deg); }
-    35% { transform: scale(1.6, 0.8) skewX(-15deg); }
-    100% { transform: scale(1, 1) skewX(0deg); }
+  /* The "Liquid Tail" - lags behind and merges */
+  .nav-indicator::before, .nav-highlight::before {
+    content: '';
+    @apply absolute inset-0 bg-white/10 opacity-0 transition-all duration-700 ease-out;
+    transform: scale(1);
+    filter: blur(4px);
   }
-  @keyframes liquidStretchLeft {
-    0% { transform: scale(1, 1) skewX(0deg); }
-    35% { transform: scale(1.6, 0.8) skewX(15deg); }
-    100% { transform: scale(1, 1) skewX(0deg); }
+
+  .nav-indicator::before { @apply rounded-[32px]; }
+  .nav-highlight::before { @apply rounded-[96px]; }
+
+  /* Movement Physics: Stretching and Motion Blur */
+  .nav-indicator.moving-right, .nav-highlight.moving-right {
+    animation: dropletLeadRight 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  @keyframes liquidPulse {
-    0% { transform: scale(0.95, 0.9); opacity: 0; }
-    50% { transform: scale(1.02, 1.05); opacity: 0.15; }
-    100% { transform: scale(1, 1); opacity: 0; }
+  .nav-indicator.moving-left, .nav-highlight.moving-left {
+    animation: dropletLeadLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-indicator.moving-right::before, 
+  .nav-indicator.moving-left::before,
+  .nav-highlight.moving-right::before,
+  .nav-highlight.moving-left::before {
+    @apply opacity-100;
+  }
+
+  .nav-indicator.moving-right::before, .nav-highlight.moving-right::before {
+    animation: dropletTailRight 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-indicator.moving-left::before, .nav-highlight.moving-left::before {
+    animation: dropletTailLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* The "Gulp" - A high-viscosity snap back */
+  .nav-indicator.pulse, .nav-highlight.pulse {
+    animation: dropletGulp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes dropletLeadRight {
+    0% { transform: scaleX(1); }
+    30% { transform: scaleX(1.25) translateX(10%); }
+    100% { transform: scaleX(1); }
+  }
+  @keyframes dropletLeadLeft {
+    0% { transform: scaleX(1); }
+    30% { transform: scaleX(1.25) translateX(-10%); }
+    100% { transform: scaleX(1); }
+  }
+
+  @keyframes dropletTailRight {
+    0% { transform: translateX(0) scale(1); }
+    30% { transform: translateX(-40%) scaleX(1.4) scaleY(0.7); }
+    100% { transform: translateX(0) scale(1); }
+  }
+  @keyframes dropletTailLeft {
+    0% { transform: translateX(0) scale(1); }
+    30% { transform: translateX(40%) scaleX(1.4) scaleY(0.7); }
+    100% { transform: translateX(0) scale(1); }
+  }
+
+  @keyframes dropletGulp {
+    0% { transform: scale(1); }
+    20% { transform: scale(1.15, 0.85); border-radius: 40% 40% 60% 60%; }
+    40% { transform: scale(0.9, 1.15); border-radius: 60% 60% 40% 40%; }
+    60% { transform: scale(1.05, 0.95); }
+    100% { transform: scale(1); }
   }
 }
 @layer utilities {
@@ -1427,10 +1468,7 @@
 
 /* Tabs */
 .tab-btn.active {
-  background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
 }
 .tab-pane {
   visibility: hidden;
