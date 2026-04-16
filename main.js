@@ -21,16 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- Philosophy Page Specialized Animations --- */
 function initPhilosophyAnimations() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined')
+    return;
 
   const pillars = document.querySelectorAll('.pillar-reveal');
   if (pillars.length > 0) {
     gsap.fromTo(
       pillars,
-      { 
-        y: 150, 
-        scale: 0.8, 
-        opacity: 0 
+      {
+        y: 150,
+        scale: 0.8,
+        opacity: 0,
       },
       {
         y: 0,
@@ -50,7 +51,8 @@ function initPhilosophyAnimations() {
 
 /* --- R&D Page Specialized Animations --- */
 function initRDAnimations() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined')
+    return;
 
   // 0. Hero Sequence (Coordinated Entrance)
   const heroMetadata = document.querySelector('.rd-hero-metadata');
@@ -60,30 +62,43 @@ function initRDAnimations() {
 
   if (heroTitle) {
     const heroTl = gsap.timeline({ delay: 0.5 });
-    
-    heroTl.fromTo(heroMetadata, 
-      { opacity: 0, y: -20 }, 
-      { opacity: 1, autoAlpha: 1, y: 0, duration: 1, ease: 'power2.out' }
-    )
-    .fromTo(heroTitle, 
-      { opacity: 0, y: 40 }, 
-      { opacity: 1, autoAlpha: 1, y: 0, duration: 1.5, ease: 'expo.out' }, 
-      '-=0.6'
-    )
-    .fromTo(heroDesc, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out' }, 
-      '-=1'
-    )
-    .fromTo(heroCTA, 
-      { opacity: 0, scale: 0.9 }, 
-      { opacity: 1, autoAlpha: 1, scale: 1, duration: 1, ease: 'back.out(1.7)' }, 
-      '-=0.8'
-    );
+
+    heroTl
+      .fromTo(
+        heroMetadata,
+        { opacity: 0, y: -20 },
+        { opacity: 1, autoAlpha: 1, y: 0, duration: 1, ease: 'power2.out' }
+      )
+      .fromTo(
+        heroTitle,
+        { opacity: 0, y: 40 },
+        { opacity: 1, autoAlpha: 1, y: 0, duration: 1.5, ease: 'expo.out' },
+        '-=0.6'
+      )
+      .fromTo(
+        heroDesc,
+        { opacity: 0, y: 20 },
+        { opacity: 1, autoAlpha: 1, y: 0, duration: 1.2, ease: 'power3.out' },
+        '-=1'
+      )
+      .fromTo(
+        heroCTA,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          autoAlpha: 1,
+          scale: 1,
+          duration: 1,
+          ease: 'back.out(1.7)',
+        },
+        '-=0.8'
+      );
   }
 
   // 1. Journal Entry Staggered Reveal
-  const journalEntries = document.querySelectorAll('.rd-journal .relative.pl-12');
+  const journalEntries = document.querySelectorAll(
+    '.rd-journal .relative.pl-12'
+  );
   if (journalEntries.length > 0) {
     gsap.fromTo(
       journalEntries,
@@ -120,25 +135,33 @@ function initRDAnimations() {
       },
     });
 
-    tl.to(monolithSeal, { 
-      scale: 1, 
-      opacity: 1, 
-      duration: 1.2, 
-      ease: 'expo.out' 
+    tl.to(monolithSeal, {
+      scale: 1,
+      opacity: 1,
+      duration: 1.2,
+      ease: 'expo.out',
     })
-    .to(monolithLines, { 
-      opacity: 0.2, 
-      duration: 1, 
-      stagger: 0.1,
-      ease: 'power2.out' 
-    }, '-=0.6') // Fade in lines as seal finishes
-    .to(monolithPillars, { 
-      y: 0, 
-      opacity: 1, 
-      duration: 1, 
-      stagger: 0.1, 
-      ease: 'power3.out' 
-    }, '-=0.8'); // Overlap with lines and seal
+      .to(
+        monolithLines,
+        {
+          opacity: 0.2,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power2.out',
+        },
+        '-=0.6'
+      ) // Fade in lines as seal finishes
+      .to(
+        monolithPillars,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.out',
+        },
+        '-=0.8'
+      ); // Overlap with lines and seal
 
     // Subtle Floating for Monolith Pillars
     monolithPillars.forEach((pillar, i) => {
@@ -334,8 +357,9 @@ function initTextAnimate() {
     if (type === 'typewriter') {
       el.innerHTML = '';
       const cursor = document.createElement('span');
-      cursor.className = 'terminal-cursor inline-block w-[2px] h-[1em] bg-gold ml-1 align-middle opacity-0';
-      
+      cursor.className =
+        'terminal-cursor inline-block w-[2px] h-[1em] bg-gold ml-1 align-middle opacity-0';
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -402,7 +426,7 @@ function typeWriterEffect(el, text, cursorEl) {
   let i = 0;
   el.appendChild(cursorEl);
   gsap.to(cursorEl, { opacity: 1, repeat: -1, yoyo: true, duration: 0.4 });
-  
+
   function type() {
     if (i < text.length) {
       const char = text.charAt(i);
@@ -498,13 +522,13 @@ function initHeroCanvas() {
     // Dynamic positioning for mobile vs desktop
     if (w < 768) {
       // Mobile: Move camera up and back
-      camera.position.y = 2.2; 
+      camera.position.y = 2.2;
       // Adjust Z distance based on portrait aspect ratio
       const aspect = w / h;
       // Closer for narrow/tall devices like iPhone 14/15 Pro Max (430x932)
       // aspect for 430x932 is ~0.46
       // Previous Z=32 was too far back. Z=25-28 provides better presence.
-      camera.position.z = aspect < 0.5 ? 26 : (aspect < 0.6 ? 25 : 24);
+      camera.position.z = aspect < 0.5 ? 26 : aspect < 0.6 ? 25 : 24;
       camera.lookAt(0, 2.2, 0);
     } else {
       // Desktop: Perfectly centered
@@ -525,11 +549,11 @@ function initHeroCanvas() {
   logoImg.onload = () => {
     const logoCanvas = document.createElement('canvas');
     const logoCtx = logoCanvas.getContext('2d');
-    
+
     // Higher resolution sample for the logo
     logoCanvas.width = 1600;
     logoCanvas.height = 1200;
-    
+
     const imgAspect = logoImg.width / logoImg.height;
     let drawWidth = logoCanvas.width;
     let drawHeight = logoCanvas.width / imgAspect;
@@ -537,7 +561,7 @@ function initHeroCanvas() {
       drawHeight = logoCanvas.height;
       drawWidth = logoCanvas.height * imgAspect;
     }
-    
+
     logoCtx.drawImage(
       logoImg,
       (logoCanvas.width - drawWidth) / 2,
@@ -546,13 +570,18 @@ function initHeroCanvas() {
       drawHeight
     );
 
-    const logoImageData = logoCtx.getImageData(0, 0, logoCanvas.width, logoCanvas.height);
+    const logoImageData = logoCtx.getImageData(
+      0,
+      0,
+      logoCanvas.width,
+      logoCanvas.height
+    );
     const logoPixels = [];
     const isMobile = window.innerWidth < 768;
     const isNarrow = window.innerWidth < 480;
-    
+
     // Decrease divisor on mobile to make it LARGER (more prominent particles)
-    const scaleDivisor = isNarrow ? 105 : (isMobile ? 130 : 180); 
+    const scaleDivisor = isNarrow ? 105 : isMobile ? 130 : 180;
 
     // Extract non-transparent pixels (the logo)
     for (let y = 0; y < logoCanvas.height; y += 1) {
@@ -560,7 +589,7 @@ function initHeroCanvas() {
         if (logoImageData.data[(y * logoCanvas.width + x) * 4 + 3] > 50) {
           logoPixels.push({
             x: (x - logoCanvas.width / 2) / scaleDivisor,
-            y: (logoCanvas.height / 2 - y) / scaleDivisor
+            y: (logoCanvas.height / 2 - y) / scaleDivisor,
           });
         }
       }
@@ -570,7 +599,7 @@ function initHeroCanvas() {
 
     // ---- Particle System Geometry & Materials ----
     // SIGNIFICANTLY reduced counts for mobile to prevent "squished" or "over-dense" look
-    const particleCount = isNarrow ? 5200 : (isMobile ? 7000 : 15000);
+    const particleCount = isNarrow ? 5200 : isMobile ? 7000 : 15000;
     const geometry = new THREE.BufferGeometry();
 
     const positions = new Float32Array(particleCount * 3);
@@ -597,19 +626,21 @@ function initHeroCanvas() {
       // 1. Sphere
       const rSphere = 3.2;
       shapeTargets.sphere[i * 3] = rSphere * Math.sin(phi) * Math.cos(theta);
-      shapeTargets.sphere[i * 3 + 1] = rSphere * Math.sin(phi) * Math.sin(theta);
+      shapeTargets.sphere[i * 3 + 1] =
+        rSphere * Math.sin(phi) * Math.sin(theta);
       shapeTargets.sphere[i * 3 + 2] = rSphere * Math.cos(phi);
 
       // 2. Exact Logo Shape (from Image)
       const lp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
       // Shift logo up on mobile to use empty space (balanced)
-      const yOffset = isNarrow ? 4.2 : (isMobile ? 3.5 : 0);
+      const yOffset = isNarrow ? 4.2 : isMobile ? 3.5 : 0;
       // Add jitter on mobile so particles are not "crowded" (spread them out)
       const jitter = isMobile ? (Math.random() - 0.5) * 0.45 : 0;
-      
+
       shapeTargets.astra[i * 3] = lp.x + jitter;
       shapeTargets.astra[i * 3 + 1] = lp.y + yOffset + jitter;
-      shapeTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * (isMobile ? 0.45 : 0.15);
+      shapeTargets.astra[i * 3 + 2] =
+        (Math.random() - 0.5) * (isMobile ? 0.45 : 0.15);
 
       // 3. Sun
       const isRay = Math.random() > 0.7;
@@ -630,7 +661,8 @@ function initHeroCanvas() {
       } else {
         const rPlanet = 2.5;
         shapeTargets.planet[i * 3] = rPlanet * Math.sin(phi) * Math.cos(theta);
-        shapeTargets.planet[i * 3 + 1] = rPlanet * Math.sin(phi) * Math.sin(theta);
+        shapeTargets.planet[i * 3 + 1] =
+          rPlanet * Math.sin(phi) * Math.sin(theta);
         shapeTargets.planet[i * 3 + 2] = rPlanet * Math.cos(phi);
       }
 
@@ -651,12 +683,18 @@ function initHeroCanvas() {
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('aOriginalPosition', new THREE.BufferAttribute(originalPositions, 3));
-    geometry.setAttribute('aTarget', new THREE.BufferAttribute(shapeTargets.sphere, 3));
+    geometry.setAttribute(
+      'aOriginalPosition',
+      new THREE.BufferAttribute(originalPositions, 3)
+    );
+    geometry.setAttribute(
+      'aTarget',
+      new THREE.BufferAttribute(shapeTargets.sphere, 3)
+    );
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: isNarrow ? 0.10 : (isMobile ? 0.12 : 0.04),
+      size: isNarrow ? 0.1 : isMobile ? 0.12 : 0.04,
       vertexColors: true,
       transparent: true,
       opacity: 0.8,
@@ -669,7 +707,7 @@ function initHeroCanvas() {
     scene.add(particles);
 
     // ---- Inner Core (Bright Central Star) ----
-    const coreCount = isNarrow ? 400 : (isMobile ? 600 : 2000);
+    const coreCount = isNarrow ? 400 : isMobile ? 600 : 2000;
     const coreGeometry = new THREE.BufferGeometry();
     const corePositions = new Float32Array(coreCount * 3);
     const coreOriginals = new Float32Array(coreCount * 3);
@@ -702,9 +740,9 @@ function initHeroCanvas() {
       coreTargets.planet[i * 3 + 2] = cz * 1.2;
 
       const clp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
-      const cyOffset = isNarrow ? 3.5 : (isMobile ? 3.0 : 0);
+      const cyOffset = isNarrow ? 3.5 : isMobile ? 3.0 : 0;
       const cJitter = isMobile ? (Math.random() - 0.5) * 0.35 : 0;
-      
+
       coreTargets.astra[i * 3] = clp.x + cJitter;
       coreTargets.astra[i * 3 + 1] = clp.y + cyOffset + cJitter;
       coreTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
@@ -717,12 +755,21 @@ function initHeroCanvas() {
       coreOriginals[i * 3 + 2] = cz;
     }
 
-    coreGeometry.setAttribute('position', new THREE.BufferAttribute(corePositions, 3));
-    coreGeometry.setAttribute('aOriginalPosition', new THREE.BufferAttribute(coreOriginals, 3));
-    coreGeometry.setAttribute('aTarget', new THREE.BufferAttribute(coreTargets.sphere, 3));
+    coreGeometry.setAttribute(
+      'position',
+      new THREE.BufferAttribute(corePositions, 3)
+    );
+    coreGeometry.setAttribute(
+      'aOriginalPosition',
+      new THREE.BufferAttribute(coreOriginals, 3)
+    );
+    coreGeometry.setAttribute(
+      'aTarget',
+      new THREE.BufferAttribute(coreTargets.sphere, 3)
+    );
 
     const coreMaterial = new THREE.PointsMaterial({
-      size: isNarrow ? 0.08 : (isMobile ? 0.10 : 0.03),
+      size: isNarrow ? 0.08 : isMobile ? 0.1 : 0.03,
       color: 0xffffff,
       transparent: true,
       opacity: 0.9,
@@ -756,21 +803,25 @@ function initHeroCanvas() {
       mouseY = 0;
     });
 
-    document.addEventListener('touchmove', (event) => {
-      if (event.touches.length > 0) {
-        const rect = container.getBoundingClientRect();
-        // Check if touch is within hero container
-        const touch = event.touches[0];
-        if (
-          touch.clientX >= rect.left &&
-          touch.clientX <= rect.right &&
-          touch.clientY >= rect.top &&
-          touch.clientY <= rect.bottom
-        ) {
-          updateInput(touch.clientX - rect.left, touch.clientY - rect.top);
+    document.addEventListener(
+      'touchmove',
+      (event) => {
+        if (event.touches.length > 0) {
+          const rect = container.getBoundingClientRect();
+          // Check if touch is within hero container
+          const touch = event.touches[0];
+          if (
+            touch.clientX >= rect.left &&
+            touch.clientX <= rect.right &&
+            touch.clientY >= rect.top &&
+            touch.clientY <= rect.bottom
+          ) {
+            updateInput(touch.clientX - rect.left, touch.clientY - rect.top);
+          }
         }
-      }
-    }, { passive: true });
+      },
+      { passive: true }
+    );
 
     window.addEventListener('resize', updateSize);
 
@@ -797,8 +848,14 @@ function initHeroCanvas() {
         morphTimer = 0;
         currentShapeIndex = (currentShapeIndex + 1) % shapeKeys.length;
         const nextShape = shapeKeys[currentShapeIndex];
-        geometry.setAttribute('aTarget', new THREE.BufferAttribute(shapeTargets[nextShape], 3));
-        coreGeometry.setAttribute('aTarget', new THREE.BufferAttribute(coreTargets[nextShape], 3));
+        geometry.setAttribute(
+          'aTarget',
+          new THREE.BufferAttribute(shapeTargets[nextShape], 3)
+        );
+        coreGeometry.setAttribute(
+          'aTarget',
+          new THREE.BufferAttribute(coreTargets[nextShape], 3)
+        );
       }
 
       targetX = mouseX;
@@ -807,7 +864,7 @@ function initHeroCanvas() {
       const baseRotation = 0.002;
       particles.rotation.y += baseRotation;
       core.rotation.y = particles.rotation.y;
-      
+
       particles.rotation.x += (targetY * 2 - particles.rotation.x) * 0.05;
       particles.rotation.y += (targetX * 2 - particles.rotation.y) * 0.05;
       core.rotation.x = particles.rotation.x;
@@ -832,8 +889,15 @@ function initHeroCanvas() {
 
         // Re-enabled wave math for mobile (slightly simplified)
         const freq = isMobile ? 0.8 : 1.0;
-        const wave1 = Math.sin(ox * freq + time) * Math.cos(oy * freq + time) * Math.sin(oz * freq + time);
-        const wave2 = isMobile ? 0 : (Math.sin(ox * freq * 1.5 - time) * Math.cos(oy * freq * 1.5 + time) * 0.5);
+        const wave1 =
+          Math.sin(ox * freq + time) *
+          Math.cos(oy * freq + time) *
+          Math.sin(oz * freq + time);
+        const wave2 = isMobile
+          ? 0
+          : Math.sin(ox * freq * 1.5 - time) *
+            Math.cos(oy * freq * 1.5 + time) *
+            0.5;
         const noise = wave1 + wave2;
         const scale = 1 + noise * currentNoiseScale;
         posAttribute.setXYZ(i, ox * scale, oy * scale, oz * scale);
@@ -859,8 +923,15 @@ function initHeroCanvas() {
 
         // Consistency: Apply same wave logic to core
         const cfreq = isMobile ? 0.8 : 1.0;
-        const cwave1 = Math.sin(cox * cfreq + time) * Math.cos(coy * cfreq + time) * Math.sin(coz * cfreq + time);
-        const cwave2 = isMobile ? 0 : (Math.sin(cox * cfreq * 1.5 - time) * Math.cos(coy * cfreq * 1.5 + time) * 0.5);
+        const cwave1 =
+          Math.sin(cox * cfreq + time) *
+          Math.cos(coy * cfreq + time) *
+          Math.sin(coz * cfreq + time);
+        const cwave2 = isMobile
+          ? 0
+          : Math.sin(cox * cfreq * 1.5 - time) *
+            Math.cos(coy * cfreq * 1.5 + time) *
+            0.5;
         const cnoise = cwave1 + cwave2;
         const cscale = 1 + cnoise * currentNoiseScale;
         corePosAttr.setXYZ(i, cox * cscale, coy * cscale, coz * cscale);
@@ -1252,7 +1323,8 @@ function initPillarTabs() {
     const targetLeft = tab.offsetLeft;
 
     if (currentLeft !== 0 && Math.abs(currentLeft - targetLeft) > 5) {
-      const direction = targetLeft > currentLeft ? 'moving-right' : 'moving-left';
+      const direction =
+        targetLeft > currentLeft ? 'moving-right' : 'moving-left';
 
       if (animationTimeout) clearTimeout(animationTimeout);
       slider.classList.remove('moving-left', 'moving-right', 'pulse');
@@ -1819,8 +1891,11 @@ function initBlueprintCTA() {
 
   function updateEmailLink() {
     const paramsList = Array.from(selectedParams).join(', ');
-    const queryString = selectedParams.size > 0 ? `?params=${encodeURIComponent(paramsList)}` : '';
-    
+    const queryString =
+      selectedParams.size > 0
+        ? `?params=${encodeURIComponent(paramsList)}`
+        : '';
+
     submitBtn.href = `connect.html${queryString}`;
 
     if (logCount)
@@ -1868,12 +1943,31 @@ function initCTAParticles() {
 
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const isMobile = window.innerWidth < 768;
+  let isMobile = window.innerWidth < 768;
   const mouse = { x: null, y: null, radius: isMobile ? 60 : 100 };
+  let lastWidth = window.innerWidth;
+  let animationId;
+  let isVisible = false;
+  let currentStartTime = null;
 
   function resize() {
+    const newWidth = window.innerWidth;
+    const newHeight = canvas.parentElement.offsetHeight;
+
+    // On mobile, height changes frequently due to address bar toggling.
+    // We only re-init if width changes significantly or if it's a desktop resize.
+    if (newWidth === lastWidth && isMobile) {
+      // Just update canvas height if needed without re-initializing particles
+      canvas.height = newHeight;
+      return;
+    }
+
+    lastWidth = newWidth;
+    isMobile = newWidth < 768;
+    mouse.radius = isMobile ? 60 : 100;
+
     canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
+    canvas.height = newHeight;
     init();
   }
 
@@ -1903,7 +1997,7 @@ function initCTAParticles() {
       this.size = 1.0;
       this.color = color;
       this.density = Math.random() * 20 + 1;
-      this.formationStartTime = null;
+      this.formationStartTime = currentStartTime; // Use current shared start time
     }
 
     draw() {
@@ -1915,7 +2009,8 @@ function initCTAParticles() {
     }
 
     update(now) {
-      if (!this.formationStartTime) return;
+      // Fallback if null
+      if (!this.formationStartTime) this.formationStartTime = now;
 
       const elapsed = now - this.formationStartTime;
       const isForming = elapsed > 2000; // 2s drift before forming
@@ -1991,7 +2086,7 @@ function initCTAParticles() {
     );
 
     // Increased density for clearer readability
-    const step = 3; 
+    const step = 3;
     for (let y = 0; y < textData.height; y += step) {
       for (let x = 0; x < textData.width; x += step) {
         if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
@@ -2001,20 +2096,24 @@ function initCTAParticles() {
     }
   }
 
-  let animationId;
-  let isVisible = false;
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
+        const wasVisible = isVisible;
         isVisible = entry.isIntersecting;
+
         if (isVisible) {
-          // Reset formation timer for all particles when it scrolls into view
-          const startTime = Date.now();
-          particles.forEach((p) => (p.formationStartTime = startTime));
-          animate();
+          if (!wasVisible) {
+            // Reset formation timer for all particles when it scrolls into view
+            currentStartTime = Date.now();
+            particles.forEach((p) => (p.formationStartTime = currentStartTime));
+            if (!animationId) animate();
+          }
         } else {
-          cancelAnimationFrame(animationId);
+          if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+          }
         }
       });
     },
@@ -2024,7 +2123,10 @@ function initCTAParticles() {
   observer.observe(canvas.parentElement);
 
   function animate() {
-    if (!isVisible) return;
+    if (!isVisible) {
+      animationId = null;
+      return;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const now = Date.now();
     for (let i = 0; i < particles.length; i++) {
@@ -2055,30 +2157,36 @@ function initSolutionsExpansion() {
       let x = (e.clientX || e.touches?.[0].clientX) - rect.left;
       x = Math.max(0, Math.min(x, rect.width)); // clamp
       const percent = (x / rect.width) * 100;
-      
+
       handle.style.left = `${percent}%`;
       afterState.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
     };
 
-    baContainer.addEventListener('mousedown', () => isDragging = true);
-    baContainer.addEventListener('touchstart', () => { isDragging = true; }, {passive: true});
-    window.addEventListener('mouseup', () => isDragging = false);
-    window.addEventListener('touchend', () => isDragging = false);
+    baContainer.addEventListener('mousedown', () => (isDragging = true));
+    baContainer.addEventListener(
+      'touchstart',
+      () => {
+        isDragging = true;
+      },
+      { passive: true }
+    );
+    window.addEventListener('mouseup', () => (isDragging = false));
+    window.addEventListener('touchend', () => (isDragging = false));
     window.addEventListener('mousemove', moveSlider);
-    window.addEventListener('touchmove', moveSlider, {passive: true});
+    window.addEventListener('touchmove', moveSlider, { passive: true });
   }
 
   // 2. Accordion
   const accordionHeaders = document.querySelectorAll('.accordion-header');
-  accordionHeaders.forEach(header => {
+  accordionHeaders.forEach((header) => {
     header.addEventListener('click', () => {
       const item = header.parentElement;
       const content = item.querySelector('.accordion-content');
-      
+
       const isActive = item.classList.contains('active');
-      
+
       // Close all
-      document.querySelectorAll('.accordion-item').forEach(i => {
+      document.querySelectorAll('.accordion-item').forEach((i) => {
         i.classList.remove('active');
         i.querySelector('.accordion-content').style.maxHeight = '0px';
       });
@@ -2093,18 +2201,21 @@ function initSolutionsExpansion() {
   // 3. Industry Tabs
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabPanes = document.querySelectorAll('.tab-pane');
-  const industrySlider = document.querySelector('.industries-section .nav-highlight');
+  const industrySlider = document.querySelector(
+    '.industries-section .nav-highlight'
+  );
   let industryAnimTimeout = null;
 
   function moveIndustrySlider(tab) {
     if (!industrySlider || !tab) return;
-    
+
     const currentLeft = parseFloat(industrySlider.style.left) || 0;
     const targetLeft = tab.offsetLeft;
 
     if (currentLeft !== 0 && Math.abs(currentLeft - targetLeft) > 5) {
-      const direction = targetLeft > currentLeft ? 'moving-right' : 'moving-left';
-      
+      const direction =
+        targetLeft > currentLeft ? 'moving-right' : 'moving-left';
+
       if (industryAnimTimeout) clearTimeout(industryAnimTimeout);
       industrySlider.classList.remove('moving-left', 'moving-right', 'pulse');
       void industrySlider.offsetWidth;
@@ -2126,14 +2237,14 @@ function initSolutionsExpansion() {
     setTimeout(() => moveIndustrySlider(initialTab), 100);
   }
 
-  tabBtns.forEach(btn => {
+  tabBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       // Deactivate all
-      tabBtns.forEach(b => {
+      tabBtns.forEach((b) => {
         b.classList.remove('active', 'text-white');
         b.classList.add('text-white/50');
       });
-      tabPanes.forEach(p => {
+      tabPanes.forEach((p) => {
         p.classList.remove('active', 'opacity-100');
         p.classList.add('opacity-0', 'pointer-events-none');
         p.style.zIndex = '0';
@@ -2156,61 +2267,72 @@ function initSolutionsExpansion() {
 
   // 4. Strategic Choice Entry Animations (The Slider Section)
   const strategicSection = document.querySelector('.before-after-section');
-  if (strategicSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  if (
+    strategicSection &&
+    typeof gsap !== 'undefined' &&
+    typeof ScrollTrigger !== 'undefined'
+  ) {
     const card = strategicSection.querySelector('.ba-container');
-    const annotations = strategicSection.querySelectorAll('.xl\\:flex.flex-col .relative.pl-4');
-    const mobileNotes = strategicSection.querySelectorAll('.xl\\:hidden .relative.pl-8');
+    const annotations = strategicSection.querySelectorAll(
+      '.xl\\:flex.flex-col .relative.pl-4'
+    );
+    const mobileNotes = strategicSection.querySelectorAll(
+      '.xl\\:hidden .relative.pl-8'
+    );
 
     // Card Entrance
     if (card) {
-      gsap.fromTo(card, 
+      gsap.fromTo(
+        card,
         { scale: 0.95, opacity: 0, y: 40 },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.5, 
-          ease: "expo.out",
+        {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'expo.out',
           scrollTrigger: {
             trigger: card,
-            start: "top 85%",
-          }
+            start: 'top 85%',
+          },
         }
       );
     }
 
     // Desktop Annotations Stagger
     if (annotations.length > 0) {
-      gsap.fromTo(annotations,
+      gsap.fromTo(
+        annotations,
         { x: -30, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1.2,
           stagger: 0.2,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: strategicSection.querySelector('.xl\\:flex'),
-            start: "top 80%",
-          }
+            start: 'top 80%',
+          },
         }
       );
     }
 
     // Mobile Notes Stagger
     if (mobileNotes.length > 0) {
-      gsap.fromTo(mobileNotes,
+      gsap.fromTo(
+        mobileNotes,
         { x: -20, opacity: 0 },
         {
           x: 0,
           opacity: 1,
           duration: 1,
           stagger: 0.15,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: strategicSection.querySelector('.xl\\:hidden'),
-            start: "top 90%",
-          }
+            start: 'top 90%',
+          },
         }
       );
     }
@@ -2218,21 +2340,27 @@ function initSolutionsExpansion() {
 
   // 5. Timeline ScrollTrigger
   const timelineSection = document.querySelector('.timeline-section');
-  if (timelineSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  if (
+    timelineSection &&
+    typeof gsap !== 'undefined' &&
+    typeof ScrollTrigger !== 'undefined'
+  ) {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     const steps = document.querySelectorAll('.timeline-step');
     const progressPath = document.getElementById('timeline-progress-path');
-    const progressLineMobile = document.getElementById('timeline-progress-line-mobile');
+    const progressLineMobile = document.getElementById(
+      'timeline-progress-line-mobile'
+    );
 
     // Desktop: Curved SVG Path Animation
     if (progressPath && window.innerWidth >= 768) {
       const pathLength = progressPath.getTotalLength();
-      
+
       // Initialize path
-      gsap.set(progressPath, { 
-        strokeDasharray: pathLength, 
-        strokeDashoffset: pathLength 
+      gsap.set(progressPath, {
+        strokeDasharray: pathLength,
+        strokeDashoffset: pathLength,
       });
 
       gsap.to(progressPath, {
@@ -2242,8 +2370,8 @@ function initSolutionsExpansion() {
           trigger: '.timeline-wrapper',
           start: 'top 60%',
           end: 'bottom 60%',
-          scrub: true
-        }
+          scrub: true,
+        },
       });
     }
 
@@ -2256,8 +2384,8 @@ function initSolutionsExpansion() {
           trigger: '.timeline-wrapper',
           start: 'top 60%',
           end: 'bottom 60%',
-          scrub: true
-        }
+          scrub: true,
+        },
       });
     }
 
@@ -2275,13 +2403,14 @@ function initSolutionsExpansion() {
           end: 'top 25%',
           toggleActions: 'play reverse play reverse',
           onEnter: () => step.classList.add('active'),
-          onLeaveBack: () => step.classList.remove('active')
-        }
+          onLeaveBack: () => step.classList.remove('active'),
+        },
       });
 
       // Animate the circle (scale and border)
       if (circle) {
-        gsap.fromTo(circle, 
+        gsap.fromTo(
+          circle,
           { scale: 0.8, borderColor: 'rgba(255,255,255,0.2)' },
           {
             scale: 1.2,
@@ -2291,26 +2420,27 @@ function initSolutionsExpansion() {
             scrollTrigger: {
               trigger: step,
               start: 'top 60%',
-              toggleActions: 'play reverse play reverse'
-            }
+              toggleActions: 'play reverse play reverse',
+            },
           }
         );
       }
 
       // Animate the text content (slide in)
       if (content) {
-        gsap.fromTo(content,
+        gsap.fromTo(
+          content,
           { x: isEven ? 40 : -40, opacity: 0 },
           {
             x: 0,
             opacity: 1,
             duration: 1,
-            ease: "power3.out",
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: step,
               start: 'top 75%',
-              toggleActions: 'play reverse play reverse'
-            }
+              toggleActions: 'play reverse play reverse',
+            },
           }
         );
       }
@@ -2321,4 +2451,3 @@ function initSolutionsExpansion() {
 document.addEventListener('DOMContentLoaded', () => {
   initSolutionsExpansion();
 });
-
