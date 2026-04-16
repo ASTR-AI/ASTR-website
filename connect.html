@@ -9,13 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="components.js" defer></script>
+    <script type="module" src="components.js"></script>
     
     <link rel="stylesheet" href="index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,400&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <link
       rel="icon"
-      href="/Pictures/Arrow.png?v=2"
+      href="/Pictures/arrow.png?v=2"
     />
 
     <script>
@@ -44,8 +44,10 @@
     <style>
       .reveal {
         opacity: 0;
+        visibility: hidden;
         transform: translateY(30px);
         transition: none !important;
+        will-change: transform, opacity;
       }
 
       .success-overlay {
@@ -59,7 +61,7 @@
         justify-content: center;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .success-overlay.active {
@@ -169,7 +171,7 @@
         </div>
         <h2 class="text-3xl font-cinzel font-bold mb-4 tracking-widest uppercase">Uplink Established</h2>
         <p class="text-white/30 text-lg italic mb-12 max-w-xs mx-auto">Mission parameters synchronized.</p>
-        <a href="main-site.html" class="liquid-glass-button !py-4 !px-12 uppercase tracking-widest text-[0.65rem] font-bold">Close Channel</a>
+        <a href="index.html" class="liquid-glass-button !py-4 !px-12 uppercase tracking-widest text-[0.65rem] font-bold">Close Channel</a>
       </div>
     </div>
 
@@ -331,23 +333,24 @@
           gsap.to('.reveal', {
             y: 0,
             opacity: 1,
-            duration: 1.2,
-            stagger: 0.15,
-            ease: 'power4.out',
+            autoAlpha: 1,
+            duration: 1,
+            stagger: 0.08,
+            ease: 'power3.out',
             overwrite: true
           });
         } else {
           document.querySelectorAll('.reveal').forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
+            el.style.visibility = 'visible';
           });
         }
       }
 
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(triggerReveals, 100);
-        setTimeout(triggerReveals, 600);
-        setTimeout(triggerReveals, 1200);
+        // Single initial reveal to ensure components are ready
+        setTimeout(triggerReveals, 400);
 
         // --- GSAP High-Fidelity Cursor Follow ---
         const etherealBg = document.getElementById('etherealBg');
