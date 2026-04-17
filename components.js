@@ -93,26 +93,28 @@ class AstrNavbar extends HTMLElement {
 
     let activeLink = null;
     let animationTimeout = null;
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath =
+      window.location.pathname.split('/').pop() || 'index.html';
 
     const moveIndicator = (element) => {
       if (!indicator || !element) {
         if (indicator) indicator.style.opacity = '0';
         return;
       }
-      
+
       const { offsetLeft, offsetWidth } = element;
       const currentLeft = parseFloat(indicator.style.left) || 0;
 
       // Determine movement direction for liquid animation
       if (currentLeft !== 0 && Math.abs(currentLeft - offsetLeft) > 5) {
-        const direction = offsetLeft > currentLeft ? 'moving-right' : 'moving-left';
-        
+        const direction =
+          offsetLeft > currentLeft ? 'moving-right' : 'moving-left';
+
         if (animationTimeout) clearTimeout(animationTimeout);
         indicator.classList.remove('moving-left', 'moving-right', 'pulse');
         void indicator.offsetWidth; // Trigger reflow for animation restart
         indicator.classList.add(direction, 'pulse');
-        
+
         // Remove classes after animation completes (900ms to match new viscous CSS)
         animationTimeout = setTimeout(() => {
           indicator.classList.remove('moving-left', 'moving-right', 'pulse');
@@ -125,7 +127,7 @@ class AstrNavbar extends HTMLElement {
     };
 
     // Highlight Active Link & Event Listeners
-    links.forEach(link => {
+    links.forEach((link) => {
       const href = link.getAttribute('href');
       if (href === currentPath) {
         link.classList.add('text-white');
@@ -141,7 +143,7 @@ class AstrNavbar extends HTMLElement {
         if (window.innerWidth > 768) {
           activeLink = link;
           moveIndicator(link);
-          links.forEach(l => {
+          links.forEach((l) => {
             l.classList.remove('text-white');
             l.classList.add('text-white/70');
           });
@@ -337,9 +339,6 @@ class AstrFooter extends HTMLElement {
   }
 }
 
-
-
-
 // --- TELEMETRY HUD COMPONENT ---
 class AstrTelemetry extends HTMLElement {
   connectedCallback() {
@@ -395,8 +394,14 @@ class AstrTelemetry extends HTMLElement {
     const latVal = this.querySelector('#lat-val');
     const lonVal = this.querySelector('#lon-val');
     const statusText = this.querySelector('#status-text');
-    
-    const statuses = ['Analyzing_Flow', 'Optimizing_Logic', 'Syncing_Nodes', 'ASTR_OS_v1.07', 'Mission_Active'];
+
+    const statuses = [
+      'Analyzing_Flow',
+      'Optimizing_Logic',
+      'Syncing_Nodes',
+      'ASTR_OS_v1.07',
+      'Mission_Active',
+    ];
     let statusIndex = 0;
 
     setInterval(() => {

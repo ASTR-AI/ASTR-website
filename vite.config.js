@@ -14,7 +14,9 @@ export default defineConfig({
           const port = isObject ? address.port : server.config.server.port;
           const protocol = server.config.server.https ? 'https' : 'http';
           setTimeout(() => {
-            console.log(`\n  \x1b[33m➜\x1b[0m  \x1b[1mProduction Site\x1b[0m: \x1b[36m${protocol}://localhost:${port}/index.html\x1b[0m\n`);
+            console.log(
+              `\n  \x1b[33m➜\x1b[0m  \x1b[1mProduction Site\x1b[0m: \x1b[36m${protocol}://localhost:${port}/index.html\x1b[0m\n`
+            );
           }, 100);
         });
       },
