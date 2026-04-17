@@ -26,6 +26,15 @@
     <meta name="twitter:description" content="Intelligence for What Matters. Pioneering next-generation intelligent systems.">
     <meta name="twitter:image" content="https://astrai.in/Pictures/ASTR%20LOGO%20TEXT.png">
 
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" media="print" onload="this.media='all'">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="index.css" />
     <link
       rel="icon"
@@ -90,24 +99,26 @@
         class="problem-section py-section-y-large px-section-x relative"
         id="problem"
       >
+        <!-- Background Grid -->
+        <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
+
         <div class="container max-w-container mx-auto relative z-10">
           <!-- Section Header -->
-          <div class="mb-16 max-[576px]:mb-10 reveal flex flex-col items-center text-center">
-            <span
-              class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
-            >
-              Technical Audit // 2025
-            </span>
-            <h2
-              class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-[24px] text-white text-animate"
-              data-animate-type="word"
-            >
-              Identifying the
-              <span
-                class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
-                >Integration Gap.</span
-              >
+          <div class="mb-24 max-[576px]:mb-16 reveal flex flex-col items-center text-center">
+            <div class="flex items-center gap-4 md:gap-6 mb-6">
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Audit_Journal // 2025</span>
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+            </div>
+            
+            <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
+              Identifying the <br />
+              <span class="italic font-light text-white/90">Integration Gap.</span>
             </h2>
+            
+            <div class="font-caveat text-gold/40 text-[1.4rem] md:text-[1.6rem] -rotate-2 select-none">
+              // Systematic inefficiency detected in legacy foundations
+            </div>
           </div>
 
           <div
@@ -540,27 +551,31 @@
       </section>
 
       <!-- SECTION 3: THREE PILLARS (Interactive Showcase) -->
-      <section class="pillars py-section-y-large px-section-x relative" id="pillars">
+      <section class="pillars py-section-y-large px-section-x relative overflow-hidden" id="pillars">
+        <!-- Blueprint Grid Background -->
+        <div class="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+
         <div class="container max-w-container mx-auto w-full relative z-10">
-          <div class="pillars-header reveal flex flex-col items-center text-center max-w-[680px] mx-auto mb-20">
-            <span
-              class="section-tag inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
-              >Our Verticals</span
-            >
-            <h2
-              class="text-[clamp(1.5rem,3vw,2.5rem)] mb-[24px] font-bold text-white text-animate"
-              data-animate-type="word"
-            >
-              Synergistic
-              <span
-                class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
-                >Pillars.</span
-              >
+          <div class="pillars-header reveal flex flex-col items-center text-center max-w-[850px] mx-auto mb-20">
+            <div class="flex items-center gap-4 md:gap-6 mb-6">
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Structural_Pillars // CORE</span>
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+            </div>
+
+            <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
+              Synergistic <br />
+              <span class="italic font-light text-white/90">Pillars.</span>
             </h2>
-            <p class="reveal-delay-1 text-[#888888] text-[1.1rem]">
+            
+            <p class="reveal-delay-1 text-[#888888] text-[1.1rem] max-w-[600px] mx-auto">
               Each pillar reinforces the others — creating a unified ecosystem
               of intelligent technology.
             </p>
+            
+            <div class="mt-8 font-caveat text-white/20 text-[1.4rem] hidden md:block select-none">
+              // Modern_Astra_X_Ancient_Precision
+            </div>
           </div>
 
           <div
@@ -1064,23 +1079,26 @@
 
       <!-- SECTION 4: RESEARCH & DEVELOPMENT (Technical Journal) -->
       <section class="rd-section py-section-y-large px-section-x relative" id="rd">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 z-0 opacity-[0.01] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
+
         <div class="container max-w-container mx-auto relative z-10">
           <!-- Section Header -->
-          <div class="mb-16 max-[576px]:mb-10 reveal flex flex-col items-center text-center">
-            <span
-              class="inline-flex items-center gap-[8px] text-[0.75rem] font-semibold tracking-[3px] uppercase text-[#E6CD99] mb-[24px] before:content-[''] before:block before:w-[24px] before:h-[1px] before:bg-[#E6CD99]"
-            >
-              Future Horizons // R&D
-            </span>
-            <h2
-              class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-[24px] text-white"
-            >
-              Bridging R&D With
-              <span
-                class="gold-text bg-gradient-to-br from-[#fff2d1] via-[#E6CD99] to-[#cba864] bg-clip-text text-transparent"
-                >Market-Ready Impact.</span
-              >
+          <div class="mb-24 max-[576px]:mb-16 reveal flex flex-col items-center text-center">
+            <div class="flex items-center gap-4 md:gap-6 mb-6">
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Future_Horizons // R&D</span>
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+            </div>
+
+            <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
+              Bridging R&D With <br />
+              <span class="italic font-light text-white/90">Market Impact.</span>
             </h2>
+            
+            <div class="font-caveat text-white/10 text-[1.4rem] md:text-[1.6rem] rotate-1 select-none">
+              // Fundamental research applied to physical agency
+            </div>
           </div>
 
           <div class="flex flex-col gap-32 max-[576px]:gap-24">
@@ -1479,21 +1497,19 @@
           class="container max-w-container mx-auto px-section-x relative z-10 flex flex-col items-center"
         >
           <!-- Section Header -->
-          <div class="text-center mb-16 max-w-[700px] reveal">
-            <span
-              class="font-mono text-[0.75rem] uppercase tracking-[3px] text-[var(--color-gold-DEFAULT)] mb-[16px] block flex items-center justify-center gap-2"
-            >
-              <span
-                class="inline-block w-2 h-2 rounded-full bg-[var(--color-gold-DEFAULT)] animate-pulse"
-              ></span>
-              System Deployment Gateway
-            </span>
-            <h2
-              class="font-lora text-h2 font-medium text-white leading-tight mb-[20px]"
-            >
-              Ready to integrate ASTR AI?
+          <div class="text-center mb-16 max-w-[850px] reveal">
+            <div class="flex items-center justify-center gap-4 md:gap-6 mb-6">
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Strategic_Intent // CONNECT</span>
+              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+            </div>
+
+            <h2 class="text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
+              Ready to Integrate <br />
+              <span class="italic font-light text-white/90">ASTR AI?</span>
             </h2>
-            <p class="text-white/50 text-body font-inter">
+            
+            <p class="text-white/50 text-body font-inter max-w-[600px] mx-auto">
               Configure your technical requirements on the terminal below to
               <span class="text-white">establish a secure connection</span> with
               our engineering team.

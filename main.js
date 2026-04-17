@@ -2,21 +2,95 @@ import './components.js';
 /* ===================================
    ASTR AI — Main JavaScript
    =================================== */
+
+/**
+ * SCENE MANAGER: Prevents WebGL/Animation overload
+ * Pauses rendering when elements are off-screen and lazy-initializes them.
+ */
+const SceneManager = {
+  scenes: new Map(),
+  observer: null,
+
+  init() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const scene = this.scenes.get(entry.target);
+          if (scene) {
+            if (entry.isIntersecting) {
+              if (!scene.initialized) {
+                scene.initialized = true;
+                scene.init();
+              }
+              scene.start();
+            } else {
+              scene.stop();
+            }
+          }
+        });
+      },
+      { threshold: 0.01, rootMargin: '800px' }
+    );
+  },
+
+  register(element, initFn, immediate = false) {
+    if (!element) return;
+    const sceneEntry = {
+      init: initFn,
+      start: () => {}, // Defined by init
+      stop: () => {}, // Defined by init
+      initialized: false,
+      running: false,
+    };
+    this.scenes.set(element, sceneEntry);
+
+    if (immediate) {
+      console.log(
+        `Immediate-initializing scene: ${element.id || element.className}`
+      );
+      sceneEntry.init();
+      sceneEntry.initialized = true;
+      sceneEntry.start();
+    }
+
+    this.observer.observe(element);
+    return sceneEntry;
+  },
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-  // initNavbar is now handled by the <astr-navbar> component in components.js
+  SceneManager.init();
+
+  // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
+  // We set immediate: true for Hero so it initializes before text animations
+  const hCanvas = document.getElementById('heroCanvas');
+  if (hCanvas)
+    SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
+
+  // 2. INITIALIZE NON-BLOCKING UI
   initScrollReveal();
   initTextAnimate();
-  initHeroCanvas();
-  initEcosystemGraph();
   initPillarTabs();
-  initInfraCanvas();
-  initDroneCanvas();
   initAnomalyConsole();
   initBlueprintCTA();
-  initCTAParticles();
   initPremiumAnimations();
   initRDAnimations();
   initPhilosophyAnimations();
+
+  // 3. REGISTER REMAINING SCENES
+  SceneManager.register(
+    document.getElementById('ecosystem-graph'),
+    initEcosystemGraph
+  );
+
+  const iCanvas = document.getElementById('infraCanvas');
+  if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
+
+  const dCanvas = document.getElementById('droneCanvas');
+  if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
+
+  const cCanvas = document.getElementById('cta-particle-canvas');
+  if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
 });
 
 /* --- Philosophy Page Specialized Animations --- */
@@ -203,24 +277,24 @@ function initPremiumAnimations() {
   reveals.forEach((el) => {
     // Determine delay from CSS classes if present
     let delay = 0;
-    if (el.classList.contains('reveal-delay-1')) delay = 0.1;
-    if (el.classList.contains('reveal-delay-2')) delay = 0.2;
-    if (el.classList.contains('reveal-delay-3')) delay = 0.3;
-    if (el.classList.contains('reveal-delay-4')) delay = 0.4;
-    if (el.classList.contains('reveal-delay-5')) delay = 0.5;
+    if (el.classList.contains('reveal-delay-1')) delay = 0.05;
+    if (el.classList.contains('reveal-delay-2')) delay = 0.1;
+    if (el.classList.contains('reveal-delay-3')) delay = 0.15;
+    if (el.classList.contains('reveal-delay-4')) delay = 0.2;
+    if (el.classList.contains('reveal-delay-5')) delay = 0.25;
 
     gsap.fromTo(
       el,
-      { y: 50, opacity: 0 },
+      { y: 30, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 1.2,
+        duration: 0.8,
         delay: delay,
-        ease: 'power3.out',
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 100%',
+          start: 'top 98%',
           toggleActions: 'play none none none',
         },
       }
@@ -235,12 +309,12 @@ function initPremiumAnimations() {
       const children = el.children;
       gsap.fromTo(
         children,
-        { y: 40, opacity: 0 },
+        { y: 20, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.15,
+          duration: 0.7,
+          stagger: 0.08,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
@@ -491,102 +565,237 @@ function initHeroCanvas() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
 
-  // Check if Three.js is loaded
-  if (typeof THREE === 'undefined') {
-    console.error(
-      'Three.js not loaded. Make sure the CDN script is included in index.html.'
-    );
-    return;
-  }
+  if (typeof THREE === 'undefined') return;
 
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     alpha: true,
     antialias: true,
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for mobile performance
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   const container = canvas.parentElement;
   const scene = new THREE.Scene();
-
-  // Camera initialization
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
 
   function updateSize() {
     const w = container.clientWidth;
     const h = container.clientHeight;
-
     renderer.setSize(w, h);
     camera.aspect = w / h;
-
-    // Dynamic positioning for mobile vs desktop
     if (w < 768) {
-      // Mobile: Move camera up and back
-      camera.position.y = 2.2;
-      // Adjust Z distance based on portrait aspect ratio
-      const aspect = w / h;
-      // Closer for narrow/tall devices like iPhone 14/15 Pro Max (430x932)
-      // aspect for 430x932 is ~0.46
-      // Previous Z=32 was too far back. Z=25-28 provides better presence.
-      camera.position.z = aspect < 0.5 ? 26 : aspect < 0.6 ? 25 : 24;
+      camera.position.set(
+        0,
+        2.2,
+        window.innerWidth / window.innerHeight < 0.5 ? 26 : 24
+      );
       camera.lookAt(0, 2.2, 0);
     } else {
-      // Desktop: Perfectly centered
-      camera.position.y = 0;
-      camera.position.z = 9;
+      camera.position.set(0, 0, 9);
       camera.lookAt(0, 0, 0);
     }
-
     camera.updateProjectionMatrix();
   }
-
-  // Initial call
   updateSize();
+  window.addEventListener('resize', updateSize);
 
-  // ---- Logo Pixel Sampling from Image ----
+  // Instant Setup: Define counts and geometry BEFORE image load
+  const isMobile = window.innerWidth < 768;
+  const isNarrow = window.innerWidth < 480;
+  const particleCount = isNarrow ? 5000 : isMobile ? 7000 : 15000;
+  const coreCount = isNarrow ? 400 : isMobile ? 600 : 2000;
+
+  const geometry = new THREE.BufferGeometry();
+  const posArr = new Float32Array(particleCount * 3);
+  const origArr = new Float32Array(particleCount * 3);
+  const targetArr = new Float32Array(particleCount * 3);
+  const colorArr = new Float32Array(particleCount * 3);
+
+  const coreGeometry = new THREE.BufferGeometry();
+  const corePosArr = new Float32Array(coreCount * 3);
+  const coreOrigArr = new Float32Array(coreCount * 3);
+  const coreTargetArr = new Float32Array(coreCount * 3);
+
+  const shapeTargets = {
+    sphere: new Float32Array(particleCount * 3),
+    astra: new Float32Array(particleCount * 3), // Will be filled on load
+    sun: new Float32Array(particleCount * 3),
+    planet: new Float32Array(particleCount * 3),
+  };
+
+  const coreTargets = {
+    sphere: new Float32Array(coreCount * 3),
+    astra: new Float32Array(coreCount * 3),
+    sun: new Float32Array(coreCount * 3),
+    planet: new Float32Array(coreCount * 3),
+  };
+
+  // Pre-calculate immediate shapes (Sphere, Sun, Planet)
+  for (let i = 0; i < particleCount; i++) {
+    const u = Math.random(),
+      v = Math.random();
+    const theta = 2 * Math.PI * u,
+      phi = Math.acos(2 * v - 1);
+
+    // Sphere (Primary starting shape)
+    const r = 3.2;
+    const x = r * Math.sin(phi) * Math.cos(theta);
+    const y = r * Math.sin(phi) * Math.sin(theta);
+    const z = r * Math.cos(phi);
+    shapeTargets.sphere[i * 3] = x;
+    shapeTargets.sphere[i * 3 + 1] = y;
+    shapeTargets.sphere[i * 3 + 2] = z;
+
+    // Sun
+    const rSun =
+      Math.random() > 0.7 ? Math.random() * 6 + 1.5 : Math.random() * 2;
+    shapeTargets.sun[i * 3] = rSun * Math.sin(phi) * Math.cos(theta);
+    shapeTargets.sun[i * 3 + 1] = rSun * Math.sin(phi) * Math.sin(theta);
+    shapeTargets.sun[i * 3 + 2] = rSun * Math.cos(phi);
+
+    // Planet
+    if (Math.random() > 0.4) {
+      const rRing = 3.5 + Math.random() * 3.5;
+      shapeTargets.planet[i * 3] = rRing * Math.cos(theta);
+      shapeTargets.planet[i * 3 + 1] = (Math.random() - 0.5) * 0.4;
+      shapeTargets.planet[i * 3 + 2] = rRing * Math.sin(theta);
+    } else {
+      const rP = 2.5;
+      shapeTargets.planet[i * 3] = rP * Math.sin(phi) * Math.cos(theta);
+      shapeTargets.planet[i * 3 + 1] = rP * Math.sin(phi) * Math.sin(theta);
+      shapeTargets.planet[i * 3 + 2] = rP * Math.cos(phi);
+    }
+
+    // Initialize actual positions to Sphere
+    posArr[i * 3] = x;
+    posArr[i * 3 + 1] = y;
+    posArr[i * 3 + 2] = z;
+    origArr[i * 3] = x;
+    origArr[i * 3 + 1] = y;
+    origArr[i * 3 + 2] = z;
+    targetArr[i * 3] = x;
+    targetArr[i * 3 + 1] = y;
+    targetArr[i * 3 + 2] = z;
+
+    const c = new THREE.Color(0xffd700);
+    const m = Math.random();
+    if (m > 0.6) c.lerp(new THREE.Color(0xff8c00), Math.random());
+    else if (m > 0.3) c.lerp(new THREE.Color(0xffed4a), Math.random());
+    colorArr[i * 3] = c.r;
+    colorArr[i * 3 + 1] = c.g;
+    colorArr[i * 3 + 2] = c.b;
+  }
+
+  // Same for core
+  for (let i = 0; i < coreCount; i++) {
+    const u = Math.random(),
+      v = Math.random();
+    const theta = 2 * Math.PI * u,
+      phi = Math.acos(2 * v - 1);
+    const r = 1.6;
+    const x = r * Math.sin(phi) * Math.cos(theta);
+    const y = r * Math.sin(phi) * Math.sin(theta);
+    const z = r * Math.cos(phi);
+    coreTargets.sphere[i * 3] = x;
+    coreTargets.sphere[i * 3 + 1] = y;
+    coreTargets.sphere[i * 3 + 2] = z;
+    coreTargets.sun[i * 3] = x * 1.5;
+    coreTargets.sun[i * 3 + 1] = y * 1.5;
+    coreTargets.sun[i * 3 + 2] = z * 1.5;
+    coreTargets.planet[i * 3] = x * 1.2;
+    coreTargets.planet[i * 3 + 1] = y * 1.2;
+    coreTargets.planet[i * 3 + 2] = z * 1.2;
+    corePosArr[i * 3] = x;
+    corePosArr[i * 3 + 1] = y;
+    corePosArr[i * 3 + 2] = z;
+    coreOrigArr[i * 3] = x;
+    coreOrigArr[i * 3 + 1] = y;
+    coreOrigArr[i * 3 + 2] = z;
+    coreTargetArr[i * 3] = x;
+    coreTargetArr[i * 3 + 1] = y;
+    coreTargetArr[i * 3 + 2] = z;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(posArr, 3));
+  geometry.setAttribute(
+    'aOriginalPosition',
+    new THREE.BufferAttribute(origArr, 3)
+  );
+  geometry.setAttribute('aTarget', new THREE.BufferAttribute(targetArr, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colorArr, 3));
+
+  const material = new THREE.PointsMaterial({
+    size: isNarrow ? 0.1 : isMobile ? 0.12 : 0.04,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  });
+
+  const particles = new THREE.Points(geometry, material);
+  particles.rotation.x = Math.PI / 8;
+  scene.add(particles);
+
+  coreGeometry.setAttribute(
+    'position',
+    new THREE.BufferAttribute(corePosArr, 3)
+  );
+  coreGeometry.setAttribute(
+    'aOriginalPosition',
+    new THREE.BufferAttribute(coreOrigArr, 3)
+  );
+  coreGeometry.setAttribute(
+    'aTarget',
+    new THREE.BufferAttribute(coreTargetArr, 3)
+  );
+
+  const core = new THREE.Points(
+    coreGeometry,
+    new THREE.PointsMaterial({
+      size: isNarrow ? 0.08 : isMobile ? 0.1 : 0.03,
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    })
+  );
+  scene.add(core);
+
+  // Background Load the Logo
   const logoImg = new Image();
   logoImg.src = '/Pictures/ASTR LOGO TEXT.png';
   logoImg.onload = () => {
     const logoCanvas = document.createElement('canvas');
     const logoCtx = logoCanvas.getContext('2d');
-
-    // Higher resolution sample for the logo
     logoCanvas.width = 1600;
     logoCanvas.height = 1200;
-
     const imgAspect = logoImg.width / logoImg.height;
-    let drawWidth = logoCanvas.width;
-    let drawHeight = logoCanvas.width / imgAspect;
-    if (drawHeight > logoCanvas.height) {
-      drawHeight = logoCanvas.height;
-      drawWidth = logoCanvas.height * imgAspect;
+    let dW = logoCanvas.width,
+      dH = logoCanvas.width / imgAspect;
+    if (dH > logoCanvas.height) {
+      dH = logoCanvas.height;
+      dW = logoCanvas.height * imgAspect;
     }
-
     logoCtx.drawImage(
       logoImg,
-      (logoCanvas.width - drawWidth) / 2,
-      (logoCanvas.height - drawHeight) / 2,
-      drawWidth,
-      drawHeight
+      (logoCanvas.width - dW) / 2,
+      (logoCanvas.height - dH) / 2,
+      dW,
+      dH
     );
-
-    const logoImageData = logoCtx.getImageData(
+    const logoData = logoCtx.getImageData(
       0,
       0,
       logoCanvas.width,
       logoCanvas.height
     );
     const logoPixels = [];
-    const isMobile = window.innerWidth < 768;
-    const isNarrow = window.innerWidth < 480;
-
-    // Decrease divisor on mobile to make it LARGER (more prominent particles)
     const scaleDivisor = isNarrow ? 105 : isMobile ? 130 : 180;
-
-    // Extract non-transparent pixels (the logo)
-    for (let y = 0; y < logoCanvas.height; y += 1) {
-      for (let x = 0; x < logoCanvas.width; x += 1) {
-        if (logoImageData.data[(y * logoCanvas.width + x) * 4 + 3] > 50) {
+    for (let y = 0; y < logoCanvas.height; y++) {
+      for (let x = 0; x < logoCanvas.width; x++) {
+        if (logoData.data[(y * logoCanvas.width + x) * 4 + 3] > 50) {
           logoPixels.push({
             x: (x - logoCanvas.width / 2) / scaleDivisor,
             y: (logoCanvas.height / 2 - y) / scaleDivisor,
@@ -594,355 +803,147 @@ function initHeroCanvas() {
         }
       }
     }
-
-    if (logoPixels.length === 0) logoPixels.push({ x: 0, y: 0 });
-
-    // ---- Particle System Geometry & Materials ----
-    // SIGNIFICANTLY reduced counts for mobile to prevent "squished" or "over-dense" look
-    const particleCount = isNarrow ? 5200 : isMobile ? 7000 : 15000;
-    const geometry = new THREE.BufferGeometry();
-
-    const positions = new Float32Array(particleCount * 3);
-    const originalPositions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-
-    const shapeTargets = {
-      sphere: new Float32Array(particleCount * 3),
-      astra: new Float32Array(particleCount * 3),
-      sun: new Float32Array(particleCount * 3),
-      planet: new Float32Array(particleCount * 3),
-    };
-
-    const colorGold = new THREE.Color(0xffd700);
-    const colorOrange = new THREE.Color(0xff8c00);
-    const colorYellow = new THREE.Color(0xffed4a);
-
+    // Inject Logo Targets
+    const yOff = isNarrow ? 4.2 : isMobile ? 3.5 : 0;
+    const cyOff = isNarrow ? 3.5 : isMobile ? 3.0 : 0;
     for (let i = 0; i < particleCount; i++) {
-      const u = Math.random();
-      const v = Math.random();
-      const theta = 2 * Math.PI * u;
-      const phi = Math.acos(2 * v - 1);
-
-      // 1. Sphere
-      const rSphere = 3.2;
-      shapeTargets.sphere[i * 3] = rSphere * Math.sin(phi) * Math.cos(theta);
-      shapeTargets.sphere[i * 3 + 1] =
-        rSphere * Math.sin(phi) * Math.sin(theta);
-      shapeTargets.sphere[i * 3 + 2] = rSphere * Math.cos(phi);
-
-      // 2. Exact Logo Shape (from Image)
-      const lp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
-      // Shift logo up on mobile to use empty space (balanced)
-      const yOffset = isNarrow ? 4.2 : isMobile ? 3.5 : 0;
-      // Add jitter on mobile so particles are not "crowded" (spread them out)
+      const lp = logoPixels[Math.floor(Math.random() * logoPixels.length)] || {
+        x: 0,
+        y: 0,
+      };
       const jitter = isMobile ? (Math.random() - 0.5) * 0.45 : 0;
-
       shapeTargets.astra[i * 3] = lp.x + jitter;
-      shapeTargets.astra[i * 3 + 1] = lp.y + yOffset + jitter;
+      shapeTargets.astra[i * 3 + 1] = lp.y + yOff + jitter;
       shapeTargets.astra[i * 3 + 2] =
         (Math.random() - 0.5) * (isMobile ? 0.45 : 0.15);
-
-      // 3. Sun
-      const isRay = Math.random() > 0.7;
-      const rSun = isRay ? Math.random() * 6 + 1.5 : Math.random() * 2;
-      shapeTargets.sun[i * 3] = rSun * Math.sin(phi) * Math.cos(theta);
-      shapeTargets.sun[i * 3 + 1] = rSun * Math.sin(phi) * Math.sin(theta);
-      shapeTargets.sun[i * 3 + 2] = rSun * Math.cos(phi);
-
-      // 4. Planet
-      const isRing = Math.random() > 0.4;
-      if (isRing) {
-        const innerRadius = 3.5;
-        const outerRadius = 7.0;
-        const rRing = innerRadius + Math.random() * (outerRadius - innerRadius);
-        shapeTargets.planet[i * 3] = rRing * Math.cos(theta);
-        shapeTargets.planet[i * 3 + 1] = (Math.random() - 0.5) * 0.4;
-        shapeTargets.planet[i * 3 + 2] = rRing * Math.sin(theta);
-      } else {
-        const rPlanet = 2.5;
-        shapeTargets.planet[i * 3] = rPlanet * Math.sin(phi) * Math.cos(theta);
-        shapeTargets.planet[i * 3 + 1] =
-          rPlanet * Math.sin(phi) * Math.sin(theta);
-        shapeTargets.planet[i * 3 + 2] = rPlanet * Math.cos(phi);
-      }
-
-      positions[i * 3] = shapeTargets.sphere[i * 3];
-      positions[i * 3 + 1] = shapeTargets.sphere[i * 3 + 1];
-      positions[i * 3 + 2] = shapeTargets.sphere[i * 3 + 2];
-      originalPositions[i * 3] = shapeTargets.sphere[i * 3];
-      originalPositions[i * 3 + 1] = shapeTargets.sphere[i * 3 + 1];
-      originalPositions[i * 3 + 2] = shapeTargets.sphere[i * 3 + 2];
-
-      const mix = Math.random();
-      let c = colorGold.clone();
-      if (mix > 0.6) c.lerp(colorOrange, Math.random());
-      else if (mix > 0.3) c.lerp(colorYellow, Math.random());
-      colors[i * 3] = c.r;
-      colors[i * 3 + 1] = c.g;
-      colors[i * 3 + 2] = c.b;
     }
-
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute(
-      'aOriginalPosition',
-      new THREE.BufferAttribute(originalPositions, 3)
-    );
-    geometry.setAttribute(
-      'aTarget',
-      new THREE.BufferAttribute(shapeTargets.sphere, 3)
-    );
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const material = new THREE.PointsMaterial({
-      size: isNarrow ? 0.1 : isMobile ? 0.12 : 0.04,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.8,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-
-    const particles = new THREE.Points(geometry, material);
-    particles.rotation.x = Math.PI / 8;
-    scene.add(particles);
-
-    // ---- Inner Core (Bright Central Star) ----
-    const coreCount = isNarrow ? 400 : isMobile ? 600 : 2000;
-    const coreGeometry = new THREE.BufferGeometry();
-    const corePositions = new Float32Array(coreCount * 3);
-    const coreOriginals = new Float32Array(coreCount * 3);
-    const coreTargets = {
-      sphere: new Float32Array(coreCount * 3),
-      astra: new Float32Array(coreCount * 3),
-      sun: new Float32Array(coreCount * 3),
-      planet: new Float32Array(coreCount * 3),
-    };
-
     for (let i = 0; i < coreCount; i++) {
-      const u = Math.random();
-      const v = Math.random();
-      const theta = 2 * Math.PI * u;
-      const phi = Math.acos(2 * v - 1);
-
-      const rCore = 1.6;
-      const cx = rCore * Math.sin(phi) * Math.cos(theta);
-      const cy = rCore * Math.sin(phi) * Math.sin(theta);
-      const cz = rCore * Math.cos(phi);
-
-      coreTargets.sphere[i * 3] = cx;
-      coreTargets.sphere[i * 3 + 1] = cy;
-      coreTargets.sphere[i * 3 + 2] = cz;
-      coreTargets.sun[i * 3] = cx * 1.5;
-      coreTargets.sun[i * 3 + 1] = cy * 1.5;
-      coreTargets.sun[i * 3 + 2] = cz * 1.5;
-      coreTargets.planet[i * 3] = cx * 1.2;
-      coreTargets.planet[i * 3 + 1] = cy * 1.2;
-      coreTargets.planet[i * 3 + 2] = cz * 1.2;
-
-      const clp = logoPixels[Math.floor(Math.random() * logoPixels.length)];
-      const cyOffset = isNarrow ? 3.5 : isMobile ? 3.0 : 0;
+      const clp = logoPixels[Math.floor(Math.random() * logoPixels.length)] || {
+        x: 0,
+        y: 0,
+      };
       const cJitter = isMobile ? (Math.random() - 0.5) * 0.35 : 0;
-
       coreTargets.astra[i * 3] = clp.x + cJitter;
-      coreTargets.astra[i * 3 + 1] = clp.y + cyOffset + cJitter;
+      coreTargets.astra[i * 3 + 1] = clp.y + cyOff + cJitter;
       coreTargets.astra[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
+    }
+    console.log('Logo Loaded & Injected into Particle Targets.');
+  };
 
-      corePositions[i * 3] = cx;
-      corePositions[i * 3 + 1] = cy;
-      corePositions[i * 3 + 2] = cz;
-      coreOriginals[i * 3] = cx;
-      coreOriginals[i * 3 + 1] = cy;
-      coreOriginals[i * 3 + 2] = cz;
+  // Interaction
+  let targetX = 0,
+    targetY = 0,
+    mouseX = 0,
+    mouseY = 0;
+  container.addEventListener('mousemove', (e) => {
+    const r = container.getBoundingClientRect();
+    mouseX = (e.clientX - r.left - r.width / 2) * 0.0005;
+    mouseY = (e.clientY - r.top - r.height / 2) * 0.0005;
+  });
+
+  const clock = new THREE.Clock();
+  const shapeKeys = ['sphere', 'astra', 'sun', 'planet'];
+  let currentShapeIndex = 0,
+    morphTimer = 0;
+  const MORPH_INTERVAL = 8.0,
+    LERP_SPEED = 0.04;
+  let currentNoiseScale = 0.35;
+
+  const sceneEntry = SceneManager.scenes.get(container);
+
+  function animate() {
+    if (sceneEntry && !sceneEntry.running) return;
+    requestAnimationFrame(animate);
+    const delta = clock.getDelta(),
+      time = clock.getElapsedTime() * 0.3;
+    const activeShape = shapeKeys[currentShapeIndex];
+    const targetNoise = activeShape === 'astra' ? 0.04 : 0.35;
+    currentNoiseScale += (targetNoise - currentNoiseScale) * LERP_SPEED * 2.0;
+
+    morphTimer += delta;
+    if (morphTimer > MORPH_INTERVAL) {
+      morphTimer = 0;
+      currentShapeIndex = (currentShapeIndex + 1) % shapeKeys.length;
+      const next = shapeKeys[currentShapeIndex];
+      geometry.setAttribute(
+        'aTarget',
+        new THREE.BufferAttribute(shapeTargets[next], 3)
+      );
+      coreGeometry.setAttribute(
+        'aTarget',
+        new THREE.BufferAttribute(coreTargets[next], 3)
+      );
     }
 
-    coreGeometry.setAttribute(
-      'position',
-      new THREE.BufferAttribute(corePositions, 3)
-    );
-    coreGeometry.setAttribute(
-      'aOriginalPosition',
-      new THREE.BufferAttribute(coreOriginals, 3)
-    );
-    coreGeometry.setAttribute(
-      'aTarget',
-      new THREE.BufferAttribute(coreTargets.sphere, 3)
-    );
+    particles.rotation.y += 0.002;
+    particles.rotation.x += (mouseY * 2 - particles.rotation.x) * 0.05;
+    particles.rotation.y += (mouseX * 2 - particles.rotation.y) * 0.05;
+    core.rotation.copy(particles.rotation);
 
-    const coreMaterial = new THREE.PointsMaterial({
-      size: isNarrow ? 0.08 : isMobile ? 0.1 : 0.03,
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-
-    const core = new THREE.Points(coreGeometry, coreMaterial);
-    scene.add(core);
-
-    // Mouse & Touch interaction
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
-
-    function updateInput(x, y) {
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      mouseX = (x - w / 2) * 0.0005;
-      mouseY = (y - h / 2) * 0.0005;
-    }
-
-    container.addEventListener('mousemove', (event) => {
-      const rect = container.getBoundingClientRect();
-      updateInput(event.clientX - rect.left, event.clientY - rect.top);
-    });
-
-    container.addEventListener('mouseleave', () => {
-      mouseX = 0;
-      mouseY = 0;
-    });
-
-    document.addEventListener(
-      'touchmove',
-      (event) => {
-        if (event.touches.length > 0) {
-          const rect = container.getBoundingClientRect();
-          // Check if touch is within hero container
-          const touch = event.touches[0];
-          if (
-            touch.clientX >= rect.left &&
-            touch.clientX <= rect.right &&
-            touch.clientY >= rect.top &&
-            touch.clientY <= rect.bottom
-          ) {
-            updateInput(touch.clientX - rect.left, touch.clientY - rect.top);
-          }
-        }
-      },
-      { passive: true }
-    );
-
-    window.addEventListener('resize', updateSize);
-
-    // ---- Animation State Machine ----
-    const clock = new THREE.Clock();
-    const shapeKeys = ['sphere', 'astra', 'sun', 'planet'];
-    let currentShapeIndex = 0;
-    let morphTimer = 0;
-    const MORPH_INTERVAL = 8.0;
-    const LERP_SPEED = 0.04;
-    let currentNoiseScale = 0.35;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      const delta = clock.getDelta();
-      const time = clock.getElapsedTime() * 0.3;
-
-      const activeShape = shapeKeys[currentShapeIndex];
-      const targetNoise = activeShape === 'astra' ? 0.04 : 0.35;
-      currentNoiseScale += (targetNoise - currentNoiseScale) * LERP_SPEED * 2.0;
-
-      morphTimer += delta;
-      if (morphTimer > MORPH_INTERVAL) {
-        morphTimer = 0;
-        currentShapeIndex = (currentShapeIndex + 1) % shapeKeys.length;
-        const nextShape = shapeKeys[currentShapeIndex];
-        geometry.setAttribute(
-          'aTarget',
-          new THREE.BufferAttribute(shapeTargets[nextShape], 3)
-        );
-        coreGeometry.setAttribute(
-          'aTarget',
-          new THREE.BufferAttribute(coreTargets[nextShape], 3)
-        );
-      }
-
-      targetX = mouseX;
-      targetY = mouseY;
-
-      const baseRotation = 0.002;
-      particles.rotation.y += baseRotation;
-      core.rotation.y = particles.rotation.y;
-
-      particles.rotation.x += (targetY * 2 - particles.rotation.x) * 0.05;
-      particles.rotation.y += (targetX * 2 - particles.rotation.y) * 0.05;
-      core.rotation.x = particles.rotation.x;
-      core.rotation.y = particles.rotation.y;
-
-      const posAttribute = geometry.attributes.position;
-      const origAttribute = geometry.attributes.aOriginalPosition;
-      const targetAttribute = geometry.attributes.aTarget;
-
-      for (let i = 0; i < particleCount; i++) {
-        let ox = origAttribute.getX(i);
-        let oy = origAttribute.getY(i);
-        let oz = origAttribute.getZ(i);
-        const tx = targetAttribute.getX(i);
-        const ty = targetAttribute.getY(i);
-        const tz = targetAttribute.getZ(i);
-
-        ox += (tx - ox) * LERP_SPEED;
-        oy += (ty - oy) * LERP_SPEED;
-        oz += (tz - oz) * LERP_SPEED;
-        origAttribute.setXYZ(i, ox, oy, oz);
-
-        // Re-enabled wave math for mobile (slightly simplified)
-        const freq = isMobile ? 0.8 : 1.0;
-        const wave1 =
-          Math.sin(ox * freq + time) *
+    const pos = geometry.attributes.position,
+      orig = geometry.attributes.aOriginalPosition,
+      target = geometry.attributes.aTarget;
+    for (let i = 0; i < particleCount; i++) {
+      let ox = orig.getX(i),
+        oy = orig.getY(i),
+        oz = orig.getZ(i);
+      ox += (target.getX(i) - ox) * LERP_SPEED;
+      oy += (target.getY(i) - oy) * LERP_SPEED;
+      oz += (target.getZ(i) - oz) * LERP_SPEED;
+      orig.setXYZ(i, ox, oy, oz);
+      const freq = isMobile ? 0.8 : 1.0;
+      const noise =
+        Math.sin(ox * freq + time) *
           Math.cos(oy * freq + time) *
-          Math.sin(oz * freq + time);
-        const wave2 = isMobile
+          Math.sin(oz * freq + time) +
+        (isMobile
           ? 0
           : Math.sin(ox * freq * 1.5 - time) *
             Math.cos(oy * freq * 1.5 + time) *
-            0.5;
-        const noise = wave1 + wave2;
-        const scale = 1 + noise * currentNoiseScale;
-        posAttribute.setXYZ(i, ox * scale, oy * scale, oz * scale);
-      }
-      origAttribute.needsUpdate = true;
-      posAttribute.needsUpdate = true;
-
-      const corePosAttr = coreGeometry.attributes.position;
-      const coreOrigAttr = coreGeometry.attributes.aOriginalPosition;
-      const coreTargetAttr = coreGeometry.attributes.aTarget;
-      for (let i = 0; i < coreCount; i++) {
-        let cox = coreOrigAttr.getX(i);
-        let coy = coreOrigAttr.getY(i);
-        let coz = coreOrigAttr.getZ(i);
-        const ctx = coreTargetAttr.getX(i);
-        const cty = coreTargetAttr.getY(i);
-        const ctz = coreTargetAttr.getZ(i);
-
-        cox += (ctx - cox) * LERP_SPEED;
-        coy += (cty - coy) * LERP_SPEED;
-        coz += (ctz - coz) * LERP_SPEED;
-        coreOrigAttr.setXYZ(i, cox, coy, coz);
-
-        // Consistency: Apply same wave logic to core
-        const cfreq = isMobile ? 0.8 : 1.0;
-        const cwave1 =
-          Math.sin(cox * cfreq + time) *
-          Math.cos(coy * cfreq + time) *
-          Math.sin(coz * cfreq + time);
-        const cwave2 = isMobile
-          ? 0
-          : Math.sin(cox * cfreq * 1.5 - time) *
-            Math.cos(coy * cfreq * 1.5 + time) *
-            0.5;
-        const cnoise = cwave1 + cwave2;
-        const cscale = 1 + cnoise * currentNoiseScale;
-        corePosAttr.setXYZ(i, cox * cscale, coy * cscale, coz * cscale);
-      }
-      coreOrigAttr.needsUpdate = true;
-      corePosAttr.needsUpdate = true;
-
-      renderer.render(scene, camera);
+            0.5);
+      const s = 1 + noise * currentNoiseScale;
+      pos.setXYZ(i, ox * s, oy * s, oz * s);
     }
+    orig.needsUpdate = true;
+    pos.needsUpdate = true;
+
+    const cp = coreGeometry.attributes.position,
+      co = coreGeometry.attributes.aOriginalPosition,
+      ct = coreGeometry.attributes.aTarget;
+    for (let i = 0; i < coreCount; i++) {
+      let cox = co.getX(i),
+        coy = co.getY(i),
+        coz = co.getZ(i);
+      cox += (ct.getX(i) - cox) * LERP_SPEED;
+      coy += (ct.getY(i) - coy) * LERP_SPEED;
+      coz += (ct.getZ(i) - coz) * LERP_SPEED;
+      co.setXYZ(i, cox, coy, coz);
+      const cs =
+        1 +
+        Math.sin(cox * 0.8 + time) *
+          Math.cos(coy * 0.8 + time) *
+          Math.sin(coz * 0.8 + time) *
+          currentNoiseScale;
+      cp.setXYZ(i, cox * cs, coy * cs, coz * cs);
+    }
+    co.needsUpdate = true;
+    cp.needsUpdate = true;
+    renderer.render(scene, camera);
+  }
+
+  if (sceneEntry) {
+    sceneEntry.start = () => {
+      if (!sceneEntry.running) {
+        sceneEntry.running = true;
+        animate();
+      }
+    };
+    sceneEntry.stop = () => {
+      sceneEntry.running = false;
+    };
+  } else {
     animate();
-  };
+  }
 }
 
 /* --- Intelligence Ecosystem: Physics-Based Knowledge Graph --- */
@@ -1265,6 +1266,9 @@ class EcosystemGraph {
   }
 
   animate() {
+    const sceneEntry = SceneManager.scenes.get(this.container);
+    if (sceneEntry && !sceneEntry.running) return;
+
     this.updatePhysics();
     requestAnimationFrame(() => this.animate());
   }
@@ -1272,6 +1276,20 @@ class EcosystemGraph {
 
 function initEcosystemGraph() {
   const graph = new EcosystemGraph('ecosystem-graph');
+  const sceneEntry = SceneManager.scenes.get(graph.container);
+
+  if (sceneEntry) {
+    sceneEntry.start = () => {
+      if (!sceneEntry.running) {
+        sceneEntry.running = true;
+        graph.animate();
+      }
+    };
+    sceneEntry.stop = () => {
+      sceneEntry.running = false;
+    };
+  }
+
   const textBlocks = document.querySelectorAll('.adaptive-text-block');
 
   if (!graph.container || textBlocks.length === 0) return;
@@ -1493,8 +1511,10 @@ function initInfraCanvas() {
   window.addEventListener('pillarTabChanged', resize);
 
   const clock = new THREE.Clock();
+  const sceneEntry = SceneManager.scenes.get(container);
 
   function animate() {
+    if (sceneEntry && !sceneEntry.running) return;
     requestAnimationFrame(animate);
     const time = clock.getElapsedTime();
 
@@ -1525,7 +1545,19 @@ function initInfraCanvas() {
     renderer.render(scene, camera);
   }
 
-  animate();
+  if (sceneEntry) {
+    sceneEntry.start = () => {
+      if (!sceneEntry.running) {
+        sceneEntry.running = true;
+        animate();
+      }
+    };
+    sceneEntry.stop = () => {
+      sceneEntry.running = false;
+    };
+  } else {
+    animate();
+  }
 }
 
 /* --- Drone Solutions: Professional Industrial 3D Drone --- */
@@ -1827,8 +1859,10 @@ function initDroneCanvas() {
   resize();
 
   const clock = new THREE.Clock();
+  const sceneEntry = SceneManager.scenes.get(container);
 
   function animate() {
+    if (sceneEntry && !sceneEntry.running) return;
     requestAnimationFrame(animate);
     const time = clock.getElapsedTime();
 
@@ -1872,7 +1906,19 @@ function initDroneCanvas() {
     renderer.render(scene, camera);
   }
 
-  animate();
+  if (sceneEntry) {
+    sceneEntry.start = () => {
+      if (!sceneEntry.running) {
+        sceneEntry.running = true;
+        animate();
+      }
+    };
+    sceneEntry.stop = () => {
+      sceneEntry.running = false;
+    };
+  } else {
+    animate();
+  }
 }
 
 /* ==========================================================================
@@ -1947,27 +1993,26 @@ function initCTAParticles() {
   const mouse = { x: null, y: null, radius: isMobile ? 60 : 100 };
   let lastWidth = window.innerWidth;
   let animationId;
-  let isVisible = false;
   let currentStartTime = null;
 
   function resize() {
-    const newWidth = window.innerWidth;
-    const newHeight = canvas.parentElement.offsetHeight;
+    const dpr = window.devicePixelRatio || 1;
+    // Use clientWidth/Height for stable integer dimensions
+    const newWidth = Math.floor(canvas.parentElement.clientWidth);
+    const newHeight = Math.floor(canvas.parentElement.clientHeight);
 
-    // On mobile, height changes frequently due to address bar toggling.
-    // We only re-init if width changes significantly or if it's a desktop resize.
-    if (newWidth === lastWidth && isMobile) {
-      // Just update canvas height if needed without re-initializing particles
-      canvas.height = newHeight;
-      return;
-    }
+    if (newWidth === lastWidth && isMobile) return;
 
     lastWidth = newWidth;
     isMobile = newWidth < 768;
     mouse.radius = isMobile ? 60 : 100;
 
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = newHeight;
+    canvas.width = newWidth * dpr;
+    canvas.height = newHeight * dpr;
+    canvas.style.width = `${newWidth}px`;
+    canvas.style.height = `${newHeight}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
     init();
   }
 
@@ -1984,72 +2029,71 @@ function initCTAParticles() {
 
   class Particle {
     constructor(x, y, color) {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
+      const dpr = window.devicePixelRatio || 1;
+      // Start particles scattered
+      this.x = Math.random() * (canvas.width / dpr);
+      this.y = Math.random() * (canvas.height / dpr);
       this.baseX = x;
       this.baseY = y;
 
-      // Cosmic Orbit Properties
       this.angle = Math.random() * Math.PI * 2;
       this.velocity = Math.random() * 0.02 + 0.01;
-      this.radius = Math.random() * 100 + 50;
+      this.radius = Math.random() * 50 + 20;
 
-      this.size = 1.0;
+      this.size = isMobile ? 0.8 : 1.2;
       this.color = color;
-      this.density = Math.random() * 20 + 1;
-      this.formationStartTime = currentStartTime; // Use current shared start time
+      this.density = Math.random() * 30 + 1;
+      this.opacity = 0; // Start invisible
+      this.formationStartTime = currentStartTime;
     }
 
     draw() {
-      ctx.fillStyle = this.color;
+      if (this.opacity <= 0) return;
+      ctx.fillStyle = `rgba(230, 205, 153, ${this.opacity})`;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.closePath();
       ctx.fill();
     }
 
     update(now) {
-      // Fallback if null
       if (!this.formationStartTime) this.formationStartTime = now;
-
       const elapsed = now - this.formationStartTime;
-      const isForming = elapsed > 2000; // 2s drift before forming
+
+      // Fade in over 2 seconds
+      if (this.opacity < 1) {
+        this.opacity += 0.01;
+      }
+
+      const formationDelay = isMobile ? 500 : 800;
+      const isForming = elapsed > formationDelay;
 
       let isNearMouse = false;
       if (mouse.x !== null && mouse.y !== null) {
         let dxMouse = mouse.x - this.x;
         let dyMouse = mouse.y - this.y;
-        let distMouse =
-          Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse) + 0.0001;
+        let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
 
         if (distMouse < mouse.radius) {
           isNearMouse = true;
           const force = (mouse.radius - distMouse) / mouse.radius;
-          const dirX = (dxMouse / distMouse) * force * this.density;
-          const dirY = (dyMouse / distMouse) * force * this.density;
-          this.x -= dirX;
-          this.y -= dirY;
+          this.x -= (dxMouse / distMouse) * force * this.density;
+          this.y -= (dyMouse / distMouse) * force * this.density;
         }
       }
 
       if (!isNearMouse) {
         if (isForming) {
-          // High-fidelity Lerp to target
-          const dxTarget = this.baseX - this.x;
-          const dyTarget = this.baseY - this.y;
-
-          // Use a spring-like attraction
-          this.x += dxTarget * 0.05;
-          this.y += dyTarget * 0.05;
+          // Snap to text position (the "sand forming" effect)
+          this.x += (this.baseX - this.x) * 0.07;
+          this.y += (this.baseY - this.y) * 0.07;
         } else {
-          // Cinematic Cosmic Vortex
+          // Swirl around randomly before forming
           this.angle += this.velocity;
-          const centerX = canvas.width / 2;
-          const centerY = canvas.height / 2;
-
+          const dpr = window.devicePixelRatio || 1;
+          const centerX = canvas.width / dpr / 2;
+          const centerY = canvas.height / dpr / 2;
           const targetX = centerX + Math.cos(this.angle) * this.radius;
           const targetY = centerY + Math.sin(this.angle) * this.radius;
-
           this.x += (targetX - this.x) * 0.02;
           this.y += (targetY - this.y) * 0.02;
         }
@@ -2060,89 +2104,79 @@ function initCTAParticles() {
   function init() {
     particles = [];
     const goldColor = '#e6cd99';
+    const dpr = window.devicePixelRatio || 1;
+    const w = Math.floor(canvas.width / dpr);
+    const h = Math.floor(canvas.height / dpr);
 
     const tempCanvas = document.createElement('canvas');
     const tempCtx = tempCanvas.getContext('2d');
-    tempCanvas.width = canvas.width;
-    tempCanvas.height = canvas.height;
+    tempCanvas.width = w;
+    tempCanvas.height = h;
 
-    const fontSize = Math.min(canvas.width / 12, 40);
+    const fontSize = isMobile ? Math.max(w / 12, 22) : Math.min(w / 14, 40);
     tempCtx.fillStyle = 'white';
-    tempCtx.font = `bold ${fontSize}px Cinzel`;
+    tempCtx.font = `bold ${fontSize}px Cinzel, "Cinzel Fallback", serif`;
     tempCtx.textAlign = 'center';
     tempCtx.textBaseline = 'middle';
+    tempCtx.fillText('INNOVATE WITH US!', w / 2, h / 2);
 
-    tempCtx.fillText(
-      'INNOVATE WITH US!',
-      tempCanvas.width / 2,
-      tempCanvas.height / 2
-    );
+    const textData = tempCtx.getImageData(0, 0, w, h);
+    const step = isMobile ? 3 : 4;
 
-    const textData = tempCtx.getImageData(
-      0,
-      0,
-      tempCanvas.width,
-      tempCanvas.height
-    );
-
-    // Increased density for clearer readability
-    const step = 3;
     for (let y = 0; y < textData.height; y += step) {
       for (let x = 0; x < textData.width; x += step) {
-        if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
+        if (textData.data[(y * textData.width + x) * 4 + 3] > 128) {
           particles.push(new Particle(x, y, goldColor));
         }
       }
     }
   }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const wasVisible = isVisible;
-        isVisible = entry.isIntersecting;
-
-        if (isVisible) {
-          if (!wasVisible) {
-            // Reset formation timer for all particles when it scrolls into view
-            currentStartTime = Date.now();
-            particles.forEach((p) => (p.formationStartTime = currentStartTime));
-            if (!animationId) animate();
-          }
-        } else {
-          if (animationId) {
-            cancelAnimationFrame(animationId);
-            animationId = null;
-          }
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(canvas.parentElement);
+  const sceneEntry = SceneManager.scenes.get(canvas.parentElement);
 
   function animate() {
-    if (!isVisible) {
+    if (sceneEntry && !sceneEntry.running) {
       animationId = null;
       return;
     }
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const dpr = window.devicePixelRatio || 1;
+    ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+
     const now = Date.now();
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].draw();
+    for (let i = 0, len = particles.length; i < len; i++) {
       particles[i].update(now);
+      particles[i].draw();
     }
     animationId = requestAnimationFrame(animate);
+  }
+
+  if (sceneEntry) {
+    sceneEntry.start = () => {
+      if (!sceneEntry.running) {
+        sceneEntry.running = true;
+        currentStartTime = Date.now();
+        particles.forEach((p) => {
+          p.formationStartTime = currentStartTime;
+          p.opacity = 0; // Reset opacity for fade-in effect
+        });
+        if (!animationId) animate();
+      }
+    };
+    sceneEntry.stop = () => {
+      sceneEntry.running = false;
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    };
   }
 
   window.addEventListener('resize', resize);
   resize();
 }
-
 /* ==========================================================================
    SOLUTIONS PAGE EXPANSION LOGIC
    ========================================================================== */
+
 function initSolutionsExpansion() {
   // 1. Before & After Slider
   const baContainer = document.querySelector('.ba-container');
