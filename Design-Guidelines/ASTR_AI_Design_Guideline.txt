@@ -1,0 +1,62 @@
+ASTR AI DESIGN GUIDELINE
+
+1. DESIGN PHILOSOPHY: "ANCIENT PRECISION MEETS FUTURE LOGIC"
+The ASTR AI brand identity bridges the gap between classical engineering and futuristic deep-tech. The UI should feel like a Technical Audit Journal or a Holographic Command Interface, combining organic serif typography with rigid, monospaced technical metadata.
+
+2. COLOR PALETTE
+
+PRIMARY NEUTRALS (THE VOID)
+- Main Background: #050505
+- Rich Black: #1a1a1a
+- Card Background: #181818
+
+BRAND ACCENTS (THE ASTRA GOLD)
+- Primary Gold: #E6CD99
+- Dim Gold: #cba864
+- Bright Gold: #fff2d1
+- Gold Glow: rgba(230, 205, 153, 0.35)
+- Gold BG: rgba(230, 205, 153, 0.06)
+
+SECONDARY ACCENTS
+- Muted White: #D1D5DB
+- System Green: rgba(76, 175, 80, 0.4)
+- System Red: #EF4444
+
+3. TYPOGRAPHY
+
+HEADING STYLES
+- Primary Display: Cinzel (Serif)
+- Technical Headers: Space Grotesk (Sans-Serif)
+
+BODY & CONTENT
+- Main Body: Lora (Serif)
+- Metadata / Labels: JetBrains Mono (Monospace)
+- Style: Uppercase, tracking [2px - 6px]
+
+ANNOTATIONS
+- Handwritten Accents: Caveat (Cursive)
+- Style: -rotate-2 to -rotate-6, opacity-40 to opacity-60
+
+4. UI COMPONENTS & LAYOUT
+
+GLASSMORPHISM (LIQUID GLASS)
+- Style: backdrop-blur-[24px], bg-white/5, border-white/10
+- Interaction: On hover, borders shift toward Gold and backgrounds brighten
+
+TECHNICAL ELEMENTS
+- Blueprint Grids: 1px patterns at 3% opacity
+- Metadata Bars: Headers with Reference IDs and Status indicators
+
+BUTTONS
+- Shape: Full pill (rounded-full)
+- Animation: Light-streak skew on hover
+
+5. VISUAL LANGUAGE & IMAGERY
+- Audit Style: 21:9 aspect ratio images
+- Overlays: 2% grain, 10% scanlines, and ethereal gold glows
+
+6. MOTION & INTERACTION
+- Reveals: Staggered GSAP translateY(40px)
+- Viscous Highlights: "Liquid Droplet" transitions for navigation
+- Ambient: Drifting stars and nebula orbs (20s-100s)
+- Micro-interactions: Subtle -translate-y-1 and shadow expansion
