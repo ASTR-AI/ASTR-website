@@ -43,7 +43,7 @@
   </head>
 
   <body
-    class="bg-[#050505] text-white font-lora text-body leading-relaxed overflow-x-hidden"
+    class="bg-theme-bg text-theme-text-primary font-lora text-body leading-relaxed overflow-x-hidden"
   >
     <!-- Global Ethereal Background -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -63,20 +63,20 @@
         id="hero"
       >
         <div
-          class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-200px)] min-h-[550px] rounded-[64px] bg-gradient-to-br from-white/3 to-white/1 border border-white/10 shadow-[0_24px_40px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-1px_1px_rgba(255,255,255,0.1)] backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-160px)] max-[992px]:rounded-[24px] max-[576px]:h-[65vh] max-[576px]:max-h-[550px] max-[576px]:min-h-[420px] max-[576px]:rounded-[32px] max-[576px]:max-w-[calc(100vw-32px)]"
+          class="hero-glass reveal relative w-full max-w-[1400px] h-[calc(100vh-200px)] min-h-[550px] rounded-[64px] border border-theme-border backdrop-blur-[24px] overflow-hidden max-[992px]:h-[calc(100vh-160px)] max-[992px]:rounded-[24px] max-[576px]:h-[65vh] max-[576px]:max-h-[550px] max-[576px]:min-h-[420px] max-[576px]:rounded-[32px] max-[576px]:max-w-[calc(100vw-32px)]"
         >
           <div class="hero-bg absolute inset-0 z-0">
             <canvas id="heroCanvas" class="w-full h-full block"></canvas>
           </div>
 
           <div
-            class="hero-corner top-left reveal reveal-delay-1 absolute z-10 text-white/80 uppercase tracking-[2px] leading-[1.4] text-[1.5rem] top-[48px] left-[48px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] max-[992px]:top-[32px] max-[992px]:left-[32px] max-[992px]:text-[1.25rem] max-[576px]:top-[24px] max-[576px]:left-[24px] max-[576px]:text-[1rem]"
+            class="hero-corner top-left reveal reveal-delay-1 absolute z-10 text-theme-text-secondary uppercase tracking-[2px] leading-[1.4] text-[1.5rem] top-[48px] left-[48px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] max-[992px]:top-[32px] max-[992px]:left-[32px] max-[992px]:text-[1.25rem] max-[576px]:top-[24px] max-[576px]:left-[24px] max-[576px]:text-[1rem]"
           >
             Intelligence for<br />What Matters
           </div>
 
           <div
-            class="hero-corner bottom-left reveal reveal-delay-2 absolute z-10 text-white/70 tracking-[0.5px] text-[0.95rem] bottom-[48px] left-[48px] max-[992px]:bottom-[32px] max-[992px]:left-[32px] max-[992px]:text-[0.85rem] max-[576px]:bottom-[20px] max-[576px]:left-[20px] max-[576px]:text-[0.65rem] max-[576px]:max-w-[140px]"
+            class="hero-corner bottom-left reveal reveal-delay-2 absolute z-10 text-theme-text-secondary tracking-[0.5px] text-[0.95rem] bottom-[48px] left-[48px] max-[992px]:bottom-[32px] max-[992px]:left-[32px] max-[992px]:text-[0.85rem] max-[576px]:bottom-[20px] max-[576px]:left-[20px] max-[576px]:text-[0.65rem] max-[576px]:max-w-[140px]"
           >
             Est. 2025 | Startup India Recognized
           </div>
@@ -86,7 +86,7 @@
           >
             <a
               href="#pillars"
-              class="hero-explore inline-flex items-center gap-[8px] text-[1.05rem] text-white/80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-all duration-200 hover:text-white hover:translate-x-[4px] max-[576px]:text-[0.7rem]"
+              class="hero-explore inline-flex items-center gap-[8px] text-[1.05rem] text-theme-text-secondary drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-all duration-200 hover:text-theme-text-primary hover:translate-x-[4px] max-[576px]:text-[0.7rem]"
             >
               Explore &rarr;
             </a>
@@ -106,17 +106,17 @@
           <!-- Section Header -->
           <div class="mb-24 max-[576px]:mb-16 reveal flex flex-col items-center text-center">
             <div class="flex items-center gap-4 md:gap-6 mb-6">
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
-              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Audit_Journal // 2025</span>
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-theme-accent tracking-[4px] md:tracking-[6px] uppercase font-bold">Audit_Journal // 2025</span>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
             </div>
             
             <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
               Identifying the <br />
-              <span class="italic font-light text-white/90">Integration Gap.</span>
+              <span class="italic font-light text-theme-text-primary">Integration Gap.</span>
             </h2>
             
-            <div class="font-caveat text-gold/40 text-[1.4rem] md:text-[1.6rem] -rotate-2 select-none">
+            <div class="font-caveat text-theme-accent opacity-40 text-[1.4rem] md:text-[1.6rem] -rotate-2 select-none">
               // Systematic inefficiency detected in legacy foundations
             </div>
           </div>
@@ -131,7 +131,7 @@
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
-                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-theme-card opacity-100 rounded-[8px] overflow-hidden border border-theme-border relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
               >
                 <div
                   class="absolute inset-0 flex items-center justify-center opacity-90"
@@ -226,16 +226,16 @@
               <!-- Right Side: Content Column -->
               <div class="flex-1 w-full flex flex-col justify-between">
                 <div>
-                  <hr class="border-t border-white/10 mb-[16px]" />
+                  <hr class="border-t border-theme-border mb-[16px]" />
 
                   <!-- Header Row -->
                   <div class="flex justify-between items-center">
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Category: Intelligence</span
                     >
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Audit // 2025</span
                     >
                   </div>
@@ -247,13 +247,13 @@
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-theme-text-primary m-0"
                     >
                       Intelligence without physical agency.
                     </h3>
                   </div>
                   <div class="desc-col flex items-end max-[768px]:items-start">
-                    <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
+                    <p class="text-theme-text-secondary text-[0.95rem] leading-[1.6] m-0">
                       AI systems remain trapped in data centers, disconnected
                       from the physical environments where insights are needed
                       most.
@@ -269,7 +269,7 @@
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
-                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-theme-card opacity-100 rounded-[8px] overflow-hidden border border-theme-border relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
               >
                 <div
                   class="absolute inset-0 flex items-center justify-center opacity-90"
@@ -373,16 +373,16 @@
               <!-- Right Side: Content Column -->
               <div class="flex-1 w-full flex flex-col justify-between">
                 <div>
-                  <hr class="border-t border-white/10 mb-[16px]" />
+                  <hr class="border-t border-theme-border mb-[16px]" />
 
                   <!-- Header Row -->
                   <div class="flex justify-between items-center">
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Category: Hardware</span
                     >
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Audit // 2025</span
                     >
                   </div>
@@ -394,13 +394,13 @@
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-theme-text-primary m-0"
                     >
                       The mechanical blind spot of robotics.
                     </h3>
                   </div>
                   <div class="desc-col flex items-end max-[768px]:items-start">
-                    <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
+                    <p class="text-theme-text-secondary text-[0.95rem] leading-[1.6] m-0">
                       Advanced hardware lacks the unified "brain" required for
                       real-time coordination. True autonomy requires a
                       software-to-hardware bridge.
@@ -416,7 +416,7 @@
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
-                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-theme-card opacity-100 rounded-[8px] overflow-hidden border border-theme-border relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
               >
                 <div
                   class="absolute inset-0 flex items-center justify-center opacity-90"
@@ -511,16 +511,16 @@
               <!-- Right Side: Content Column -->
               <div class="flex-1 w-full flex flex-col justify-between">
                 <div>
-                  <hr class="border-t border-white/10 mb-[16px]" />
+                  <hr class="border-t border-theme-border mb-[16px]" />
 
                   <!-- Header Row -->
                   <div class="flex justify-between items-center">
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Category: Foundation</span
                     >
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Audit // 2025</span
                     >
                   </div>
@@ -532,13 +532,13 @@
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-theme-text-primary m-0"
                     >
                       Infrastructure at the edge of failure.
                     </h3>
                   </div>
                   <div class="desc-col flex items-end max-[768px]:items-start">
-                    <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
+                    <p class="text-theme-text-secondary text-[0.95rem] leading-[1.6] m-0">
                       Legacy foundations were not built for modern AI growth. We
                       architect the custom bedrock for future operations.
                     </p>
@@ -558,22 +558,22 @@
         <div class="container max-w-container mx-auto w-full relative z-10">
           <div class="pillars-header reveal flex flex-col items-center text-center max-w-[850px] mx-auto mb-20">
             <div class="flex items-center gap-4 md:gap-6 mb-6">
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
-              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Structural_Pillars // CORE</span>
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-theme-accent tracking-[4px] md:tracking-[6px] uppercase font-bold">Structural_Pillars // CORE</span>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
             </div>
 
             <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
               Synergistic <br />
-              <span class="italic font-light text-white/90">Pillars.</span>
+              <span class="italic font-light text-theme-text-primary">Pillars.</span>
             </h2>
             
-            <p class="reveal-delay-1 text-[#888888] text-[1.1rem] max-w-[600px] mx-auto">
+            <p class="reveal-delay-1 text-theme-text-secondary text-[1.1rem] max-w-[600px] mx-auto">
               Each pillar reinforces the others — creating a unified ecosystem
               of intelligent technology.
             </p>
             
-            <div class="mt-8 font-caveat text-white/20 text-[1.4rem] hidden md:block select-none">
+            <div class="mt-8 font-caveat text-theme-text-secondary text-[1.4rem] hidden md:block select-none">
               // Modern_Astra_X_Ancient_Precision
             </div>
           </div>
@@ -584,16 +584,16 @@
           >
             <!-- Pillar Tabs Navigation -->
             <nav
-              class="segmented-control reveal flex w-fit max-[576px]:w-full max-[576px]:max-w-full box-border max-[576px]:overflow-x-auto max-[576px]:justify-start [&::-webkit-scrollbar]:hidden ml-0 mt-[80px] mb-[48px] relative bg-[#0a0a0a] p-[4px] rounded-[96px] border border-white/10 backdrop-blur-[12px] gap-0 z-[100]"
+              class="segmented-control reveal flex w-fit max-[576px]:w-full max-[576px]:max-w-full box-border max-[576px]:overflow-x-auto max-[576px]:justify-start [&::-webkit-scrollbar]:hidden ml-0 mt-[80px] mb-[48px] relative bg-theme-card p-[4px] rounded-[96px] border border-theme-border backdrop-blur-[12px] gap-0 z-[100]"
             >
               <span class="nav-highlight"></span>
 
               <button
-                class="nav-item active group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+                class="nav-item active group relative bg-transparent border-none text-theme-text-secondary py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-theme-text-secondary [&.active]:text-theme-text-primary"
                 data-pillar="ai"
               >
                 <svg
-                  class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-[#E6CD99] group-[.active]:text-white group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
+                  class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-theme-accent group-[.active]:text-theme-text-primary group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -611,11 +611,11 @@
               </button>
 
               <button
-                class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+                class="nav-item group relative bg-transparent border-none text-theme-text-secondary py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-theme-text-secondary [&.active]:text-theme-text-primary"
                 data-pillar="infra"
               >
                 <svg
-                  class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-[#E6CD99] group-[.active]:text-white group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
+                  class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-theme-accent group-[.active]:text-theme-text-primary group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -632,11 +632,11 @@
               </button>
 
               <button
-                class="nav-item group relative bg-transparent border-none text-[#888888] py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-white/70 [&.active]:text-white"
+                class="nav-item group relative bg-transparent border-none text-theme-text-secondary py-[8px] px-[24px] rounded-[96px] cursor-pointer transition-colors duration-400 flex items-center gap-[8px] font-lora text-[14px] font-medium tracking-[0.02em] z-[1] whitespace-nowrap hover:text-theme-text-secondary [&.active]:text-theme-text-primary"
                 data-pillar="drone"
               >
                 <svg
-                  class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-[#E6CD99] group-[.active]:text-white group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
+                  class="nav-icon w-[18px] h-[18px] transition-all duration-300 text-current group-hover:text-theme-accent group-[.active]:text-theme-text-primary group-[.active]:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] group-[.active]:scale-[1.05]"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -657,7 +657,7 @@
           </div>
 
           <div
-            class="pillar-display-stage reveal bg-[#050505] rounded-[64px] py-[48px] px-[64px] min-h-[450px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.3)] max-[1100px]:p-[40px] max-[1100px]:rounded-[48px] max-[768px]:px-[16px] max-[768px]:py-[32px] max-[768px]:min-h-[auto] max-[768px]:max-w-[calc(100vw-48px)]"
+            class="pillar-display-stage reveal bg-theme-bg rounded-[64px] py-[48px] px-[64px] min-h-[450px] max-w-[1100px] mx-auto flex relative overflow-hidden font-lora border border-theme-border shadow-glass max-[1100px]:p-[40px] max-[1100px]:rounded-[48px] max-[768px]:px-[16px] max-[768px]:py-[32px] max-[768px]:min-h-[auto] max-[768px]:max-w-[calc(100vw-48px)]"
           >
             <!-- Background Elements -->
             <div class="stage-stars"></div>
@@ -668,16 +668,16 @@
 
             <!-- States (Empty/Error) -->
             <div
-              class="pillar-state hidden absolute inset-0 z-[50] flex flex-col items-center justify-center p-[40px] text-center bg-[#050505]/80 backdrop-blur-[10px]"
+              class="pillar-state hidden absolute inset-0 z-[50] flex flex-col items-center justify-center p-[40px] text-center bg-theme-bg backdrop-blur-[10px]"
               id="pillar-state-empty"
             >
               <h3
-                class="font-lora text-[24px] text-[#E6CD99] mb-[16px] tracking-[1px] uppercase"
+                class="font-lora text-[24px] text-theme-accent mb-[16px] tracking-[1px] uppercase"
               >
                 No data available
               </h3>
               <p
-                class="font-lora text-[16px] leading-[1.6] text-white/80 max-w-[500px]"
+                class="font-lora text-[16px] leading-[1.6] text-theme-text-secondary max-w-[500px]"
               >
                 We're currently scaling our infrastructure. Check back shortly
                 for live telemetry.
@@ -685,7 +685,7 @@
             </div>
 
             <div
-              class="pillar-state hidden absolute inset-0 z-[50] flex flex-col items-center justify-center p-[40px] text-center bg-[#050505]/80 backdrop-blur-[10px]"
+              class="pillar-state hidden absolute inset-0 z-[50] flex flex-col items-center justify-center p-[40px] text-center bg-theme-bg backdrop-blur-[10px]"
               id="pillar-state-error"
             >
               <div class="mb-[24px] text-[#EF4444]">
@@ -706,7 +706,7 @@
                 </svg>
               </div>
               <p
-                class="font-lora text-[16px] leading-[1.6] text-white/80 max-w-[500px]"
+                class="font-lora text-[16px] leading-[1.6] text-theme-text-secondary max-w-[500px]"
               >
                 Connection timeout. Please refresh the page to reconnect to the
                 Astra grid.
@@ -720,10 +720,10 @@
             >
               <div class="mockup-side w-full flex justify-center font-mono">
                 <div
-                  class="window-frame terminal-window w-full max-w-[520px] max-[576px]:max-w-full h-[416px] max-[576px]:h-[280px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[24px] rounded-[16px] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)]"
+                  class="window-frame terminal-window w-full max-w-[520px] max-[576px]:max-w-full h-[416px] max-[576px]:h-[280px] flex flex-col bg-[#0a0a0a]/90 backdrop-blur-[24px] rounded-[16px] border border-theme-border overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.3)]"
                 >
                   <div
-                    class="window-header bg-white/5 py-[12px] px-[24px] flex items-center justify-between border-b border-white/10"
+                    class="window-header bg-theme-card py-[12px] px-[24px] flex items-center justify-between border-b border-theme-border"
                   >
                     <div class="window-controls flex gap-[8px]">
                       <span class="mac-dot close"></span>
@@ -731,7 +731,7 @@
                       <span class="mac-dot maximize"></span>
                     </div>
                     <span
-                      class="window-title font-mono text-[0.7rem] text-white/30 uppercase tracking-[1px]"
+                      class="window-title font-mono text-[0.7rem] text-theme-text-secondary uppercase tracking-[1px]"
                       >optimizer_v3.core</span
                     >
                   </div>
@@ -786,7 +786,7 @@
               <div class="info-side flex flex-col gap-[32px] w-full">
                 <div class="main-info">
                   <p
-                    class="font-lora text-[16px] leading-[1.6] text-white/80 m-0 z-10 relative"
+                    class="font-lora text-[16px] leading-[1.6] text-theme-text-secondary m-0 z-10 relative"
                   >
                     We build custom digital intelligence that integrates deeply
                     into your operations. From complex enterprise engines to
@@ -800,12 +800,12 @@
                   <!-- Item 1 -->
                   <div class="flex flex-col gap-3">
                     <h4
-                      class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
+                      class="font-lora text-[0.75rem] text-theme-accent tracking-[2px] uppercase font-bold m-0"
                     >
                       Custom ERP & CRM
                     </h4>
                     <p
-                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0"
+                      class="font-lora text-[14px] text-theme-text-secondary leading-relaxed m-0"
                     >
                       Deep operational intelligence tailored to your business.
                     </p>
@@ -814,12 +814,12 @@
                   <!-- Item 2 -->
                   <div class="flex flex-col gap-3">
                     <h4
-                      class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
+                      class="font-lora text-[0.75rem] text-theme-accent tracking-[2px] uppercase font-bold m-0"
                     >
                       Agentic Workflows
                     </h4>
                     <p
-                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0"
+                      class="font-lora text-[14px] text-theme-text-secondary leading-relaxed m-0"
                     >
                       Autonomous LLM agents that execute multi-step tasks.
                     </p>
@@ -828,12 +828,12 @@
                   <!-- Item 3 -->
                   <div class="flex flex-col gap-3">
                     <h4
-                      class="font-lora text-[0.75rem] text-[#E6CD99] tracking-[2px] uppercase font-bold m-0"
+                      class="font-lora text-[0.75rem] text-theme-accent tracking-[2px] uppercase font-bold m-0"
                     >
                       Predictive Logic
                     </h4>
                     <p
-                      class="font-lora text-[14px] text-white/50 leading-relaxed m-0"
+                      class="font-lora text-[14px] text-theme-text-secondary leading-relaxed m-0"
                     >
                       Future-proof inventory and supply chain data.
                     </p>
@@ -849,11 +849,11 @@
             >
               <div class="mockup-side w-full flex justify-center">
                 <div
-                  class="visual-pane w-[380px] h-[380px] max-[576px]:w-[280px] max-[576px]:h-[280px] bg-[#080808]/50 backdrop-blur-[10px] rounded-full border border-white/10 flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_0_50px_rgba(230,205,153,0.1),inset_0_0_20px_rgba(255,255,255,0.05)] group/infra-core"
+                  class="visual-pane w-[380px] h-[380px] max-[576px]:w-[280px] max-[576px]:h-[280px] bg-[#080808]/50 backdrop-blur-[10px] rounded-full border border-theme-border flex justify-center items-center overflow-hidden relative shrink-0 shadow-[0_0_50px_rgba(230,205,153,0.1),inset_0_0_20px_rgba(255,255,255,0.05)] group/infra-core"
                 >
                   <!-- Outer rotating ring decoration -->
                   <div
-                    class="absolute inset-[-10px] border border-dashed border-white/5 rounded-full animate-[spin_30s_linear_infinite] pointer-events-none"
+                    class="absolute inset-[-10px] border border-dashed border-theme-border rounded-full animate-[spin_30s_linear_infinite] pointer-events-none"
                   ></div>
                   <!-- Inner glow -->
                   <div
@@ -869,66 +869,66 @@
               <div class="info-side flex flex-col gap-[24px] w-full">
                 <div class="infra-table flex flex-col w-full z-10 relative">
                   <div
-                    class="infra-table-row header flex max-[576px]:flex-col py-0 pb-[12px] gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.7rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-[#E6CD99]"
+                    class="infra-table-row header flex max-[576px]:flex-col py-0 pb-[12px] gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 border-b-[2px] border-[rgba(230,205,153,0.3)] [&>div]:text-[0.7rem] [&>div]:font-bold [&>div]:tracking-[1px] [&>div]:uppercase [&>div]:text-theme-accent"
                   >
                     <div class="col-cap flex-none w-[160px]">Capability</div>
                     <div class="col-impact flex-1">Impact</div>
                   </div>
                   <div
-                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-theme-border gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-theme-card"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-theme-text-primary group-hover:text-[#f3e2ba]"
                     >
                       Innovation Labs
                     </div>
                     <div
-                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
+                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-theme-text-primary"
                     >
                       Rapidly test and iterate on AI models in a dedicated
                       sandbox.
                     </div>
                   </div>
                   <div
-                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-theme-border gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-theme-card"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-theme-text-primary group-hover:text-[#f3e2ba]"
                     >
                       Centers of Excellence
                     </div>
                     <div
-                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
+                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-theme-text-primary"
                     >
                       Centralize your AI talent with shared high-performance
                       resources.
                     </div>
                   </div>
                   <div
-                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-theme-border gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-theme-card"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-theme-text-primary group-hover:text-[#f3e2ba]"
                     >
                       HPC Clusters
                     </div>
                     <div
-                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
+                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-theme-text-primary"
                     >
                       Scale massive workloads with custom-configured server
                       hardware.
                     </div>
                   </div>
                   <div
-                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-white/5 gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-white/5"
+                    class="infra-table-row group flex max-[576px]:flex-col py-[16px] border-b border-theme-border gap-[24px] max-[576px]:gap-[8px] transition-colors duration-400 hover:bg-theme-card"
                   >
                     <div
-                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-white group-hover:text-[#f3e2ba]"
+                      class="col-cap flex-none w-[160px] max-[576px]:w-full text-[1rem] font-semibold text-theme-text-primary group-hover:text-[#f3e2ba]"
                     >
                       Data Vaults
                     </div>
                     <div
-                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-white/75"
+                      class="col-impact flex-1 text-[0.9rem] leading-[1.6] text-theme-text-primary"
                     >
                       Secure, decentralized architecture designed for
                       mission-critical data sovereignty.
@@ -948,7 +948,7 @@
                 class="drone-header-top text-center max-w-[850px] mb-[40px] pt-[24px]"
               >
                 <p
-                  class="font-lora text-[17px] leading-[1.7] text-white/70 m-0 z-10 relative"
+                  class="font-lora text-[17px] leading-[1.7] text-theme-text-secondary m-0 z-10 relative"
                 >
                   Strategic integration of world-class aerial technology. We
                   deliver custom-configured drone systems for intelligence,
@@ -966,12 +966,12 @@
                 >
                   <div class="cap-item group flex flex-col gap-[16px]">
                     <h4
-                      class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
+                      class="font-cinzel text-[0.8rem] text-theme-text-primary mb-0 tracking-[1px] uppercase"
                     >
                       Surveillance (ISR)
                     </h4>
                     <p
-                      class="font-lora text-[11px] text-white/50 leading-[1.6]"
+                      class="font-lora text-[11px] text-theme-text-secondary leading-[1.6]"
                     >
                       Persistent monitoring and real-time intelligence.
                     </p>
@@ -995,12 +995,12 @@
                   <!-- Cap 2 -->
                   <div class="cap-item group flex flex-col gap-[16px]">
                     <h4
-                      class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
+                      class="font-cinzel text-[0.8rem] text-theme-text-primary mb-0 tracking-[1px] uppercase"
                     >
                       Logistics & Delivery
                     </h4>
                     <p
-                      class="font-lora text-[11px] text-white/50 leading-[1.6]"
+                      class="font-lora text-[11px] text-theme-text-secondary leading-[1.6]"
                     >
                       Scalable autonomous networks for rapid transport.
                     </p>
@@ -1008,12 +1008,12 @@
                   <!-- Cap 3 -->
                   <div class="cap-item group flex flex-col gap-[16px]">
                     <h4
-                      class="font-cinzel text-[0.8rem] text-white mb-0 tracking-[1px] uppercase"
+                      class="font-cinzel text-[0.8rem] text-theme-text-primary mb-0 tracking-[1px] uppercase"
                     >
                       Tactical Systems
                     </h4>
                     <p
-                      class="font-lora text-[11px] text-white/50 leading-[1.6]"
+                      class="font-lora text-[11px] text-theme-text-secondary leading-[1.6]"
                     >
                       Precision-guided solutions for mission safety.
                     </p>
@@ -1030,14 +1030,14 @@
           >
             <div class="left-col">
               <h2
-                class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-right max-[992px]:text-left"
+                class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-theme-text-primary text-right max-[992px]:text-left"
               >
                 Build
               </h2>
             </div>
             <div class="right-col">
               <p
-                class="build-description font-lora text-[16px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
+                class="build-description font-lora text-[16px] font-normal leading-[1.6] text-theme-text-secondary max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
               >
                 We help you build the right foundation for your AI projects.
                 Instead of sticking to just one brand, we pick the best hardware
@@ -1056,14 +1056,14 @@
           >
             <div class="left-col">
               <h2
-                class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-white text-right max-[992px]:text-left"
+                class="build-title font-lora text-[28px] font-bold tracking-[0.5px] capitalize leading-[1.4] m-0 text-theme-text-primary text-right max-[992px]:text-left"
               >
                 Deploy
               </h2>
             </div>
             <div class="right-col">
               <p
-                class="build-description font-lora text-[16px] font-normal leading-[1.6] text-white/80 max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
+                class="build-description font-lora text-[16px] font-normal leading-[1.6] text-theme-text-secondary max-w-[550px] m-0 text-left justify-end tracking-[0.02em]"
               >
                 ASTR AI specializes in the strategic integration of advanced,
                 'Made in India' drone systems Partnering with top domestic
@@ -1086,17 +1086,17 @@
           <!-- Section Header -->
           <div class="mb-24 max-[576px]:mb-16 reveal flex flex-col items-center text-center">
             <div class="flex items-center gap-4 md:gap-6 mb-6">
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
-              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Future_Horizons // R&D</span>
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-theme-accent tracking-[4px] md:tracking-[6px] uppercase font-bold">Future_Horizons // R&D</span>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
             </div>
 
             <h2 class="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
               Bridging R&D With <br />
-              <span class="italic font-light text-white/90">Market Impact.</span>
+              <span class="italic font-light text-theme-text-primary">Market Impact.</span>
             </h2>
             
-            <div class="font-caveat text-white/10 text-[1.4rem] md:text-[1.6rem] rotate-1 select-none">
+            <div class="font-caveat text-theme-text-secondary text-[1.4rem] md:text-[1.6rem] rotate-1 select-none">
               // Fundamental research applied to physical agency
             </div>
           </div>
@@ -1108,7 +1108,7 @@
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
-                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-theme-card opacity-100 rounded-[8px] overflow-hidden border border-theme-border relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
               >
                 <div
                   class="absolute inset-0 flex items-center justify-center opacity-90"
@@ -1208,14 +1208,14 @@
               <!-- Right Side: Content Column -->
               <div class="flex-1 w-full flex flex-col justify-between">
                 <div>
-                  <hr class="border-t border-white/10 mb-[16px]" />
+                  <hr class="border-t border-theme-border mb-[16px]" />
                   <div class="flex justify-between items-center">
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Focus: Deep-Tech Research</span
                     >
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Active // 2025</span
                     >
                   </div>
@@ -1227,13 +1227,13 @@
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-theme-text-primary m-0"
                     >
                       Redefining the boundaries of human-machine agency.
                     </h3>
                   </div>
                   <div class="desc-col flex items-end max-[768px]:items-start">
-                    <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
+                    <p class="text-theme-text-secondary text-[0.95rem] leading-[1.6] m-0">
                       We lead fundamental R&D to unify digital intelligence with
                       physical execution, creating systems that adapt in
                       real-time.
@@ -1249,7 +1249,7 @@
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
-                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-theme-card opacity-100 rounded-[8px] overflow-hidden border border-theme-border relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
               >
                 <div
                   class="absolute inset-0 flex items-center justify-center opacity-90"
@@ -1329,14 +1329,14 @@
               <!-- Right Side: Content Column -->
               <div class="flex-1 w-full flex flex-col justify-between">
                 <div>
-                  <hr class="border-t border-white/10 mb-[16px]" />
+                  <hr class="border-t border-theme-border mb-[16px]" />
                   <div class="flex justify-between items-center">
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Focus: Trust Architecture</span
                     >
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Verified // 2025</span
                     >
                   </div>
@@ -1348,13 +1348,13 @@
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-theme-text-primary m-0"
                     >
                       Establishing systemic trust via high-level contracts.
                     </h3>
                   </div>
                   <div class="desc-col flex items-end max-[768px]:items-start">
-                    <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
+                    <p class="text-theme-text-secondary text-[0.95rem] leading-[1.6] m-0">
                       Securing mission-critical infrastructure builds the
                       credibility needed to fund and deploy our most ambitious
                       research programs.
@@ -1370,7 +1370,7 @@
             >
               <!-- Left Side: Image (Wide 21:9) -->
               <div
-                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-gradient-to-br from-white/10 to-white/5 rounded-[8px] overflow-hidden border border-white/15 relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
+                class="w-[45%] max-[992px]:w-full aspect-[21/9] max-[576px]:aspect-[16/9] bg-theme-card opacity-100 rounded-[8px] overflow-hidden border border-theme-border relative shrink-0 backdrop-blur-[12px] shadow-[inset_0_0_24px_rgba(230,205,153,0.05)]"
               >
                 <div
                   class="absolute inset-0 flex items-center justify-center opacity-90"
@@ -1453,14 +1453,14 @@
               <!-- Right Side: Content Column -->
               <div class="flex-1 w-full flex flex-col justify-between">
                 <div>
-                  <hr class="border-t border-white/10 mb-[16px]" />
+                  <hr class="border-t border-theme-border mb-[16px]" />
                   <div class="flex justify-between items-center">
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/40"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Focus: Talent Pipeline</span
                     >
                     <span
-                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-white/20"
+                      class="font-mono text-[0.65rem] uppercase tracking-[3px] text-theme-text-secondary"
                       >Ongoing // 2025</span
                     >
                   </div>
@@ -1472,13 +1472,13 @@
                 >
                   <div class="title-col">
                     <h3
-                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-white m-0"
+                      class="font-lora text-[clamp(1.25rem,4vw,1.5rem)] font-medium leading-[1.3] text-theme-text-primary m-0"
                     >
                       Empowering the next generation of engineers.
                     </h3>
                   </div>
                   <div class="desc-col flex items-end max-[768px]:items-start">
-                    <p class="text-white/40 text-[0.95rem] leading-[1.6] m-0">
+                    <p class="text-theme-text-secondary text-[0.95rem] leading-[1.6] m-0">
                       We develop the infrastructure and curricula for AI
                       education, ensuring a steady stream of experts for our
                       industry ecosystems.
@@ -1499,19 +1499,19 @@
           <!-- Section Header -->
           <div class="text-center mb-16 max-w-[850px] reveal">
             <div class="flex items-center justify-center gap-4 md:gap-6 mb-6">
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
-              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-gold tracking-[4px] md:tracking-[6px] uppercase font-bold">Strategic_Intent // CONNECT</span>
-              <div class="w-8 md:w-12 h-px bg-gold/30"></div>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] text-theme-accent tracking-[4px] md:tracking-[6px] uppercase font-bold">Strategic_Intent // CONNECT</span>
+              <div class="w-8 md:w-12 h-px bg-theme-accent opacity-30"></div>
             </div>
 
             <h2 class="text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-8">
               Ready to Integrate <br />
-              <span class="italic font-light text-white/90">ASTR AI?</span>
+              <span class="italic font-light text-theme-text-primary">ASTR AI?</span>
             </h2>
             
-            <p class="text-white/50 text-body font-inter max-w-[600px] mx-auto">
+            <p class="text-theme-text-secondary text-body font-inter max-w-[600px] mx-auto">
               Configure your technical requirements on the terminal below to
-              <span class="text-white">establish a secure connection</span> with
+              <span class="text-theme-text-primary">establish a secure connection</span> with
               our engineering team.
             </p>
           </div>
@@ -1519,7 +1519,7 @@
           <!-- The Holographic Interface -->
           <div
             id="cta-panel"
-            class="w-full max-w-[1100px] relative bg-[#0a0a0a] border border-white/10 rounded-[12px] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-xl group"
+            class="w-full max-w-[1100px] relative bg-theme-bg border border-theme-border rounded-[12px] overflow-hidden shadow-glass backdrop-blur-xl group"
           >
             <!-- HUD Decorations -->
             <div class="hud-bracket hud-bracket-tl"></div>
@@ -1529,22 +1529,22 @@
 
             <!-- Top Status Bar -->
             <div
-              class="border-b border-white/10 px-[24px] py-[12px] flex justify-between items-center bg-white/[0.02]"
+              class="border-b border-theme-border px-[24px] py-[12px] flex justify-between items-center bg-theme-card"
             >
               <div
                 id="blueprint-hud"
-                class="font-mono text-[0.6rem] uppercase tracking-[2px] text-white/40"
+                class="font-mono text-[0.6rem] uppercase tracking-[2px] text-theme-text-secondary"
               >
                 STATUS:
-                <span class="text-[var(--color-gold-DEFAULT)]"
+                <span class="text-theme-accent"
                   >UPLINK_READY_TO_TRANSMIT</span
                 >
               </div>
               <div
-                class="flex gap-4 font-mono text-[0.5rem] text-white/20 uppercase tracking-[1px]"
+                class="flex gap-4 font-mono text-[0.5rem] text-theme-text-secondary uppercase tracking-[1px]"
               >
                 <span class="hidden sm:inline">ASTR_CORE_v1.0</span>
-                <span class="text-[var(--color-gold-DEFAULT)] animate-pulse"
+                <span class="text-theme-accent animate-pulse"
                   >● LIVE</span
                 >
               </div>
@@ -1553,7 +1553,7 @@
             <div class="flex flex-col md:flex-row">
               <!-- Top Panel: Particle CTA Visual (Visual Hook) -->
               <div
-                class="w-full md:w-1/2 min-h-[320px] max-[768px]:min-h-[260px] relative flex items-center justify-center p-[32px] border-b md:border-b-0 md:border-r border-white/10 bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden"
+                class="w-full md:w-1/2 min-h-[320px] max-[768px]:min-h-[260px] relative flex items-center justify-center p-[32px] border-b md:border-b-0 md:border-r border-theme-border bg-theme-card overflow-hidden"
               >
                 <!-- Particle Canvas -->
                 <canvas
@@ -1563,7 +1563,7 @@
 
                 <!-- Optional Label -->
                 <div
-                  class="absolute top-4 left-6 font-mono text-[0.5rem] text-white/20 uppercase tracking-[2px] z-10"
+                  class="absolute top-4 left-6 font-mono text-[0.5rem] text-theme-text-secondary uppercase tracking-[2px] z-10"
                 >
                   ASTR_UPLINK_STATUS: STANDBY
                 </div>
@@ -1571,12 +1571,12 @@
 
               <!-- Bottom Panel: The Primary Action Area -->
               <div
-                class="w-full md:w-1/2 p-[48px] max-[576px]:p-[32px] bg-gradient-to-br from-white/[0.03] to-transparent flex flex-col justify-center items-center text-center relative shadow-[inset_0_0_40px_rgba(255,255,255,0.02)] md:border-l md:border-white/10"
+                class="w-full md:w-1/2 p-[48px] max-[576px]:p-[32px] bg-theme-card flex flex-col justify-center items-center text-center relative shadow-none md:border-l md:border-theme-border"
               >
                 <div class="relative w-full">
                   <!-- Heading to Description: mb-4 (16px) -->
                   <h3
-                    class="font-lora text-[1.5rem] text-white font-medium leading-tight mb-4 uppercase tracking-[2px] text-animate"
+                    class="font-lora text-[1.5rem] text-theme-text-primary font-medium leading-tight mb-4 uppercase tracking-[2px] text-animate"
                     data-animate-type="char"
                   >
                     Start Your Journey <br />With ASTR AI
@@ -1584,7 +1584,7 @@
 
                   <!-- Description to Log: mb-10 (40px) -->
                   <p
-                    class="text-white/50 text-[0.85rem] leading-relaxed mb-10 font-lora max-w-[320px] mx-auto text-animate"
+                    class="text-theme-text-secondary text-[0.85rem] leading-relaxed mb-10 font-lora max-w-[320px] mx-auto text-animate"
                     data-animate-type="word"
                   >
                     Connect with our specialists to architect your AI
@@ -1596,20 +1596,20 @@
                   <!-- Log to Button: mb-16 (64px) -->
                   <div
                     id="telemetry-log"
-                    class="p-4 bg-black/40 border border-white/5 rounded-[4px] backdrop-blur-md relative overflow-hidden group/monitor max-w-[320px] mx-auto w-full mb-16"
+                    class="p-4 bg-theme-bg border border-theme-border rounded-[4px] backdrop-blur-md relative overflow-hidden group/monitor max-w-[320px] mx-auto w-full mb-16"
                   >
                     <div
-                      class="absolute inset-0 bg-gradient-to-b from-[var(--color-gold-DEFAULT)]/5 to-transparent opacity-0 group-hover/monitor:opacity-100 transition-opacity duration-700"
+                      class="absolute inset-0 bg-gradient-to-b from-theme-accent opacity-5 to-transparent opacity-0 group-hover/monitor:opacity-100 transition-opacity duration-700"
                     ></div>
                     <div class="relative z-10 space-y-2">
                       <div
                         class="flex justify-between items-center font-mono text-[0.55rem] tracking-[1px]"
                       >
-                        <span class="text-white/30 uppercase"
+                        <span class="text-theme-text-secondary uppercase"
                           >Selection_Buffer</span
                         >
                         <span
-                          class="text-[var(--color-gold-DEFAULT)] font-bold"
+                          class="text-theme-accent font-bold"
                           id="log-count"
                           >00</span
                         >
@@ -1617,12 +1617,12 @@
                       <div
                         class="flex justify-between items-center font-mono text-[0.55rem] tracking-[1px]"
                       >
-                        <span class="text-white/30 uppercase">Link_Status</span>
+                        <span class="text-theme-text-secondary uppercase">Link_Status</span>
                         <div class="flex items-center gap-2">
                           <span
-                            class="w-1 h-1 rounded-full bg-[var(--color-gold-DEFAULT)] animate-pulse"
+                            class="w-1 h-1 rounded-full bg-theme-accent animate-pulse"
                           ></span>
-                          <span class="text-white/70 font-bold" id="log-status"
+                          <span class="text-theme-text-secondary font-bold" id="log-status"
                             >READY</span
                           >
                         </div>
@@ -1636,7 +1636,7 @@
                   <a
                     href="connect.html"
                     id="blueprint-submit"
-                    class="liquid-glass-button group/btn shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(230,205,153,0.1)] !py-2.5 !px-5 !text-[0.7rem] w-fit whitespace-nowrap"
+                    class="liquid-glass-button group/btn shadow-glass hover:shadow-[0_25px_60px_rgba(140,115,62,0.1)] !py-2.5 !px-5 !text-[0.7rem] w-fit whitespace-nowrap"
                   >
                     <span class="relative z-10">Establish Connection</span>
                     <svg
@@ -1658,7 +1658,7 @@
 
                   <div class="text-center group/email pt-2">
                     <span
-                      class="font-mono text-[0.55rem] text-white/20 uppercase tracking-[2px] block mb-2"
+                      class="font-mono text-[0.55rem] text-theme-text-secondary uppercase tracking-[2px] block mb-2"
                       >Secure Channel</span
                     >
                     <a
@@ -1666,11 +1666,11 @@
                       class="inline-flex flex-col items-center"
                     >
                       <span
-                        class="font-mono text-[0.95rem] text-white/70 group-hover:text-[var(--color-gold-DEFAULT)] transition-colors duration-300"
+                        class="font-mono text-[0.95rem] text-theme-text-secondary group-hover:text-theme-accent transition-colors duration-300"
                         >hello@astrai.in</span
                       >
                       <div
-                        class="w-0 h-[1px] bg-[var(--color-gold-DEFAULT)] group-hover/email:w-full transition-all duration-500 mt-0.5"
+                        class="w-0 h-[1px] bg-theme-accent group-hover/email:w-full transition-all duration-500 mt-0.5"
                       ></div>
                     </a>
                   </div>

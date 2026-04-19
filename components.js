@@ -9,7 +9,7 @@ class AstrNavbar extends HTMLElement {
     this.style.display = 'block';
     this.innerHTML = `
       <nav
-        class="navbar fixed top-[32px] max-[768px]:top-[16px] left-[24px] right-[24px] max-[768px]:left-[16px] max-[768px]:right-[16px] mx-auto w-auto max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-white/10 backdrop-blur-[15px] border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-400 [&.scrolled]:bg-[#0a0a0a]/60 [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-white/10 [&.scrolled]:shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] max-[768px]:px-[24px]"
+        class="navbar fixed top-[32px] max-[768px]:top-[16px] left-[24px] right-[24px] max-[768px]:left-[16px] max-[768px]:right-[16px] mx-auto w-auto max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-theme-nav backdrop-blur-[15px] border border-theme-border shadow-[var(--theme-glass-shadow),var(--theme-glass-highlight)] transition-all duration-400 [&.scrolled]:bg-theme-nav [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-theme-border [&.scrolled]:shadow-[var(--theme-glass-shadow),var(--theme-glass-highlight)] max-[768px]:px-[24px]"
         id="navbar"
       >
         <a
@@ -19,32 +19,46 @@ class AstrNavbar extends HTMLElement {
           <img
             src="/Pictures/without bg 02.png"
             alt="ASTR AI Logo"
-            class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px]"
+            class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px] dark:brightness-110 invert dark:invert-0"
           />
         </a>
         <div
-          class="nav-links flex items-center gap-[16px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:left-0 max-[768px]:translate-x-full max-[768px]:opacity-0 max-[768px]:pointer-events-none max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-[#0a0a0a]/95 max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:translate-x-0 [&.nav-active]:opacity-100 [&.nav-active]:pointer-events-auto relative"
+          class="nav-links flex items-center gap-[16px] max-[1100px]:pl-0 max-[768px]:fixed max-[768px]:top-0 max-[768px]:left-0 max-[768px]:translate-x-full max-[768px]:opacity-0 max-[768px]:pointer-events-none max-[768px]:w-full max-[768px]:h-screen max-[768px]:bg-theme-bg max-[768px]:backdrop-blur-[24px] max-[768px]:flex-col max-[768px]:justify-center max-[768px]:gap-[32px] max-[768px]:transition-all max-[768px]:duration-500 max-[768px]:z-[1000] [&.nav-active]:translate-x-0 [&.nav-active]:opacity-100 [&.nav-active]:pointer-events-auto relative"
           id="navLinks"
         >
           <div class="nav-indicator hidden md:block" id="navIndicator"></div>
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-tech font-medium text-theme-text-secondary transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-theme-text-primary hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-theme-accent opacity-50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="philosophy.html"
             >Philosophy</a
           >
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-tech font-medium text-theme-text-secondary transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-theme-text-primary hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-theme-accent opacity-50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="solutions.html"
             >Solutions</a
           >
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-tech font-medium text-theme-text-secondary transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-theme-text-primary hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-theme-accent opacity-50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="rd.html"
             >R&amp;D</a
           >
+          
+          <!-- Theme Toggle Button -->
+          <button
+            id="themeToggle"
+            class="p-2 ml-4 rounded-full bg-theme-card border border-theme-border text-theme-text-secondary hover:text-theme-text-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-theme-accent opacity-50 max-[768px]:ml-0 max-[768px]:mt-4"
+            aria-label="Toggle Theme"
+          >
+            <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
+            </svg>
+            <svg id="moonIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
         </div>
         <div
-          class="nav-hamburger hidden flex-col gap-[4px] cursor-pointer z-[1001] max-[768px]:flex [&>span]:w-6 [&>span]:h-[2px] [&>span]:bg-white [&>span]:transition-all [&>span]:duration-300 [&.active>span:nth-child(1)]:rotate-45 [&.active>span:nth-child(1)]:translate-y-[6px] [&.active>span:nth-child(2)]:opacity-0 [&.active>span:nth-child(3)]:-rotate-45 [&.active>span:nth-child(3)]:-translate-y-[6px]"
+          class="nav-hamburger hidden flex-col gap-[4px] cursor-pointer z-[1001] max-[768px]:flex [&>span]:w-6 [&>span]:h-[2px] [&>span]:bg-theme-text-primary [&>span]:transition-all [&>span]:duration-300 [&.active>span:nth-child(1)]:rotate-45 [&.active>span:nth-child(1)]:translate-y-[6px] [&.active>span:nth-child(2)]:opacity-0 [&.active>span:nth-child(3)]:-rotate-45 [&.active>span:nth-child(3)]:-translate-y-[6px]"
           id="hamburger"
         >
           <span></span>
@@ -61,8 +75,27 @@ class AstrNavbar extends HTMLElement {
     const navbar = this.querySelector('#navbar');
     const hamburger = this.querySelector('#hamburger');
     const navLinks = this.querySelector('#navLinks');
+    const themeToggle = this.querySelector('#themeToggle');
 
     if (!navbar || !hamburger || !navLinks) return;
+
+    // Theme Logic
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+        // Dispatch custom event for other scripts to react
+        document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+      });
+    }
 
     // Scroll Effect
     window.addEventListener('scroll', () => {
@@ -130,8 +163,8 @@ class AstrNavbar extends HTMLElement {
     links.forEach((link) => {
       const href = link.getAttribute('href');
       if (href === currentPath) {
-        link.classList.add('text-white');
-        link.classList.remove('text-white/70');
+        link.classList.add('text-theme-text-primary');
+        link.classList.remove('text-theme-text-secondary');
         activeLink = link;
       }
 
@@ -144,11 +177,11 @@ class AstrNavbar extends HTMLElement {
           activeLink = link;
           moveIndicator(link);
           links.forEach((l) => {
-            l.classList.remove('text-white');
-            l.classList.add('text-white/70');
+            l.classList.remove('text-theme-text-primary');
+            l.classList.add('text-theme-text-secondary');
           });
-          link.classList.add('text-white');
-          link.classList.remove('text-white/70');
+          link.classList.add('text-theme-text-primary');
+          link.classList.remove('text-theme-text-secondary');
         }
       });
     });
@@ -176,22 +209,22 @@ class AstrNavbar extends HTMLElement {
 class AstrFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <footer class="relative pt-32 pb-16 overflow-hidden border-t border-white/10" id="footer">
+      <footer class="relative pt-32 pb-16 overflow-hidden border-t border-theme-border bg-theme-bg" id="footer">
         <!-- Blueprint Grid Background -->
         <div class="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
 
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12 relative z-10">
           
           <!-- Metadata Header Bar -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-y border-white/10 mb-20 gap-4 reveal">
+          <div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-y border-theme-border mb-20 gap-4 reveal">
             <div class="flex items-center gap-6">
-              <span class="font-mono text-[0.7rem] text-gold tracking-[4px] uppercase font-bold">Terminal_Output</span>
-              <span class="w-[1px] h-4 bg-white/20"></span>
-              <span class="font-mono text-[0.7rem] text-white/40 tracking-[2px] uppercase">Ref: ARC_F01 // Global_Footer_V.07</span>
+              <span class="font-mono text-[0.7rem] text-theme-accent tracking-[4px] uppercase font-bold">Terminal_Output</span>
+              <span class="w-[1px] h-4 bg-theme-border"></span>
+              <span class="font-mono text-[0.7rem] text-theme-text-secondary tracking-[2px] uppercase">Ref: ARC_F01 // Global_Footer_V.07</span>
             </div>
-            <div class="flex items-center gap-4 font-mono text-[0.6rem] text-white/20 uppercase tracking-widest">
+            <div class="flex items-center gap-4 font-mono text-[0.6rem] text-theme-text-secondary uppercase tracking-widest">
               <span>Connection: Secure</span>
-              <span class="w-1 h-1 rounded-full bg-gold/40"></span>
+              <span class="w-1 h-1 rounded-full bg-theme-accent opacity-40"></span>
               <span class="animate-pulse">Uplink: Active</span>
             </div>
           </div>
@@ -202,55 +235,55 @@ class AstrFooter extends HTMLElement {
             <div class="lg:col-span-5 space-y-10 relative lg:pr-16">
               <div class="relative inline-block reveal">
                 <a href="index.html" class="flex flex-col items-start gap-1 group">
-                  <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-20 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" />
-                  <span class="font-mono text-[0.6rem] text-gold/60 tracking-[4px] uppercase font-bold">Private Limited</span>
+                  <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-20 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500 dark:brightness-110 invert dark:invert-0" />
+                  <span class="font-mono text-[0.6rem] text-theme-accent opacity-60 tracking-[4px] uppercase font-bold">Private Limited</span>
                 </a>
                 <!-- Handwritten Annotation -->
                 <div class="absolute -top-8 -right-12 hidden lg:block pointer-events-none">
-                  <span class="font-caveat text-gold/40 text-[1.4rem] -rotate-6 whitespace-nowrap pb-1 leading-tight block">// Architecting Intelligence</span>
+                  <span class="font-caveat text-theme-accent opacity-40 text-[1.4rem] -rotate-6 whitespace-nowrap pb-1 leading-tight block">// Architecting Intelligence</span>
                 </div>
               </div>
               
-              <p class="font-lora text-white/40 text-lg leading-relaxed max-w-[450px] reveal reveal-delay-1">
+              <p class="font-lora text-theme-text-secondary text-lg leading-relaxed max-w-[450px] reveal reveal-delay-1">
                 Engineering the interface between human intent and machine logic. 
                 Built on the philosophy of surgical precision and mission-critical reliability.
               </p>
 
               <div class="flex gap-4 pt-4 reveal reveal-delay-2">
-                <div class="relative h-12 w-12 rounded-full border border-white/10 flex items-center justify-center group hover:border-gold/30 transition-colors duration-500">
-                  <span class="font-mono text-[0.5rem] text-white/20 group-hover:text-gold/40">ASTR</span>
+                <div class="relative h-12 w-12 rounded-full border border-theme-border flex items-center justify-center group hover:border-theme-accent opacity-30 transition-colors duration-500">
+                  <span class="font-mono text-[0.5rem] text-theme-text-secondary group-hover:text-theme-accent opacity-40">ASTR</span>
                 </div>
                 <div class="space-y-1">
-                  <span class="font-mono text-[0.5rem] text-white/20 uppercase tracking-[2px] block">Status</span>
-                  <span class="font-mono text-[0.6rem] text-gold/60 uppercase tracking-[1px] block">Systems_Nominal</span>
+                  <span class="font-mono text-[0.5rem] text-theme-text-secondary uppercase tracking-[2px] block">Status</span>
+                  <span class="font-mono text-[0.6rem] text-theme-accent opacity-60 uppercase tracking-[1px] block">Systems_Nominal</span>
                 </div>
               </div>
             </div>
 
             <!-- Column 2: Intelligence (3/12) -->
-            <div class="lg:col-span-3 space-y-10 relative lg:px-12 lg:border-l lg:border-white/5">
+            <div class="lg:col-span-3 space-y-10 relative lg:px-12 lg:border-l lg:border-theme-border">
               <!-- Dimension Marker (Desktop) -->
               <div class="absolute -left-1.5 top-0 bottom-0 w-3 flex flex-col justify-between py-4 pointer-events-none hidden lg:flex">
-                <div class="w-full h-[1px] bg-white/10"></div>
-                <span class="font-mono text-[0.4rem] text-white/10 -rotate-90 origin-left">H: 320.0mm</span>
-                <div class="w-full h-[1px] bg-white/10"></div>
+                <div class="w-full h-[1px] bg-theme-border"></div>
+                <span class="font-mono text-[0.4rem] text-theme-text-secondary -rotate-90 origin-left">H: 320.0mm</span>
+                <div class="w-full h-[1px] bg-theme-border"></div>
               </div>
 
               <div class="reveal reveal-delay-3">
-                <h4 class="font-mono text-[0.65rem] text-gold/60 uppercase tracking-[4px] mb-8 flex items-center gap-3">
-                  <span class="w-4 h-[1px] bg-gold/30"></span>
+                <h4 class="font-mono text-[0.65rem] text-theme-accent opacity-60 uppercase tracking-[4px] mb-8 flex items-center gap-3">
+                  <span class="w-4 h-[1px] bg-theme-accent opacity-30"></span>
                   Intelligence
                 </h4>
                 <ul class="space-y-5">
-                  <li><a href="philosophy.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                  <li><a href="philosophy.html" class="group flex items-center justify-between text-theme-text-secondary hover:text-theme-text-primary transition-all duration-300 focus-visible:ring-1 focus-visible:ring-theme-accent opacity-30 outline-none p-1 rounded cursor-pointer">
                     <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">Philosophy</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_P01</span>
                   </a></li>
-                  <li><a href="solutions.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                  <li><a href="solutions.html" class="group flex items-center justify-between text-theme-text-secondary hover:text-theme-text-primary transition-all duration-300 focus-visible:ring-1 focus-visible:ring-theme-accent opacity-30 outline-none p-1 rounded cursor-pointer">
                     <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">Solutions</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_S01</span>
                   </a></li>
-                  <li><a href="rd.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                  <li><a href="rd.html" class="group flex items-center justify-between text-theme-text-secondary hover:text-theme-text-primary transition-all duration-300 focus-visible:ring-1 focus-visible:ring-theme-accent opacity-30 outline-none p-1 rounded cursor-pointer">
                     <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">R&D Lab</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_R01</span>
                   </a></li>
@@ -259,46 +292,46 @@ class AstrFooter extends HTMLElement {
             </div>
 
             <!-- Column 3: Communication (4/12) -->
-            <div class="lg:col-span-4 space-y-10 relative lg:pl-16 lg:border-l lg:border-white/5">
+            <div class="lg:col-span-4 space-y-10 relative lg:pl-16 lg:border-l lg:border-theme-border">
               <!-- Dimension Marker (Desktop) -->
               <div class="absolute -left-1.5 top-0 bottom-0 w-3 flex flex-col justify-between py-4 pointer-events-none hidden lg:flex">
-                <div class="w-full h-[1px] bg-white/10"></div>
-                <span class="font-mono text-[0.4rem] text-white/10 -rotate-90 origin-left">H: 320.0mm</span>
-                <div class="w-full h-[1px] bg-white/10"></div>
+                <div class="w-full h-[1px] bg-theme-border"></div>
+                <span class="font-mono text-[0.4rem] text-theme-text-secondary -rotate-90 origin-left">H: 320.0mm</span>
+                <div class="w-full h-[1px] bg-theme-border"></div>
               </div>
 
               <div class="reveal reveal-delay-4">
-                <h4 class="font-mono text-[0.65rem] text-gold/60 uppercase tracking-[4px] mb-8 flex items-center gap-3">
-                  <span class="w-4 h-[1px] bg-gold/30"></span>
+                <h4 class="font-mono text-[0.65rem] text-theme-accent opacity-60 uppercase tracking-[4px] mb-8 flex items-center gap-3">
+                  <span class="w-4 h-[1px] bg-theme-accent opacity-30"></span>
                   Communication
                 </h4>
                 <div class="space-y-10">
                   <a href="connect.html" class="block group">
-                    <span class="font-mono text-[0.55rem] text-gold uppercase tracking-[2px] block mb-2">Establish_Connection</span>
-                    <span class="font-lora text-xl text-white group-hover:text-gold transition-colors duration-300">Technical Portal →</span>
+                    <span class="font-mono text-[0.55rem] text-theme-accent uppercase tracking-[2px] block mb-2">Establish_Connection</span>
+                    <span class="font-lora text-xl text-theme-text-primary group-hover:text-theme-accent transition-colors duration-300">Technical Portal →</span>
                   </a>
                   <a href="mailto:hello@astrai.in" class="block group">
-                    <span class="font-mono text-[0.55rem] text-white/20 uppercase tracking-[2px] block mb-2">Secure_Uplink</span>
-                    <span class="font-lora text-lg text-white/80 group-hover:text-gold transition-colors duration-300">hello@astrai.in</span>
+                    <span class="font-mono text-[0.55rem] text-theme-text-secondary uppercase tracking-[2px] block mb-2">Secure_Uplink</span>
+                    <span class="font-lora text-lg text-theme-text-secondary group-hover:text-theme-accent transition-colors duration-300">hello@astrai.in</span>
                   </a>
                   <div class="flex gap-12">
                     <a href="https://www.linkedin.com/company/astr-ai/" target="_blank" class="group flex flex-col gap-1">
-                      <span class="font-mono text-[0.5rem] text-white/20 uppercase tracking-widest">LinkedIn</span>
-                      <span class="w-0 h-[1px] bg-gold/40 group-hover:w-full transition-all duration-500"></span>
+                      <span class="font-mono text-[0.5rem] text-theme-text-secondary uppercase tracking-widest">LinkedIn</span>
+                      <span class="w-0 h-[1px] bg-theme-accent opacity-40 group-hover:w-full transition-all duration-500"></span>
                     </a>
                     <a href="https://instagram.com/astrai.in" target="_blank" class="group flex flex-col gap-1">
-                      <span class="font-mono text-[0.5rem] text-white/20 uppercase tracking-widest">Instagram</span>
-                      <span class="w-0 h-[1px] bg-gold/40 group-hover:w-full transition-all duration-500"></span>
+                      <span class="font-mono text-[0.5rem] text-theme-text-secondary uppercase tracking-widest">Instagram</span>
+                      <span class="w-0 h-[1px] bg-theme-accent opacity-40 group-hover:w-full transition-all duration-500"></span>
                     </a>
                   </div>
                 </div>
               </div>
 
               <!-- Location Detail -->
-              <div class="pt-8 mt-8 border-t border-white/5 reveal reveal-delay-5">
+              <div class="pt-8 mt-8 border-t border-theme-border reveal reveal-delay-5">
                 <div class="flex items-start gap-4">
-                  <span class="font-mono text-[0.5rem] text-white/20 uppercase tracking-widest mt-1">Base_Ops</span>
-                  <p class="font-mono text-[0.6rem] text-white/30 leading-relaxed uppercase tracking-wider">
+                  <span class="font-mono text-[0.5rem] text-theme-text-secondary uppercase tracking-widest mt-1">Base_Ops</span>
+                  <p class="font-mono text-[0.6rem] text-theme-text-secondary leading-relaxed uppercase tracking-wider">
                     22/44 A HARNAM NAGAR,<br />KAPURTHALA, PB, INDIA
                   </p>
                 </div>
@@ -307,31 +340,31 @@ class AstrFooter extends HTMLElement {
           </div>
 
           <!-- Bottom Status Bar -->
-          <div class="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 reveal">
-            <div class="flex flex-wrap justify-center md:justify-start gap-8 font-mono text-[0.55rem] uppercase tracking-[3px] text-white/20">
+          <div class="mt-24 pt-10 border-t border-theme-border flex flex-col md:flex-row justify-between items-center gap-8 reveal">
+            <div class="flex flex-wrap justify-center md:justify-start gap-8 font-mono text-[0.55rem] uppercase tracking-[3px] text-theme-text-secondary">
               <span class="flex items-center gap-3">
-                <span class="w-1.5 h-[1px] bg-gold/40"></span>
+                <span class="w-1.5 h-[1px] bg-theme-accent opacity-40"></span>
                 &copy; 2026 ASTR AI PRIVATE LIMITED
               </span>
-              <span class="hidden md:inline text-white/5">/</span>
-              <a href="mission-docs.html#privacy" class="hover:text-white transition-colors">Privacy_Policy</a>
-              <span class="hidden md:inline text-white/5">/</span>
-              <a href="mission-docs.html#terms" class="hover:text-white transition-colors">Terms_of_Service</a>
+              <span class="hidden md:inline text-theme-text-secondary opacity-10">/</span>
+              <a href="mission-docs.html#privacy" class="hover:text-theme-text-primary transition-colors">Privacy_Policy</a>
+              <span class="hidden md:inline text-theme-text-secondary opacity-10">/</span>
+              <a href="mission-docs.html#terms" class="hover:text-theme-text-primary transition-colors">Terms_of_Service</a>
             </div>
             
             <div class="flex items-center gap-6">
-              <span class="font-caveat text-white/20 text-[1.2rem] -rotate-2 pb-1 leading-tight select-none block">// Mission_Success</span>
-              <div class="px-3 py-1 border border-white/10 rounded-sm font-mono text-[0.5rem] text-white/20">v1.0.7</div>
+              <span class="font-caveat text-theme-text-secondary text-[1.2rem] -rotate-2 pb-1 leading-tight select-none block">// Mission_Success</span>
+              <div class="px-3 py-1 border border-theme-border rounded-sm font-mono text-[0.5rem] text-theme-text-secondary">v1.0.7</div>
             </div>
           </div>
 
           <div class="mt-16 text-center opacity-10">
-            <p class="font-mono text-[0.55rem] tracking-[6px] uppercase">Architected by ASTR AI, Made with AI</p>
+            <p class="font-mono text-[0.55rem] tracking-[6px] uppercase text-theme-text-primary">Architected by ASTR AI, Made with AI</p>
           </div>
 
           <!-- Sanskrit Watermark Bottom -->
           <div class="absolute -bottom-10 right-10 opacity-[0.03] select-none pointer-events-none hidden lg:block">
-            <span class="font-serif text-[10rem]">अस्त्र</span>
+            <span class="font-serif text-[10rem] text-theme-text-primary">अस्त्र</span>
           </div>
         </div>
       </footer>
@@ -346,43 +379,43 @@ class AstrTelemetry extends HTMLElement {
     this.innerHTML = `
       <div class="telemetry-hud absolute inset-0 pointer-events-none z-20 overflow-hidden opacity-40 font-mono">
         <!-- Corner Markers -->
-        <div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-gold/30"></div>
-        <div class="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-gold/30"></div>
-        <div class="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-gold/30"></div>
-        <div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-gold/30"></div>
+        <div class="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-theme-accent opacity-30"></div>
+        <div class="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-theme-accent opacity-30"></div>
+        <div class="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-theme-accent opacity-30"></div>
+        <div class="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-theme-accent opacity-30"></div>
 
         <!-- Scanning Line -->
-        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent animate-scan"></div>
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-theme-accent opacity-20 to-transparent animate-scan"></div>
 
         <!-- Coordinates Label (Rotating) -->
-        <div class="absolute top-12 left-12 text-[0.6rem] text-gold/60 tracking-[3px] uppercase">
+        <div class="absolute top-12 left-12 text-[0.6rem] text-theme-accent opacity-60 tracking-[3px] uppercase">
           <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-gold/40 animate-pulse"></span>
+            <span class="w-2 h-2 rounded-full bg-theme-accent opacity-40 animate-pulse"></span>
             LAT: <span id="lat-val">00.0000</span>
           </div>
           <div class="flex items-center gap-2 mt-1">
-            <span class="w-2 h-2 rounded-full border border-gold/40"></span>
+            <span class="w-2 h-2 rounded-full border border-theme-accent opacity-40"></span>
             LON: <span id="lon-val">00.0000</span>
           </div>
         </div>
 
         <!-- System Status -->
         <div class="absolute bottom-12 right-12 text-right">
-          <div class="text-[0.5rem] text-white/20 uppercase tracking-[4px] mb-1">System_Integrity</div>
-          <div class="text-[0.7rem] text-gold/60 uppercase tracking-[2px] font-bold">
+          <div class="text-[0.5rem] text-theme-text-secondary uppercase tracking-[4px] mb-1">System_Integrity</div>
+          <div class="text-[0.7rem] text-theme-accent opacity-60 uppercase tracking-[2px] font-bold">
             <span id="status-text">Scanning...</span>
-            <span class="inline-block w-[2px] h-3 bg-gold/60 ml-1 animate-cursor"></span>
+            <span class="inline-block w-[2px] h-3 bg-theme-accent opacity-60 ml-1 animate-cursor"></span>
           </div>
         </div>
 
         <!-- Vertical Altitude Marker -->
         <div class="absolute right-12 top-1/2 -translate-y-1/2 h-32 flex flex-col justify-between items-end opacity-20">
-          <div class="w-4 h-[1px] bg-white"></div>
-          <div class="w-8 h-[1px] bg-white"></div>
-          <div class="w-4 h-[1px] bg-white"></div>
-          <div class="w-4 h-[1px] bg-white"></div>
-          <div class="w-12 h-[1px] bg-gold"></div>
-          <div class="w-4 h-[1px] bg-white"></div>
+          <div class="w-4 h-[1px] bg-theme-text-primary"></div>
+          <div class="w-8 h-[1px] bg-theme-text-primary"></div>
+          <div class="w-4 h-[1px] bg-theme-text-primary"></div>
+          <div class="w-4 h-[1px] bg-theme-text-primary"></div>
+          <div class="w-12 h-[1px] bg-theme-accent"></div>
+          <div class="w-4 h-[1px] bg-theme-text-primary"></div>
         </div>
       </div>
     `;

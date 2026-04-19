@@ -16,9 +16,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
-            colors: { gold: '#c8a24e' },
+            colors: {
+              gold: '#c8a24e',
+              theme: {
+                bg: 'var(--theme-bg)',
+                'text-primary': 'var(--theme-text-primary)',
+                'text-secondary': 'var(--theme-text-secondary)',
+                card: 'var(--theme-card-bg)',
+                border: 'var(--theme-card-border)',
+                status: 'var(--theme-status-dot)',
+                nav: 'var(--theme-nav-bg)',
+              },
+            },
             fontFamily: { cinzel: ['Cinzel', 'serif'], lora: ['Lora', 'serif'], caveat: ['Caveat', 'cursive'] },
           },
         },
@@ -26,7 +38,7 @@
     </script>
   </head>
 
-  <body class="bg-[#050505] text-white font-lora selection:bg-gold/30 overflow-x-hidden">
+  <body class="bg-theme-bg text-theme-text-primary font-lora selection:bg-theme-accent opacity-30 selection:text-theme-accent overflow-x-hidden">
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(200,162,78,0.03)_0%,transparent_70%)]"></div>
     </div>
@@ -38,23 +50,23 @@
         
         <!-- Header -->
         <div class="mb-24 reveal">
-          <span class="font-mono text-[0.6rem] text-gold/40 tracking-[6px] uppercase block mb-4">Internal_Directives_v1.0</span>
-          <h1 class="font-cinzel text-4xl lg:text-5xl font-bold tracking-widest text-white/90 mb-8">Mission <span class="italic font-light">Documentation.</span></h1>
-          <div class="h-px w-24 bg-gold/20"></div>
+          <span class="font-mono text-[0.6rem] text-theme-accent opacity-40 tracking-[6px] uppercase block mb-4">Internal_Directives_v1.0</span>
+          <h1 class="font-cinzel text-4xl lg:text-5xl font-bold tracking-widest text-theme-text-primary mb-8">Mission <span class="italic font-light">Documentation.</span></h1>
+          <div class="h-px w-24 bg-theme-accent opacity-20"></div>
         </div>
 
         <!-- Section: Careers -->
         <section id="careers" class="mb-32 reveal">
           <div class="flex items-center gap-4 mb-8">
-            <span class="font-mono text-[0.6rem] text-gold tracking-widest uppercase font-bold">Ref: DOC_CAREERS</span>
-            <div class="h-px flex-1 bg-white/5"></div>
+            <span class="font-mono text-[0.6rem] text-theme-accent tracking-widest uppercase font-bold">Ref: DOC_CAREERS</span>
+            <div class="h-px flex-1 bg-theme-border"></div>
           </div>
-          <h2 class="font-cinzel text-2xl text-white/80 mb-6 uppercase tracking-wider">Join the Collective.</h2>
-          <div class="space-y-6 text-white/60 leading-relaxed text-lg">
+          <h2 class="font-cinzel text-2xl text-theme-text-primary mb-6 uppercase tracking-wider">Join the Collective.</h2>
+          <div class="space-y-6 text-theme-text-secondary leading-relaxed text-lg">
             <p>We are not looking for employees; we are looking for architects of the future. ASTR AI is a gathering of visionaries, engineers, and researchers driven by a singular purpose: to build technology that serves and protects society.</p>
             <p>Current active focus areas include Distributed Neural Networks, Edge Computing for Autonomous Robotics, and Unified Medical ID Protocols.</p>
             <div class="pt-8">
-              <a href="mailto:careers@astrai.in" class="inline-flex items-center gap-4 px-8 py-3 border border-gold/30 rounded-full text-gold font-mono text-sm tracking-widest hover:bg-gold/5 transition-all uppercase font-bold">
+              <a href="mailto:careers@astrai.in" class="inline-flex items-center gap-4 px-8 py-3 border border-theme-accent opacity-30 rounded-full text-theme-accent font-mono text-sm tracking-widest hover:bg-theme-accent opacity-5 transition-all uppercase font-bold">
                 [OPEN_COMMUNICATION_CHANNEL]
               </a>
             </div>
@@ -64,11 +76,11 @@
         <!-- Section: Privacy -->
         <section id="privacy" class="mb-32 reveal">
           <div class="flex items-center gap-4 mb-8">
-            <span class="font-mono text-[0.6rem] text-gold tracking-widest uppercase font-bold">Ref: DOC_PRIVACY</span>
-            <div class="h-px flex-1 bg-white/5"></div>
+            <span class="font-mono text-[0.6rem] text-theme-accent tracking-widest uppercase font-bold">Ref: DOC_PRIVACY</span>
+            <div class="h-px flex-1 bg-theme-border"></div>
           </div>
-          <h2 class="font-cinzel text-2xl text-white/80 mb-6 uppercase tracking-wider">Data Integrity.</h2>
-          <div class="space-y-6 text-white/60 leading-relaxed">
+          <h2 class="font-cinzel text-2xl text-theme-text-primary mb-6 uppercase tracking-wider">Data Integrity.</h2>
+          <div class="space-y-6 text-theme-text-secondary leading-relaxed">
             <p>At ASTR, privacy is not a feature—it is a foundational axiom. Our "Sentinel OS" and patient data protocols are designed with zero-knowledge architectures, ensuring that mission-critical data remains encrypted and sovereign at the edge.</p>
             <p>We do not sell data. We protect it.</p>
           </div>
@@ -77,11 +89,11 @@
         <!-- Section: Terms -->
         <section id="terms" class="reveal">
           <div class="flex items-center gap-4 mb-8">
-            <span class="font-mono text-[0.6rem] text-gold tracking-widest uppercase font-bold">Ref: DOC_TERMS</span>
-            <div class="h-px flex-1 bg-white/5"></div>
+            <span class="font-mono text-[0.6rem] text-theme-accent tracking-widest uppercase font-bold">Ref: DOC_TERMS</span>
+            <div class="h-px flex-1 bg-theme-border"></div>
           </div>
-          <h2 class="font-cinzel text-2xl text-white/80 mb-6 uppercase tracking-wider">Operational Framework.</h2>
-          <div class="space-y-6 text-white/60 leading-relaxed">
+          <h2 class="font-cinzel text-2xl text-theme-text-primary mb-6 uppercase tracking-wider">Operational Framework.</h2>
+          <div class="space-y-6 text-theme-text-secondary leading-relaxed">
             <p>Engagement with ASTR AI systems is governed by our Ethical AI Charter and State Regulatory Protocols. All autonomous deployments are subject to human-in-the-loop overrides and strict accountability meshes.</p>
           </div>
         </section>

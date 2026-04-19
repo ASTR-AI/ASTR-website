@@ -30,43 +30,43 @@
     />
   </head>
 
-  <body class="bg-black text-white font-lora selection:bg-gold/30 selection:text-gold antialiased">
+  <body class="bg-theme-bg text-theme-text-primary font-lora selection:bg-theme-accent opacity-30 selection:text-theme-accent antialiased">
     <astr-navbar></astr-navbar>
 
     <main class="pt-[120px] md:pt-[180px]">
       <!-- Journal Metadata Bar -->
       <div class="container max-w-[1300px] mx-auto px-6 md:px-12 mb-12">
-        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 py-4 border-y border-white/5">
+        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 py-4 border-y border-theme-border">
           <div class="flex items-center gap-4">
-            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[3px] uppercase">Service_Archive</span>
-            <span class="w-[1px] h-3 bg-white/10"></span>
-            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-white/20 tracking-[2px] uppercase">Ref: SOL_094</span>
+            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-accent tracking-[3px] uppercase">Service_Archive</span>
+            <span class="w-[1px] h-3 bg-theme-card"></span>
+            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-text-secondary tracking-[2px] uppercase">Ref: SOL_094</span>
           </div>
           <div class="flex items-center gap-4 md:hidden">
-             <span class="font-mono text-[0.55rem] text-white/10 uppercase tracking-widest">Status: Live_Sync</span>
+             <span class="font-mono text-[0.55rem] text-theme-text-secondary uppercase tracking-widest">Status: Live_Sync</span>
           </div>
         </div>
       </div>
 
       <!-- ====== SECTION: ADAPTIVE SOLUTIONS ====== -->
       <section
-        class="adaptive-solutions bg-transparent relative text-white z-10 pb-16 md:pb-24"
+        class="adaptive-solutions bg-transparent relative text-theme-text-primary z-10 pb-16 md:pb-24"
         id="solutions-grid"
       >
         <div
           class="container max-w-[1300px] mx-auto px-6 md:px-12 mb-12 md:mb-20"
         >
           <span
-            class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block"
+            class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-theme-accent opacity-60 mb-4 md:mb-6 block"
             >Architectural Methodology</span
           >
           <h2
             class="reveal text-[clamp(2.2rem,5vw,4.5rem)] font-tech font-bold leading-[1.1] tracking-tight mb-6 md:mb-8"
           >
             Adaptive Solutions for <br />
-            <span class="italic font-light text-white/90">Modern Challenges.</span>
+            <span class="italic font-light text-theme-text-primary">Modern Challenges.</span>
           </h2>
-          <div class="w-16 md:w-24 h-[1px] bg-gold/30 mb-8 md:mb-12"></div>
+          <div class="w-16 md:w-24 h-[1px] bg-theme-accent opacity-30 mb-8 md:mb-12"></div>
         </div>
 
         <div
@@ -81,7 +81,7 @@
               id="block-1"
             >
               <div
-                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
+                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-theme-accent opacity-10 border border-theme-accent opacity-20 flex items-center justify-center mb-4 text-theme-accent opacity-80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -98,17 +98,17 @@
                 </svg>
               </div>
               <h3
-                class="text-lg md:text-xl font-tech font-bold mb-2 text-white leading-tight"
+                class="text-lg md:text-xl font-tech font-bold mb-2 text-theme-text-primary leading-tight"
               >
                 AI Infrastructure & Labs
               </h3>
-              <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
+              <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base m-0">
                 Designing and deploying high-compute server environments and physical AI labs for enterprise-scale research and deployment.
               </p>
             </div>
 
             <div
-              class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-gold/20 to-white/5"
+              class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-theme-accent opacity-20 to-theme-card opacity-5"
             ></div>
 
             <div
@@ -116,22 +116,22 @@
               id="block-2"
             >
               <div
-                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
+                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-theme-accent opacity-10 border border-theme-accent opacity-20 flex items-center justify-center mb-4 text-theme-accent opacity-80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
               <h3
-                class="text-lg md:text-xl font-tech font-bold mb-2 text-white leading-tight"
+                class="text-lg md:text-xl font-tech font-bold mb-2 text-theme-text-primary leading-tight"
               >
                 Academic Centers of Excellence
               </h3>
-              <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
+              <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base m-0">
                 Partnering with Universities to establish world-class AI Centers of Excellence (CoE) — providing the tech, curriculum, and research frameworks.
               </p>
             </div>
 
             <div
-              class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-gold/20 to-white/5"
+              class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-theme-accent opacity-20 to-theme-card opacity-5"
             ></div>
 
             <div
@@ -139,22 +139,22 @@
               id="block-3"
             >
               <div
-                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
+                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-theme-accent opacity-10 border border-theme-accent opacity-20 flex items-center justify-center mb-4 text-theme-accent opacity-80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <h3
-                class="text-lg md:text-xl font-tech font-bold mb-2 text-white leading-tight"
+                class="text-lg md:text-xl font-tech font-bold mb-2 text-theme-text-primary leading-tight"
               >
                 Autonomous Drone Solutions
               </h3>
-              <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
+              <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base m-0">
                 Custom drone platforms equipped with edge AI for industrial inspection, mapping, and automated telemetry in challenging environments.
               </p>
             </div>
 
             <div
-              class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-gold/20 to-white/5"
+              class="adaptive-block-divider w-full h-[1px] bg-gradient-to-r from-theme-accent opacity-20 to-theme-card opacity-5"
             ></div>
 
             <div
@@ -162,16 +162,16 @@
               id="block-4"
             >
               <div
-                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
+                class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-theme-accent opacity-10 border border-theme-accent opacity-20 flex items-center justify-center mb-4 text-theme-accent opacity-80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               </div>
               <h3
-                class="text-lg md:text-xl font-bold mb-2 text-white leading-tight"
+                class="text-lg md:text-xl font-bold mb-2 text-theme-text-primary leading-tight"
               >
                 Intelligent Software Systems
               </h3>
-              <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
+              <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base m-0">
                 End-to-end custom software architecture — from intelligent automation platforms to unified operational dashboards.
               </p>
             </div>
@@ -190,15 +190,15 @@
       </section>
 
       <!-- ====== SECTION: THE ECOSYSTEM DECISION ====== -->
-      <section class="before-after-section relative bg-black text-white py-20 md:py-32 z-10 border-t border-white/5">
+      <section class="before-after-section relative bg-theme-bg text-theme-text-primary py-20 md:py-32 z-10 border-t border-theme-border">
         <div class="container max-w-[1500px] mx-auto px-6 md:px-12">
           <div class="text-center mb-10 md:mb-12">
-            <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block">The Strategic Choice</span>
+            <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-theme-accent opacity-60 mb-4 md:mb-6 block">The Strategic Choice</span>
             <h2 class="reveal text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight mb-6 md:mb-8">
               Stop Managing Tools. <br />
-              <span class="italic font-light text-white/90">Start Leading.</span>
+              <span class="italic font-light text-theme-text-primary">Start Leading.</span>
             </h2>
-            <p class="text-white/50 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+            <p class="text-theme-text-secondary max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
               Most companies struggle with a "mess" of different vendors and disconnected tech. ASTR AI provides one unified ecosystem where everything—Software, Infrastructure, and Drones—works together perfectly.
             </p>
           </div>
@@ -214,111 +214,111 @@
                 <!-- Annotation 1 -->
                 <div class="relative pl-4">
                   <!-- Shortened Arrow Doodle -->
-                  <div class="absolute top-4 -right-12 w-12 h-8 text-gold/30">
+                  <div class="absolute top-4 -right-12 w-12 h-8 text-theme-accent opacity-30">
                     <svg viewBox="0 0 50 40" fill="none" class="w-full h-full">
                       <path d="M5 10 Q 25 5, 45 20 M 35 10 L 45 20 L 35 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </div>
-                  <div class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: OPS_01</div>
-                  <h4 class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Zero Maintenance</h4>
-                  <p class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic">ASTR handles all server monitoring and code updates 24/7. No internal ops team required.</p>
+                  <div class="font-mono text-[0.6rem] text-theme-accent opacity-40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: OPS_01</div>
+                  <h4 class="text-theme-text-primary font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Zero Maintenance</h4>
+                  <p class="text-theme-text-secondary text-[1.4rem] leading-tight font-handwritten italic">ASTR handles all server monitoring and code updates 24/7. No internal ops team required.</p>
                 </div>
 
                 <!-- Annotation 2 -->
                 <div class="relative pl-4">
                   <!-- Shortened Arrow Doodle -->
-                  <div class="absolute top-4 -right-16 w-16 h-10 text-gold/30">
+                  <div class="absolute top-4 -right-16 w-16 h-10 text-theme-accent opacity-30">
                     <svg viewBox="0 0 50 40" fill="none" class="w-full h-full">
                       <path d="M5 30 Q 25 35, 45 10 M 35 5 L 45 10 L 40 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </div>
-                  <div class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: DATA_02</div>
-                  <h4 class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Unified Intelligence</h4>
-                  <p class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic">Drones, labs, and software synced into one live stream. Total operational visibility.</p>
+                  <div class="font-mono text-[0.6rem] text-theme-accent opacity-40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: DATA_02</div>
+                  <h4 class="text-theme-text-primary font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Unified Intelligence</h4>
+                  <p class="text-theme-text-secondary text-[1.4rem] leading-tight font-handwritten italic">Drones, labs, and software synced into one live stream. Total operational visibility.</p>
                 </div>
 
                 <!-- Annotation 3 -->
                 <div class="relative pl-4">
                   <!-- Shortened Arrow Doodle -->
-                  <div class="absolute top-4 -right-14 w-14 h-10 text-gold/30">
+                  <div class="absolute top-4 -right-14 w-14 h-10 text-theme-accent opacity-30">
                     <svg viewBox="0 0 50 40" fill="none" class="w-full h-full">
                         <path d="M5 5 Q 15 20, 45 25 M 35 15 L 45 25 L 35 35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </div>
-                  <div class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: SCALE_03</div>
-                  <h4 class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Instant Scaling</h4>
-                  <p class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic">Add new infrastructure or robotics modules with a single command. Zero technical debt.</p>
+                  <div class="font-mono text-[0.6rem] text-theme-accent opacity-40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: SCALE_03</div>
+                  <h4 class="text-theme-text-primary font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Instant Scaling</h4>
+                  <p class="text-theme-text-secondary text-[1.4rem] leading-tight font-handwritten italic">Add new infrastructure or robotics modules with a single command. Zero technical debt.</p>
                 </div>
               </div>
 
               <!-- The Slider -->
-              <div class="ba-container relative w-full max-w-[950px] h-[350px] md:h-[550px] rounded-[24px] md:rounded-[32px] overflow-hidden border border-white/10 glass-panel cursor-ew-resize shadow-[0_30px_100px_rgba(0,0,0,0.8)] z-20">
+              <div class="ba-container relative w-full max-w-[950px] h-[350px] md:h-[550px] rounded-[24px] md:rounded-[32px] overflow-hidden border border-theme-border glass-panel cursor-ew-resize shadow-2xl z-20">
                 <!-- THE TRADITIONAL WAY (BEFORE) -->
-                <div class="ba-before absolute inset-0 bg-black flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none border border-white/5">
+                <div class="ba-before absolute inset-0 bg-theme-bg flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none border border-theme-border">
                   <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]"></div>
                   
                   <div class="relative z-10 grid grid-cols-3 gap-4 md:gap-8 mb-6 md:mb-12 opacity-30 grayscale scale-75 md:scale-100">
                     <div class="flex flex-col items-center gap-2 md:gap-3">
-                        <div class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+                        <div class="w-10 h-10 md:w-16 md:h-16 border border-theme-border rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
                         <span class="font-mono text-[0.45rem] md:text-[0.6rem]">Vendor A</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 md:gap-3">
-                        <div class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/></svg></div>
+                        <div class="w-10 h-10 md:w-16 md:h-16 border border-theme-border rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/></svg></div>
                         <span class="font-mono text-[0.45rem] md:text-[0.6rem]">Vendor B</span>
                     </div>
                     <div class="flex flex-col items-center gap-2 md:gap-3">
-                        <div class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m2 8 10 5 10-5-10-5z"/></svg></div>
+                        <div class="w-10 h-10 md:w-16 md:h-16 border border-theme-border rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m2 8 10 5 10-5-10-5z"/></svg></div>
                         <span class="font-mono text-[0.45rem] md:text-[0.6rem]">Vendor C</span>
                     </div>
                   </div>
 
-                  <div class="relative z-10 text-white/20 font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest uppercase font-bold italic">// FRAGMENTED</div>
-                  <h3 class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-white/40 uppercase tracking-tighter">Traditional Mess</h3>
-                  <p class="relative z-10 text-white/30 max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm">Incompatible APIs and reactive fixes. You do the heavy lifting.</p>
+                  <div class="relative z-10 text-theme-text-secondary font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest uppercase font-bold italic">// FRAGMENTED</div>
+                  <h3 class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-theme-text-secondary uppercase tracking-tighter">Traditional Mess</h3>
+                  <p class="relative z-10 text-theme-text-secondary max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm">Incompatible APIs and reactive fixes. You do the heavy lifting.</p>
                 </div>
                 
                 <!-- Slider Handle -->
-                <div class="ba-handle absolute top-0 bottom-0 w-[2px] bg-gold left-[50%] flex items-center justify-center z-[20] pointer-events-none" style="transform: translateX(-50%);">
-                  <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#1a1a1a] border border-gold flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                <div class="ba-handle absolute top-0 bottom-0 w-[2px] bg-theme-accent left-[50%] flex items-center justify-center z-[20] pointer-events-none" style="transform: translateX(-50%);">
+                  <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#1a1a1a] border border-theme-accent flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]">
                     <div class="flex gap-1">
-                        <div class="w-0.5 h-3 md:h-4 bg-gold/50 rounded-full"></div>
-                        <div class="w-0.5 h-3 md:h-4 bg-gold rounded-full"></div>
-                        <div class="w-0.5 h-3 md:h-4 bg-gold/50 rounded-full"></div>
+                        <div class="w-0.5 h-3 md:h-4 bg-theme-accent opacity-50 rounded-full"></div>
+                        <div class="w-0.5 h-3 md:h-4 bg-theme-accent rounded-full"></div>
+                        <div class="w-0.5 h-3 md:h-4 bg-theme-accent opacity-50 rounded-full"></div>
                     </div>
                   </div>
                 </div>
 
                 <!-- THE ASTR ECOSYSTEM (AFTER) -->
-                <div class="ba-after absolute inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none overflow-hidden z-[10]" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                  <div class="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-50"></div>
+                <div class="ba-after absolute inset-0 bg-theme-bg flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none overflow-hidden z-[10]" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+                  <div class="absolute inset-0 bg-gradient-to-br from-theme-accent opacity-10 via-transparent to-transparent opacity-50"></div>
                   
                   <!-- Visual: The Unified Interface -->
-                  <div class="relative z-10 w-[220px] md:w-[400px] aspect-video bg-[#050505] border border-gold/40 rounded-xl md:rounded-2xl shadow-[0_0_50px_rgba(230,205,153,0.15)] backdrop-blur-2xl flex flex-col p-3 md:p-6 mb-4 md:mb-8 scale-90 md:scale-100">
-                    <div class="flex items-center justify-between mb-3 md:mb-6 border-b border-gold/20 pb-2 md:pb-4">
+                  <div class="relative z-10 w-[220px] md:w-[400px] aspect-video bg-theme-bg border border-theme-accent opacity-40 rounded-xl md:rounded-2xl shadow-[0_0_50px_rgba(230,205,153,0.15)] backdrop-blur-2xl flex flex-col p-3 md:p-6 mb-4 md:mb-8 scale-90 md:scale-100">
+                    <div class="flex items-center justify-between mb-3 md:mb-6 border-b border-theme-accent opacity-20 pb-2 md:pb-4">
                         <div class="flex items-center gap-2 md:gap-3">
-                          <div class="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gold animate-ping"></div>
-                          <span class="font-mono text-[0.5rem] md:text-[0.65rem] text-gold tracking-widest font-bold uppercase">ASTR_CORE</span>
+                          <div class="w-1 h-1 md:w-2 md:h-2 rounded-full bg-theme-accent animate-ping"></div>
+                          <span class="font-mono text-[0.5rem] md:text-[0.65rem] text-theme-accent tracking-widest font-bold uppercase">ASTR_CORE</span>
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-2 md:gap-4 flex-1">
-                        <div class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
-                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#E6CD99" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
-                          <span class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono">SW</span>
+                        <div class="bg-theme-accent opacity-5 border border-theme-accent opacity-10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
+                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
+                          <span class="text-[0.35rem] md:text-[0.5rem] text-theme-accent opacity-60 font-mono">SW</span>
                         </div>
-                        <div class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
-                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#E6CD99" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/></svg>
-                          <span class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono">INFRA</span>
+                        <div class="bg-theme-accent opacity-5 border border-theme-accent opacity-10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
+                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/></svg>
+                          <span class="text-[0.35rem] md:text-[0.5rem] text-theme-accent opacity-60 font-mono">INFRA</span>
                         </div>
-                        <div class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
-                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#E6CD99" stroke-width="1.5"><path d="m2 8 10 5 10-5-10-5z"/></svg>
-                          <span class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono">DRONE</span>
+                        <div class="bg-theme-accent opacity-5 border border-theme-accent opacity-10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
+                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="var(--theme-accent)" stroke-width="1.5"><path d="m2 8 10 5 10-5-10-5z"/></svg>
+                          <span class="text-[0.35rem] md:text-[0.5rem] text-theme-accent opacity-60 font-mono">DRONE</span>
                         </div>
                     </div>
                   </div>
 
-                  <div class="relative z-10 text-gold font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest animate-pulse font-bold uppercase tracking-[2px]">// UNIFIED</div>
-                  <h3 class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-white uppercase tracking-tighter">ASTR Ecosystem</h3>
-                  <p class="relative z-10 text-white/80 max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm">One partner. One dashboard. Zero friction.</p>
+                  <div class="relative z-10 text-theme-accent font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest animate-pulse font-bold uppercase tracking-[2px]">// UNIFIED</div>
+                  <h3 class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-theme-text-primary uppercase tracking-tighter">ASTR Ecosystem</h3>
+                  <p class="relative z-10 text-theme-text-primary max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm">One partner. One dashboard. Zero friction.</p>
                 </div>
               </div>
 
@@ -328,109 +328,109 @@
           <!-- Mobile Note Version -->
           <div class="lg:hidden w-full flex flex-col gap-8 mt-12 relative z-30 px-6 max-w-2xl mx-auto">
              <div class="relative pl-6">
-                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"></div>
-                <div class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// OPS_01</div>
-                <h4 class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Zero Maintenance</h4>
-                <p class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic">ASTR handles all server monitoring and code updates 24/7.</p>
+                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-theme-accent opacity-40 to-transparent"></div>
+                <div class="font-mono text-[0.55rem] text-theme-accent opacity-40 mb-1 uppercase tracking-[2px] opacity-70">// OPS_01</div>
+                <h4 class="text-theme-text-primary font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Zero Maintenance</h4>
+                <p class="text-theme-text-secondary text-[1.1rem] leading-tight font-handwritten italic">ASTR handles all server monitoring and code updates 24/7.</p>
              </div>
              <div class="relative pl-6">
-                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"></div>
-                <div class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// DATA_02</div>
-                <h4 class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Unified Intelligence</h4>
-                <p class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic">Drones, labs, and software synced into one live stream.</p>
+                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-theme-accent opacity-40 to-transparent"></div>
+                <div class="font-mono text-[0.55rem] text-theme-accent opacity-40 mb-1 uppercase tracking-[2px] opacity-70">// DATA_02</div>
+                <h4 class="text-theme-text-primary font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Unified Intelligence</h4>
+                <p class="text-theme-text-secondary text-[1.1rem] leading-tight font-handwritten italic">Drones, labs, and software synced into one live stream.</p>
              </div>
              <div class="relative pl-6">
-                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"></div>
-                <div class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// SCALE_03</div>
-                <h4 class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Instant Scaling</h4>
-                <p class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic">Add new modules with a single command. Zero technical debt.</p>
+                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-theme-accent opacity-40 to-transparent"></div>
+                <div class="font-mono text-[0.55rem] text-theme-accent opacity-40 mb-1 uppercase tracking-[2px] opacity-70">// SCALE_03</div>
+                <h4 class="text-theme-text-primary font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Instant Scaling</h4>
+                <p class="text-theme-text-secondary text-[1.1rem] leading-tight font-handwritten italic">Add new modules with a single command. Zero technical debt.</p>
              </div>
           </div>
         </div>
       </section>
 
       <!-- ====== SECTION: CAPABILITIES DEEP-DIVE ====== -->
-      <section class="capabilities-section relative bg-[#050505] text-white py-16 md:py-24 z-10 border-t border-white/5">
+      <section class="capabilities-section relative bg-theme-bg text-theme-text-primary py-16 md:py-24 z-10 border-t border-theme-border">
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12">
           <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-start">
             <div class="sticky top-[100px] md:top-[120px]">
-              <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block">The "What"</span>
+              <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-theme-accent opacity-60 mb-4 md:mb-6 block">The "What"</span>
               <h2 class="reveal text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.1] tracking-tight mb-6 md:mb-8">
                 Demystifying <br />
-                <span class="italic font-light text-white/90">Deep Tech.</span>
+                <span class="italic font-light text-theme-text-primary">Deep Tech.</span>
               </h2>
-              <p class="text-white/50 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">We translate complex engineering into simple, powerful tools that work for you.</p>
+              <p class="text-theme-text-secondary leading-relaxed mb-6 md:mb-8 text-sm md:text-base">We translate complex engineering into simple, powerful tools that work for you.</p>
             </div>
             
             <div class="accordion-container space-y-4">
               <!-- Item 1: AI Infrastructure -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
+              <div class="accordion-item glass-panel border border-theme-border rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
                 <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">AI Infrastructure</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Enterprise-Grade Compute Labs</h3>
+                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-accent tracking-[2px] uppercase mb-1 md:mb-2 block">AI Infrastructure</span>
+                    <h3 class="text-lg md:text-xl font-bold group-hover:text-theme-accent transition-colors">Enterprise-Grade Compute Labs</h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
+                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-theme-border flex items-center justify-center group-hover:border-theme-accent transition-colors accordion-icon">
                     <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                 </button>
                 <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
-                  <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">We build the backbone of modern intelligence. From GPU-accelerated server clusters to specialized AI research labs, we handle the complex engineering required to run heavy-duty models at scale.</p>
+                  <div class="pb-6 md:pb-8 pt-2 border-t border-theme-border">
+                    <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base">We build the backbone of modern intelligence. From GPU-accelerated server clusters to specialized AI research labs, we handle the complex engineering required to run heavy-duty models at scale.</p>
                   </div>
                 </div>
               </div>
 
               <!-- Item 2: Academic Centers -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
+              <div class="accordion-item glass-panel border border-theme-border rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
                 <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">Education & Research</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Centers of Excellence</h3>
+                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-accent tracking-[2px] uppercase mb-1 md:mb-2 block">Education & Research</span>
+                    <h3 class="text-lg md:text-xl font-bold group-hover:text-theme-accent transition-colors">Centers of Excellence</h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
+                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-theme-border flex items-center justify-center group-hover:border-theme-accent transition-colors accordion-icon">
                     <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                 </button>
                 <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
-                  <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">Bridging the gap between academia and industry. We help Universities set up dedicated AI CoEs, providing not just hardware but also research frameworks and industry-aligned curricula.</p>
+                  <div class="pb-6 md:pb-8 pt-2 border-t border-theme-border">
+                    <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base">Bridging the gap between academia and industry. We help Universities set up dedicated AI CoEs, providing not just hardware but also research frameworks and industry-aligned curricula.</p>
                   </div>
                 </div>
               </div>
               
               <!-- Item 3: Drone Systems -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
+              <div class="accordion-item glass-panel border border-theme-border rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
                 <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">Autonomous Robotics</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Industrial Drone Intelligence</h3>
+                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-accent tracking-[2px] uppercase mb-1 md:mb-2 block">Autonomous Robotics</span>
+                    <h3 class="text-lg md:text-xl font-bold group-hover:text-theme-accent transition-colors">Industrial Drone Intelligence</h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
+                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-theme-border flex items-center justify-center group-hover:border-theme-accent transition-colors accordion-icon">
                     <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                 </button>
                 <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
-                  <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">Our drones don't just fly; they think. We deploy custom aerial platforms with built-in AI for automated site surveys, thermal inspections, and real-time telemetry streaming.</p>
+                  <div class="pb-6 md:pb-8 pt-2 border-t border-theme-border">
+                    <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base">Our drones don't just fly; they think. We deploy custom aerial platforms with built-in AI for automated site surveys, thermal inspections, and real-time telemetry streaming.</p>
                   </div>
                 </div>
               </div>
 
               <!-- Item 4: Custom Software -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
+              <div class="accordion-item glass-panel border border-theme-border rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
                 <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">Custom ERP & AI</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Intelligent Software Ecosystems</h3>
+                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-accent tracking-[2px] uppercase mb-1 md:mb-2 block">Custom ERP & AI</span>
+                    <h3 class="text-lg md:text-xl font-bold group-hover:text-theme-accent transition-colors">Intelligent Software Ecosystems</h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
+                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-theme-border flex items-center justify-center group-hover:border-theme-accent transition-colors accordion-icon">
                     <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                 </button>
                 <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
-                  <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">We build unified digital platforms that act as the central nervous system of your business, automating repetitive tasks and providing predictive insights through integrated AI agents.</p>
+                  <div class="pb-6 md:pb-8 pt-2 border-t border-theme-border">
+                    <p class="text-theme-text-secondary leading-relaxed text-sm md:text-base">We build unified digital platforms that act as the central nervous system of your business, automating repetitive tasks and providing predictive insights through integrated AI agents.</p>
                   </div>
                 </div>
               </div>
@@ -440,20 +440,20 @@
       </section>
 
       <!-- ====== SECTION: INDUSTRY USE CASES ====== -->
-      <section class="industries-section relative bg-black text-white py-16 md:py-24 z-10 border-t border-white/5">
+      <section class="industries-section relative bg-theme-bg text-theme-text-primary py-16 md:py-24 z-10 border-t border-theme-border">
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12">
-          <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block text-center">The "Where"</span>
+          <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-theme-accent opacity-60 mb-4 md:mb-6 block text-center">The "Where"</span>
           <h2 class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-10 md:mb-16 text-center">
-            Built for <span class="italic font-light text-white/90">Your Industry.</span>
+            Built for <span class="italic font-light text-theme-text-primary">Your Industry.</span>
           </h2>
 
           <!-- Tabs -->
           <div class="tabs-wrapper flex justify-center mb-8 md:mb-12">
-            <div class="segmented-control flex gap-1 md:gap-2 p-1.5 md:p-2 rounded-[64px] bg-white/5 border border-white/10 backdrop-blur-md overflow-x-auto no-scrollbar relative">
+            <div class="segmented-control flex gap-1 md:gap-2 p-1.5 md:p-2 rounded-[64px] bg-theme-card border border-theme-border backdrop-blur-md overflow-x-auto no-scrollbar relative">
               <span class="nav-highlight"></span>
-              <button class="tab-btn active px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white whitespace-nowrap z-10" data-target="tab-logistics">Logistics</button>
-              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10" data-target="tab-healthcare">Healthcare</button>
-              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10" data-target="tab-manufacturing">Manufacturing</button>
+              <button class="tab-btn active px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-theme-text-primary whitespace-nowrap z-10" data-target="tab-logistics">Logistics</button>
+              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-theme-text-secondary hover:text-theme-text-primary whitespace-nowrap z-10" data-target="tab-healthcare">Healthcare</button>
+              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-theme-text-secondary hover:text-theme-text-primary whitespace-nowrap z-10" data-target="tab-manufacturing">Manufacturing</button>
             </div>
           </div>
 
@@ -461,54 +461,54 @@
           <div class="tab-content-container relative min-h-[500px] md:min-h-[400px] mb-8">
             <!-- Logistics -->
             <div class="tab-pane active absolute inset-0 transition-all duration-500 opacity-100 z-10" id="tab-logistics">
-              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
+              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-theme-border flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-theme-card h-full">
                 <div class="flex-1 order-2 md:order-1">
                   <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Logistics & Distribution</h3>
                   <ul class="space-y-3 md:space-y-4">
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> AI-driven inventory intelligence for large-scale warehouse operations.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Real-time drone telemetry for automated yard management.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Unified systems for predictive supply chain resilience.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> AI-driven inventory intelligence for large-scale warehouse operations.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Real-time drone telemetry for automated yard management.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Unified systems for predictive supply chain resilience.</li>
                   </ul>
                 </div>                
-                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2">
+                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-theme-bg border border-theme-border flex items-center justify-center relative overflow-hidden order-1 md:order-2">
                   <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
-                  <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-theme-accent opacity-50 relative z-10"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </div>
               </div>
             </div>
 
             <!-- Healthcare -->
             <div class="tab-pane absolute inset-0 transition-all duration-500 opacity-0 pointer-events-none" id="tab-healthcare">
-              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
+              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-theme-border flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-theme-card h-full">
                 <div class="flex-1 order-2 md:order-1">
                   <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Modernizing Care</h3>
                   <ul class="space-y-3 md:space-y-4">
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> AI-assisted diagnostics for faster scan analysis.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Automated scheduling and resource allocation algorithms.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Secure, unified electronic health record (EHR) management.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> AI-assisted diagnostics for faster scan analysis.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Automated scheduling and resource allocation algorithms.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Secure, unified electronic health record (EHR) management.</li>
                   </ul>
                 </div>
-                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2">
+                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-theme-bg border border-theme-border flex items-center justify-center relative overflow-hidden order-1 md:order-2">
                    <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
-                   <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                   <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-theme-accent opacity-50 relative z-10"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
               </div>
             </div>
 
             <!-- Manufacturing -->
             <div class="tab-pane absolute inset-0 transition-all duration-500 opacity-0 pointer-events-none" id="tab-manufacturing">
-              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
+              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-theme-border flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-theme-card h-full">
                 <div class="flex-1 order-2 md:order-1">
                   <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Industry 4.0 Standard</h3>
                   <ul class="space-y-3 md:space-y-4">
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Real-time defect detection using computer vision.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Drone-based facility inspections for hard-to-reach areas.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Digital twin simulation to optimize floor layouts.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Real-time defect detection using computer vision.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Drone-based facility inspections for hard-to-reach areas.</li>
+                    <li class="flex items-start gap-3 md:gap-4 text-theme-text-secondary text-sm md:text-base"><span class="text-theme-accent">✦</span> Digital twin simulation to optimize floor layouts.</li>
                   </ul>
                 </div>
-                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2">
+                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-theme-bg border border-theme-border flex items-center justify-center relative overflow-hidden order-1 md:order-2">
                    <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
-                   <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                   <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-theme-accent opacity-50 relative z-10"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 </div>
               </div>
             </div>
@@ -517,13 +517,13 @@
           <!-- Custom Architecture Footer -->
           <div class="antigravity-split-inline reveal mt-12 md:mt-20 mx-auto max-w-[1000px] grid grid-cols-1 lg:grid-cols-[30%_70%] gap-6 md:gap-12 items-start w-full px-6 md:px-[40px]">
             <div class="left-col">
-              <h2 class="build-title font-lora text-2xl md:text-[28px] font-bold tracking-[0.5px] capitalize leading-tight m-0 text-white lg:text-right">
+              <h2 class="build-title font-lora text-2xl md:text-[28px] font-bold tracking-[0.5px] capitalize leading-tight m-0 text-theme-text-primary lg:text-right">
                 Architect
               </h2>
             </div>
             <div class="right-col">
-              <p class="build-description font-lora text-sm md:text-[16px] font-normal leading-relaxed text-white/80 max-w-[550px] m-0 text-left tracking-[0.02em]">
-                While we have deep expertise in these verticals, our core strength lies in <span class="text-gold font-medium">architecting custom intelligence.</span> We build bespoke software ecosystems tailored specifically to your unique operational requirements.
+              <p class="build-description font-lora text-sm md:text-[16px] font-normal leading-relaxed text-theme-text-primary max-w-[550px] m-0 text-left tracking-[0.02em]">
+                While we have deep expertise in these verticals, our core strength lies in <span class="text-theme-accent font-medium">architecting custom intelligence.</span> We build bespoke software ecosystems tailored specifically to your unique operational requirements.
               </p>
             </div>
           </div>
@@ -531,11 +531,11 @@
       </section>
 
       <!-- ====== SECTION: ENGAGEMENT BLUEPRINT (TIMELINE) ====== -->
-      <section class="timeline-section relative bg-[#050505] text-white py-20 md:py-32 z-10 border-t border-white/5 overflow-hidden">
+      <section class="timeline-section relative bg-theme-bg text-theme-text-primary py-20 md:py-32 z-10 border-t border-theme-border overflow-hidden">
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12 relative">
-          <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block text-center">Engagement Blueprint</span>
+          <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-theme-accent opacity-60 mb-4 md:mb-6 block text-center">Engagement Blueprint</span>
           <h2 class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-16 md:mb-24 text-center">
-            How We <span class="italic font-light text-white/90">Work.</span>
+            How We <span class="italic font-light text-theme-text-primary">Work.</span>
           </h2>
 
           <div class="timeline-wrapper relative max-w-[900px] mx-auto pt-4 md:pt-8">
@@ -549,13 +549,13 @@
             <!-- Curved SVG Path Progress -->
             <div class="absolute inset-0 z-[1] pointer-events-none hidden md:block" style="margin-left: -50px; margin-right: -50px;">
               <svg width="1000" height="100%" viewBox="0 0 1000 1200" preserveAspectRatio="none" fill="none" class="w-full h-full">
-                <path id="timeline-progress-path" d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200" stroke="#E6CD99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(230,205,153,0.5));" />
+                <path id="timeline-progress-path" d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200" stroke="var(--theme-accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(230,205,153,0.5));" />
               </svg>
             </div>
 
             <!-- Mobile Straight Line -->
-            <div class="absolute left-[20px] md:left-[24px] top-0 bottom-0 w-px bg-white/10 md:hidden z-0"></div>
-            <div id="timeline-progress-line-mobile" class="absolute left-[20px] md:left-[24px] top-0 w-px bg-gold md:hidden z-[1] origin-top" style="height: 0%;"></div>
+            <div class="absolute left-[20px] md:left-[24px] top-0 bottom-0 w-px bg-theme-card md:hidden z-0"></div>
+            <div id="timeline-progress-line-mobile" class="absolute left-[20px] md:left-[24px] top-0 w-px bg-theme-accent md:hidden z-[1] origin-top" style="height: 0%;"></div>
 
             <!-- Steps -->
             <div class="space-y-16 md:space-y-48 relative z-10">
@@ -563,10 +563,10 @@
               <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
                 <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[60px] md:pl-0 order-2 md:order-1 mt-1 md:mt-0 transition-transform duration-700">
                   <h3 class="text-xl md:text-2xl font-bold mb-2">1. Audit & Discover</h3>
-                  <p class="text-white/60 text-sm md:text-base">We analyze your workflows, data, and existing tech stack to find the highest-ROI opportunities.</p>
+                  <p class="text-theme-text-secondary text-sm md:text-base">We analyze your workflows, data, and existing tech stack to find the highest-ROI opportunities.</p>
                 </div>
-                <div class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">01</span>
+                <div class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-theme-bg border-2 border-theme-border flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
+                  <span class="font-mono text-theme-accent font-bold text-xs md:text-base">01</span>
                 </div>
                 <div class="md:w-5/12 order-3"></div>
               </div>
@@ -574,12 +574,12 @@
               <!-- Step 2 -->
               <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
                 <div class="md:w-5/12 order-3 md:order-1"></div>
-                <div class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">02</span>
+                <div class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-theme-bg border-2 border-theme-border flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
+                  <span class="font-mono text-theme-accent font-bold text-xs md:text-base">02</span>
                 </div>
                 <div class="md:w-5/12 text-left pl-[60px] md:pl-12 order-2 md:order-3 mt-1 md:mt-0 transition-transform duration-700">
                   <h3 class="text-xl md:text-2xl font-bold mb-2">2. Prototype</h3>
-                  <p class="text-white/60 text-sm md:text-base">We rapidly build a functioning Proof of Concept (PoC). This lets you touch, feel, and test the solution early.</p>
+                  <p class="text-theme-text-secondary text-sm md:text-base">We rapidly build a functioning Proof of Concept (PoC). This lets you touch, feel, and test the solution early.</p>
                 </div>
               </div>
 
@@ -587,10 +587,10 @@
               <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
                 <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[60px] md:pl-0 order-2 md:order-1 mt-1 md:mt-0 transition-transform duration-700">
                   <h3 class="text-xl md:text-2xl font-bold mb-2">3. Integrate</h3>
-                  <p class="text-white/60 text-sm md:text-base">Once approved, we seamlessly wire the solution into your daily operations without disruption.</p>
+                  <p class="text-theme-text-secondary text-sm md:text-base">Once approved, we seamlessly wire the solution into your daily operations without disruption.</p>
                 </div>
-                <div class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">03</span>
+                <div class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-theme-bg border-2 border-theme-border flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
+                  <span class="font-mono text-theme-accent font-bold text-xs md:text-base">03</span>
                 </div>
                 <div class="md:w-5/12 order-3"></div>
               </div>
@@ -598,12 +598,12 @@
               <!-- Step 4 -->
               <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
                 <div class="md:w-5/12 order-3 md:order-1"></div>
-                <div class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">04</span>
+                <div class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-theme-bg border-2 border-theme-border flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
+                  <span class="font-mono text-theme-accent font-bold text-xs md:text-base">04</span>
                 </div>
                 <div class="md:w-5/12 text-left pl-[60px] md:pl-12 order-2 md:order-3 mt-1 md:mt-0 transition-transform duration-700">
                   <h3 class="text-xl md:text-2xl font-bold mb-2">4. Scale & Support</h3>
-                  <p class="text-white/60 text-sm md:text-base">We monitor the system 24/7, pushing updates and scaling the infrastructure as you grow.</p>
+                  <p class="text-theme-text-secondary text-sm md:text-base">We monitor the system 24/7, pushing updates and scaling the infrastructure as you grow.</p>
                 </div>
               </div>
             </div>

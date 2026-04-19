@@ -31,11 +31,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              gold: '#c8a24e',
+              accent: 'var(--theme-accent)', gold: 'var(--theme-accent)',
               'gold-dim': '#a6873e',
+              theme: {
+                bg: 'var(--theme-bg)',
+                'text-primary': 'var(--theme-text-primary)',
+                'text-secondary': 'var(--theme-text-secondary)',
+                card: 'var(--theme-card-bg)',
+                border: 'var(--theme-card-border)',
+                status: 'var(--theme-status-dot)',
+                nav: 'var(--theme-nav-bg)',
+              },
             },
             fontFamily: {
               cinzel: ['Cinzel', 'serif'],
@@ -57,7 +67,7 @@
     </script>
   </head>
 
-  <body class="bg-[#050505] text-white font-lora selection:bg-gold/30 overflow-x-hidden">
+  <body class="bg-theme-bg text-theme-text-primary font-lora selection:bg-theme-accent overflow-x-hidden">
     <!-- Global Ethereal Background -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(200,162,78,0.03)_0%,transparent_70%)]"></div>
@@ -75,45 +85,45 @@
         
         <div class="container max-w-[1300px] mx-auto relative z-20 text-center">
           <!-- Metadata Bar -->
-          <div class="flex flex-wrap items-center justify-center gap-3 md:gap-8 mb-10 md:mb-24 font-mono text-[0.55rem] md:text-[0.65rem] text-gold/40 tracking-[2px] md:tracking-[4px] uppercase rd-hero-metadata opacity-0">
+          <div class="flex flex-wrap items-center justify-center gap-3 md:gap-8 mb-10 md:mb-24 font-mono text-[0.55rem] md:text-[0.65rem] text-theme-accent opacity-40 tracking-[2px] md:tracking-[4px] uppercase rd-hero-metadata opacity-0">
             <span>Ref: RD_LAB_01</span>
-            <span class="hidden md:inline w-1 h-1 bg-gold/40 rounded-full"></span>
+            <span class="hidden md:inline w-1 h-1 bg-theme-accent opacity-40 rounded-full"></span>
             <span class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-500/40 rounded-full animate-pulse"></span>
               Status: LIVE_FEED
             </span>
-            <span class="hidden md:inline w-1 h-1 bg-gold/40 rounded-full"></span>
+            <span class="hidden md:inline w-1 h-1 bg-theme-accent opacity-40 rounded-full"></span>
             <span>Server: OLYMPUS_NODE</span>
           </div>
 
           <!-- Hero Title -->
           <h1 class="font-cinzel text-[clamp(2.2rem,8vw,5.5rem)] font-bold leading-[1.1] mb-8 md:mb-20 rd-hero-title opacity-0">
             The Living <br />
-            <span class="italic font-light text-white/90">Laboratory.</span>
+            <span class="italic font-light text-theme-text-primary">Laboratory.</span>
           </h1>
 
-          <p class="max-w-[700px] mx-auto text-white/50 text-sm md:text-lg leading-relaxed mb-12 md:mb-24 rd-hero-description px-4 md:px-0 opacity-0">
+          <p class="max-w-[700px] mx-auto text-theme-text-secondary text-sm md:text-lg leading-relaxed mb-12 md:mb-24 rd-hero-description px-4 md:px-0 opacity-0">
             Architecting the future of intelligence through deep-tech research, 
             rigorous engineering, and the pursuit of unified autonomy.
           </p>
 
           <!-- Hero CTA -->
           <div class="rd-hero-cta opacity-0">
-            <a href="connect.html" class="group relative inline-flex items-center gap-3 md:gap-4 px-6 md:px-10 py-3 md:py-4 border border-gold/30 rounded-full transition-all duration-700 hover:border-gold cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-gold/50">
-              <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-gold tracking-[2px] md:tracking-[3px] uppercase font-bold">[INITIATE_COLLABORATION]</span>
+            <a href="connect.html" class="group relative inline-flex items-center gap-3 md:gap-4 px-6 md:px-10 py-3 md:py-4 border border-theme-accent opacity-30 rounded-full transition-all duration-700 hover:border-theme-accent cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-theme-accent opacity-50">
+              <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-theme-accent tracking-[2px] md:tracking-[3px] uppercase font-bold">[INITIATE_COLLABORATION]</span>
               <svg width="12" height="12" md:width="14" md:height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform group-hover:translate-x-1 transition-transform duration-500">
-                <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="#c8a24e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" class="text-theme-accent" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
           </div>
 
           <!-- Peripheral Logs (Aesthetic) -->
-          <div class="absolute left-12 bottom-0 hidden lg:block font-mono text-[0.5rem] text-white/10 text-left space-y-1">
+          <div class="absolute left-12 bottom-0 hidden lg:block font-mono text-[0.5rem] text-theme-text-secondary text-left space-y-1">
             <div>0x4F2A_771B_NODE_ACTIVE</div>
             <div>LATENCY: 8.42ms</div>
             <div>SYNC_AUTH: VERIFIED</div>
           </div>
-          <div class="absolute right-12 bottom-0 hidden lg:block font-mono text-[0.5rem] text-white/10 text-right space-y-1">
+          <div class="absolute right-12 bottom-0 hidden lg:block font-mono text-[0.5rem] text-theme-text-secondary text-right space-y-1">
             <div>UPLINK_STABLE: 99.98%</div>
             <div>PHASE_OFFSET: +0.0021</div>
             <div>ENCRYPTION: AES_X_QUANTUM</div>
@@ -127,61 +137,61 @@
           
           <!-- Section Header -->
           <div class="flex items-center gap-4 md:gap-6 mb-12 md:mb-24 reveal">
-            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold/60 tracking-[4px] md:tracking-[5px] uppercase">Track_Analysis</span>
-            <div class="h-px flex-1 bg-white/5"></div>
+            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-theme-accent opacity-60 tracking-[4px] md:tracking-[5px] uppercase">Track_Analysis</span>
+            <div class="h-px flex-1 bg-theme-card"></div>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12">
             
             <!-- Track 01: THE UNCLE -->
-            <div class="group p-6 md:p-12 rounded-[24px] md:rounded-[40px] bg-white/[0.02] border border-white/5 transition-all duration-700 hover:bg-white/[0.04] hover:border-gold/20 reveal cursor-pointer">
-              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/40 mb-4 md:mb-8 tracking-widest uppercase">Ref: RD_UNCLE_01</div>
+            <div class="group p-6 md:p-12 rounded-[24px] md:rounded-[40px] bg-theme-card border border-theme-border transition-all duration-700 hover:bg-theme-card hover:border-theme-accent opacity-20 reveal cursor-pointer">
+              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-40 mb-4 md:mb-8 tracking-widest uppercase">Ref: RD_UNCLE_01</div>
               <h3 class="text-xl md:text-3xl font-tech font-bold mb-3 md:mb-6">THE <br />UNCLE.</h3>
-              <p class="text-white/40 text-xs md:text-sm font-lora leading-relaxed mb-8 md:mb-20">
+              <p class="text-theme-text-secondary text-xs md:text-sm font-lora leading-relaxed mb-8 md:mb-20">
                 Universal Network for Civic Logic & Enforcement. A watchful protector for Indian 
                 streets—teaching civic sense by identifying violations and ensuring road safety.
               </p>
-              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 uppercase tracking-widest">Status: ACTIVE_GUARDIAN</div>
+              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-text-secondary uppercase tracking-widest">Status: ACTIVE_GUARDIAN</div>
               
               <!-- Blueprint Note -->
               <div class="mt-6 md:mt-12 pt-4 md:pt-8 opacity-60 md:opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <span class="font-caveat text-gold/40 text-[1rem] md:text-[1.2rem] block -rotate-2">
+                <span class="font-caveat text-theme-accent opacity-40 text-[1rem] md:text-[1.2rem] block -rotate-2">
                   // Teaching civic responsibility, one ticket at a time.
                 </span>
               </div>
             </div>
 
             <!-- Track 02: ASTR Care-Link -->
-            <div class="group p-6 md:p-12 rounded-[24px] md:rounded-[40px] bg-white/[0.02] border border-white/5 transition-all duration-700 hover:bg-white/[0.04] hover:border-gold/20 reveal reveal-delay-1 cursor-pointer">
-              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/40 mb-4 md:mb-8 tracking-widest uppercase">Ref: RD_MEDCORE_02</div>
+            <div class="group p-6 md:p-12 rounded-[24px] md:rounded-[40px] bg-theme-card border border-theme-border transition-all duration-700 hover:bg-theme-card hover:border-theme-accent opacity-20 reveal reveal-delay-1 cursor-pointer">
+              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-40 mb-4 md:mb-8 tracking-widest uppercase">Ref: RD_MEDCORE_02</div>
               <h3 class="text-xl md:text-3xl font-tech font-bold mb-3 md:mb-6">ASTR <br />Care-Link.</h3>
-              <p class="text-white/40 text-xs md:text-sm font-lora leading-relaxed mb-8 md:mb-20">
+              <p class="text-theme-text-secondary text-xs md:text-sm font-lora leading-relaxed mb-8 md:mb-20">
                 Ambient clinical intelligence for diagnostic support and a 
                 Universal Patient ID system for global medical data portability.
               </p>
-              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 uppercase tracking-widest">Status: PROTOCOL_DESIGN</div>
+              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-text-secondary uppercase tracking-widest">Status: PROTOCOL_DESIGN</div>
 
               <!-- Blueprint Note -->
               <div class="mt-6 md:mt-12 pt-4 md:pt-8 opacity-60 md:opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <span class="font-caveat text-gold/40 text-[1rem] md:text-[1.2rem] block -rotate-1">
+                <span class="font-caveat text-theme-accent opacity-40 text-[1rem] md:text-[1.2rem] block -rotate-1">
                   // Universal Patient ID record successfully prototyped.
                 </span>
               </div>
             </div>
 
             <!-- Track 03: Project AURA -->
-            <div class="group p-6 md:p-12 rounded-[24px] md:rounded-[40px] bg-white/[0.02] border border-white/5 transition-all duration-700 hover:bg-white/[0.04] hover:border-gold/20 reveal reveal-delay-2 cursor-pointer">
-              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/40 mb-4 md:mb-8 tracking-widest uppercase">Ref: RD_AURA_ARCHIVE</div>
+            <div class="group p-6 md:p-12 rounded-[24px] md:rounded-[40px] bg-theme-card border border-theme-border transition-all duration-700 hover:bg-theme-card hover:border-theme-accent opacity-20 reveal reveal-delay-2 cursor-pointer">
+              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-40 mb-4 md:mb-8 tracking-widest uppercase">Ref: RD_AURA_ARCHIVE</div>
               <h3 class="text-xl md:text-3xl font-tech font-bold mb-3 md:mb-6">Project <br />AURA.</h3>
-              <p class="text-white/40 text-xs md:text-sm font-lora leading-relaxed mb-8 md:mb-20">
+              <p class="text-theme-text-secondary text-xs md:text-sm font-lora leading-relaxed mb-8 md:mb-20">
                 Legacy research into Jarvis-class assistants with deep device control. 
                 Architectures now power our current agentic reasoning cores.
               </p>
-              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 uppercase tracking-widest">Integrity: ARCHIVED_RESEARCH</div>
+              <div class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-text-secondary uppercase tracking-widest">Integrity: ARCHIVED_RESEARCH</div>
 
               <!-- Blueprint Note -->
               <div class="mt-6 md:mt-12 pt-4 md:pt-8 opacity-60 md:opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <span class="font-caveat text-gold/40 text-[1rem] md:text-[1.2rem] block rotate-1">
+                <span class="font-caveat text-theme-accent opacity-40 text-[1rem] md:text-[1.2rem] block rotate-1">
                   // Foundational logic integrated into Sentinel OS.
                 </span>
               </div>
@@ -197,30 +207,30 @@
           
           <!-- Journal Header -->
           <div class="mb-12 md:mb-20 text-center reveal">
-            <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/40 tracking-[4px] md:tracking-[6px] uppercase block mb-3 md:mb-4">Laboratory_Logbook_v26</span>
-            <h2 class="font-cinzel text-2xl md:text-4xl font-bold tracking-widest text-white/90">The <span class="italic font-light">Internal</span> Journal.</h2>
-            <div class="h-px w-16 md:w-24 bg-gold/20 mx-auto mt-6 md:mt-8"></div>
+            <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-40 tracking-[4px] md:tracking-[6px] uppercase block mb-3 md:mb-4">Laboratory_Logbook_v26</span>
+            <h2 class="font-cinzel text-2xl md:text-4xl font-bold tracking-widest text-theme-text-primary">The <span class="italic font-light">Internal</span> Journal.</h2>
+            <div class="h-px w-16 md:w-24 bg-theme-accent opacity-20 mx-auto mt-6 md:mt-8"></div>
           </div>
 
           <div class="space-y-16 md:space-y-32">
             
             <!-- Journal Entry 01 -->
             <div class="relative pl-6 md:pl-12 reveal">
-              <div class="absolute left-0 top-0 bottom-0 w-px bg-gold/10"></div>
+              <div class="absolute left-0 top-0 bottom-0 w-px bg-theme-accent opacity-10"></div>
               
               <div class="mb-4 md:mb-6 flex flex-wrap items-center gap-3 md:gap-4">
-                <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-gold tracking-widest font-bold uppercase">April 11, 2026</span>
-                <span class="text-white/10 text-xs hidden md:inline">//</span>
-                <span class="font-mono text-[0.5rem] md:text-[0.6rem] text-white/40 uppercase tracking-[2px]">Log_Entry: 042</span>
+                <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-theme-accent tracking-widest font-bold uppercase">April 11, 2026</span>
+                <span class="text-theme-text-secondary text-xs hidden md:inline">//</span>
+                <span class="font-mono text-[0.5rem] md:text-[0.6rem] text-theme-text-secondary uppercase tracking-[2px]">Log_Entry: 042</span>
               </div>
 
               <div class="space-y-3 md:space-y-6">
-                <h4 class="font-cinzel text-base md:text-xl text-white/80 tracking-wide">The Ethics of Intent.</h4>
-                <p class="font-lora text-[0.95rem] md:text-[1.1rem] leading-relaxed text-white/60 italic">
-                  "Today we achieved a significant breakthrough in the UNCLE logic core. It is no longer a matter of simple detection; the system is beginning to understand the <span class="text-gold/80">Context of Urgency</span>. When an ambulance is detected, the reasoning agents now prioritize flow over enforcement automatically."
+                <h4 class="font-cinzel text-base md:text-xl text-theme-text-primary tracking-wide">The Ethics of Intent.</h4>
+                <p class="font-lora text-[0.95rem] md:text-[1.1rem] leading-relaxed text-theme-text-secondary italic">
+                  "Today we achieved a significant breakthrough in the UNCLE logic core. It is no longer a matter of simple detection; the system is beginning to understand the <span class="text-theme-accent opacity-80">Context of Urgency</span>. When an ambulance is detected, the reasoning agents now prioritize flow over enforcement automatically."
                 </p>
                 <div class="pt-2 md:pt-4">
-                  <span class="font-caveat text-gold/40 text-[1.1rem] md:text-[1.3rem] block -rotate-1">
+                  <span class="font-caveat text-theme-accent opacity-40 text-[1.1rem] md:text-[1.3rem] block -rotate-1">
                     // We are teaching a machine to care. This changes everything.
                   </span>
                 </div>
@@ -229,21 +239,21 @@
 
             <!-- Journal Entry 02 -->
             <div class="relative pl-6 md:pl-12 reveal">
-              <div class="absolute left-0 top-0 bottom-0 w-px bg-gold/10"></div>
+              <div class="absolute left-0 top-0 bottom-0 w-px bg-theme-accent opacity-10"></div>
               
               <div class="mb-4 md:mb-6 flex flex-wrap items-center gap-3 md:gap-4">
-                <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-gold tracking-widest font-bold uppercase">March 28, 2026</span>
-                <span class="text-white/10 text-xs hidden md:inline">//</span>
-                <span class="font-mono text-[0.5rem] md:text-[0.6rem] text-white/40 uppercase tracking-[2px]">Log_Entry: 038</span>
+                <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-theme-accent tracking-widest font-bold uppercase">March 28, 2026</span>
+                <span class="text-theme-text-secondary text-xs hidden md:inline">//</span>
+                <span class="font-mono text-[0.5rem] md:text-[0.6rem] text-theme-text-secondary uppercase tracking-[2px]">Log_Entry: 038</span>
               </div>
 
               <div class="space-y-3 md:space-y-6">
-                <h4 class="font-cinzel text-base md:text-xl text-white/80 tracking-wide">Infrastructure Transparency.</h4>
-                <p class="font-lora text-[0.95rem] md:text-[1.1rem] leading-relaxed text-white/60 italic">
+                <h4 class="font-cinzel text-base md:text-xl text-theme-text-primary tracking-wide">Infrastructure Transparency.</h4>
+                <p class="font-lora text-[0.95rem] md:text-[1.1rem] leading-relaxed text-theme-text-secondary italic">
                   "The Vision Mesh is now successfully streaming road-condition data with a latency of 14.2ms. For the first time, we can see the 'health' of a city's roads in real-time. This isn't just data; it's a bridge of trust between the people and the authorities."
                 </p>
                 <div class="pt-2 md:pt-4">
-                  <span class="font-caveat text-gold/40 text-[1.1rem] md:text-[1.3rem] block rotate-1">
+                  <span class="font-caveat text-theme-accent opacity-40 text-[1.1rem] md:text-[1.3rem] block rotate-1">
                     // The portal is live. The evidence is undeniable.
                   </span>
                 </div>
@@ -252,21 +262,21 @@
 
             <!-- Journal Entry 03 -->
             <div class="relative pl-6 md:pl-12 reveal">
-              <div class="absolute left-0 top-0 bottom-0 w-px bg-gold/10"></div>
+              <div class="absolute left-0 top-0 bottom-0 w-px bg-theme-accent opacity-10"></div>
               
               <div class="mb-4 md:mb-6 flex flex-wrap items-center gap-3 md:gap-4">
-                <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-gold tracking-widest font-bold uppercase">Target_Phase</span>
-                <span class="text-white/10 text-xs hidden md:inline">//</span>
-                <span class="font-mono text-[0.5rem] md:text-[0.6rem] text-white/40 uppercase tracking-[2px]">Log_Entry: MISSION_LOCK</span>
+                <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-theme-accent tracking-widest font-bold uppercase">Target_Phase</span>
+                <span class="text-theme-text-secondary text-xs hidden md:inline">//</span>
+                <span class="font-mono text-[0.5rem] md:text-[0.6rem] text-theme-text-secondary uppercase tracking-[2px]">Log_Entry: MISSION_LOCK</span>
               </div>
 
               <div class="space-y-3 md:space-y-6">
-                <h4 class="font-cinzel text-base md:text-xl text-white/80 tracking-wide">The July Horizon.</h4>
-                <p class="font-lora text-[0.95rem] md:text-[1.1rem] leading-relaxed text-white/60 italic">
+                <h4 class="font-cinzel text-base md:text-xl text-theme-text-primary tracking-wide">The July Horizon.</h4>
+                <p class="font-lora text-[0.95rem] md:text-[1.1rem] leading-relaxed text-theme-text-secondary italic">
                   "The goal is simple but absolute: A functional prototype of THE UNCLE by July 2026. All efforts are now directed toward consolidating the Vision and Reasoning layers. August will see us moving into full-scale development. There is no going back."
                 </p>
                 <div class="pt-2 md:pt-4">
-                  <span class="font-caveat text-gold/40 text-[1.1rem] md:text-[1.3rem] block -rotate-1">
+                  <span class="font-caveat text-theme-accent opacity-40 text-[1.1rem] md:text-[1.3rem] block -rotate-1">
                     // Proof in July. Scale in August. The clock is ticking.
                   </span>
                 </div>
@@ -286,12 +296,12 @@
       <!-- ====== SECTION: THE MONOLITH OF TRUST (CENTRAL SEAL) ====== -->
       <section id="monolith" class="rd-monolith py-16 md:py-32 relative overflow-hidden ">
         <!-- Background Ambient Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-[800px] h-full lg:h-[800px] bg-gold/5 blur-[80px] lg:blur-[160px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full lg:w-[800px] h-full lg:h-[800px] bg-theme-accent opacity-5 blur-[80px] lg:blur-[160px] rounded-full pointer-events-none"></div>
 
         <div class="container max-w-[1300px] mx-auto px-6 lg:px-12 relative z-10">
           
           <div class="text-center mb-12 md:mb-20 reveal">
-            <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-gold/40 tracking-[5px] md:tracking-[8px] uppercase block mb-4 lg:mb-6">Foundational_Integrity</span>
+            <span class="font-mono text-[0.6rem] md:text-[0.7rem] text-theme-accent opacity-40 tracking-[5px] md:tracking-[8px] uppercase block mb-4 lg:mb-6">Foundational_Integrity</span>
             <h2 class="text-2xl md:text-5xl font-bold tracking-tight">The Alliance <span class="italic font-light opacity-60">Monolith.</span></h2>
           </div>
 
@@ -300,34 +310,34 @@
             
             <!-- CENTRAL SEAL: THE UNCLE MEDALLION -->
             <div class="relative z-20 group monolith-seal-container order-1 lg:order-none mb-4 md:mb-0">
-              <div class="w-48 h-48 md:w-80 md:h-80 rounded-full border border-gold/30 bg-black flex items-center justify-center relative overflow-hidden transition-all duration-1000 group-hover:border-gold shadow-[0_0_50px_rgba(200,162,78,0.1)]">
+              <div class="w-48 h-48 md:w-80 md:h-80 rounded-full border border-theme-accent opacity-30 bg-theme-bg flex items-center justify-center relative overflow-hidden transition-all duration-1000 group-hover:border-theme-accent shadow-[0_0_50px_rgba(200,162,78,0.1)]">
                 <!-- Rotating Blueprint Rings -->
-                <div class="absolute inset-1.5 md:inset-2 border border-dashed border-gold/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                <div class="absolute inset-6 md:inset-8 border border-gold/5 rounded-full animate-[spin_30s_linear_infinite_reverse]"></div>
+                <div class="absolute inset-1.5 md:inset-2 border border-dashed border-theme-accent opacity-10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                <div class="absolute inset-6 md:inset-8 border border-theme-accent opacity-5 rounded-full animate-[spin_30s_linear_infinite_reverse]"></div>
                 
                 <!-- Inner Core -->
                 <div class="text-center relative z-10">
-                  <span class="font-cinzel text-xl md:text-4xl font-bold tracking-[4px] md:tracking-[8px] text-gold block mb-0.5 md:mb-2">U.N.C.L.E.</span>
-                  <span class="font-mono text-[0.4rem] md:text-[0.5rem] text-white/30 tracking-[2px] md:tracking-[4px] uppercase">Seal of Integrity</span>
+                  <span class="font-cinzel text-xl md:text-4xl font-bold tracking-[4px] md:tracking-[8px] text-theme-accent block mb-0.5 md:mb-2">U.N.C.L.E.</span>
+                  <span class="font-mono text-[0.4rem] md:text-[0.5rem] text-theme-text-secondary tracking-[2px] md:tracking-[4px] uppercase">Seal of Integrity</span>
                 </div>
               </div>
               
               <!-- External Glow Aura -->
-              <div class="absolute inset-0 rounded-full bg-gold/5 blur-2xl md:blur-3xl -z-10 group-hover:bg-gold/10 transition-colors duration-1000"></div>
+              <div class="absolute inset-0 rounded-full bg-theme-accent opacity-5 blur-2xl md:blur-3xl -z-10 group-hover:bg-theme-accent opacity-10 transition-colors duration-1000"></div>
             </div>
 
             <!-- SATELLITE PILLAR 01: GOVERNMENT -->
             <div class="lg:absolute top-0 left-0 lg:left-24 max-w-[320px] monolith-pillar order-2 lg:order-none text-center lg:text-left">
               <div class="space-y-3 md:space-y-6">
                 <div class="flex items-center justify-center lg:justify-start gap-3 md:gap-4">
-                  <span class="w-6 md:w-8 h-px bg-gold/40"></span>
-                  <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/60 uppercase tracking-[3px] md:tracking-[4px]">Pillar_01</span>
+                  <span class="w-6 md:w-8 h-px bg-theme-accent opacity-40"></span>
+                  <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-60 uppercase tracking-[3px] md:tracking-[4px]">Pillar_01</span>
                 </div>
-                <h3 class="font-cinzel text-lg md:text-2xl font-bold text-white/90">Government <br class="hidden md:block" />Enforcement.</h3>
-                <p class="text-white/40 text-xs md:text-sm leading-relaxed font-lora italic">
+                <h3 class="font-cinzel text-lg md:text-2xl font-bold text-theme-text-primary">Government <br class="hidden md:block" />Enforcement.</h3>
+                <p class="text-theme-text-secondary text-xs md:text-sm leading-relaxed font-lora italic">
                   "Direct pipeline to national authorities for real-time violation routing and automated civic accountability. Verified under state protocols."
                 </p>
-                <div class="font-mono text-[0.5rem] md:text-[0.55rem] text-white/20 uppercase tracking-[2px]">Status: PROTOCOL_LOCKED</div>
+                <div class="font-mono text-[0.5rem] md:text-[0.55rem] text-theme-text-secondary uppercase tracking-[2px]">Status: PROTOCOL_LOCKED</div>
               </div>
             </div>
 
@@ -335,14 +345,14 @@
             <div class="lg:absolute bottom-0 right-0 lg:right-24 max-w-[320px] monolith-pillar order-3 lg:order-none text-center lg:text-right">
               <div class="space-y-3 md:space-y-6">
                 <div class="flex items-center justify-center lg:justify-end gap-3 md:gap-4">
-                  <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/60 uppercase tracking-[3px] md:tracking-[4px]">Pillar_02</span>
-                  <span class="w-6 md:w-8 h-px bg-gold/40"></span>
+                  <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-60 uppercase tracking-[3px] md:tracking-[4px]">Pillar_02</span>
+                  <span class="w-6 md:w-8 h-px bg-theme-accent opacity-40"></span>
                 </div>
-                <h3 class="font-cinzel text-lg md:text-2xl font-bold text-white/90">Academic <br class="hidden md:block" />Research.</h3>
-                <p class="text-white/40 text-xs md:text-sm leading-relaxed font-lora italic">
+                <h3 class="font-cinzel text-lg md:text-2xl font-bold text-theme-text-primary">Academic <br class="hidden md:block" />Research.</h3>
+                <p class="text-theme-text-secondary text-xs md:text-sm leading-relaxed font-lora italic">
                   "Co-developing neural foundations with premier Centers of Excellence to maintain Indian leadership in autonomous reasoning AI."
                 </p>
-                <div class="font-mono text-[0.5rem] md:text-[0.55rem] text-white/20 uppercase tracking-[2px]">Partner: CoE_A1_MEMBER</div>
+                <div class="font-mono text-[0.5rem] md:text-[0.55rem] text-theme-text-secondary uppercase tracking-[2px]">Partner: CoE_A1_MEMBER</div>
               </div>
             </div>
 
@@ -350,25 +360,25 @@
             <div class="lg:absolute top-0 right-0 lg:right-24 max-w-[320px] monolith-pillar order-4 lg:order-none text-center lg:text-right">
               <div class="space-y-3 md:space-y-6">
                 <div class="flex items-center justify-center lg:justify-end gap-3 md:gap-4">
-                  <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-gold/60 uppercase tracking-[3px] md:tracking-[4px]">Pillar_03</span>
-                  <span class="w-6 md:w-8 h-px bg-gold/40"></span>
+                  <span class="font-mono text-[0.55rem] md:text-[0.6rem] text-theme-accent opacity-60 uppercase tracking-[3px] md:tracking-[4px]">Pillar_03</span>
+                  <span class="w-6 md:w-8 h-px bg-theme-accent opacity-40"></span>
                 </div>
-                <h3 class="font-cinzel text-lg md:text-2xl font-bold text-white/90">The Mission <br class="hidden md:block" />Collective.</h3>
-                <p class="text-white/40 text-xs md:text-sm leading-relaxed font-lora italic">
+                <h3 class="font-cinzel text-lg md:text-2xl font-bold text-theme-text-primary">The Mission <br class="hidden md:block" />Collective.</h3>
+                <p class="text-theme-text-secondary text-xs md:text-sm leading-relaxed font-lora italic">
                   "A gathering of like-minded visionaries driven by a singular purpose: to build technology that serves and protects society."
                 </p>
-                <div class="font-mono text-[0.5rem] md:text-[0.55rem] text-white/20 uppercase tracking-[2px]">Integrity: MISSION_DRIVEN_CORE</div>
+                <div class="font-mono text-[0.5rem] md:text-[0.55rem] text-theme-text-secondary uppercase tracking-[2px]">Integrity: MISSION_DRIVEN_CORE</div>
               </div>
             </div>
 
             <!-- Visual Connection Lines (Desktop Only) -->
             <svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block">
                <!-- Pillar 1 to Center -->
-               <line x1="280" y1="120" x2="480" y2="350" stroke="#c8a24e" stroke-width="1" stroke-dasharray="4 8" />
+               <line x1="280" y1="120" x2="480" y2="350" stroke="currentColor" class="text-theme-accent" stroke-width="1" stroke-dasharray="4 8" />
                <!-- Pillar 2 to Center -->
-               <line x1="1020" y1="580" x2="820" y2="350" stroke="#c8a24e" stroke-width="1" stroke-dasharray="4 8" />
+               <line x1="1020" y1="580" x2="820" y2="350" stroke="currentColor" class="text-theme-accent" stroke-width="1" stroke-dasharray="4 8" />
                <!-- Pillar 3 to Center -->
-               <line x1="1020" y1="120" x2="820" y2="350" stroke="#c8a24e" stroke-width="1" stroke-dasharray="4 8" />
+               <line x1="1020" y1="120" x2="820" y2="350" stroke="currentColor" class="text-theme-accent" stroke-width="1" stroke-dasharray="4 8" />
             </svg>
 
           </div>

@@ -750,18 +750,22 @@ function initHeroCanvas() {
     new THREE.BufferAttribute(coreTargetArr, 3)
   );
 
-  const core = new THREE.Points(
-    coreGeometry,
-    new THREE.PointsMaterial({
-      size: isNarrow ? 0.08 : isMobile ? 0.1 : 0.03,
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    })
-  );
+  const coreMaterial = new THREE.PointsMaterial({
+    size: isNarrow ? 0.08 : isMobile ? 0.1 : 0.03,
+    color: 0xffffff,
+    transparent: true,
+    opacity: document.documentElement.classList.contains('dark') ? 0.9 : 1.0,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const core = new THREE.Points(coreGeometry, coreMaterial);
   scene.add(core);
+
+  document.addEventListener('themeChanged', (e) => {
+    const isDark = e.detail.theme === 'dark';
+    material.opacity = isDark ? 0.8 : 1.0;
+    coreMaterial.opacity = isDark ? 0.9 : 1.0;
+  });
 
   // Background Load the Logo
   const logoImg = new Image();
@@ -880,7 +884,7 @@ function initHeroCanvas() {
     particles.rotation.y += (mouseX * 2 - particles.rotation.y) * 0.05;
     core.rotation.copy(particles.rotation);
 
-    const pos = geometry.attributes.position,
+    const posAttr = geometry.attributes.position,
       orig = geometry.attributes.aOriginalPosition,
       target = geometry.attributes.aTarget;
     for (let i = 0; i < particleCount; i++) {
@@ -902,10 +906,10 @@ function initHeroCanvas() {
             Math.cos(oy * freq * 1.5 + time) *
             0.5);
       const s = 1 + noise * currentNoiseScale;
-      pos.setXYZ(i, ox * s, oy * s, oz * s);
+      posAttr.setXYZ(i, ox * s, oy * s, oz * s);
     }
     orig.needsUpdate = true;
-    pos.needsUpdate = true;
+    posAttr.needsUpdate = true;
 
     const cp = coreGeometry.attributes.position,
       co = coreGeometry.attributes.aOriginalPosition,
@@ -1472,7 +1476,13 @@ function initInfraCanvas() {
   const sizes = new Float32Array(particleCount);
 
   const colorGold = new THREE.Color(0xe6cd99);
-  const colorDim = new THREE.Color(0x222222);
+  let colorDim = new THREE.Color(
+    document.documentElement.classList.contains('dark') ? 0x222222 : 0xd1cfc7
+  );
+
+  document.addEventListener('themeChanged', (e) => {
+    colorDim.set(e.detail.theme === 'dark' ? 0x222222 : 0xd1cfc7);
+  });
 
   let idx = 0;
   for (let x = 0; x < gridSize; x++) {
@@ -1540,6 +1550,7 @@ function initInfraCanvas() {
         colorDim.toArray(colors, i * 3);
       }
     }
+    colorAttr.array.set(colors);
     colorAttr.needsUpdate = true;
 
     renderer.render(scene, camera);
@@ -1603,8 +1614,12 @@ function initDroneCanvas() {
   scene.add(droneGroup);
 
   const colorGold = new THREE.Color(0xe6cd99);
-  const colorDark = new THREE.Color(0x1a1a1a);
-  const colorGrey = new THREE.Color(0x444444);
+  let colorDark = new THREE.Color(
+    document.documentElement.classList.contains('dark') ? 0x1a1a1a : 0xd1cfc7
+  );
+  let colorGrey = new THREE.Color(
+    document.documentElement.classList.contains('dark') ? 0x444444 : 0x888888
+  );
 
   // Materials
   const bodyMat = new THREE.MeshPhongMaterial({
@@ -1860,6 +1875,17 @@ function initDroneCanvas() {
 
   const clock = new THREE.Clock();
   const sceneEntry = SceneManager.scenes.get(container);
+
+  document.addEventListener('themeChanged', (e) => {
+    const isDark = e.detail.theme === 'dark';
+    colorDark.set(isDark ? 0x1a1a1a : 0xd1cfc7);
+    colorGrey.set(isDark ? 0x444444 : 0x888888);
+    // Force material updates
+    bodyMat.color.copy(colorDark);
+    if (gridHelper) {
+      gridHelper.material.opacity = isDark ? 0.2 : 0.4;
+    }
+  });
 
   function animate() {
     if (sceneEntry && !sceneEntry.running) return;
@@ -2276,7 +2302,7 @@ function initSolutionsExpansion() {
       // Deactivate all
       tabBtns.forEach((b) => {
         b.classList.remove('active', 'text-white');
-        b.classList.add('text-white/50');
+        b.classList.add('text-theme-text-secondary');
       });
       tabPanes.forEach((p) => {
         p.classList.remove('active', 'opacity-100');
@@ -2286,7 +2312,7 @@ function initSolutionsExpansion() {
 
       // Activate clicked
       btn.classList.add('active', 'text-white');
-      btn.classList.remove('text-white/50');
+      btn.classList.remove('text-theme-text-secondary');
       moveIndustrySlider(btn);
 
       const targetId = btn.getAttribute('data-target');

@@ -23,6 +23,17 @@ module.exports = {
         ring: 'var(--ring)',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        // Semantic Theme Colors
+        theme: {
+          bg: 'var(--theme-bg)',
+          'text-primary': 'var(--theme-text-primary)',
+          'text-secondary': 'var(--theme-text-secondary)',
+          accent: 'var(--theme-accent)',
+          card: 'var(--theme-card-bg)',
+          border: 'var(--theme-card-border)',
+          status: 'var(--theme-status-dot)',
+          nav: 'var(--theme-nav-bg)',
+        },
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'var(--primary-foreground)',

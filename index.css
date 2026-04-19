@@ -17,6 +17,19 @@
     --color-gold-dim: #cba864;
     --color-gold-glow: rgba(230, 205, 153, 0.4);
     --color-gold-bg: rgba(230, 205, 153, 0.05);
+    
+    /* Theme Variables - Light Mode (Default) */
+    --theme-bg: #F2F0E9;
+    --theme-text-primary: #1A1D1E;
+    --theme-text-secondary: #4A4F50;
+    --theme-accent: #8C733E;
+    --theme-card-bg: rgba(255, 255, 255, 0.85);
+    --theme-card-border: rgba(255, 255, 255, 0.6);
+    --theme-status-dot: #83A12D;
+    --theme-nav-bg: rgba(242, 240, 233, 0.9);
+    --theme-glass-shadow: 0 8px 32px 0 rgba(26, 29, 30, 0.08);
+    --theme-glass-highlight: inset 0 2px 4px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 1px 0 rgba(26, 29, 30, 0.05);
+    
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -62,7 +75,7 @@
   }
 
   body {
-    @apply font-lora leading-relaxed overflow-x-hidden bg-background text-foreground;
+    @apply font-lora leading-relaxed overflow-x-hidden bg-background text-foreground transition-colors duration-500;
     width: 100%;
     max-width: 100vw;
   }
@@ -71,6 +84,18 @@
     --font-sans: 'Geist Variable', sans-serif;
   }
   .dark {
+    /* Theme Variables - Dark Mode */
+    --theme-bg: #050505;
+    --theme-text-primary: #ffffff;
+    --theme-text-secondary: rgba(255, 255, 255, 0.6);
+    --theme-accent: #e6cd99;
+    --theme-card-bg: rgba(255, 255, 255, 0.03);
+    --theme-card-border: rgba(255, 255, 255, 0.08);
+    --theme-status-dot: #e6cd99;
+    --theme-nav-bg: rgba(10, 10, 10, 0.6);
+    --theme-glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --theme-glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
@@ -103,9 +128,6 @@
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
   }
-  * {
-    @apply border-border outline-ring cursor-default;
-  }
   
   a, button, [role="button"], input[type="submit"], input[type="button"], .cursor-pointer {
     cursor: pointer;
@@ -113,18 +135,35 @@
   }
   
   a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
-    @apply ring-2 ring-gold/50 ring-offset-2 ring-offset-black;
+    @apply ring-2 ring-theme-accent opacity-50 ring-offset-2 ring-offset-black;
   }
 }
 
 @layer components {
   /* --- Glassmorphism Utilities --- */
   .glass-premium {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300;
+    background-color: var(--theme-card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--theme-card-border);
+    box-shadow: var(--theme-glass-shadow), var(--theme-glass-highlight);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .glass-premium:hover {
-    @apply bg-white/10 border-white/20 shadow-[0_8px_32px_0_rgba(230,205,153,0.1)];
+    @apply border-theme-accent opacity-20 shadow-[0_8px_32px_0_rgba(230,205,153,0.1)];
+  }
+
+  /* Hero Section Specifics */
+  .hero-glass {
+    background-color: var(--theme-card-bg);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--theme-card-border);
+    box-shadow: var(--theme-glass-shadow), var(--theme-glass-highlight);
+  }
+  
+  .dark .hero-glass {
+    background-color: var(--theme-card-bg);
+    box-shadow: var(--theme-glass-shadow), var(--theme-glass-highlight);
   }
 
   /* GSAP Managed Reveals (Prevention of FOUC) */
@@ -174,6 +213,16 @@
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+
+  /* SVG Filter Theme support */
+  .sanskrit-filter-theme {
+    stop-color: #E6CD99;
+    stop-opacity: 0.8;
+  }
+  .dark .sanskrit-filter-theme {
+    stop-color: #E6CD99;
+    stop-opacity: 1;
   }
 
   /* Navigation Specifics */
@@ -244,7 +293,7 @@
 
   /* Mission Control Footer Components */
   .footer-hud-panel {
-    @apply bg-[#1a1a1a] border border-white/5 rounded-sm p-6 relative overflow-hidden transition-all duration-500;
+    @apply bg-[#1a1a1a] border border-theme-border rounded-sm p-6 relative overflow-hidden transition-all duration-500;
   }
   .footer-hud-panel:hover {
     border-color: rgba(230, 205, 153, 0.2);
@@ -289,7 +338,7 @@
   }
 
   .footer-link-pill {
-    @apply px-4 py-1.5 border border-white/10 rounded-full text-[0.7rem] font-mono uppercase tracking-[2px] text-white/40 transition-all duration-300;
+    @apply px-4 py-1.5 border border-theme-border rounded-full text-[0.7rem] font-mono uppercase tracking-[2px] text-theme-text-secondary transition-all duration-300;
   }
   .footer-link-pill:hover {
     @apply text-[var(--color-gold-DEFAULT)];
@@ -298,14 +347,14 @@
   }
 
   .mission-control-title {
-    @apply font-cinzel text-white/5 pointer-events-none select-none;
+    @apply font-cinzel text-theme-text-secondary opacity-5 pointer-events-none select-none;
     font-size: clamp(4rem, 15vw, 12rem);
     line-height: 1;
   }
 
   /* Ethereal Architectural Styles (Global) */
   .ethereal-aura {
-    @apply absolute inset-0 pointer-events-none;
+    @apply absolute inset-0 pointer-events-none transition-opacity duration-700 opacity-30 dark:opacity-100;
     background: radial-gradient(
       circle at 50% 50%,
       rgba(230, 205, 153, 0.08) 0%,
@@ -323,7 +372,7 @@
   }
 
   .arch-link {
-    @apply relative text-white/40 transition-colors duration-500 font-lora text-[1rem] inline-block py-1;
+    @apply relative text-theme-text-secondary opacity-40 transition-colors duration-500 font-lora text-[1rem] inline-block py-1;
   }
   .arch-link::after {
     content: '';
@@ -339,10 +388,10 @@
   }
 
   .system-metadata {
-    @apply font-mono text-[0.625rem] text-white/20 uppercase tracking-[2px] flex items-center gap-4;
+    @apply font-mono text-[0.625rem] text-theme-text-secondary opacity-20 uppercase tracking-[2px] flex items-center gap-4;
   }
   .system-metadata .separator {
-    @apply w-[1px] h-3 bg-white/10 mx-2;
+    @apply w-[1px] h-3 bg-theme-border mx-2;
   }
   .nav-hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
@@ -434,7 +483,7 @@
   /* Plasma Corona: Intense pulsing solar flares */
   .pillar-display-stage[data-active-pillar='ai'] .neutron-star-core::before {
     content: '';
-    @apply absolute inset-[-10px] rounded-full bg-white/30 blur-[24px];
+    @apply absolute inset-[-10px] rounded-full bg-theme-accent opacity-30 blur-[24px];
     box-shadow:
       0 0 48px rgba(255, 255, 255, 0.9),
       0 0 120px rgba(230, 205, 153, 0.7),
@@ -453,7 +502,7 @@
   .pillar-display-stage[data-active-pillar='ai'] .neutron-star-core::after {
     /* (Layered Lensing Effect) */
     content: '';
-    @apply absolute inset-[-45px] rounded-full border border-gold/20;
+    @apply absolute inset-[-45px] rounded-full border border-theme-accent opacity-20;
     box-shadow:
       inset 0 0 30px rgba(230, 205, 153, 0.1),
       0 0 15px rgba(210, 247, 255, 0.05);
@@ -799,7 +848,7 @@
   /* Gravitational Lensing (Golden Ring) */
   .pillar-display-stage[data-active-pillar='ai'] .neutron-star-core::after {
     content: '';
-    @apply absolute inset-[-50px] rounded-full border border-gold/10 shadow-[inset_0_0_30px_rgba(230,205,153,0.15)];
+    @apply absolute inset-[-50px] rounded-full border border-theme-accent opacity-10 shadow-[inset_0_0_30px_rgba(230,205,153,0.15)];
     mask-image: radial-gradient(circle at 50% 50%, transparent 65%, black 100%);
     -webkit-mask-image: radial-gradient(
       circle at 50% 50%,
@@ -887,7 +936,7 @@
 
   .cap-item::before {
     content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-500 bg-gradient-to-br from-white/10 to-transparent pointer-events-none;
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 bg-gradient-to-br from-theme-card opacity-10 to-transparent pointer-events-none;
   }
 
   .cap-item:hover::before {
@@ -897,7 +946,7 @@
   /* Specular Highlight for Liquid Glass effect */
   .cap-item::after {
     content: '';
-    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-500 pointer-events-none;
+    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-theme-accent opacity-20 to-transparent opacity-0 transition-opacity duration-500 pointer-events-none;
   }
 
   .cap-item:hover::after {
@@ -977,7 +1026,7 @@
     background: transparent;
   }
   .scrollable-terminal::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full;
+    @apply bg-theme-card rounded-full;
   }
   .scrollable-terminal:hover::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.3);
@@ -1112,7 +1161,7 @@
      CTA: HOLOGRAPHIC SCHEMATIC STYLES
      ========================================================================== */
   .hud-bracket {
-    @apply absolute w-4 h-4 border-white/20;
+    @apply absolute w-4 h-4 border-theme-border;
   }
   .hud-bracket-tl {
     @apply top-4 left-4 border-t-2 border-l-2;
@@ -1138,7 +1187,7 @@
   }
 
   .data-readout-item {
-    @apply flex justify-between gap-4 py-1 border-b border-white/5 font-mono text-[0.6rem] text-white/30;
+    @apply flex justify-between gap-4 py-1 border-b border-theme-border font-mono text-[0.6rem] text-theme-text-secondary opacity-30;
   }
   .data-readout-item .value {
     @apply text-[var(--color-gold-DEFAULT)] font-bold;
@@ -1180,7 +1229,7 @@
   /* Liquid light effect */
   .liquid-glass-button::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full skew-x-[-20deg] pointer-events-none transition-all duration-1000;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-theme-accent opacity-10 to-transparent -translate-x-full skew-x-[-20deg] pointer-events-none transition-all duration-1000;
   }
 
   .liquid-glass-button:hover::before {
@@ -1258,15 +1307,23 @@
 
   /* --- Liquid Glass UI Component --- */
   .liquid-glass-card {
-    @apply relative p-6 text-white bg-white/5 backdrop-blur-[24px] border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300;
+    background-color: var(--theme-card-bg);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--theme-card-border);
+    box-shadow: var(--theme-glass-shadow), var(--theme-glass-highlight);
+    @apply relative p-6 text-theme-text-primary rounded-[24px] transition-all duration-300;
   }
   .liquid-glass-card:hover {
-    @apply border-white/20 bg-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_12px_48px_rgba(230,205,153,0.1)];
+    @apply border-theme-border bg-theme-card opacity-10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_12px_48px_rgba(230,205,153,0.1)];
   }
 
   /* --- Navigation Indicator (Viscous Droplet) --- */
   .nav-indicator, .nav-highlight {
-    @apply absolute pointer-events-none z-0 bg-white/[0.12] backdrop-blur-[32px] border border-white/20 shadow-[inset_0_2px_6px_rgba(255,255,255,0.3),0_15px_35px_rgba(0,0,0,0.5)];
+    background-color: var(--theme-card-bg);
+    backdrop-filter: blur(32px);
+    border: 1px solid var(--theme-card-border);
+    box-shadow: var(--theme-glass-shadow), var(--theme-glass-highlight);
+    @apply absolute pointer-events-none z-0;
     transition:
       left 0.9s cubic-bezier(0.16, 1, 0.3, 1),
       width 0.9s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1285,7 +1342,7 @@
   /* The "Liquid Tail" - lags behind and merges */
   .nav-indicator::before, .nav-highlight::before {
     content: '';
-    @apply absolute inset-0 bg-white/10 opacity-0 transition-all duration-700 ease-out;
+    @apply absolute inset-0 bg-theme-card opacity-0 transition-all duration-700 ease-out;
     transform: scale(1);
     filter: blur(4px);
   }
