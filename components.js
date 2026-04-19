@@ -9,7 +9,7 @@ class AstrNavbar extends HTMLElement {
     this.style.display = 'block';
     this.innerHTML = `
       <nav
-        class="navbar fixed top-[32px] max-[768px]:top-[16px] left-[24px] right-[24px] max-[768px]:left-[16px] max-[768px]:right-[16px] mx-auto w-auto max-w-[1200px] rounded-[96px] z-[1000] py-[16px] px-[40px] flex items-center justify-between bg-theme-nav backdrop-blur-[15px] border border-theme-border shadow-[var(--theme-glass-shadow),var(--theme-glass-highlight)] transition-all duration-400 [&.scrolled]:bg-theme-nav [&.scrolled]:backdrop-blur-[24px] [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] [&.scrolled]:border-theme-border [&.scrolled]:shadow-[var(--theme-glass-shadow),var(--theme-glass-highlight)] max-[768px]:px-[24px]"
+        class="navbar nav-glass fixed top-[32px] max-[768px]:top-[16px] left-[24px] right-[24px] max-[768px]:left-[16px] max-[768px]:right-[16px] mx-auto w-auto max-w-[1200px] rounded-[100px] z-[1000] py-[16px] px-[40px] flex items-center justify-between transition-all duration-400 [&.scrolled]:py-[12px] [&.scrolled]:px-[40px] max-[768px]:px-[24px]"
         id="navbar"
       >
         <a
@@ -19,7 +19,7 @@ class AstrNavbar extends HTMLElement {
           <img
             src="/Pictures/without bg 02.png"
             alt="ASTR AI Logo"
-            class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px] dark:brightness-110 invert dark:invert-0"
+            class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px] dark:brightness-125"
           />
         </a>
         <div

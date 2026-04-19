@@ -677,10 +677,21 @@ function initHeroCanvas() {
     targetArr[i * 3 + 1] = y;
     targetArr[i * 3 + 2] = z;
 
-    const c = new THREE.Color(0xffd700);
-    const m = Math.random();
-    if (m > 0.6) c.lerp(new THREE.Color(0xff8c00), Math.random());
-    else if (m > 0.3) c.lerp(new THREE.Color(0xffed4a), Math.random());
+    function getParticleColor(isDark) {
+      const c = isDark ? new THREE.Color(0xffd700) : new THREE.Color(0x7a6335);
+      const m = Math.random();
+      if (isDark) {
+        if (m > 0.6) c.lerp(new THREE.Color(0xff8c00), Math.random());
+        else if (m > 0.3) c.lerp(new THREE.Color(0xffed4a), Math.random());
+      } else {
+        if (m > 0.6) c.lerp(new THREE.Color(0x5a4a27), Math.random());
+        else if (m > 0.3) c.lerp(new THREE.Color(0x9a7b3c), Math.random());
+      }
+      return c;
+    }
+
+    const isInitialDark = document.documentElement.classList.contains('dark');
+    const c = getParticleColor(isInitialDark);
     colorArr[i * 3] = c.r;
     colorArr[i * 3 + 1] = c.g;
     colorArr[i * 3 + 2] = c.b;
@@ -724,12 +735,13 @@ function initHeroCanvas() {
   geometry.setAttribute('aTarget', new THREE.BufferAttribute(targetArr, 3));
   geometry.setAttribute('color', new THREE.BufferAttribute(colorArr, 3));
 
+  const initialDark = document.documentElement.classList.contains('dark');
   const material = new THREE.PointsMaterial({
-    size: isNarrow ? 0.1 : isMobile ? 0.12 : 0.04,
+    size: isNarrow ? 0.12 : isMobile ? 0.14 : 0.05,
     vertexColors: true,
     transparent: true,
-    opacity: 0.8,
-    blending: THREE.AdditiveBlending,
+    opacity: initialDark ? 0.8 : 0.95,
+    blending: initialDark ? THREE.AdditiveBlending : THREE.NormalBlending,
     depthWrite: false,
   });
 
@@ -751,11 +763,11 @@ function initHeroCanvas() {
   );
 
   const coreMaterial = new THREE.PointsMaterial({
-    size: isNarrow ? 0.08 : isMobile ? 0.1 : 0.03,
-    color: 0xffffff,
+    size: isNarrow ? 0.1 : isMobile ? 0.12 : 0.04,
+    color: initialDark ? 0xffffff : 0x7a6335,
     transparent: true,
-    opacity: document.documentElement.classList.contains('dark') ? 0.9 : 1.0,
-    blending: THREE.AdditiveBlending,
+    opacity: initialDark ? 0.9 : 0.8,
+    blending: initialDark ? THREE.AdditiveBlending : THREE.NormalBlending,
   });
 
   const core = new THREE.Points(coreGeometry, coreMaterial);
@@ -763,8 +775,30 @@ function initHeroCanvas() {
 
   document.addEventListener('themeChanged', (e) => {
     const isDark = e.detail.theme === 'dark';
-    material.opacity = isDark ? 0.8 : 1.0;
-    coreMaterial.opacity = isDark ? 0.9 : 1.0;
+    material.opacity = isDark ? 0.8 : 0.95;
+    material.size = isNarrow ? 0.12 : isMobile ? 0.14 : 0.05;
+    material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+    coreMaterial.opacity = isDark ? 0.9 : 0.8;
+    coreMaterial.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+    coreMaterial.color.setHex(isDark ? 0xffffff : 0x7a6335);
+
+    // Update particle colors
+    const colors = geometry.attributes.color.array;
+    for (let i = 0; i < particleCount; i++) {
+      const c = isDark ? new THREE.Color(0xffd700) : new THREE.Color(0x7a6335);
+      const m = Math.random();
+      if (isDark) {
+        if (m > 0.6) c.lerp(new THREE.Color(0xff8c00), Math.random());
+        else if (m > 0.3) c.lerp(new THREE.Color(0xffed4a), Math.random());
+      } else {
+        if (m > 0.6) c.lerp(new THREE.Color(0x5a4a27), Math.random());
+        else if (m > 0.3) c.lerp(new THREE.Color(0x9a7b3c), Math.random());
+      }
+      colors[i * 3] = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+    }
+    geometry.attributes.color.needsUpdate = true;
   });
 
   // Background Load the Logo
