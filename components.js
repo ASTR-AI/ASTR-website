@@ -28,17 +28,17 @@ class AstrNavbar extends HTMLElement {
         >
           <div class="nav-indicator hidden md:block" id="navIndicator"></div>
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-lora font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="philosophy.html"
             >Philosophy</a
           >
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-lora font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="solutions.html"
             >Solutions</a
           >
           <a
-            class="text-[0.875rem] font-tech font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
+            class="text-[0.875rem] font-lora font-medium text-white/70 transition-all duration-200 relative py-[8px] px-[16px] rounded-[24px] border border-transparent hover:text-white hover:text-shadow-glow focus-visible:ring-2 focus-visible:ring-gold/50 outline-none max-[768px]:text-[1.25rem] z-10 cursor-pointer"
             href="rd.html"
             >R&amp;D</a
           >
@@ -212,10 +212,9 @@ class AstrFooter extends HTMLElement {
               </div>
               
               <p class="font-lora text-white/40 text-lg leading-relaxed max-w-[450px] reveal reveal-delay-1">
-                Engineering the interface between human intent and machine logic. 
-                Built on the philosophy of surgical precision and mission-critical reliability.
+                Building the bridge between your ideas and technology. 
+                Built on the philosophy of complete accuracy and trust.
               </p>
-
               <div class="flex gap-4 pt-4 reveal reveal-delay-2">
                 <div class="relative h-12 w-12 rounded-full border border-white/10 flex items-center justify-center group hover:border-gold/30 transition-colors duration-500">
                   <span class="font-mono text-[0.5rem] text-white/20 group-hover:text-gold/40">ASTR</span>
@@ -243,15 +242,15 @@ class AstrFooter extends HTMLElement {
                 </h4>
                 <ul class="space-y-5">
                   <li><a href="philosophy.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
-                    <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">Philosophy</span>
+                    <span class="font-lora uppercase tracking-[1px] text-[0.85rem]">Philosophy</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_P01</span>
                   </a></li>
                   <li><a href="solutions.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
-                    <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">Solutions</span>
+                    <span class="font-lora uppercase tracking-[1px] text-[0.85rem]">Solutions</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_S01</span>
                   </a></li>
                   <li><a href="rd.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
-                    <span class="font-tech uppercase tracking-[1px] text-[0.85rem]">R&D Lab</span>
+                    <span class="font-lora uppercase tracking-[1px] text-[0.85rem]">R&D Lab</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_R01</span>
                   </a></li>
                 </ul>
