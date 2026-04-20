@@ -980,10 +980,10 @@ class EcosystemGraph {
     this.nodes.push(core);
 
     const categories = [
-      { id: 'Custom Software', sub: ['FEFO Logic', 'Cloud ERP', 'Telemetry'] },
-      { id: 'AI Integration', sub: ['Neural Nets', 'Comp. Vision', 'Agents'] },
-      { id: 'Workflow Opt.', sub: ['Automation', 'Silo Sync', 'Flow Map'] },
-      { id: 'System Support', sub: ['Vigilance', 'Uptime', 'Security'] },
+      { id: 'Smart Software', sub: ['Easy Logistics', 'Cloud Access', 'Live Data'] },
+      { id: 'AI Tools', sub: ['Smart Search', 'Image Recognition', 'Digital Assistants'] },
+      { id: 'Better Workflows', sub: ['Auto-Tasks', 'Team Sync', 'Process Maps'] },
+      { id: 'Full Support', sub: ['24/7 Monitoring', 'High Security', 'Fast Updates'] },
     ];
 
     // Organic, irregular angles (radians) — NOT evenly spaced
