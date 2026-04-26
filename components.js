@@ -253,6 +253,10 @@ class AstrFooter extends HTMLElement {
                     <span class="font-lora uppercase tracking-[1px] text-[0.85rem]">R&D Lab</span>
                     <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_R01</span>
                   </a></li>
+                  <li><a href="internship.html" class="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold/30 outline-none p-1 rounded cursor-pointer">
+                    <span class="font-lora uppercase tracking-[1px] text-[0.85rem]">Internship</span>
+                    <span class="font-mono text-[0.5rem] opacity-0 group-hover:opacity-100 transition-opacity">REF_I01</span>
+                  </a></li>
                 </ul>
               </div>
             </div>

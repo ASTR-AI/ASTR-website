@@ -1256,12 +1256,59 @@
     z-index: 0;
   }
 
-  /* --- Liquid Glass UI Component --- */
-  .liquid-glass-card {
-    @apply relative p-6 text-white bg-white/5 backdrop-blur-[24px] border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300;
+  /* --- Layout & Structure Enhancements --- */
+  .section-connector-v {
+    @apply absolute left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b from-gold/40 via-gold/10 to-transparent;
+    height: 160px;
+    z-index: 0;
   }
-  .liquid-glass-card:hover {
-    @apply border-white/20 bg-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_12px_48px_rgba(230,205,153,0.1)];
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+
+  .bento-item {
+    @apply relative overflow-hidden transition-all duration-500;
+  }
+
+  .sidebar-metadata {
+    @apply sticky top-[180px] h-fit hidden xl:flex flex-col gap-8;
+  }
+
+  .telemetry-bar {
+    @apply w-[1px] h-32 bg-white/10 relative overflow-hidden;
+  }
+  .telemetry-bar::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full bg-gold/60;
+    height: 30%;
+    animation: telemetryScroll 4s linear infinite;
+  }
+
+  @keyframes telemetryScroll {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+  }
+
+  .hero-layout-asymmetric {
+    @apply grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 items-center text-left;
+  }
+
+  .glass-tag {
+    @apply px-3 py-1 bg-white/5 border border-white/10 rounded-full font-mono text-[0.55rem] uppercase tracking-widest text-white/40;
+  }
+
+  .connector-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-gold/40 shadow-[0_0_8px_rgba(230,205,153,0.4)];
+  }
+
+  .grid-bg-subtle {
+    background-image: 
+      linear-gradient(to right, rgba(230, 205, 153, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(230, 205, 153, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 
   /* --- Navigation Indicator (Viscous Droplet) --- */
