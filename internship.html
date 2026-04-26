@@ -301,9 +301,14 @@
           <div class="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-gold/20 rounded-bl-[48px]"></div>
           <div class="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/20 rounded-br-[48px]"></div>
 
-          <form action="https://formsubmit.co/hello@astrai.in" method="POST" enctype="multipart/form-data" class="space-y-10 md:space-y-16">
+          <!-- The Binary Uplink Bridge (Hidden Iframe) -->
+          <iframe name="uplink_bridge" id="uplink_bridge" style="display:none;"></iframe>
+
+          <form id="internship-form" action="https://formsubmit.co/hello@astrai.in" method="POST" enctype="multipart/form-data" target="uplink_bridge" class="space-y-10 md:space-y-16">
+            <!-- FormSubmit.co Configuration -->
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="New Internship Application — Summer 2026">
+            <input type="hidden" name="_template" value="table">
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
               <div class="space-y-3 group">
@@ -331,6 +336,17 @@
               </div>
             </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+              <div class="space-y-3 group">
+                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">Email Address</label>
+                <input type="email" name="email" required placeholder="hello@example.com" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all">
+              </div>
+              <div class="space-y-3 group">
+                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">Phone Number</label>
+                <input type="tel" name="phone" required placeholder="+91 00000 00000" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all">
+              </div>
+            </div>
+
             <div class="space-y-3 group">
               <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">Briefly, why ASTR AI?</label>
               <textarea name="why_join" required placeholder="Tell us in one sentence (e.g., 'To prove my degree wasn't just for fixing the family printer')..." class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all resize-none min-h-[80px]"></textarea>
@@ -339,23 +355,35 @@
             <div class="space-y-6">
               <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60">Upload Resume (PDF)</label>
               <div class="relative border-2 border-dashed border-white/10 rounded-3xl p-14 text-center hover:border-gold/20 transition-all cursor-pointer group/upload bg-white/[0.04]">
-                <input type="file" name="resume" accept=".pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                <input type="file" name="attachment" id="resume-input" accept=".pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                 <div class="space-y-4">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e6cd99" stroke-width="1" class="mx-auto opacity-30 group-hover/upload:opacity-100 transition-opacity"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <p class="text-[0.7rem] text-white/40 font-mono uppercase tracking-[4px]">Upload_Resume.pdf</p>
+                  <p id="resume-filename" class="text-[0.7rem] text-white/40 font-mono uppercase tracking-[4px]">Upload_Resume.pdf</p>
                 </div>
               </div>
             </div>
 
             <div class="pt-10">
-              <button type="submit" class="liquid-glass-button w-full md:w-auto !py-6 !px-20 mx-auto block uppercase tracking-[6px] text-[0.75rem] font-bold apply-glow">
-                Submit Application
+              <button type="submit" id="submit-btn" class="liquid-glass-button w-full md:w-auto !py-6 !px-20 mx-auto block uppercase tracking-[6px] text-[0.75rem] font-bold apply-glow transition-all">
+                <span>Submit Application</span>
               </button>
               <p class="text-center mt-12 font-mono text-[0.55rem] text-white/20 uppercase tracking-[4px]">Your information is safe with us.</p>
             </div>
           </form>
         </div>
       </section>
+
+      <!-- Success Overlay (Inspiration: Connect Page) -->
+      <div id="success-overlay" class="fixed inset-0 z-[2000] flex items-center justify-center bg-[#050505]/95 backdrop-blur-[24px] opacity-0 pointer-events-none transition-all duration-1000">
+        <div class="text-center p-8 max-w-lg">
+          <div class="w-20 h-20 rounded-full border border-gold/40 flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(230,205,153,0.2)]">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e6cd99" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2 class="font-cinzel text-3xl md:text-4xl text-white mb-6 tracking-[0.2em] uppercase">Application Received</h2>
+          <p class="font-lora text-white/60 text-lg leading-relaxed mb-10">Your uplink was successful. Our team will review your application and establish connection if there's a match.</p>
+          <a href="index.html" class="font-mono text-[0.7rem] text-gold uppercase tracking-[4px] hover:text-white transition-colors border-b border-gold/20 pb-1">Return to Foundation</a>
+        </div>
+      </div>
     </main>
 
     <astr-footer></astr-footer>
@@ -365,5 +393,78 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script type="module" src="main.js"></script>
+
+    <script>
+      // Handle file upload feedback & Form Submission
+      const internshipForm = document.getElementById('internship-form');
+      const resumeInput = document.getElementById('resume-input');
+      const resumeFilename = document.getElementById('resume-filename');
+      const submitBtn = document.getElementById('submit-btn');
+      const submitBtnText = submitBtn ? submitBtn.querySelector('span') : null;
+      const successOverlay = document.getElementById('success-overlay');
+      const uplinkBridge = document.getElementById('uplink_bridge');
+
+      let isSubmitting = false;
+
+      // File Selection Feedback
+      if (resumeInput && resumeFilename) {
+        resumeInput.addEventListener('change', (e) => {
+          if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            
+            // Max 10MB limit
+            if (file.size > 10 * 1024 * 1024) {
+              alert('PDF is too large. Max size 10MB.');
+              resumeInput.value = '';
+              resumeFilename.textContent = 'Upload_Resume.pdf';
+              resumeFilename.classList.add('text-white/40');
+              resumeFilename.classList.remove('text-gold');
+              return;
+            }
+
+            resumeFilename.textContent = file.name;
+            resumeFilename.classList.remove('text-white/40');
+            resumeFilename.classList.add('text-gold');
+          } else {
+            resumeFilename.textContent = 'Upload_Resume.pdf';
+            resumeFilename.classList.add('text-white/40');
+            resumeFilename.classList.remove('text-gold');
+          }
+        });
+      }
+
+      // Native Iframe Bridge (100% Binary Integrity)
+      if (internshipForm && uplinkBridge) {
+        internshipForm.addEventListener('submit', () => {
+          isSubmitting = true;
+          if (submitBtnText) submitBtnText.textContent = 'UPLINKING...';
+          submitBtn.style.opacity = '0.5';
+          submitBtn.style.pointerEvents = 'none';
+          // No preventDefault() here - let the browser do its job!
+        });
+
+        uplinkBridge.addEventListener('load', () => {
+          if (isSubmitting) {
+            // Success State
+            if (typeof gsap !== 'undefined') {
+              gsap.to(successOverlay, {
+                opacity: 1,
+                pointerEvents: 'auto',
+                duration: 1.2,
+                ease: 'power4.out'
+              });
+            } else {
+              successOverlay.style.opacity = '1';
+              successOverlay.style.pointerEvents = 'auto';
+            }
+            isSubmitting = false;
+            internshipForm.reset();
+            resumeFilename.textContent = 'Upload_Resume.pdf';
+            resumeFilename.classList.add('text-white/40');
+            resumeFilename.classList.remove('text-gold');
+          }
+        });
+      }
+    </script>
   </body>
 </html>
