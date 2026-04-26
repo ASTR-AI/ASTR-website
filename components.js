@@ -421,7 +421,108 @@ class AstrTelemetry extends HTMLElement {
   }
 }
 
+// --- SELECT / DROPDOWN COMPONENT ---
+class AstrSelect extends HTMLElement {
+  connectedCallback() {
+    const placeholder = this.getAttribute('placeholder') || 'Select Option';
+    const name = this.getAttribute('name') || '';
+    const options = Array.from(this.querySelectorAll('option')).map((opt) => ({
+      value: opt.value,
+      label: opt.textContent,
+      shortcut: opt.getAttribute('data-shortcut') || '',
+    }));
+
+    this.innerHTML = `
+      <div class="astr-select" id="select-container">
+        <input type="hidden" name="${name}" id="select-input" required>
+        <div class="astr-select-trigger" id="select-trigger" tabindex="0">
+          <span class="placeholder">${placeholder}</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="astr-select-options" id="select-options">
+          ${options
+            .map(
+              (opt) => `
+            <div class="astr-select-option" data-value="${opt.value}">
+              ${opt.label}
+              ${opt.shortcut ? `<span class="shortcut">${opt.shortcut}</span>` : ''}
+            </div>
+          `
+            )
+            .join('')}
+        </div>
+      </div>
+    `;
+
+    this.initLogic();
+  }
+
+  initLogic() {
+    const container = this.querySelector('#select-container');
+    const trigger = this.querySelector('#select-trigger');
+    const optionsList = this.querySelector('#select-options');
+    const options = this.querySelectorAll('.astr-select-option');
+    const input = this.querySelector('#select-input');
+    const placeholder = trigger.querySelector('.placeholder');
+
+    const toggleOpen = () => {
+      const isOpen = optionsList.classList.contains('open');
+      if (isOpen) {
+        optionsList.classList.remove('open');
+        trigger.classList.remove('active');
+      } else {
+        // Close other selects if any
+        document.querySelectorAll('.astr-select-options.open').forEach((el) => {
+          el.classList.remove('open');
+          el.parentElement.querySelector('.astr-select-trigger').classList.remove('active');
+        });
+        optionsList.classList.add('open');
+        trigger.classList.add('active');
+      }
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleOpen();
+    });
+
+    options.forEach((opt) => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const val = opt.getAttribute('data-value');
+        const label = opt.textContent.split('\n')[1]?.trim() || opt.textContent.trim();
+        
+        input.value = val;
+        placeholder.textContent = label;
+        placeholder.classList.remove('placeholder');
+        placeholder.classList.add('selected-value');
+
+        options.forEach((o) => o.classList.remove('selected'));
+        opt.classList.add('selected');
+
+        optionsList.classList.remove('open');
+        trigger.classList.remove('active');
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', () => {
+      optionsList.classList.remove('open');
+      trigger.classList.remove('active');
+    });
+
+    // Keyboard Navigation
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleOpen();
+      }
+    });
+  }
+}
+
 // Define Custom Elements
 customElements.define('astr-navbar', AstrNavbar);
 customElements.define('astr-footer', AstrFooter);
 customElements.define('astr-telemetry', AstrTelemetry);
+customElements.define('astr-select', AstrSelect);

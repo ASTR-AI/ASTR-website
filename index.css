@@ -1396,6 +1396,56 @@
     60% { transform: scale(1.05, 0.95); }
     100% { transform: scale(1); }
   }
+  /* --- Custom Select / Dropdown --- */
+  .astr-select {
+    @apply relative w-full font-lora;
+  }
+
+  .astr-select-trigger {
+    @apply flex items-center justify-between w-full bg-transparent border-b border-white/10 py-4 text-xl text-white outline-none cursor-pointer transition-all duration-300;
+  }
+
+  .astr-select-trigger:focus, .astr-select-trigger.active {
+    @apply border-gold/40;
+  }
+
+  .astr-select-trigger .placeholder {
+    @apply text-white/10;
+  }
+
+  .astr-select-trigger .arrow {
+    @apply w-4 h-4 text-white/20 transition-transform duration-300;
+  }
+
+  .astr-select-trigger.active .arrow {
+    @apply rotate-180 text-gold/60;
+  }
+
+  .astr-select-options {
+    @apply absolute top-full left-0 w-full mt-2 py-4 glass-premium rounded-[24px] z-[100] opacity-0 invisible translate-y-2 transition-all duration-300 overflow-hidden;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .astr-select-options.open {
+    @apply opacity-100 visible translate-y-0;
+  }
+
+  .astr-select-option {
+    @apply px-8 py-4 text-lg text-white/50 cursor-pointer transition-all duration-300 hover:bg-gold/5 hover:text-gold;
+  }
+
+  .astr-select-option.selected {
+    @apply text-gold bg-gold/5;
+  }
+
+  .astr-select-option .shortcut {
+    @apply font-mono text-[0.6rem] text-white/20 uppercase tracking-widest ml-4;
+  }
+
+  .astr-select-option:hover .shortcut {
+    @apply text-gold/40;
+  }
 }
 @layer utilities {
   .text-shadow-glow {

@@ -12,32 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              gold: '#e6cd99',
-              space: '#050505',
-            },
-            fontFamily: {
-              cinzel: ['Cinzel', 'serif'],
-              lora: ['Lora', 'serif'],
-              caveat: ['Caveat', 'cursive'],
-              mono: ['JetBrains Mono', 'monospace'],
-            },
-          },
-        },
-      };
-    </script>
 
     <style>
       .intern-card {
         background: rgba(255, 255, 255, 0.01);
         border: 1px solid rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(24px);
         transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .intern-card:hover {
@@ -314,51 +294,55 @@
           <p class="font-lora text-white/40 italic text-xl">Fill out the form below to start your application.</p>
         </div>
 
-        <div class="relative p-8 md:p-20 rounded-[48px] border border-white/10 bg-white/[0.01] backdrop-blur-xl shadow-2xl">
+        <div class="relative p-8 md:p-20 rounded-[48px] border border-white/20 bg-white/[0.05] backdrop-blur-glass shadow-glass">
           <!-- HUD Corner Brackets -->
           <div class="absolute top-0 left-0 w-12 h-12 border-t border-l border-gold/20 rounded-tl-[48px]"></div>
           <div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-gold/20 rounded-tr-[48px]"></div>
           <div class="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-gold/20 rounded-bl-[48px]"></div>
           <div class="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-gold/20 rounded-br-[48px]"></div>
 
-          <form action="https://formsubmit.co/hello@astrai.in" method="POST" enctype="multipart/form-data" class="space-y-16">
+          <form action="https://formsubmit.co/hello@astrai.in" method="POST" enctype="multipart/form-data" class="space-y-10 md:space-y-16">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="New Internship Application — Summer 2026">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
               <div class="space-y-3 group">
-                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/45 group-focus-within:text-gold transition-colors">Full Name</label>
-                <input type="text" name="name" required placeholder="Your Name" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/10 focus:border-gold/40 transition-all">
+                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">Full Name</label>
+                <input type="text" name="name" required placeholder="Your Name" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all">
               </div>
               <div class="space-y-3 group">
-                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/45 group-focus-within:text-gold transition-colors">College / University</label>
-                <input type="text" name="college" required placeholder="University Name" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/10 focus:border-gold/40 transition-all">
+                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">College / University</label>
+                <input type="text" name="college" required placeholder="University Name" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all">
               </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
               <div class="space-y-3 group">
-                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/45 group-focus-within:text-gold transition-colors">Major / Field of Study</label>
-                <input type="text" name="major" required placeholder="e.g. Computer Science" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/10 focus:border-gold/40 transition-all">
+                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">Major / Field of Study</label>
+                <input type="text" name="major" required placeholder="e.g. Computer Science" class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all">
               </div>
               <div class="space-y-3 group">
-                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/45 group-focus-within:text-gold transition-colors">What do you want to learn?</label>
-                <select name="domain" required class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white appearance-none cursor-pointer focus:border-gold/40 transition-all">
-                  <option value="" disabled selected class="bg-[#050505]">Select Focus Area</option>
-                  <option value="CyberSecurity" class="bg-[#050505]">CyberSecurity</option>
-                  <option value="Generative AI" class="bg-[#050505]">Generative AI</option>
-                  <option value="Full-Stack Innovation" class="bg-[#050505]">Development & Innovation</option>
-                </select>
+                <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">What do you want to learn?</label>
+                <astr-select name="domain" placeholder="Select Focus Area">
+                  <option value="CyberSecurity" data-shortcut="SEC_01">CyberSecurity</option>
+                  <option value="Generative AI" data-shortcut="GAI_02">Generative AI</option>
+                  <option value="Full-Stack Innovation" data-shortcut="DEV_03">Development & Innovation</option>
+                </astr-select>
               </div>
+            </div>
+
+            <div class="space-y-3 group">
+              <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60 group-focus-within:text-gold transition-colors">Briefly, why ASTR AI?</label>
+              <textarea name="why_join" required placeholder="Tell us in one sentence (e.g., 'To prove my degree wasn't just for fixing the family printer')..." class="w-full bg-transparent border-b border-white/10 outline-none py-4 font-lora text-xl text-white placeholder:text-white/20 focus:border-gold/40 transition-all resize-none min-h-[80px]"></textarea>
             </div>
 
             <div class="space-y-6">
-              <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/45">Upload Resume (PDF)</label>
-              <div class="relative border-2 border-dashed border-white/5 rounded-3xl p-14 text-center hover:border-gold/20 transition-all cursor-pointer group/upload bg-white/[0.01]">
+              <label class="block font-mono text-[0.65rem] uppercase tracking-[0.3em] text-white/60">Upload Resume (PDF)</label>
+              <div class="relative border-2 border-dashed border-white/10 rounded-3xl p-14 text-center hover:border-gold/20 transition-all cursor-pointer group/upload bg-white/[0.04]">
                 <input type="file" name="resume" accept=".pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                 <div class="space-y-4">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e6cd99" stroke-width="1" class="mx-auto opacity-30 group-hover/upload:opacity-100 transition-opacity"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <p class="text-[0.7rem] text-white/30 font-mono uppercase tracking-[4px]">Upload_Resume.pdf</p>
+                  <p class="text-[0.7rem] text-white/40 font-mono uppercase tracking-[4px]">Upload_Resume.pdf</p>
                 </div>
               </div>
             </div>
