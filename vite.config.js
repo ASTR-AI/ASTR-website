@@ -37,6 +37,7 @@ export default defineConfig({
         rd: resolve(__dirname, 'rd.html'),
         connect: resolve(__dirname, 'connect.html'),
         missiondocs: resolve(__dirname, 'mission-docs.html'),
+        internship: resolve(__dirname, 'internship.html'),
       },
     },
   },
