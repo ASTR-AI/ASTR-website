@@ -1,7 +1,12 @@
 import './components.js';
+import { inject } from '@vercel/analytics';
+
 /* ===================================
    ASTR AI — Main JavaScript
    =================================== */
+
+// Initialize Vercel Analytics
+inject();
 
 /**
  * SCENE MANAGER: Prevents WebGL/Animation overload
