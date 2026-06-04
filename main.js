@@ -8,6 +8,20 @@ import { inject } from '@vercel/analytics';
 // Initialize Vercel Analytics
 inject();
 
+// Throttle Utility for Performance
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
 /**
  * SCENE MANAGER: Prevents WebGL/Animation overload
  * Pauses rendering when elements are off-screen and lazy-initializes them.
@@ -610,13 +624,14 @@ function initHeroCanvas() {
     camera.updateProjectionMatrix();
   }
   updateSize();
-  window.addEventListener('resize', updateSize);
+  window.addEventListener('resize', throttle(updateSize, 200));
 
   // Instant Setup: Define counts and geometry BEFORE image load
   const isMobile = window.innerWidth < 768;
   const isNarrow = window.innerWidth < 480;
-  const particleCount = isNarrow ? 5000 : isMobile ? 7000 : 15000;
-  const coreCount = isNarrow ? 400 : isMobile ? 600 : 2000;
+  // Further reduced counts for mobile performance
+  const particleCount = isNarrow ? 3000 : isMobile ? 5000 : 15000;
+  const coreCount = isNarrow ? 300 : isMobile ? 500 : 2000;
 
   const geometry = new THREE.BufferGeometry();
   const posArr = new Float32Array(particleCount * 3);
