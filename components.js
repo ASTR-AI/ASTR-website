@@ -17,8 +17,12 @@ class AstrNavbar extends HTMLElement {
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px] max-[768px]:w-auto"
         >
           <img
-            src="/Pictures/without bg 02.png"
+            src="/Pictures/logo-optimized.webp"
             alt="ASTR AI Logo"
+            width="125"
+            height="48"
+            loading="eager"
+            decoding="async"
             class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px]"
           />
         </a>
