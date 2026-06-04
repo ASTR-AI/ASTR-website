@@ -1106,7 +1106,7 @@ class EcosystemGraph {
         logo.setAttributeNS(
           'http://www.w3.org/1999/xlink',
           'href',
-          '/Pictures/without bg 02.png'
+          '/Pictures/logo-optimized.webp'
         );
         logo.setAttribute('width', imgSize);
         logo.setAttribute('height', imgSize);

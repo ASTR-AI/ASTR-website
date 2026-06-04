@@ -206,7 +206,7 @@ class AstrFooter extends HTMLElement {
             <div class="lg:col-span-5 space-y-10 relative lg:pr-16">
               <div class="relative inline-block reveal">
                 <a href="index.html" class="flex flex-col items-start gap-1 group">
-                  <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-20 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" />
+                  <img src="/Pictures/logo-optimized.webp" alt="ASTR AI Logo" class="h-12 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   <span class="font-mono text-[0.6rem] text-gold/60 tracking-[4px] uppercase font-bold">Private Limited</span>
                 </a>
                 <!-- Handwritten Annotation -->
