@@ -64,38 +64,46 @@ const SceneManager = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  SceneManager.init();
+  const initApp = () => {
+    SceneManager.init();
 
-  // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
-  // We set immediate: true for Hero so it initializes before text animations
-  const hCanvas = document.getElementById('heroCanvas');
-  if (hCanvas)
-    SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
+    // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
+    // We set immediate: true for Hero so it initializes before text animations
+    const hCanvas = document.getElementById('heroCanvas');
+    if (hCanvas)
+      SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
 
-  // 2. INITIALIZE NON-BLOCKING UI
-  initScrollReveal();
-  initTextAnimate();
-  initPillarTabs();
-  initAnomalyConsole();
-  initBlueprintCTA();
-  initPremiumAnimations();
-  initRDAnimations();
-  initPhilosophyAnimations();
+    // 2. INITIALIZE NON-BLOCKING UI
+    initScrollReveal();
+    initTextAnimate();
+    initPillarTabs();
+    initAnomalyConsole();
+    initBlueprintCTA();
+    initPremiumAnimations();
+    initRDAnimations();
+    initPhilosophyAnimations();
 
-  // 3. REGISTER REMAINING SCENES
-  SceneManager.register(
-    document.getElementById('ecosystem-graph'),
-    initEcosystemGraph
-  );
+    // 3. REGISTER REMAINING SCENES
+    SceneManager.register(
+      document.getElementById('ecosystem-graph'),
+      initEcosystemGraph
+    );
 
-  const iCanvas = document.getElementById('infraCanvas');
-  if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
+    const iCanvas = document.getElementById('infraCanvas');
+    if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
 
-  const dCanvas = document.getElementById('droneCanvas');
-  if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
+    const dCanvas = document.getElementById('droneCanvas');
+    if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
 
-  const cCanvas = document.getElementById('cta-particle-canvas');
-  if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
+    const cCanvas = document.getElementById('cta-particle-canvas');
+    if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
+  };
+
+  if (window.requestIdleCallback) {
+    requestIdleCallback(initApp, { timeout: 1000 });
+  } else {
+    setTimeout(initApp, 1);
+  }
 });
 
 /* --- Philosophy Page Specialized Animations --- */
@@ -2488,5 +2496,9 @@ function initSolutionsExpansion() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initSolutionsExpansion();
+  if (window.requestIdleCallback) {
+    requestIdleCallback(initSolutionsExpansion, { timeout: 1000 });
+  } else {
+    setTimeout(initSolutionsExpansion, 1);
+  }
 });
