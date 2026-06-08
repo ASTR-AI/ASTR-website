@@ -6,7 +6,7 @@
     <meta name="google-site-verification" content="T716fUKX8_eI7TGwG7W_oKxlRfIvX_sJ9exOzPiFVaA" />
     <meta name="author" content="ASTR AI" />
     <meta name="robots" content="index, follow" />
-    <title>ASTR AI — Intelligence for What Matters | ASTRAI.in</title>
+    <title>ASTR AI — Intelligence for What Matters | ASTR AI</title>
     <meta
       name="description"
       content="ASTR AI builds next-generation intelligent systems for AI solutions, infrastructure, and drone networks. Advanced System for Technology, Robotics and AI."
@@ -15,7 +15,7 @@
       name="keywords"
       content="ASTR AI, artificial intelligence, deep tech, AI solutions, drone network, robotics, smart infrastructure"
     />
-    <link rel="canonical" href="https://astrai.in/" />
+    <link rel="canonical" href="https://www.astrai.in/" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -24,8 +24,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "ASTR AI",
-        "url": "https://astrai.in",
-        "logo": "https://astrai.in/Pictures/ASTR%20LOGO%20TEXT.png",
+        "url": "https://www.astrai.in",
+        "logo": "https://www.astrai.in/Pictures/ASTR%20LOGO%20TEXT.png",
         "description": "ASTR AI builds next-generation intelligent systems for AI solutions, infrastructure, and drone networks.",
         "sameAs": [
           "https://github.com/anubhav100j/ASTR-website"
@@ -35,10 +35,11 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ASTR AI",
-        "url": "https://astrai.in/",
+        "alternateName": "Astrai",
+        "url": "https://www.astrai.in/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://astrai.in/?s={search_term_string}",
+          "target": "https://www.astrai.in/?s={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
@@ -61,14 +62,23 @@
     <meta name="twitter:description" content="Intelligence for What Matters. Pioneering next-generation intelligent systems.">
     <meta name="twitter:image" content="https://astrai.in/Pictures/herosection.png">
 
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="/Pictures/logo-optimized.webp" fetchpriority="high" />
+    
     <!-- Preload Critical Fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" media="print" onload="this.media='all'">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" type="image/png" href="/Pictures/favicon-arrow.png?v=2" />
@@ -87,7 +97,7 @@
 
     <astr-navbar>
       <nav style="display:none">
-        <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" />
+        <img src="/Pictures/logo-optimized.webp" alt="ASTR AI Logo" width="125" height="48" loading="eager" decoding="async" />
         <a href="index.html">Home</a>
         <a href="philosophy.html">Philosophy</a>
         <a href="solutions.html">Solutions</a>
@@ -1720,11 +1730,11 @@
 
     <!-- ====== SCRIPTS ====== -->
     <!-- GSAP & ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>

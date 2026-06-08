@@ -8,6 +8,20 @@ import { inject } from '@vercel/analytics';
 // Initialize Vercel Analytics
 inject();
 
+// Throttle Utility for Performance
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
 /**
  * SCENE MANAGER: Prevents WebGL/Animation overload
  * Pauses rendering when elements are off-screen and lazy-initializes them.
@@ -64,38 +78,46 @@ const SceneManager = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  SceneManager.init();
+  const initApp = () => {
+    SceneManager.init();
 
-  // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
-  // We set immediate: true for Hero so it initializes before text animations
-  const hCanvas = document.getElementById('heroCanvas');
-  if (hCanvas)
-    SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
+    // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
+    // We set immediate: true for Hero so it initializes before text animations
+    const hCanvas = document.getElementById('heroCanvas');
+    if (hCanvas)
+      SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
 
-  // 2. INITIALIZE NON-BLOCKING UI
-  initScrollReveal();
-  initTextAnimate();
-  initPillarTabs();
-  initAnomalyConsole();
-  initBlueprintCTA();
-  initPremiumAnimations();
-  initRDAnimations();
-  initPhilosophyAnimations();
+    // 2. INITIALIZE NON-BLOCKING UI
+    initScrollReveal();
+    initTextAnimate();
+    initPillarTabs();
+    initAnomalyConsole();
+    initBlueprintCTA();
+    initPremiumAnimations();
+    initRDAnimations();
+    initPhilosophyAnimations();
 
-  // 3. REGISTER REMAINING SCENES
-  SceneManager.register(
-    document.getElementById('ecosystem-graph'),
-    initEcosystemGraph
-  );
+    // 3. REGISTER REMAINING SCENES
+    SceneManager.register(
+      document.getElementById('ecosystem-graph'),
+      initEcosystemGraph
+    );
 
-  const iCanvas = document.getElementById('infraCanvas');
-  if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
+    const iCanvas = document.getElementById('infraCanvas');
+    if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
 
-  const dCanvas = document.getElementById('droneCanvas');
-  if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
+    const dCanvas = document.getElementById('droneCanvas');
+    if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
 
-  const cCanvas = document.getElementById('cta-particle-canvas');
-  if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
+    const cCanvas = document.getElementById('cta-particle-canvas');
+    if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
+  };
+
+  if (window.requestIdleCallback) {
+    requestIdleCallback(initApp, { timeout: 1000 });
+  } else {
+    setTimeout(initApp, 1);
+  }
 });
 
 /* --- Philosophy Page Specialized Animations --- */
@@ -602,13 +624,14 @@ function initHeroCanvas() {
     camera.updateProjectionMatrix();
   }
   updateSize();
-  window.addEventListener('resize', updateSize);
+  window.addEventListener('resize', throttle(updateSize, 200));
 
   // Instant Setup: Define counts and geometry BEFORE image load
   const isMobile = window.innerWidth < 768;
   const isNarrow = window.innerWidth < 480;
-  const particleCount = isNarrow ? 5000 : isMobile ? 7000 : 15000;
-  const coreCount = isNarrow ? 400 : isMobile ? 600 : 2000;
+  // Further reduced counts for mobile performance
+  const particleCount = isNarrow ? 3000 : isMobile ? 5000 : 15000;
+  const coreCount = isNarrow ? 300 : isMobile ? 500 : 2000;
 
   const geometry = new THREE.BufferGeometry();
   const posArr = new Float32Array(particleCount * 3);
@@ -1083,7 +1106,7 @@ class EcosystemGraph {
         logo.setAttributeNS(
           'http://www.w3.org/1999/xlink',
           'href',
-          '/Pictures/without bg 02.png'
+          '/Pictures/logo-optimized.webp'
         );
         logo.setAttribute('width', imgSize);
         logo.setAttribute('height', imgSize);
@@ -2488,5 +2511,9 @@ function initSolutionsExpansion() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initSolutionsExpansion();
+  if (window.requestIdleCallback) {
+    requestIdleCallback(initSolutionsExpansion, { timeout: 1000 });
+  } else {
+    setTimeout(initSolutionsExpansion, 1);
+  }
 });

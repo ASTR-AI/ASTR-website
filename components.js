@@ -17,8 +17,12 @@ class AstrNavbar extends HTMLElement {
           class="nav-logo flex items-center gap-[8px] text-[1.4rem] font-extrabold tracking-[2px] max-[768px]:w-auto"
         >
           <img
-            src="/Pictures/without bg 02.png"
+            src="/Pictures/logo-optimized.webp"
             alt="ASTR AI Logo"
+            width="125"
+            height="48"
+            loading="eager"
+            decoding="async"
             class="logo-image bg-transparent relative h-[48px] w-auto block object-contain z-[1002] max-[768px]:h-[40px]"
           />
         </a>
@@ -202,7 +206,7 @@ class AstrFooter extends HTMLElement {
             <div class="lg:col-span-5 space-y-10 relative lg:pr-16">
               <div class="relative inline-block reveal">
                 <a href="index.html" class="flex flex-col items-start gap-1 group">
-                  <img src="/Pictures/without bg 02.png" alt="ASTR AI Logo" class="h-20 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" />
+                  <img src="/Pictures/logo-optimized.webp" alt="ASTR AI Logo" class="h-12 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   <span class="font-mono text-[0.6rem] text-gold/60 tracking-[4px] uppercase font-bold">Private Limited</span>
                 </a>
                 <!-- Handwritten Annotation -->
