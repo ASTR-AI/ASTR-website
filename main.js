@@ -1391,7 +1391,12 @@ function initPillarTabs() {
   if (activeTab) {
     const initialTarget = activeTab.getAttribute('data-pillar');
     stage.setAttribute('data-active-pillar', initialTarget);
-    setTimeout(() => moveSlider(activeTab), 50);
+    setTimeout(() => {
+      moveSlider(activeTab);
+      if (window.innerWidth <= 576) {
+        activeTab.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+      }
+    }, 50);
   }
 
   tabs.forEach((tab) => {
@@ -1411,6 +1416,11 @@ function initPillarTabs() {
 
       // Move the background highlight
       moveSlider(tab);
+
+      // Auto-center selected tab in mobile UI
+      if (window.innerWidth <= 576) {
+        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
 
       // Update Content
       contents.forEach((content) => {
@@ -2516,4 +2526,19 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     setTimeout(initSolutionsExpansion, 1);
   }
+
+  // Anchor smooth scroll helper for cross-page navigation offsets
+  const handleHashScroll = () => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 600); // 600ms delay to let Three.js and canvases finalize size
+      }
+    }
+  };
+
+  handleHashScroll();
+  window.addEventListener('hashchange', handleHashScroll);
 });
