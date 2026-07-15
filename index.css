@@ -1,5 +1,5 @@
-@import "./node_modules/tw-animate-css/dist/tw-animate.css";
-@import "@fontsource-variable/geist";
+@import './node_modules/tw-animate-css/dist/tw-animate.css';
+@import '@fontsource-variable/geist';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -106,13 +106,20 @@
   * {
     @apply border-border outline-ring cursor-default;
   }
-  
-  a, button, [role="button"], input[type="submit"], input[type="button"], .cursor-pointer {
+
+  a,
+  button,
+  [role='button'],
+  input[type='submit'],
+  input[type='button'],
+  .cursor-pointer {
     cursor: pointer;
     @apply outline-none transition-all duration-200;
   }
-  
-  a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+
+  a:focus-visible,
+  button:focus-visible,
+  [role='button']:focus-visible {
     @apply ring-2 ring-gold/50 ring-offset-2 ring-offset-black;
   }
 }
@@ -122,7 +129,7 @@
   .glass-premium {
     @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300;
   }
-  
+
   .glass-premium:hover {
     @apply bg-white/10 border-white/20 shadow-[0_8px_32px_0_rgba(230,205,153,0.1)];
   }
@@ -205,10 +212,13 @@
 
   /* Performance: Disable expensive filters on mobile */
   @media (max-width: 768px) {
-    .grain-overlay, .scanline-overlay {
+    .grain-overlay,
+    .scanline-overlay {
       display: none;
     }
-    .glass-premium, .hero-glass, .pillar-display-stage {
+    .glass-premium,
+    .hero-glass,
+    .pillar-display-stage {
       backdrop-filter: blur(8px); /* Reduced blur on mobile */
       -webkit-backdrop-filter: blur(8px);
     }
@@ -620,14 +630,14 @@
         transparent 1px
       ),
       /* 4. HUD Corner Brackets (Gold) */
-        linear-gradient(to right, #E6CD99 15px, transparent 15px),
-      linear-gradient(to bottom, #E6CD99 15px, transparent 15px),
-      linear-gradient(to left, #E6CD99 15px, transparent 15px),
-      linear-gradient(to bottom, #E6CD99 15px, transparent 15px),
-      linear-gradient(to right, #E6CD99 15px, transparent 15px),
-      linear-gradient(to top, #E6CD99 15px, transparent 15px),
-      linear-gradient(to left, #E6CD99 15px, transparent 15px),
-      linear-gradient(to top, #E6CD99 15px, transparent 15px);
+        linear-gradient(to right, #e6cd99 15px, transparent 15px),
+      linear-gradient(to bottom, #e6cd99 15px, transparent 15px),
+      linear-gradient(to left, #e6cd99 15px, transparent 15px),
+      linear-gradient(to bottom, #e6cd99 15px, transparent 15px),
+      linear-gradient(to right, #e6cd99 15px, transparent 15px),
+      linear-gradient(to top, #e6cd99 15px, transparent 15px),
+      linear-gradient(to left, #e6cd99 15px, transparent 15px),
+      linear-gradient(to top, #e6cd99 15px, transparent 15px);
 
     background-size:
       40px 40px,
@@ -1263,12 +1273,12 @@
         transparent 75%
       ),
       /* Rays radiating from center */
-      repeating-conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        rgba(230, 205, 153, 0.04) 5deg,
-        transparent 15deg
-      );
+        repeating-conic-gradient(
+          from 0deg at 50% 50%,
+          transparent 0deg,
+          rgba(230, 205, 153, 0.04) 5deg,
+          transparent 15deg
+        );
     filter: blur(50px);
     animation: sunRayPulse 20s ease-in-out infinite;
     z-index: 0;
@@ -1306,8 +1316,12 @@
   }
 
   @keyframes telemetryScroll {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(400%); }
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(400%);
+    }
   }
 
   .hero-layout-asymmetric {
@@ -1323,14 +1337,15 @@
   }
 
   .grid-bg-subtle {
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(230, 205, 153, 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(230, 205, 153, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 
   /* --- Navigation Indicator (Viscous Droplet) --- */
-  .nav-indicator, .nav-highlight {
+  .nav-indicator,
+  .nav-highlight {
     @apply absolute pointer-events-none z-0 bg-white/[0.12] backdrop-blur-[32px] border border-white/20 shadow-[inset_0_2px_6px_rgba(255,255,255,0.3),0_15px_35px_rgba(0,0,0,0.5)];
     transition:
       left 0.9s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1348,71 +1363,117 @@
   }
 
   /* The "Liquid Tail" - lags behind and merges */
-  .nav-indicator::before, .nav-highlight::before {
+  .nav-indicator::before,
+  .nav-highlight::before {
     content: '';
     @apply absolute inset-0 bg-white/10 opacity-0 transition-all duration-700 ease-out;
     transform: scale(1);
     filter: blur(4px);
   }
 
-  .nav-indicator::before { @apply rounded-[32px]; }
-  .nav-highlight::before { @apply rounded-[96px]; }
+  .nav-indicator::before {
+    @apply rounded-[32px];
+  }
+  .nav-highlight::before {
+    @apply rounded-[96px];
+  }
 
   /* Movement Physics: Stretching and Motion Blur */
-  .nav-indicator.moving-right, .nav-highlight.moving-right {
+  .nav-indicator.moving-right,
+  .nav-highlight.moving-right {
     animation: dropletLeadRight 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .nav-indicator.moving-left, .nav-highlight.moving-left {
+  .nav-indicator.moving-left,
+  .nav-highlight.moving-left {
     animation: dropletLeadLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .nav-indicator.moving-right::before, 
+  .nav-indicator.moving-right::before,
   .nav-indicator.moving-left::before,
   .nav-highlight.moving-right::before,
   .nav-highlight.moving-left::before {
     @apply opacity-100;
   }
 
-  .nav-indicator.moving-right::before, .nav-highlight.moving-right::before {
+  .nav-indicator.moving-right::before,
+  .nav-highlight.moving-right::before {
     animation: dropletTailRight 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .nav-indicator.moving-left::before, .nav-highlight.moving-left::before {
+  .nav-indicator.moving-left::before,
+  .nav-highlight.moving-left::before {
     animation: dropletTailLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* The "Gulp" - A high-viscosity snap back */
-  .nav-indicator.pulse, .nav-highlight.pulse {
+  .nav-indicator.pulse,
+  .nav-highlight.pulse {
     animation: dropletGulp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   @keyframes dropletLeadRight {
-    0% { transform: scaleX(1); }
-    30% { transform: scaleX(1.25) translateX(10%); }
-    100% { transform: scaleX(1); }
+    0% {
+      transform: scaleX(1);
+    }
+    30% {
+      transform: scaleX(1.25) translateX(10%);
+    }
+    100% {
+      transform: scaleX(1);
+    }
   }
   @keyframes dropletLeadLeft {
-    0% { transform: scaleX(1); }
-    30% { transform: scaleX(1.25) translateX(-10%); }
-    100% { transform: scaleX(1); }
+    0% {
+      transform: scaleX(1);
+    }
+    30% {
+      transform: scaleX(1.25) translateX(-10%);
+    }
+    100% {
+      transform: scaleX(1);
+    }
   }
 
   @keyframes dropletTailRight {
-    0% { transform: translateX(0) scale(1); }
-    30% { transform: translateX(-40%) scaleX(1.4) scaleY(0.7); }
-    100% { transform: translateX(0) scale(1); }
+    0% {
+      transform: translateX(0) scale(1);
+    }
+    30% {
+      transform: translateX(-40%) scaleX(1.4) scaleY(0.7);
+    }
+    100% {
+      transform: translateX(0) scale(1);
+    }
   }
   @keyframes dropletTailLeft {
-    0% { transform: translateX(0) scale(1); }
-    30% { transform: translateX(40%) scaleX(1.4) scaleY(0.7); }
-    100% { transform: translateX(0) scale(1); }
+    0% {
+      transform: translateX(0) scale(1);
+    }
+    30% {
+      transform: translateX(40%) scaleX(1.4) scaleY(0.7);
+    }
+    100% {
+      transform: translateX(0) scale(1);
+    }
   }
 
   @keyframes dropletGulp {
-    0% { transform: scale(1); }
-    20% { transform: scale(1.15, 0.85); border-radius: 40% 40% 60% 60%; }
-    40% { transform: scale(0.9, 1.15); border-radius: 60% 60% 40% 40%; }
-    60% { transform: scale(1.05, 0.95); }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(1.15, 0.85);
+      border-radius: 40% 40% 60% 60%;
+    }
+    40% {
+      transform: scale(0.9, 1.15);
+      border-radius: 60% 60% 40% 40%;
+    }
+    60% {
+      transform: scale(1.05, 0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
   /* --- Custom Select / Dropdown --- */
   .astr-select {
@@ -1423,7 +1484,8 @@
     @apply flex items-center justify-between w-full bg-transparent border-b border-white/10 py-4 text-xl text-white outline-none cursor-pointer transition-all duration-300;
   }
 
-  .astr-select-trigger:focus, .astr-select-trigger.active {
+  .astr-select-trigger:focus,
+  .astr-select-trigger.active {
     @apply border-gold/40;
   }
 
@@ -1598,40 +1660,115 @@
 }
 
 @keyframes noise-shift {
-  0% { transform: translate(0,0) }
-  10% { transform: translate(-1%,-1%) }
-  20% { transform: translate(1%,1%) }
-  30% { transform: translate(-2%,1%) }
-  40% { transform: translate(1%,-2%) }
-  50% { transform: translate(-1%,1%) }
-  60% { transform: translate(-2%,-1%) }
-  70% { transform: translate(1%,2%) }
-  80% { transform: translate(-1%,-1%) }
-  90% { transform: translate(2%,-2%) }
-  100% { transform: translate(1%,1%) }
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-1%, -1%);
+  }
+  20% {
+    transform: translate(1%, 1%);
+  }
+  30% {
+    transform: translate(-2%, 1%);
+  }
+  40% {
+    transform: translate(1%, -2%);
+  }
+  50% {
+    transform: translate(-1%, 1%);
+  }
+  60% {
+    transform: translate(-2%, -1%);
+  }
+  70% {
+    transform: translate(1%, 2%);
+  }
+  80% {
+    transform: translate(-1%, -1%);
+  }
+  90% {
+    transform: translate(2%, -2%);
+  }
+  100% {
+    transform: translate(1%, 1%);
+  }
 }
 
 @keyframes flicker {
-  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
     opacity: 1;
   }
-  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
     opacity: 0.4;
   }
 }
 
 @keyframes edge-flicker {
-  0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { opacity: 0.1; }
-  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { opacity: 0.3; }
-  12%, 62%, 82% { opacity: 0; }
-  14%, 64%, 84% { opacity: 0.5; box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.15); }
+  0%,
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90%,
+  100% {
+    opacity: 0.1;
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45%,
+  55%,
+  65%,
+  75%,
+  85%,
+  95% {
+    opacity: 0.3;
+  }
+  12%,
+  62%,
+  82% {
+    opacity: 0;
+  }
+  14%,
+  64%,
+  84% {
+    opacity: 0.5;
+    box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.15);
+  }
 }
 
 @keyframes failing-vignette {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.6; }
-  51% { opacity: 0.3; }
-  52% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  51% {
+    opacity: 0.3;
+  }
+  52% {
+    opacity: 0.7;
+  }
 }
 
 /* Accordion */

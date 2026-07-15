@@ -57,7 +57,7 @@ The landing page features 5 distinct sections:
 
 ## Development Workflow
 
-The project is configured for **Continuous Development**. 
+The project is configured for **Continuous Development**.
 
 - `index.html`: The Main Site (formerly `coming-soon.html` placeholder).
 - `philosophy.html` & `solutions.html`: Internal sub-pages.

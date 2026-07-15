@@ -478,7 +478,9 @@ class AstrSelect extends HTMLElement {
         // Close other selects if any
         document.querySelectorAll('.astr-select-options.open').forEach((el) => {
           el.classList.remove('open');
-          el.parentElement.querySelector('.astr-select-trigger').classList.remove('active');
+          el.parentElement
+            .querySelector('.astr-select-trigger')
+            .classList.remove('active');
         });
         optionsList.classList.add('open');
         trigger.classList.add('active');
@@ -494,8 +496,9 @@ class AstrSelect extends HTMLElement {
       opt.addEventListener('click', (e) => {
         e.stopPropagation();
         const val = opt.getAttribute('data-value');
-        const label = opt.textContent.split('\n')[1]?.trim() || opt.textContent.trim();
-        
+        const label =
+          opt.textContent.split('\n')[1]?.trim() || opt.textContent.trim();
+
         input.value = val;
         placeholder.textContent = label;
         placeholder.classList.remove('placeholder');

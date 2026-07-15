@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASTR AI — Certificate Verification | ASTRAI.in</title>
+    <meta
+      name="description"
+      content="Verify the authenticity of internship certificates issued by ASTR AI."
+    />
+    <link rel="canonical" href="https://astrai.in/verify.html" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="/Pictures/arrow.png?v=2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Custom Styling for Verification Page */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(24px);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.4),
+          inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .glass-panel.success-glow {
+        border-color: rgba(76, 175, 80, 0.25);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(76, 175, 80, 0.05),
+          inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      }
+
+      .glass-panel.revoked-glow {
+        border-color: rgba(249, 115, 22, 0.25);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(249, 115, 22, 0.05),
+          inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      }
+
+      .glass-panel.invalid-glow {
+        border-color: rgba(239, 68, 68, 0.25);
+        box-shadow:
+          0 12px 40px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(239, 68, 68, 0.05),
+          inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      }
+
+      .gold-badge {
+        background: linear-gradient(
+          135deg,
+          rgba(230, 205, 153, 0.15) 0%,
+          rgba(203, 168, 100, 0.05) 100%
+        );
+        border: 1px solid rgba(230, 205, 153, 0.25);
+      }
+
+      .shimmer-btn {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shimmer-btn::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: skewX(-25deg);
+        transition: 0.75s;
+      }
+
+      .shimmer-btn:hover::after {
+        left: 150%;
+      }
+
+      .blueprint-dots {
+        background-image: radial-gradient(
+          rgba(230, 205, 153, 0.15) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
+      }
+
+      /* HTMX Indicator Styling */
+      .htmx-indicator {
+        display: none;
+      }
+      .htmx-request .htmx-indicator {
+        display: block;
+      }
+      .htmx-request.htmx-indicator {
+        display: block;
+      }
+
+      /* Print styling to output high-fidelity certificate audit */
+      @media print {
+        body {
+          background: #fff !important;
+          color: #000 !important;
+        }
+        astr-navbar,
+        astr-footer,
+        #search-card,
+        .no-print {
+          display: none !important;
+        }
+        .glass-panel {
+          background: none !important;
+          border: 1px solid #ccc !important;
+          box-shadow: none !important;
+          color: #000 !important;
+          backdrop-filter: none !important;
+        }
+        .text-white\/60,
+        .text-white\/70,
+        .text-white\/40 {
+          color: #555 !important;
+        }
+        .text-gold {
+          color: #8b6b30 !important;
+        }
+        main {
+          padding-top: 0 !important;
+        }
+      }
+    </style>
+
+    <!-- ALTCHA CAPTCHA widget -->
+    <script
+      async
+      defer
+      src="https://cdn.jsdelivr.net/npm/altcha/dist/altcha.min.js"
+      type="module"
+    ></script>
+    <!-- HTMX Library -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  </head>
+
+  <body
+    class="bg-[#050505] text-white font-lora antialiased selection:bg-gold/30 selection:text-gold overflow-x-hidden"
+  >
+    <!-- Background Overlays -->
+    <div class="grain-overlay opacity-[0.02]"></div>
+    <div class="scanline-overlay opacity-[0.05]"></div>
+
+    <!-- Blueprint Grid -->
+    <div
+      class="fixed inset-0 z-0 opacity-[0.03] pointer-events-none"
+      style="
+        background-image: radial-gradient(
+          rgba(230, 205, 153, 0.2) 1px,
+          transparent 1px
+        );
+        background-size: 60px 60px;
+      "
+    ></div>
+
+    <astr-navbar>
+      <nav style="display: none">
+        <a href="index.html">Home</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="rd.html">R&D labs</a>
+        <a href="internship.html">Internship</a>
+        <a href="connect.html">Connect</a>
+      </nav>
+    </astr-navbar>
+
+    <main class="relative z-10 pt-[120px] md:pt-[180px] pb-32">
+      <!-- Hero Header -->
+      <div class="container max-w-[900px] mx-auto px-6 mb-12 text-center">
+        <span
+          class="font-mono text-[0.7rem] text-gold tracking-[6px] uppercase font-bold block mb-4"
+          >Uplink Gateway</span
+        >
+        <h1
+          class="font-cinzel text-hero text-white mb-4 tracking-[0.1em] uppercase font-bold leading-tight"
+        >
+          Verification Portal
+        </h1>
+        <p class="font-lora text-white/60 text-lg max-w-lg mx-auto">
+          Establish secure connection with ASTR AI security database to verify
+          issued credentials and performance records.
+        </p>
+      </div>
+
+      <!-- MAIN VERIFICATION CONTAINER -->
+      <div class="container max-w-[900px] mx-auto px-6 relative z-10">
+        <!-- Form Panel -->
+        <div
+          id="search-card"
+          class="glass-panel rounded-[24px] p-8 md:p-12 mb-8 relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 blueprint-dots opacity-[0.2] pointer-events-none"
+          ></div>
+          <div class="relative z-10">
+            <form
+              id="verify-form"
+              hx-post="https://certificate-verification-ochre.vercel.app/api/verify"
+              hx-target="#verification-result"
+              hx-swap="innerHTML"
+              hx-indicator="#loading-state"
+            >
+              <div class="space-y-3">
+                <label
+                  for="certificate_id"
+                  class="block font-mono text-[0.75rem] text-gold tracking-[3px] uppercase font-bold"
+                >
+                  Certificate Credentials ID
+                </label>
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="certificate_id"
+                    name="certificate_id"
+                    required
+                    placeholder="e.g. ASTR-INT-26-8B1E4A"
+                    class="w-full bg-white/5 border border-white/10 rounded-[12px] py-4 px-6 font-mono text-lg text-white placeholder-white/20 focus:outline-none focus:border-gold/50 focus:shadow-[0_0_20px_rgba(230,205,153,0.15)] transition-all duration-300 uppercase"
+                  />
+                  <div class="absolute right-4 top-1/2 -translate-y-1/2">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      class="text-white/20"
+                    >
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ALTCHA CAPTCHA Widget (Inline & Centered) -->
+              <div class="flex justify-center py-4">
+                <altcha-widget
+                  theme="dark"
+                  hidefooter="true"
+                  class="w-full text-xs max-w-sm animate-fade-in"
+                  id="altcha-widget"
+                ></altcha-widget>
+              </div>
+
+              <button
+                type="submit"
+                id="verify-btn"
+                class="w-full shimmer-btn bg-transparent border border-gold text-gold font-mono text-[0.8rem] tracking-[4px] uppercase font-bold py-4 rounded-full hover:bg-gold hover:text-black transition-all duration-500 shadow-[0_0_25px_rgba(230,205,153,0.1)] hover:shadow-[0_0_35px_rgba(230,205,153,0.3)]"
+              >
+                <span>ESTABLISH SECURE UPLINK</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- LOADING STATE (Skeleton UI Indicator) -->
+        <div
+          id="loading-state"
+          class="htmx-indicator glass-panel rounded-[24px] p-8 md:p-12 space-y-12 animate-pulse"
+        >
+          <div
+            class="flex flex-col md:flex-row gap-8 items-center border-b border-white/5 pb-8"
+          >
+            <div class="w-32 h-32 rounded-full bg-white/5"></div>
+            <div class="flex-1 space-y-4 w-full">
+              <div class="h-4 bg-white/10 rounded w-1/4"></div>
+              <div class="h-8 bg-white/10 rounded w-1/2"></div>
+              <div class="h-4 bg-white/10 rounded w-1/3"></div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <div class="h-6 bg-white/10 rounded w-1/2"></div>
+              <div class="h-4 bg-white/10 rounded w-full"></div>
+              <div class="h-4 bg-white/10 rounded w-5/6"></div>
+            </div>
+            <div class="space-y-4">
+              <div class="h-6 bg-white/10 rounded w-1/2"></div>
+              <div class="h-4 bg-white/10 rounded w-full"></div>
+              <div class="h-4 bg-white/10 rounded w-5/6"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULT VIEW TARGET CONTAINER -->
+        <div id="verification-result"></div>
+      </div>
+    </main>
+
+    <astr-footer></astr-footer>
+
+    <!-- ====== SCRIPTS ====== -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
+    <script type="module" src="main.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const verifyForm = document.getElementById('verify-form');
+        const certInput = document.getElementById('certificate_id');
+        const verifyBtn = document.getElementById('verify-btn');
+
+        // Backend API host - configurable
+        const API_HOST =
+          'https://certificate-verification-ochre.vercel.app/api';
+        verifyForm.setAttribute('hx-post', `${API_HOST}/verify`);
+
+        // Bind ALTCHA challenge URL
+        const altchaWidget = document.getElementById('altcha-widget');
+        if (altchaWidget) {
+          altchaWidget.setAttribute('challengeurl', `${API_HOST}/altcha`);
+        }
+
+        // Let HTMX compile updated hx-post
+        if (typeof htmx !== 'undefined') {
+          htmx.process(verifyForm);
+        }
+
+        // Parse parameters on load
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryCert = urlParams.get('cert');
+        if (queryCert) {
+          certInput.value = queryCert.trim();
+        }
+
+        // Track auto-submit state to prevent duplicate submissions
+        let hasAutoSubmitted = false;
+
+        // Listen to ALTCHA state changes for auto-submission on verification success
+        if (altchaWidget) {
+          altchaWidget.addEventListener('statechange', (event) => {
+            if (event.detail.state === 'verified') {
+              if (queryCert && !hasAutoSubmitted) {
+                hasAutoSubmitted = true;
+                setTimeout(() => {
+                  if (typeof htmx !== 'undefined') {
+                    htmx.trigger(verifyForm, 'submit');
+                  }
+                }, 100);
+              }
+            }
+          });
+        }
+
+        // Safeguard: Prevent manual submission before ALTCHA verification is complete
+        document.body.addEventListener('htmx:configRequest', (evt) => {
+          if (evt.detail.target.id === 'verification-result') {
+            const altchaInput = verifyForm.querySelector(
+              'input[name="altcha"]'
+            );
+            if (!altchaInput || !altchaInput.value) {
+              evt.preventDefault(); // Cancel submission
+
+              const resultDiv = document.getElementById('verification-result');
+              resultDiv.innerHTML = `
+              <div id="invalid-state" class="glass-panel invalid-glow rounded-[24px] p-8 md:p-12 mb-8 relative text-center">
+                <div class="w-16 h-16 rounded-full border border-orange-500/30 flex items-center justify-center mx-auto mb-6 bg-orange-500/10">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                </div>
+                <h2 class="font-cinzel text-xl text-white mb-2 tracking-wide uppercase">SECURITY CHECK REQUIRED</h2>
+                <p class="font-mono text-orange-400 text-xs tracking-wider uppercase mb-4">ALTCHA CHALLENGE INCOMPLETE</p>
+                <p class="font-lora text-white/60 max-w-md mx-auto">Please allow the cryptographic verification widget to finish solving before establishing the secure uplink connection.</p>
+              </div>
+            `;
+              if (typeof gsap !== 'undefined') {
+                gsap.from('#invalid-state', {
+                  opacity: 0,
+                  y: 20,
+                  duration: 0.5,
+                });
+              }
+            }
+          }
+        });
+
+        // Disable button & show checking state when request starts
+        document.body.addEventListener('htmx:beforeRequest', (evt) => {
+          if (evt.detail.target.id === 'verification-result') {
+            verifyBtn.disabled = true;
+            verifyBtn.style.opacity = '0.5';
+            verifyBtn.querySelector('span').textContent =
+              'VERIFYING SIGNATURE...';
+          }
+        });
+
+        // Enable button & reset ALTCHA widget when request finishes
+        document.body.addEventListener('htmx:afterRequest', (evt) => {
+          if (evt.detail.target.id === 'verification-result') {
+            verifyBtn.disabled = false;
+            verifyBtn.style.opacity = '1';
+            verifyBtn.querySelector('span').textContent =
+              'ESTABLISH SECURE UPLINK';
+
+            const altcha = document.getElementById('altcha-widget');
+            if (altcha && typeof altcha.reset === 'function') {
+              altcha.reset();
+            }
+          }
+        });
+
+        // Re-trigger premium GSAP reveal animations post-swap
+        document.body.addEventListener('htmx:afterSwap', (evt) => {
+          if (evt.detail.target.id === 'verification-result') {
+            if (typeof gsap !== 'undefined') {
+              gsap.from('#success-state, #revoked-state, #invalid-state', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power3.out',
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -8,6 +8,24 @@ import { inject } from '@vercel/analytics';
 // Initialize Vercel Analytics
 inject();
 
+// Prevent browser from automatically restoring scroll position or scrolling to hash natively on initial load,
+// which causes smooth scroll stutter/breaks and conflicts.
+if (typeof window !== 'undefined' && 'scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// Register Service Worker for offline capability and asset caching
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((reg) =>
+        console.log('ServiceWorker registered with scope:', reg.scope)
+      )
+      .catch((err) => console.error('ServiceWorker registration failed:', err));
+  });
+}
+
 // Throttle Utility for Performance
 function throttle(func, limit) {
   let inThrottle;
@@ -1008,10 +1026,22 @@ class EcosystemGraph {
     this.nodes.push(core);
 
     const categories = [
-      { id: 'Smart Software', sub: ['Easy Logistics', 'Cloud Access', 'Live Data'] },
-      { id: 'AI Tools', sub: ['Smart Search', 'Image Recognition', 'Digital Assistants'] },
-      { id: 'Better Workflows', sub: ['Auto-Tasks', 'Team Sync', 'Process Maps'] },
-      { id: 'Full Support', sub: ['24/7 Monitoring', 'High Security', 'Fast Updates'] },
+      {
+        id: 'Smart Software',
+        sub: ['Easy Logistics', 'Cloud Access', 'Live Data'],
+      },
+      {
+        id: 'AI Tools',
+        sub: ['Smart Search', 'Image Recognition', 'Digital Assistants'],
+      },
+      {
+        id: 'Better Workflows',
+        sub: ['Auto-Tasks', 'Team Sync', 'Process Maps'],
+      },
+      {
+        id: 'Full Support',
+        sub: ['24/7 Monitoring', 'High Security', 'Fast Updates'],
+      },
     ];
 
     // Organic, irregular angles (radians) — NOT evenly spaced
@@ -1394,7 +1424,11 @@ function initPillarTabs() {
     setTimeout(() => {
       moveSlider(activeTab);
       if (window.innerWidth <= 576) {
-        activeTab.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+        activeTab.scrollIntoView({
+          behavior: 'auto',
+          inline: 'center',
+          block: 'nearest',
+        });
       }
     }, 50);
   }
@@ -1419,7 +1453,11 @@ function initPillarTabs() {
 
       // Auto-center selected tab in mobile UI
       if (window.innerWidth <= 576) {
-        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        tab.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest',
+        });
       }
 
       // Update Content
@@ -2528,17 +2566,63 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Anchor smooth scroll helper for cross-page navigation offsets
-  const handleHashScroll = () => {
+  const handleHashScroll = (isInitialLoad = false) => {
     if (window.location.hash) {
       const target = document.querySelector(window.location.hash);
       if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 600); // 600ms delay to let Three.js and canvases finalize size
+        const html = document.documentElement;
+        const headerOffset = 120; // Compensate for fixed header height
+
+        if (isInitialLoad) {
+          // Disable smooth scroll temporarily to reset to top instantly and avoid browser scroll conflicts
+          const originalScrollBehavior = html.style.scrollBehavior;
+          html.style.scrollBehavior = 'auto';
+          window.scrollTo(0, 0);
+
+          setTimeout(() => {
+            // Recalculate target position after layout has settled
+            const elementPosition =
+              target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            html.style.scrollBehavior = 'smooth';
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            });
+
+            // Restore original scroll behavior
+            setTimeout(() => {
+              html.style.scrollBehavior = originalScrollBehavior;
+            }, 1000);
+          }, 350); // Delay to let layout/canvases settle
+        } else {
+          // On hashchange / same-page navigation, scroll smoothly from current position
+          const elementPosition =
+            target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
       }
     }
   };
 
-  handleHashScroll();
-  window.addEventListener('hashchange', handleHashScroll);
+  // Run on initial load with true to prevent browser-native scroll fight/stutter
+  handleHashScroll(true);
+  window.addEventListener('hashchange', () => handleHashScroll(false));
+});
+
+// Refresh ScrollTrigger once everything is fully loaded (images, fonts, stylesheets, custom elements)
+// to resolve layout shift issues where scroll-triggered elements (like the Orbit section header) triggered late.
+window.addEventListener('load', () => {
+  if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.refresh();
+    // Schedule subsequent refreshes to account for late-rendering Three.js canvases or web components
+    setTimeout(() => ScrollTrigger.refresh(), 200);
+    setTimeout(() => ScrollTrigger.refresh(), 1000);
+  }
 });
