@@ -141,15 +141,16 @@
           padding-top: 0 !important;
         }
       }
+
+      /* hCaptcha Center Alignment */
+      .h-captcha {
+        display: inline-block;
+        margin: 0 auto;
+      }
     </style>
 
-    <!-- ALTCHA CAPTCHA widget -->
-    <script
-      async
-      defer
-      src="https://cdn.jsdelivr.net/npm/altcha/dist/altcha.min.js"
-      type="module"
-    ></script>
+    <!-- hCaptcha API -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <!-- HTMX Library -->
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
   </head>
@@ -253,14 +254,50 @@
                 </div>
               </div>
 
-              <!-- ALTCHA CAPTCHA Widget (Inline & Centered) -->
-              <div class="flex justify-center py-4">
-                <altcha-widget
-                  theme="dark"
-                  hidefooter="true"
-                  class="w-full text-xs max-w-sm animate-fade-in"
-                  id="altcha-widget"
-                ></altcha-widget>
+              <!-- ALTCHA CAPTCHA Widget (HUD Glassmorphic Module) -->
+              <div
+                class="my-6 p-6 rounded-[16px] border border-white/5 bg-white/[0.01] relative overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.3),inset_0_1px_1px_0_rgba(255,255,255,0.03)] backdrop-blur-xl transition-all duration-300 hover:border-gold/20 hover:shadow-[0_12px_40px_rgba(230,205,153,0.05)] group/captcha"
+              >
+                <!-- HUD Corner Decors -->
+                <div
+                  class="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-gold/30 group-hover/captcha:border-gold/60 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-gold/30 group-hover/captcha:border-gold/60 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-gold/30 group-hover/captcha:border-gold/60 transition-colors duration-300"
+                ></div>
+                <div
+                  class="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-gold/30 group-hover/captcha:border-gold/60 transition-colors duration-300"
+                ></div>
+
+                <!-- HUD Metadata Label -->
+                <div class="flex items-center justify-between mb-4 select-none">
+                  <span
+                    class="font-mono text-[0.55rem] text-gold/60 tracking-[2px] uppercase"
+                    >// CAPTCHA_SECURITY_UPLINK</span
+                  >
+                  <span class="flex items-center gap-1.5">
+                    <span
+                      class="w-1.5 h-1.5 rounded-full bg-gold/50 animate-pulse"
+                    ></span>
+                    <span
+                      class="font-mono text-[0.5rem] text-white/20 uppercase tracking-widest hidden sm:inline"
+                      >SECURE_LINK_ACTIVE</span
+                    >
+                  </span>
+                </div>
+
+                <!-- hCaptcha Widget inside -->
+                <div class="flex justify-center">
+                  <div
+                    class="h-captcha"
+                    data-sitekey="002475be-1ef2-4372-a456-2300481c5e96"
+                    data-theme="dark"
+                    data-callback="onHCaptchaSuccess"
+                  ></div>
+                </div>
               </div>
 
               <button
@@ -328,12 +365,6 @@
           'https://certificate-verification-ochre.vercel.app/api';
         verifyForm.setAttribute('hx-post', `${API_HOST}/verify`);
 
-        // Bind ALTCHA challenge URL
-        const altchaWidget = document.getElementById('altcha-widget');
-        if (altchaWidget) {
-          altchaWidget.setAttribute('challengeurl', `${API_HOST}/altcha`);
-        }
-
         // Let HTMX compile updated hx-post
         if (typeof htmx !== 'undefined') {
           htmx.process(verifyForm);
@@ -349,29 +380,25 @@
         // Track auto-submit state to prevent duplicate submissions
         let hasAutoSubmitted = false;
 
-        // Listen to ALTCHA state changes for auto-submission on verification success
-        if (altchaWidget) {
-          altchaWidget.addEventListener('statechange', (event) => {
-            if (event.detail.state === 'verified') {
-              if (queryCert && !hasAutoSubmitted) {
-                hasAutoSubmitted = true;
-                setTimeout(() => {
-                  if (typeof htmx !== 'undefined') {
-                    htmx.trigger(verifyForm, 'submit');
-                  }
-                }, 100);
+        // Auto-submission on hCaptcha verification success
+        window.onHCaptchaSuccess = function (token) {
+          if (queryCert && !hasAutoSubmitted) {
+            hasAutoSubmitted = true;
+            setTimeout(() => {
+              if (typeof htmx !== 'undefined') {
+                htmx.trigger(verifyForm, 'submit');
               }
-            }
-          });
-        }
+            }, 100);
+          }
+        };
 
-        // Safeguard: Prevent manual submission before ALTCHA verification is complete
+        // Safeguard: Prevent manual submission before hCaptcha verification is complete
         document.body.addEventListener('htmx:configRequest', (evt) => {
           if (evt.detail.target.id === 'verification-result') {
-            const altchaInput = verifyForm.querySelector(
-              'input[name="altcha"]'
+            const hcaptchaResponse = verifyForm.querySelector(
+              '[name="h-captcha-response"]'
             );
-            if (!altchaInput || !altchaInput.value) {
+            if (!hcaptchaResponse || !hcaptchaResponse.value) {
               evt.preventDefault(); // Cancel submission
 
               const resultDiv = document.getElementById('verification-result');
@@ -385,8 +412,8 @@
                   </svg>
                 </div>
                 <h2 class="font-cinzel text-xl text-white mb-2 tracking-wide uppercase">SECURITY CHECK REQUIRED</h2>
-                <p class="font-mono text-orange-400 text-xs tracking-wider uppercase mb-4">ALTCHA CHALLENGE INCOMPLETE</p>
-                <p class="font-lora text-white/60 max-w-md mx-auto">Please allow the cryptographic verification widget to finish solving before establishing the secure uplink connection.</p>
+                <p class="font-mono text-orange-400 text-xs tracking-wider uppercase mb-4">hCaptcha CHALLENGE INCOMPLETE</p>
+                <p class="font-lora text-white/60 max-w-md mx-auto">Please solve the hCaptcha challenge before establishing the secure uplink connection.</p>
               </div>
             `;
               if (typeof gsap !== 'undefined') {
@@ -410,7 +437,7 @@
           }
         });
 
-        // Enable button & reset ALTCHA widget when request finishes
+        // Enable button & reset hCaptcha when request finishes
         document.body.addEventListener('htmx:afterRequest', (evt) => {
           if (evt.detail.target.id === 'verification-result') {
             verifyBtn.disabled = false;
@@ -418,9 +445,8 @@
             verifyBtn.querySelector('span').textContent =
               'ESTABLISH SECURE UPLINK';
 
-            const altcha = document.getElementById('altcha-widget');
-            if (altcha && typeof altcha.reset === 'function') {
-              altcha.reset();
+            if (typeof hcaptcha !== 'undefined') {
+              hcaptcha.reset();
             }
           }
         });
