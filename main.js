@@ -326,16 +326,16 @@ function initPremiumAnimations() {
 
     gsap.fromTo(
       el,
-      { y: 30, opacity: 0 },
+      { y: 25, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.9,
+        duration: 0.8,
         delay: delay,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 95%',
+          start: 'top 90%',
           toggleActions: 'play none none none',
         },
       }
@@ -359,7 +359,7 @@ function initPremiumAnimations() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 98%',
+            start: 'top 90%',
             onEnter: () => {
               // Ensure container becomes visible when children start animating
               gsap.set(el, { visibility: 'visible', opacity: 1 });
@@ -379,16 +379,16 @@ function initPremiumAnimations() {
     if (img) {
       gsap.fromTo(
         img,
-        { scale: 0.9, opacity: 0, y: 60 },
+        { scale: 0.95, opacity: 0, y: 40 },
         {
           scale: 1,
           opacity: 1,
           y: 0,
-          duration: 1.5,
-          ease: 'power4.out',
+          duration: 1.2,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 95%',
+            start: 'top 90%',
           },
         }
       );
@@ -402,12 +402,12 @@ function initPremiumAnimations() {
         {
           opacity: 1,
           x: 0,
-          duration: 1,
-          stagger: 0.1,
+          duration: 0.9,
+          stagger: 0.08,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 95%',
+            start: 'top 90%',
           },
         }
       );
@@ -445,16 +445,16 @@ function initPremiumAnimations() {
   if (ctaPanel) {
     gsap.fromTo(
       ctaPanel,
-      { y: 80, scale: 0.9, opacity: 0 },
+      { y: 50, scale: 0.95, opacity: 0 },
       {
         y: 0,
         scale: 1,
         opacity: 1,
-        duration: 1.8,
-        ease: 'expo.out',
+        duration: 1.4,
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: ctaPanel,
-          start: 'top 98%',
+          start: 'top 90%',
         },
       }
     );
@@ -1341,6 +1341,10 @@ class EcosystemGraph {
 
 function initEcosystemGraph() {
   const graph = new EcosystemGraph('ecosystem-graph');
+  if (!graph.container) return;
+
+  graph.animate();
+
   const sceneEntry = SceneManager.scenes.get(graph.container);
 
   if (sceneEntry) {
@@ -1357,12 +1361,12 @@ function initEcosystemGraph() {
 
   const textBlocks = document.querySelectorAll('.adaptive-text-block');
 
-  if (!graph.container || textBlocks.length === 0) return;
+  if (textBlocks.length === 0) return;
 
   // Show the full ecosystem by default instead of panning to categories on scroll
   setTimeout(() => {
     graph.internalResetView();
-  }, 500);
+  }, 300);
 }
 
 /* --- Pillar Showcase: Tab Switching Logic --- */
@@ -2516,11 +2520,9 @@ function initSolutionsExpansion() {
         opacity: 1,
         scrollTrigger: {
           trigger: step,
-          start: 'top 75%',
-          end: 'top 25%',
-          toggleActions: 'play reverse play reverse',
+          start: 'top 85%',
+          toggleActions: 'play none none none',
           onEnter: () => step.classList.add('active'),
-          onLeaveBack: () => step.classList.remove('active'),
         },
       });
 
@@ -2536,8 +2538,8 @@ function initSolutionsExpansion() {
             duration: 0.6,
             scrollTrigger: {
               trigger: step,
-              start: 'top 60%',
-              toggleActions: 'play reverse play reverse',
+              start: 'top 80%',
+              toggleActions: 'play none none none',
             },
           }
         );
@@ -2547,16 +2549,16 @@ function initSolutionsExpansion() {
       if (content) {
         gsap.fromTo(
           content,
-          { x: isEven ? 40 : -40, opacity: 0 },
+          { x: isEven ? 30 : -30, opacity: 0 },
           {
             x: 0,
             opacity: 1,
-            duration: 1,
+            duration: 0.9,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: step,
-              start: 'top 75%',
-              toggleActions: 'play reverse play reverse',
+              start: 'top 85%',
+              toggleActions: 'play none none none',
             },
           }
         );
@@ -2566,11 +2568,7 @@ function initSolutionsExpansion() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.requestIdleCallback) {
-    requestIdleCallback(initSolutionsExpansion, { timeout: 1000 });
-  } else {
-    setTimeout(initSolutionsExpansion, 1);
-  }
+  initSolutionsExpansion();
 
   // Anchor smooth scroll helper for cross-page navigation offsets
   const handleHashScroll = (isInitialLoad = false) => {
