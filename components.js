@@ -203,8 +203,8 @@ class AstrFooter extends HTMLElement {
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0">
             
             <!-- Column 1: Brand & Philosophy (5/12) -->
-            <div class="lg:col-span-5 space-y-10 relative lg:pr-16">
-              <div class="relative inline-block reveal">
+            <div class="lg:col-span-5 space-y-10 relative lg:pr-16 reveal">
+              <div class="relative inline-block">
                 <a href="index.html" class="flex flex-col items-start gap-1 group">
                   <img src="/Pictures/logo-optimized.webp" alt="ASTR AI Logo" class="h-12 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   <span class="font-mono text-[0.6rem] text-gold/60 tracking-[4px] uppercase font-bold">Private Limited</span>
@@ -215,11 +215,11 @@ class AstrFooter extends HTMLElement {
                 </div>
               </div>
               
-              <p class="font-lora text-white/40 text-lg leading-relaxed max-w-[450px] reveal reveal-delay-1">
+              <p class="font-lora text-white/40 text-lg leading-relaxed max-w-[450px]">
                 Building the bridge between your ideas and technology. 
                 Built on the philosophy of complete accuracy and trust.
               </p>
-              <div class="flex gap-4 pt-4 reveal reveal-delay-2">
+              <div class="flex gap-4 pt-4">
                 <div class="relative h-12 w-12 rounded-full border border-white/10 flex items-center justify-center group hover:border-gold/30 transition-colors duration-500">
                   <span class="font-mono text-[0.5rem] text-white/20 group-hover:text-gold/40">ASTR</span>
                 </div>
@@ -231,7 +231,7 @@ class AstrFooter extends HTMLElement {
             </div>
 
             <!-- Column 2: Intelligence (3/12) -->
-            <div class="lg:col-span-3 space-y-10 relative lg:px-12 lg:border-l lg:border-white/5">
+            <div class="lg:col-span-3 space-y-10 relative lg:px-12 lg:border-l lg:border-white/5 reveal">
               <!-- Dimension Marker (Desktop) -->
               <div class="absolute -left-1.5 top-0 bottom-0 w-3 flex flex-col justify-between py-4 pointer-events-none hidden lg:flex">
                 <div class="w-full h-[1px] bg-white/10"></div>
@@ -239,7 +239,7 @@ class AstrFooter extends HTMLElement {
                 <div class="w-full h-[1px] bg-white/10"></div>
               </div>
 
-              <div class="reveal reveal-delay-3">
+              <div>
                 <h4 class="font-mono text-[0.65rem] text-gold/60 uppercase tracking-[4px] mb-8 flex items-center gap-3">
                   <span class="w-4 h-[1px] bg-gold/30"></span>
                   Intelligence
@@ -266,7 +266,7 @@ class AstrFooter extends HTMLElement {
             </div>
 
             <!-- Column 3: Communication (4/12) -->
-            <div class="lg:col-span-4 space-y-10 relative lg:pl-16 lg:border-l lg:border-white/5">
+            <div class="lg:col-span-4 space-y-10 relative lg:pl-16 lg:border-l lg:border-white/5 reveal">
               <!-- Dimension Marker (Desktop) -->
               <div class="absolute -left-1.5 top-0 bottom-0 w-3 flex flex-col justify-between py-4 pointer-events-none hidden lg:flex">
                 <div class="w-full h-[1px] bg-white/10"></div>
@@ -274,7 +274,7 @@ class AstrFooter extends HTMLElement {
                 <div class="w-full h-[1px] bg-white/10"></div>
               </div>
 
-              <div class="reveal reveal-delay-4">
+              <div>
                 <h4 class="font-mono text-[0.65rem] text-gold/60 uppercase tracking-[4px] mb-8 flex items-center gap-3">
                   <span class="w-4 h-[1px] bg-gold/30"></span>
                   Communication
@@ -302,7 +302,7 @@ class AstrFooter extends HTMLElement {
               </div>
 
               <!-- Location Detail -->
-              <div class="pt-8 mt-8 border-t border-white/5 reveal reveal-delay-5">
+              <div class="pt-8 mt-8 border-t border-white/5">
                 <div class="flex items-start gap-4">
                   <span class="font-mono text-[0.5rem] text-white/20 uppercase tracking-widest mt-1">Base_Ops</span>
                   <p class="font-mono text-[0.6rem] text-white/30 leading-relaxed uppercase tracking-wider">
@@ -342,8 +342,13 @@ class AstrFooter extends HTMLElement {
           </div>
         </div>
     `;
-    if (typeof window !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      setTimeout(() => ScrollTrigger.refresh(), 100);
+    if (typeof window !== 'undefined') {
+      if (typeof initScrollReveal === 'function') {
+        setTimeout(() => initScrollReveal(), 50);
+      }
+      if (typeof ScrollTrigger !== 'undefined') {
+        setTimeout(() => ScrollTrigger.refresh(), 100);
+      }
     }
   }
 }

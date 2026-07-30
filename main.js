@@ -321,34 +321,8 @@ function initPremiumAnimations() {
   }
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Universal Reveal Elements (Excluding elements handled by dedicated hero timelines)
-  const reveals = document.querySelectorAll('.reveal:not(.hero-glass):not(.hero-corner)');
-  reveals.forEach((el) => {
-    // Determine delay from CSS classes if present
-    let delay = 0;
-    if (el.classList.contains('reveal-delay-1')) delay = 0.05;
-    if (el.classList.contains('reveal-delay-2')) delay = 0.1;
-    if (el.classList.contains('reveal-delay-3')) delay = 0.15;
-    if (el.classList.contains('reveal-delay-4')) delay = 0.2;
-    if (el.classList.contains('reveal-delay-5')) delay = 0.25;
-
-    gsap.fromTo(
-      el,
-      { y: 25, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        delay: delay,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
-      }
-    );
-  });
+  // 1. Universal Reveal Elements are handled fluidly by initScrollReveal (IntersectionObserver)
+  // to avoid cached ScrollTrigger layout-shift offset bugs on cross-page navigation.
 
   // 2. Specialized GSAP Reveals (Containers)
   const gsapReveals = document.querySelectorAll('.gsap-reveal');
@@ -356,6 +330,7 @@ function initPremiumAnimations() {
     const type = el.getAttribute('data-reveal-type') || 'stagger';
     if (type === 'stagger') {
       const children = el.children;
+      const triggerEl = el.closest('section') || el;
       gsap.fromTo(
         children,
         { y: 20, opacity: 0 },
@@ -366,8 +341,8 @@ function initPremiumAnimations() {
           stagger: 0.08,
           ease: 'power2.out',
           scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
+            trigger: triggerEl,
+            start: 'top 60%',
             onEnter: () => {
               // Ensure container becomes visible when children start animating
               gsap.set(el, { visibility: 'visible', opacity: 1 });
@@ -376,6 +351,28 @@ function initPremiumAnimations() {
         }
       );
     }
+  });
+
+  // Product Interface Mockups Entrance (Velocity & Orbit)
+  const mockups = document.querySelectorAll('.product-mockup-wrapper');
+  mockups.forEach((mockup) => {
+    const parentSection = mockup.closest('section') || mockup;
+    gsap.fromTo(
+      mockup,
+      { y: 30, scale: 0.97, opacity: 0 },
+      {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: parentSection,
+          start: 'top 60%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
   });
 
   // 3. Journal Item Surgical Parallax
@@ -541,7 +538,10 @@ function initTextAnimate() {
             } else {
               const stagger = type === 'word' ? 60 : 30;
               spans.forEach((span, index) => {
-                setTimeout(() => span.classList.add('visible'), index * stagger);
+                setTimeout(
+                  () => span.classList.add('visible'),
+                  index * stagger
+                );
               });
             }
             observer.unobserve(el);
@@ -611,26 +611,69 @@ function initAnomalyConsole() {
 }
 
 /* --- Navbar scroll effect & mobile menu --- */
-/* --- Scroll reveal animation (REPLACED BY GSAP initPremiumAnimations) --- */
+/* --- Scroll reveal animation (GSAP ScrollTrigger + IntersectionObserver Fallback) --- */
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length === 0) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    },
-    {
-      threshold: 0.02,
-      rootMargin: '0px 0px -20px 0px',
-    }
-  );
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    reveals.forEach((el) => {
+      // Avoid re-initializing if already bound
+      if (el.dataset.gsapRevealed) return;
+      el.dataset.gsapRevealed = 'true';
 
-  reveals.forEach((el) => observer.observe(el));
+      // Map CSS delay classes to GSAP delay
+      let animDelay = 0;
+      if (el.classList.contains('reveal-delay-1')) animDelay = 0.15;
+      else if (el.classList.contains('reveal-delay-2')) animDelay = 0.3;
+      else if (el.classList.contains('reveal-delay-3')) animDelay = 0.45;
+      else if (el.classList.contains('reveal-delay-4')) animDelay = 0.6;
+      else if (el.classList.contains('reveal-delay-5')) animDelay = 0.75;
+
+      gsap.fromTo(
+        el,
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.0,
+          delay: animDelay,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+            onEnter: () => el.classList.add('visible'),
+          },
+        }
+      );
+    });
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.01,
+        rootMargin: '0px 0px -20px 0px',
+      }
+    );
+
+    reveals.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 100 && rect.bottom > -50) {
+        el.classList.add('visible');
+      } else {
+        observer.observe(el);
+      }
+    });
+  }
 }
 
 /* --- Hero Canvas: Cosmic Astra / Star Visualization (Three.js WebGL) --- */
@@ -2285,312 +2328,7 @@ function initCTAParticles() {
    SOLUTIONS PAGE EXPANSION LOGIC
    ========================================================================== */
 
-function initSolutionsExpansion() {
-  // 1. Before & After Slider
-  const baContainer = document.querySelector('.ba-container');
-  if (baContainer) {
-    const afterState = baContainer.querySelector('.ba-after');
-    const handle = baContainer.querySelector('.ba-handle');
-    let isDragging = false;
-
-    const moveSlider = (e) => {
-      if (!isDragging) return;
-      const rect = baContainer.getBoundingClientRect();
-      let x = (e.clientX || e.touches?.[0].clientX) - rect.left;
-      x = Math.max(0, Math.min(x, rect.width)); // clamp
-      const percent = (x / rect.width) * 100;
-
-      handle.style.left = `${percent}%`;
-      afterState.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
-    };
-
-    baContainer.addEventListener('mousedown', () => (isDragging = true));
-    baContainer.addEventListener(
-      'touchstart',
-      () => {
-        isDragging = true;
-      },
-      { passive: true }
-    );
-    window.addEventListener('mouseup', () => (isDragging = false));
-    window.addEventListener('touchend', () => (isDragging = false));
-    window.addEventListener('mousemove', moveSlider);
-    window.addEventListener('touchmove', moveSlider, { passive: true });
-  }
-
-  // 2. Accordion
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
-  accordionHeaders.forEach((header) => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const content = item.querySelector('.accordion-content');
-
-      const isActive = item.classList.contains('active');
-
-      // Close all
-      document.querySelectorAll('.accordion-item').forEach((i) => {
-        i.classList.remove('active');
-        i.querySelector('.accordion-content').style.maxHeight = '0px';
-      });
-
-      if (!isActive) {
-        item.classList.add('active');
-        content.style.maxHeight = content.scrollHeight + 'px';
-      }
-    });
-  });
-
-  // 3. Industry Tabs
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
-  const industrySlider = document.querySelector(
-    '.industries-section .nav-highlight'
-  );
-  let industryAnimTimeout = null;
-
-  function moveIndustrySlider(tab) {
-    if (!industrySlider || !tab) return;
-
-    const currentLeft = parseFloat(industrySlider.style.left) || 0;
-    const targetLeft = tab.offsetLeft;
-
-    if (currentLeft !== 0 && Math.abs(currentLeft - targetLeft) > 5) {
-      const direction =
-        targetLeft > currentLeft ? 'moving-right' : 'moving-left';
-
-      if (industryAnimTimeout) clearTimeout(industryAnimTimeout);
-      industrySlider.classList.remove('moving-left', 'moving-right', 'pulse');
-      void industrySlider.offsetWidth;
-      industrySlider.classList.add(direction, 'pulse');
-
-      industryAnimTimeout = setTimeout(() => {
-        industrySlider.classList.remove('moving-left', 'moving-right', 'pulse');
-      }, 900);
-    }
-
-    industrySlider.style.width = `${tab.offsetWidth}px`;
-    industrySlider.style.left = `${tab.offsetLeft}px`;
-    industrySlider.style.opacity = '1';
-  }
-
-  // Initialize
-  const initialTab = document.querySelector('.tab-btn.active');
-  if (initialTab) {
-    setTimeout(() => moveIndustrySlider(initialTab), 100);
-  }
-
-  tabBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      // Deactivate all
-      tabBtns.forEach((b) => {
-        b.classList.remove('active', 'text-white');
-        b.classList.add('text-white/50');
-      });
-      tabPanes.forEach((p) => {
-        p.classList.remove('active', 'opacity-100');
-        p.classList.add('opacity-0', 'pointer-events-none');
-        p.style.zIndex = '0';
-      });
-
-      // Activate clicked
-      btn.classList.add('active', 'text-white');
-      btn.classList.remove('text-white/50');
-      moveIndustrySlider(btn);
-
-      const targetId = btn.getAttribute('data-target');
-      const targetPane = document.getElementById(targetId);
-      if (targetPane) {
-        targetPane.classList.add('active', 'opacity-100');
-        targetPane.classList.remove('opacity-0', 'pointer-events-none');
-        targetPane.style.zIndex = '10';
-      }
-    });
-  });
-
-  // 4. Strategic Choice Entry Animations (The Slider Section)
-  const strategicSection = document.querySelector('.before-after-section');
-  if (
-    strategicSection &&
-    typeof gsap !== 'undefined' &&
-    typeof ScrollTrigger !== 'undefined'
-  ) {
-    const card = strategicSection.querySelector('.ba-container');
-    const annotations = strategicSection.querySelectorAll(
-      '.xl\\:flex.flex-col .relative.pl-4'
-    );
-    const mobileNotes = strategicSection.querySelectorAll(
-      '.xl\\:hidden .relative.pl-8'
-    );
-
-    // Card Entrance
-    if (card) {
-      gsap.fromTo(
-        card,
-        { scale: 0.95, opacity: 0, y: 40 },
-        {
-          scale: 1,
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: 'expo.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-          },
-        }
-      );
-    }
-
-    // Desktop Annotations Stagger
-    if (annotations.length > 0) {
-      gsap.fromTo(
-        annotations,
-        { x: -30, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          stagger: 0.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: strategicSection.querySelector('.xl\\:flex'),
-            start: 'top 80%',
-          },
-        }
-      );
-    }
-
-    // Mobile Notes Stagger
-    if (mobileNotes.length > 0) {
-      gsap.fromTo(
-        mobileNotes,
-        { x: -20, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: strategicSection.querySelector('.xl\\:hidden'),
-            start: 'top 90%',
-          },
-        }
-      );
-    }
-  }
-
-  // 5. Timeline ScrollTrigger
-  const timelineSection = document.querySelector('.timeline-section');
-  if (
-    timelineSection &&
-    typeof gsap !== 'undefined' &&
-    typeof ScrollTrigger !== 'undefined'
-  ) {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const steps = document.querySelectorAll('.timeline-step');
-    const progressPath = document.getElementById('timeline-progress-path');
-    const progressLineMobile = document.getElementById(
-      'timeline-progress-line-mobile'
-    );
-
-    // Desktop: Curved SVG Path Animation
-    if (progressPath && window.innerWidth >= 768) {
-      const pathLength = progressPath.getTotalLength();
-
-      // Initialize path
-      gsap.set(progressPath, {
-        strokeDasharray: pathLength,
-        strokeDashoffset: pathLength,
-      });
-
-      gsap.to(progressPath, {
-        strokeDashoffset: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.timeline-wrapper',
-          start: 'top 60%',
-          end: 'bottom 60%',
-          scrub: true,
-        },
-      });
-    }
-
-    // Mobile: Straight Line Animation (Fallback)
-    if (progressLineMobile && window.innerWidth < 768) {
-      gsap.to(progressLineMobile, {
-        height: '100%',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.timeline-wrapper',
-          start: 'top 60%',
-          end: 'bottom 60%',
-          scrub: true,
-        },
-      });
-    }
-
-    steps.forEach((step, i) => {
-      const circle = step.querySelector('.step-circle');
-      const content = step.querySelector('div:not(.absolute)'); // Targeting the content columns
-      const isEven = i % 2 !== 0;
-
-      // Animate the entire step container opacity
-      gsap.to(step, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: step,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-          onEnter: () => step.classList.add('active'),
-        },
-      });
-
-      // Animate the circle (scale and border)
-      if (circle) {
-        gsap.fromTo(
-          circle,
-          { scale: 0.8, borderColor: 'rgba(255,255,255,0.2)' },
-          {
-            scale: 1.2,
-            borderColor: '#E6CD99',
-            backgroundColor: 'rgba(230,205,153,0.1)',
-            duration: 0.6,
-            scrollTrigger: {
-              trigger: step,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }
-
-      // Animate the text content (slide in)
-      if (content) {
-        gsap.fromTo(
-          content,
-          { x: isEven ? 30 : -30, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.9,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: step,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }
-    });
-  }
-}
-
 onReady(() => {
-  initSolutionsExpansion();
-
   // Anchor smooth scroll helper for cross-page navigation offsets
   const handleHashScroll = (isInitialLoad = false) => {
     if (window.location.hash) {
