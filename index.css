@@ -144,7 +144,8 @@
   /* Scroll Animations */
   .reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
   }
   .reveal.visible {
@@ -169,10 +170,11 @@
     @apply inline-block;
   }
   .text-animate-char {
-    @apply inline-block transition-all duration-700;
+    @apply inline-block;
     opacity: 0;
-    filter: blur(8px);
-    transform: translateY(8px);
+    filter: blur(6px);
+    transform: translateY(6px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, filter, transform;
   }
   .text-animate-char.visible {

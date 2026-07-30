@@ -131,11 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
   };
 
-  if (window.requestIdleCallback) {
-    requestIdleCallback(initApp, { timeout: 1000 });
-  } else {
-    setTimeout(initApp, 1);
-  }
+  initApp();
 });
 
 /* --- Philosophy Page Specialized Animations --- */
@@ -317,8 +313,8 @@ function initPremiumAnimations() {
   }
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Universal Reveal Elements (Replacing basic CSS reveals)
-  const reveals = document.querySelectorAll('.reveal');
+  // 1. Universal Reveal Elements (Excluding elements handled by dedicated hero timelines)
+  const reveals = document.querySelectorAll('.reveal:not(.hero-glass):not(.hero-corner)');
   reveals.forEach((el) => {
     // Determine delay from CSS classes if present
     let delay = 0;
@@ -334,12 +330,12 @@ function initPremiumAnimations() {
       {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.9,
         delay: delay,
-        ease: 'power2.out',
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 98%',
+          start: 'top 95%',
           toggleActions: 'play none none none',
         },
       }
@@ -421,22 +417,22 @@ function initPremiumAnimations() {
   // 4. Hero Specific Entrance
   const heroGlass = document.querySelector('.hero-glass');
   if (heroGlass) {
-    gsap.set('.hero-corner', { opacity: 0, y: 20 });
+    gsap.set('.hero-corner', { opacity: 0, y: 15 });
     gsap.fromTo(
       heroGlass,
-      { scale: 1.15, opacity: 0, y: 100 },
+      { scale: 1.03, opacity: 0, y: 40 },
       {
         scale: 1,
         opacity: 1,
         y: 0,
-        duration: 2.5,
-        ease: 'expo.out',
+        duration: 1.4,
+        ease: 'power3.out',
         onComplete: () => {
           gsap.to('.hero-corner', {
             opacity: 1,
             y: 0,
-            stagger: 0.2,
-            duration: 1.2,
+            stagger: 0.12,
+            duration: 0.9,
             ease: 'power3.out',
           });
         },
@@ -522,13 +518,24 @@ function initTextAnimate() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const spans = el.querySelectorAll('.text-animate-char');
-            const stagger = type === 'word' ? 80 : 40; // Slower stagger for words, faster for chars
-
-            spans.forEach((span, index) => {
-              setTimeout(() => {
-                span.classList.add('visible');
-              }, index * stagger);
-            });
+            if (typeof gsap !== 'undefined') {
+              gsap.to(spans, {
+                opacity: 1,
+                filter: 'blur(0px)',
+                y: 0,
+                duration: 0.7,
+                stagger: type === 'word' ? 0.05 : 0.025,
+                ease: 'power2.out',
+                onComplete: () => {
+                  spans.forEach((s) => s.classList.add('visible'));
+                },
+              });
+            } else {
+              const stagger = type === 'word' ? 60 : 30;
+              spans.forEach((span, index) => {
+                setTimeout(() => span.classList.add('visible'), index * stagger);
+              });
+            }
             observer.unobserve(el);
           }
         });

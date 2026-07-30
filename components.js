@@ -341,8 +341,10 @@ class AstrFooter extends HTMLElement {
             <span class="font-serif text-[10rem]">अस्त्र</span>
           </div>
         </div>
-      </footer>
     `;
+    if (typeof window !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      setTimeout(() => ScrollTrigger.refresh(), 100);
+    }
   }
 }
 
