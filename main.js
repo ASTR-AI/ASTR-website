@@ -95,7 +95,15 @@ const SceneManager = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+function onReady(fn) {
+  if (document.readyState !== 'loading') {
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+onReady(() => {
   const initApp = () => {
     SceneManager.init();
 
@@ -605,11 +613,24 @@ function initAnomalyConsole() {
 /* --- Navbar scroll effect & mobile menu --- */
 /* --- Scroll reveal animation (REPLACED BY GSAP initPremiumAnimations) --- */
 function initScrollReveal() {
-  /*
   const reveals = document.querySelectorAll('.reveal');
-  ...
+  if (reveals.length === 0) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    {
+      threshold: 0.02,
+      rootMargin: '0px 0px -20px 0px',
+    }
+  );
+
   reveals.forEach((el) => observer.observe(el));
-  */
 }
 
 /* --- Hero Canvas: Cosmic Astra / Star Visualization (Three.js WebGL) --- */
@@ -2567,7 +2588,7 @@ function initSolutionsExpansion() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+onReady(() => {
   initSolutionsExpansion();
 
   // Anchor smooth scroll helper for cross-page navigation offsets
