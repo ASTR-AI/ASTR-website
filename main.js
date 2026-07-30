@@ -147,28 +147,104 @@ function initPhilosophyAnimations() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined')
     return;
 
-  const pillars = document.querySelectorAll('.pillar-reveal');
-  if (pillars.length > 0) {
-    gsap.fromTo(
-      pillars,
-      {
-        y: 150,
-        scale: 0.8,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        duration: 1.5,
-        stagger: 0.2,
-        ease: 'back.out(1.4)',
-        scrollTrigger: {
-          trigger: '.pillars-classical',
-          start: 'top 95%',
+  // 1. Hero Section Sequential Reveal
+  const heroSection = document.querySelector('.philosophy-clean');
+  if (heroSection) {
+    const heroElements = heroSection.querySelectorAll('.phil-reveal');
+    if (heroElements.length > 0) {
+      gsap.fromTo(
+        heroElements,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.1,
+          ease: 'power3.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: heroSection,
+            start: 'top 85%',
+          },
+        }
+      );
+    }
+  }
+
+  // 2. Pillars Section
+  const pillarsSection = document.querySelector('.pillars-classical');
+  if (pillarsSection) {
+    const structuralTitle = pillarsSection.querySelectorAll('.phil-reveal');
+    if (structuralTitle.length > 0) {
+      gsap.fromTo(
+        structuralTitle,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: pillarsSection,
+            start: 'top 90%',
+          },
+        }
+      );
+    }
+
+    const pillars = pillarsSection.querySelectorAll('.pillar-reveal');
+    if (pillars.length > 0) {
+      pillars.forEach((pillar) => pillar.classList.add('is-animating'));
+      gsap.fromTo(
+        pillars,
+        {
+          y: 150,
+          scale: 0.8,
+          opacity: 0,
         },
-      }
-    );
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          stagger: 0.2,
+          ease: 'back.out(1.4)',
+          force3D: true,
+          scrollTrigger: {
+            trigger: pillarsSection,
+            start: 'top 80%',
+          },
+          onComplete: function () {
+            this.targets().forEach((t) => t.classList.remove('is-animating'));
+          }
+        }
+      );
+    }
+  }
+
+  // 3. Final Blueprint Section Sequential Reveal
+  const finalBlueprint = document.querySelector('.final-blueprint');
+  if (finalBlueprint) {
+    const finalElements = finalBlueprint.querySelectorAll('.phil-reveal');
+    if (finalElements.length > 0) {
+      gsap.fromTo(
+        finalElements,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: 'power3.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: finalBlueprint,
+            start: 'top 85%',
+          },
+        }
+      );
+    }
   }
 }
 
@@ -640,6 +716,7 @@ function initScrollReveal() {
           duration: 1.0,
           delay: animDelay,
           ease: 'power3.out',
+          force3D: true,
           scrollTrigger: {
             trigger: el,
             start: 'top 88%',

@@ -187,7 +187,7 @@ class AstrFooter extends HTMLElement {
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12 relative z-10">
           
           <!-- Metadata Header Bar -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-y border-white/10 mb-20 gap-4 reveal">
+          <div class="flex flex-col md:flex-row md:items-center justify-between py-6 border-y border-white/10 mb-20 gap-4 footer-reveal">
             <div class="flex items-center gap-6">
               <span class="font-mono text-[0.7rem] text-gold tracking-[4px] uppercase font-bold">Terminal_Output</span>
               <span class="w-[1px] h-4 bg-white/20"></span>
@@ -203,10 +203,10 @@ class AstrFooter extends HTMLElement {
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0">
             
             <!-- Column 1: Brand & Philosophy (5/12) -->
-            <div class="lg:col-span-5 space-y-10 relative lg:pr-16 reveal">
+            <div class="lg:col-span-5 space-y-10 relative lg:pr-16 footer-reveal">
               <div class="relative inline-block">
                 <a href="index.html" class="flex flex-col items-start gap-1 group">
-                  <img src="/Pictures/logo-optimized.webp" alt="ASTR AI Logo" class="h-12 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+                  <img src="/Pictures/logo-optimized.webp" alt="ASTR AI Logo" class="h-12 w-auto opacity-90 group-hover:scale-105 transition-transform duration-500" loading="eager" />
                   <span class="font-mono text-[0.6rem] text-gold/60 tracking-[4px] uppercase font-bold">Private Limited</span>
                 </a>
                 <!-- Handwritten Annotation -->
@@ -231,7 +231,7 @@ class AstrFooter extends HTMLElement {
             </div>
 
             <!-- Column 2: Intelligence (3/12) -->
-            <div class="lg:col-span-3 space-y-10 relative lg:px-12 lg:border-l lg:border-white/5 reveal">
+            <div class="lg:col-span-3 space-y-10 relative lg:px-12 lg:border-l lg:border-white/5 footer-reveal">
               <!-- Dimension Marker (Desktop) -->
               <div class="absolute -left-1.5 top-0 bottom-0 w-3 flex flex-col justify-between py-4 pointer-events-none hidden lg:flex">
                 <div class="w-full h-[1px] bg-white/10"></div>
@@ -266,7 +266,7 @@ class AstrFooter extends HTMLElement {
             </div>
 
             <!-- Column 3: Communication (4/12) -->
-            <div class="lg:col-span-4 space-y-10 relative lg:pl-16 lg:border-l lg:border-white/5 reveal">
+            <div class="lg:col-span-4 space-y-10 relative lg:pl-16 lg:border-l lg:border-white/5 footer-reveal">
               <!-- Dimension Marker (Desktop) -->
               <div class="absolute -left-1.5 top-0 bottom-0 w-3 flex flex-col justify-between py-4 pointer-events-none hidden lg:flex">
                 <div class="w-full h-[1px] bg-white/10"></div>
@@ -314,7 +314,7 @@ class AstrFooter extends HTMLElement {
           </div>
 
           <!-- Bottom Status Bar -->
-          <div class="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 reveal">
+          <div class="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 footer-reveal">
             <div class="flex flex-wrap justify-center md:justify-start gap-8 font-mono text-[0.55rem] uppercase tracking-[3px] text-white/20">
               <span class="flex items-center gap-3">
                 <span class="w-1.5 h-[1px] bg-gold/40"></span>
@@ -342,13 +342,26 @@ class AstrFooter extends HTMLElement {
           </div>
         </div>
     `;
-    if (typeof window !== 'undefined') {
-      if (typeof initScrollReveal === 'function') {
-        setTimeout(() => initScrollReveal(), 50);
-      }
-      if (typeof ScrollTrigger !== 'undefined') {
-        setTimeout(() => ScrollTrigger.refresh(), 100);
-      }
+    
+    // Use a native IntersectionObserver for the footer to avoid GSAP height recalculation bugs
+    // on extremely short elements at the absolute bottom of the viewport.
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      setTimeout(() => {
+        const reveals = this.querySelectorAll('.footer-reveal');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -20px 0px'
+        });
+
+        reveals.forEach(el => observer.observe(el));
+      }, 100);
     }
   }
 }

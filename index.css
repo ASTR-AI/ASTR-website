@@ -156,6 +156,17 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .footer-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .footer-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   .reveal-delay-1 {
     transition-delay: 0.1s;
   }

@@ -59,6 +59,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="philosophy.css" />
     <link rel="icon" href="/Pictures/arrow.png?v=2" />
     <!-- Preload Critical Images -->
     <link rel="preload" as="image" href="/Pictures/logo-optimized.webp" />
@@ -135,9 +136,8 @@
             <!-- Left Side: The Origin (The Core Piece) -->
             <div class="origin-side">
               <div class="relative inline-block mb-6 md:mb-8">
-                <!-- Handwritten Annotation -->
                 <div
-                  class="absolute -top-10 -left-6 hidden lg:block pointer-events-none reveal reveal-delay-4"
+                  class="absolute -top-10 -left-6 hidden lg:block pointer-events-none phil-reveal"
                 >
                   <span
                     class="font-caveat text-gold/60 text-[1.6rem] whitespace-nowrap -rotate-6 block pb-2 leading-tight"
@@ -145,20 +145,20 @@
                   >
                 </div>
                 <span
-                  class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] md:tracking-[5px] text-gold/60 block reveal"
+                  class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] md:tracking-[5px] text-gold/60 block phil-reveal"
                   >Who We Are</span
                 >
               </div>
 
               <h1
-                class="reveal text-[clamp(2rem,5vw,4.5rem)] font-lora font-bold leading-[1.1] tracking-tight mb-8 md:mb-12"
+                class="phil-reveal text-[clamp(2rem,5vw,4.5rem)] font-lora font-bold leading-[1.1] tracking-tight mb-8 md:mb-12"
               >
                 Our Name is Our <br />
                 <span class="italic font-light text-white/90">Philosophy.</span>
               </h1>
 
               <p
-                class="reveal reveal-delay-1 text-white/60 text-lg md:text-xl leading-relaxed max-w-[550px] mb-12 md:mb-16"
+                class="phil-reveal text-white/60 text-lg md:text-xl leading-relaxed max-w-[550px] mb-12 md:mb-16"
               >
                 The name <span class="text-white font-medium">ASTR</span> comes
                 from the Sanskrit word
@@ -169,7 +169,7 @@
 
               <!-- Clean Definition Graphic -->
               <div
-                class="reveal reveal-delay-2 relative w-full aspect-square md:aspect-[4/3] rounded-[24px] md:rounded-[48px] border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent flex items-center justify-center overflow-hidden group"
+                class="phil-reveal relative w-full aspect-square md:aspect-[4/3] rounded-[24px] md:rounded-[48px] border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent flex items-center justify-center overflow-hidden group"
               >
                 <!-- Subtle Sanskrit Watermark -->
                 <span
@@ -215,7 +215,7 @@
               >
                 <!-- A -->
                 <div
-                  class="reveal reveal-delay-1 bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500"
+                  class="phil-reveal bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500"
                 >
                   <span
                     class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 tracking-[2px] md:tracking-[3px] uppercase mb-3 md:mb-4 block"
@@ -235,7 +235,7 @@
 
                 <!-- S -->
                 <div
-                  class="reveal reveal-delay-2 bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
+                  class="phil-reveal bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
                 >
                   <span
                     class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 tracking-[2px] md:tracking-[3px] uppercase mb-3 md:mb-4 block"
@@ -255,7 +255,7 @@
 
                 <!-- T -->
                 <div
-                  class="reveal reveal-delay-3 bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
+                  class="phil-reveal bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
                 >
                   <span
                     class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 tracking-[2px] md:tracking-[3px] uppercase mb-3 md:mb-4 block"
@@ -275,7 +275,7 @@
 
                 <!-- R -->
                 <div
-                  class="reveal reveal-delay-4 bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
+                  class="phil-reveal bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
                 >
                   <span
                     class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 tracking-[2px] md:tracking-[3px] uppercase mb-3 md:mb-4 block"
@@ -295,7 +295,7 @@
 
                 <!-- AI -->
                 <div
-                  class="reveal reveal-delay-5 bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
+                  class="phil-reveal bg-black p-6 md:p-8 flex flex-col items-center justify-center group hover:bg-white/[0.02] transition-colors duration-500 border-l border-white/5"
                 >
                   <span
                     class="font-mono text-[0.55rem] md:text-[0.6rem] text-white/20 tracking-[2px] md:tracking-[3px] uppercase mb-3 md:mb-4 block"
@@ -316,7 +316,7 @@
 
               <!-- Compact Technical Metadata Footer -->
               <div
-                class="mt-6 md:mt-8 flex items-center justify-between px-2 md:px-4 reveal reveal-delay-5"
+                class="mt-6 md:mt-8 flex items-center justify-between px-2 md:px-4 phil-reveal"
               >
                 <div class="flex items-center gap-3 md:gap-4">
                   <div class="w-1 h-1 rounded-full bg-gold animate-pulse"></div>
@@ -353,7 +353,7 @@
         <div
           class="container max-w-[1300px] mx-auto px-4 md:px-12 relative z-10"
         >
-          <div class="text-center mb-24 md:mb-44 reveal">
+          <div class="text-center mb-24 md:mb-44 phil-reveal">
             <span
               class="font-mono text-[0.7rem] text-gold/60 tracking-[6px] uppercase block mb-4"
               >Structural_Foundations</span
@@ -628,7 +628,7 @@
           <div class="max-w-[900px] mx-auto text-center">
             <!-- Metadata Header -->
             <div
-              class="reveal mb-8 md:mb-12 flex items-center justify-center gap-4 md:gap-6"
+              class="phil-reveal mb-8 md:mb-12 flex items-center justify-center gap-4 md:gap-6"
             >
               <span class="w-8 md:w-12 h-px bg-gold/30"></span>
               <span
@@ -640,7 +640,7 @@
 
             <!-- The Core Quote -->
             <h2
-              class="reveal text-[clamp(2.2rem,5vw,5rem)] font-lora font-bold leading-[1.1] tracking-tight mb-12 md:mb-16"
+              class="phil-reveal text-[clamp(2.2rem,5vw,5rem)] font-lora font-bold leading-[1.1] tracking-tight mb-12 md:mb-16"
             >
               We don't just build <br />
               <span class="italic font-light text-white/90">technology;</span>
@@ -650,7 +650,7 @@
             </h2>
 
             <!-- Call to Action -->
-            <div class="reveal flex flex-col items-center gap-8 md:gap-12">
+            <div class="phil-reveal flex flex-col items-center gap-8 md:gap-12">
               <a
                 href="solutions.html"
                 class="group relative px-10 md:px-12 py-4 md:py-5 border border-gold/30 rounded-full overflow-hidden transition-all duration-700 hover:border-gold"

@@ -1,0 +1,33 @@
+/* ==========================================================================
+   PHILOSOPHY PAGE SPECIFIC STYLES
+   ========================================================================== */
+
+/* 
+ * GSAP Managed Reveals (Prevention of FOUC & Hardware Acceleration)
+ * We set initial opacity to 0 and apply will-change and transform: translateZ(0) 
+ * to force hardware acceleration (GPU) on these elements for buttery smooth animations.
+ */
+.pillar-reveal,
+.phil-reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* 
+ * Acronym Items Hover Transitions
+ * Ensuring hover effects run smoothly without layout thrashing
+ */
+.acronym-minimal .reveal {
+  will-change: opacity, transform, background-color;
+  transform: translateZ(0);
+}
+
+/* 
+ * Clean up transition conflicts
+ * If GSAP is animating these elements, we want to make sure no CSS transition
+ * fights with it during the scroll.
+ */
+.pillar-reveal.is-animating * {
+  transition: none !important;
+}
