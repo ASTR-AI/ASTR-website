@@ -16,13 +16,13 @@
 
 ### Color Palette
 
-| Role | Hex | CSS Variable |
-|------|-----|--------------|
-| Primary | `#7C2D12` | `--color-primary` |
-| Secondary | `#B91C1C` | `--color-secondary` |
-| CTA/Accent | `#CA8A04` | `--color-cta` |
+| Role       | Hex       | CSS Variable         |
+| ---------- | --------- | -------------------- |
+| Primary    | `#7C2D12` | `--color-primary`    |
+| Secondary  | `#B91C1C` | `--color-secondary`  |
+| CTA/Accent | `#CA8A04` | `--color-cta`        |
 | Background | `#FEF2F2` | `--color-background` |
-| Text | `#450A0A` | `--color-text` |
+| Text       | `#450A0A` | `--color-text`       |
 
 **Color Notes:** Deep burgundy + craft gold
 
@@ -34,29 +34,30 @@
 - **Google Fonts:** [Bodoni Moda + Jost](https://fonts.google.com/share?selection.family=Bodoni+Moda:wght@400;500;600;700|Jost:wght@300;400;500;600;700)
 
 **CSS Import:**
+
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap');
 ```
 
 ### Spacing Variables
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--space-xs` | `4px` / `0.25rem` | Tight gaps |
-| `--space-sm` | `8px` / `0.5rem` | Icon gaps, inline spacing |
-| `--space-md` | `16px` / `1rem` | Standard padding |
-| `--space-lg` | `24px` / `1.5rem` | Section padding |
-| `--space-xl` | `32px` / `2rem` | Large gaps |
-| `--space-2xl` | `48px` / `3rem` | Section margins |
-| `--space-3xl` | `64px` / `4rem` | Hero padding |
+| Token         | Value             | Usage                     |
+| ------------- | ----------------- | ------------------------- |
+| `--space-xs`  | `4px` / `0.25rem` | Tight gaps                |
+| `--space-sm`  | `8px` / `0.5rem`  | Icon gaps, inline spacing |
+| `--space-md`  | `16px` / `1rem`   | Standard padding          |
+| `--space-lg`  | `24px` / `1.5rem` | Section padding           |
+| `--space-xl`  | `32px` / `2rem`   | Large gaps                |
+| `--space-2xl` | `48px` / `3rem`   | Section margins           |
+| `--space-3xl` | `64px` / `4rem`   | Hero padding              |
 
 ### Shadow Depths
 
-| Level | Value | Usage |
-|-------|-------|-------|
-| `--shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Subtle lift |
-| `--shadow-md` | `0 4px 6px rgba(0,0,0,0.1)` | Cards, buttons |
-| `--shadow-lg` | `0 10px 15px rgba(0,0,0,0.1)` | Modals, dropdowns |
+| Level         | Value                          | Usage                       |
+| ------------- | ------------------------------ | --------------------------- |
+| `--shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)`   | Subtle lift                 |
+| `--shadow-md` | `0 4px 6px rgba(0,0,0,0.1)`    | Cards, buttons              |
+| `--shadow-lg` | `0 10px 15px rgba(0,0,0,0.1)`  | Modals, dropdowns           |
 | `--shadow-xl` | `0 20px 25px rgba(0,0,0,0.15)` | Hero images, featured cards |
 
 ---
@@ -68,7 +69,7 @@
 ```css
 /* Primary Button */
 .btn-primary {
-  background: #CA8A04;
+  background: #ca8a04;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -85,8 +86,8 @@
 /* Secondary Button */
 .btn-secondary {
   background: transparent;
-  color: #7C2D12;
-  border: 2px solid #7C2D12;
+  color: #7c2d12;
+  border: 2px solid #7c2d12;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -99,7 +100,7 @@
 
 ```css
 .card {
-  background: #FEF2F2;
+  background: #fef2f2;
   border-radius: 12px;
   padding: 24px;
   box-shadow: var(--shadow-md);
@@ -118,16 +119,16 @@
 ```css
 .input {
   padding: 12px 16px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   font-size: 16px;
   transition: border-color 200ms ease;
 }
 
 .input:focus {
-  border-color: #7C2D12;
+  border-color: #7c2d12;
   outline: none;
-  box-shadow: 0 0 0 3px #7C2D1220;
+  box-shadow: 0 0 0 3px #7c2d1220;
 }
 ```
 
@@ -165,7 +166,7 @@
 
 **Pattern Name:** Enterprise Gateway
 
-- **Conversion Strategy:**  logo carousel,  tab switching for industries, Path selection (I am a...). Mega menu navigation. Trust signals prominent.
+- **Conversion Strategy:** logo carousel, tab switching for industries, Path selection (I am a...). Mega menu navigation. Trust signals prominent.
 - **CTA Placement:** Contact Sales (Primary) + Login (Secondary)
 - **Section Order:** 1. Hero (Video/Mission), 2. Solutions by Industry, 3. Solutions by Role, 4. Client Logos, 5. Contact Sales
 

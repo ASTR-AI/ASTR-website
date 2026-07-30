@@ -8,7 +8,56 @@
       name="description"
       content="Explore ASTR AI's adaptive solutions: Custom Software Development, AI Integration, and System Monitoring. Intelligence for what matters."
     />
-    <link rel="canonical" href="https://astrai.in/solutions.html">
+    <meta
+      name="keywords"
+      content="ASTR AI, AI solutions, custom software, system monitoring, deep tech, adaptive intelligence"
+    />
+    <link rel="canonical" href="https://astrai.in/solutions.html" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "AI Solutions & Infrastructure",
+        "provider": {
+          "@type": "Organization",
+          "name": "ASTR AI",
+          "url": "https://astrai.in"
+        },
+        "areaServed": "Global",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "ASTR AI Solutions",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Servers & Research Labs",
+                "description": "Powerful server systems and physical labs for running advanced AI models."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "University AI Centers",
+                "description": "Complete technology and training for university-led AI research hubs."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Hardware Design",
+                "description": "Specialized AI hardware and smart infrastructure components."
+              }
+            }
+          ]
+        }
+      }
+    </script>
 
     <!-- Social Meta Tags -->
     <meta property="og:title" content="ASTR AI - Adaptive Solutions | Intelligence What Matters">
@@ -26,27 +75,51 @@
     <meta name="twitter:image" content="https://astrai.in/Pictures/herosection.png">
 
     <link rel="stylesheet" href="index.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link
-      rel="icon"
-      href="/Pictures/arrow.png?v=2"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400..800&display=swap"
+      rel="stylesheet"
     />
+    <link rel="icon" href="/Pictures/arrow.png?v=2" />
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="/Pictures/logo-optimized.webp" />
   </head>
 
-  <body class="bg-black text-white font-lora selection:bg-gold/30 selection:text-gold antialiased">
-    <astr-navbar></astr-navbar>
+  <body
+    class="bg-black text-white font-lora selection:bg-gold/30 selection:text-gold antialiased"
+  >
+    <astr-navbar>
+      <nav style="display: none">
+        <a href="index.html">Home</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="rd.html">R&D labs</a>
+        <a href="internship.html">Internship</a>
+        <a href="connect.html">Connect</a>
+      </nav>
+    </astr-navbar>
 
     <main class="pt-[120px] md:pt-[180px]">
       <!-- Journal Metadata Bar -->
       <div class="container max-w-[1300px] mx-auto px-6 md:px-12 mb-12">
-        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 py-4 border-y border-white/5">
+        <div
+          class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 py-4 border-y border-white/5"
+        >
           <div class="flex items-center gap-4">
-            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[3px] uppercase">Solution Overview</span>
+            <span
+              class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[3px] uppercase"
+              >Solution Overview</span
+            >
             <span class="w-[1px] h-3 bg-white/10"></span>
-            <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-white/20 tracking-[2px] uppercase">Ref: SOL_094</span>
+            <span
+              class="font-mono text-[0.6rem] md:text-[0.65rem] text-white/20 tracking-[2px] uppercase"
+              >Ref: SOL_094</span
+            >
           </div>
           <div class="flex items-center gap-4 md:hidden">
-             <span class="font-mono text-[0.55rem] text-white/10 uppercase tracking-widest">Status: Live_Sync</span>
+            <span
+              class="font-mono text-[0.55rem] text-white/10 uppercase tracking-widest"
+              >Status: Live_Sync</span
+            >
           </div>
         </div>
       </div>
@@ -63,12 +136,14 @@
             class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block"
             >What We Build</span
           >
-          <h2
+          <h1
             class="reveal text-[clamp(2.2rem,5vw,4.5rem)] font-lora font-bold leading-[1.1] tracking-tight mb-6 md:mb-8"
           >
             Smart Solutions for <br />
-            <span class="italic font-light text-white/90">Real-World Problems.</span>
-          </h2>
+            <span class="italic font-light text-white/90"
+              >Real-World Problems.</span
+            >
+          </h1>
           <div class="w-16 md:w-24 h-[1px] bg-gold/30 mb-8 md:mb-12"></div>
         </div>
 
@@ -106,7 +181,8 @@
                 AI Servers & Research Labs
               </h3>
               <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
-                We build the powerful server systems and physical labs you need to run advanced AI models at any scale.
+                We build the powerful server systems and physical labs you need
+                to run advanced AI models at any scale.
               </p>
             </div>
 
@@ -121,7 +197,18 @@
               <div
                 class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
-                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
               </div>
               <h3
                 class="text-lg md:text-xl font-lora font-bold mb-2 text-white leading-tight"
@@ -129,7 +216,8 @@
                 University AI Centers
               </h3>
               <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
-                We help universities set up leading AI research hubs, providing all the technology and training needed for students and faculty.
+                We help universities set up leading AI research hubs, providing
+                all the technology and training needed for students and faculty.
               </p>
             </div>
 
@@ -144,7 +232,17 @@
               <div
                 class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
               </div>
               <h3
                 class="text-lg md:text-xl font-lora font-bold mb-2 text-white leading-tight"
@@ -152,7 +250,8 @@
                 Intelligent Drone Systems
               </h3>
               <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
-                Smart drones that fly themselves to inspect sites, map terrain, and send back data automatically, even in tough environments.
+                Smart drones that fly themselves to inspect sites, map terrain,
+                and send back data automatically, even in tough environments.
               </p>
             </div>
 
@@ -167,7 +266,19 @@
               <div
                 class="adaptive-block-icon w-9 md:w-10 h-9 md:h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4 text-gold/80 [&>svg]:w-4 md:[&>svg]:w-5 [&>svg]:h-4 md:[&>svg]:h-5"
               >
-                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
               </div>
               <h3
                 class="text-lg md:text-xl font-bold mb-2 text-white leading-tight"
@@ -175,7 +286,8 @@
                 Custom Software & Automation
               </h3>
               <p class="text-white/50 leading-relaxed text-sm md:text-base m-0">
-                We build custom software that automates your tasks and connects all your business data into one simple dashboard.
+                We build custom software that automates your tasks and connects
+                all your business data into one simple dashboard.
               </p>
             </div>
           </div>
@@ -193,38 +305,74 @@
       </section>
 
       <!-- ====== SECTION: THE ECOSYSTEM DECISION ====== -->
-      <section class="before-after-section relative bg-black text-white py-20 md:py-32 z-10 border-t border-white/5">
+      <section
+        class="before-after-section relative bg-black text-white py-20 md:py-32 z-10 border-t border-white/5"
+      >
         <div class="container max-w-[1500px] mx-auto px-6 md:px-12">
           <div class="text-center mb-10 md:mb-12">
-            <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block">The Strategic Choice</span>
-            <h2 class="reveal text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight mb-6 md:mb-8">
+            <span
+              class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block"
+              >The Strategic Choice</span
+            >
+            <h2
+              class="reveal text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight mb-6 md:mb-8"
+            >
               Stop Managing Tools. <br />
-              <span class="italic font-light text-white/90">Start Leading.</span>
+              <span class="italic font-light text-white/90"
+                >Start Leading.</span
+              >
             </h2>
-            <p class="text-white/50 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Most companies struggle with a "mess" of different vendors and disconnected tech. ASTR AI provides one unified ecosystem where everything—Software, Infrastructure, and Drones—works together perfectly.
+            <p
+              class="text-white/50 max-w-2xl mx-auto text-base md:text-lg leading-relaxed"
+            >
+              Most companies struggle with a "mess" of different vendors and
+              disconnected tech. ASTR AI provides one unified ecosystem where
+              everything—Software, Infrastructure, and Drones—works together
+              perfectly.
             </p>
           </div>
-          
-          <div class="relative min-h-[450px] md:min-h-[850px] flex flex-col items-center justify-center">
-            
+
+          <div
+            class="relative min-h-[450px] md:min-h-[850px] flex flex-col items-center justify-center"
+          >
             <!-- Assembly Wrapper -->
-            <div class="w-full flex flex-col xl:flex-row items-center justify-center xl:gap-16 2xl:gap-20 max-w-[1400px]">
-              
+            <div
+              class="w-full flex flex-col xl:flex-row items-center justify-center xl:gap-16 2xl:gap-20 max-w-[1400px]"
+            >
               <!-- Left Side Annotations (Desktop Only) -->
-              <div class="hidden lg:flex flex-col gap-20 w-[260px] z-30 pointer-events-none">
-                
+              <div
+                class="hidden lg:flex flex-col gap-20 w-[260px] z-30 pointer-events-none"
+              >
                 <!-- Annotation 1 -->
                 <div class="relative pl-4">
                   <!-- Shortened Arrow Doodle -->
                   <div class="absolute top-4 -right-12 w-12 h-8 text-gold/30">
                     <svg viewBox="0 0 50 40" fill="none" class="w-full h-full">
-                      <path d="M5 10 Q 25 5, 45 20 M 35 10 L 45 20 L 35 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M5 10 Q 25 5, 45 20 M 35 10 L 45 20 L 35 30"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </div>
-                  <div class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: OPS_01</div>
-                  <h4 class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Zero Maintenance</h4>
-                  <p class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic">ASTR handles all server monitoring and code updates 24/7. No internal ops team required.</p>
+                  <div
+                    class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70"
+                  >
+                    // ARCH_NOTE: OPS_01
+                  </div>
+                  <h4
+                    class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight"
+                  >
+                    Zero Maintenance
+                  </h4>
+                  <p
+                    class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic"
+                  >
+                    ASTR handles all server monitoring and code updates 24/7. No
+                    internal ops team required.
+                  </p>
                 </div>
 
                 <!-- Annotation 2 -->
@@ -232,12 +380,31 @@
                   <!-- Shortened Arrow Doodle -->
                   <div class="absolute top-4 -right-16 w-16 h-10 text-gold/30">
                     <svg viewBox="0 0 50 40" fill="none" class="w-full h-full">
-                      <path d="M5 30 Q 25 35, 45 10 M 35 5 L 45 10 L 40 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M5 30 Q 25 35, 45 10 M 35 5 L 45 10 L 40 20"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </div>
-                  <div class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: DATA_02</div>
-                  <h4 class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Unified Intelligence</h4>
-                  <p class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic">Drones, labs, and software synced into one live stream. Total operational visibility.</p>
+                  <div
+                    class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70"
+                  >
+                    // ARCH_NOTE: DATA_02
+                  </div>
+                  <h4
+                    class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight"
+                  >
+                    Unified Intelligence
+                  </h4>
+                  <p
+                    class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic"
+                  >
+                    Drones, labs, and software synced into one live stream.
+                    Total operational visibility.
+                  </p>
                 </div>
 
                 <!-- Annotation 3 -->
@@ -245,195 +412,558 @@
                   <!-- Shortened Arrow Doodle -->
                   <div class="absolute top-4 -right-14 w-14 h-10 text-gold/30">
                     <svg viewBox="0 0 50 40" fill="none" class="w-full h-full">
-                        <path d="M5 5 Q 15 20, 45 25 M 35 15 L 45 25 L 35 35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M5 5 Q 15 20, 45 25 M 35 15 L 45 25 L 35 35"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </div>
-                  <div class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// ARCH_NOTE: SCALE_03</div>
-                  <h4 class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight">Instant Scaling</h4>
-                  <p class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic">Add new infrastructure or robotics modules with a single command. Zero technical debt.</p>
+                  <div
+                    class="font-mono text-[0.6rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70"
+                  >
+                    // ARCH_NOTE: SCALE_03
+                  </div>
+                  <h4
+                    class="text-white/80 font-bold mb-1 text-[0.8rem] uppercase tracking-widest leading-tight"
+                  >
+                    Instant Scaling
+                  </h4>
+                  <p
+                    class="text-white/50 text-[1.4rem] leading-tight font-handwritten italic"
+                  >
+                    Add new infrastructure or robotics modules with a single
+                    command. Zero technical debt.
+                  </p>
                 </div>
               </div>
 
               <!-- The Slider -->
-              <div class="ba-container relative w-full max-w-[950px] h-[350px] md:h-[550px] rounded-[24px] md:rounded-[32px] overflow-hidden border border-white/10 glass-panel cursor-ew-resize shadow-[0_30px_100px_rgba(0,0,0,0.8)] z-20">
+              <div
+                class="ba-container relative w-full max-w-[950px] h-[350px] md:h-[550px] rounded-[24px] md:rounded-[32px] overflow-hidden border border-white/10 glass-panel cursor-ew-resize shadow-[0_30px_100px_rgba(0,0,0,0.8)] z-20"
+              >
                 <!-- THE TRADITIONAL WAY (BEFORE) -->
-                <div class="ba-before absolute inset-0 bg-black flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none border border-white/5">
-                  <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]"></div>
-                  
-                  <div class="relative z-10 grid grid-cols-3 gap-4 md:gap-8 mb-6 md:mb-12 opacity-30 grayscale scale-75 md:scale-100">
+                <div
+                  class="ba-before absolute inset-0 bg-black flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none border border-white/5"
+                >
+                  <div
+                    class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]"
+                  ></div>
+
+                  <div
+                    class="relative z-10 grid grid-cols-3 gap-4 md:gap-8 mb-6 md:mb-12 opacity-30 grayscale scale-75 md:scale-100"
+                  >
                     <div class="flex flex-col items-center gap-2 md:gap-3">
-                        <div class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
-                        <span class="font-mono text-[0.45rem] md:text-[0.6rem]">Vendor A</span>
+                      <div
+                        class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          md:width="24"
+                          md:height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <rect x="2" y="3" width="20" height="14" rx="2" />
+                        </svg>
+                      </div>
+                      <span class="font-mono text-[0.45rem] md:text-[0.6rem]"
+                        >Vendor A</span
+                      >
                     </div>
                     <div class="flex flex-col items-center gap-2 md:gap-3">
-                        <div class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/></svg></div>
-                        <span class="font-mono text-[0.45rem] md:text-[0.6rem]">Vendor B</span>
+                      <div
+                        class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          md:width="24"
+                          md:height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <rect x="2" y="2" width="20" height="8" rx="2" />
+                        </svg>
+                      </div>
+                      <span class="font-mono text-[0.45rem] md:text-[0.6rem]"
+                        >Vendor B</span
+                      >
                     </div>
                     <div class="flex flex-col items-center gap-2 md:gap-3">
-                        <div class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"><svg width="18" height="18" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m2 8 10 5 10-5-10-5z"/></svg></div>
-                        <span class="font-mono text-[0.45rem] md:text-[0.6rem]">Vendor C</span>
+                      <div
+                        class="w-10 h-10 md:w-16 md:h-16 border border-white/20 rounded-lg flex items-center justify-center"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          md:width="24"
+                          md:height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <path d="m2 8 10 5 10-5-10-5z" />
+                        </svg>
+                      </div>
+                      <span class="font-mono text-[0.45rem] md:text-[0.6rem]"
+                        >Vendor C</span
+                      >
                     </div>
                   </div>
 
-                  <div class="relative z-10 text-white/20 font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest uppercase font-bold italic">// FRAGMENTED</div>
-                  <h3 class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-white/40 uppercase tracking-tighter">Traditional Mess</h3>
-                  <p class="relative z-10 text-white/30 max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm">Incompatible APIs and reactive fixes. You do the heavy lifting.</p>
+                  <div
+                    class="relative z-10 text-white/20 font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest uppercase font-bold italic"
+                  >
+                    // FRAGMENTED
+                  </div>
+                  <h3
+                    class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-white/40 uppercase tracking-tighter"
+                  >
+                    Traditional Mess
+                  </h3>
+                  <p
+                    class="relative z-10 text-white/30 max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm"
+                  >
+                    Incompatible APIs and reactive fixes. You do the heavy
+                    lifting.
+                  </p>
                 </div>
-                
+
                 <!-- Slider Handle -->
-                <div class="ba-handle absolute top-0 bottom-0 w-[2px] bg-gold left-[50%] flex items-center justify-center z-[20] pointer-events-none" style="transform: translateX(-50%);">
-                  <div class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#1a1a1a] border border-gold flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                <div
+                  class="ba-handle absolute top-0 bottom-0 w-[2px] bg-gold left-[50%] flex items-center justify-center z-[20] pointer-events-none"
+                  style="transform: translateX(-50%)"
+                >
+                  <div
+                    class="w-8 h-8 md:w-12 md:h-12 rounded-full bg-[#1a1a1a] border border-gold flex items-center justify-center shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                  >
                     <div class="flex gap-1">
-                        <div class="w-0.5 h-3 md:h-4 bg-gold/50 rounded-full"></div>
-                        <div class="w-0.5 h-3 md:h-4 bg-gold rounded-full"></div>
-                        <div class="w-0.5 h-3 md:h-4 bg-gold/50 rounded-full"></div>
+                      <div
+                        class="w-0.5 h-3 md:h-4 bg-gold/50 rounded-full"
+                      ></div>
+                      <div class="w-0.5 h-3 md:h-4 bg-gold rounded-full"></div>
+                      <div
+                        class="w-0.5 h-3 md:h-4 bg-gold/50 rounded-full"
+                      ></div>
                     </div>
                   </div>
                 </div>
 
                 <!-- THE ASTR ECOSYSTEM (AFTER) -->
-                <div class="ba-after absolute inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none overflow-hidden z-[10]" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                  <div class="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-50"></div>
-                  
+                <div
+                  class="ba-after absolute inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center p-8 md:p-12 text-center select-none pointer-events-none overflow-hidden z-[10]"
+                  style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)"
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-transparent opacity-50"
+                  ></div>
+
                   <!-- Visual: The Unified Interface -->
-                  <div class="relative z-10 w-[220px] md:w-[400px] aspect-video bg-[#050505] border border-gold/40 rounded-xl md:rounded-2xl shadow-[0_0_50px_rgba(230,205,153,0.15)] backdrop-blur-2xl flex flex-col p-3 md:p-6 mb-4 md:mb-8 scale-90 md:scale-100">
-                    <div class="flex items-center justify-between mb-3 md:mb-6 border-b border-gold/20 pb-2 md:pb-4">
-                        <div class="flex items-center gap-2 md:gap-3">
-                          <div class="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gold animate-ping"></div>
-                          <span class="font-mono text-[0.5rem] md:text-[0.65rem] text-gold tracking-widest font-bold uppercase">ASTR_CORE</span>
-                        </div>
+                  <div
+                    class="relative z-10 w-[220px] md:w-[400px] aspect-video bg-[#050505] border border-gold/40 rounded-xl md:rounded-2xl shadow-[0_0_50px_rgba(230,205,153,0.15)] backdrop-blur-2xl flex flex-col p-3 md:p-6 mb-4 md:mb-8 scale-90 md:scale-100"
+                  >
+                    <div
+                      class="flex items-center justify-between mb-3 md:mb-6 border-b border-gold/20 pb-2 md:pb-4"
+                    >
+                      <div class="flex items-center gap-2 md:gap-3">
+                        <div
+                          class="w-1 h-1 md:w-2 md:h-2 rounded-full bg-gold animate-ping"
+                        ></div>
+                        <span
+                          class="font-mono text-[0.5rem] md:text-[0.65rem] text-gold tracking-widest font-bold uppercase"
+                          >ASTR_CORE</span
+                        >
+                      </div>
                     </div>
                     <div class="grid grid-cols-3 gap-2 md:gap-4 flex-1">
-                        <div class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
-                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#E6CD99" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
-                          <span class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono">SW</span>
-                        </div>
-                        <div class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
-                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#E6CD99" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/></svg>
-                          <span class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono">INFRA</span>
-                        </div>
-                        <div class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2">
-                          <svg width="14" height="14" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="#E6CD99" stroke-width="1.5"><path d="m2 8 10 5 10-5-10-5z"/></svg>
-                          <span class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono">DRONE</span>
-                        </div>
+                      <div
+                        class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2"
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          md:width="20"
+                          md:height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#E6CD99"
+                          stroke-width="1.5"
+                        >
+                          <rect x="2" y="3" width="20" height="14" rx="2" />
+                        </svg>
+                        <span
+                          class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono"
+                          >SW</span
+                        >
+                      </div>
+                      <div
+                        class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2"
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          md:width="20"
+                          md:height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#E6CD99"
+                          stroke-width="1.5"
+                        >
+                          <rect x="2" y="2" width="20" height="8" rx="2" />
+                        </svg>
+                        <span
+                          class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono"
+                          >INFRA</span
+                        >
+                      </div>
+                      <div
+                        class="bg-gold/5 border border-gold/10 rounded-lg flex flex-col items-center justify-center gap-1 md:gap-2"
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          md:width="20"
+                          md:height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#E6CD99"
+                          stroke-width="1.5"
+                        >
+                          <path d="m2 8 10 5 10-5-10-5z" />
+                        </svg>
+                        <span
+                          class="text-[0.35rem] md:text-[0.5rem] text-gold/60 font-mono"
+                          >DRONE</span
+                        >
+                      </div>
                     </div>
                   </div>
 
-                  <div class="relative z-10 text-gold font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest animate-pulse font-bold uppercase tracking-[2px]">// UNIFIED</div>
-                  <h3 class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-white uppercase tracking-tighter">ASTR Ecosystem</h3>
-                  <p class="relative z-10 text-white/80 max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm">One partner. One dashboard. Zero friction.</p>
+                  <div
+                    class="relative z-10 text-gold font-mono text-[0.55rem] md:text-xs mb-3 md:mb-4 tracking-widest animate-pulse font-bold uppercase tracking-[2px]"
+                  >
+                    // UNIFIED
+                  </div>
+                  <h3
+                    class="relative z-10 text-lg md:text-3xl font-bold mb-3 md:mb-4 text-white uppercase tracking-tighter"
+                  >
+                    ASTR Ecosystem
+                  </h3>
+                  <p
+                    class="relative z-10 text-white/80 max-w-xs md:max-w-md mx-auto text-[0.7rem] md:text-sm"
+                  >
+                    One partner. One dashboard. Zero friction.
+                  </p>
                 </div>
               </div>
-
             </div>
           </div>
 
           <!-- Mobile Note Version -->
-          <div class="lg:hidden w-full flex flex-col gap-8 mt-12 relative z-30 px-6 max-w-2xl mx-auto">
-             <div class="relative pl-6">
-                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"></div>
-                <div class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// OPS_01</div>
-                <h4 class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Zero Maintenance</h4>
-                <p class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic">ASTR handles all server monitoring and code updates 24/7.</p>
-             </div>
-             <div class="relative pl-6">
-                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"></div>
-                <div class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// DATA_02</div>
-                <h4 class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Unified Intelligence</h4>
-                <p class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic">Drones, labs, and software synced into one live stream.</p>
-             </div>
-             <div class="relative pl-6">
-                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"></div>
-                <div class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70">// SCALE_03</div>
-                <h4 class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight">Instant Scaling</h4>
-                <p class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic">Add new modules with a single command. Zero technical debt.</p>
-             </div>
+          <div
+            class="lg:hidden w-full flex flex-col gap-8 mt-12 relative z-30 px-6 max-w-2xl mx-auto"
+          >
+            <div class="relative pl-6">
+              <div
+                class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"
+              ></div>
+              <div
+                class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70"
+              >
+                // OPS_01
+              </div>
+              <h4
+                class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight"
+              >
+                Zero Maintenance
+              </h4>
+              <p
+                class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic"
+              >
+                ASTR handles all server monitoring and code updates 24/7.
+              </p>
+            </div>
+            <div class="relative pl-6">
+              <div
+                class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"
+              ></div>
+              <div
+                class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70"
+              >
+                // DATA_02
+              </div>
+              <h4
+                class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight"
+              >
+                Unified Intelligence
+              </h4>
+              <p
+                class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic"
+              >
+                Drones, labs, and software synced into one live stream.
+              </p>
+            </div>
+            <div class="relative pl-6">
+              <div
+                class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-gold/40 to-transparent"
+              ></div>
+              <div
+                class="font-mono text-[0.55rem] text-gold/40 mb-1 uppercase tracking-[2px] opacity-70"
+              >
+                // SCALE_03
+              </div>
+              <h4
+                class="text-white/80 font-bold mb-1 text-[0.75rem] uppercase tracking-widest leading-tight"
+              >
+                Instant Scaling
+              </h4>
+              <p
+                class="text-white/50 text-[1.1rem] leading-tight font-handwritten italic"
+              >
+                Add new modules with a single command. Zero technical debt.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ====== SECTION: CAPABILITIES DEEP-DIVE ====== -->
-      <section class="capabilities-section relative bg-[#050505] text-white py-16 md:py-24 z-10 border-t border-white/5">
+      <section
+        class="capabilities-section relative bg-[#050505] text-white py-16 md:py-24 z-10 border-t border-white/5"
+      >
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12">
-          <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-start">
+          <div
+            class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-start"
+          >
             <div class="sticky top-[100px] md:top-[120px]">
-              <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block">The "What"</span>
-              <h2 class="reveal text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.1] tracking-tight mb-6 md:mb-8">
+              <span
+                class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block"
+                >The "What"</span
+              >
+              <h2
+                class="reveal text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.1] tracking-tight mb-6 md:mb-8"
+              >
                 Demystifying <br />
                 <span class="italic font-light text-white/90">Deep Tech.</span>
               </h2>
-              <p class="text-white/50 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">We translate complex engineering into simple, powerful tools that work for you.</p>
+              <p
+                class="text-white/50 leading-relaxed mb-6 md:mb-8 text-sm md:text-base"
+              >
+                We translate complex engineering into simple, powerful tools
+                that work for you.
+              </p>
             </div>
-            
+
             <div class="accordion-container space-y-4">
               <!-- Item 1: AI Infrastructure -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
-                <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
+              <div
+                class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300"
+              >
+                <button
+                  class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group"
+                >
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">AI Infrastructure</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Enterprise-Grade Compute Labs</h3>
+                    <span
+                      class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block"
+                      >AI Infrastructure</span
+                    >
+                    <h3
+                      class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors"
+                    >
+                      Enterprise-Grade Compute Labs
+                    </h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
-                    <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div
+                    class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      md:width="20"
+                      md:height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
                   </div>
                 </button>
-                <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
+                <div
+                  class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0"
+                >
                   <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">We build the backbone of modern intelligence. From GPU-accelerated server clusters to specialized AI research labs, we handle the complex engineering required to run heavy-duty models at scale.</p>
+                    <p
+                      class="text-white/60 leading-relaxed text-sm md:text-base"
+                    >
+                      We build the backbone of modern intelligence. From
+                      GPU-accelerated server clusters to specialized AI research
+                      labs, we handle the complex engineering required to run
+                      heavy-duty models at scale.
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Item 2: Academic Centers -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
-                <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
+              <div
+                class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300"
+              >
+                <button
+                  class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group"
+                >
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">Education & Research</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Centers of Excellence</h3>
+                    <span
+                      class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block"
+                      >Education & Research</span
+                    >
+                    <h3
+                      class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors"
+                    >
+                      Centers of Excellence
+                    </h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
-                    <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div
+                    class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      md:width="20"
+                      md:height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
                   </div>
                 </button>
-                <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
+                <div
+                  class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0"
+                >
                   <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">Bridging the gap between academia and industry. We help Universities set up dedicated AI CoEs, providing not just hardware but also research frameworks and industry-aligned curricula.</p>
+                    <p
+                      class="text-white/60 leading-relaxed text-sm md:text-base"
+                    >
+                      Bridging the gap between academia and industry. We help
+                      Universities set up dedicated AI CoEs, providing not just
+                      hardware but also research frameworks and industry-aligned
+                      curricula.
+                    </p>
                   </div>
                 </div>
               </div>
-              
+
               <!-- Item 3: Drone Systems -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
-                <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
+              <div
+                class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300"
+              >
+                <button
+                  class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group"
+                >
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">Smart Robotics</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Industrial Drone Intelligence</h3>
+                    <span
+                      class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block"
+                      >Smart Robotics</span
+                    >
+                    <h3
+                      class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors"
+                    >
+                      Industrial Drone Intelligence
+                    </h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
-                    <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div
+                    class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      md:width="20"
+                      md:height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
                   </div>
                 </button>
-                <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
+                <div
+                  class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0"
+                >
                   <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">Our drones don't just fly; they think. We deploy custom aerial platforms with built-in AI for automated site surveys, thermal inspections, and real-time telemetry streaming.</p>
+                    <p
+                      class="text-white/60 leading-relaxed text-sm md:text-base"
+                    >
+                      Our drones don't just fly; they think. We deploy custom
+                      aerial platforms with built-in AI for automated site
+                      surveys, thermal inspections, and real-time telemetry
+                      streaming.
+                    </p>
                   </div>
                 </div>
               </div>
 
               <!-- Item 4: Custom Software -->
-              <div class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300">
-                <button class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group">
+              <div
+                class="accordion-item glass-panel border border-white/10 rounded-[20px] md:rounded-[24px] overflow-hidden transition-all duration-300"
+              >
+                <button
+                  class="accordion-header w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center justify-between group"
+                >
                   <div>
-                    <span class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block">Custom ERP & AI</span>
-                    <h3 class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors">Intelligent Software Ecosystems</h3>
+                    <span
+                      class="font-mono text-[0.6rem] md:text-[0.65rem] text-gold tracking-[2px] uppercase mb-1 md:mb-2 block"
+                      >Custom ERP & AI</span
+                    >
+                    <h3
+                      class="text-lg md:text-xl font-bold group-hover:text-gold transition-colors"
+                    >
+                      Intelligent Software Ecosystems
+                    </h3>
                   </div>
-                  <div class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon">
-                    <svg width="16" height="16" md:width="20" md:height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div
+                    class="w-8 md:w-10 h-8 md:h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors accordion-icon"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      md:width="20"
+                      md:height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
                   </div>
                 </button>
-                <div class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
+                <div
+                  class="accordion-content px-6 md:px-8 pb-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0"
+                >
                   <div class="pb-6 md:pb-8 pt-2 border-t border-white/5">
-                    <p class="text-white/60 leading-relaxed text-sm md:text-base">We build unified digital platforms that act as the central nervous system of your business, automating repetitive tasks and providing predictive insights through integrated AI agents.</p>
+                    <p
+                      class="text-white/60 leading-relaxed text-sm md:text-base"
+                    >
+                      We build unified digital platforms that act as the central
+                      nervous system of your business, automating repetitive
+                      tasks and providing predictive insights through integrated
+                      AI agents.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -443,170 +973,735 @@
       </section>
 
       <!-- ====== SECTION: INDUSTRY USE CASES ====== -->
-      <section class="industries-section relative bg-black text-white py-16 md:py-24 z-10 border-t border-white/5">
+      <section
+        class="industries-section relative bg-black text-white py-16 md:py-24 z-10 border-t border-white/5"
+      >
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12">
-          <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block text-center">The "Where"</span>
-          <h2 class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-10 md:mb-16 text-center">
-            Built for <span class="italic font-light text-white/90">Your Industry.</span>
+          <span
+            class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block text-center"
+            >The "Where"</span
+          >
+          <h2
+            class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-10 md:mb-16 text-center"
+          >
+            Built for
+            <span class="italic font-light text-white/90">Your Industry.</span>
           </h2>
 
           <!-- Tabs -->
           <div class="tabs-wrapper flex justify-center mb-8 md:mb-12">
-            <div class="segmented-control flex gap-1 md:gap-2 p-1.5 md:p-2 rounded-[64px] bg-white/5 border border-white/10 backdrop-blur-md overflow-x-auto no-scrollbar relative">
+            <div
+              class="segmented-control flex gap-1 md:gap-2 p-1.5 md:p-2 rounded-[64px] bg-white/5 border border-white/10 backdrop-blur-md overflow-x-auto no-scrollbar relative"
+            >
               <span class="nav-highlight"></span>
-              <button class="tab-btn active px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white whitespace-nowrap z-10" data-target="tab-logistics">Logistics</button>
-              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10" data-target="tab-healthcare">Healthcare</button>
-              <button class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10" data-target="tab-manufacturing">Manufacturing</button>
+              <button
+                class="tab-btn active px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white whitespace-nowrap z-10"
+                data-target="tab-logistics"
+              >
+                Logistics
+              </button>
+              <button
+                class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10"
+                data-target="tab-healthcare"
+              >
+                Healthcare
+              </button>
+              <button
+                class="tab-btn px-6 md:px-8 py-2 md:py-3 rounded-[64px] text-xs md:text-sm font-bold transition-all duration-300 text-white/50 hover:text-white whitespace-nowrap z-10"
+                data-target="tab-manufacturing"
+              >
+                Manufacturing
+              </button>
             </div>
           </div>
 
           <!-- Tab Content -->
-          <div class="tab-content-container relative min-h-[500px] md:min-h-[400px] mb-8">
+          <div
+            class="tab-content-container relative min-h-[500px] md:min-h-[400px] mb-8"
+          >
             <!-- Logistics -->
-            <div class="tab-pane active absolute inset-0 transition-all duration-500 opacity-100 z-10" id="tab-logistics">
-              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
+            <div
+              class="tab-pane active absolute inset-0 transition-all duration-500 opacity-100 z-10"
+              id="tab-logistics"
+            >
+              <div
+                class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full"
+              >
                 <div class="flex-1 order-2 md:order-1">
-                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Logistics & Distribution</h3>
+                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                    Logistics & Distribution
+                  </h3>
                   <ul class="space-y-3 md:space-y-4">
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> AI-driven inventory intelligence for large-scale warehouse operations.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Real-time drone telemetry for automated yard management.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Unified systems for predictive supply chain resilience.</li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> AI-driven inventory
+                      intelligence for large-scale warehouse operations.
+                    </li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Real-time drone telemetry
+                      for automated yard management.
+                    </li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Unified systems for
+                      predictive supply chain resilience.
+                    </li>
                   </ul>
-                </div>                
-                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2">
-                  <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
-                  <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <div
+                  class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2"
+                >
+                  <div
+                    class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"
+                  ></div>
+                  <svg
+                    width="48"
+                    height="48"
+                    md:width="64"
+                    md:height="64"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    class="text-gold/50 relative z-10"
+                  >
+                    <rect x="1" y="3" width="15" height="13" />
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
                 </div>
               </div>
             </div>
 
             <!-- Healthcare -->
-            <div class="tab-pane absolute inset-0 transition-all duration-500 opacity-0 pointer-events-none" id="tab-healthcare">
-              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
+            <div
+              class="tab-pane absolute inset-0 transition-all duration-500 opacity-0 pointer-events-none"
+              id="tab-healthcare"
+            >
+              <div
+                class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full"
+              >
                 <div class="flex-1 order-2 md:order-1">
-                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Modernizing Care</h3>
+                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                    Modernizing Care
+                  </h3>
                   <ul class="space-y-3 md:space-y-4">
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> AI-assisted diagnostics for faster scan analysis.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Automated scheduling and resource allocation algorithms.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Secure, unified electronic health record (EHR) management.</li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> AI-assisted diagnostics
+                      for faster scan analysis.
+                    </li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Automated scheduling and
+                      resource allocation algorithms.
+                    </li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Secure, unified
+                      electronic health record (EHR) management.
+                    </li>
                   </ul>
                 </div>
-                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2">
-                   <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
-                   <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <div
+                  class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2"
+                >
+                  <div
+                    class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"
+                  ></div>
+                  <svg
+                    width="48"
+                    height="48"
+                    md:width="64"
+                    md:height="64"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    class="text-gold/50 relative z-10"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                  </svg>
                 </div>
               </div>
             </div>
 
             <!-- Manufacturing -->
-            <div class="tab-pane absolute inset-0 transition-all duration-500 opacity-0 pointer-events-none" id="tab-manufacturing">
-              <div class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full">
+            <div
+              class="tab-pane absolute inset-0 transition-all duration-500 opacity-0 pointer-events-none"
+              id="tab-manufacturing"
+            >
+              <div
+                class="glass-panel p-6 md:p-12 rounded-[24px] md:rounded-[32px] border border-white/10 flex flex-col md:flex-row gap-8 md:gap-12 items-center bg-gradient-to-br from-white/[0.03] to-transparent h-full"
+              >
                 <div class="flex-1 order-2 md:order-1">
-                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Industry 4.0 Standard</h3>
+                  <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                    Industry 4.0 Standard
+                  </h3>
                   <ul class="space-y-3 md:space-y-4">
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Real-time defect detection using computer vision.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Drone-based facility inspections for hard-to-reach areas.</li>
-                    <li class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"><span class="text-gold">✦</span> Digital twin simulation to optimize floor layouts.</li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Real-time defect
+                      detection using computer vision.
+                    </li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Drone-based facility
+                      inspections for hard-to-reach areas.
+                    </li>
+                    <li
+                      class="flex items-start gap-3 md:gap-4 text-white/70 text-sm md:text-base"
+                    >
+                      <span class="text-gold">✦</span> Digital twin simulation
+                      to optimize floor layouts.
+                    </li>
                   </ul>
                 </div>
-                <div class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2">
-                   <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
-                   <svg width="48" height="48" md:width="64" md:height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/50 relative z-10"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <div
+                  class="flex-1 w-full aspect-video rounded-[16px] md:rounded-[20px] bg-[#0a0a0a] border border-white/5 flex items-center justify-center relative overflow-hidden order-1 md:order-2"
+                >
+                  <div
+                    class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"
+                  ></div>
+                  <svg
+                    width="48"
+                    height="48"
+                    md:width="64"
+                    md:height="64"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    class="text-gold/50 relative z-10"
+                  >
+                    <path
+                      d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Custom Architecture Footer -->
-          <div class="antigravity-split-inline reveal mt-12 md:mt-20 mx-auto max-w-[1000px] grid grid-cols-1 lg:grid-cols-[30%_70%] gap-6 md:gap-12 items-start w-full px-6 md:px-[40px]">
+          <div
+            class="antigravity-split-inline reveal mt-12 md:mt-20 mx-auto max-w-[1000px] grid grid-cols-1 lg:grid-cols-[30%_70%] gap-6 md:gap-12 items-start w-full px-6 md:px-[40px]"
+          >
             <div class="left-col">
-              <h2 class="build-title font-lora text-2xl md:text-[28px] font-bold tracking-[0.5px] capitalize leading-tight m-0 text-white lg:text-right">
+              <h2
+                class="build-title font-lora text-2xl md:text-[28px] font-bold tracking-[0.5px] capitalize leading-tight m-0 text-white lg:text-right"
+              >
                 Architect
               </h2>
             </div>
             <div class="right-col">
-              <p class="build-description font-lora text-sm md:text-[16px] font-normal leading-relaxed text-white/80 max-w-[550px] m-0 text-left tracking-[0.02em]">
-                While we have deep expertise in these verticals, our core strength lies in <span class="text-gold font-medium">architecting custom intelligence.</span> We build bespoke software ecosystems tailored specifically to your unique operational requirements.
+              <p
+                class="build-description font-lora text-sm md:text-[16px] font-normal leading-relaxed text-white/80 max-w-[550px] m-0 text-left tracking-[0.02em]"
+              >
+                While we have deep expertise in these verticals, our core
+                strength lies in
+                <span class="text-gold font-medium"
+                  >architecting custom intelligence.</span
+                >
+                We build bespoke software ecosystems tailored specifically to
+                your unique operational requirements.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ====== SECTION: VELOCITY ERP ====== -->
+      <section
+        class="velocity-section relative bg-[#050505] text-white py-20 md:py-32 z-10 border-t border-white/5"
+        id="velocity"
+      >
+        <div class="container max-w-[1300px] mx-auto px-6 md:px-12">
+          <!-- Section Header -->
+          <div class="mb-16 md:mb-24 reveal">
+            <span
+              class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block"
+              >Software Products // 01</span
+            >
+            <h2
+              class="text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight mb-8"
+            >
+              Velocity ERP. <br />
+              <span class="italic font-light text-white/90"
+                >Hospital & Business Operations.</span
+              >
+            </h2>
+            <div class="w-16 md:w-24 h-[1px] bg-gold/30 mb-8"></div>
+          </div>
+
+          <!-- Product Split Layout -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 lg:gap-16 items-start"
+          >
+            <!-- Left Side: Product Overview & Features -->
+            <div class="space-y-10 order-2 lg:order-1">
+              <div>
+                <h3
+                  class="font-mono text-[0.6rem] text-gold tracking-[3px] uppercase mb-4"
+                >
+                  // Product_Overview
+                </h3>
+                <p
+                  class="text-white/70 text-base md:text-lg leading-relaxed font-lora"
+                >
+                  A complete, high-performance ERP platform designed to unify
+                  hospitals and complex businesses. Velocity ERP integrates core
+                  operational flows—from supply chain to payroll—into one
+                  centralized platform.
+                </p>
+              </div>
+
+              <!-- Features Grid -->
+              <div>
+                <h3
+                  class="font-mono text-[0.6rem] text-gold tracking-[3px] uppercase mb-6"
+                >
+                  // Core_Capabilities
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-lora">
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Hospital Management
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Integrated patient registry, ward schedules, and operation
+                      theatre logging.
+                    </p>
+                  </div>
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Inventory & Pharmacy
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Batch tracking, expiry alerts, and automated procurement
+                      orders.
+                    </p>
+                  </div>
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Billing & Accounts
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Automated invoicing, insurance claims syncing, and GST
+                      compliance.
+                    </p>
+                  </div>
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Finance & Analytics
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Profit & loss sheets, capital flow tracking, and automated
+                      auditing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Call to Action -->
+              <div class="pt-6">
+                <a
+                  href="connect.html?subject=Velocity_ERP_Demo"
+                  class="liquid-glass-button w-fit text-[0.75rem] !py-4 !px-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(230,205,153,0.1)]"
+                >
+                  <span class="relative z-10">Request Velocity Demo</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    class="relative z-10 transition-transform group-hover:translate-x-1 inline-block ml-2"
+                  >
+                    <path
+                      d="M1 8H15M15 8L8 1M15 8L8 15"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Product Interface Mockup -->
+            <div
+              class="order-1 lg:order-2 w-full aspect-[4/3] rounded-[24px] md:rounded-[32px] bg-[#0a0a0a] border border-white/10 flex items-center justify-center p-4 md:p-6 relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.2)] group/mockup"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#050505]/40 via-transparent to-transparent z-10 pointer-events-none"
+              ></div>
+              <img
+                src="/Pictures/velocity_Mockup.png"
+                alt="Velocity ERP Product Mockup"
+                class="w-full h-full object-contain transition-transform duration-700 group-hover/mockup:scale-[1.03]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SECTION: ORBIT EMS ====== -->
+      <section
+        class="orbit-section relative bg-[#0a0a0a] text-white py-20 md:py-32 z-10 border-t border-white/5"
+        id="orbit"
+      >
+        <div class="container max-w-[1300px] mx-auto px-6 md:px-12">
+          <!-- Section Header -->
+          <div class="mb-16 md:mb-24 reveal">
+            <span
+              class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block"
+              >Software Products // 02</span
+            >
+            <h2
+              class="text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight mb-8"
+            >
+              ORBIT EMS. <br />
+              <span class="italic font-light text-white/90"
+                >Workforce & HR Intelligence.</span
+              >
+            </h2>
+            <div class="w-16 md:w-24 h-[1px] bg-gold/30 mb-8"></div>
+          </div>
+
+          <!-- Product Split Layout -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12 lg:gap-16 items-start"
+          >
+            <!-- Left Side: Product Overview & Features -->
+            <div class="space-y-10 order-2 lg:order-1">
+              <div>
+                <h3
+                  class="font-mono text-[0.6rem] text-gold tracking-[3px] uppercase mb-4"
+                >
+                  // Product_Overview
+                </h3>
+                <p
+                  class="text-white/70 text-base md:text-lg leading-relaxed font-lora"
+                >
+                  A modern workforce management platform for attendance, clock
+                  in/out, shift scheduling, task tracking, employee notes, leave
+                  management, and productivity monitoring. Orbit EMS allows you
+                  to coordinate teams smoothly and dynamically.
+                </p>
+              </div>
+
+              <!-- Features Grid -->
+              <div>
+                <h3
+                  class="font-mono text-[0.6rem] text-gold tracking-[3px] uppercase mb-6"
+                >
+                  // Core_Capabilities
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-lora">
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Attendance & Shift Scheduling
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Geofenced attendance logging, face verification, and
+                      flexible team shifts.
+                    </p>
+                  </div>
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Task Tracking & Notes
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Daily task lists, status tags, comments, progress meters,
+                      and notes logging.
+                    </p>
+                  </div>
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Leave & Hierarchy
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Leave application, approval pipelines, and organizational
+                      department mappings.
+                    </p>
+                  </div>
+                  <div
+                    class="p-5 border border-white/5 rounded-xl bg-white/[0.01]"
+                  >
+                    <h4
+                      class="text-white font-bold mb-2 text-sm uppercase tracking-wide"
+                    >
+                      Telemetry & Analytics
+                    </h4>
+                    <p class="text-white/40 text-xs leading-relaxed">
+                      Employee work metrics dashboard, alerts logging, and
+                      automated pdf report summaries.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Call to Action -->
+              <div class="pt-6">
+                <a
+                  href="connect.html?subject=Orbit_EMS_Demo"
+                  class="liquid-glass-button w-fit text-[0.75rem] !py-4 !px-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_60px_rgba(230,205,153,0.1)]"
+                >
+                  <span class="relative z-10">Request Orbit Demo</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    class="relative z-10 transition-transform group-hover:translate-x-1 inline-block ml-2"
+                  >
+                    <path
+                      d="M1 8H15M15 8L8 1M15 8L8 15"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Side: Product Interface Mockup -->
+            <div
+              class="order-1 lg:order-2 w-full aspect-[4/3] rounded-[24px] md:rounded-[32px] bg-[#050505] border border-white/10 flex items-center justify-center p-4 md:p-6 relative overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.2)] group/mockup"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#050505]/40 via-transparent to-transparent z-10 pointer-events-none"
+              ></div>
+              <img
+                src="/Pictures/orbit.png"
+                alt="Orbit EMS Product Mockup"
+                class="w-full h-full object-contain transition-transform duration-700 group-hover/mockup:scale-[1.03]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ====== SECTION: ENGAGEMENT BLUEPRINT (TIMELINE) ====== -->
-      <section class="timeline-section relative bg-[#050505] text-white py-20 md:py-32 z-10 border-t border-white/5 overflow-hidden">
+      <section
+        class="timeline-section relative bg-[#050505] text-white py-20 md:py-32 z-10 border-t border-white/5 overflow-hidden"
+      >
         <div class="container max-w-[1300px] mx-auto px-6 md:px-12 relative">
-          <span class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block text-center">Engagement Blueprint</span>
-          <h2 class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-16 md:mb-24 text-center">
+          <span
+            class="font-mono text-[0.65rem] md:text-[0.7rem] uppercase tracking-[4px] text-gold/60 mb-4 md:mb-6 block text-center"
+            >Engagement Blueprint</span
+          >
+          <h2
+            class="reveal text-[clamp(2rem,4vw,3.5rem)] font-bold leading-[1.1] tracking-tight mb-16 md:mb-24 text-center"
+          >
             How We <span class="italic font-light text-white/90">Work.</span>
           </h2>
 
-          <div class="timeline-wrapper relative max-w-[900px] mx-auto pt-4 md:pt-8">
+          <div
+            class="timeline-wrapper relative max-w-[900px] mx-auto pt-4 md:pt-8"
+          >
             <!-- Curved SVG Path Background -->
-            <div class="absolute inset-0 z-0 pointer-events-none hidden md:block" style="margin-left: -50px; margin-right: -50px;">
-              <svg width="1000" height="100%" viewBox="0 0 1000 1200" preserveAspectRatio="none" fill="none" class="w-full h-full opacity-20">
-                <path id="timeline-base-path" d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200" stroke="white" stroke-width="2" stroke-dasharray="8 8" />
+            <div
+              class="absolute inset-0 z-0 pointer-events-none hidden md:block"
+              style="margin-left: -50px; margin-right: -50px"
+            >
+              <svg
+                width="1000"
+                height="100%"
+                viewBox="0 0 1000 1200"
+                preserveAspectRatio="none"
+                fill="none"
+                class="w-full h-full opacity-20"
+              >
+                <path
+                  id="timeline-base-path"
+                  d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-dasharray="8 8"
+                />
               </svg>
             </div>
-            
+
             <!-- Curved SVG Path Progress -->
-            <div class="absolute inset-0 z-[1] pointer-events-none hidden md:block" style="margin-left: -50px; margin-right: -50px;">
-              <svg width="1000" height="100%" viewBox="0 0 1000 1200" preserveAspectRatio="none" fill="none" class="w-full h-full">
-                <path id="timeline-progress-path" d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200" stroke="#E6CD99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(230,205,153,0.5));" />
+            <div
+              class="absolute inset-0 z-[1] pointer-events-none hidden md:block"
+              style="margin-left: -50px; margin-right: -50px"
+            >
+              <svg
+                width="1000"
+                height="100%"
+                viewBox="0 0 1000 1200"
+                preserveAspectRatio="none"
+                fill="none"
+                class="w-full h-full"
+              >
+                <path
+                  id="timeline-progress-path"
+                  d="M500,0 C500,75 750,75 750,150 C750,300 250,300 250,450 C250,600 750,600 750,750 C750,900 250,900 250,1050 C250,1125 500,1125 500,1200"
+                  stroke="#E6CD99"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="filter: drop-shadow(0 0 8px rgba(230, 205, 153, 0.5))"
+                />
               </svg>
             </div>
 
             <!-- Mobile Straight Line -->
-            <div class="absolute left-[20px] md:left-[24px] top-0 bottom-0 w-px bg-white/10 md:hidden z-0"></div>
-            <div id="timeline-progress-line-mobile" class="absolute left-[20px] md:left-[24px] top-0 w-px bg-gold md:hidden z-[1] origin-top" style="height: 0%;"></div>
+            <div
+              class="absolute left-[20px] md:left-[24px] top-0 bottom-0 w-px bg-white/10 md:hidden z-0"
+            ></div>
+            <div
+              id="timeline-progress-line-mobile"
+              class="absolute left-[20px] md:left-[24px] top-0 w-px bg-gold md:hidden z-[1] origin-top"
+              style="height: 0%"
+            ></div>
 
             <!-- Steps -->
             <div class="space-y-16 md:space-y-48 relative z-10">
               <!-- Step 1 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
-                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[60px] md:pl-0 order-2 md:order-1 mt-1 md:mt-0 transition-transform duration-700">
-                  <h3 class="text-xl md:text-2xl font-bold mb-2">1. Audit & Discover</h3>
-                  <p class="text-white/60 text-sm md:text-base">We analyze your workflows, data, and existing tech stack to find the highest-ROI opportunities.</p>
+              <div
+                class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700"
+              >
+                <div
+                  class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[60px] md:pl-0 order-2 md:order-1 mt-1 md:mt-0 transition-transform duration-700"
+                >
+                  <h3 class="text-xl md:text-2xl font-bold mb-2">
+                    1. Audit & Discover
+                  </h3>
+                  <p class="text-white/60 text-sm md:text-base">
+                    We analyze your workflows, data, and existing tech stack to
+                    find the highest-ROI opportunities.
+                  </p>
                 </div>
-                <div class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">01</span>
+                <div
+                  class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2"
+                >
+                  <span
+                    class="font-mono text-gold font-bold text-xs md:text-base"
+                    >01</span
+                  >
                 </div>
                 <div class="md:w-5/12 order-3"></div>
               </div>
 
               <!-- Step 2 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
+              <div
+                class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700"
+              >
                 <div class="md:w-5/12 order-3 md:order-1"></div>
-                <div class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">02</span>
+                <div
+                  class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2"
+                >
+                  <span
+                    class="font-mono text-gold font-bold text-xs md:text-base"
+                    >02</span
+                  >
                 </div>
-                <div class="md:w-5/12 text-left pl-[60px] md:pl-12 order-2 md:order-3 mt-1 md:mt-0 transition-transform duration-700">
-                  <h3 class="text-xl md:text-2xl font-bold mb-2">2. Prototype</h3>
-                  <p class="text-white/60 text-sm md:text-base">We rapidly build a functioning Proof of Concept (PoC). This lets you touch, feel, and test the solution early.</p>
+                <div
+                  class="md:w-5/12 text-left pl-[60px] md:pl-12 order-2 md:order-3 mt-1 md:mt-0 transition-transform duration-700"
+                >
+                  <h3 class="text-xl md:text-2xl font-bold mb-2">
+                    2. Prototype
+                  </h3>
+                  <p class="text-white/60 text-sm md:text-base">
+                    We rapidly build a functioning Proof of Concept (PoC). This
+                    lets you touch, feel, and test the solution early.
+                  </p>
                 </div>
               </div>
 
               <!-- Step 3 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
-                <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[60px] md:pl-0 order-2 md:order-1 mt-1 md:mt-0 transition-transform duration-700">
-                  <h3 class="text-xl md:text-2xl font-bold mb-2">3. Integrate</h3>
-                  <p class="text-white/60 text-sm md:text-base">Once approved, we seamlessly wire the solution into your daily operations without disruption.</p>
+              <div
+                class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700"
+              >
+                <div
+                  class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 pl-[60px] md:pl-0 order-2 md:order-1 mt-1 md:mt-0 transition-transform duration-700"
+                >
+                  <h3 class="text-xl md:text-2xl font-bold mb-2">
+                    3. Integrate
+                  </h3>
+                  <p class="text-white/60 text-sm md:text-base">
+                    Once approved, we seamlessly wire the solution into your
+                    daily operations without disruption.
+                  </p>
                 </div>
-                <div class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">03</span>
+                <div
+                  class="absolute left-[20px] md:left-[75%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2"
+                >
+                  <span
+                    class="font-mono text-gold font-bold text-xs md:text-base"
+                    >03</span
+                  >
                 </div>
                 <div class="md:w-5/12 order-3"></div>
               </div>
 
               <!-- Step 4 -->
-              <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700">
+              <div
+                class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between opacity-50 transition-all duration-700"
+              >
                 <div class="md:w-5/12 order-3 md:order-1"></div>
-                <div class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2">
-                  <span class="font-mono text-gold font-bold text-xs md:text-base">04</span>
+                <div
+                  class="absolute left-[20px] md:left-[25%] w-[40px] md:w-[54px] h-[40px] md:h-[54px] rounded-full bg-[#050505] border-2 border-white/20 flex items-center justify-center transform -translate-x-1/2 z-10 step-circle transition-all duration-500 order-1 md:order-2"
+                >
+                  <span
+                    class="font-mono text-gold font-bold text-xs md:text-base"
+                    >04</span
+                  >
                 </div>
-                <div class="md:w-5/12 text-left pl-[60px] md:pl-12 order-2 md:order-3 mt-1 md:mt-0 transition-transform duration-700">
-                  <h3 class="text-xl md:text-2xl font-bold mb-2">4. Scale & Support</h3>
-                  <p class="text-white/60 text-sm md:text-base">We monitor the system 24/7, pushing updates and scaling the infrastructure as you grow.</p>
+                <div
+                  class="md:w-5/12 text-left pl-[60px] md:pl-12 order-2 md:order-3 mt-1 md:mt-0 transition-transform duration-700"
+                >
+                  <h3 class="text-xl md:text-2xl font-bold mb-2">
+                    4. Scale & Support
+                  </h3>
+                  <p class="text-white/60 text-sm md:text-base">
+                    We monitor the system 24/7, pushing updates and scaling the
+                    infrastructure as you grow.
+                  </p>
                 </div>
               </div>
             </div>
@@ -618,9 +1713,18 @@
     <astr-footer></astr-footer>
 
     <!-- ====== SCRIPTS ====== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+    ></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>

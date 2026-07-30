@@ -8,6 +8,38 @@ import { inject } from '@vercel/analytics';
 // Initialize Vercel Analytics
 inject();
 
+// Prevent browser from automatically restoring scroll position or scrolling to hash natively on initial load,
+// which causes smooth scroll stutter/breaks and conflicts.
+if (typeof window !== 'undefined' && 'scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// Register Service Worker for offline capability and asset caching
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((reg) =>
+        console.log('ServiceWorker registered with scope:', reg.scope)
+      )
+      .catch((err) => console.error('ServiceWorker registration failed:', err));
+  });
+}
+
+// Throttle Utility for Performance
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
 /**
  * SCENE MANAGER: Prevents WebGL/Animation overload
  * Pauses rendering when elements are off-screen and lazy-initializes them.
@@ -64,38 +96,46 @@ const SceneManager = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  SceneManager.init();
+  const initApp = () => {
+    SceneManager.init();
 
-  // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
-  // We set immediate: true for Hero so it initializes before text animations
-  const hCanvas = document.getElementById('heroCanvas');
-  if (hCanvas)
-    SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
+    // 1. REGISTER HEAVY SCENES FIRST (especially Hero)
+    // We set immediate: true for Hero so it initializes before text animations
+    const hCanvas = document.getElementById('heroCanvas');
+    if (hCanvas)
+      SceneManager.register(hCanvas.parentElement, initHeroCanvas, true);
 
-  // 2. INITIALIZE NON-BLOCKING UI
-  initScrollReveal();
-  initTextAnimate();
-  initPillarTabs();
-  initAnomalyConsole();
-  initBlueprintCTA();
-  initPremiumAnimations();
-  initRDAnimations();
-  initPhilosophyAnimations();
+    // 2. INITIALIZE NON-BLOCKING UI
+    initScrollReveal();
+    initTextAnimate();
+    initPillarTabs();
+    initAnomalyConsole();
+    initBlueprintCTA();
+    initPremiumAnimations();
+    initRDAnimations();
+    initPhilosophyAnimations();
 
-  // 3. REGISTER REMAINING SCENES
-  SceneManager.register(
-    document.getElementById('ecosystem-graph'),
-    initEcosystemGraph
-  );
+    // 3. REGISTER REMAINING SCENES
+    SceneManager.register(
+      document.getElementById('ecosystem-graph'),
+      initEcosystemGraph
+    );
 
-  const iCanvas = document.getElementById('infraCanvas');
-  if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
+    const iCanvas = document.getElementById('infraCanvas');
+    if (iCanvas) SceneManager.register(iCanvas.parentElement, initInfraCanvas);
 
-  const dCanvas = document.getElementById('droneCanvas');
-  if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
+    const dCanvas = document.getElementById('droneCanvas');
+    if (dCanvas) SceneManager.register(dCanvas.parentElement, initDroneCanvas);
 
-  const cCanvas = document.getElementById('cta-particle-canvas');
-  if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
+    const cCanvas = document.getElementById('cta-particle-canvas');
+    if (cCanvas) SceneManager.register(cCanvas.parentElement, initCTAParticles);
+  };
+
+  if (window.requestIdleCallback) {
+    requestIdleCallback(initApp, { timeout: 1000 });
+  } else {
+    setTimeout(initApp, 1);
+  }
 });
 
 /* --- Philosophy Page Specialized Animations --- */
@@ -602,13 +642,14 @@ function initHeroCanvas() {
     camera.updateProjectionMatrix();
   }
   updateSize();
-  window.addEventListener('resize', updateSize);
+  window.addEventListener('resize', throttle(updateSize, 200));
 
   // Instant Setup: Define counts and geometry BEFORE image load
   const isMobile = window.innerWidth < 768;
   const isNarrow = window.innerWidth < 480;
-  const particleCount = isNarrow ? 5000 : isMobile ? 7000 : 15000;
-  const coreCount = isNarrow ? 400 : isMobile ? 600 : 2000;
+  // Further reduced counts for mobile performance
+  const particleCount = isNarrow ? 3000 : isMobile ? 5000 : 15000;
+  const coreCount = isNarrow ? 300 : isMobile ? 500 : 2000;
 
   const geometry = new THREE.BufferGeometry();
   const posArr = new Float32Array(particleCount * 3);
@@ -985,10 +1026,22 @@ class EcosystemGraph {
     this.nodes.push(core);
 
     const categories = [
-      { id: 'Smart Software', sub: ['Easy Logistics', 'Cloud Access', 'Live Data'] },
-      { id: 'AI Tools', sub: ['Smart Search', 'Image Recognition', 'Digital Assistants'] },
-      { id: 'Better Workflows', sub: ['Auto-Tasks', 'Team Sync', 'Process Maps'] },
-      { id: 'Full Support', sub: ['24/7 Monitoring', 'High Security', 'Fast Updates'] },
+      {
+        id: 'Smart Software',
+        sub: ['Easy Logistics', 'Cloud Access', 'Live Data'],
+      },
+      {
+        id: 'AI Tools',
+        sub: ['Smart Search', 'Image Recognition', 'Digital Assistants'],
+      },
+      {
+        id: 'Better Workflows',
+        sub: ['Auto-Tasks', 'Team Sync', 'Process Maps'],
+      },
+      {
+        id: 'Full Support',
+        sub: ['24/7 Monitoring', 'High Security', 'Fast Updates'],
+      },
     ];
 
     // Organic, irregular angles (radians) — NOT evenly spaced
@@ -1083,7 +1136,7 @@ class EcosystemGraph {
         logo.setAttributeNS(
           'http://www.w3.org/1999/xlink',
           'href',
-          '/Pictures/without bg 02.png'
+          '/Pictures/logo-optimized.webp'
         );
         logo.setAttribute('width', imgSize);
         logo.setAttribute('height', imgSize);
@@ -1368,7 +1421,16 @@ function initPillarTabs() {
   if (activeTab) {
     const initialTarget = activeTab.getAttribute('data-pillar');
     stage.setAttribute('data-active-pillar', initialTarget);
-    setTimeout(() => moveSlider(activeTab), 50);
+    setTimeout(() => {
+      moveSlider(activeTab);
+      if (window.innerWidth <= 576) {
+        activeTab.scrollIntoView({
+          behavior: 'auto',
+          inline: 'center',
+          block: 'nearest',
+        });
+      }
+    }, 50);
   }
 
   tabs.forEach((tab) => {
@@ -1388,6 +1450,15 @@ function initPillarTabs() {
 
       // Move the background highlight
       moveSlider(tab);
+
+      // Auto-center selected tab in mobile UI
+      if (window.innerWidth <= 576) {
+        tab.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest',
+        });
+      }
 
       // Update Content
       contents.forEach((content) => {
@@ -2488,5 +2559,70 @@ function initSolutionsExpansion() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initSolutionsExpansion();
+  if (window.requestIdleCallback) {
+    requestIdleCallback(initSolutionsExpansion, { timeout: 1000 });
+  } else {
+    setTimeout(initSolutionsExpansion, 1);
+  }
+
+  // Anchor smooth scroll helper for cross-page navigation offsets
+  const handleHashScroll = (isInitialLoad = false) => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        const html = document.documentElement;
+        const headerOffset = 120; // Compensate for fixed header height
+
+        if (isInitialLoad) {
+          // Disable smooth scroll temporarily to reset to top instantly and avoid browser scroll conflicts
+          const originalScrollBehavior = html.style.scrollBehavior;
+          html.style.scrollBehavior = 'auto';
+          window.scrollTo(0, 0);
+
+          setTimeout(() => {
+            // Recalculate target position after layout has settled
+            const elementPosition =
+              target.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            html.style.scrollBehavior = 'smooth';
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            });
+
+            // Restore original scroll behavior
+            setTimeout(() => {
+              html.style.scrollBehavior = originalScrollBehavior;
+            }, 1000);
+          }, 350); // Delay to let layout/canvases settle
+        } else {
+          // On hashchange / same-page navigation, scroll smoothly from current position
+          const elementPosition =
+            target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }
+    }
+  };
+
+  // Run on initial load with true to prevent browser-native scroll fight/stutter
+  handleHashScroll(true);
+  window.addEventListener('hashchange', () => handleHashScroll(false));
+});
+
+// Refresh ScrollTrigger once everything is fully loaded (images, fonts, stylesheets, custom elements)
+// to resolve layout shift issues where scroll-triggered elements (like the Orbit section header) triggered late.
+window.addEventListener('load', () => {
+  if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.refresh();
+    // Schedule subsequent refreshes to account for late-rendering Three.js canvases or web components
+    setTimeout(() => ScrollTrigger.refresh(), 200);
+    setTimeout(() => ScrollTrigger.refresh(), 1000);
+  }
 });
