@@ -99,8 +99,8 @@
 }
 /* SaaS Hero (Image 2 Style): Centered Headline + Intro + CTA above, Full-Width Mockup below */
 .velocity-page .v-hero {
-  padding-top: 130px;
-  padding-bottom: 72px;
+  padding-top: 140px;
+  padding-bottom: 120px;
   text-align: center;
   position: relative;
 }
@@ -452,7 +452,7 @@
   color: rgba(230, 205, 153, 0.65);
 }
 .velocity-page .v-section {
-  padding-block: 110px;
+  padding-block: 150px;
   border-top: 1px solid #ffffff12;
 }
 .velocity-page .v-tinted {
@@ -485,8 +485,8 @@
 /* Stock & medicines carousel */
 .velocity-page #inventory.v-section {
   border-top: none;
-  padding-top: 10px;
-  padding-bottom: 90px;
+  padding-top: 80px;
+  padding-bottom: 150px;
   width: 100%;
   max-width: 100%;
 }
@@ -1002,8 +1002,12 @@
   .velocity-page .v-container {
     width: calc(100% - 64px);
   }
+  .velocity-page .v-hero {
+    padding-top: 120px;
+    padding-bottom: 90px;
+  }
   .velocity-page .v-section {
-    padding-block: 80px;
+    padding-block: 110px;
   }
   .velocity-page .v-split,
   .velocity-page .v-faq-grid,
@@ -1011,8 +1015,8 @@
     gap: 40px;
   }
   .velocity-page #inventory.v-section {
-    padding-top: 5px;
-    padding-bottom: 70px;
+    padding-top: 60px;
+    padding-bottom: 110px;
   }
   .velocity-page .v-inventory-track {
     padding-left: 32px;
@@ -1036,7 +1040,7 @@
   }
   .velocity-page .v-hero {
     padding-top: 105px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
   }
   .velocity-page .v-hero-header .v-eyebrow {
     font-size: 0.6rem;
@@ -1111,7 +1115,7 @@
     font-size: 0.6rem;
   }
   .velocity-page .v-section {
-    padding-block: 64px;
+    padding-block: 84px;
   }
   .velocity-page h2 {
     font-size: clamp(1.75rem, 6.5vw, 2.5rem);
@@ -1129,8 +1133,8 @@
     gap: 36px;
   }
   .velocity-page #inventory.v-section {
-    padding-top: 0;
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 84px;
   }
   .velocity-page .v-inventory-track {
     padding-left: 20px;
