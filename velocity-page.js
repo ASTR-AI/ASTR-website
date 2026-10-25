@@ -1,6 +1,7 @@
 import './components.js';
 import { inject } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';
+import { initOperationsTabs } from './velocity-operations.mjs';
 
 inject();
 
@@ -81,6 +82,11 @@ function updateReorderMotion() {
 
 // Inventory carousel lifecycle
 let inventoryCleanup = null;
+let operationsCleanup = null;
+function initOperations() {
+  operationsCleanup?.();
+  operationsCleanup = initOperationsTabs(document.querySelector('[data-operations]'));
+}
 function initCarousel() {
   inventoryCleanup?.();
   const carouselRoot = document.querySelector('[data-inventory-carousel]');
@@ -93,6 +99,7 @@ window.addEventListener('pageshow', () => {
   updateSupplyMotion();
   updateReorderMotion();
   initCarousel();
+  initOperations();
 });
 
 window.addEventListener('pagehide', () => {
@@ -100,8 +107,10 @@ window.addEventListener('pagehide', () => {
   reorderObserver?.disconnect();
   cancelAnimationFrame(resizeFrame);
   inventoryCleanup?.();
+  operationsCleanup?.();
 });
 
 updateSupplyMotion();
 updateReorderMotion();
 initCarousel();
+initOperations();
