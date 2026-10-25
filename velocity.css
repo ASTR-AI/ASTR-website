@@ -482,34 +482,259 @@
   font-weight: 700;
   letter-spacing: 0.16em;
 }
-.velocity-page .v-inventory-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 80px;
-  margin-top: 50px;
-  align-items: start;
+/* Stock & medicines carousel */
+.velocity-page #inventory.v-section {
+  border-top: none;
+  padding-top: 10px;
+  padding-bottom: 90px;
+  width: 100%;
+  max-width: 100%;
 }
-.velocity-page .v-callout {
-  padding: 24px 0 30px 24px;
-  border-left: 1px solid #ffffff25;
-  transition:
-    border-color 0.25s,
-    background 0.25s;
+.velocity-page .v-inventory-carousel {
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
 }
-.velocity-page .v-callout h3 {
-  margin-top: 12px;
-  font-family: 'Lora', serif;
-  font-size: 1.18rem;
-  font-weight: 600;
+.velocity-page .v-inventory-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-left: max(48px, calc((100% - 1200px) / 2 + 48px));
+  padding-right: max(48px, calc((100% - 1200px) / 2));
+  scroll-padding-inline-start: max(48px, calc((100% - 1200px) / 2 + 48px));
+  padding-bottom: 14px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  outline: none;
+}
+.velocity-page .v-inventory-track:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.velocity-page .v-inventory-track::-webkit-scrollbar {
+  height: 6px;
+}
+.velocity-page .v-inventory-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.velocity-page .v-inventory-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.velocity-page .v-inventory-track::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.velocity-page .v-inventory-card {
+  flex: 0 0 clamp(440px, 42vw, 560px);
+  scroll-snap-align: start;
+  min-width: 0;
+  border-radius: 22px;
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.velocity-page .v-card-dark {
+  background-color: #202124;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+}
+.velocity-page .v-card-light {
+  background-color: #f4f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+}
+.velocity-page .v-card-header {
+  margin-bottom: 24px;
+}
+.velocity-page .v-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.velocity-page .v-card-dark .v-card-icon {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
-.velocity-page .v-callout p {
-  margin-top: 10px;
-  font-size: 0.9rem;
+.velocity-page .v-card-light .v-card-icon {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #17191d;
 }
-.velocity-page .v-callout.is-active {
-  border-color: var(--v-gold);
-  background: linear-gradient(90deg, #e6cd990b, transparent);
+.velocity-page .v-card-dark h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #f5f5f5;
+  margin: 22px 0 10px;
+}
+.velocity-page .v-card-light h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #17191d;
+  margin: 22px 0 10px;
+}
+.velocity-page .v-card-dark .v-card-desc {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #c7c9ce;
+  margin: 0;
+}
+.velocity-page .v-card-light .v-card-desc {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #505660;
+  margin: 0;
+}
+.velocity-page .v-card-media {
+  margin: 0;
+  padding: 0;
+}
+.velocity-page .v-card-img-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  line-height: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+.velocity-page .v-card-dark .v-card-img-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.velocity-page .v-card-light .v-card-img-wrap {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.velocity-page .v-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+.velocity-page .v-card-caption {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin-top: 12px;
+}
+.velocity-page .v-card-dark .v-card-caption {
+  color: rgba(255, 255, 255, 0.45);
+}
+.velocity-page .v-card-light .v-card-caption {
+  color: rgba(0, 0, 0, 0.45);
+}
+.velocity-page .v-inventory-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  gap: 20px;
+}
+.velocity-page .v-inventory-instruction {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+.velocity-page .v-inventory-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  flex: 1;
+}
+.velocity-page .v-inventory-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.velocity-page .v-inventory-dot {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.35);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.velocity-page .v-inventory-dot:hover:not([aria-current="true"]) {
+  background: rgba(255, 255, 255, 0.65);
+}
+.velocity-page .v-inventory-dot[aria-current="true"] {
+  width: 24px;
+  height: 6px;
+  border-radius: 3px;
+  background: #ffffff;
+}
+.velocity-page .v-inventory-dot:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+.velocity-page .v-inventory-arrows {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.velocity-page .v-inventory-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.velocity-page .v-inventory-arrow:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+}
+.velocity-page .v-inventory-arrow:active:not(:disabled) {
+  transform: scale(0.95);
+}
+.velocity-page .v-inventory-arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.velocity-page .v-inventory-arrow:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+.velocity-page .v-inventory-footer {
+  margin-top: 48px;
+}
+.velocity-page .v-inventory-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 0 20px;
+}
+.velocity-page .v-inventory-note {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
 }
 .velocity-page .v-split {
   display: grid;
@@ -759,12 +984,6 @@
   justify-content: center;
   padding: 24px;
 }
-@media (min-width: 1024px) and (min-height: 720px) {
-  .velocity-page .v-sticky-frame.can-stick {
-    position: sticky;
-    top: var(--v-header-offset);
-  }
-}
 @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
   .velocity-page .v-showcase-frame,
   .velocity-page .v-hero-media {
@@ -791,14 +1010,18 @@
   .velocity-page .v-supply-grid {
     gap: 40px;
   }
-  .velocity-page .v-inventory-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .velocity-page #inventory.v-section {
+    padding-top: 5px;
+    padding-bottom: 70px;
   }
-  .velocity-page .v-inventory-notes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .velocity-page .v-inventory-track {
+    padding-left: 32px;
+    padding-right: 32px;
+    scroll-padding-inline-start: 32px;
     gap: 20px;
+  }
+  .velocity-page .v-inventory-card {
+    flex: 0 0 72%;
   }
   .velocity-page .v-feature-groups {
     gap: 45px;
@@ -905,9 +1128,33 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .velocity-page .v-inventory-notes {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .velocity-page #inventory.v-section {
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+  .velocity-page .v-inventory-track {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-inline-start: 20px;
+    gap: 16px;
+  }
+  .velocity-page .v-inventory-card {
+    flex: 0 0 88%;
+    padding: 24px 20px 20px;
+    border-radius: 18px;
+  }
+  .velocity-page .v-inventory-card h3 {
+    font-size: 1.3rem;
+    margin: 18px 0 8px;
+  }
+  .velocity-page .v-inventory-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .velocity-page .v-inventory-controls {
+    width: 100%;
+    justify-content: space-between;
   }
   .velocity-page .v-work-view > p:not(.v-eyebrow) {
     min-height: 0;
