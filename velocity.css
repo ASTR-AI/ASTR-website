@@ -167,47 +167,141 @@
   align-items: center;
 }
 
+/* Minimal soft white light glowing from the screen in the dark */
 .velocity-page .v-media-glow {
   position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 85%;
-  height: 60%;
+  inset: -35px -50px;
+  border-radius: 32px;
   background: radial-gradient(
-    ellipse at center,
-    rgba(230, 205, 153, 0.12) 0%,
-    rgba(230, 205, 153, 0.03) 45%,
+    ellipse at 50% 50%,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.05) 45%,
     transparent 70%
   );
-  filter: blur(50px);
+  filter: blur(45px);
   pointer-events: none;
   z-index: 0;
 }
 
-.velocity-page .v-media-frame {
+.velocity-page .v-window-frame {
   position: relative;
   z-index: 1;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
-  background: #0c0c0c;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 40px 120px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 0 25px rgba(255, 255, 255, 0.12),
+    0 0 70px rgba(255, 255, 255, 0.06),
+    0 40px 120px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition:
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.velocity-page .v-media-frame:hover {
-  transform: translateY(-4px) scale(1.006);
+.velocity-page .v-window-frame:hover {
+  transform: translateY(-4px) scale(1.004);
+  border-color: rgba(255, 255, 255, 0.22);
   box-shadow:
-    0 50px 130px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(230, 205, 153, 0.25),
-    0 0 60px rgba(230, 205, 153, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 35px rgba(255, 255, 255, 0.18),
+    0 0 90px rgba(255, 255, 255, 0.09),
+    0 50px 140px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.velocity-page .v-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  background: #181818;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.velocity-page .v-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 50px;
+}
+
+.velocity-page .v-control-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.velocity-page .v-dot-close {
+  background: rgba(255, 95, 87, 0.85);
+}
+
+.velocity-page .v-dot-min {
+  background: rgba(254, 188, 46, 0.85);
+}
+
+.velocity-page .v-dot-max {
+  background: rgba(40, 200, 64, 0.85);
+}
+
+.velocity-page .v-window-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.03em;
+}
+
+.velocity-page .v-window-lock {
+  font-size: 0.55rem;
+  opacity: 0.7;
+}
+
+.velocity-page .v-window-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 50px;
+  justify-content: flex-end;
+}
+
+.velocity-page .v-window-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: rgba(230, 205, 153, 0.8);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.velocity-page .v-status-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
+  display: inline-block;
+}
+
+.velocity-page .v-window-content {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  background: #ffffff;
 }
 
 .velocity-page .v-showcase-img {
@@ -215,7 +309,6 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: inherit;
 }
 
 .velocity-page .v-actions {
@@ -349,11 +442,6 @@
   line-height: 1.6;
   text-align: left;
 }
-.velocity-page .v-hero-media {
-  max-width: 1040px;
-  margin: auto;
-  box-shadow: 0 40px 100px #0008;
-}
 .velocity-page .v-hero-media .v-media-pending {
   aspect-ratio: 2.15;
 }
@@ -387,44 +475,12 @@
   color: rgba(255, 255, 255, 0.45);
   margin-top: 28px;
 }
-.velocity-page .v-workflow .v-copy {
-  max-width: 750px;
-}
-.velocity-page .v-workflow-line {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  list-style: none;
-  padding: 0;
-  margin: 54px 0 0;
-  gap: 14px;
-}
-.velocity-page .v-workflow-line li {
-  position: relative;
-  border-top: 1px solid rgba(230, 205, 153, 0.35);
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  font-family: 'Lora', serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-}
 .velocity-page .v-step-number {
   color: var(--v-gold);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
-}
-.velocity-page .v-flow-arrow {
-  position: absolute;
-  right: 4px;
-  bottom: 0;
-  color: var(--v-muted);
-}
-.velocity-page .v-workflow-line li:last-child .v-flow-arrow {
-  display: none;
 }
 .velocity-page .v-inventory-grid {
   display: grid;
@@ -792,8 +848,27 @@
     gap: 8px;
     letter-spacing: 0.12em;
   }
-  .velocity-page .v-media-frame {
+  .velocity-page .v-media-glow {
+    inset: -20px -20px;
+    filter: blur(28px);
+  }
+  .velocity-page .v-window-frame {
     border-radius: 12px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 18px rgba(255, 255, 255, 0.1),
+      0 0 45px rgba(255, 255, 255, 0.05),
+      0 30px 80px rgba(0, 0, 0, 0.9);
+  }
+  .velocity-page .v-window-bar {
+    padding: 5px 10px;
+  }
+  .velocity-page .v-window-meta {
+    display: none;
+  }
+  .velocity-page .v-window-address {
+    font-size: 0.58rem;
+    padding: 3px 10px;
   }
   .velocity-page .v-media-top {
     padding: 12px;
@@ -820,14 +895,6 @@
     line-height: 1.18;
   }
   .velocity-page .v-lead {
-    font-size: 0.95rem;
-  }
-  .velocity-page .v-workflow-line {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 26px 25px;
-    margin-top: 34px;
-  }
-  .velocity-page .v-workflow-line li {
     font-size: 0.95rem;
   }
   .velocity-page .v-split,
