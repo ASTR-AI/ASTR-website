@@ -34,6 +34,7 @@ export default defineConfig({
         comingsoon: resolve(__dirname, 'coming-soon.html'),
         philosophy: resolve(__dirname, 'philosophy.html'),
         solutions: resolve(__dirname, 'solutions.html'),
+        velocity: resolve(__dirname, 'velocity.html'),
         rd: resolve(__dirname, 'rd.html'),
         connect: resolve(__dirname, 'connect.html'),
         missiondocs: resolve(__dirname, 'mission-docs.html'),

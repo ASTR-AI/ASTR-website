@@ -47,14 +47,18 @@ class AstrNavbar extends HTMLElement {
             >R&amp;D</a
           >
         </div>
-        <div
+        <button
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="navLinks"
+          aria-expanded="false"
           class="nav-hamburger hidden flex-col gap-[4px] cursor-pointer z-[1001] max-[768px]:flex [&>span]:w-6 [&>span]:h-[2px] [&>span]:bg-white [&>span]:transition-all [&>span]:duration-300 [&.active>span:nth-child(1)]:rotate-45 [&.active>span:nth-child(1)]:translate-y-[6px] [&.active>span:nth-child(2)]:opacity-0 [&.active>span:nth-child(3)]:-rotate-45 [&.active>span:nth-child(3)]:-translate-y-[6px]"
           id="hamburger"
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </nav>
     `;
 
@@ -77,18 +81,34 @@ class AstrNavbar extends HTMLElement {
       }
     });
 
-    // Hamburger Toggle
+    // Keep the collapsed mobile menu out of keyboard navigation.
+    const mobileMenu = window.matchMedia('(max-width: 768px)');
+    const setMenuOpen = (open) => {
+      hamburger.classList.toggle('active', open);
+      navLinks.classList.toggle('nav-active', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute(
+        'aria-label',
+        open ? 'Close navigation' : 'Open navigation'
+      );
+      navLinks.inert = mobileMenu.matches && !open;
+    };
+    setMenuOpen(false);
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('nav-active');
+      setMenuOpen(hamburger.getAttribute('aria-expanded') !== 'true');
     });
-
-    // Close menu on link click
+    mobileMenu.addEventListener('change', () => setMenuOpen(false));
+    this.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'Escape' &&
+        hamburger.getAttribute('aria-expanded') === 'true'
+      ) {
+        setMenuOpen(false);
+        hamburger.focus();
+      }
+    });
     navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('nav-active');
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
     });
 
     // Sliding Indicator Logic
@@ -342,25 +362,28 @@ class AstrFooter extends HTMLElement {
           </div>
         </div>
     `;
-    
+
     // Use a native IntersectionObserver for the footer to avoid GSAP height recalculation bugs
     // on extremely short elements at the absolute bottom of the viewport.
     if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
       setTimeout(() => {
         const reveals = this.querySelectorAll('.footer-reveal');
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -20px 0px'
-        });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -20px 0px',
+          }
+        );
 
-        reveals.forEach(el => observer.observe(el));
+        reveals.forEach((el) => observer.observe(el));
       }, 100);
     }
   }

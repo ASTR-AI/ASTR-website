@@ -1,0 +1,885 @@
+/* Velocity: page-scoped styles; essential content is visible before enhancement. */
+.velocity-page {
+  --v-gold: var(--color-gold-DEFAULT, #e6cd99);
+  --v-muted: #b5b5b5;
+  --v-header-offset: 145px;
+  background: #080808;
+  color: #f5f3ee;
+  font-family: 'Lora', serif;
+}
+.velocity-page main * {
+  max-width: none;
+}
+.velocity-page main {
+  overflow: clip;
+}
+.velocity-page .v-container {
+  width: min(1200px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.velocity-page section[id] {
+  /* Global section size estimates move long-page anchor targets after arrival. */
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+  scroll-margin-top: var(--v-header-offset);
+}
+.velocity-page h1,
+.velocity-page h2,
+.velocity-page h3,
+.velocity-page h4,
+.velocity-page p,
+.velocity-page figure {
+  margin: 0;
+}
+.velocity-page h1,
+.velocity-page h2 {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: #ffffff;
+}
+.velocity-page em {
+  font-style: italic;
+  font-weight: inherit;
+}
+.velocity-page h1 em,
+.velocity-page h2 em {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+.velocity-page h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.velocity-page h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+.velocity-page h4 {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+}
+.velocity-page p {
+  color: var(--v-muted);
+  line-height: 1.75;
+}
+.velocity-page a {
+  text-underline-offset: 5px;
+}
+.velocity-page a:focus-visible,
+.velocity-page summary:focus-visible,
+.velocity-page button:focus-visible {
+  outline: 2px solid var(--v-gold);
+  outline-offset: 6px;
+}
+.velocity-page .v-eyebrow {
+  color: rgba(230, 205, 153, 0.7);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+.velocity-page .v-eyebrow span {
+  opacity: 0.35;
+  margin-inline: 10px;
+}
+/* SaaS Hero (Image 2 Style): Centered Headline + Intro + CTA above, Full-Width Mockup below */
+.velocity-page .v-hero {
+  padding-top: 130px;
+  padding-bottom: 72px;
+  text-align: center;
+  position: relative;
+}
+
+.velocity-page .v-hero-header {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.velocity-page .v-hero-header .v-eyebrow {
+  color: rgba(230, 205, 153, 0.7);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.velocity-page .v-hero-header h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.3rem, 4.6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 auto 20px;
+  text-wrap: balance;
+}
+
+.velocity-page .v-hero-header h1 em {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  display: inline-block;
+}
+
+.velocity-page .v-hero-intro {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 660px;
+  margin: 0 auto 30px;
+}
+
+.velocity-page .v-hero-header .v-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 auto 52px;
+}
+
+.velocity-page .v-hero-media {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.velocity-page .v-media-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(230, 205, 153, 0.12) 0%,
+    rgba(230, 205, 153, 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.velocity-page .v-media-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0c0c0c;
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.velocity-page .v-media-frame:hover {
+  transform: translateY(-4px) scale(1.006);
+  box-shadow:
+    0 50px 130px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(230, 205, 153, 0.25),
+    0 0 60px rgba(230, 205, 153, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.velocity-page .v-showcase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.velocity-page .v-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 36px 0 64px;
+}
+.velocity-page .v-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 48px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  background: var(--v-gold);
+  color: #12100a;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transition:
+    background 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.velocity-page .v-button:hover {
+  background: #f6e2b7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 205, 153, 0.25);
+}
+.velocity-page .v-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s;
+}
+.velocity-page .v-text-link:hover {
+  color: var(--v-gold);
+}
+.velocity-page .v-media {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid #e6cd9926;
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 50% 15%, #e6cd9910, transparent 65%), #101010;
+}
+.velocity-page .v-media-top {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #ffffff0d;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(230, 205, 153, 0.7);
+}
+.velocity-page .v-media-top span:last-child {
+  color: rgba(255, 255, 255, 0.35);
+}
+.velocity-page .v-media-pending {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-image:
+    linear-gradient(#ffffff03 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff03 1px, transparent 1px);
+  background-size: 48px 48px;
+  text-align: center;
+  padding: 24px;
+}
+.velocity-page .v-media-mark {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+  color: var(--v-gold);
+  border: 1px solid rgba(230, 205, 153, 0.25);
+  border-radius: 16px;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-content: center;
+  position: relative;
+  margin-bottom: 8px;
+  background: rgba(230, 205, 153, 0.04);
+}
+.velocity-page .v-media-mark span {
+  position: absolute;
+  right: 9px;
+  top: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+}
+.velocity-page .v-media-pending strong {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.velocity-page .v-media-pending p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.velocity-page figcaption {
+  padding: 13px 20px;
+  border-top: 1px solid #ffffff0d;
+  font-family: 'Lora', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+  text-align: left;
+}
+.velocity-page .v-hero-media {
+  max-width: 1040px;
+  margin: auto;
+  box-shadow: 0 40px 100px #0008;
+}
+.velocity-page .v-hero-media .v-media-pending {
+  aspect-ratio: 2.15;
+}
+.velocity-page .v-preview-note {
+  margin-top: 18px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: rgba(230, 205, 153, 0.65);
+}
+.velocity-page .v-section {
+  padding-block: 110px;
+  border-top: 1px solid #ffffff12;
+}
+.velocity-page .v-tinted {
+  background: #10100f;
+}
+.velocity-page .v-copy {
+  max-width: 780px;
+}
+.velocity-page .v-copy > p:not(.v-eyebrow) {
+  margin-top: 25px;
+}
+.velocity-page .v-lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 680px;
+}
+.velocity-page .v-small {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 28px;
+}
+.velocity-page .v-workflow .v-copy {
+  max-width: 750px;
+}
+.velocity-page .v-workflow-line {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  list-style: none;
+  padding: 0;
+  margin: 54px 0 0;
+  gap: 14px;
+}
+.velocity-page .v-workflow-line li {
+  position: relative;
+  border-top: 1px solid rgba(230, 205, 153, 0.35);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+.velocity-page .v-step-number {
+  color: var(--v-gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.velocity-page .v-flow-arrow {
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+  color: var(--v-muted);
+}
+.velocity-page .v-workflow-line li:last-child .v-flow-arrow {
+  display: none;
+}
+.velocity-page .v-inventory-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 80px;
+  margin-top: 50px;
+  align-items: start;
+}
+.velocity-page .v-callout {
+  padding: 24px 0 30px 24px;
+  border-left: 1px solid #ffffff25;
+  transition:
+    border-color 0.25s,
+    background 0.25s;
+}
+.velocity-page .v-callout h3 {
+  margin-top: 12px;
+  font-family: 'Lora', serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.velocity-page .v-callout p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+.velocity-page .v-callout.is-active {
+  border-color: var(--v-gold);
+  background: linear-gradient(90deg, #e6cd990b, transparent);
+}
+.velocity-page .v-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.velocity-page .v-note {
+  padding-left: 18px;
+  border-left: 1px solid rgba(230, 205, 153, 0.4);
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: rgba(230, 205, 153, 0.85);
+}
+.velocity-page .v-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.velocity-page .v-inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 0;
+  margin: 30px 0 0;
+  list-style: none;
+  color: var(--v-muted);
+  font-size: 0.8rem;
+}
+.velocity-page .v-inline-list li::before {
+  content: '↗';
+  color: var(--v-gold);
+  margin-right: 8px;
+}
+.velocity-page .v-supply-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 80px;
+  margin-top: 48px;
+  align-items: center;
+}
+.velocity-page .v-supply-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.velocity-page .v-supply-steps li {
+  display: flex;
+  gap: 22px;
+  padding: 23px 0;
+  border-bottom: 1px solid #ffffff18;
+}
+.velocity-page .v-supply-steps .v-step-number {
+  padding-top: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.velocity-page .v-supply-steps p {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+.velocity-page .v-supply-steps .is-active h3 {
+  color: var(--v-gold);
+}
+.velocity-page .v-supply-steps h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+.velocity-page .v-work-view h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+.velocity-page .v-work-view > p:not(.v-eyebrow) {
+  min-height: 120px;
+  font-size: 0.92rem;
+  margin-bottom: 28px;
+}
+.velocity-page .v-file-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.velocity-page .v-file-types span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--v-gold);
+  padding: 8px 14px;
+  border: 1px solid rgba(230, 205, 153, 0.28);
+  border-radius: 6px;
+  background: rgba(230, 205, 153, 0.03);
+}
+.velocity-page .v-feature-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px 80px;
+  margin-top: 60px;
+}
+.velocity-page .v-feature-group h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--v-gold);
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(230, 205, 153, 0.25);
+}
+.velocity-page dl {
+  margin: 0;
+}
+.velocity-page dl > div {
+  padding: 20px 0;
+  border-bottom: 1px solid #ffffff15;
+}
+.velocity-page dt {
+  font-family: 'Lora', serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 7px;
+}
+.velocity-page dd {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--v-muted);
+  line-height: 1.7;
+}
+.velocity-page .v-audiences {
+  padding-top: 70px;
+  margin-top: 70px;
+  border-top: 1px solid #ffffff20;
+}
+.velocity-page .v-audiences > h3 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+.velocity-page .v-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 40px;
+  margin-top: 34px;
+}
+.velocity-page .v-audience-grid h4 {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.velocity-page .v-audience-grid p {
+  font-size: 0.85rem;
+}
+.velocity-page .v-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+}
+.velocity-page details {
+  border-bottom: 1px solid #ffffff25;
+}
+.velocity-page summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  cursor: pointer;
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  list-style: none;
+  transition: color 0.2s;
+}
+.velocity-page summary:hover {
+  color: var(--v-gold);
+}
+.velocity-page summary::-webkit-details-marker {
+  display: none;
+}
+.velocity-page summary span {
+  color: var(--v-gold);
+  font-size: 1.4rem;
+}
+.velocity-page details[open] summary span {
+  transform: rotate(45deg);
+}
+.velocity-page details p {
+  padding: 0 30px 25px 0;
+  font-size: 0.9rem;
+}
+.velocity-page .v-demo {
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 100%, #e6cd9912, transparent 70%);
+}
+.velocity-page .v-demo h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+}
+.velocity-page .v-demo .v-lead {
+  margin: 28px auto 32px;
+}
+.velocity-page .v-demo .v-small {
+  margin-top: 22px;
+}
+.velocity-page .v-email {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+.velocity-page .v-email a {
+  color: var(--v-gold);
+  text-decoration: underline;
+}
+.velocity-page .v-demo .v-small a {
+  text-decoration: underline;
+}
+.velocity-page .v-skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  background: var(--v-gold);
+  color: #111;
+  padding: 12px 20px;
+  transform: translateY(-150%);
+}
+.velocity-page .v-skip:focus {
+  transform: none;
+}
+.velocity-page .v-fallback-nav,
+.velocity-page .v-fallback-footer {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding: 24px;
+}
+@media (min-width: 1024px) and (min-height: 720px) {
+  .velocity-page .v-sticky-frame.can-stick {
+    position: sticky;
+    top: var(--v-header-offset);
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .velocity-page .v-showcase-frame,
+  .velocity-page .v-hero-media {
+    animation: velocity-settle 0.7s ease-out both;
+  }
+  @keyframes velocity-settle {
+    from {
+      transform: translateY(16px) scale(0.97);
+    }
+    to {
+      transform: none;
+    }
+  }
+}
+@media (max-width: 1023px) {
+  .velocity-page .v-container {
+    width: calc(100% - 64px);
+  }
+  .velocity-page .v-section {
+    padding-block: 80px;
+  }
+  .velocity-page .v-split,
+  .velocity-page .v-faq-grid,
+  .velocity-page .v-supply-grid {
+    gap: 40px;
+  }
+  .velocity-page .v-inventory-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .velocity-page .v-inventory-notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .velocity-page .v-feature-groups {
+    gap: 45px;
+  }
+}
+@media (max-width: 767px) {
+  .velocity-page {
+    --v-header-offset: 115px;
+  }
+  .velocity-page .v-container {
+    width: calc(100% - 40px);
+  }
+  .velocity-page .v-hero {
+    padding-top: 105px;
+    padding-bottom: 50px;
+  }
+  .velocity-page .v-hero-header .v-eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+  .velocity-page .v-hero-header h1 {
+    font-size: clamp(1.85rem, 7.5vw, 2.75rem);
+    line-height: 1.18;
+    margin-bottom: 16px;
+  }
+  .velocity-page .v-hero-intro {
+    font-size: 0.95rem;
+    margin-bottom: 26px;
+  }
+  .velocity-page .v-hero-header .v-actions {
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+    width: 100%;
+  }
+  .velocity-page .v-hero-header .v-button {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 24px;
+    gap: 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+  .velocity-page .v-hero-header .v-text-link {
+    font-size: 0.7rem;
+    gap: 8px;
+    letter-spacing: 0.12em;
+  }
+  .velocity-page .v-media-frame {
+    border-radius: 12px;
+  }
+  .velocity-page .v-media-top {
+    padding: 12px;
+    font-size: 0.6rem;
+  }
+  .velocity-page .v-media-top span:last-child {
+    display: none;
+  }
+  .velocity-page .v-hero-media .v-media-pending {
+    aspect-ratio: 4 / 3;
+  }
+  .velocity-page .v-media-pending {
+    aspect-ratio: 4 / 3;
+  }
+  .velocity-page figcaption {
+    padding: 12px;
+    font-size: 0.6rem;
+  }
+  .velocity-page .v-section {
+    padding-block: 64px;
+  }
+  .velocity-page h2 {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    line-height: 1.18;
+  }
+  .velocity-page .v-lead {
+    font-size: 0.95rem;
+  }
+  .velocity-page .v-workflow-line {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 25px;
+    margin-top: 34px;
+  }
+  .velocity-page .v-workflow-line li {
+    font-size: 0.95rem;
+  }
+  .velocity-page .v-split,
+  .velocity-page .v-pair,
+  .velocity-page .v-supply-grid,
+  .velocity-page .v-feature-groups,
+  .velocity-page .v-faq-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .velocity-page .v-inventory-notes {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .velocity-page .v-work-view > p:not(.v-eyebrow) {
+    min-height: 0;
+  }
+  .velocity-page .v-audience-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .velocity-page .v-audiences {
+    padding-top: 40px;
+    margin-top: 40px;
+  }
+  .velocity-page .v-demo h2 {
+    font-size: clamp(2rem, 6.5vw, 2.6rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.velocity-page) {
+    scroll-behavior: auto;
+  }
+  .velocity-page *,
+  .velocity-page *::before,
+  .velocity-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Typography roles aligned with ASTR AI website system */
+.velocity-page h3,
+.velocity-page h4,
+.velocity-page dt,
+.velocity-page summary {
+  font-family: 'Lora', serif;
+}
+.velocity-page .v-button,
+.velocity-page .v-text-link {
+  font-family: 'JetBrains Mono', monospace;
+}
+.velocity-page .v-media-pending strong {
+  font-family: 'Lora', serif;
+}

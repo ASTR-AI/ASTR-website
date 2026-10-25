@@ -356,6 +356,7 @@
               </div>
 
               <h1
+                id="enquiryHeading"
                 class="reveal text-[clamp(2.5rem,5vw,4.5rem)] font-cinzel font-bold leading-[1.1] tracking-tight mb-8"
               >
                 Establish <br />
@@ -365,6 +366,7 @@
               </h1>
 
               <p
+                id="enquiryIntro"
                 class="reveal reveal-delay-1 text-white/50 text-xl leading-relaxed max-w-[480px] mb-12 italic"
               >
                 Initiate a technical consultation with our principal architects
@@ -453,7 +455,8 @@
                 <div class="corner-bracket bracket-bl"></div>
                 <div class="corner-bracket bracket-br"></div>
 
-                <form id="connectForm" class="space-y-12">
+                <p id="enquiryContext" class="font-lora text-xl text-gold mb-8">Send an enquiry</p>
+                <form id="connectForm" class="space-y-12" onsubmit="return false">
                   <!-- FormSubmit.co Configuration -->
                   <input type="hidden" name="_captcha" value="false" />
                   <input
@@ -574,9 +577,12 @@
                       >
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                       </svg>
-                      Encrypted End-to-End Transmission
+                      Please share business contact details only
                     </div>
                   </div>
+                  <p id="formStatus" role="status" aria-live="polite" class="text-white/80 text-sm"></p>
+                  <p class="text-white/70 text-sm">Prefer email? <a class="underline text-gold" id="enquiryEmail" href="mailto:hello@astrai.in">hello@astrai.in</a>. Please do not include patient or prescription information. See our <a class="underline" href="mission-docs.html#privacy">privacy policy</a>.</p>
+                  <noscript><p>Please email hello@astrai.in to arrange your enquiry. This form requires JavaScript.</p></noscript>
                 </form>
               </div>
             </div>
@@ -643,9 +649,6 @@
         }
 
         // --- Form Logic & URL Params ---
-        const form = document.getElementById('connectForm');
-        const mainContent = document.getElementById('mainContent');
-        const successOverlay = document.getElementById('successOverlay');
         const params = new URLSearchParams(window.location.search);
 
         const missionParam = params.get('params');
@@ -671,73 +674,7 @@
           }
         }
 
-        if (form) {
-          form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const btnText = submitBtn ? submitBtn.querySelector('span') : null;
 
-            if (btnText) btnText.innerText = 'SYNCHRONIZING...';
-            if (submitBtn) {
-              submitBtn.style.opacity = '0.7';
-              submitBtn.style.pointerEvents = 'none';
-            }
-
-            // --- Real Email Submission via FormSubmit.co ---
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            fetch('https://formsubmit.co/ajax/hello@astrai.in', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-              },
-              body: json,
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                console.log('Submission Success:', data);
-                // Trigger the high-fidelity transition after successful send
-                if (typeof gsap !== 'undefined') {
-                  gsap.to(mainContent, {
-                    opacity: 0,
-                    filter: 'blur(30px)',
-                    duration: 1.2,
-                    ease: 'power4.inOut',
-                    onComplete: () => {
-                      if (successOverlay) {
-                        successOverlay.classList.add('active');
-                        gsap.from(
-                          successOverlay.querySelector('.text-center'),
-                          {
-                            y: 40,
-                            opacity: 0,
-                            duration: 1.5,
-                            ease: 'expo.out',
-                          }
-                        );
-                      }
-                    },
-                  });
-                } else if (successOverlay) {
-                  successOverlay.classList.add('active');
-                }
-              })
-              .catch((error) => {
-                console.error('Submission Error:', error);
-                if (btnText) btnText.innerText = '[RETRY_CONNECTION]';
-                if (submitBtn) {
-                  submitBtn.style.opacity = '1';
-                  submitBtn.style.pointerEvents = 'auto';
-                }
-                alert(
-                  'Connection Interrupted. Please check your uplink and try again.'
-                );
-              });
-          });
-        }
       });
     </script>
 
@@ -746,5 +683,6 @@
     
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script type="module" src="main.js"></script>
+    <script type="module" src="connect-form.mjs"></script>
   </body>
 </html>
