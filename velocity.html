@@ -129,23 +129,6 @@
               aria-label="1 of 4: Locations"
             >
               <div class="v-card-header">
-                <div class="v-card-icon" aria-hidden="true">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                    />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
                 <h3>See stock across every location.</h3>
                 <p class="v-card-desc">
                   Keep your warehouse, pharmacy, and hospital locations in view.
@@ -174,22 +157,6 @@
               aria-label="2 of 4: Batches"
             >
               <div class="v-card-header">
-                <div class="v-card-icon" aria-hidden="true">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="m21 8-9-5-9 5 9 5 9-5Z" />
-                    <path d="m3 8 9 5v10l-9-5V8Z" />
-                    <path d="m21 8-9 5v10l9-5V8Z" />
-                  </svg>
-                </div>
                 <h3>Keep every batch connected.</h3>
                 <p class="v-card-desc">
                   Follow medicine batches and their stock details.
@@ -218,24 +185,6 @@
               aria-label="3 of 4: Expiry"
             >
               <div class="v-card-header">
-                <div class="v-card-icon" aria-hidden="true">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
-                    <line x1="16" x2="16" y1="2" y2="6" />
-                    <line x1="8" x2="8" y1="2" y2="6" />
-                    <line x1="3" x2="21" y1="10" y2="10" />
-                    <circle cx="12" cy="15" r="2" />
-                  </svg>
-                </div>
                 <h3>Keep expiry dates in view.</h3>
                 <p class="v-card-desc">
                   Find medicines nearing expiry and review stock that needs
@@ -265,24 +214,6 @@
               aria-label="4 of 4: Packs & units"
             >
               <div class="v-card-header">
-                <div class="v-card-icon" aria-hidden="true">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="m12.89 1.45 8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"
-                    />
-                    <path d="m2.32 6.16 9.68 4.84 9.68-4.84" />
-                    <path d="M12 22.76V11" />
-                  </svg>
-                </div>
                 <h3>Read stock the way your team works.</h3>
                 <p class="v-card-desc">
                   See quantities in each medicine’s configured packs and loose
@@ -409,94 +340,192 @@
           </div>
         </div>
       </section>
-      <section id="reordering" class="v-section v-tinted">
-        <div class="v-container v-split">
-          <div class="v-copy">
+      <section id="reordering" class="v-section v-tinted v-reorder-section">
+        <div class="v-container">
+          <div class="v-reorder-intro">
             <p class="v-eyebrow">
-              02 <span aria-hidden="true">/</span> Reorder recommendations
+              02 <span aria-hidden="true">/</span> AI-enabled reorder recommendations
             </p>
-            <h2>Plan your next order<br /><em>with a clearer picture.</em></h2>
+            <h2>Know what to reorder. <em>And when.</em></h2>
             <p class="v-lead">
-              Review reorder suggestions based on available stock and past use.
-              See which medicines need attention and use the recommendations to
-              prepare purchase orders.
-            </p>
-            <p>
-              Recent consumption, seasonal history where available, stock
-              nearing expiry, and supplier lead time inform the suggestions.
-            </p>
-            <p class="v-note">
-              Your team reviews the recommendation before ordering.
+              Turn stock levels and consumption history into suggested reorder quantities—ready for your team to review.
             </p>
           </div>
-          <figure class="v-media" data-asset="velocity-reorder">
-            <div class="v-media-top">
-              <span>Velocity / Reorder recommendations</span
-              ><span>Product view</span>
+
+          <div class="v-reorder-showcase" data-reorder-panel>
+            <div class="v-reorder-panel">
+              <div class="v-reorder-screen-wrap">
+                <div class="v-reorder-browser-bar" aria-hidden="true">
+                  <div class="v-window-controls">
+                    <span class="v-control-dot v-dot-close"></span>
+                    <span class="v-control-dot v-dot-min"></span>
+                    <span class="v-control-dot v-dot-max"></span>
+                  </div>
+                  <span class="v-reorder-browser-address">Velocity / Predictive reorder</span>
+                  <span class="v-reorder-browser-preview">Product preview</span>
+                </div>
+                <div class="v-reorder-image-surface">
+                <img
+                  src="/Pictures/velocity-predictive-reorder.png"
+                  alt="Velocity predictive reorder recommendations interface showing medicine inventory, consumption rates, and suggested purchase quantities"
+                  width="2940"
+                  height="1850"
+                  loading="lazy"
+                  class="v-reorder-screen"
+                />
+                <div class="v-reorder-veil" aria-hidden="true"></div>
+                </div>
+              </div>
             </div>
-            <div class="v-media-pending">
-              <span class="v-media-mark" aria-hidden="true"
-                >V<span>↗</span></span
-              ><strong>Reorder recommendations</strong>
-              <p>Product capture pending</p>
+
+            <div class="v-reorder-summary-card" data-reorder-card>
+              <p class="v-summary-tag">AI-enabled recommendations</p>
+              <h3 class="v-summary-title">Review reorder suggestions.</h3>
+              <p class="v-summary-body">Stock levels. Consumption history. Suggested quantities.</p>
+              <p class="v-summary-note">Your team reviews before ordering.</p>
             </div>
-            <figcaption>
-              Development preview · Approved screenshot with demo data required.
-            </figcaption>
-          </figure>
+          </div>
+
+          <div class="v-reorder-workflow">
+            <div class="v-workflow-steps">
+              <div class="v-workflow-step">
+                <svg
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="v-workflow-icon"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                <h3 class="v-workflow-title">Identify</h3>
+                <p class="v-workflow-desc">Spot medicines needing replenishment.</p>
+              </div>
+
+              <div class="v-workflow-sep" aria-hidden="true"></div>
+
+              <div class="v-workflow-step">
+                <svg
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="v-workflow-icon"
+                >
+                  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                  <path d="M12 11h4" />
+                  <path d="M12 16h4" />
+                  <path d="M8 11h.01" />
+                  <path d="M8 16h.01" />
+                </svg>
+                <h3 class="v-workflow-title">Review</h3>
+                <p class="v-workflow-desc">Check suggested quantities against stock and usage.</p>
+              </div>
+
+              <div class="v-workflow-sep" aria-hidden="true"></div>
+
+              <div class="v-workflow-step">
+                <svg
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="v-workflow-icon"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+                <h3 class="v-workflow-title">Prepare</h3>
+                <p class="v-workflow-desc">Review suggestions before preparing a purchase order.</p>
+              </div>
+            </div>
+
+            <div class="v-workflow-footer">
+              <p class="v-workflow-statement">AI recommends. Your team decides.</p>
+            </div>
+          </div>
         </div>
       </section>
-      <section id="purchasing" class="v-section v-container">
-        <div class="v-copy">
-          <p class="v-eyebrow">
-            03 <span aria-hidden="true">/</span> Purchasing & suppliers
-          </p>
-          <h2>
-            From order to received stock.<br /><em>Keep every step clear.</em>
-          </h2>
-          <p class="v-lead">
-            Create purchase orders, review approvals, and record the medicines
-            you receive. Keep supplier bills and payment records connected to
-            your purchasing work.
-          </p>
+      <section id="purchasing" class="v-section v-purchasing-section" aria-labelledby="purchasing-heading">
+        <div class="v-container">
+          <div class="v-purchasing-intro">
+            <p class="v-eyebrow">03 <span aria-hidden="true">/</span> Purchasing &amp; suppliers</p>
+            <h2 id="purchasing-heading">From order to received stock.<br /><em>Keep every step clear.</em></h2>
+            <p class="v-lead">Create purchase orders, review approvals, and receive medicines. Keep supplier bills and payment records connected along the way.</p>
+          </div>
+
+          <div class="v-purchase-stage" role="region" aria-label="Purchasing workflow preview">
+            <div class="v-purchase-stage-caption">
+              <span class="v-purchase-stage-label">Illustrative workflow · Demo data</span>
+            </div>
+            <div class="v-purchase-documents">
+              <article class="v-purchase-document v-purchase-order" aria-labelledby="purchase-order-title">
+                <div class="v-document-topline"><span>VELOCITY <span aria-hidden="true">↗</span></span><span>Purchasing</span></div>
+                <div class="v-document-heading">
+                  <div><p class="v-document-kicker">Start with the details</p><h3 id="purchase-order-title">Purchase order</h3></div>
+                  <span class="v-document-id">PO–0024</span>
+                </div>
+                <dl class="v-document-supplier"><div><dt>Supplier</dt><dd>Northstar Pharma</dd></div><div><dt>Order status</dt><dd><span class="v-document-badge">Pending approval</span></dd></div></dl>
+                <table class="v-document-table">
+                  <caption class="sr-only">Illustrative purchase order quantities in strips</caption>
+                  <thead><tr><th scope="col">Medicine</th><th scope="col">Qty / strips</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Paracetamol <span>500 mg · 10 tablets / strip</span></th><td>120</td></tr>
+                    <tr><th scope="row">Amoxicillin <span>250 mg · 10 capsules / strip</span></th><td>80</td></tr>
+                  </tbody>
+                </table>
+                <div class="v-document-bottom"><span class="v-document-symbol" aria-hidden="true">↗</span><p>Prepared for your team.<br /><strong>Ready for review.</strong></p><span class="v-document-count">02 items</span></div>
+              </article>
+
+              <div class="v-purchase-connector" aria-hidden="true"><span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6" /></svg><span></span></div>
+
+              <article class="v-purchase-document v-purchase-receipt" aria-labelledby="purchase-receipt-title">
+                <div class="v-document-topline"><span>VELOCITY <span aria-hidden="true">↗</span></span><span>Receiving</span></div>
+                <div class="v-document-heading">
+                  <div><p class="v-document-kicker">When the delivery arrives</p><h3 id="purchase-receipt-title">Goods receipt</h3></div>
+                  <span class="v-document-id">GR–0018</span>
+                </div>
+                <dl class="v-document-supplier"><div><dt>Supplier</dt><dd>Northstar Pharma</dd></div><div><dt>Record</dt><dd><span class="v-document-badge v-badge-received">Receipt example</span></dd></div></dl>
+                <div class="v-receipt-item"><p>Paracetamol <span>500 mg</span></p><span>120 strips received</span></div>
+                <dl class="v-receipt-details"><div><dt>Batch number</dt><dd>PCM–0426</dd></div><div><dt>Expiry</dt><dd>Apr 2028</dd></div></dl>
+                <div class="v-document-bottom"><span class="v-document-symbol" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg></span><p>Quantities, batches, expiry.<br /><strong>Recorded on receipt.</strong></p></div>
+              </article>
+            </div>
+            <p class="v-purchase-stage-note">Your team reviews orders and records deliveries.</p>
+          </div>
+
+          <div class="v-purchase-features">
+            <article><span class="v-purchase-feature-index">01 / ORDER</span><h3>Prepare with clarity.</h3><p>Purchase orders and approval workflows.</p></article>
+            <article><span class="v-purchase-feature-index">02 / RECEIVE</span><h3>Every delivery, detailed.</h3><p>Quantities, batches, expiry, and bill entry.</p></article>
+            <article><span class="v-purchase-feature-index">03 / CONNECT</span><h3>Keep suppliers in view.</h3><p>Supplier records, payments, and controlled bill corrections.</p></article>
+          </div>
+
+          <div class="v-purchase-footer">
+            <hr class="v-purchase-divider" />
+            <p class="v-purchase-closing">Orders, receipts, and supplier records. <span>Connected.</span></p>
+          </div>
         </div>
-        <div class="v-pair">
-          <figure class="v-media" data-asset="velocity-purchasing-order">
-            <div class="v-media-top">
-              <span>Velocity / Purchase order</span><span>Product view</span>
-            </div>
-            <div class="v-media-pending">
-              <span class="v-media-mark" aria-hidden="true"
-                >V<span>↗</span></span
-              ><strong>Purchase order</strong>
-              <p>Product capture pending</p>
-            </div>
-            <figcaption>
-              Development preview · Approved screenshot with demo data required.
-            </figcaption>
-          </figure>
-          <figure class="v-media" data-asset="velocity-purchasing-receipt">
-            <div class="v-media-top">
-              <span>Velocity / Goods receipt</span><span>Product view</span>
-            </div>
-            <div class="v-media-pending">
-              <span class="v-media-mark" aria-hidden="true"
-                >V<span>↗</span></span
-              ><strong>Goods receipt</strong>
-              <p>Product capture pending</p>
-            </div>
-            <figcaption>
-              Development preview · Approved screenshot with demo data required.
-            </figcaption>
-          </figure>
-        </div>
-        <ul class="v-inline-list">
-          <li>Supplier records</li>
-          <li>Approvals, rejection & cancellation</li>
-          <li>Batch & expiry on receipt</li>
-          <li>Direct bill entry & controlled corrections</li>
-          <li>Payment history</li>
-        </ul>
       </section>
       <section id="supply" class="v-section v-tinted">
         <div class="v-container">
