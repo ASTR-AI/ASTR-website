@@ -809,189 +809,207 @@
           <p class="v-operations-availability">Module availability depends on your configured setup.</p>
         </div>
       </section>
-      <section id="features" class="v-section v-tinted">
+      <section
+        id="features"
+        class="v-section v-capabilities"
+        aria-labelledby="v-capabilities-title"
+      >
         <div class="v-container">
-          <div class="v-copy">
+          <div class="v-capabilities-header">
             <p class="v-eyebrow">
               06 <span aria-hidden="true">/</span> The full picture
             </p>
-            <h2>Explore what<br /><em>Velocity can do.</em></h2>
+            <h2 id="v-capabilities-title">
+              Less manual work.<br /><em>More control.</em>
+            </h2>
             <p class="v-lead">
-              Find the capabilities that matter to your team. Module
-              availability depends on your configured setup.
+              A clearer view of your stock, your daily work, and your next decision.
             </p>
           </div>
-          <div class="v-feature-groups">
-            <div class="v-feature-group">
-              <h3>Stock and medicines</h3>
-              <dl>
-                <div>
-                  <dt>Medicine catalogue</dt>
-                  <dd>Keep medicine details and categories organised.</dd>
+
+          <div class="v-capabilities-grid">
+            <!-- Card 1: Stock & Medicines -->
+            <article class="v-capability-card" aria-labelledby="v-card-1-title">
+              <div class="v-capability-card-visual" role="img" aria-label="Illustrative medicine stock card with packs, loose units, location, batch, and expiry details">
+                <div class="v-mockup-doc v-mockup-stock">
+                  <div class="v-mockup-header">
+                    <span class="v-mockup-brand">VELOCITY ↗</span>
+                    <span class="v-mockup-badge v-badge-active">In stock</span>
+                  </div>
+                  <div class="v-mockup-medicine">
+                    <h4>Amoxicillin <span>500 mg</span></h4>
+                    <p class="v-mockup-meta">Broad-spectrum antibiotic</p>
+                  </div>
+                  <div class="v-mockup-quantities">
+                    <div class="v-mockup-qty-card">
+                      <span class="v-mockup-qty-num">42</span>
+                      <span class="v-mockup-qty-unit">Packs <em>(10 strips)</em></span>
+                    </div>
+                    <div class="v-mockup-qty-card">
+                      <span class="v-mockup-qty-num">420</span>
+                      <span class="v-mockup-qty-unit">Loose units</span>
+                    </div>
+                  </div>
+                  <div class="v-mockup-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Shelf B-04 · Main Store</span>
+                  </div>
+                  <div class="v-mockup-subcard">
+                    <div class="v-mockup-subitem">
+                      <span class="v-mockup-sublabel">Batch</span>
+                      <strong>BX-8941</strong>
+                    </div>
+                    <div class="v-mockup-subitem">
+                      <span class="v-mockup-sublabel">Expiry</span>
+                      <strong>Nov 2027</strong>
+                    </div>
+                    <div class="v-mockup-subitem v-mockup-subright">
+                      <span class="v-mockup-status-dot" aria-hidden="true"></span>
+                      <span class="v-mockup-status-text">Active</span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <dt>Inventory</dt>
-                  <dd>Check stock by medicine, batch, and location.</dd>
+              </div>
+              <div class="v-capability-card-copy">
+                <h3 id="v-card-1-title">Know what you have.</h3>
+                <p>
+                  See medicine stock in packs and loose units, with batch, expiry, and location details together.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 2: Operations Workflow -->
+            <article class="v-capability-card" aria-labelledby="v-card-2-title">
+              <div class="v-capability-card-visual" role="img" aria-label="Illustrative workflow card showing 3 steps: order review, stock receipt, and dispensing">
+                <div class="v-mockup-doc v-mockup-workflow">
+                  <div class="v-mockup-header">
+                    <span class="v-mockup-brand">VELOCITY ↗</span>
+                    <span class="v-mockup-badge">Workflow connected</span>
+                  </div>
+                  <ol class="v-mockup-timeline">
+                    <li class="v-mockup-step v-step-complete">
+                      <div class="v-step-indicator" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>
+                      </div>
+                      <div class="v-step-info">
+                        <div class="v-step-head">
+                          <strong>Order review</strong>
+                          <span class="v-step-id">PO–0024</span>
+                        </div>
+                        <p>Purchase order approved</p>
+                      </div>
+                    </li>
+                    <li class="v-mockup-step v-step-complete">
+                      <div class="v-step-indicator" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>
+                      </div>
+                      <div class="v-step-info">
+                        <div class="v-step-head">
+                          <strong>Stock receipt</strong>
+                          <span class="v-step-id">GR–0018</span>
+                        </div>
+                        <p>120 packs received &amp; logged</p>
+                      </div>
+                    </li>
+                    <li class="v-mockup-step v-step-current">
+                      <div class="v-step-indicator" aria-hidden="true">
+                        <span class="v-step-pulse"></span>
+                      </div>
+                      <div class="v-step-info">
+                        <div class="v-step-head">
+                          <strong>Dispensing</strong>
+                          <span class="v-step-id">Ready</span>
+                        </div>
+                        <p>Available at counter &amp; wards</p>
+                      </div>
+                    </li>
+                  </ol>
+                  <div class="v-mockup-flow-footer">
+                    <span class="v-mockup-flow-check" aria-hidden="true">✓</span>
+                    <span>Continuous inventory trail</span>
+                  </div>
                 </div>
-                <div>
-                  <dt>Packaging quantities</dt>
-                  <dd>
-                    Read stock in packs and loose units using the
-                    medicine&#x27;s configured packaging.
-                  </dd>
+              </div>
+              <div class="v-capability-card-copy">
+                <h3 id="v-card-2-title">Keep operations moving.</h3>
+                <p>
+                  Keep purchasing, receiving, and dispensing connected, so your team can follow the next step.
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 3: Reporting & Decisions -->
+            <article class="v-capability-card" aria-labelledby="v-card-3-title">
+              <div class="v-capability-card-visual" role="img" aria-label="Illustrative reporting card with stock movement chart and accounting export status">
+                <div class="v-mockup-doc v-mockup-reporting">
+                  <div class="v-mockup-header">
+                    <span class="v-mockup-brand">VELOCITY ↗</span>
+                    <span class="v-mockup-badge">Shared workspace</span>
+                  </div>
+                  <div class="v-mockup-chart-header">
+                    <h4>Stock movement</h4>
+                    <span class="v-mockup-chart-period">Past 6 months</span>
+                  </div>
+                  <div class="v-mockup-chart" aria-hidden="true">
+                    <svg viewBox="0 0 260 76" preserveAspectRatio="none" class="v-chart-svg">
+                      <!-- Grid lines -->
+                      <line x1="0" y1="18" x2="260" y2="18" stroke="#00000010" stroke-width="1" />
+                      <line x1="0" y1="46" x2="260" y2="46" stroke="#00000010" stroke-width="1" />
+                      <line x1="0" y1="74" x2="260" y2="74" stroke="#00000018" stroke-width="1" />
+                      <!-- Dual bars per month: received (dark slate) & dispensed (subtle sage) -->
+                      <!-- May -->
+                      <rect x="18" y="28" width="11" height="46" rx="2" fill="#2d3339" />
+                      <rect x="32" y="38" width="11" height="36" rx="2" fill="#889689" />
+                      <!-- Jun -->
+                      <rect x="58" y="20" width="11" height="54" rx="2" fill="#2d3339" />
+                      <rect x="72" y="32" width="11" height="42" rx="2" fill="#889689" />
+                      <!-- Jul -->
+                      <rect x="98" y="14" width="11" height="60" rx="2" fill="#2d3339" />
+                      <rect x="112" y="24" width="11" height="50" rx="2" fill="#889689" />
+                      <!-- Aug -->
+                      <rect x="138" y="26" width="11" height="48" rx="2" fill="#2d3339" />
+                      <rect x="152" y="30" width="11" height="44" rx="2" fill="#889689" />
+                      <!-- Sep -->
+                      <rect x="178" y="18" width="11" height="56" rx="2" fill="#2d3339" />
+                      <rect x="192" y="22" width="11" height="52" rx="2" fill="#889689" />
+                      <!-- Oct -->
+                      <rect x="218" y="10" width="11" height="64" rx="2" fill="#2d3339" />
+                      <rect x="232" y="16" width="11" height="58" rx="2" fill="#889689" />
+                    </svg>
+                    <div class="v-chart-labels">
+                      <span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+                    </div>
+                  </div>
+                  <div class="v-mockup-export-panel">
+                    <div class="v-mockup-export-row">
+                      <div class="v-export-lead">
+                        <span class="v-export-tag">XML</span>
+                        <span>Tally XML export</span>
+                      </div>
+                      <span class="v-export-status">Ready ↗</span>
+                    </div>
+                    <div class="v-mockup-export-row">
+                      <div class="v-export-lead">
+                        <span class="v-export-tag">REC</span>
+                        <span>Supplier payments</span>
+                      </div>
+                      <span class="v-export-status">Settled · 0 discrepancies</span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <dt>Expiry monitoring</dt>
-                  <dd>Identify stock nearing expiry and review expiry risk.</dd>
-                </div>
-                <div>
-                  <dt>Stock adjustments</dt>
-                  <dd>
-                    Record authorised corrections and their effect on stock.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Special inventory</dt>
-                  <dd>
-                    Track assistance-program stock separately from purchased
-                    stock where configured.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-            <div class="v-feature-group">
-              <h3>Purchasing and suppliers</h3>
-              <dl>
-                <div>
-                  <dt>Purchase orders</dt>
-                  <dd>Create orders, manage approvals, and record receipts.</dd>
-                </div>
-                <div>
-                  <dt>Bill entry</dt>
-                  <dd>
-                    Record incoming supplier bills and direct purchase receipts.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Supplier management</dt>
-                  <dd>
-                    Keep supplier details, purchase history, and payment records
-                    together.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Medical representatives</dt>
-                  <dd>
-                    Maintain representative names, companies, and contact
-                    details.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Reorder recommendations</dt>
-                  <dd>
-                    Review suggested orders using stock and consumption history.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-            <div class="v-feature-group">
-              <h3>Pharmacy and hospital supply</h3>
-              <dl>
-                <div>
-                  <dt>Transfers and supply runs</dt>
-                  <dd>
-                    Follow stock movement, picking, dispatch, receipt, and
-                    supported returns.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Ward operations</dt>
-                  <dd>
-                    Track issue, consumption, and returns between wards and the
-                    pharmacy.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Pharmacy counter</dt>
-                  <dd>
-                    Manage checkout, bills, transaction history, and credit
-                    settlement.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-            <div class="v-feature-group">
-              <h3>Reports, accounts, and access</h3>
-              <dl>
-                <div>
-                  <dt>Reports</dt>
-                  <dd>
-                    Explore inventory, procurement, vendor, hospital, and
-                    financial information.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Accounting exports</dt>
-                  <dd>Prepare Tally XML and GST audit spreadsheets.</dd>
-                </div>
-                <div>
-                  <dt>Organization settings</dt>
-                  <dd>
-                    Maintain legal identity, receipt branding, and GST policy.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Users and audit history</dt>
-                  <dd>Manage access and review recorded activity.</dd>
-                </div>
-              </dl>
-            </div>
+              </div>
+              <div class="v-capability-card-copy">
+                <h3 id="v-card-3-title">Make decisions with clarity.</h3>
+                <p>
+                  Bring stock reports, supplier payments, and accounting exports into one shared workspace.
+                </p>
+              </div>
+            </article>
           </div>
-          <div class="v-audiences">
-            <h3>A clearer view for every team.</h3>
-            <div class="v-audience-grid">
-              <div>
-                <h4>Hospital owners and administrators</h4>
-                <p>
-                  A clearer view of medicine stock, purchasing, supply, and
-                  spending.
-                </p>
-              </div>
-              <div>
-                <h4>Pharmacists</h4>
-                <p>
-                  Stock, batches, expiry dates, and counter work in one system.
-                </p>
-              </div>
-              <div>
-                <h4>Store and warehouse teams</h4>
-                <p>
-                  A visible path from a supply request to picking, dispatch, and
-                  receipt.
-                </p>
-              </div>
-              <div>
-                <h4>Procurement teams</h4>
-                <p>
-                  Purchase orders, receipts, supplier records, and payments
-                  connected.
-                </p>
-              </div>
-              <div>
-                <h4>Accounts teams</h4>
-                <p>
-                  Organised payment records and exports for the next accounting
-                  step.
-                </p>
-              </div>
-              <div>
-                <h4>Independent pharmacy owners</h4>
-                <p>
-                  Medicine inventory, purchasing, sales, and reporting without
-                  needing to read the hospital-specific workflow.
-                </p>
-              </div>
-            </div>
+
+          <div class="v-capability-footer">
+            <p>Illustrative views · Demo data.</p>
+            <p>Module availability depends on your configured setup.</p>
           </div>
         </div>
       </section>

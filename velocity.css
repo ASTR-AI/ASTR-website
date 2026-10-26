@@ -2342,19 +2342,456 @@
   border-radius: 6px;
   background: rgba(230, 205, 153, 0.03);
 }
-.velocity-page .v-feature-groups {
+/* Full picture: 3 equal-width benefit cards with authentic UI micro-mockups. */
+.velocity-page .v-capabilities {
+  background: #080808;
+}
+.velocity-page .v-capabilities-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.velocity-page .v-capabilities-header .v-eyebrow {
+  margin-bottom: 20px;
+}
+.velocity-page .v-capabilities-header h2 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  text-wrap: balance;
+}
+.velocity-page .v-capabilities-header .v-lead {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+  line-height: 1.75;
+  margin-top: 18px;
+  text-wrap: balance;
+}
+.velocity-page .v-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3.2vw, 40px);
+  margin-top: clamp(48px, 6vw, 68px);
+  align-items: start;
+}
+.velocity-page .v-capability-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.velocity-page .v-capability-card-visual {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #141519;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  padding: clamp(14px, 1.6vw, 20px);
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+.velocity-page .v-capability-card:hover .v-capability-card-visual {
+  border-color: rgba(230, 205, 153, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 24px rgba(230, 205, 153, 0.06);
+}
+
+/* Authentic UI Mockup Documents inside Square Frames */
+.velocity-page .v-mockup-doc {
+  flex: 1;
+  border-radius: 15px;
+  background: #fcfbf7;
+  color: #20231e;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.velocity-page .v-mockup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 9px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.velocity-page .v-mockup-brand {
+  font: 600 0.62rem/1.2 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+  color: #4a4d44;
+}
+.velocity-page .v-mockup-badge {
+  font-size: 0.58rem;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: #efede7;
+  color: #42463e;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.velocity-page .v-mockup-badge.v-badge-active {
+  background: #e6f4ea;
+  color: #1e6b36;
+  border-color: rgba(30, 107, 54, 0.18);
+  font-weight: 600;
+}
+
+/* Card 1: Stock Mockup */
+.velocity-page .v-mockup-medicine h4 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.05rem, 1.25vw, 1.18rem);
+  font-weight: 600;
+  color: #1a1c18;
+  margin: 6px 0 2px;
+  line-height: 1.25;
+}
+.velocity-page .v-mockup-medicine h4 span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #63675f;
+  margin-left: 3px;
+}
+.velocity-page .v-mockup-meta {
+  font-size: 0.62rem;
+  color: #797d74;
+  margin: 0;
+  line-height: 1.4;
+}
+.velocity-page .v-mockup-quantities {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 65px 80px;
-  margin-top: 60px;
+  gap: 8px;
+  margin: 8px 0;
 }
-.velocity-page .v-feature-group h3 {
-  font-family: 'Lora', serif;
+.velocity-page .v-mockup-qty-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9px;
+  padding: 7px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.velocity-page .v-mockup-qty-num {
   font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1c18;
+  line-height: 1.1;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.velocity-page .v-mockup-qty-unit {
+  font-size: 0.6rem;
+  color: #5c6057;
+  margin-top: 2px;
+}
+.velocity-page .v-mockup-qty-unit em {
+  font-style: normal;
+  color: #8c9086;
+}
+.velocity-page .v-mockup-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.62rem;
+  color: #4b4f46;
+  background: #f1efe9;
+  padding: 5px 9px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.velocity-page .v-mockup-location svg {
+  color: #63675e;
+  flex-shrink: 0;
+}
+.velocity-page .v-mockup-subcard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 6px 9px;
+}
+.velocity-page .v-mockup-subitem {
+  display: flex;
+  flex-direction: column;
+}
+.velocity-page .v-mockup-sublabel {
+  font-size: 0.52rem;
+  color: #858980;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.velocity-page .v-mockup-subitem strong {
+  font-size: 0.65rem;
+  color: #21241f;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  color: var(--v-gold);
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(230, 205, 153, 0.25);
+}
+.velocity-page .v-mockup-subright {
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.velocity-page .v-mockup-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22a048;
+}
+.velocity-page .v-mockup-status-text {
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: #1e6b36;
+}
+
+/* Card 2: Workflow Timeline Mockup */
+.velocity-page .v-mockup-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.velocity-page .v-mockup-timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  bottom: 14px;
+  width: 1.5px;
+  background: rgba(0, 0, 0, 0.09);
+  z-index: 0;
+}
+.velocity-page .v-mockup-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+.velocity-page .v-step-indicator {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.velocity-page .v-step-complete .v-step-indicator {
+  background: #e8f4eb;
+  border-color: #22a048;
+  color: #1e6b36;
+}
+.velocity-page .v-step-current .v-step-indicator {
+  background: #ffffff;
+  border-color: #2b302a;
+}
+.velocity-page .v-step-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2b302a;
+}
+.velocity-page .v-step-info {
+  flex: 1;
+  min-width: 0;
+}
+.velocity-page .v-step-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+.velocity-page .v-step-head strong {
+  color: #1e211c;
+  font-weight: 600;
+}
+.velocity-page .v-step-id {
+  font: 0.58rem 'JetBrains Mono', monospace;
+  color: #63675f;
+  background: #efede7;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.velocity-page .v-step-info p {
+  margin: 1px 0 0;
+  font-size: 0.62rem;
+  color: #6b7067;
+  line-height: 1.35;
+}
+.velocity-page .v-mockup-flow-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6rem;
+  color: #52564d;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 8px;
+  margin-top: auto;
+}
+.velocity-page .v-mockup-flow-check {
+  color: #1e6b36;
+  font-weight: bold;
+}
+
+/* Card 3: Reporting & Workspace Mockup */
+.velocity-page .v-mockup-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 6px 0 4px;
+}
+.velocity-page .v-mockup-chart-header h4 {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1c18;
+  margin: 0;
+}
+.velocity-page .v-mockup-chart-period {
+  font-size: 0.58rem;
+  color: #797d74;
+}
+.velocity-page .v-mockup-chart {
+  margin: 4px 0 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px 6px;
+}
+.velocity-page .v-chart-svg {
+  width: 100%;
+  height: 52px;
+  display: block;
+  overflow: visible;
+}
+.velocity-page .v-chart-labels {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 4px;
+  margin-top: 4px;
+  font: 0.55rem/1 'Space Grotesk', sans-serif;
+  color: #858980;
+}
+.velocity-page .v-mockup-export-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.velocity-page .v-mockup-export-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 0.62rem;
+}
+.velocity-page .v-export-lead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #21241f;
+  font-weight: 500;
+}
+.velocity-page .v-export-tag {
+  font: 600 0.52rem/1.3 'JetBrains Mono', monospace;
+  background: #2b3036;
+  color: #ffffff;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.velocity-page .v-export-status {
+  font-size: 0.58rem;
+  color: #555a50;
+}
+
+/* Card Text Underneath Visual (matches reference layout) */
+.velocity-page .v-capability-card-copy {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.velocity-page .v-capability-card-copy h3 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.18rem, 1.45vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.velocity-page .v-capability-card-copy p {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #c5c2ba;
+  margin: 0;
+}
+
+/* Footer Notes */
+.velocity-page .v-capability-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  margin-top: clamp(40px, 5vw, 56px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Geist Variable', sans-serif;
+}
+.velocity-page .v-capability-footer p:first-child {
+  color: #a3a199;
+  font-size: 0.8rem;
+}
+.velocity-page .v-capability-footer p:last-child {
+  font-size: 0.75rem;
+  color: #727a6e;
+}
+
+@media (max-width: 1023px) {
+  .velocity-page .v-capabilities-grid {
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .velocity-page .v-capabilities-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-inline: auto;
+    gap: 40px;
+  }
+  .velocity-page .v-capability-card-visual {
+    border-radius: 20px;
+  }
+  .velocity-page .v-capability-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
 }
 .velocity-page dl {
   margin: 0;
@@ -2375,34 +2812,6 @@
   font-size: 0.85rem;
   color: var(--v-muted);
   line-height: 1.7;
-}
-.velocity-page .v-audiences {
-  padding-top: 70px;
-  margin-top: 70px;
-  border-top: 1px solid #ffffff20;
-}
-.velocity-page .v-audiences > h3 {
-  font-family: 'Lora', serif;
-  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: #ffffff;
-}
-.velocity-page .v-audience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px 40px;
-  margin-top: 34px;
-}
-.velocity-page .v-audience-grid h4 {
-  font-family: 'Lora', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
-.velocity-page .v-audience-grid p {
-  font-size: 0.85rem;
 }
 .velocity-page .v-faq-grid {
   display: grid;
@@ -2530,9 +2939,6 @@
   .velocity-page .v-inventory-card {
     flex: 0 0 72%;
   }
-  .velocity-page .v-feature-groups {
-    gap: 45px;
-  }
 }
 @media (max-width: 767px) {
   .velocity-page {
@@ -2630,7 +3036,6 @@
   .velocity-page .v-split,
   .velocity-page .v-pair,
   .velocity-page .v-supply-grid,
-  .velocity-page .v-feature-groups,
   .velocity-page .v-faq-grid {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -2665,14 +3070,6 @@
   }
   .velocity-page .v-work-view > p:not(.v-eyebrow) {
     min-height: 0;
-  }
-  .velocity-page .v-audience-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .velocity-page .v-audiences {
-    padding-top: 40px;
-    margin-top: 40px;
   }
   .velocity-page .v-demo h2 {
     font-size: clamp(2rem, 6.5vw, 2.6rem);
