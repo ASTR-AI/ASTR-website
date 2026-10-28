@@ -7,7 +7,7 @@
   margin-inline: auto;
   border: 0;
   border-radius: 0;
-  background: rgba(24, 24, 24, 0.94);
+  background: #080808;
   -webkit-backdrop-filter: blur(24px) saturate(135%);
   backdrop-filter: blur(24px) saturate(135%);
 }
