@@ -91,7 +91,10 @@ function createHeroFixture() {
     getComputedStyle: () => ({ getPropertyValue: () => '88' }),
     addEventListener: (key, value) => listeners.set(key, value),
     removeEventListener: (key) => listeners.delete(key),
-    requestAnimationFrame: () => 1,
+    requestAnimationFrame: (callback) => {
+      win.pendingFrame = callback;
+      return 1;
+    },
     cancelAnimationFrame() {},
   };
   const nodes = {
@@ -111,7 +114,7 @@ function createHeroFixture() {
       remove: (key) => classes.delete(key),
     },
   };
-  return { root, styles, classes, listeners, attributes, mediaQueries };
+  return { root, styles, classes, listeners, attributes, mediaQueries, win };
 }
 
 test('benefit remains available to assistive technology before visual reveal', () => {
@@ -139,4 +142,117 @@ test('motion preference changes restore static layout and cleanup removes listen
   assert.equal(fixture.classes.size, 0);
   for (const query of fixture.mediaQueries.values())
     assert.equal(query.callbacks.size, 0);
+});
+
+test('chapters follow the scroll after the hero lands and clamp at both ends', async () => {
+  const { getHeroChapter } = await import('../velocity-hero.mjs');
+  assert.equal(getHeroChapter(999, 1000, 500), -1);
+  assert.equal(getHeroChapter(1000, 1000, 500), 0);
+  assert.equal(getHeroChapter(1499, 1000, 500), 0);
+  assert.equal(getHeroChapter(1500, 1000, 500), 1);
+  assert.equal(getHeroChapter(2000, 1000, 500), 2);
+  assert.equal(getHeroChapter(5000, 1000, 500), 2);
+  assert.equal(getHeroChapter(NaN, 1000, 500), -1);
+  assert.equal(getHeroChapter(1000, 1000, 0), -1);
+});
+
+test('chapter links target a stable point within the requested chapter', async () => {
+  const { getHeroChapterTarget, getHeroChapter } =
+    await import('../velocity-hero.mjs');
+  for (const index of [0, 1, 2]) {
+    const target = getHeroChapterTarget(index, 1000, 500);
+    assert.equal(getHeroChapter(target, 1000, 500), index);
+  }
+  assert.equal(getHeroChapterTarget(-1, 1000, 500), null);
+  assert.equal(getHeroChapterTarget(3, 1000, 500), null);
+  assert.equal(getHeroChapterTarget(1, 1000, 0), null);
+});
+
+function withChapterControls(fixture) {
+  const keys = ['stock', 'reorder', 'activity'];
+  const chapters = keys.map((key) => {
+    const callbacks = new Map();
+    const summary = {
+      addEventListener: (name, callback) => callbacks.set(name, callback),
+      removeEventListener: (name) => callbacks.delete(name),
+      click: () => callbacks.get('click')?.({ preventDefault() {} }),
+    };
+    return {
+      dataset: { heroChapter: key },
+      open: key === 'stock',
+      summary,
+      querySelector: () => summary,
+      contains: (element) => element === summary,
+    };
+  });
+  const panels = ['overview', ...keys].map((key) => {
+    const classes = new Set(key === 'overview' ? ['is-current'] : []);
+    return {
+      dataset: { heroPanel: key },
+      hidden: key !== 'overview',
+      inert: false,
+      classList: {
+        toggle(name, on) {
+          if (on) classes.add(name);
+          else classes.delete(name);
+        },
+      },
+      setAttribute() {},
+      removeAttribute() {},
+      get current() {
+        return classes.has('is-current');
+      },
+    };
+  });
+  fixture.root.querySelectorAll = (selector) =>
+    selector.includes('chapter]') ? chapters : panels;
+  return { chapters, panels };
+}
+
+test('scrolling updates the open chapter without removing focus from its summary', () => {
+  const fixture = createHeroFixture();
+  const { chapters, panels } = withChapterControls(fixture);
+  fixture.root.ownerDocument.activeElement = chapters[0].summary;
+  const cleanup = initHeroTransition(fixture.root);
+  fixture.win.scrollY = 1800;
+  fixture.listeners.get('scroll')();
+  fixture.win.pendingFrame();
+  assert.deepEqual(
+    chapters.map((chapter) => chapter.open),
+    [false, true, false]
+  );
+  assert.equal(
+    panels.find((panel) => panel.current).dataset.heroPanel,
+    'reorder'
+  );
+  assert.equal(fixture.root.ownerDocument.activeElement, chapters[0].summary);
+  cleanup();
+});
+
+test('static mobile chapters can be selected and restore the unenhanced fallback on cleanup', () => {
+  const fixture = createHeroFixture();
+  const desktop = fixture.win.matchMedia(
+    '(min-width: 1024px) and (min-height: 700px)'
+  );
+  desktop.matches = false;
+  const { chapters, panels } = withChapterControls(fixture);
+  const cleanup = initHeroTransition(fixture.root);
+  chapters[2].summary.click();
+  assert.deepEqual(
+    chapters.map((chapter) => chapter.open),
+    [false, false, true]
+  );
+  assert.equal(
+    panels.find((panel) => panel.current).dataset.heroPanel,
+    'activity'
+  );
+  cleanup();
+  assert.deepEqual(
+    chapters.map((chapter) => chapter.open),
+    [true, false, false]
+  );
+  assert.deepEqual(
+    panels.map((panel) => panel.hidden),
+    [false, true, true, true]
+  );
 });

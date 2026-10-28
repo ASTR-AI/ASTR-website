@@ -135,20 +135,65 @@
                   </div>
                 </div>
                 <div class="v-window-content">
-                  <img
-                    src="/Pictures/velocity-dashboard-light.png"
-                    alt="Velocity pharmacy management software live dashboard interface"
-                    class="v-showcase-img"
-                    width="2940"
-                    height="1842"
-                    loading="eager"
-                  />
+                  <div class="v-hero-panel is-current" data-hero-panel="overview">
+                    <img
+                      src="/Pictures/velocity-dashboard-light.png"
+                      alt="Velocity pharmacy management software dashboard interface"
+                      class="v-showcase-img"
+                      width="2940"
+                      height="1842"
+                      loading="eager"
+                    />
+                  </div>
+                  <div class="v-hero-panel" data-hero-panel="stock" hidden>
+                    <div class="v-hero-stock-report">
+                      <div class="v-hero-report-bar"><span>VELOCITY ↗</span><span>Reports &amp; access</span></div>
+                      <p class="v-hero-report-label">Stock attention report</p>
+                      <h3>Know what needs attention.</h3>
+                      <p class="v-hero-report-period">Illustrative preview · Demo data · 01–30 Sep 2026</p>
+                      <table>
+                        <caption class="sr-only">Example medicines requiring stock review</caption>
+                        <thead><tr><th scope="col">Medicine</th><th scope="col">Review</th></tr></thead>
+                        <tbody>
+                          <tr><th scope="row">Amoxicillin <span>250 mg</span></th><td><span class="v-hero-report-tag">Slow-moving</span></td></tr>
+                          <tr><th scope="row">Paracetamol <span>500 mg</span></th><td><span class="v-hero-report-tag">Near expiry</span></td></tr>
+                          <tr><th scope="row">Metformin <span>500 mg</span></th><td><span class="v-hero-report-tag">Expiry review</span></td></tr>
+                        </tbody>
+                      </table>
+                      <p class="v-hero-report-foot">Check the reporting period and data freshness. Some reports use snapshots.</p>
+                    </div>
+                  </div>
+                  <div class="v-hero-panel" data-hero-panel="reorder" hidden>
+                    <img src="/Pictures/velocity-predictive-reorder.png" alt="Illustrative Velocity reorder suggestions for medicines" class="v-showcase-img" width="2940" height="1842" loading="lazy" />
+                  </div>
+                  <div class="v-hero-panel" data-hero-panel="activity" hidden>
+                    <img src="/Pictures/velocity-dashboard-light.png" alt="Velocity dashboard showing stock and daily activity" class="v-showcase-img" width="2940" height="1842" loading="lazy" />
+                  </div>
                 </div>
               </div>
             </figure>
-            <div class="v-hero-scroll-copy" data-hero-copy>
-              <h2>Save money. Know what’s not selling.</h2>
-              <p>See which medicines are selling slowly or nearing expiry, so you can make better buying decisions.</p>
+            <div class="v-hero-scroll-copy" data-hero-copy aria-label="Explore Velocity benefits">
+              <details class="v-hero-chapter" data-hero-chapter="stock" open>
+                <summary><span>Save money. Know what’s not selling.</span><span aria-hidden="true">+</span></summary>
+                <div class="v-hero-chapter-body">
+                  <p>See which medicines are selling slowly or nearing expiry, so you can make better buying decisions.</p>
+                  <a href="#inventory">Explore stock <span aria-hidden="true">↗</span></a>
+                </div>
+              </details>
+              <details class="v-hero-chapter" data-hero-chapter="reorder">
+                <summary><span>Know what to order and when.</span><span aria-hidden="true">+</span></summary>
+                <div class="v-hero-chapter-body">
+                  <p>See what’s running low and review what you need before ordering.</p>
+                  <a href="#reordering">Explore reordering <span aria-hidden="true">↗</span></a>
+                </div>
+              </details>
+              <details class="v-hero-chapter" data-hero-chapter="activity">
+                <summary><span>See how your pharmacy is doing.</span><span aria-hidden="true">+</span></summary>
+                <div class="v-hero-chapter-body">
+                  <p>Keep track of sales, stock, and daily activity in one place.</p>
+                  <a href="#operations">Explore daily work <span aria-hidden="true">↗</span></a>
+                </div>
+              </details>
             </div>
           </div>
         </div>

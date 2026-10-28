@@ -1,7 +1,15 @@
 /* Isolated hero enhancement. All lower product sections keep their existing CSS. */
+.velocity-page .v-hero-pin {
+  display: flex;
+  flex-direction: column;
+}
+.velocity-page .v-hero-pin .v-hero-media {
+  order: 1;
+}
 .velocity-page .v-hero-scroll-copy {
   max-width: 660px;
-  margin: 48px auto 0;
+  margin: 0 auto 32px;
+  order: 0;
   text-align: left;
 }
 .velocity-page .v-hero-scroll-copy h2 {
@@ -54,5 +62,188 @@
     margin: 0;
     opacity: var(--hero-copy-opacity, 0);
     transform: translateY(calc(-50% + var(--hero-copy-offset, 12px)));
+  }
+}
+
+/* Three short topics share the same product window. */
+.velocity-page .v-hero-chapter {
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+.velocity-page .v-hero-chapter summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 19px 0;
+  color: rgba(255, 255, 255, 0.67);
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Lora', serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.3;
+}
+.velocity-page .v-hero-chapter summary::-webkit-details-marker {
+  display: none;
+}
+.velocity-page .v-hero-chapter summary > span:last-child {
+  color: var(--v-gold);
+  flex: none;
+  transition: transform 180ms ease;
+}
+.velocity-page .v-hero-chapter[open] summary {
+  color: #fff;
+}
+.velocity-page .v-hero-chapter[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+.velocity-page .v-hero-chapter-body p {
+  margin: 0;
+  font-family: 'Geist Variable', Arial, sans-serif;
+  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  line-height: 1.65;
+}
+.velocity-page .v-hero-chapter-body a {
+  display: inline-block;
+  margin: 14px 0 21px;
+  color: var(--v-gold);
+  font-family: 'Geist Variable', Arial, sans-serif;
+  font-size: 0.85rem;
+}
+.velocity-page .v-hero-chapters-ready .v-window-content {
+  aspect-ratio: 2940 / 1842;
+  overflow: hidden;
+}
+.velocity-page .v-hero-chapters-ready .v-hero-panel:not([hidden]) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease;
+  pointer-events: none;
+}
+.velocity-page .v-hero-chapters-ready .v-hero-panel.is-current {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.velocity-page .v-hero-panel[hidden] {
+  display: none;
+}
+.velocity-page .v-hero-chapters-ready .v-hero-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f5f4ee;
+}
+.velocity-page .v-hero-stock-report {
+  height: 100%;
+  padding: clamp(14px, 2.5vw, 34px);
+  background: #f5f2eb;
+  color: #292c27;
+  font-family: 'Geist Variable', Arial, sans-serif;
+  text-align: left;
+  line-height: 1.4;
+}
+.velocity-page .v-hero-report-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #292c2720;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.48rem, 0.75vw, 0.65rem);
+  letter-spacing: 0.1em;
+}
+.velocity-page .v-hero-stock-report .v-hero-report-label {
+  margin: clamp(12px, 2vw, 24px) 0 4px;
+  color: #67735e;
+  font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+  text-transform: uppercase;
+}
+.velocity-page .v-hero-stock-report h3 {
+  color: #292c27;
+  font-size: clamp(1rem, 1.8vw, 1.65rem);
+}
+.velocity-page .v-hero-stock-report .v-hero-report-period,
+.velocity-page .v-hero-stock-report .v-hero-report-foot {
+  margin: 8px 0 0;
+  color: #60645e;
+  font-size: clamp(0.5rem, 0.8vw, 0.7rem);
+  line-height: 1.4;
+}
+.velocity-page .v-hero-stock-report table {
+  width: 100%;
+  margin-top: clamp(8px, 1.3vw, 18px);
+  border-collapse: collapse;
+  font-size: clamp(0.55rem, 0.95vw, 0.8rem);
+}
+.velocity-page .v-hero-stock-report th,
+.velocity-page .v-hero-stock-report td {
+  padding: clamp(7px, 1vw, 13px) 2px;
+  border-bottom: 1px solid #292c2720;
+  text-align: left;
+}
+.velocity-page .v-hero-stock-report th span {
+  display: block;
+  color: #767a72;
+  font-size: 0.85em;
+  font-weight: 400;
+}
+.velocity-page .v-hero-report-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #e9d6a3;
+  color: #574723;
+  font-size: 0.9em;
+}
+@media (max-width: 600px) {
+  .velocity-page .v-hero-stock-report {
+    padding: 8px 10px;
+  }
+  .velocity-page .v-hero-report-bar {
+    padding-bottom: 3px;
+    font-size: 0.45rem;
+  }
+  .velocity-page .v-hero-stock-report .v-hero-report-label {
+    margin: 4px 0 1px;
+    font-size: 0.48rem;
+    line-height: 1.2;
+  }
+  .velocity-page .v-hero-stock-report h3 {
+    font-size: 0.9rem;
+    line-height: 1.15;
+  }
+  .velocity-page .v-hero-stock-report .v-hero-report-period,
+  .velocity-page .v-hero-stock-report .v-hero-report-foot {
+    margin-top: 3px;
+    font-size: 0.43rem;
+    line-height: 1.15;
+  }
+  .velocity-page .v-hero-stock-report table {
+    margin-top: 3px;
+    font-size: 0.5rem;
+  }
+  .velocity-page .v-hero-stock-report th,
+  .velocity-page .v-hero-stock-report td {
+    padding: 3px 2px;
+  }
+  .velocity-page .v-hero-stock-report th span {
+    display: inline;
+  }
+  .velocity-page .v-hero-report-tag {
+    padding: 2px 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .velocity-page .v-hero-panel:not([hidden]),
+  .velocity-page .v-hero-chapter summary > span:last-child {
+    transition: none;
+  }
+}
+@media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  .velocity-page .v-hero-motion .v-hero-scroll-copy:has(:focus-visible) {
+    opacity: 1;
   }
 }

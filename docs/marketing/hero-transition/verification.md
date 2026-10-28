@@ -9,3 +9,10 @@
 - Sticky regression: initial browser reproduction showed pin top -279px at scroll792; scoped body overflow correction produces pin top112px at the same scroll position.
 - 46 Node tests pass; scoped ESLint passes; production build succeeds; git diff --check passes. Existing CSS tooling warnings remain.
 - No continuous image scrubbing or lower-section redesign in this change.
+
+## Three-chapter extension
+
+- Desktop: checked the first chapter, direct selection of the second and third, matching previews, and reverse scrolling from activity to reordering; the screen stays pinned below the navigation.
+- Mobile 390px: chapter selection updates the preview, content is stacked, and there is no horizontal document overflow. A compact report layout also keeps its footnote within the frame in a 320px viewport.
+- Added tests for chapter selection boundaries, navigation targets, preserving focus during scroll, static mobile selection, and cleanup.
+- Inventory-through-footer markup and the original stylesheet remain unchanged. No debugging screenshots were saved.
