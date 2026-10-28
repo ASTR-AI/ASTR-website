@@ -1,10 +1,13 @@
 import './components.js';
-import { inject } from '@vercel/analytics';
+import { inject, track } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';
 import { initOperationsTabs } from './velocity-operations.mjs';
 import { initWhyVelocity } from './velocity-why.mjs';
+import { createVelocityTracker } from './velocity-analytics.mjs';
+import { initVelocityConversion } from './velocity-conversion.mjs';
 
 inject();
+const velocityTracker = createVelocityTracker(track);
 
 // Native disclosures keep every navigation link usable without JavaScript.
 const productHeader = document.querySelector('[data-product-header]');
@@ -145,12 +148,25 @@ function initCarousel() {
   }
 }
 
+let conversionCleanup = null;
+function initConversion() {
+  conversionCleanup?.();
+  try {
+    conversionCleanup = initVelocityConversion(document.body, {
+      trackEvent: velocityTracker,
+    });
+  } catch {
+    // An isolated conversion exception must leave other helpers running
+  }
+}
+
 window.addEventListener('pageshow', () => {
   updateSupplyMotion();
   updateReorderMotion();
   initCarousel();
   initOperations();
   initWhy();
+  initConversion();
 });
 
 window.addEventListener('pagehide', () => {
@@ -160,6 +176,7 @@ window.addEventListener('pagehide', () => {
   inventoryCleanup?.();
   operationsCleanup?.();
   whyCleanup?.();
+  conversionCleanup?.();
 });
 
 updateSupplyMotion();
@@ -167,3 +184,4 @@ updateReorderMotion();
 initCarousel();
 initOperations();
 initWhy();
+initConversion();

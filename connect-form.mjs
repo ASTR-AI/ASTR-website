@@ -1,3 +1,9 @@
+import { track } from '@vercel/analytics';
+import {
+  createVelocityTracker,
+  createVelocityFormObserver,
+} from './velocity-analytics.mjs';
+
 export function getEnquiryContext(search) {
   const params = new URLSearchParams(search);
   if (
@@ -49,6 +55,25 @@ export function createEnquirySender(fetchImpl) {
   };
 }
 
+export async function submitEnquiryForm({ send, fields, context, observer }) {
+  if (context && observer) {
+    try {
+      observer.started();
+    } catch {
+      // Fail safely
+    }
+  }
+  const accepted = await send(fields);
+  if (accepted && context && observer) {
+    try {
+      observer.succeeded();
+    } catch {
+      // Fail safely
+    }
+  }
+  return accepted;
+}
+
 if (typeof document !== 'undefined') {
   const form = document.getElementById('connectForm');
   if (form) {
@@ -56,7 +81,10 @@ if (typeof document !== 'undefined') {
     const button = form.querySelector('[type="submit"]');
     const label = button.querySelector('span');
     const status = document.getElementById('formStatus');
+    let observer = null;
     if (context) {
+      const tracker = createVelocityTracker(track);
+      observer = createVelocityFormObserver(tracker);
       document.getElementById('enquiryHeading').textContent =
         'See Velocity in action.';
       document.getElementById('enquiryIntro').textContent =
@@ -93,7 +121,12 @@ if (typeof document !== 'undefined') {
       label.textContent = 'Sending…';
       status.textContent = 'Sending your enquiry…';
       try {
-        const accepted = await send(Object.fromEntries(new FormData(form)));
+        const accepted = await submitEnquiryForm({
+          send,
+          fields: Object.fromEntries(new FormData(form)),
+          context,
+          observer,
+        });
         if (!accepted) return;
         status.textContent =
           'Your enquiry has been accepted. Thank you — we will be in touch.';
