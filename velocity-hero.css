@@ -1,0 +1,58 @@
+/* Isolated hero enhancement. All lower product sections keep their existing CSS. */
+.velocity-page .v-hero-scroll-copy {
+  max-width: 660px;
+  margin: 48px auto 0;
+  text-align: left;
+}
+.velocity-page .v-hero-scroll-copy h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 1.15;
+}
+.velocity-page .v-hero-scroll-copy p {
+  margin-top: 20px;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.75;
+}
+@media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  /* overflow-x:hidden makes body a non-scrolling sticky container. Clip instead. */
+  body.velocity-page:has(.v-hero-motion) {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+  .velocity-page .v-hero-motion .v-hero-scene {
+    position: relative;
+    height: calc(var(--hero-pin-height) + var(--hero-travel));
+  }
+  .velocity-page .v-hero-motion .v-hero-pin {
+    position: sticky;
+    top: var(--hero-pin-top);
+    height: var(--hero-pin-height);
+    isolation: isolate;
+  }
+  .velocity-page .v-hero-motion .v-hero-media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--hero-media-width);
+    margin: 0;
+    transform: translate(calc(-50% + var(--hero-shift, 0px)), -50%)
+      scale(var(--hero-scale, 1));
+    transform-origin: center;
+    will-change: transform;
+    animation: none;
+    z-index: 2;
+  }
+  .velocity-page .v-hero-motion .v-window-frame {
+    transition: none;
+  }
+  .velocity-page .v-hero-motion .v-hero-scroll-copy {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 32%;
+    max-width: 380px;
+    margin: 0;
+    opacity: var(--hero-copy-opacity, 0);
+    transform: translateY(calc(-50% + var(--hero-copy-offset, 12px)));
+  }
+}

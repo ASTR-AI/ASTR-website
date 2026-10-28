@@ -34,6 +34,7 @@
     />
     <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/velocity.css" />
+    <link rel="stylesheet" href="/velocity-hero.css" />
   </head>
   <body
     class="velocity-page selection:bg-gold/30 selection:text-gold antialiased font-lora"
@@ -89,7 +90,7 @@
       </nav>
     </header>
     <main id="velocity-main">
-      <section id="overview" class="v-hero v-container">
+      <section id="overview" class="v-hero v-container" data-hero-transition>
         <div class="v-hero-header">
           <h1>Every medicine. <em>Every movement.</em></h1>
           <p class="v-hero-intro">
@@ -110,39 +111,47 @@
           </div>
         </div>
 
-        <figure class="v-hero-media">
-          <div class="v-media-glow" aria-hidden="true"></div>
-          <div class="v-window-frame">
-            <div class="v-window-bar">
-              <div class="v-window-controls" aria-hidden="true">
-                <span class="v-control-dot v-dot-close"></span>
-                <span class="v-control-dot v-dot-min"></span>
-                <span class="v-control-dot v-dot-max"></span>
+        <div class="v-hero-scene" data-hero-scene>
+          <div class="v-hero-pin" data-hero-pin>
+            <figure class="v-hero-media">
+              <div class="v-media-glow" aria-hidden="true"></div>
+              <div class="v-window-frame">
+                <div class="v-window-bar">
+                  <div class="v-window-controls" aria-hidden="true">
+                    <span class="v-control-dot v-dot-close"></span>
+                    <span class="v-control-dot v-dot-min"></span>
+                    <span class="v-control-dot v-dot-max"></span>
+                  </div>
+                  <div class="v-window-address">
+                    <span class="v-window-lock" aria-hidden="true">🔒</span>
+                    <span class="v-window-url"
+                      >app.astrai.in/velocity/dashboard</span
+                    >
+                  </div>
+                  <div class="v-window-meta">
+                    <span class="v-window-status"
+                      ><span class="v-status-indicator"></span>Active Session</span
+                    >
+                  </div>
+                </div>
+                <div class="v-window-content">
+                  <img
+                    src="/Pictures/velocity-dashboard-light.png"
+                    alt="Velocity pharmacy management software live dashboard interface"
+                    class="v-showcase-img"
+                    width="2940"
+                    height="1842"
+                    loading="eager"
+                  />
+                </div>
               </div>
-              <div class="v-window-address">
-                <span class="v-window-lock" aria-hidden="true">🔒</span>
-                <span class="v-window-url"
-                  >app.astrai.in/velocity/dashboard</span
-                >
-              </div>
-              <div class="v-window-meta">
-                <span class="v-window-status"
-                  ><span class="v-status-indicator"></span>Active Session</span
-                >
-              </div>
-            </div>
-            <div class="v-window-content">
-              <img
-                src="/Pictures/velocity-dashboard-light.png"
-                alt="Velocity pharmacy management software live dashboard interface"
-                class="v-showcase-img"
-                width="2940"
-                height="1842"
-                loading="eager"
-              />
+            </figure>
+            <div class="v-hero-scroll-copy" data-hero-copy>
+              <h2>Save money. Know what’s not selling.</h2>
+              <p>See which medicines are selling slowly or nearing expiry, so you can make better buying decisions.</p>
             </div>
           </div>
-        </figure>
+        </div>
 
         <nav class="v-hero-capabilities" aria-label="Key capabilities">
           <ul class="v-hero-capabilities-list">

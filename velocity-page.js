@@ -1,4 +1,5 @@
 import './components.js';
+import { initHeroTransition } from './velocity-hero.mjs';
 import { inject, track } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';
 import { initOperationsTabs } from './velocity-operations.mjs';
@@ -160,7 +161,16 @@ function initConversion() {
   }
 }
 
+let heroCleanup = null;
+function initHero() {
+  heroCleanup?.();
+  heroCleanup = initHeroTransition(
+    document.querySelector('[data-hero-transition]')
+  );
+}
+
 window.addEventListener('pageshow', () => {
+  initHero();
   updateSupplyMotion();
   updateReorderMotion();
   initCarousel();
@@ -170,6 +180,7 @@ window.addEventListener('pageshow', () => {
 });
 
 window.addEventListener('pagehide', () => {
+  heroCleanup?.();
   supplyObserver?.disconnect();
   reorderObserver?.disconnect();
   cancelAnimationFrame(resizeFrame);
@@ -185,3 +196,5 @@ initCarousel();
 initOperations();
 initWhy();
 initConversion();
+
+initHero();
