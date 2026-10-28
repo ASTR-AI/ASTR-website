@@ -1,8 +1,264 @@
 /* Velocity: page-scoped styles; essential content is visible before enhancement. */
+.velocity-page .v-product-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  margin-inline: auto;
+  border: 0;
+  border-radius: 0;
+  background: rgba(24, 24, 24, 0.94);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  backdrop-filter: blur(24px) saturate(135%);
+}
+.velocity-page .v-product-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+  min-height: 60px;
+  padding: 8px 32px;
+  font-family: 'Geist Variable', Arial, sans-serif;
+}
+.velocity-page .v-product-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.velocity-page .v-product-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f5f3ee;
+  font-size: 21px;
+  font-family: 'Lora', serif;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+.velocity-page .v-product-name span {
+  color: var(--v-gold);
+  font-size: 14px;
+}
+.velocity-page .v-product-parent {
+  color: #b5b5b5;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.7px;
+}
+.velocity-page .v-product-menu {
+  margin-left: 0;
+}
+.velocity-page .v-product-menu-toggle {
+  display: none;
+}
+.velocity-page .v-product-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.velocity-page .v-product-links > a,
+.velocity-page .v-product-features > summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  color: #d2d0cb;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  list-style: none;
+}
+.velocity-page .v-product-nav summary::-webkit-details-marker {
+  display: none;
+}
+.velocity-page .v-product-features {
+  position: relative;
+}
+.velocity-page .v-product-features[open] > summary,
+.velocity-page .v-product-nav a:hover {
+  color: var(--v-gold);
+}
+.velocity-page .v-product-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -24px;
+  width: 270px;
+  padding: 16px 10px 10px;
+  border: 1px solid #ffffff26;
+  border-radius: 18px;
+  background: #191918;
+  box-shadow:
+    0 20px 48px #0008,
+    inset 0 1px 0 #ffffff0d;
+}
+.velocity-page .v-product-dropdown p {
+  margin: 0 12px 8px;
+  color: #b5b5b5;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.velocity-page .v-product-dropdown a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #e5e2db;
+  font-size: 13px;
+}
+.velocity-page .v-product-dropdown a:hover {
+  background: #e6cd9910;
+}
+.velocity-page .v-nav-demo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  justify-self: end;
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 0 18px;
+  border: 1px solid #ffffff42;
+  border-radius: 100px;
+  color: #f5f3ee;
+  background: linear-gradient(145deg, #ffffff24, #ffffff05 55%, #ffffff12);
+  box-shadow:
+    inset 0 1px 1px #ffffff38,
+    inset 0 -1px 1px #ffffff0d,
+    0 4px 14px #0003;
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  font-size: 13px;
+  transition:
+    border-color 220ms ease,
+    color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+.velocity-page .v-nav-demo:hover,
+.velocity-page .v-nav-demo:focus-visible {
+  color: #f6dfb2;
+  border-color: #e6cd9999;
+  background-color: #d5ae4520;
+  box-shadow:
+    inset 0 1px 1px #ffe4ae55,
+    inset 0 -1px 1px #ffffff12,
+    0 0 24px #d8b05b20;
+}
+.velocity-page .v-product-nav :is(a, summary):focus-visible {
+  outline: 2px solid var(--v-gold);
+  outline-offset: 5px;
+  border-radius: 6px;
+}
+.velocity-page .v-product-nav .v-nav-demo:focus-visible {
+  border-radius: 100px;
+}
+@media (max-width: 900px) {
+  .velocity-page .v-product-header {
+    inset: 0 0 auto;
+    width: 100%;
+    border-radius: 0;
+  }
+  .velocity-page .v-product-nav {
+    display: flex;
+    min-height: 56px;
+    padding: 6px 16px;
+    gap: 16px;
+  }
+  .velocity-page .v-product-name {
+    font-size: 20px;
+  }
+  .velocity-page .v-product-brand {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .velocity-page .v-product-menu {
+    order: 3;
+    margin-left: 0;
+  }
+  .velocity-page .v-product-menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    color: #e5e2db;
+    font-size: 12px;
+    list-style: none;
+    cursor: pointer;
+  }
+  .velocity-page .v-product-menu[open] > summary span {
+    transform: rotate(45deg);
+  }
+  .velocity-page .v-product-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    inset-inline: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+    padding: 16px 24px;
+    border: 1px solid #ffffff26;
+    border-radius: 20px;
+    background: #191918;
+    box-shadow: 0 20px 48px #0008;
+  }
+  .velocity-page .v-product-links > a,
+  .velocity-page .v-product-features > summary {
+    min-height: 48px;
+    font-size: 15px;
+  }
+  .velocity-page .v-product-dropdown {
+    position: static;
+    width: auto;
+    padding: 8px 0 12px 12px;
+    border: 0;
+    border-left: 1px solid #e6cd9933;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .velocity-page .v-nav-demo {
+    margin-left: auto;
+    gap: 10px;
+    padding-inline: 16px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  .velocity-page .v-product-nav {
+    gap: 10px;
+    padding-inline: 12px;
+  }
+  .velocity-page .v-product-name {
+    font-size: 18px;
+  }
+  .velocity-page .v-product-parent {
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+  .velocity-page .v-nav-demo {
+    gap: 6px;
+    padding-inline: 12px;
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .velocity-page .v-nav-demo {
+    transition: none;
+  }
+}
 .velocity-page {
   --v-gold: var(--color-gold-DEFAULT, #e6cd99);
   --v-muted: #b5b5b5;
-  --v-header-offset: 145px;
+  --v-header-offset: 88px;
   background: #080808;
   color: #f5f3ee;
   font-family: 'Lora', serif;
@@ -586,14 +842,26 @@
   margin: 0 0 10px;
 }
 .velocity-page .v-card-dark .v-card-desc {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.95rem;
   line-height: 1.55;
   color: #c7c9ce;
   margin: 0;
 }
 .velocity-page .v-card-light .v-card-desc {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.95rem;
   line-height: 1.55;
   color: #505660;
@@ -624,7 +892,13 @@
   display: block;
 }
 .velocity-page .v-card-caption {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.78rem;
   line-height: 1.4;
   margin-top: 12px;
@@ -643,7 +917,13 @@
   gap: 20px;
 }
 .velocity-page .v-inventory-instruction {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
@@ -674,10 +954,10 @@
   border-radius: 50%;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.velocity-page .v-inventory-dot:hover:not([aria-current="true"]) {
+.velocity-page .v-inventory-dot:hover:not([aria-current='true']) {
   background: rgba(255, 255, 255, 0.65);
 }
-.velocity-page .v-inventory-dot[aria-current="true"] {
+.velocity-page .v-inventory-dot[aria-current='true'] {
   width: 24px;
   height: 6px;
   border-radius: 3px;
@@ -704,7 +984,10 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.15s;
 }
 .velocity-page .v-inventory-arrow:hover:not(:disabled) {
   border-color: rgba(255, 255, 255, 0.7);
@@ -731,7 +1014,13 @@
   margin: 0 0 20px;
 }
 .velocity-page .v-inventory-note {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.45);
   margin: 0;
@@ -772,7 +1061,13 @@
 }
 
 .velocity-page .v-reorder-intro .v-lead {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 1.05rem;
   line-height: 1.65;
   color: #b5b5b5;
@@ -812,7 +1107,9 @@
   width: 82%;
   border-radius: 12px 12px 0 0;
   overflow: hidden;
-  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.22), 0 2px 8px rgba(15, 23, 42, 0.12);
+  box-shadow:
+    0 16px 36px -8px rgba(15, 23, 42, 0.22),
+    0 2px 8px rgba(15, 23, 42, 0.12);
   line-height: 0;
 }
 .velocity-page .v-reorder-browser-bar {
@@ -826,7 +1123,9 @@
   border: 1px solid #ffffff24;
   border-radius: 12px 12px 0 0;
   color: #b5b5b5;
-  font: 10px/1.3 'JetBrains Mono', monospace;
+  font:
+    10px/1.3 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-reorder-browser-address {
   padding: 4px 12px;
@@ -872,7 +1171,9 @@
   border-radius: 20px;
   background: #17181b;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 10;
   overflow: hidden;
   text-align: left;
@@ -888,7 +1189,12 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--v-gold, #e6cd99) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--v-gold, #e6cd99) 50%,
+    transparent 100%
+  );
   transform: translateX(-100%);
   opacity: 0;
   pointer-events: none;
@@ -899,7 +1205,9 @@
   .velocity-page .v-has-reorder-motion .v-reorder-summary-card {
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .velocity-page .v-has-reorder-motion .v-reorder-summary-card.is-revealed {
@@ -907,7 +1215,9 @@
     transform: translateY(0);
   }
 
-  .velocity-page .v-has-reorder-motion .v-reorder-summary-card.is-revealed::before {
+  .velocity-page
+    .v-has-reorder-motion
+    .v-reorder-summary-card.is-revealed::before {
     animation: v-gold-sweep 900ms ease-out 500ms forwards;
   }
 }
@@ -931,7 +1241,13 @@
 
 /* Summary card typography */
 .velocity-page .v-summary-tag {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -941,7 +1257,13 @@
 }
 
 .velocity-page .v-summary-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 1.18rem;
   font-weight: 700;
   line-height: 1.3;
@@ -950,7 +1272,13 @@
 }
 
 .velocity-page .v-summary-body {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.85rem;
   line-height: 1.55;
   color: #a3a3a8;
@@ -975,7 +1303,9 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 26px 28px;
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 16px 40px -8px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .velocity-page .v-workflow-steps {
@@ -1002,7 +1332,13 @@
 
 .velocity-page .v-workflow-step h3,
 .velocity-page .v-workflow-title {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif !important;
   font-size: 18px !important;
   font-weight: 600 !important;
   line-height: 1.35 !important;
@@ -1013,7 +1349,13 @@
 
 .velocity-page .v-workflow-step p,
 .velocity-page .v-workflow-desc {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif !important;
   font-size: 15px !important;
   font-weight: 400 !important;
   line-height: 1.55 !important;
@@ -1036,7 +1378,13 @@
 }
 
 .velocity-page .v-workflow-statement {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif !important;
   font-size: 14px !important;
   font-weight: 400 !important;
   line-height: 1.6 !important;
@@ -1088,7 +1436,13 @@
 .velocity-page .v-purchasing-intro .v-lead {
   margin-top: 22px;
   max-width: 660px;
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 1.05rem;
   line-height: 1.65;
   color: #b5b5b5;
@@ -1113,7 +1467,9 @@
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);
   color: rgba(230, 205, 153, 0.85);
-  font: 600 0.65rem/1.4 'JetBrains Mono', monospace;
+  font:
+    600 0.65rem/1.4 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1133,9 +1489,17 @@
     0 24px 60px -12px rgba(0, 0, 0, 0.75),
     0 10px 24px -6px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.1);
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   position: relative;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .velocity-page .v-purchase-order {
   background: #fbf9f4;
@@ -1173,7 +1537,9 @@
 }
 .velocity-page .v-document-topline > span:first-child {
   color: #34372d;
-  font: 600 0.72rem/1.4 'JetBrains Mono', monospace;
+  font:
+    600 0.72rem/1.4 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.12em;
 }
 .velocity-page .v-document-topline > span:first-child span {
@@ -1205,7 +1571,9 @@
   padding-bottom: 3px;
   white-space: nowrap;
   color: #6a6b64;
-  font: 0.62rem/1.4 'JetBrains Mono', monospace;
+  font:
+    0.62rem/1.4 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-document-supplier,
 .velocity-page .v-receipt-details {
@@ -1311,7 +1679,9 @@
 .velocity-page .v-document-count {
   margin-left: auto;
   color: #686960;
-  font: 0.6rem/1.4 'JetBrains Mono', monospace;
+  font:
+    0.6rem/1.4 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-receipt-item {
   padding-block: 14px;
@@ -1357,7 +1727,13 @@
 .velocity-page .v-purchase-stage-note {
   text-align: center;
   color: #8e8d89;
-  font: 0.85rem/1.65 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font:
+    0.85rem/1.65 'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   margin-top: 36px;
 }
 .velocity-page .v-purchase-folders {
@@ -1375,12 +1751,15 @@
   min-height: 200px;
   border-radius: 20px;
   filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.65));
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.3s ease;
 }
 @media (hover: hover) {
   .velocity-page .v-folder-card:hover {
     transform: translateY(-4px);
-    filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.05));
+    filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.75))
+      drop-shadow(0 0 16px rgba(255, 255, 255, 0.05));
   }
 }
 .velocity-page .v-folder-glass-svg {
@@ -1429,7 +1808,13 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 .velocity-page .v-folder-content p {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.92rem;
   line-height: 1.6;
   color: #b5b4ae;
@@ -1445,7 +1830,13 @@
   margin: 0 0 24px;
 }
 .velocity-page .v-purchase-closing {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 0.9rem;
   line-height: 1.6;
   color: #a3a29e;
@@ -1565,7 +1956,9 @@
 .velocity-page .v-hospital-intro .v-lead {
   max-width: 660px;
   margin-top: 22px;
-  font: 1.05rem/1.65 'Space Grotesk', sans-serif;
+  font:
+    1.05rem/1.65 'Space Grotesk',
+    sans-serif;
   color: #b5b5b5;
 }
 .velocity-page .v-hospital-stage {
@@ -1578,14 +1971,19 @@
   padding: 0;
   border: 0;
   color: #a7a69e;
-  font: 0.65rem/1.7 'JetBrains Mono', monospace;
+  font:
+    0.65rem/1.7 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-hospital-caption > span:first-child {
   color: #e6cd99;
 }
 .velocity-page .v-hospital-route {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1.8fr) 42px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1.8fr) 42px minmax(
+      0,
+      1fr
+    );
   align-items: center;
   margin: 36px auto 40px;
 }
@@ -1609,7 +2007,9 @@
 }
 .velocity-page .v-hospital-location-label {
   color: #cbb78e;
-  font: 0.6rem/1.6 'JetBrains Mono', monospace;
+  font:
+    0.6rem/1.6 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -1620,7 +2020,9 @@
 }
 .velocity-page .v-hospital-location p {
   color: #aaa9a3;
-  font: 0.8rem/1.65 'Space Grotesk', sans-serif;
+  font:
+    0.8rem/1.65 'Space Grotesk',
+    sans-serif;
 }
 .velocity-page .v-hospital-location-foot {
   display: block;
@@ -1628,7 +2030,9 @@
   padding-top: 16px;
   border-top: 1px solid #ffffff12;
   color: #a7a69e;
-  font: 0.65rem/1.6 'Space Grotesk', sans-serif;
+  font:
+    0.65rem/1.6 'Space Grotesk',
+    sans-serif;
 }
 .velocity-page .v-hospital-link {
   display: flex;
@@ -1665,7 +2069,9 @@
 }
 .velocity-page .v-hospital-request-brand > span:first-child {
   color: #45483a;
-  font: 600 0.65rem/1.5 'JetBrains Mono', monospace;
+  font:
+    600 0.65rem/1.5 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.1em;
 }
 .velocity-page .v-hospital-request-heading {
@@ -1689,7 +2095,9 @@
 }
 .velocity-page .v-hospital-request-heading > span {
   color: #686a61;
-  font: 0.6rem/1.6 'JetBrains Mono', monospace;
+  font:
+    0.6rem/1.6 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-hospital-request-destination {
   display: flex;
@@ -1790,7 +2198,9 @@
   border-radius: 50%;
   color: #e6cd99;
   background: #e6cd9906;
-  font: 0.65rem/1 'JetBrains Mono', monospace;
+  font:
+    0.65rem/1 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-hospital-journey h3 {
   margin-block: 16px 8px;
@@ -1799,7 +2209,9 @@
 }
 .velocity-page .v-hospital-journey p {
   color: #aaa9a3;
-  font: 0.82rem/1.7 'Space Grotesk', sans-serif;
+  font:
+    0.82rem/1.7 'Space Grotesk',
+    sans-serif;
 }
 .velocity-page .v-hospital-footer {
   display: flex;
@@ -1814,42 +2226,121 @@
 }
 .velocity-page .v-hospital-footer p {
   color: #aaa9a3;
-  font: 0.8rem/1.7 'Space Grotesk', sans-serif;
+  font:
+    0.8rem/1.7 'Space Grotesk',
+    sans-serif;
 }
 @media (max-width: 1050px) {
-  .velocity-page .v-hospital-route { grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1.8fr) 26px minmax(0, 1fr); }
-  .velocity-page .v-hospital-location { padding: 22px 14px 18px; }
-  .velocity-page .v-hospital-location h3 { font-size: 1rem; }
-  .velocity-page .v-hospital-request { padding: 22px; }
-  .velocity-page .v-hospital-journey { gap: 20px; }
+  .velocity-page .v-hospital-route {
+    grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1.8fr) 26px minmax(
+        0,
+        1fr
+      );
+  }
+  .velocity-page .v-hospital-location {
+    padding: 22px 14px 18px;
+  }
+  .velocity-page .v-hospital-location h3 {
+    font-size: 1rem;
+  }
+  .velocity-page .v-hospital-request {
+    padding: 22px;
+  }
+  .velocity-page .v-hospital-journey {
+    gap: 20px;
+  }
 }
 @media (max-width: 850px) {
-  .velocity-page .v-hospital-route { grid-template-columns: minmax(0, 1fr); max-width: 440px; margin-top: 28px; }
-  .velocity-page .v-hospital-location { padding: 20px 24px; }
-  .velocity-page .v-hospital-location-icon { float: left; margin: 0 20px 0 0; }
-  .velocity-page .v-hospital-location h3 { margin-block: 6px; font-size: 1.15rem; }
-  .velocity-page .v-hospital-location-foot { clear: both; margin-top: 18px; padding-top: 12px; }
-  .velocity-page .v-hospital-link { justify-content: center; height: 40px; }
-  .velocity-page .v-hospital-link span { display: none; }
-  .velocity-page .v-hospital-link svg { transform: rotate(90deg); }
-  .velocity-page .v-hospital-journey { grid-template-columns: minmax(0, 1fr); gap: 0; }
-  .velocity-page .v-hospital-journey li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 18px; padding-bottom: 28px; }
-  .velocity-page .v-hospital-journey li:last-child { padding-bottom: 0; }
-  .velocity-page .v-hospital-journey li:not(:last-child)::after { top: 42px; bottom: 8px; left: 16px; right: auto; width: 1px; height: auto; background: #e6cd992e; }
-  .velocity-page .v-hospital-journey h3 { margin-top: 3px; }
+  .velocity-page .v-hospital-route {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 440px;
+    margin-top: 28px;
+  }
+  .velocity-page .v-hospital-location {
+    padding: 20px 24px;
+  }
+  .velocity-page .v-hospital-location-icon {
+    float: left;
+    margin: 0 20px 0 0;
+  }
+  .velocity-page .v-hospital-location h3 {
+    margin-block: 6px;
+    font-size: 1.15rem;
+  }
+  .velocity-page .v-hospital-location-foot {
+    clear: both;
+    margin-top: 18px;
+    padding-top: 12px;
+  }
+  .velocity-page .v-hospital-link {
+    justify-content: center;
+    height: 40px;
+  }
+  .velocity-page .v-hospital-link span {
+    display: none;
+  }
+  .velocity-page .v-hospital-link svg {
+    transform: rotate(90deg);
+  }
+  .velocity-page .v-hospital-journey {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .velocity-page .v-hospital-journey li {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 18px;
+    padding-bottom: 28px;
+  }
+  .velocity-page .v-hospital-journey li:last-child {
+    padding-bottom: 0;
+  }
+  .velocity-page .v-hospital-journey li:not(:last-child)::after {
+    top: 42px;
+    bottom: 8px;
+    left: 16px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: #e6cd992e;
+  }
+  .velocity-page .v-hospital-journey h3 {
+    margin-top: 3px;
+  }
 }
 @media (max-width: 767px) {
-  .velocity-page #supply.v-hospital-section { padding-block: 64px; }
-  .velocity-page .v-hospital-intro { margin-bottom: 32px; }
-  .velocity-page .v-hospital-caption { flex-direction: column; gap: 5px; }
-  .velocity-page .v-hospital-request { padding: 22px 20px; }
-  .velocity-page .v-hospital-request-heading h3 { font-size: 1.45rem; }
-  .velocity-page .v-hospital-location { padding-inline: 20px; }
+  .velocity-page #supply.v-hospital-section {
+    padding-block: 64px;
+  }
+  .velocity-page .v-hospital-intro {
+    margin-bottom: 32px;
+  }
+  .velocity-page .v-hospital-caption {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .velocity-page .v-hospital-request {
+    padding: 22px 20px;
+  }
+  .velocity-page .v-hospital-request-heading h3 {
+    font-size: 1.45rem;
+  }
+  .velocity-page .v-hospital-location {
+    padding-inline: 20px;
+  }
 }
 @media (max-width: 380px) {
-  .velocity-page .v-hospital-request { padding-inline: 16px; }
-  .velocity-page .v-hospital-location { padding-inline: 16px; }
-  .velocity-page .v-hospital-location-icon { margin-right: 12px; width: 42px; height: 42px; }
+  .velocity-page .v-hospital-request {
+    padding-inline: 16px;
+  }
+  .velocity-page .v-hospital-location {
+    padding-inline: 16px;
+  }
+  .velocity-page .v-hospital-location-icon {
+    margin-right: 12px;
+    width: 42px;
+    height: 42px;
+  }
 }
 .velocity-page .v-supply-grid {
   display: grid;
@@ -1906,7 +2397,9 @@
 .velocity-page .v-operations-intro .v-lead {
   max-width: 620px;
   margin-top: 22px;
-  font: 1.05rem/1.65 'Space Grotesk', sans-serif;
+  font:
+    1.05rem/1.65 'Space Grotesk',
+    sans-serif;
   color: #b5b5b5;
 }
 .velocity-page .v-operations-controls {
@@ -1930,7 +2423,9 @@
   border-radius: 10px;
   background: transparent;
   color: #aaa9a5;
-  font: 500 0.9rem/1.4 'Space Grotesk', sans-serif;
+  font:
+    500 0.9rem/1.4 'Space Grotesk',
+    sans-serif;
   text-align: center;
   cursor: pointer;
 }
@@ -1970,13 +2465,17 @@
 .velocity-page .v-operations-copy .v-operations-category {
   margin-bottom: 18px;
   color: #c9b58b;
-  font: 0.62rem/1.8 'JetBrains Mono', monospace;
+  font:
+    0.62rem/1.8 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .velocity-page .v-operations-copy h3 {
   color: #f5f3ee;
-  font: 500 clamp(1.8rem, 3vw, 2.5rem)/1.2 'Lora', serif;
+  font:
+    500 clamp(1.8rem, 3vw, 2.5rem)/1.2 'Lora',
+    serif;
   letter-spacing: -0.025em;
   text-wrap: balance;
 }
@@ -1987,7 +2486,9 @@
 .velocity-page .v-operations-copy > p:not(.v-operations-category) {
   margin-top: 22px;
   color: #b5b5b5;
-  font: 0.98rem/1.75 'Space Grotesk', sans-serif;
+  font:
+    0.98rem/1.75 'Space Grotesk',
+    sans-serif;
 }
 .velocity-page .v-operations-copy ul {
   margin: 24px 0 0;
@@ -1999,7 +2500,9 @@
   margin-top: 12px;
   padding-left: 22px;
   color: #b5b5b5;
-  font: 0.88rem/1.75 'Space Grotesk', sans-serif;
+  font:
+    0.88rem/1.75 'Space Grotesk',
+    sans-serif;
 }
 .velocity-page .v-operations-copy li::before {
   content: '';
@@ -2031,7 +2534,9 @@
   border: 0;
   color: #a6a298;
   text-align: center;
-  font: 0.6rem/1.7 'JetBrains Mono', monospace;
+  font:
+    0.6rem/1.7 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-operations-document {
   display: flex;
@@ -2042,7 +2547,9 @@
   border-radius: 16px;
   background: #f5f2eb;
   color: #2c3028;
-  box-shadow: 0 24px 60px -12px #0009, 0 10px 24px -6px #0005;
+  box-shadow:
+    0 24px 60px -12px #0009,
+    0 10px 24px -6px #0005;
   font-family: 'Space Grotesk', sans-serif;
 }
 .velocity-page .v-operations-ward,
@@ -2061,7 +2568,9 @@
 }
 .velocity-page .v-operations-doc-brand > span:first-child {
   color: #4c513f;
-  font: 600 0.68rem/1.5 'JetBrains Mono', monospace;
+  font:
+    600 0.68rem/1.5 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.1em;
 }
 .velocity-page .v-operations-doc-heading {
@@ -2080,12 +2589,16 @@
 }
 .velocity-page .v-operations-doc-heading h4 {
   color: #2c3028;
-  font: 500 clamp(1.2rem, 2vw, 1.6rem)/1.3 'Lora', serif;
+  font:
+    500 clamp(1.2rem, 2vw, 1.6rem)/1.3 'Lora',
+    serif;
   letter-spacing: -0.02em;
 }
 .velocity-page .v-operations-doc-heading > span {
   color: #63685c;
-  font: 0.6rem/1.6 'JetBrains Mono', monospace;
+  font:
+    0.6rem/1.6 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-operations-table {
   width: 100%;
@@ -2164,7 +2677,9 @@
   margin-top: 20px;
   color: #a5a299;
   text-align: center;
-  font: 0.75rem/1.7 'Space Grotesk', sans-serif;
+  font:
+    0.75rem/1.7 'Space Grotesk',
+    sans-serif;
 }
 .velocity-page .v-operations-ward-medicine {
   display: flex;
@@ -2211,7 +2726,9 @@
 }
 .velocity-page .v-operations-activity b {
   margin-left: auto;
-  font: 0.8rem/1.5 'JetBrains Mono', monospace;
+  font:
+    0.8rem/1.5 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-operations-export-file {
   display: flex;
@@ -2229,7 +2746,9 @@
   border-radius: 5px 12px 5px 5px;
   color: #5a6548;
   background: #a4ac8712;
-  font: 0.65rem/1 'JetBrains Mono', monospace;
+  font:
+    0.65rem/1 'JetBrains Mono',
+    monospace;
 }
 .velocity-page .v-operations-export-file h5 {
   margin: 0 0 5px;
@@ -2283,33 +2802,82 @@
   padding-top: 22px;
   border-top: 1px solid #ffffff15;
   color: #9d9d98;
-  font: 0.76rem/1.7 'Space Grotesk', sans-serif;
+  font:
+    0.76rem/1.7 'Space Grotesk',
+    sans-serif;
 }
 @media (max-width: 1023px) {
-  .velocity-page .v-operations-panel { gap: 40px; }
-  .velocity-page .v-operations-controls button { padding-inline: 8px; font-size: 0.8rem; }
-  .velocity-page .v-operations-document { padding: 24px; }
+  .velocity-page .v-operations-panel {
+    gap: 40px;
+  }
+  .velocity-page .v-operations-controls button {
+    padding-inline: 8px;
+    font-size: 0.8rem;
+  }
+  .velocity-page .v-operations-document {
+    padding: 24px;
+  }
 }
 @media (max-width: 800px) {
-  .velocity-page .v-operations-panel { grid-template-columns: minmax(0, 1fr); gap: 32px; min-height: 0; }
-  .velocity-page .v-operations-copy { max-width: 600px; }
-  .velocity-page .v-operations-visual { max-width: 510px; }
-  .velocity-page .v-operations-copy h3 br { display: none; }
+  .velocity-page .v-operations-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    min-height: 0;
+  }
+  .velocity-page .v-operations-copy {
+    max-width: 600px;
+  }
+  .velocity-page .v-operations-visual {
+    max-width: 510px;
+  }
+  .velocity-page .v-operations-copy h3 br {
+    display: none;
+  }
 }
 @media (max-width: 767px) {
-  .velocity-page #operations.v-operations-section { padding-block: 64px; }
-  .velocity-page .v-operations-intro { margin-bottom: 28px; }
-  .velocity-page .v-operations-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px; border-radius: 14px; }
-  .velocity-page .v-operations-controls button { font-size: 0.78rem; min-height: 48px; padding: 12px 6px; }
-  .velocity-page .v-operations-enhanced .v-operations-panel { margin-top: 32px; }
-  .velocity-page .v-operations-document { min-height: 0; padding: 24px; border-radius: 14px; }
-  .velocity-page .v-operations-visual figcaption { margin-bottom: 14px; }
-  .velocity-page .v-operations-doc-footer { margin-top: 2px; }
+  .velocity-page #operations.v-operations-section {
+    padding-block: 64px;
+  }
+  .velocity-page .v-operations-intro {
+    margin-bottom: 28px;
+  }
+  .velocity-page .v-operations-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding: 6px;
+    border-radius: 14px;
+  }
+  .velocity-page .v-operations-controls button {
+    font-size: 0.78rem;
+    min-height: 48px;
+    padding: 12px 6px;
+  }
+  .velocity-page .v-operations-enhanced .v-operations-panel {
+    margin-top: 32px;
+  }
+  .velocity-page .v-operations-document {
+    min-height: 0;
+    padding: 24px;
+    border-radius: 14px;
+  }
+  .velocity-page .v-operations-visual figcaption {
+    margin-bottom: 14px;
+  }
+  .velocity-page .v-operations-doc-footer {
+    margin-top: 2px;
+  }
 }
 @media (max-width: 380px) {
-  .velocity-page .v-operations-document { padding: 20px 18px; }
-  .velocity-page .v-operations-export-file { gap: 10px; }
-  .velocity-page .v-operations-file-type { flex-basis: 34px; height: 42px; }
+  .velocity-page .v-operations-document {
+    padding: 20px 18px;
+  }
+  .velocity-page .v-operations-export-file {
+    gap: 10px;
+  }
+  .velocity-page .v-operations-file-type {
+    flex-basis: 34px;
+    height: 42px;
+  }
 }
 .velocity-page .v-work-view h3 {
   font-family: 'Lora', serif;
@@ -2390,7 +2958,8 @@
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.4s ease,
     box-shadow 0.4s ease;
   position: relative;
@@ -2399,7 +2968,9 @@
 .velocity-page .v-capability-card:hover .v-capability-card-visual {
   border-color: rgba(230, 205, 153, 0.3);
   transform: translateY(-4px);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 24px rgba(230, 205, 153, 0.06);
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.6),
+    0 0 24px rgba(230, 205, 153, 0.06);
 }
 
 /* Authentic UI Mockup Documents inside Square Frames */
@@ -2413,8 +2984,14 @@
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow:
+    0 12px 28px -4px rgba(0, 0, 0, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   min-width: 0;
   box-sizing: border-box;
 }
@@ -2427,7 +3004,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 .velocity-page .v-mockup-brand {
-  font: 600 0.62rem/1.2 'JetBrains Mono', monospace;
+  font:
+    600 0.62rem/1.2 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.08em;
   color: #4a4d44;
 }
@@ -2626,7 +3205,9 @@
   font-weight: 600;
 }
 .velocity-page .v-step-id {
-  font: 0.58rem 'JetBrains Mono', monospace;
+  font:
+    0.58rem 'JetBrains Mono',
+    monospace;
   color: #63675f;
   background: #efede7;
   padding: 1px 5px;
@@ -2689,7 +3270,9 @@
   justify-content: space-between;
   padding-inline: 4px;
   margin-top: 4px;
-  font: 0.55rem/1 'Space Grotesk', sans-serif;
+  font:
+    0.55rem/1 'Space Grotesk',
+    sans-serif;
   color: #858980;
 }
 .velocity-page .v-mockup-export-panel {
@@ -2715,7 +3298,9 @@
   font-weight: 500;
 }
 .velocity-page .v-export-tag {
-  font: 600 0.52rem/1.3 'JetBrains Mono', monospace;
+  font:
+    600 0.52rem/1.3 'JetBrains Mono',
+    monospace;
   background: #2b3036;
   color: #ffffff;
   padding: 1px 4px;
@@ -2793,6 +3378,675 @@
     gap: 10px;
   }
 }
+
+/* ==========================================================================
+   Section 07: Why Velocity — Compact Vertical Scenario Selector & Stage
+   ========================================================================== */
+.velocity-page .v-why-section {
+  background: #080808;
+  padding: clamp(54px, 6.5vw, 84px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.velocity-page .v-why-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(32px, 4.5vw, 48px);
+}
+.velocity-page .v-why-header .v-eyebrow {
+  margin-bottom: 16px;
+}
+.velocity-page .v-why-header h2 {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  text-wrap: balance;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.velocity-page .v-why-header .v-lead {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+  margin-top: 14px;
+  text-wrap: balance;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.velocity-page .v-why-wrapper {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/* Two-column layout on Desktop: Visual Stage on Left, Large Typography on Right */
+.velocity-page .v-why-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 460px) minmax(0, 520px);
+  gap: clamp(32px, 4.5vw, 64px);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Left-hand Visual Stage Host */
+.velocity-page .v-why-stage-col {
+  width: 100%;
+}
+
+.velocity-page .v-why-stage {
+  animation: v-why-fade 0.25s ease-out;
+}
+.velocity-page .v-why-stage[hidden] {
+  display: none;
+}
+
+@keyframes v-why-fade {
+  from {
+    opacity: 0.4;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stage Box: Dark framing container with Apple-inspired ambient lighting */
+.velocity-page .v-why-stage-box {
+  width: 100%;
+  min-height: 520px;
+  max-width: 480px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.012) 100%
+    ),
+    #111317;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 24px;
+  box-shadow:
+    0 28px 64px -16px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  padding: clamp(16px, 2.2vw, 22px);
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  box-sizing: border-box;
+}
+
+/* Warm-cream document card floating with tangible depth */
+.velocity-page .v-why-floating-doc {
+  flex: 1;
+  background: #fcfbf7;
+  color: #1f221c;
+  border-radius: 16px;
+  padding: clamp(16px, 2vw, 20px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 18px 40px -8px rgba(0, 0, 0, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Space Grotesk', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* Floating Doc Summary Bar */
+.velocity-page .v-why-doc-summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.035);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #4a4e46;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.velocity-page .v-why-summary-stat strong {
+  color: #1a1c18;
+}
+.velocity-page .v-why-summary-val {
+  font-weight: 600;
+  color: #c25e00;
+}
+
+/* Right-hand Scenario Selector: High-Impact Typography & Dividers */
+.velocity-page .v-why-selector {
+  display: flex;
+  flex-direction: column;
+}
+
+.velocity-page .v-why-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+.velocity-page .v-why-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.velocity-page .v-why-trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: clamp(16px, 2.2vw, 24px);
+  padding: clamp(24px, 2.8vw, 32px) clamp(12px, 1.5vw, 16px);
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+  font-family: 'Geist Variable', sans-serif;
+  text-decoration: none;
+  position: relative;
+}
+.velocity-page .v-why-trigger:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+/* Subtle, elegant active state: Atmospheric ambient wash, zero harsh borders */
+.velocity-page .v-why-trigger.is-active,
+.velocity-page .v-why-item.is-active .v-why-trigger {
+  background: linear-gradient(
+    90deg,
+    rgba(230, 205, 153, 0.04) 0%,
+    transparent 85%
+  );
+}
+.velocity-page .v-why-trigger:focus-visible {
+  outline: 2px solid #e6cd99;
+  outline-offset: 2px;
+}
+
+.velocity-page .v-why-item-num {
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    sans-serif;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.38);
+  flex-shrink: 0;
+  min-width: clamp(48px, 5.5vw, 64px);
+  transition: color 0.25s ease;
+}
+.velocity-page .v-why-trigger:hover .v-why-item-num {
+  color: rgba(230, 205, 153, 0.7);
+}
+.velocity-page .v-why-item.is-active .v-why-item-num,
+.velocity-page .v-why-trigger.is-active .v-why-item-num {
+  color: #e6cd99;
+}
+
+.velocity-page .v-why-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.velocity-page .v-why-item-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    sans-serif;
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
+}
+.velocity-page .v-why-trigger:hover .v-why-item-title {
+  color: #ffffff;
+}
+.velocity-page .v-why-item.is-active .v-why-item-title,
+.velocity-page .v-why-trigger.is-active .v-why-item-title {
+  color: #ffffff;
+}
+
+/* Subtle Active Indicator Pill & Micro-Dot */
+.velocity-page .v-why-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e6cd99;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  flex-shrink: 0;
+}
+.velocity-page .v-why-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e6cd99;
+  box-shadow: 0 0 8px rgba(230, 205, 153, 0.7);
+}
+.velocity-page .v-why-item.is-active .v-why-indicator,
+.velocity-page .v-why-trigger.is-active .v-why-indicator {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.velocity-page .v-why-item-desc {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  transition: color 0.25s ease;
+}
+.velocity-page .v-why-trigger:hover .v-why-item-desc {
+  color: rgba(255, 255, 255, 0.78);
+}
+.velocity-page .v-why-item.is-active .v-why-item-desc,
+.velocity-page .v-why-trigger.is-active .v-why-item-desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Floating Doc Header */
+.velocity-page .v-why-doc-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.velocity-page .v-why-doc-brand {
+  font:
+    700 0.62rem/1.2 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.08em;
+  color: #4a4e44;
+}
+.velocity-page .v-why-doc-badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #55594f;
+  background: #efede6;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.velocity-page .v-why-doc-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: #5d6156;
+  background: #eeece4;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Scenario 1: Controls INSIDE mockup directly above records */
+.velocity-page .v-why-mini-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.velocity-page .v-why-mini-filter {
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: #ffffff;
+  color: #4d5146;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.velocity-page .v-why-mini-filter:hover {
+  background: #f4f2ea;
+  color: #1f221c;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.velocity-page .v-why-mini-filter.is-active {
+  background: #1f221c;
+  color: #fcfbf7;
+  border-color: #1f221c;
+  font-weight: 600;
+}
+.velocity-page .v-why-mini-filter:focus-visible {
+  outline: 2px solid #e6cd99;
+  outline-offset: 1px;
+}
+
+/* Scenario 1 Records */
+.velocity-page .v-why-records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+}
+.velocity-page .v-why-record-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 7px;
+  gap: 8px;
+}
+.velocity-page .v-why-record-row[hidden] {
+  display: none;
+}
+.velocity-page .v-why-record-main strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #171914;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.velocity-page .v-why-record-main span {
+  display: block;
+  font-size: 0.64rem;
+  color: #696d63;
+  margin-top: 1px;
+}
+.velocity-page .v-why-record-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+.velocity-page .v-why-qty-val {
+  font-size: 0.68rem;
+  color: #2b2e27;
+}
+.velocity-page .v-why-qty-val strong {
+  font-weight: 700;
+}
+
+/* Tags */
+.velocity-page .v-why-tag {
+  font-size: 0.58rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.velocity-page .v-tag-warn {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid rgba(146, 64, 14, 0.16);
+}
+.velocity-page .v-tag-danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid rgba(153, 27, 27, 0.2);
+}
+.velocity-page .v-tag-expired {
+  background: #fee2e2;
+  color: #7f1d1d;
+  border: 1.5px solid #dc2626;
+  font-weight: 700;
+}
+
+/* Scenario 2 Activity inside mockup */
+.velocity-page .v-why-activity-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.velocity-page .v-why-act-mini-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  padding: 6px 9px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.velocity-page .v-why-act-mini-btn:hover {
+  background: #f4f2ea;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+.velocity-page .v-why-act-mini-btn.is-active {
+  background: #f1efe7;
+  border-color: #1f221c;
+}
+.velocity-page .v-why-act-mini-btn:focus-visible {
+  outline: 2px solid #e6cd99;
+}
+.velocity-page .v-act-mini-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.velocity-page .v-act-type {
+  font-size: 0.72rem;
+  color: #1c1e18;
+  font-weight: 600;
+}
+.velocity-page .v-act-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: #6a6e64;
+}
+.velocity-page .v-act-summary {
+  font-size: 0.65rem;
+  color: #4b4e45;
+}
+
+/* Scenario 2 Revealed Details inside mockup */
+.velocity-page .v-why-detail-box {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.velocity-page .v-why-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.velocity-page .v-detail-label {
+  display: block;
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #787c72;
+}
+.velocity-page .v-why-detail-grid strong {
+  display: block;
+  font-size: 0.7rem;
+  color: #171913;
+  margin-top: 1px;
+}
+.velocity-page .v-flow-num {
+  font-family: 'JetBrains Mono', monospace;
+  color: #92400e !important;
+}
+.velocity-page .v-detail-reason {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 5px;
+}
+.velocity-page .v-detail-reason p {
+  margin: 1px 0 0;
+  font-size: 0.68rem;
+  color: #383b32;
+  line-height: 1.35;
+}
+
+/* Scenario 3 KPI Grid inside mockup */
+.velocity-page .v-why-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  flex: 1;
+}
+.velocity-page .v-kpi-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  padding: 8px 9px;
+  display: flex;
+  flex-direction: column;
+}
+.velocity-page .v-kpi-label {
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #72766c;
+}
+.velocity-page .v-kpi-num {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #171914;
+  margin: 2px 0 1px;
+  line-height: 1.1;
+}
+.velocity-page .v-kpi-sub {
+  font-size: 0.6rem;
+  color: #64685f;
+}
+.velocity-page .v-kpi-alert {
+  background: #fffafa;
+  border-color: rgba(220, 38, 38, 0.2);
+}
+.velocity-page .v-kpi-alert .v-kpi-num {
+  color: #b91c1c;
+}
+.velocity-page .v-why-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  background: #eeece4;
+  border-radius: 6px;
+  font-size: 0.64rem;
+  color: #3e4238;
+}
+.velocity-page .v-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+}
+
+/* Mockup Footer Note */
+.velocity-page .v-why-doc-subtle {
+  font-size: 0.62rem;
+  color: #6e7267;
+  padding-top: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Discreet Notes under Visual Stage */
+.velocity-page .v-why-notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: clamp(24px, 3.5vw, 36px);
+  padding: 0 4px;
+  text-align: center;
+}
+.velocity-page .v-why-notes p {
+  margin: 0;
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Understated Closing Link */
+.velocity-page .v-why-bottom-cta {
+  text-align: center;
+  margin-top: clamp(24px, 3vw, 36px);
+}
+.velocity-page .v-why-bottom-cta .v-text-link {
+  font-size: 0.88rem;
+  color: #e6cd99;
+  letter-spacing: 0.04em;
+}
+
+/* Responsive Accordion on Mobile (< 860px) */
+@media (max-width: 860px) {
+  .velocity-page .v-why-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .velocity-page .v-why-stage-col[data-why-desktop-host] {
+    display: none;
+  }
+  .velocity-page .v-why-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .velocity-page .v-why-trigger {
+    padding: 18px 14px;
+    gap: 16px;
+  }
+  .velocity-page .v-why-item-num {
+    font-size: 1.85rem;
+    min-width: 40px;
+  }
+  .velocity-page .v-why-item-title {
+    font-size: 1.15rem;
+  }
+  .velocity-page .v-why-item-desc {
+    font-size: 0.9rem;
+  }
+  .velocity-page .v-why-item .v-why-stage {
+    padding: 12px 14px 18px;
+    background: rgba(230, 205, 153, 0.03);
+  }
+  .velocity-page .v-why-stage-box {
+    aspect-ratio: auto;
+    min-height: 380px;
+  }
+  .velocity-page .v-why-notes {
+    margin-top: 18px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .velocity-page .v-why-stage-box {
+    padding: 12px;
+  }
+  .velocity-page .v-why-floating-doc {
+    padding: 12px;
+  }
+  .velocity-page .v-why-detail-grid,
+  .velocity-page .v-why-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .velocity-page dl {
   margin: 0;
 }
@@ -2818,10 +4072,10 @@
   grid-template-columns: 1fr 1.15fr;
   gap: 80px;
 }
-.velocity-page details {
+.velocity-page .v-faq-grid details {
   border-bottom: 1px solid #ffffff25;
 }
-.velocity-page summary {
+.velocity-page .v-faq-grid summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2835,20 +4089,20 @@
   list-style: none;
   transition: color 0.2s;
 }
-.velocity-page summary:hover {
+.velocity-page .v-faq-grid summary:hover {
   color: var(--v-gold);
 }
-.velocity-page summary::-webkit-details-marker {
+.velocity-page .v-faq-grid summary::-webkit-details-marker {
   display: none;
 }
-.velocity-page summary span {
+.velocity-page .v-faq-grid summary span {
   color: var(--v-gold);
   font-size: 1.4rem;
 }
-.velocity-page details[open] summary span {
+.velocity-page .v-faq-grid details[open] summary span {
   transform: rotate(45deg);
 }
-.velocity-page details p {
+.velocity-page .v-faq-grid details p {
   padding: 0 30px 25px 0;
   font-size: 0.9rem;
 }
@@ -2942,7 +4196,7 @@
 }
 @media (max-width: 767px) {
   .velocity-page {
-    --v-header-offset: 115px;
+    --v-header-offset: 80px;
   }
   .velocity-page .v-container {
     width: calc(100% - 40px);

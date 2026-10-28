@@ -35,23 +35,62 @@
     <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/velocity.css" />
   </head>
-  <body class="velocity-page selection:bg-gold/30 selection:text-gold antialiased font-lora">
+  <body
+    class="velocity-page selection:bg-gold/30 selection:text-gold antialiased font-lora"
+  >
     <a class="v-skip" href="#overview">Skip to content</a>
-    <astr-navbar
-      ><nav class="v-fallback-nav" aria-label="Main navigation">
-        <a href="/">ASTR AI</a><a href="/solutions">Solutions</a
-        ><a href="/connect?product=velocity">Contact</a>
-      </nav></astr-navbar
-    >
+    <header class="v-product-header" data-product-header>
+      <nav class="v-product-nav" aria-label="Velocity navigation">
+        <div class="v-product-brand">
+          <a class="v-product-name" href="#overview"
+            >Velocity<span aria-hidden="true">↗</span></a
+          >
+          <a class="v-product-parent" href="/">by ASTR AI</a>
+        </div>
+        <details class="v-product-menu" open data-product-menu>
+          <summary class="v-product-menu-toggle">
+            Menu <span aria-hidden="true">+</span>
+          </summary>
+          <div class="v-product-links">
+            <a href="#overview">Overview</a>
+            <details class="v-product-features" data-product-features>
+              <summary>Features <span aria-hidden="true">⌄</span></summary>
+              <div class="v-product-dropdown">
+                <p>Explore the system</p>
+                <a href="#inventory"
+                  >Stock &amp; medicines <span aria-hidden="true">↗</span></a
+                >
+                <a href="#reordering"
+                  >Reordering <span aria-hidden="true">↗</span></a
+                >
+                <a href="#purchasing"
+                  >Purchasing <span aria-hidden="true">↗</span></a
+                >
+                <a href="#supply"
+                  >Hospital supply <span aria-hidden="true">↗</span></a
+                >
+                <a href="#operations"
+                  >Everyday operations <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </details>
+            <a href="#why-velocity">Why Velocity</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </details>
+        <a class="v-nav-demo" href="/connect?product=velocity"
+          >Book a demo <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
     <main id="velocity-main">
       <section id="overview" class="v-hero v-container">
         <div class="v-hero-header">
           <p class="v-eyebrow">
-            Velocity <span aria-hidden="true">/</span> Pharmacy Management Software
+            Velocity <span aria-hidden="true">/</span> Pharmacy Management
+            Software
           </p>
-          <h1>
-            Every medicine. <em>Every movement.</em>
-          </h1>
+          <h1>Every medicine. <em>Every movement.</em></h1>
           <p class="v-hero-intro">
             Manage medicine purchases, stock, billing, and hospital supply in
             one connected system.
@@ -76,10 +115,14 @@
               </div>
               <div class="v-window-address">
                 <span class="v-window-lock" aria-hidden="true">🔒</span>
-                <span class="v-window-url">app.astrai.in/velocity/dashboard</span>
+                <span class="v-window-url"
+                  >app.astrai.in/velocity/dashboard</span
+                >
               </div>
               <div class="v-window-meta">
-                <span class="v-window-status"><span class="v-status-indicator"></span>Active Session</span>
+                <span class="v-window-status"
+                  ><span class="v-status-indicator"></span>Active Session</span
+                >
               </div>
             </div>
             <div class="v-window-content">
@@ -145,7 +188,9 @@
                     loading="lazy"
                   />
                 </div>
-                <figcaption class="v-card-caption">Dashboard preview</figcaption>
+                <figcaption class="v-card-caption">
+                  Dashboard preview
+                </figcaption>
               </figure>
             </article>
 
@@ -173,7 +218,9 @@
                     loading="lazy"
                   />
                 </div>
-                <figcaption class="v-card-caption">Dashboard preview</figcaption>
+                <figcaption class="v-card-caption">
+                  Dashboard preview
+                </figcaption>
               </figure>
             </article>
 
@@ -202,7 +249,9 @@
                     loading="lazy"
                   />
                 </div>
-                <figcaption class="v-card-caption">Dashboard preview</figcaption>
+                <figcaption class="v-card-caption">
+                  Dashboard preview
+                </figcaption>
               </figure>
             </article>
 
@@ -231,7 +280,9 @@
                     loading="lazy"
                   />
                 </div>
-                <figcaption class="v-card-caption">Dashboard preview</figcaption>
+                <figcaption class="v-card-caption">
+                  Dashboard preview
+                </figcaption>
               </figure>
             </article>
           </div>
@@ -344,11 +395,13 @@
         <div class="v-container">
           <div class="v-reorder-intro">
             <p class="v-eyebrow">
-              02 <span aria-hidden="true">/</span> AI-enabled reorder recommendations
+              02 <span aria-hidden="true">/</span> AI-enabled reorder
+              recommendations
             </p>
             <h2>Know what to reorder. <em>And when.</em></h2>
             <p class="v-lead">
-              Turn stock levels and consumption history into suggested reorder quantities—ready for your team to review.
+              Turn stock levels and consumption history into suggested reorder
+              quantities—ready for your team to review.
             </p>
           </div>
 
@@ -361,19 +414,21 @@
                     <span class="v-control-dot v-dot-min"></span>
                     <span class="v-control-dot v-dot-max"></span>
                   </div>
-                  <span class="v-reorder-browser-address">Velocity / Predictive reorder</span>
+                  <span class="v-reorder-browser-address"
+                    >Velocity / Predictive reorder</span
+                  >
                   <span class="v-reorder-browser-preview">Product preview</span>
                 </div>
                 <div class="v-reorder-image-surface">
-                <img
-                  src="/Pictures/velocity-predictive-reorder.png"
-                  alt="Velocity predictive reorder recommendations interface showing medicine inventory, consumption rates, and suggested purchase quantities"
-                  width="2940"
-                  height="1850"
-                  loading="lazy"
-                  class="v-reorder-screen"
-                />
-                <div class="v-reorder-veil" aria-hidden="true"></div>
+                  <img
+                    src="/Pictures/velocity-predictive-reorder.png"
+                    alt="Velocity predictive reorder recommendations interface showing medicine inventory, consumption rates, and suggested purchase quantities"
+                    width="2940"
+                    height="1850"
+                    loading="lazy"
+                    class="v-reorder-screen"
+                  />
+                  <div class="v-reorder-veil" aria-hidden="true"></div>
                 </div>
               </div>
             </div>
@@ -381,7 +436,9 @@
             <div class="v-reorder-summary-card" data-reorder-card>
               <p class="v-summary-tag">AI-enabled recommendations</p>
               <h3 class="v-summary-title">Review reorder suggestions.</h3>
-              <p class="v-summary-body">Stock levels. Consumption history. Suggested quantities.</p>
+              <p class="v-summary-body">
+                Stock levels. Consumption history. Suggested quantities.
+              </p>
               <p class="v-summary-note">Your team reviews before ordering.</p>
             </div>
           </div>
@@ -406,7 +463,9 @@
                   <line x1="12" y1="16" x2="12.01" y2="16" />
                 </svg>
                 <h3 class="v-workflow-title">Identify</h3>
-                <p class="v-workflow-desc">Spot medicines needing replenishment.</p>
+                <p class="v-workflow-desc">
+                  Spot medicines needing replenishment.
+                </p>
               </div>
 
               <div class="v-workflow-sep" aria-hidden="true"></div>
@@ -425,14 +484,18 @@
                   class="v-workflow-icon"
                 >
                   <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                  <path
+                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                  />
                   <path d="M12 11h4" />
                   <path d="M12 16h4" />
                   <path d="M8 11h.01" />
                   <path d="M8 16h.01" />
                 </svg>
                 <h3 class="v-workflow-title">Review</h3>
-                <p class="v-workflow-desc">Check suggested quantities against stock and usage.</p>
+                <p class="v-workflow-desc">
+                  Check suggested quantities against stock and usage.
+                </p>
               </div>
 
               <div class="v-workflow-sep" aria-hidden="true"></div>
@@ -450,91 +513,254 @@
                   stroke-linejoin="round"
                   class="v-workflow-icon"
                 >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
                   <polyline points="14 2 14 8 20 8" />
                   <line x1="16" y1="13" x2="8" y2="13" />
                   <line x1="16" y1="17" x2="8" y2="17" />
                   <polyline points="10 9 9 9 8 9" />
                 </svg>
                 <h3 class="v-workflow-title">Prepare</h3>
-                <p class="v-workflow-desc">Review suggestions before preparing a purchase order.</p>
+                <p class="v-workflow-desc">
+                  Review suggestions before preparing a purchase order.
+                </p>
               </div>
             </div>
 
             <div class="v-workflow-footer">
-              <p class="v-workflow-statement">AI recommends. Your team decides.</p>
+              <p class="v-workflow-statement">
+                AI recommends. Your team decides.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section id="purchasing" class="v-section v-purchasing-section" aria-labelledby="purchasing-heading">
+      <section
+        id="purchasing"
+        class="v-section v-purchasing-section"
+        aria-labelledby="purchasing-heading"
+      >
         <div class="v-container">
           <div class="v-purchasing-intro">
-            <p class="v-eyebrow">03 <span aria-hidden="true">/</span> Purchasing &amp; suppliers</p>
-            <h2 id="purchasing-heading">From order to received stock.<br /><em>Keep every step clear.</em></h2>
-            <p class="v-lead">Create purchase orders, review approvals, and receive medicines. Keep supplier bills and payment records connected along the way.</p>
+            <p class="v-eyebrow">
+              03 <span aria-hidden="true">/</span> Purchasing &amp; suppliers
+            </p>
+            <h2 id="purchasing-heading">
+              From order to received stock.<br /><em>Keep every step clear.</em>
+            </h2>
+            <p class="v-lead">
+              Create purchase orders, review approvals, and receive medicines.
+              Keep supplier bills and payment records connected along the way.
+            </p>
           </div>
 
-          <div class="v-purchase-stage" role="region" aria-label="Purchasing workflow preview">
+          <div
+            class="v-purchase-stage"
+            role="region"
+            aria-label="Purchasing workflow preview"
+          >
             <div class="v-purchase-stage-caption">
-              <span class="v-purchase-stage-label">Illustrative workflow · Demo data</span>
+              <span class="v-purchase-stage-label"
+                >Illustrative workflow · Demo data</span
+              >
             </div>
             <div class="v-purchase-documents">
-              <article class="v-purchase-document v-purchase-order" aria-labelledby="purchase-order-title">
-                <div class="v-document-topline"><span>VELOCITY <span aria-hidden="true">↗</span></span><span>Purchasing</span></div>
+              <article
+                class="v-purchase-document v-purchase-order"
+                aria-labelledby="purchase-order-title"
+              >
+                <div class="v-document-topline">
+                  <span>VELOCITY <span aria-hidden="true">↗</span></span
+                  ><span>Purchasing</span>
+                </div>
                 <div class="v-document-heading">
-                  <div><p class="v-document-kicker">Start with the details</p><h3 id="purchase-order-title">Purchase order</h3></div>
+                  <div>
+                    <p class="v-document-kicker">Start with the details</p>
+                    <h3 id="purchase-order-title">Purchase order</h3>
+                  </div>
                   <span class="v-document-id">PO–0024</span>
                 </div>
-                <dl class="v-document-supplier"><div><dt>Supplier</dt><dd>Northstar Pharma</dd></div><div><dt>Order status</dt><dd><span class="v-document-badge">Pending approval</span></dd></div></dl>
+                <dl class="v-document-supplier">
+                  <div>
+                    <dt>Supplier</dt>
+                    <dd>Northstar Pharma</dd>
+                  </div>
+                  <div>
+                    <dt>Order status</dt>
+                    <dd>
+                      <span class="v-document-badge">Pending approval</span>
+                    </dd>
+                  </div>
+                </dl>
                 <table class="v-document-table">
-                  <caption class="sr-only">Illustrative purchase order quantities in strips</caption>
-                  <thead><tr><th scope="col">Medicine</th><th scope="col">Qty / strips</th></tr></thead>
+                  <caption class="sr-only">
+                    Illustrative purchase order quantities in strips
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Medicine</th>
+                      <th scope="col">Qty / strips</th>
+                    </tr>
+                  </thead>
                   <tbody>
-                    <tr><th scope="row">Paracetamol <span>500 mg · 10 tablets / strip</span></th><td>120</td></tr>
-                    <tr><th scope="row">Amoxicillin <span>250 mg · 10 capsules / strip</span></th><td>80</td></tr>
+                    <tr>
+                      <th scope="row">
+                        Paracetamol <span>500 mg · 10 tablets / strip</span>
+                      </th>
+                      <td>120</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Amoxicillin <span>250 mg · 10 capsules / strip</span>
+                      </th>
+                      <td>80</td>
+                    </tr>
                   </tbody>
                 </table>
-                <div class="v-document-bottom"><span class="v-document-symbol" aria-hidden="true">↗</span><p>Prepared for your team.<br /><strong>Ready for review.</strong></p><span class="v-document-count">02 items</span></div>
+                <div class="v-document-bottom">
+                  <span class="v-document-symbol" aria-hidden="true">↗</span>
+                  <p>
+                    Prepared for your team.<br /><strong
+                      >Ready for review.</strong
+                    >
+                  </p>
+                  <span class="v-document-count">02 items</span>
+                </div>
               </article>
 
-              <div class="v-purchase-connector" aria-hidden="true"><span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6" /></svg><span></span></div>
+              <div class="v-purchase-connector" aria-hidden="true">
+                <span></span
+                ><svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h16m-6-6 6 6-6 6" /></svg
+                ><span></span>
+              </div>
 
-              <article class="v-purchase-document v-purchase-receipt" aria-labelledby="purchase-receipt-title">
-                <div class="v-document-topline"><span>VELOCITY <span aria-hidden="true">↗</span></span><span>Receiving</span></div>
+              <article
+                class="v-purchase-document v-purchase-receipt"
+                aria-labelledby="purchase-receipt-title"
+              >
+                <div class="v-document-topline">
+                  <span>VELOCITY <span aria-hidden="true">↗</span></span
+                  ><span>Receiving</span>
+                </div>
                 <div class="v-document-heading">
-                  <div><p class="v-document-kicker">When the delivery arrives</p><h3 id="purchase-receipt-title">Goods receipt</h3></div>
+                  <div>
+                    <p class="v-document-kicker">When the delivery arrives</p>
+                    <h3 id="purchase-receipt-title">Goods receipt</h3>
+                  </div>
                   <span class="v-document-id">GR–0018</span>
                 </div>
-                <dl class="v-document-supplier"><div><dt>Supplier</dt><dd>Northstar Pharma</dd></div><div><dt>Record</dt><dd><span class="v-document-badge v-badge-received">Receipt example</span></dd></div></dl>
-                <div class="v-receipt-item"><p>Paracetamol <span>500 mg</span></p><span>120 strips received</span></div>
-                <dl class="v-receipt-details"><div><dt>Batch number</dt><dd>PCM–0426</dd></div><div><dt>Expiry</dt><dd>Apr 2028</dd></div></dl>
-                <div class="v-document-bottom"><span class="v-document-symbol" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg></span><p>Quantities, batches, expiry.<br /><strong>Recorded on receipt.</strong></p></div>
+                <dl class="v-document-supplier">
+                  <div>
+                    <dt>Supplier</dt>
+                    <dd>Northstar Pharma</dd>
+                  </div>
+                  <div>
+                    <dt>Record</dt>
+                    <dd>
+                      <span class="v-document-badge v-badge-received"
+                        >Receipt example</span
+                      >
+                    </dd>
+                  </div>
+                </dl>
+                <div class="v-receipt-item">
+                  <p>Paracetamol <span>500 mg</span></p>
+                  <span>120 strips received</span>
+                </div>
+                <dl class="v-receipt-details">
+                  <div>
+                    <dt>Batch number</dt>
+                    <dd>PCM–0426</dd>
+                  </div>
+                  <div>
+                    <dt>Expiry</dt>
+                    <dd>Apr 2028</dd>
+                  </div>
+                </dl>
+                <div class="v-document-bottom">
+                  <span class="v-document-symbol" aria-hidden="true"
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m5 12 4 4L19 6" /></svg
+                  ></span>
+                  <p>
+                    Quantities, batches, expiry.<br /><strong
+                      >Recorded on receipt.</strong
+                    >
+                  </p>
+                </div>
               </article>
             </div>
-            <p class="v-purchase-stage-note">Your team reviews orders and records deliveries.</p>
+            <p class="v-purchase-stage-note">
+              Your team reviews orders and records deliveries.
+            </p>
           </div>
 
           <div class="v-purchase-folders">
             <article class="v-folder-card">
-              <svg class="v-folder-glass-svg" viewBox="0 0 360 210" preserveAspectRatio="none" aria-hidden="true">
+              <svg
+                class="v-folder-glass-svg"
+                viewBox="0 0 360 210"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
                 <defs>
-                  <linearGradient id="v-glass-surface-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="v-glass-surface-1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
                     <stop offset="20%" stop-color="rgba(255, 255, 255, 0.02)" />
                     <stop offset="55%" stop-color="rgba(22, 23, 27, 0.85)" />
                     <stop offset="100%" stop-color="rgba(12, 13, 16, 0.94)" />
                   </linearGradient>
-                  <linearGradient id="v-glass-sheen-1" x1="0%" y1="0%" x2="35%" y2="100%">
+                  <linearGradient
+                    id="v-glass-sheen-1"
+                    x1="0%"
+                    y1="0%"
+                    x2="35%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.12)" />
                     <stop offset="40%" stop-color="rgba(255, 255, 255, 0.02)" />
                     <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
                   </linearGradient>
-                  <linearGradient id="v-glass-rim-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="v-glass-rim-1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.45)" />
                     <stop offset="25%" stop-color="rgba(205, 210, 218, 0.32)" />
                     <stop offset="60%" stop-color="rgba(145, 150, 160, 0.20)" />
-                    <stop offset="100%" stop-color="rgba(255, 255, 255, 0.08)" />
+                    <stop
+                      offset="100%"
+                      stop-color="rgba(255, 255, 255, 0.08)"
+                    />
                   </linearGradient>
                 </defs>
                 <path
@@ -560,24 +786,50 @@
             </article>
 
             <article class="v-folder-card">
-              <svg class="v-folder-glass-svg" viewBox="0 0 360 210" preserveAspectRatio="none" aria-hidden="true">
+              <svg
+                class="v-folder-glass-svg"
+                viewBox="0 0 360 210"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
                 <defs>
-                  <linearGradient id="v-glass-surface-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="v-glass-surface-2"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
                     <stop offset="20%" stop-color="rgba(255, 255, 255, 0.02)" />
                     <stop offset="55%" stop-color="rgba(22, 23, 27, 0.85)" />
                     <stop offset="100%" stop-color="rgba(12, 13, 16, 0.94)" />
                   </linearGradient>
-                  <linearGradient id="v-glass-sheen-2" x1="0%" y1="0%" x2="35%" y2="100%">
+                  <linearGradient
+                    id="v-glass-sheen-2"
+                    x1="0%"
+                    y1="0%"
+                    x2="35%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.12)" />
                     <stop offset="40%" stop-color="rgba(255, 255, 255, 0.02)" />
                     <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
                   </linearGradient>
-                  <linearGradient id="v-glass-rim-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="v-glass-rim-2"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.45)" />
                     <stop offset="25%" stop-color="rgba(205, 210, 218, 0.32)" />
                     <stop offset="60%" stop-color="rgba(145, 150, 160, 0.20)" />
-                    <stop offset="100%" stop-color="rgba(255, 255, 255, 0.08)" />
+                    <stop
+                      offset="100%"
+                      stop-color="rgba(255, 255, 255, 0.08)"
+                    />
                   </linearGradient>
                 </defs>
                 <path
@@ -603,24 +855,50 @@
             </article>
 
             <article class="v-folder-card">
-              <svg class="v-folder-glass-svg" viewBox="0 0 360 210" preserveAspectRatio="none" aria-hidden="true">
+              <svg
+                class="v-folder-glass-svg"
+                viewBox="0 0 360 210"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
                 <defs>
-                  <linearGradient id="v-glass-surface-3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="v-glass-surface-3"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
                     <stop offset="20%" stop-color="rgba(255, 255, 255, 0.02)" />
                     <stop offset="55%" stop-color="rgba(22, 23, 27, 0.85)" />
                     <stop offset="100%" stop-color="rgba(12, 13, 16, 0.94)" />
                   </linearGradient>
-                  <linearGradient id="v-glass-sheen-3" x1="0%" y1="0%" x2="35%" y2="100%">
+                  <linearGradient
+                    id="v-glass-sheen-3"
+                    x1="0%"
+                    y1="0%"
+                    x2="35%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.12)" />
                     <stop offset="40%" stop-color="rgba(255, 255, 255, 0.02)" />
                     <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
                   </linearGradient>
-                  <linearGradient id="v-glass-rim-3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="v-glass-rim-3"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stop-color="rgba(255, 255, 255, 0.45)" />
                     <stop offset="25%" stop-color="rgba(205, 210, 218, 0.32)" />
                     <stop offset="60%" stop-color="rgba(145, 150, 160, 0.20)" />
-                    <stop offset="100%" stop-color="rgba(255, 255, 255, 0.08)" />
+                    <stop
+                      offset="100%"
+                      stop-color="rgba(255, 255, 255, 0.08)"
+                    />
                   </linearGradient>
                 </defs>
                 <path
@@ -641,172 +919,673 @@
                   <span class="v-folder-tab-label">03 / CONNECT</span>
                 </div>
                 <h3>Keep suppliers in view.</h3>
-                <p>Supplier records, payments, and controlled bill corrections.</p>
+                <p>
+                  Supplier records, payments, and controlled bill corrections.
+                </p>
               </div>
             </article>
           </div>
 
           <div class="v-purchase-footer">
             <hr class="v-purchase-divider" />
-            <p class="v-purchase-closing">Orders, receipts, and supplier records. <span>Connected.</span></p>
+            <p class="v-purchase-closing">
+              Orders, receipts, and supplier records. <span>Connected.</span>
+            </p>
           </div>
         </div>
       </section>
-      <section id="supply" class="v-section v-hospital-section" aria-labelledby="hospital-supply-heading">
+      <section
+        id="supply"
+        class="v-section v-hospital-section"
+        aria-labelledby="hospital-supply-heading"
+      >
         <div class="v-container">
           <div class="v-hospital-intro">
-            <p class="v-eyebrow">04 <span aria-hidden="true">/</span> Hospital supply</p>
-            <h2 id="hospital-supply-heading">Keep your pharmacy<br /><em>and hospital store connected.</em></h2>
-            <p class="v-lead">Follow supply requests through picking, dispatch, and receipt. See what is being prepared, what has been sent, and what has arrived.</p>
+            <p class="v-eyebrow">
+              04 <span aria-hidden="true">/</span> Hospital supply
+            </p>
+            <h2 id="hospital-supply-heading">
+              Keep your pharmacy<br /><em>and hospital store connected.</em>
+            </h2>
+            <p class="v-lead">
+              Follow supply requests through picking, dispatch, and receipt. See
+              what is being prepared, what has been sent, and what has arrived.
+            </p>
           </div>
 
-          <figure class="v-hospital-stage" aria-labelledby="hospital-preview-caption">
-            <figcaption id="hospital-preview-caption" class="v-hospital-caption">
+          <figure
+            class="v-hospital-stage"
+            aria-labelledby="hospital-preview-caption"
+          >
+            <figcaption
+              id="hospital-preview-caption"
+              class="v-hospital-caption"
+            >
               <span>Connected across locations</span>
               <span>Illustrative workflow · Demo data</span>
             </figcaption>
             <div class="v-hospital-route">
               <div class="v-hospital-location">
-                <span class="v-hospital-location-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7l9-4 9 4v14M3 21h18M8 21v-6h8v6M8 8h.01M16 8h.01M8 11h.01M16 11h.01" /></svg></span>
+                <span class="v-hospital-location-icon" aria-hidden="true"
+                  ><svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 21V7l9-4 9 4v14M3 21h18M8 21v-6h8v6M8 8h.01M16 8h.01M8 11h.01M16 11h.01"
+                    /></svg
+                ></span>
                 <span class="v-hospital-location-label">Supply from</span>
                 <h3>Central pharmacy</h3>
                 <p>Prepare and dispatch stock.</p>
-                <span class="v-hospital-location-foot">The sending location</span>
+                <span class="v-hospital-location-foot"
+                  >The sending location</span
+                >
               </div>
-              <div class="v-hospital-link" aria-hidden="true"><span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6" /></svg></div>
+              <div class="v-hospital-link" aria-hidden="true">
+                <span></span
+                ><svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h16m-6-6 6 6-6 6" />
+                </svg>
+              </div>
 
-              <article class="v-hospital-request" aria-labelledby="hospital-request-title">
-                <div class="v-hospital-request-brand"><span>VELOCITY ↗</span><span>Hospital supply</span></div>
-                <div class="v-hospital-request-heading"><div><p>One request. A clear path.</p><h3 id="hospital-request-title">Supply request</h3></div><span>SR–0024</span></div>
-                <div class="v-hospital-request-destination"><span>Requested for</span><strong>Hospital store</strong></div>
+              <article
+                class="v-hospital-request"
+                aria-labelledby="hospital-request-title"
+              >
+                <div class="v-hospital-request-brand">
+                  <span>VELOCITY ↗</span><span>Hospital supply</span>
+                </div>
+                <div class="v-hospital-request-heading">
+                  <div>
+                    <p>One request. A clear path.</p>
+                    <h3 id="hospital-request-title">Supply request</h3>
+                  </div>
+                  <span>SR–0024</span>
+                </div>
+                <div class="v-hospital-request-destination">
+                  <span>Requested for</span><strong>Hospital store</strong>
+                </div>
                 <table class="v-hospital-request-table">
-                  <caption class="sr-only">Example medicines and requested quantities</caption>
-                  <thead><tr><th scope="col">Requested medicine</th><th scope="col">Quantity</th></tr></thead>
-                  <tbody><tr><th scope="row">Paracetamol<span>500 mg · 10 tablets / strip</span></th><td>120 <span>strips</span></td></tr><tr><th scope="row">Oral rehydration salts<span>Single-dose sachets</span></th><td>40 <span>sachets</span></td></tr></tbody>
+                  <caption class="sr-only">
+                    Example medicines and requested quantities
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Requested medicine</th>
+                      <th scope="col">Quantity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        Paracetamol<span>500 mg · 10 tablets / strip</span>
+                      </th>
+                      <td>120 <span>strips</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Oral rehydration salts<span>Single-dose sachets</span>
+                      </th>
+                      <td>40 <span>sachets</span></td>
+                    </tr>
+                  </tbody>
                 </table>
-                <div class="v-hospital-request-note"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4M14 3h7v7M10 14 21 3" /></svg><p>Prepared by the sending team.<br /><strong>Receipt recorded at the destination.</strong></p></div>
+                <div class="v-hospital-request-note">
+                  <svg
+                    aria-hidden="true"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4M14 3h7v7M10 14 21 3"
+                    />
+                  </svg>
+                  <p>
+                    Prepared by the sending team.<br /><strong
+                      >Receipt recorded at the destination.</strong
+                    >
+                  </p>
+                </div>
               </article>
 
-              <div class="v-hospital-link" aria-hidden="true"><span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16m-6-6 6 6-6 6" /></svg></div>
+              <div class="v-hospital-link" aria-hidden="true">
+                <span></span
+                ><svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 12h16m-6-6 6 6-6 6" />
+                </svg>
+              </div>
               <div class="v-hospital-location">
-                <span class="v-hospital-location-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M2 21h20M9 21v-5h6v5M12 6v6M9 9h6" /></svg></span>
+                <span class="v-hospital-location-icon" aria-hidden="true"
+                  ><svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M2 21h20M9 21v-5h6v5M12 6v6M9 9h6"
+                    /></svg
+                ></span>
                 <span class="v-hospital-location-label">Deliver to</span>
                 <h3>Hospital store</h3>
                 <p>Review and record receipt.</p>
-                <span class="v-hospital-location-foot">The receiving location</span>
+                <span class="v-hospital-location-foot"
+                  >The receiving location</span
+                >
               </div>
             </div>
 
-            <ol class="v-hospital-journey" aria-label="Hospital supply workflow">
-              <li><span class="v-hospital-step-marker">01</span><div><h3>Request</h3><p>A supply request begins the workflow.</p></div></li>
-              <li><span class="v-hospital-step-marker">02</span><div><h3>Pick</h3><p>The store team prepares the requested stock.</p></div></li>
-              <li><span class="v-hospital-step-marker">03</span><div><h3>Dispatch</h3><p>Follow the medicines sent from the store.</p></div></li>
-              <li><span class="v-hospital-step-marker">04</span><div><h3>Receive</h3><p>Record acceptance at the receiving location.</p></div></li>
+            <ol
+              class="v-hospital-journey"
+              aria-label="Hospital supply workflow"
+            >
+              <li>
+                <span class="v-hospital-step-marker">01</span>
+                <div>
+                  <h3>Request</h3>
+                  <p>A supply request begins the workflow.</p>
+                </div>
+              </li>
+              <li>
+                <span class="v-hospital-step-marker">02</span>
+                <div>
+                  <h3>Pick</h3>
+                  <p>The store team prepares the requested stock.</p>
+                </div>
+              </li>
+              <li>
+                <span class="v-hospital-step-marker">03</span>
+                <div>
+                  <h3>Dispatch</h3>
+                  <p>Follow the medicines sent from the store.</p>
+                </div>
+              </li>
+              <li>
+                <span class="v-hospital-step-marker">04</span>
+                <div>
+                  <h3>Receive</h3>
+                  <p>Record acceptance at the receiving location.</p>
+                </div>
+              </li>
             </ol>
           </figure>
-          <div class="v-hospital-footer"><span aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z" /><path d="m8 12 3 3 5-6" /></svg></span><p>Stock movement uses approval workflows. Rejected deliveries have a supported return process.</p></div>
+          <div class="v-hospital-footer">
+            <span aria-hidden="true"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z" />
+                <path d="m8 12 3 3 5-6" /></svg
+            ></span>
+            <p>
+              Stock movement uses approval workflows. Rejected deliveries have a
+              supported return process.
+            </p>
+          </div>
         </div>
       </section>
-      <section id="operations" class="v-section v-operations-section" aria-labelledby="operations-heading" data-operations>
+      <section
+        id="operations"
+        class="v-section v-operations-section"
+        aria-labelledby="operations-heading"
+        data-operations
+      >
         <div class="v-container">
           <div class="v-operations-intro">
-            <p class="v-eyebrow">05 <span aria-hidden="true">/</span> Everyday operations</p>
+            <p class="v-eyebrow">
+              05 <span aria-hidden="true">/</span> Everyday operations
+            </p>
             <h2 id="operations-heading">Everyday work. <em>Connected.</em></h2>
-            <p class="v-lead">From counter sales to accounting exports, give each team a clearer view of their work.</p>
+            <p class="v-lead">
+              From counter sales to accounting exports, give each team a clearer
+              view of their work.
+            </p>
           </div>
           <div class="v-operations-controls" data-operations-controls hidden>
-            <button type="button" id="operations-tab-counter" data-operations-tab="daily-work">Counter &amp; billing</button>
-            <button type="button" id="operations-tab-ward" data-operations-tab="ward-operations">Ward operations</button>
-            <button type="button" id="operations-tab-accounts" data-operations-tab="accounts">Accounts &amp; exports</button>
-            <button type="button" id="operations-tab-reports" data-operations-tab="visibility">Reports &amp; access</button>
+            <button
+              type="button"
+              id="operations-tab-counter"
+              data-operations-tab="daily-work"
+            >
+              Counter &amp; billing
+            </button>
+            <button
+              type="button"
+              id="operations-tab-ward"
+              data-operations-tab="ward-operations"
+            >
+              Ward operations
+            </button>
+            <button
+              type="button"
+              id="operations-tab-accounts"
+              data-operations-tab="accounts"
+            >
+              Accounts &amp; exports
+            </button>
+            <button
+              type="button"
+              id="operations-tab-reports"
+              data-operations-tab="visibility"
+            >
+              Reports &amp; access
+            </button>
           </div>
 
-          <article id="daily-work" class="v-operations-panel" data-operations-panel>
+          <article
+            id="daily-work"
+            class="v-operations-panel"
+            data-operations-panel
+          >
             <div class="v-operations-copy">
               <p class="v-operations-category">At the pharmacy counter</p>
-              <h3>Keep the counter<br /> <em>moving.</em></h3>
-              <p>Create sales, record payments, and keep the day's transactions in view.</p>
-              <ul><li>Download bills and review transaction history.</li><li>Track credit settlements and recorded payments.</li><li>Review the daily sales summary.</li></ul>
-              <p class="v-operations-context">For independent pharmacies and hospital pharmacy counters.</p>
+              <h3>
+                Keep the counter<br />
+                <em>moving.</em>
+              </h3>
+              <p>
+                Create sales, record payments, and keep the day's transactions
+                in view.
+              </p>
+              <ul>
+                <li>Download bills and review transaction history.</li>
+                <li>Track credit settlements and recorded payments.</li>
+                <li>Review the daily sales summary.</li>
+              </ul>
+              <p class="v-operations-context">
+                For independent pharmacies and hospital pharmacy counters.
+              </p>
             </div>
             <figure class="v-operations-visual">
               <figcaption>Illustrative preview · Demo data</figcaption>
               <div class="v-operations-document v-operations-bill">
-                <div class="v-operations-doc-brand"><span>VELOCITY ↗</span><span>Pharmacy counter</span></div>
-                <div class="v-operations-doc-heading"><div><p>Counter &amp; billing</p><h4>A sale, recorded.</h4></div><span>BILL–0024</span></div>
-                <table class="v-operations-table"><caption class="sr-only">Illustrative bill in Indian rupees</caption><thead><tr><th scope="col">Medicine</th><th scope="col">Amount</th></tr></thead><tbody><tr><th scope="row">Paracetamol<span>500 mg · 4 strips</span></th><td>₹120</td></tr><tr><th scope="row">Oral rehydration salts<span>8 sachets</span></th><td>₹160</td></tr></tbody></table>
-                <div class="v-operations-total"><span>Example bill total</span><strong>₹280</strong></div>
-                <div class="v-operations-doc-footer"><span class="v-operations-doc-check" aria-hidden="true">✓</span><p>Payment recorded<span>Bill and transaction history connected.</span></p></div>
+                <div class="v-operations-doc-brand">
+                  <span>VELOCITY ↗</span><span>Pharmacy counter</span>
+                </div>
+                <div class="v-operations-doc-heading">
+                  <div>
+                    <p>Counter &amp; billing</p>
+                    <h4>A sale, recorded.</h4>
+                  </div>
+                  <span>BILL–0024</span>
+                </div>
+                <table class="v-operations-table">
+                  <caption class="sr-only">
+                    Illustrative bill in Indian rupees
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Medicine</th>
+                      <th scope="col">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        Paracetamol<span>500 mg · 4 strips</span>
+                      </th>
+                      <td>₹120</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Oral rehydration salts<span>8 sachets</span>
+                      </th>
+                      <td>₹160</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="v-operations-total">
+                  <span>Example bill total</span><strong>₹280</strong>
+                </div>
+                <div class="v-operations-doc-footer">
+                  <span class="v-operations-doc-check" aria-hidden="true"
+                    >✓</span
+                  >
+                  <p>
+                    Payment recorded<span
+                      >Bill and transaction history connected.</span
+                    >
+                  </p>
+                </div>
               </div>
-              <p class="v-operations-visual-note">Sales. Payments. A record to return to.</p>
+              <p class="v-operations-visual-note">
+                Sales. Payments. A record to return to.
+              </p>
             </figure>
           </article>
 
-          <article id="ward-operations" class="v-operations-panel" data-operations-panel>
+          <article
+            id="ward-operations"
+            class="v-operations-panel"
+            data-operations-panel
+          >
             <div class="v-operations-copy">
               <p class="v-operations-category">For enabled hospital setups</p>
-              <h3>Follow medicines<br /> <em>beyond the pharmacy.</em></h3>
-              <p>Record medicines issued to wards, track consumption, and manage returns to the pharmacy.</p>
-              <ul><li>Keep ward issues and consumption recorded.</li><li>Support scan-based issue and consumption workflows.</li><li>Manage medicine returns to the pharmacy.</li></ul>
-              <p class="v-operations-context">Ward modules are available for enabled hospital setups.</p>
+              <h3>
+                Follow medicines<br />
+                <em>beyond the pharmacy.</em>
+              </h3>
+              <p>
+                Record medicines issued to wards, track consumption, and manage
+                returns to the pharmacy.
+              </p>
+              <ul>
+                <li>Keep ward issues and consumption recorded.</li>
+                <li>Support scan-based issue and consumption workflows.</li>
+                <li>Manage medicine returns to the pharmacy.</li>
+              </ul>
+              <p class="v-operations-context">
+                Ward modules are available for enabled hospital setups.
+              </p>
             </div>
             <figure class="v-operations-visual">
               <figcaption>Illustrative preview · Demo data</figcaption>
               <div class="v-operations-document v-operations-ward">
-                <div class="v-operations-doc-brand"><span>VELOCITY ↗</span><span>Ward operations</span></div>
-                <div class="v-operations-doc-heading"><div><p>Hospital ward · Example location</p><h4>Every issue, followed.</h4></div></div>
-                <div class="v-operations-ward-medicine"><strong>Paracetamol 500 mg</strong><span>Example activity · Quantities in tablets</span></div>
-                <ol class="v-operations-activity"><li><span class="v-operations-activity-symbol" aria-hidden="true">↗</span><div><strong>Issued to ward</strong><span>From the pharmacy</span></div><b>30</b></li><li><span class="v-operations-activity-symbol" aria-hidden="true">✓</span><div><strong>Consumption recorded</strong><span>At the ward</span></div><b>18</b></li><li><span class="v-operations-activity-symbol" aria-hidden="true">↙</span><div><strong>Returned to pharmacy</strong><span>Return recorded</span></div><b>2</b></li></ol>
-                <div class="v-operations-doc-footer"><span class="v-operations-doc-check" aria-hidden="true">✓</span><p>Location-based records<span>Issue, consumption, and return activity.</span></p></div>
+                <div class="v-operations-doc-brand">
+                  <span>VELOCITY ↗</span><span>Ward operations</span>
+                </div>
+                <div class="v-operations-doc-heading">
+                  <div>
+                    <p>Hospital ward · Example location</p>
+                    <h4>Every issue, followed.</h4>
+                  </div>
+                </div>
+                <div class="v-operations-ward-medicine">
+                  <strong>Paracetamol 500 mg</strong
+                  ><span>Example activity · Quantities in tablets</span>
+                </div>
+                <ol class="v-operations-activity">
+                  <li>
+                    <span
+                      class="v-operations-activity-symbol"
+                      aria-hidden="true"
+                      >↗</span
+                    >
+                    <div>
+                      <strong>Issued to ward</strong
+                      ><span>From the pharmacy</span>
+                    </div>
+                    <b>30</b>
+                  </li>
+                  <li>
+                    <span
+                      class="v-operations-activity-symbol"
+                      aria-hidden="true"
+                      >✓</span
+                    >
+                    <div>
+                      <strong>Consumption recorded</strong
+                      ><span>At the ward</span>
+                    </div>
+                    <b>18</b>
+                  </li>
+                  <li>
+                    <span
+                      class="v-operations-activity-symbol"
+                      aria-hidden="true"
+                      >↙</span
+                    >
+                    <div>
+                      <strong>Returned to pharmacy</strong
+                      ><span>Return recorded</span>
+                    </div>
+                    <b>2</b>
+                  </li>
+                </ol>
+                <div class="v-operations-doc-footer">
+                  <span class="v-operations-doc-check" aria-hidden="true"
+                    >✓</span
+                  >
+                  <p>
+                    Location-based records<span
+                      >Issue, consumption, and return activity.</span
+                    >
+                  </p>
+                </div>
               </div>
-              <p class="v-operations-visual-note">From the pharmacy. Through the ward.</p>
+              <p class="v-operations-visual-note">
+                From the pharmacy. Through the ward.
+              </p>
             </figure>
           </article>
 
-          <article id="accounts" class="v-operations-panel" data-operations-panel>
+          <article
+            id="accounts"
+            class="v-operations-panel"
+            data-operations-panel
+          >
             <div class="v-operations-copy">
               <p class="v-operations-category">For the accounts team</p>
-              <h3>Prepare the next<br /> <em>accounting step.</em></h3>
-              <p>Keep supplier payment records organised and prepare pharmacy data for your accounts team.</p>
-              <ul><li>Export Tally XML and GST audit spreadsheets.</li><li>Manage organization and GST settings, plus ledger mappings.</li><li>Review supplier payments, export previews, and history.</li></ul>
-              <p class="v-operations-context">Your team handles the next accounting and filing steps.</p>
+              <h3>
+                Prepare the next<br />
+                <em>accounting step.</em>
+              </h3>
+              <p>
+                Keep supplier payment records organised and prepare pharmacy
+                data for your accounts team.
+              </p>
+              <ul>
+                <li>Export Tally XML and GST audit spreadsheets.</li>
+                <li>
+                  Manage organization and GST settings, plus ledger mappings.
+                </li>
+                <li>Review supplier payments, export previews, and history.</li>
+              </ul>
+              <p class="v-operations-context">
+                Your team handles the next accounting and filing steps.
+              </p>
             </div>
             <figure class="v-operations-visual">
               <figcaption>Illustrative preview · Demo data</figcaption>
               <div class="v-operations-document v-operations-exports">
-                <div class="v-operations-doc-brand"><span>VELOCITY ↗</span><span>Accounts &amp; exports</span></div>
-                <div class="v-operations-doc-heading"><div><p>From pharmacy records to accounts</p><h4>Ready for the next step.</h4></div></div>
-                <div class="v-operations-export-file"><span class="v-operations-file-type">XML</span><div><h5>Tally XML</h5><p>Accounting export</p></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" /></svg></div>
-                <div class="v-operations-export-file"><span class="v-operations-file-type">GST</span><div><h5>GST audit spreadsheet</h5><p>Data for your team's review</p></div><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" /></svg></div>
-                <div class="v-operations-export-meta"><span>Ledger mapping</span><span>Export previews &amp; history</span></div>
-                <div class="v-operations-doc-footer"><span class="v-operations-doc-check" aria-hidden="true">↗</span><p>An export workflow<span>Prepared for your accounts team.</span></p></div>
+                <div class="v-operations-doc-brand">
+                  <span>VELOCITY ↗</span><span>Accounts &amp; exports</span>
+                </div>
+                <div class="v-operations-doc-heading">
+                  <div>
+                    <p>From pharmacy records to accounts</p>
+                    <h4>Ready for the next step.</h4>
+                  </div>
+                </div>
+                <div class="v-operations-export-file">
+                  <span class="v-operations-file-type">XML</span>
+                  <div>
+                    <h5>Tally XML</h5>
+                    <p>Accounting export</p>
+                  </div>
+                  <svg
+                    aria-hidden="true"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
+                  </svg>
+                </div>
+                <div class="v-operations-export-file">
+                  <span class="v-operations-file-type">GST</span>
+                  <div>
+                    <h5>GST audit spreadsheet</h5>
+                    <p>Data for your team's review</p>
+                  </div>
+                  <svg
+                    aria-hidden="true"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" />
+                  </svg>
+                </div>
+                <div class="v-operations-export-meta">
+                  <span>Ledger mapping</span
+                  ><span>Export previews &amp; history</span>
+                </div>
+                <div class="v-operations-doc-footer">
+                  <span class="v-operations-doc-check" aria-hidden="true"
+                    >↗</span
+                  >
+                  <p>
+                    An export workflow<span
+                      >Prepared for your accounts team.</span
+                    >
+                  </p>
+                </div>
               </div>
-              <p class="v-operations-visual-note">Organised records. A clearer handoff.</p>
+              <p class="v-operations-visual-note">
+                Organised records. A clearer handoff.
+              </p>
             </figure>
           </article>
 
-          <article id="visibility" class="v-operations-panel" data-operations-panel>
+          <article
+            id="visibility"
+            class="v-operations-panel"
+            data-operations-panel
+          >
             <div class="v-operations-copy">
-              <p class="v-operations-category">For oversight &amp; responsibility</p>
-              <h3>See what needs<br /> <em>attention.</em></h3>
-              <p>Review inventory, purchasing, supplier, hospital, and financial reports in one system.</p>
-              <ul><li>Find low-stock, near-expiry, and slow-moving medicines.</li><li>Organise responsibilities with role-based access and approvals.</li><li>Review recorded inventory activity when something changes.</li></ul>
-              <p class="v-operations-context">Check reporting periods and data freshness. Some reports use snapshots.</p>
+              <p class="v-operations-category">
+                For oversight &amp; responsibility
+              </p>
+              <h3>
+                See what needs<br />
+                <em>attention.</em>
+              </h3>
+              <p>
+                Review inventory, purchasing, supplier, hospital, and financial
+                reports in one system.
+              </p>
+              <ul>
+                <li>Find low-stock, near-expiry, and slow-moving medicines.</li>
+                <li>
+                  Organise responsibilities with role-based access and
+                  approvals.
+                </li>
+                <li>
+                  Review recorded inventory activity when something changes.
+                </li>
+              </ul>
+              <p class="v-operations-context">
+                Check reporting periods and data freshness. Some reports use
+                snapshots.
+              </p>
             </div>
             <figure class="v-operations-visual">
               <figcaption>Illustrative preview · Demo data</figcaption>
               <div class="v-operations-document v-operations-report">
-                <div class="v-operations-doc-brand"><span>VELOCITY ↗</span><span>Reports &amp; access</span></div>
-                <div class="v-operations-doc-heading"><div><p>Stock attention report</p><h4>A clearer overview.</h4></div></div>
-                <p class="v-operations-report-period">Example reporting period · 01–30 Sep 2026</p>
-                <table class="v-operations-table"><caption class="sr-only">Illustrative medicines requiring stock review</caption><thead><tr><th scope="col">Medicine</th><th scope="col">Review</th></tr></thead><tbody><tr><th scope="row">Paracetamol<span>500 mg</span></th><td><span class="v-operations-review-tag">Low stock</span></td></tr><tr><th scope="row">Amoxicillin<span>250 mg</span></th><td><span class="v-operations-review-tag">Expiry review</span></td></tr></tbody></table>
-                <div class="v-operations-export-meta"><span>Role-based access</span><span>Recorded activity</span></div>
-                <div class="v-operations-doc-footer"><span class="v-operations-doc-check" aria-hidden="true">↗</span><p>Review the reporting period<span>Some reports use snapshots.</span></p></div>
+                <div class="v-operations-doc-brand">
+                  <span>VELOCITY ↗</span><span>Reports &amp; access</span>
+                </div>
+                <div class="v-operations-doc-heading">
+                  <div>
+                    <p>Stock attention report</p>
+                    <h4>A clearer overview.</h4>
+                  </div>
+                </div>
+                <p class="v-operations-report-period">
+                  Example reporting period · 01–30 Sep 2026
+                </p>
+                <table class="v-operations-table">
+                  <caption class="sr-only">
+                    Illustrative medicines requiring stock review
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Medicine</th>
+                      <th scope="col">Review</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Paracetamol<span>500 mg</span></th>
+                      <td>
+                        <span class="v-operations-review-tag">Low stock</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Amoxicillin<span>250 mg</span></th>
+                      <td>
+                        <span class="v-operations-review-tag"
+                          >Expiry review</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="v-operations-export-meta">
+                  <span>Role-based access</span><span>Recorded activity</span>
+                </div>
+                <div class="v-operations-doc-footer">
+                  <span class="v-operations-doc-check" aria-hidden="true"
+                    >↗</span
+                  >
+                  <p>
+                    Review the reporting period<span
+                      >Some reports use snapshots.</span
+                    >
+                  </p>
+                </div>
               </div>
-              <p class="v-operations-visual-note">Visibility for the people responsible.</p>
+              <p class="v-operations-visual-note">
+                Visibility for the people responsible.
+              </p>
             </figure>
           </article>
-          <p class="v-operations-availability">Module availability depends on your configured setup.</p>
+          <p class="v-operations-availability">
+            Module availability depends on your configured setup.
+          </p>
         </div>
       </section>
       <section
@@ -823,14 +1602,19 @@
               Less manual work.<br /><em>More control.</em>
             </h2>
             <p class="v-lead">
-              A clearer view of your stock, your daily work, and your next decision.
+              A clearer view of your stock, your daily work, and your next
+              decision.
             </p>
           </div>
 
           <div class="v-capabilities-grid">
             <!-- Card 1: Stock & Medicines -->
             <article class="v-capability-card" aria-labelledby="v-card-1-title">
-              <div class="v-capability-card-visual" role="img" aria-label="Illustrative medicine stock card with packs, loose units, location, batch, and expiry details">
+              <div
+                class="v-capability-card-visual"
+                role="img"
+                aria-label="Illustrative medicine stock card with packs, loose units, location, batch, and expiry details"
+              >
                 <div class="v-mockup-doc v-mockup-stock">
                   <div class="v-mockup-header">
                     <span class="v-mockup-brand">VELOCITY ↗</span>
@@ -843,7 +1627,9 @@
                   <div class="v-mockup-quantities">
                     <div class="v-mockup-qty-card">
                       <span class="v-mockup-qty-num">42</span>
-                      <span class="v-mockup-qty-unit">Packs <em>(10 strips)</em></span>
+                      <span class="v-mockup-qty-unit"
+                        >Packs <em>(10 strips)</em></span
+                      >
                     </div>
                     <div class="v-mockup-qty-card">
                       <span class="v-mockup-qty-num">420</span>
@@ -851,7 +1637,22 @@
                     </div>
                   </div>
                   <div class="v-mockup-location">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
                     <span>Shelf B-04 · Main Store</span>
                   </div>
                   <div class="v-mockup-subcard">
@@ -864,7 +1665,10 @@
                       <strong>Nov 2027</strong>
                     </div>
                     <div class="v-mockup-subitem v-mockup-subright">
-                      <span class="v-mockup-status-dot" aria-hidden="true"></span>
+                      <span
+                        class="v-mockup-status-dot"
+                        aria-hidden="true"
+                      ></span>
                       <span class="v-mockup-status-text">Active</span>
                     </div>
                   </div>
@@ -873,14 +1677,19 @@
               <div class="v-capability-card-copy">
                 <h3 id="v-card-1-title">Know what you have.</h3>
                 <p>
-                  See medicine stock in packs and loose units, with batch, expiry, and location details together.
+                  See medicine stock in packs and loose units, with batch,
+                  expiry, and location details together.
                 </p>
               </div>
             </article>
 
             <!-- Card 2: Operations Workflow -->
             <article class="v-capability-card" aria-labelledby="v-card-2-title">
-              <div class="v-capability-card-visual" role="img" aria-label="Illustrative workflow card showing 3 steps: order review, stock receipt, and dispensing">
+              <div
+                class="v-capability-card-visual"
+                role="img"
+                aria-label="Illustrative workflow card showing 3 steps: order review, stock receipt, and dispensing"
+              >
                 <div class="v-mockup-doc v-mockup-workflow">
                   <div class="v-mockup-header">
                     <span class="v-mockup-brand">VELOCITY ↗</span>
@@ -889,7 +1698,18 @@
                   <ol class="v-mockup-timeline">
                     <li class="v-mockup-step v-step-complete">
                       <div class="v-step-indicator" aria-hidden="true">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m5 12 4 4L19 6" />
+                        </svg>
                       </div>
                       <div class="v-step-info">
                         <div class="v-step-head">
@@ -901,7 +1721,18 @@
                     </li>
                     <li class="v-mockup-step v-step-complete">
                       <div class="v-step-indicator" aria-hidden="true">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="m5 12 4 4L19 6" />
+                        </svg>
                       </div>
                       <div class="v-step-info">
                         <div class="v-step-head">
@@ -925,7 +1756,9 @@
                     </li>
                   </ol>
                   <div class="v-mockup-flow-footer">
-                    <span class="v-mockup-flow-check" aria-hidden="true">✓</span>
+                    <span class="v-mockup-flow-check" aria-hidden="true"
+                      >✓</span
+                    >
                     <span>Continuous inventory trail</span>
                   </div>
                 </div>
@@ -933,14 +1766,19 @@
               <div class="v-capability-card-copy">
                 <h3 id="v-card-2-title">Keep operations moving.</h3>
                 <p>
-                  Keep purchasing, receiving, and dispensing connected, so your team can follow the next step.
+                  Keep purchasing, receiving, and dispensing connected, so your
+                  team can follow the next step.
                 </p>
               </div>
             </article>
 
             <!-- Card 3: Reporting & Decisions -->
             <article class="v-capability-card" aria-labelledby="v-card-3-title">
-              <div class="v-capability-card-visual" role="img" aria-label="Illustrative reporting card with stock movement chart and accounting export status">
+              <div
+                class="v-capability-card-visual"
+                role="img"
+                aria-label="Illustrative reporting card with stock movement chart and accounting export status"
+              >
                 <div class="v-mockup-doc v-mockup-reporting">
                   <div class="v-mockup-header">
                     <span class="v-mockup-brand">VELOCITY ↗</span>
@@ -951,33 +1789,143 @@
                     <span class="v-mockup-chart-period">Past 6 months</span>
                   </div>
                   <div class="v-mockup-chart" aria-hidden="true">
-                    <svg viewBox="0 0 260 76" preserveAspectRatio="none" class="v-chart-svg">
+                    <svg
+                      viewBox="0 0 260 76"
+                      preserveAspectRatio="none"
+                      class="v-chart-svg"
+                    >
                       <!-- Grid lines -->
-                      <line x1="0" y1="18" x2="260" y2="18" stroke="#00000010" stroke-width="1" />
-                      <line x1="0" y1="46" x2="260" y2="46" stroke="#00000010" stroke-width="1" />
-                      <line x1="0" y1="74" x2="260" y2="74" stroke="#00000018" stroke-width="1" />
+                      <line
+                        x1="0"
+                        y1="18"
+                        x2="260"
+                        y2="18"
+                        stroke="#00000010"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="0"
+                        y1="46"
+                        x2="260"
+                        y2="46"
+                        stroke="#00000010"
+                        stroke-width="1"
+                      />
+                      <line
+                        x1="0"
+                        y1="74"
+                        x2="260"
+                        y2="74"
+                        stroke="#00000018"
+                        stroke-width="1"
+                      />
                       <!-- Dual bars per month: received (dark slate) & dispensed (subtle sage) -->
                       <!-- May -->
-                      <rect x="18" y="28" width="11" height="46" rx="2" fill="#2d3339" />
-                      <rect x="32" y="38" width="11" height="36" rx="2" fill="#889689" />
+                      <rect
+                        x="18"
+                        y="28"
+                        width="11"
+                        height="46"
+                        rx="2"
+                        fill="#2d3339"
+                      />
+                      <rect
+                        x="32"
+                        y="38"
+                        width="11"
+                        height="36"
+                        rx="2"
+                        fill="#889689"
+                      />
                       <!-- Jun -->
-                      <rect x="58" y="20" width="11" height="54" rx="2" fill="#2d3339" />
-                      <rect x="72" y="32" width="11" height="42" rx="2" fill="#889689" />
+                      <rect
+                        x="58"
+                        y="20"
+                        width="11"
+                        height="54"
+                        rx="2"
+                        fill="#2d3339"
+                      />
+                      <rect
+                        x="72"
+                        y="32"
+                        width="11"
+                        height="42"
+                        rx="2"
+                        fill="#889689"
+                      />
                       <!-- Jul -->
-                      <rect x="98" y="14" width="11" height="60" rx="2" fill="#2d3339" />
-                      <rect x="112" y="24" width="11" height="50" rx="2" fill="#889689" />
+                      <rect
+                        x="98"
+                        y="14"
+                        width="11"
+                        height="60"
+                        rx="2"
+                        fill="#2d3339"
+                      />
+                      <rect
+                        x="112"
+                        y="24"
+                        width="11"
+                        height="50"
+                        rx="2"
+                        fill="#889689"
+                      />
                       <!-- Aug -->
-                      <rect x="138" y="26" width="11" height="48" rx="2" fill="#2d3339" />
-                      <rect x="152" y="30" width="11" height="44" rx="2" fill="#889689" />
+                      <rect
+                        x="138"
+                        y="26"
+                        width="11"
+                        height="48"
+                        rx="2"
+                        fill="#2d3339"
+                      />
+                      <rect
+                        x="152"
+                        y="30"
+                        width="11"
+                        height="44"
+                        rx="2"
+                        fill="#889689"
+                      />
                       <!-- Sep -->
-                      <rect x="178" y="18" width="11" height="56" rx="2" fill="#2d3339" />
-                      <rect x="192" y="22" width="11" height="52" rx="2" fill="#889689" />
+                      <rect
+                        x="178"
+                        y="18"
+                        width="11"
+                        height="56"
+                        rx="2"
+                        fill="#2d3339"
+                      />
+                      <rect
+                        x="192"
+                        y="22"
+                        width="11"
+                        height="52"
+                        rx="2"
+                        fill="#889689"
+                      />
                       <!-- Oct -->
-                      <rect x="218" y="10" width="11" height="64" rx="2" fill="#2d3339" />
-                      <rect x="232" y="16" width="11" height="58" rx="2" fill="#889689" />
+                      <rect
+                        x="218"
+                        y="10"
+                        width="11"
+                        height="64"
+                        rx="2"
+                        fill="#2d3339"
+                      />
+                      <rect
+                        x="232"
+                        y="16"
+                        width="11"
+                        height="58"
+                        rx="2"
+                        fill="#889689"
+                      />
                     </svg>
                     <div class="v-chart-labels">
-                      <span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+                      <span>May</span><span>Jun</span><span>Jul</span
+                      ><span>Aug</span><span>Sep</span><span>Oct</span>
                     </div>
                   </div>
                   <div class="v-mockup-export-panel">
@@ -993,7 +1941,9 @@
                         <span class="v-export-tag">REC</span>
                         <span>Supplier payments</span>
                       </div>
-                      <span class="v-export-status">Settled · 0 discrepancies</span>
+                      <span class="v-export-status"
+                        >Settled · 0 discrepancies</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -1001,7 +1951,8 @@
               <div class="v-capability-card-copy">
                 <h3 id="v-card-3-title">Make decisions with clarity.</h3>
                 <p>
-                  Bring stock reports, supplier payments, and accounting exports into one shared workspace.
+                  Bring stock reports, supplier payments, and accounting exports
+                  into one shared workspace.
                 </p>
               </div>
             </article>
@@ -1013,10 +1964,614 @@
           </div>
         </div>
       </section>
+      <section
+        id="why-velocity"
+        class="v-section v-why-section"
+        aria-labelledby="v-why-title"
+      >
+        <div class="v-container">
+          <div class="v-why-header">
+            <p class="v-eyebrow">
+              07 <span aria-hidden="true">/</span> Why Velocity
+            </p>
+            <h2 id="v-why-title">
+              Your pharmacy.<br /><em>Fewer blind spots.</em>
+            </h2>
+            <p class="v-lead">
+              Know what needs attention, understand stock changes, and stay
+              informed when you’re away.
+            </p>
+          </div>
+
+          <div class="v-why-wrapper" data-why-root>
+            <div class="v-why-grid">
+              <!-- Left Column: Focused Interactive Visual Stage Host -->
+              <div class="v-why-stage-col" data-why-desktop-host>
+                <!-- Visual Stage 01: Stock risks -->
+                <div
+                  id="why-panel-0"
+                  class="v-why-stage is-active"
+                  data-why-panel="0"
+                  role="tabpanel"
+                  aria-labelledby="why-trigger-0"
+                  tabindex="0"
+                >
+                  <div
+                    class="v-why-stage-box"
+                    role="img"
+                    aria-label="Interactive medicine attention list showing low stock, expiring soon, and expired stock"
+                  >
+                    <div class="v-why-floating-doc">
+                      <div class="v-why-doc-topbar">
+                        <span class="v-why-doc-brand">VELOCITY ↗</span>
+                        <span class="v-why-doc-badge">Stock risks</span>
+                      </div>
+
+                      <!-- Filter controls inside mockup directly above records -->
+                      <div
+                        class="v-why-mini-filters"
+                        role="group"
+                        aria-label="Filter status"
+                      >
+                        <button
+                          type="button"
+                          class="v-why-mini-filter is-active"
+                          data-stock-filter="low-stock"
+                          aria-pressed="true"
+                        >
+                          Low stock (4)
+                        </button>
+                        <button
+                          type="button"
+                          class="v-why-mini-filter"
+                          data-stock-filter="expiring-soon"
+                          aria-pressed="false"
+                        >
+                          Expiring soon (3)
+                        </button>
+                        <button
+                          type="button"
+                          class="v-why-mini-filter"
+                          data-stock-filter="expired"
+                          aria-pressed="false"
+                        >
+                          Expired (3)
+                        </button>
+                      </div>
+
+                      <div class="v-why-records-list">
+                        <!-- Low stock records -->
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="low-stock"
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Amoxicillin 500 mg</strong>
+                            <span>Batch BX-8941 · Shelf B-04</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>6</strong> / 20 packs</span
+                            >
+                            <span class="v-why-tag v-tag-warn">Low stock</span>
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="low-stock"
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Metformin 500 mg</strong>
+                            <span>Batch MF-2041 · Shelf A-12</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>4</strong> / 15 packs</span
+                            >
+                            <span class="v-why-tag v-tag-warn">Low stock</span>
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="low-stock"
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Pantoprazole 40 mg</strong>
+                            <span>Batch PT-1108 · Shelf C-02</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>2</strong> / 12 packs</span
+                            >
+                            <span class="v-why-tag v-tag-danger">Critical</span>
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="low-stock"
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Cefixime 200 mg</strong>
+                            <span>Batch CX-3309 · Shelf B-08</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>5</strong> / 25 packs</span
+                            >
+                            <span class="v-why-tag v-tag-warn">Low stock</span>
+                          </div>
+                        </div>
+
+                        <!-- Expiring soon records -->
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="expiring-soon"
+                          hidden
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Azithromycin 250 mg</strong>
+                            <span>Batch AZ-4412 · Dec 2026</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>18</strong> packs</span
+                            >
+                            <span class="v-why-tag v-tag-warn">In 42 days</span>
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="expiring-soon"
+                          hidden
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Cough Syrup 100 ml</strong>
+                            <span>Batch CS-9021 · Nov 2026</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>8</strong> bottles</span
+                            >
+                            <span class="v-why-tag v-tag-danger"
+                              >In 18 days</span
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="expiring-soon"
+                          hidden
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Atorvastatin 20 mg</strong>
+                            <span>Batch AT-1120 · Dec 2026</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>14</strong> packs</span
+                            >
+                            <span class="v-why-tag v-tag-warn">In 38 days</span>
+                          </div>
+                        </div>
+
+                        <!-- Expired records -->
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="expired"
+                          hidden
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Ceftriaxone 1 g Inj</strong>
+                            <span>Batch CF-7703 · Expired Sep 2026</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>5</strong> vials</span
+                            >
+                            <span class="v-why-tag v-tag-expired"
+                              >Expired · Quarantine</span
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="expired"
+                          hidden
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Eye Drops 10 ml</strong>
+                            <span>Batch ED-1092 · Expired Oct 2026</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>3</strong> units</span
+                            >
+                            <span class="v-why-tag v-tag-expired"
+                              >Expired · Quarantine</span
+                            >
+                          </div>
+                        </div>
+
+                        <div
+                          class="v-why-record-row"
+                          data-stock-category="expired"
+                          hidden
+                        >
+                          <div class="v-why-record-main">
+                            <strong>Insulin Glargine 100 IU</strong>
+                            <span>Batch IN-5021 · Expired Oct 2026</span>
+                          </div>
+                          <div class="v-why-record-side">
+                            <span class="v-why-qty-val"
+                              ><strong>4</strong> pens</span
+                            >
+                            <span class="v-why-tag v-tag-expired"
+                              >Expired · Quarantine</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="v-why-doc-summary-bar">
+                        <span class="v-why-summary-stat"
+                          ><strong>4 items</strong> requiring reorder</span
+                        >
+                        <span class="v-why-summary-val font-mono"
+                          >₹14,200 at risk</span
+                        >
+                      </div>
+
+                      <div class="v-why-doc-subtle">
+                        <span
+                          >Low stock and batch expiry from recorded
+                          inventory.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Visual Stage 02: Stock changes -->
+                <div
+                  id="why-panel-1"
+                  class="v-why-stage"
+                  data-why-panel="1"
+                  role="tabpanel"
+                  aria-labelledby="why-trigger-1"
+                  tabindex="0"
+                  hidden
+                >
+                  <div
+                    class="v-why-stage-box"
+                    role="img"
+                    aria-label="Interactive activity timeline showing stock adjustment details"
+                  >
+                    <div class="v-why-floating-doc" data-activity-detail>
+                      <div class="v-why-doc-topbar">
+                        <span class="v-why-doc-brand">VELOCITY ↗</span>
+                        <span class="v-why-doc-badge">Activity record</span>
+                      </div>
+
+                      <!-- Short activity list -->
+                      <div
+                        class="v-why-activity-mini-list"
+                        role="group"
+                        aria-label="Recorded inventory actions"
+                      >
+                        <button
+                          type="button"
+                          class="v-why-act-mini-btn is-active"
+                          data-activity-id="act-1"
+                          aria-pressed="true"
+                        >
+                          <span class="v-act-mini-line">
+                            <strong class="v-act-type">Stock adjustment</strong>
+                            <span class="v-act-time">Today, 14:32</span>
+                          </span>
+                          <span class="v-act-summary"
+                            >Metformin 500 mg · Δ -5 packs</span
+                          >
+                        </button>
+
+                        <button
+                          type="button"
+                          class="v-why-act-mini-btn"
+                          data-activity-id="act-2"
+                          aria-pressed="false"
+                        >
+                          <span class="v-act-mini-line">
+                            <strong class="v-act-type">Goods receipt</strong>
+                            <span class="v-act-time">Today, 11:15</span>
+                          </span>
+                          <span class="v-act-summary"
+                            >Amoxicillin 500 mg · Δ +120 packs</span
+                          >
+                        </button>
+
+                        <button
+                          type="button"
+                          class="v-why-act-mini-btn"
+                          data-activity-id="act-3"
+                          aria-pressed="false"
+                        >
+                          <span class="v-act-mini-line">
+                            <strong class="v-act-type">Counter dispense</strong>
+                            <span class="v-act-time">Today, 09:40</span>
+                          </span>
+                          <span class="v-act-summary"
+                            >Paracetamol 650 mg · Δ -2 strips</span
+                          >
+                        </button>
+                      </div>
+
+                      <!-- Revealed details for selected entry -->
+                      <div class="v-why-detail-box">
+                        <div class="v-why-detail-grid">
+                          <div>
+                            <span class="v-detail-label">Staff &amp; Role</span>
+                            <strong data-field="user"
+                              >P. Sharma · Pharmacist</strong
+                            >
+                          </div>
+                          <div>
+                            <span class="v-detail-label">Quantity Flow</span>
+                            <strong class="v-flow-num" data-field="flow"
+                              >45 → 40 packs (Δ -5)</strong
+                            >
+                          </div>
+                          <div>
+                            <span class="v-detail-label">Medicine</span>
+                            <strong data-field="medicine"
+                              >Metformin 500 mg (BX-8941)</strong
+                            >
+                          </div>
+                          <div>
+                            <span class="v-detail-label">Reference</span>
+                            <strong data-field="ref"
+                              >Adjustment #ADJ-104</strong
+                            >
+                          </div>
+                        </div>
+                        <div class="v-detail-reason">
+                          <span class="v-detail-label">Reason</span>
+                          <p data-field="reason">
+                            Physical count reconciliation: 5 damaged packs
+                            written off
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="v-why-doc-subtle">
+                        <span
+                          >Reason and staff identity recorded for stock balance
+                          corrections.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Visual Stage 03: Remote visibility -->
+                <div
+                  id="why-panel-2"
+                  class="v-why-stage"
+                  data-why-panel="2"
+                  role="tabpanel"
+                  aria-labelledby="why-trigger-2"
+                  tabindex="0"
+                  hidden
+                >
+                  <div
+                    class="v-why-stage-box"
+                    role="img"
+                    aria-label="Interactive remote overview with period switcher and stock summary"
+                  >
+                    <div class="v-why-floating-doc" data-owner-overview>
+                      <div class="v-why-doc-topbar">
+                        <span class="v-why-doc-brand">VELOCITY ↗</span>
+                        <span class="v-why-doc-time" data-stat="updated"
+                          >Updated 18:45 IST · Snapshot</span
+                        >
+                      </div>
+
+                      <!-- Period switcher inside mockup -->
+                      <div
+                        class="v-why-mini-filters"
+                        role="group"
+                        aria-label="Reporting period"
+                      >
+                        <button
+                          type="button"
+                          class="v-why-mini-filter is-active"
+                          data-owner-period="today"
+                          aria-pressed="true"
+                        >
+                          Today
+                        </button>
+                        <button
+                          type="button"
+                          class="v-why-mini-filter"
+                          data-owner-period="7d"
+                          aria-pressed="false"
+                        >
+                          Past 7 days
+                        </button>
+                        <button
+                          type="button"
+                          class="v-why-mini-filter"
+                          data-owner-period="30d"
+                          aria-pressed="false"
+                        >
+                          Past 30 days
+                        </button>
+                      </div>
+
+                      <!-- 4 compact metric tiles -->
+                      <div class="v-why-kpi-grid">
+                        <div class="v-kpi-card">
+                          <span class="v-kpi-label">Stock catalogue</span>
+                          <strong class="v-kpi-num" data-stat="skus"
+                            >1,248</strong
+                          >
+                          <span class="v-kpi-sub">Active medicines</span>
+                        </div>
+                        <div class="v-kpi-card">
+                          <span class="v-kpi-label">Stock movements</span>
+                          <strong class="v-kpi-num" data-stat="movements"
+                            >34 recorded</strong
+                          >
+                          <span class="v-kpi-sub">Receipts &amp; issues</span>
+                        </div>
+                        <div class="v-kpi-card v-kpi-alert">
+                          <span class="v-kpi-label">Attention needed</span>
+                          <strong class="v-kpi-num" data-stat="attention"
+                            >5 items</strong
+                          >
+                          <span class="v-kpi-sub" data-stat="attention-detail"
+                            >3 low stock · 2 expiring</span
+                          >
+                        </div>
+                        <div class="v-kpi-card">
+                          <span class="v-kpi-label">Counter sales</span>
+                          <strong class="v-kpi-num" data-stat="bills"
+                            >28 bills</strong
+                          >
+                          <span class="v-kpi-sub">Settled transactions</span>
+                        </div>
+                      </div>
+
+                      <div class="v-why-status-bar">
+                        <span class="v-status-dot" aria-hidden="true"></span>
+                        <span>Browser access available · Snapshot</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Scenario Selector with large typography -->
+              <div
+                class="v-why-selector"
+                role="tablist"
+                aria-label="Why Velocity scenarios"
+              >
+                <!-- Scenario 01 -->
+                <div class="v-why-item is-active" data-why-item="0">
+                  <button
+                    type="button"
+                    id="why-trigger-0"
+                    class="v-why-trigger is-active"
+                    data-why-trigger="0"
+                    role="tab"
+                    aria-selected="true"
+                    aria-expanded="true"
+                    aria-controls="why-panel-0"
+                    tabindex="0"
+                  >
+                    <span class="v-why-item-num">01</span>
+                    <span class="v-why-item-text">
+                      <span class="v-why-item-title">
+                        <span>Catch stock risks earlier</span>
+                        <span class="v-why-indicator" aria-hidden="true">
+                          <span class="v-why-indicator-dot"></span>
+                          <span class="v-why-indicator-label">Active</span>
+                        </span>
+                      </span>
+                      <span class="v-why-item-desc"
+                        >Find low stock and batches approaching expiry before
+                        they impact prescriptions.</span
+                      >
+                    </span>
+                  </button>
+                </div>
+
+                <!-- Scenario 02 -->
+                <div class="v-why-item" data-why-item="1">
+                  <button
+                    type="button"
+                    id="why-trigger-1"
+                    class="v-why-trigger"
+                    data-why-trigger="1"
+                    role="tab"
+                    aria-selected="false"
+                    aria-expanded="false"
+                    aria-controls="why-panel-1"
+                    tabindex="-1"
+                  >
+                    <span class="v-why-item-num">02</span>
+                    <span class="v-why-item-text">
+                      <span class="v-why-item-title">
+                        <span>Understand stock changes</span>
+                        <span class="v-why-indicator" aria-hidden="true">
+                          <span class="v-why-indicator-dot"></span>
+                          <span class="v-why-indicator-label">Active</span>
+                        </span>
+                      </span>
+                      <span class="v-why-item-desc"
+                        >Review recorded inventory activity with timestamps,
+                        audit logs, and verified delta changes.</span
+                      >
+                    </span>
+                  </button>
+                </div>
+
+                <!-- Scenario 03 -->
+                <div class="v-why-item" data-why-item="2">
+                  <button
+                    type="button"
+                    id="why-trigger-2"
+                    class="v-why-trigger"
+                    data-why-trigger="2"
+                    role="tab"
+                    aria-selected="false"
+                    aria-expanded="false"
+                    aria-controls="why-panel-2"
+                    tabindex="-1"
+                  >
+                    <span class="v-why-item-num">03</span>
+                    <span class="v-why-item-text">
+                      <span class="v-why-item-title">
+                        <span>Stay informed from anywhere</span>
+                        <span class="v-why-indicator" aria-hidden="true">
+                          <span class="v-why-indicator-dot"></span>
+                          <span class="v-why-indicator-label">Active</span>
+                        </span>
+                      </span>
+                      <span class="v-why-item-desc"
+                        >Access available reports, dispensary throughput, and
+                        recorded activity through your browser.</span
+                      >
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Discreet notes beneath the section -->
+            <div class="v-why-notes">
+              <p>Illustrative example · Demo data.</p>
+              <p>Module availability depends on your configured setup.</p>
+            </div>
+
+            <!-- Understated closing link beneath the section -->
+            <div class="v-why-bottom-cta">
+              <a class="v-text-link" href="/connect?product=velocity">
+                Book a demo <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="faq" class="v-section v-container v-faq-grid">
         <div class="v-copy">
           <p class="v-eyebrow">
-            07 <span aria-hidden="true">/</span> Good to know
+            08 <span aria-hidden="true">/</span> Good to know
           </p>
           <h2>A few questions,<br /><em>answered.</em></h2>
           <p class="v-lead">

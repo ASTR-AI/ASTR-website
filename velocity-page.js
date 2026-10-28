@@ -2,8 +2,48 @@ import './components.js';
 import { inject } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';
 import { initOperationsTabs } from './velocity-operations.mjs';
+import { initWhyVelocity } from './velocity-why.mjs';
 
 inject();
+
+// Native disclosures keep every navigation link usable without JavaScript.
+const productHeader = document.querySelector('[data-product-header]');
+const productMenu = document.querySelector('[data-product-menu]');
+const productFeatures = document.querySelector('[data-product-features]');
+const compactNavigation = window.matchMedia('(max-width: 900px)');
+
+if (productHeader && productMenu && productFeatures) {
+  const closeNavigation = () => {
+    productFeatures.open = false;
+    if (compactNavigation.matches) productMenu.open = false;
+  };
+  const syncNavigation = () => {
+    productMenu.open = !compactNavigation.matches;
+    productFeatures.open = false;
+  };
+  syncNavigation();
+  compactNavigation.addEventListener('change', syncNavigation);
+  productHeader.addEventListener('click', (event) => {
+    if (event.target.closest('a')) closeNavigation();
+  });
+  productHeader.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (productFeatures.open) {
+      productFeatures.open = false;
+      productFeatures.querySelector('summary').focus();
+    } else if (compactNavigation.matches && productMenu.open) {
+      productMenu.open = false;
+      productMenu.querySelector('summary').focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!productHeader.contains(event.target)) closeNavigation();
+  });
+  productMenu.addEventListener('toggle', () => {
+    if (!productMenu.open) productFeatures.open = false;
+  });
+  window.addEventListener('pageshow', syncNavigation);
+}
 
 const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const supplySteps = [...document.querySelectorAll('[data-supply-step]')];
@@ -83,9 +123,19 @@ function updateReorderMotion() {
 // Inventory carousel lifecycle
 let inventoryCleanup = null;
 let operationsCleanup = null;
+let whyCleanup = null;
 function initOperations() {
   operationsCleanup?.();
-  operationsCleanup = initOperationsTabs(document.querySelector('[data-operations]'));
+  operationsCleanup = initOperationsTabs(
+    document.querySelector('[data-operations]')
+  );
+}
+function initWhy() {
+  whyCleanup?.();
+  const whyRoot = document.querySelector('[data-why-root]');
+  if (whyRoot) {
+    whyCleanup = initWhyVelocity(whyRoot);
+  }
 }
 function initCarousel() {
   inventoryCleanup?.();
@@ -100,6 +150,7 @@ window.addEventListener('pageshow', () => {
   updateReorderMotion();
   initCarousel();
   initOperations();
+  initWhy();
 });
 
 window.addEventListener('pagehide', () => {
@@ -108,9 +159,11 @@ window.addEventListener('pagehide', () => {
   cancelAnimationFrame(resizeFrame);
   inventoryCleanup?.();
   operationsCleanup?.();
+  whyCleanup?.();
 });
 
 updateSupplyMotion();
 updateReorderMotion();
 initCarousel();
 initOperations();
+initWhy();
