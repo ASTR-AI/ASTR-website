@@ -6,6 +6,7 @@ import { initOperationsTabs } from './velocity-operations.mjs';
 import { initWhyVelocity } from './velocity-why.mjs';
 import { createVelocityTracker } from './velocity-analytics.mjs';
 import { initVelocityConversion } from './velocity-conversion.mjs';
+import { initComparisonDisclosure } from './velocity-comparison.mjs';
 
 inject();
 const velocityTracker = createVelocityTracker(track);
@@ -128,6 +129,13 @@ function updateReorderMotion() {
 let inventoryCleanup = null;
 let operationsCleanup = null;
 let whyCleanup = null;
+let comparisonCleanup = null;
+function initComparison() {
+  comparisonCleanup?.();
+  comparisonCleanup = initComparisonDisclosure(
+    document.querySelector('#comparison')
+  );
+}
 function initOperations() {
   operationsCleanup?.();
   operationsCleanup = initOperationsTabs(
@@ -177,6 +185,7 @@ window.addEventListener('pageshow', () => {
   initOperations();
   initWhy();
   initConversion();
+  initComparison();
 });
 
 window.addEventListener('pagehide', () => {
@@ -188,6 +197,7 @@ window.addEventListener('pagehide', () => {
   operationsCleanup?.();
   whyCleanup?.();
   conversionCleanup?.();
+  comparisonCleanup?.();
 });
 
 updateSupplyMotion();
@@ -196,5 +206,6 @@ initCarousel();
 initOperations();
 initWhy();
 initConversion();
+initComparison();
 
 initHero();

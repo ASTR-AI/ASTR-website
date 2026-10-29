@@ -10,6 +10,7 @@ const VALID_CTA_PLACEMENTS = new Set([
   'nav',
   'hero',
   'adoption',
+  'comparison',
   'final',
   'mobile',
 ]);

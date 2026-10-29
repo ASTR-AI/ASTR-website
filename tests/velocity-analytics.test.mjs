@@ -29,7 +29,14 @@ test('createVelocityTracker forwards allowlisted velocity_cta_click event and st
 });
 
 test('createVelocityTracker accepts valid placements and actions', () => {
-  const validPlacements = ['nav', 'hero', 'adoption', 'final', 'mobile'];
+  const validPlacements = [
+    'nav',
+    'hero',
+    'adoption',
+    'comparison',
+    'final',
+    'mobile',
+  ];
   const validActions = ['demo', 'email'];
 
   for (const placement of validPlacements) {
@@ -43,6 +50,24 @@ test('createVelocityTracker accepts valid placements and actions', () => {
       assert.deepEqual(events[0].props, { placement, action });
     }
   }
+});
+
+test('comparison CTA strips extra properties', () => {
+  const events = [];
+  const tracker = createVelocityTracker((name, props) =>
+    events.push({ name, props })
+  );
+  tracker('velocity_cta_click', {
+    placement: 'comparison',
+    action: 'demo',
+    email: 'private@example.test',
+  });
+  assert.deepEqual(events, [
+    {
+      name: 'velocity_cta_click',
+      props: { placement: 'comparison', action: 'demo' },
+    },
+  ]);
 });
 
 test('createVelocityTracker drops invalid cta click values or unknown events', () => {

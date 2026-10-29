@@ -247,20 +247,20 @@
               Track stock by location, monitor batches and expiry dates, and follow patient sales.
             </p>
           </div>
-          <div class="v-hero-capabilities-grid" role="list" aria-label="Core features">
-            <div class="v-hero-feature-cell" role="listitem">
+          <div class="v-hero-feature-bar" role="list" aria-label="Core features">
+            <div class="v-hero-feature-item" role="listitem">
               <span class="v-hero-feature-dot" aria-hidden="true"></span>
               <span class="v-hero-feature-text">Stock by location</span>
             </div>
-            <div class="v-hero-feature-cell" role="listitem">
+            <div class="v-hero-feature-item" role="listitem">
               <span class="v-hero-feature-dot" aria-hidden="true"></span>
               <span class="v-hero-feature-text">Batch &amp; expiry tracking</span>
             </div>
-            <div class="v-hero-feature-cell" role="listitem">
+            <div class="v-hero-feature-item" role="listitem">
               <span class="v-hero-feature-dot" aria-hidden="true"></span>
               <span class="v-hero-feature-text">Patient sales &amp; stock tracking</span>
             </div>
-            <div class="v-hero-feature-cell" role="listitem">
+            <div class="v-hero-feature-item" role="listitem">
               <span class="v-hero-feature-dot" aria-hidden="true"></span>
               <div class="v-hero-feature-content">
                 <span class="v-hero-feature-text">One-click Tally sync</span>
@@ -2693,58 +2693,142 @@
         </div>
       </section>
 
-      <!-- Section: Adoption & Rollout -->
+      <!-- Section: Pharmacy software comparison -->
       <section
-        id="adoption"
-        class="v-section v-adoption-section"
-        aria-labelledby="v-adoption-title"
+        id="comparison"
+        class="v-section v-comparison-section"
+        aria-labelledby="v-comparison-title"
       >
+        <span id="adoption" class="v-comparison-anchor" aria-hidden="true"></span>
         <div class="v-container">
-          <div class="v-adoption-header">
-            <h2 id="v-adoption-title">Plan a setup around your pharmacy.</h2>
+          <div class="v-comparison-header">
+            <p class="v-comparison-eyebrow">THE DETAILS THAT MAKE A DIFFERENCE</p>
+            <h2 id="v-comparison-title">Compare what matters to your pharmacy.</h2>
             <p class="v-lead">
-              Confirm compatibility, imports, and team workflows before making a change.
+              Look beyond billing. Compare how your team finds medicines, moves
+              stock, collects payments, and plans the next order.
             </p>
           </div>
-          <div class="v-adoption-grid">
-            <article class="v-adoption-card">
-              <div class="v-adoption-num" aria-hidden="true">01</div>
-              <h3>Review your current setup</h3>
-              <p>
-                Bring your current billing, stock, and hardware requirements to
-                the demo. Confirm what your pharmacy would need before making a
-                change.
-              </p>
-            </article>
-            <article class="v-adoption-card">
-              <div class="v-adoption-num" aria-hidden="true">02</div>
-              <h3>Check your data before moving</h3>
-              <p>
-                Discuss your medicine catalogue, batch balances, and supplier
-                records. Confirm available import options and preparation steps
-                for your data.
-              </p>
-            </article>
-            <article class="v-adoption-card">
-              <div class="v-adoption-num" aria-hidden="true">03</div>
-              <h3>Walk through your team's daily work</h3>
-              <p>
-                Use the demo to review counter, stock, and accounts workflows
-                with your team. Confirm training and rollout arrangements for
-                your setup.
-              </p>
-            </article>
+          <p id="v-comparison-scroll-hint" class="v-comparison-hint">
+            Scroll sideways to compare all columns.
+          </p>
+          <div
+            class="v-comparison-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Pharmacy software comparison"
+            aria-describedby="v-comparison-scroll-hint"
+          >
+            <table id="v-comparison-table" class="v-comparison-table">
+              <caption>Pharmacy software evaluation checklist and Velocity capabilities</caption>
+              <colgroup>
+                <col class="v-comparison-capability-col" />
+                <col class="v-comparison-question-col" />
+                <col class="v-comparison-velocity-col" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Capability</th>
+                  <th scope="col">What to check in other software</th>
+                  <th scope="col">Velocity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Search by salt composition</th>
+                  <td>Can you find stocked medicines with matching salt composition?</td>
+                  <td>Find medicines with the same salt composition and see where they are stocked.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Loose-medicine tracking</th>
+                  <td>Can you track individual units as well as full packs?</td>
+                  <td>Track loose units alongside full packs and see remaining quantities.</td>
+                </tr>
+                <tr>
+                  <th scope="row">POS on staff devices</th>
+                  <td>Can staff collect invoice payments from their own devices?</td>
+                  <td>Staff can collect invoice payments directly on their devices, helping customers avoid a separate billing queue.</td>
+                </tr>
+                <tr>
+                  <th scope="row">AI-powered reorder recommendations</th>
+                  <td>Do reorder suggestions use stock and consumption patterns?</td>
+                  <td>Use AI-based predictive analysis to recommend medicine reorders, with staff reviewing the suggestions.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Staff stock-transfer requests</th>
+                  <td>Can staff request stock from other locations?</td>
+                  <td>Staff across multiple locations can raise stock-transfer requests.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Stock across locations</th>
+                  <td>Can you check medicine availability at each location?</td>
+                  <td>See which medicines are available and in what quantities across locations.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Automatic narcotics tracking</th>
+                  <td>How are narcotic medicines tracked?</td>
+                  <td>Automatically track narcotic medicines within pharmacy operations.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Staff noticeboard and tasks</th>
+                  <td>Can staff see operational notices and assigned tasks?</td>
+                  <td>Give staff a shared place to see their tasks and operational notices.</td>
+                </tr>
+                <tr>
+                  <th scope="row">In-depth operational analytics</th>
+                  <td>Can you investigate operations beyond billing totals?</td>
+                  <td>Explore inventory, purchasing, sales, supplier, and hospital reports, including slow-moving stock and expiry risk.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Remote owner visibility</th>
+                  <td>Can owners access reports away from the pharmacy?</td>
+                  <td>Access available reports and recorded activity through a browser with an internet connection.</td>
+                </tr>
+              </tbody>
+              <tbody id="v-comparison-extra" data-comparison-extra>
+                <tr>
+                  <th scope="row">Vendor payment records</th>
+                  <td>Can you review supplier payments alongside purchasing records?</td>
+                  <td>Record vendor payments and review payment history alongside purchasing records.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Batch and expiry tracking</th>
+                  <td>Can you follow batches and identify stock nearing expiry?</td>
+                  <td>Track medicine batches and identify stock nearing expiry across locations.</td>
+                </tr>
+                <tr>
+                  <th scope="row">One-click Tally sync and GST audit export</th>
+                  <td>How does pharmacy data reach the accounts team?</td>
+                  <td>One-click Tally sync and GST audit export.</td>
+                </tr>
+                <tr>
+                  <th scope="row">GST return filing</th>
+                  <td>Is direct return filing available today?</td>
+                  <td><span class="v-comparison-soon">Coming soon</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="v-adoption-cta">
-            <a
-              class="v-button"
-              href="/connect?product=velocity"
-              data-velocity-cta
-              data-placement="adoption"
-              data-action="demo"
-            >
-              Discuss your setup <span aria-hidden="true">↗</span>
-            </a>
+          <button
+            class="v-comparison-toggle"
+            type="button"
+            data-comparison-toggle
+            aria-expanded="false"
+            aria-controls="v-comparison-extra"
+            hidden
+          >
+            <span class="v-comparison-toggle-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </span>
+            <span data-comparison-toggle-label>Show 4 more features</span>
+          </button>
+          <div class="v-comparison-footer">
+            <p>
+              Use these questions when evaluating other software. Capabilities
+              vary by product and plan. Confirm your Velocity setup in a demo.
+            </p>
           </div>
         </div>
       </section>

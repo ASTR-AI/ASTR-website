@@ -4393,10 +4393,10 @@
 
 /* Hero capability card */
 .velocity-page .v-hero-capabilities {
-  margin: 32px auto 0;
-  max-width: 860px;
+  margin: 48px auto 0;
+  max-width: 100%;
   width: 100%;
-  padding: 32px 36px;
+  padding: 56px 112px 48px;
   border-radius: 20px;
   background: #242424;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -4429,35 +4429,37 @@
   font-size: 14px;
   line-height: 1.6;
   color: #b8b5af;
-  max-width: 65ch;
+  max-width: 70ch;
   margin: 8px 0 0;
 }
-.velocity-page .v-hero-capabilities-grid {
+.velocity-page .v-hero-feature-bar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 22px;
+  gap: 0;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
-.velocity-page .v-hero-feature-cell {
+.velocity-page .v-hero-feature-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 4px 18px;
   color: #d8d5ce;
   font-family: 'Geist Variable', sans-serif;
   font-size: 13px;
   font-weight: 450;
-  line-height: 1.4;
+  line-height: 1.35;
   box-sizing: border-box;
-  min-height: 64px;
-  transition: background 0.15s ease, border-color 0.15s ease;
 }
-.velocity-page .v-hero-feature-cell:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.12);
+.velocity-page .v-hero-feature-item:first-child {
+  padding-left: 0;
+}
+.velocity-page .v-hero-feature-item:last-child {
+  padding-right: 0;
+}
+.velocity-page .v-hero-feature-item + .v-hero-feature-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 .velocity-page .v-hero-feature-dot {
   width: 6px;
@@ -4465,13 +4467,12 @@
   border-radius: 50%;
   background: var(--v-gold, #e6cd99);
   flex-shrink: 0;
-  margin-top: 6px;
 }
 .velocity-page .v-hero-feature-content {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 .velocity-page .v-hero-feature-badge {
   font-size: 9.5px;
@@ -4487,14 +4488,31 @@
   line-height: 1.2;
   white-space: nowrap;
 }
+@media (max-width: 1100px) {
+  .velocity-page .v-hero-capabilities {
+    padding: 44px 72px 36px;
+  }
+}
 @media (max-width: 860px) {
-  .velocity-page .v-hero-capabilities-grid {
+  .velocity-page .v-hero-capabilities {
+    padding: 36px 40px 28px;
+  }
+  .velocity-page .v-hero-feature-bar {
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 16px;
+  }
+  .velocity-page .v-hero-feature-item {
+    padding: 4px 12px;
+  }
+  .velocity-page .v-hero-feature-item:nth-child(2n+1) {
+    padding-left: 0;
+    border-left: none;
   }
 }
 @media (max-width: 520px) {
   .velocity-page .v-hero-capabilities {
-    padding: 20px;
+    padding: 24px 20px;
+    margin-top: 28px;
   }
   .velocity-page .v-hero-capabilities-heading {
     font-size: 18px;
@@ -4502,15 +4520,16 @@
   .velocity-page .v-hero-capabilities-desc {
     font-size: 13.5px;
   }
-  .velocity-page .v-hero-capabilities-grid {
+  .velocity-page .v-hero-feature-bar {
     grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 16px;
+    row-gap: 12px;
+    margin-top: 20px;
+    padding-top: 18px;
   }
-  .velocity-page .v-hero-feature-cell {
-    font-size: 12.5px;
-    padding: 9px 12px;
-    min-height: auto;
+  .velocity-page .v-hero-feature-item {
+    padding: 0;
+    border-left: none !important;
+    font-size: 13px;
   }
 }
 .velocity-page .v-capability-tier-badge {
@@ -4595,16 +4614,26 @@
   white-space: nowrap;
 }
 
-/* Adoption & Rollout Section */
-.velocity-page .v-adoption-section {
+/* Pharmacy software comparison */
+.velocity-page .v-comparison-section {
+  position: relative;
   padding: clamp(64px, 8vw, 112px) 0;
   border-top: 0;
 }
-.velocity-page .v-adoption-header {
-  max-width: 680px;
-  margin-bottom: clamp(36px, 5vw, 56px);
+.velocity-page .v-comparison-anchor {
+  position: absolute;
+  top: 0;
 }
-.velocity-page .v-adoption-header h2 {
+.velocity-page .v-comparison-header {
+  max-width: 760px;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+.velocity-page .v-comparison-eyebrow {
+  color: #d4d4d4;
+  font: 500 0.7rem/1.5 'JetBrains Mono', monospace;
+  letter-spacing: 0.12em;
+}
+.velocity-page .v-comparison-header h2 {
   font-family: 'Lora', serif;
   font-size: clamp(2rem, 3.2vw, 2.8rem);
   font-weight: 500;
@@ -4613,59 +4642,168 @@
   letter-spacing: -0.02em;
   margin: 12px 0 16px;
 }
-.velocity-page .v-adoption-header .v-lead {
+.velocity-page .v-comparison-header .v-lead {
   font-family: 'Geist Variable', sans-serif;
   font-size: clamp(0.95rem, 1.2vw, 1.08rem);
   line-height: 1.65;
   color: #c5c2ba;
   margin: 0;
 }
-.velocity-page .v-adoption-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2.5vw, 28px);
+.velocity-page .v-comparison-hint {
+  display: none;
+  color: #c5c2ba;
+  font-size: 0.8rem;
+  margin: 0 0 12px;
 }
-.velocity-page .v-adoption-card {
-  padding: clamp(24px, 3vw, 36px);
+.velocity-page .v-comparison-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #141414;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  scrollbar-color: #555 #141414;
+}
+.velocity-page .v-comparison-scroll:focus-visible {
+  outline: 2px solid var(--v-gold, #e6cd99);
+  outline-offset: 5px;
+}
+.velocity-page .v-comparison-table {
+  width: 100%;
+  min-width: 760px;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #c5c2ba;
+  font: 400 0.9rem/1.65 'Geist Variable', sans-serif;
+}
+.velocity-page .v-comparison-table caption {
+  text-align: left;
+  padding: 16px 24px;
+  background: #141414;
+  color: #c5c2ba;
+  font-size: 0.78rem;
+}
+.velocity-page .v-comparison-capability-col { width: 22%; }
+.velocity-page .v-comparison-question-col { width: 34%; }
+.velocity-page .v-comparison-velocity-col { width: 44%; }
+.velocity-page .v-comparison-table th,
+.velocity-page .v-comparison-table td {
+  padding: 16px 24px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.velocity-page .v-comparison-table thead th {
+  color: #fff;
+  background: #141414;
+  font-weight: 600;
+}
+.velocity-page .v-comparison-table tbody th {
+  color: #eeeae1;
+  font-weight: 500;
+  background: #141414;
+}
+.velocity-page .v-comparison-table tr > :last-child {
+  color: #eeeae1;
+}
+.velocity-page .v-comparison-table thead th:last-child {
+  color: #fff;
+}
+.velocity-page .v-comparison-byline {
+  display: block;
+  color: #c5c2ba;
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+.velocity-page .v-comparison-soon {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: #d4d4d4;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.velocity-page .v-comparison-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+}
+.velocity-page .v-comparison-footer p {
+  max-width: 650px;
+  margin: 0;
+  color: #c5c2ba;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.velocity-page .v-comparison-footer .v-button { flex-shrink: 0; }
+@media (max-width: 900px) {
+  .velocity-page .v-comparison-hint { display: block; }
+  .velocity-page .v-comparison-table tr > :first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    box-shadow: 1px 0 0 #303030;
+  }
+  .velocity-page .v-comparison-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .velocity-page .v-comparison-table {
+    width: calc(200vw - 224px);
+    min-width: 0;
+    font-size: 0.82rem;
+  }
+  .velocity-page .v-comparison-capability-col { width: 140px; }
+  .velocity-page .v-comparison-question-col,
+  .velocity-page .v-comparison-velocity-col { width: calc(100vw - 182px); }
+  .velocity-page .v-comparison-table th,
+  .velocity-page .v-comparison-table td { padding: 16px 12px; }
+}
+
+.velocity-page .v-comparison-table th + th,
+.velocity-page .v-comparison-table td {
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+.velocity-page .v-comparison-table tbody[hidden],
+.velocity-page .v-comparison-toggle[hidden] {
+  display: none;
+}
+.velocity-page .v-comparison-toggle {
   display: flex;
   flex-direction: column;
-  transition: border-color 0.25s, transform 0.25s;
-}
-.velocity-page .v-adoption-card:hover {
-  border-color: rgba(197, 160, 89, 0.25);
-  transform: translateY(-2px);
-}
-.velocity-page .v-adoption-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--v-gold, #e6cd99);
-  margin-bottom: 20px;
-}
-.velocity-page .v-adoption-card h3 {
-  font-family: 'Lora', serif;
-  font-size: clamp(1.2rem, 1.5vw, 1.35rem);
-  font-weight: 600;
-  line-height: 1.3;
-  color: #fff;
-  margin: 0 0 14px 0;
-  letter-spacing: -0.01em;
-}
-.velocity-page .v-adoption-card p {
-  font-family: 'Geist Variable', sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.65;
+  align-items: center;
+  gap: 10px;
+  margin: 24px auto 0;
+  padding: 4px 12px;
+  background: none;
+  border: 0;
   color: #c5c2ba;
-  margin: 0;
+  font: 400 0.8rem/1.5 'Geist Variable', sans-serif;
+  cursor: pointer;
 }
-.velocity-page .v-adoption-cta {
-  margin-top: clamp(36px, 5vw, 48px);
-  display: flex;
-  justify-content: flex-start;
+.velocity-page .v-comparison-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+.velocity-page .v-comparison-toggle:hover { color: #fff; }
+.velocity-page .v-comparison-toggle:focus-visible {
+  outline: 2px solid #ddd;
+  outline-offset: 5px;
+  border-radius: 8px;
+}
+.velocity-page .v-comparison-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 
 /* Mobile Conversion Bar */
@@ -4675,13 +4813,6 @@
 .velocity-page .v-conversion-bar[hidden],
 aside.v-conversion-bar[hidden] {
   display: none !important;
-}
-
-@media (max-width: 900px) {
-  .velocity-page .v-adoption-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
 }
 
 @media (max-width: 768px) {

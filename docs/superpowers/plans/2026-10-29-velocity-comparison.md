@@ -100,3 +100,7 @@ test('comparison CTA strips extra properties', () => {
 The adoption cards are replaced; all agreed capabilities appear; GST return filing is unmistakably coming soon; comparison language stays grounded; the mobile table is navigable; both anchors work; demo navigation and telemetry work; required checks have recorded evidence. Report unverified product details explicitly instead of treating the website build as proof of application behavior.
 
 Planning self-review: all feature rows live in the linked spec; Tasks 1–3 cover the five review conditions. The plan adds one small analytics change and a static section, with no new UI controller or dependency. Recommended execution is native in this session because the work is small and closely coupled. Implementation awaits review of this proposal.
+
+## Execution record — 29 October 2026
+
+The user approved implementation in this conversation. Section replacement and analytics tasks are implemented; 63 tests, scoped lint, production build and whitespace checks pass. Desktop/tablet/mobile visual checks are recorded in `docs/marketing/velocity-comparison-verification.md`, along with the compact mobile column adjustment and outstanding manual zoom/motion/no-script and application-level Tally checks. No deployment or commit performed.
