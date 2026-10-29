@@ -1418,23 +1418,63 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   text-align: center;
 }
-.velocity-page .v-purchase-stage-label {
+.velocity-page #purchasing .v-purchase-stage-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 14px;
+  padding: 6px 16px;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: rgba(230, 205, 153, 0.85);
-  font:
-    600 0.65rem/1.4 'JetBrains Mono',
-    monospace;
-  letter-spacing: 0.14em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f2f2ed;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: normal;
+  text-align: center;
+}
+.velocity-page #purchasing .v-purchase-sequence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto 28px;
+  padding: 0;
+  list-style: none;
+  counter-reset: v-purchasing-step;
+}
+.velocity-page #purchasing .v-purchase-sequence li {
+  counter-increment: v-purchasing-step;
+  border-top: 1px solid rgba(242, 242, 237, 0.24);
+  padding-top: 12px;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #f2f2ed;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.velocity-page #purchasing .v-purchase-sequence li::before {
+  content: counter(v-purchasing-step, decimal-leading-zero);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #b5b5b5;
 }
 .velocity-page .v-purchase-documents {
   display: grid;
@@ -1483,10 +1523,19 @@
       0 14px 28px -6px rgba(0, 0, 0, 0.5);
   }
   .velocity-page .v-purchase-receipt:hover {
-    transform: translateY(48px);
+    transform: translateY(-4px);
     box-shadow:
       0 36px 74px -12px rgba(0, 0, 0, 0.85),
       0 16px 32px -6px rgba(0, 0, 0, 0.55);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .velocity-page #purchasing .v-purchase-document {
+    transition: none;
+  }
+  .velocity-page #purchasing .v-purchase-order:hover,
+  .velocity-page #purchasing .v-purchase-receipt:hover {
+    transform: none;
   }
 }
 .velocity-page .v-document-topline {
@@ -1495,18 +1544,19 @@
   align-items: center;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(36, 38, 35, 0.12);
-  color: #64655f;
-  font-size: 0.65rem;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
 }
 .velocity-page .v-document-topline > span:first-child {
-  color: #34372d;
+  color: #242623;
   font:
-    600 0.72rem/1.4 'JetBrains Mono',
+    600 0.8125rem/1.45 'JetBrains Mono',
     monospace;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
-.velocity-page .v-document-topline > span:first-child span {
-  color: #7b6742;
+.velocity-page #purchasing .v-document-topline > span:first-child span {
+  color: #555750;
   margin-left: 4px;
 }
 .velocity-page .v-document-heading {
@@ -1514,13 +1564,13 @@
   align-items: end;
   justify-content: space-between;
   gap: 8px;
-  margin-block: 20px;
+  margin-block: 20px 14px;
 }
 .velocity-page .v-document-heading .v-document-kicker {
   margin-bottom: 6px;
-  color: #676860;
-  font-size: 0.68rem;
-  line-height: 1.5;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
 }
 .velocity-page .v-document-heading h3 {
   color: #242623;
@@ -1533,10 +1583,16 @@
 .velocity-page .v-document-id {
   padding-bottom: 3px;
   white-space: nowrap;
-  color: #6a6b64;
+  color: #555750;
   font:
-    0.62rem/1.4 'JetBrains Mono',
+    500 0.8125rem/1.45 'JetBrains Mono',
     monospace;
+}
+.velocity-page #purchasing .v-receipt-context {
+  margin: -6px 0 20px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #555750;
 }
 .velocity-page .v-document-supplier,
 .velocity-page .v-receipt-details {
@@ -1544,38 +1600,39 @@
   justify-content: space-between;
   gap: 14px;
   margin: 0 0 22px;
+  flex-wrap: wrap;
 }
 .velocity-page .v-purchase-document dt {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;
-  margin-bottom: 6px;
-  color: #686960;
-  font-size: 0.65rem;
-  line-height: 1.5;
+  margin-bottom: 4px;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
 }
 .velocity-page .v-purchase-document dd {
-  color: #34372d;
+  color: #242623;
   margin: 0;
-  font-size: 0.8rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.5;
   font-weight: 500;
 }
 .velocity-page .v-purchase-document dl > div {
   padding: 0;
   border: 0;
 }
-.velocity-page .v-document-badge {
+.velocity-page #purchasing .v-document-badge {
   display: inline-block;
   padding: 3px 8px;
-  border: 1px solid #95733630;
+  border: 1px solid #c7c9c0;
   border-radius: 5px;
-  background: #e7d7ac66;
-  color: #715824;
-  font-size: 0.6rem;
-  line-height: 1.5;
+  background: #e4e5df;
+  color: #454740;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   font-weight: 500;
 }
-.velocity-page .v-badge-received {
+.velocity-page #purchasing .v-badge-received {
   background: #dce5d8;
   border-color: #45613b28;
   color: #3e5a35;
@@ -1584,22 +1641,26 @@
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 .velocity-page .v-document-table thead {
   border-block: 1px solid rgba(36, 38, 35, 0.14);
 }
 .velocity-page .v-document-table thead th {
   padding-block: 10px;
-  color: #686960;
-  font-size: 0.6rem;
-  font-weight: 400;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  font-weight: 500;
 }
 .velocity-page .v-document-table tbody th,
 .velocity-page .v-document-table td {
-  padding-block: 13px;
+  padding-block: 12px;
   border-bottom: 1px solid rgba(36, 38, 35, 0.1);
+  font-size: 0.875rem;
+  line-height: 1.5;
   font-weight: 500;
+  color: #242623;
   vertical-align: top;
 }
 .velocity-page .v-document-table th:last-child,
@@ -1610,8 +1671,9 @@
 .velocity-page .v-document-table tbody th span {
   display: block;
   margin-top: 4px;
-  color: #686960;
-  font-size: 0.62rem;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   font-weight: 400;
 }
 .velocity-page .v-document-bottom {
@@ -1619,31 +1681,32 @@
   align-items: center;
   gap: 10px;
   margin-top: 22px;
+  flex-wrap: wrap;
 }
-.velocity-page .v-document-symbol {
+.velocity-page #purchasing .v-document-symbol {
   display: grid;
   place-items: center;
   flex: 0 0 32px;
   height: 32px;
-  border: 1px solid #7b674233;
+  border: 1px solid #c7c9c0;
   border-radius: 50%;
-  color: #79633b;
+  color: #555750;
 }
 .velocity-page .v-purchase-document .v-document-bottom p {
-  color: #686960;
-  font-size: 0.66rem;
-  line-height: 1.6;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   margin: 0;
 }
 .velocity-page .v-document-bottom strong {
-  color: #35392e;
-  font-weight: 500;
+  color: #242623;
+  font-weight: 600;
 }
 .velocity-page .v-document-count {
   margin-left: auto;
-  color: #686960;
+  color: #555750;
   font:
-    0.6rem/1.4 'JetBrains Mono',
+    500 0.8125rem/1.45 'JetBrains Mono',
     monospace;
 }
 .velocity-page .v-receipt-item {
@@ -1652,17 +1715,20 @@
 }
 .velocity-page .v-receipt-item p {
   color: #242623;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
   margin: 0;
 }
 .velocity-page .v-receipt-item p span {
-  color: #686960;
-  font-size: 0.68rem;
+  color: #555750;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   margin-left: 6px;
 }
 .velocity-page .v-receipt-item > span {
-  color: #425d39;
-  font-size: 0.68rem;
+  color: #3e5a35;
+  font-size: 0.8125rem;
+  line-height: 1.45;
   font-weight: 500;
 }
 .velocity-page .v-receipt-details {
@@ -1670,89 +1736,26 @@
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(36, 38, 35, 0.1);
 }
-.velocity-page .v-purchase-connector {
+.velocity-page #purchasing .v-purchase-connector {
   display: flex;
   align-items: center;
   gap: 5px;
   height: 24px;
   margin: 195px 6px 0;
-  color: var(--v-gold, #e6cd99);
+  color: #b5b5b5;
 }
-.velocity-page .v-purchase-connector span {
+.velocity-page #purchasing .v-purchase-connector span {
   flex: 1;
   height: 1px;
-  background: rgba(230, 205, 153, 0.35);
+  background: rgba(242, 242, 237, 0.24);
 }
-.velocity-page .v-purchase-connector svg {
+.velocity-page #purchasing .v-purchase-connector svg {
   flex: 0 0 22px;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
 }
-.velocity-page .v-purchase-stage-note {
+.velocity-page #purchasing .v-purchase-stage-note {
   text-align: center;
-  color: #8e8d89;
-  font:
-    0.85rem/1.65 'Space Grotesk',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
-  margin-top: 36px;
-}
-.velocity-page .v-purchase-folders {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: stretch;
-  margin-top: 56px;
-}
-.velocity-page .v-folder-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 200px;
-  border-radius: 20px;
-  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.65));
-  transition:
-    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.3s ease;
-}
-@media (hover: hover) {
-  .velocity-page .v-folder-card:hover {
-    transform: translateY(-4px);
-    filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.75))
-      drop-shadow(0 0 16px rgba(255, 255, 255, 0.05));
-  }
-}
-.velocity-page .v-folder-glass-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: visible;
-}
-.velocity-page .v-folder-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 32px 26px 28px;
-}
-.velocity-page .v-folder-content h3 {
-  font-family: 'Lora', serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: #ffffff;
-  margin: 0 0 10px;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-}
-.velocity-page .v-folder-content p {
+  color: #b5b5b5;
   font-family:
     'Space Grotesk',
     -apple-system,
@@ -1760,11 +1763,48 @@
     'Segoe UI',
     Roboto,
     sans-serif;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: #b5b4ae;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin-top: 36px;
+}
+.velocity-page #purchasing .v-purchase-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 48px;
+}
+.velocity-page #purchasing .v-purchase-feature {
+  min-width: 0;
+  padding: 0 28px;
+  border-left: 1px solid rgba(242, 242, 237, 0.18);
+}
+.velocity-page #purchasing .v-purchase-feature:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+.velocity-page #purchasing .v-purchase-feature:last-child {
+  padding-right: 0;
+}
+.velocity-page #purchasing .v-purchase-feature h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #f2f2ed;
+  margin: 0 0 12px;
+}
+.velocity-page #purchasing .v-purchase-feature p {
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #b5b5b5;
   margin: 0;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 .velocity-page .v-purchase-footer {
   margin-top: 52px;
@@ -1787,8 +1827,8 @@
   color: #a3a29e;
   margin: 0;
 }
-.velocity-page .v-purchase-closing span {
-  color: var(--v-gold, #e6cd99);
+.velocity-page #purchasing .v-purchase-closing span {
+  color: #f2f2ed;
 }
 @media (max-width: 1000px) {
   .velocity-page .v-purchase-documents {
@@ -1800,11 +1840,14 @@
   .velocity-page .v-document-heading {
     flex-wrap: wrap;
   }
-  .velocity-page .v-purchase-folders {
-    gap: 16px;
+  .velocity-page #purchasing .v-purchase-feature {
+    padding: 0 20px;
   }
-  .velocity-page .v-folder-content {
-    padding: 32px 20px 24px;
+  .velocity-page #purchasing .v-purchase-feature:first-child {
+    padding-left: 0;
+  }
+  .velocity-page #purchasing .v-purchase-feature:last-child {
+    padding-right: 0;
   }
 }
 @media (max-width: 760px) {
@@ -1816,6 +1859,10 @@
   }
   .velocity-page .v-purchase-stage {
     margin-block: 28px 40px;
+  }
+  .velocity-page #purchasing .v-purchase-sequence {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
   .velocity-page .v-purchase-documents {
     grid-template-columns: minmax(0, 1fr);
@@ -1836,16 +1883,23 @@
   .velocity-page .v-purchase-connector span {
     display: none;
   }
-  .velocity-page .v-purchase-folders {
+  .velocity-page #purchasing .v-purchase-features {
     grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
     margin-top: 36px;
   }
-  .velocity-page .v-folder-card {
-    min-height: 190px;
+  .velocity-page #purchasing .v-purchase-feature {
+    padding: 24px 0;
+    border-left: none;
+    border-top: 1px solid rgba(242, 242, 237, 0.18);
   }
-  .velocity-page .v-folder-content {
-    padding: 32px 22px 24px;
+  .velocity-page #purchasing .v-purchase-feature:first-child {
+    padding-top: 0;
+    padding-left: 0;
+    border-top: none;
+  }
+  .velocity-page #purchasing .v-purchase-feature:last-child {
+    padding-bottom: 0;
+    padding-right: 0;
   }
   .velocity-page .v-purchase-footer {
     margin-top: 36px;
