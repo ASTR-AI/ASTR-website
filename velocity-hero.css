@@ -43,8 +43,7 @@
     left: 50%;
     width: var(--hero-media-width);
     margin: 0;
-    transform: translate(calc(-50% + var(--hero-shift, 0px)), -50%)
-      scale(var(--hero-scale, 1));
+    transform: translate(-50%, -50%) scale(1);
     transform-origin: center;
     will-change: transform;
     animation: none;
@@ -53,6 +52,9 @@
   .velocity-page .v-hero-motion .v-window-frame {
     transition: none;
   }
+  .velocity-page .v-hero-motion .v-window-frame:hover {
+    transform: none;
+  }
   .velocity-page .v-hero-motion .v-hero-scroll-copy {
     position: absolute;
     left: 0;
@@ -60,14 +62,40 @@
     width: 32%;
     max-width: 380px;
     margin: 0;
-    opacity: var(--hero-copy-opacity, 0);
-    transform: translateY(calc(-50% + var(--hero-copy-offset, 12px)));
+    opacity: 0;
+    transform: translateY(calc(-50% + 12px));
+    will-change: transform, opacity;
   }
 }
 
 /* Three short topics share the same product window. */
 .velocity-page .v-hero-chapter {
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.velocity-page .v-hero-chapter-track {
+  display: none;
+}
+.velocity-page .v-hero-motion .v-hero-chapter-track {
+  display: block;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.velocity-page .v-hero-motion .v-hero-chapter-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #c8c5bd;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
 }
 .velocity-page .v-hero-chapter summary {
   display: flex;
@@ -113,11 +141,12 @@
   display: grid;
   grid-template-areas: 'screen';
   width: 100%;
-  clip-path: inset(-24px -30px);
+  height: 100%;
 }
 .velocity-page .v-hero-panel {
   grid-area: screen;
   min-width: 0;
+  height: 100%;
 }
 .velocity-page .v-hero-chapters-ready .v-window-content {
   aspect-ratio: 2940 / 1842;
@@ -128,39 +157,69 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translateY(0);
 }
 .velocity-page .v-hero-chapters-ready .v-hero-panel.is-current {
   z-index: 2;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translateY(0);
 }
 .velocity-page .v-hero-chapters-ready .v-hero-panel.is-entering {
-  animation: v-hero-window-arrive 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  z-index: 2;
+  visibility: visible;
+  animation: v-hero-fade-in-fwd 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .velocity-page .v-hero-chapters-ready .v-hero-panel.is-leaving {
   z-index: 1;
   visibility: visible;
-  animation: v-hero-window-leave 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: v-hero-fade-out-fwd 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-@keyframes v-hero-window-arrive {
+.velocity-page .v-hero-chapters-ready .v-hero-panel.is-entering.is-reverse {
+  animation-name: v-hero-fade-in-rev;
+}
+.velocity-page .v-hero-chapters-ready .v-hero-panel.is-leaving.is-reverse {
+  animation-name: v-hero-fade-out-rev;
+}
+@keyframes v-hero-fade-in-fwd {
   from {
-    opacity: 0.75;
-    transform: translateY(100%);
+    opacity: 0;
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-@keyframes v-hero-window-leave {
+@keyframes v-hero-fade-out-fwd {
   from {
     opacity: 1;
     transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-16px);
+  }
+}
+@keyframes v-hero-fade-in-rev {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes v-hero-fade-out-rev {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }
 .velocity-page .v-hero-panel[hidden] {
@@ -274,15 +333,18 @@
 @media (prefers-reduced-motion: reduce) {
   .velocity-page .v-hero-chapters-ready .v-hero-panel:not([hidden]),
   .velocity-page .v-hero-chapter summary > span:last-child {
-    transition: none;
-    animation: none;
+    transition: none !important;
+    animation: none !important;
   }
   .velocity-page .v-hero-chapters-ready .v-hero-panel.is-leaving {
-    visibility: hidden;
+    visibility: hidden !important;
+  }
+  .velocity-page .v-hero-motion .v-hero-chapter-track {
+    display: none !important;
   }
 }
 @media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
   .velocity-page .v-hero-motion .v-hero-scroll-copy:has(:focus-visible) {
-    opacity: 1;
+    opacity: 1 !important;
   }
 }
