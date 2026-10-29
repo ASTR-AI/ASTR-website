@@ -109,24 +109,59 @@
   font-family: 'Geist Variable', Arial, sans-serif;
   font-size: 0.85rem;
 }
+.velocity-page .v-hero-screen-stack {
+  display: grid;
+  grid-template-areas: 'screen';
+  width: 100%;
+  clip-path: inset(-24px -30px);
+}
+.velocity-page .v-hero-panel {
+  grid-area: screen;
+  min-width: 0;
+}
 .velocity-page .v-hero-chapters-ready .v-window-content {
   aspect-ratio: 2940 / 1842;
   overflow: hidden;
 }
 .velocity-page .v-hero-chapters-ready .v-hero-panel:not([hidden]) {
-  position: absolute;
-  inset: 0;
+  position: relative;
   opacity: 0;
   visibility: hidden;
-  transition:
-    opacity 220ms ease,
-    visibility 220ms ease;
   pointer-events: none;
 }
 .velocity-page .v-hero-chapters-ready .v-hero-panel.is-current {
+  z-index: 2;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+.velocity-page .v-hero-chapters-ready .v-hero-panel.is-entering {
+  animation: v-hero-window-arrive 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.velocity-page .v-hero-chapters-ready .v-hero-panel.is-leaving {
+  z-index: 1;
+  visibility: visible;
+  animation: v-hero-window-leave 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes v-hero-window-arrive {
+  from {
+    opacity: 0.75;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes v-hero-window-leave {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }
 .velocity-page .v-hero-panel[hidden] {
   display: none;
@@ -237,9 +272,13 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .velocity-page .v-hero-panel:not([hidden]),
+  .velocity-page .v-hero-chapters-ready .v-hero-panel:not([hidden]),
   .velocity-page .v-hero-chapter summary > span:last-child {
     transition: none;
+    animation: none;
+  }
+  .velocity-page .v-hero-chapters-ready .v-hero-panel.is-leaving {
+    visibility: hidden;
   }
 }
 @media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {

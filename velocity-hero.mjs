@@ -73,10 +73,14 @@ export function initHeroTransition(root) {
 
   function selectPanel(key) {
     if (!canSelect || activePanel === key) return;
+    const previous = activePanel;
     activePanel = key;
     panels.forEach((panel) => {
       const active = panel.dataset.heroPanel === key;
+      const leaving = previous !== null && panel.dataset.heroPanel === previous;
       panel.classList.toggle('is-current', active);
+      panel.classList.toggle('is-entering', active && previous !== null);
+      panel.classList.toggle('is-leaving', leaving);
       panel.setAttribute('aria-hidden', String(!active));
       panel.inert = !active;
     });
@@ -225,6 +229,8 @@ export function initHeroTransition(root) {
         const initial = panel.dataset.heroPanel === 'overview';
         panel.hidden = !initial;
         panel.classList.toggle('is-current', initial);
+        panel.classList.toggle('is-entering', false);
+        panel.classList.toggle('is-leaving', false);
         panel.removeAttribute('aria-hidden');
         panel.inert = false;
       });

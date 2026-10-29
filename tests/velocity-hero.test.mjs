@@ -202,6 +202,12 @@ function withChapterControls(fixture) {
       get current() {
         return classes.has('is-current');
       },
+      get entering() {
+        return classes.has('is-entering');
+      },
+      get leaving() {
+        return classes.has('is-leaving');
+      },
     };
   });
   fixture.root.querySelectorAll = (selector) =>
@@ -254,5 +260,38 @@ test('static mobile chapters can be selected and restore the unenhanced fallback
   assert.deepEqual(
     panels.map((panel) => panel.hidden),
     [false, true, true, true]
+  );
+});
+
+test('changing chapters marks the previous complete window as leaving and the next as entering', () => {
+  const fixture = createHeroFixture();
+  const { panels } = withChapterControls(fixture);
+  const cleanup = initHeroTransition(fixture.root);
+  fixture.win.scrollY = 1150;
+  fixture.listeners.get('scroll')();
+  fixture.win.pendingFrame();
+  fixture.win.scrollY = 1800;
+  fixture.listeners.get('scroll')();
+  fixture.win.pendingFrame();
+  assert.equal(
+    panels.find((panel) => panel.dataset.heroPanel === 'stock').leaving,
+    true
+  );
+  assert.equal(
+    panels.find((panel) => panel.dataset.heroPanel === 'reorder').entering,
+    true
+  );
+  assert.equal(
+    panels.find((panel) => panel.dataset.heroPanel === 'reorder').current,
+    true
+  );
+  assert.equal(
+    panels.find((panel) => panel.dataset.heroPanel === 'overview').leaving,
+    false
+  );
+  cleanup();
+  assert.equal(
+    panels.some((panel) => panel.leaving || panel.entering),
+    false
   );
 });

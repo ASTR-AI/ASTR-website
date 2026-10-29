@@ -115,59 +115,155 @@
           <div class="v-hero-pin" data-hero-pin>
             <figure class="v-hero-media">
               <div class="v-media-glow" aria-hidden="true"></div>
-              <div class="v-window-frame">
-                <div class="v-window-bar">
-                  <div class="v-window-controls" aria-hidden="true">
-                    <span class="v-control-dot v-dot-close"></span>
-                    <span class="v-control-dot v-dot-min"></span>
-                    <span class="v-control-dot v-dot-max"></span>
-                  </div>
-                  <div class="v-window-address">
-                    <span class="v-window-lock" aria-hidden="true">🔒</span>
-                    <span class="v-window-url"
-                      >app.astrai.in/velocity/dashboard</span
-                    >
-                  </div>
-                  <div class="v-window-meta">
-                    <span class="v-window-status"
-                      ><span class="v-status-indicator"></span>Active Session</span
-                    >
-                  </div>
-                </div>
-                <div class="v-window-content">
-                  <div class="v-hero-panel is-current" data-hero-panel="overview">
-                    <img
-                      src="/Pictures/velocity-dashboard-light.png"
-                      alt="Velocity pharmacy management software dashboard interface"
-                      class="v-showcase-img"
-                      width="2940"
-                      height="1842"
-                      loading="eager"
-                    />
-                  </div>
-                  <div class="v-hero-panel" data-hero-panel="stock" hidden>
-                    <div class="v-hero-stock-report">
-                      <div class="v-hero-report-bar"><span>VELOCITY ↗</span><span>Reports &amp; access</span></div>
-                      <p class="v-hero-report-label">Stock attention report</p>
-                      <h3>Know what needs attention.</h3>
-                      <p class="v-hero-report-period">Illustrative preview · Demo data · 01–30 Sep 2026</p>
-                      <table>
-                        <caption class="sr-only">Example medicines requiring stock review</caption>
-                        <thead><tr><th scope="col">Medicine</th><th scope="col">Review</th></tr></thead>
-                        <tbody>
-                          <tr><th scope="row">Amoxicillin <span>250 mg</span></th><td><span class="v-hero-report-tag">Slow-moving</span></td></tr>
-                          <tr><th scope="row">Paracetamol <span>500 mg</span></th><td><span class="v-hero-report-tag">Near expiry</span></td></tr>
-                          <tr><th scope="row">Metformin <span>500 mg</span></th><td><span class="v-hero-report-tag">Expiry review</span></td></tr>
-                        </tbody>
-                      </table>
-                      <p class="v-hero-report-foot">Check the reporting period and data freshness. Some reports use snapshots.</p>
+              <div class="v-hero-screen-stack">
+                <div class="v-hero-panel is-current" data-hero-panel="overview">
+                  <div class="v-window-frame">
+                    <div class="v-window-bar">
+                      <div class="v-window-controls" aria-hidden="true">
+                        <span class="v-control-dot v-dot-close"></span>
+                        <span class="v-control-dot v-dot-min"></span>
+                        <span class="v-control-dot v-dot-max"></span>
+                      </div>
+                      <div class="v-window-address">
+                        <span class="v-window-lock" aria-hidden="true">🔒</span>
+                        <span class="v-window-url">app.astrai.in/velocity/dashboard</span>
+                      </div>
+                      <div class="v-window-meta">
+                        <span class="v-window-status"
+                          ><span class="v-status-indicator"></span>Active Session</span
+                        >
+                      </div>
+                    </div>
+                    <div class="v-window-content">
+                      <img
+                        src="/Pictures/velocity-dashboard-light.png"
+                        alt="Velocity pharmacy management software dashboard interface"
+                        class="v-showcase-img"
+                        width="2940"
+                        height="1842"
+                        loading="eager"
+                      />
                     </div>
                   </div>
-                  <div class="v-hero-panel" data-hero-panel="reorder" hidden>
-                    <img src="/Pictures/velocity-predictive-reorder.png" alt="Illustrative Velocity reorder suggestions for medicines" class="v-showcase-img" width="2940" height="1842" loading="lazy" />
+                </div>
+                <div class="v-hero-panel" data-hero-panel="stock" hidden>
+                  <div class="v-window-frame">
+                    <div class="v-window-bar">
+                      <div class="v-window-controls" aria-hidden="true">
+                        <span class="v-control-dot v-dot-close"></span>
+                        <span class="v-control-dot v-dot-min"></span>
+                        <span class="v-control-dot v-dot-max"></span>
+                      </div>
+                      <div class="v-window-address">
+                        <span class="v-window-lock" aria-hidden="true">🔒</span>
+                        <span class="v-window-url">app.astrai.in/velocity/dashboard</span>
+                      </div>
+                      <div class="v-window-meta">
+                        <span class="v-window-status"
+                          ><span class="v-status-indicator"></span>Active Session</span
+                        >
+                      </div>
+                    </div>
+                    <div class="v-window-content">
+                      <div class="v-hero-stock-report">
+                        <div class="v-hero-report-bar">
+                          <span>VELOCITY ↗</span><span>Reports &amp; access</span>
+                        </div>
+                        <p class="v-hero-report-label">Stock attention report</p>
+                        <h3>Know what needs attention.</h3>
+                        <p class="v-hero-report-period">
+                          Illustrative preview · Demo data · 01–30 Sep 2026
+                        </p>
+                        <table>
+                          <caption class="sr-only">
+                            Example medicines requiring stock review
+                          </caption>
+                          <thead>
+                            <tr>
+                              <th scope="col">Medicine</th>
+                              <th scope="col">Review</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">Amoxicillin <span>250 mg</span></th>
+                              <td><span class="v-hero-report-tag">Slow-moving</span></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Paracetamol <span>500 mg</span></th>
+                              <td><span class="v-hero-report-tag">Near expiry</span></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Metformin <span>500 mg</span></th>
+                              <td><span class="v-hero-report-tag">Expiry review</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p class="v-hero-report-foot">
+                          Check the reporting period and data freshness. Some reports use snapshots.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div class="v-hero-panel" data-hero-panel="activity" hidden>
-                    <img src="/Pictures/velocity-dashboard-light.png" alt="Velocity dashboard showing stock and daily activity" class="v-showcase-img" width="2940" height="1842" loading="lazy" />
+                </div>
+                <div class="v-hero-panel" data-hero-panel="reorder" hidden>
+                  <div class="v-window-frame">
+                    <div class="v-window-bar">
+                      <div class="v-window-controls" aria-hidden="true">
+                        <span class="v-control-dot v-dot-close"></span>
+                        <span class="v-control-dot v-dot-min"></span>
+                        <span class="v-control-dot v-dot-max"></span>
+                      </div>
+                      <div class="v-window-address">
+                        <span class="v-window-lock" aria-hidden="true">🔒</span>
+                        <span class="v-window-url">app.astrai.in/velocity/dashboard</span>
+                      </div>
+                      <div class="v-window-meta">
+                        <span class="v-window-status"
+                          ><span class="v-status-indicator"></span>Active Session</span
+                        >
+                      </div>
+                    </div>
+                    <div class="v-window-content">
+                      <img
+                        src="/Pictures/velocity-predictive-reorder.png"
+                        alt="Illustrative Velocity reorder suggestions for medicines"
+                        class="v-showcase-img"
+                        width="2940"
+                        height="1842"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="v-hero-panel" data-hero-panel="activity" hidden>
+                  <div class="v-window-frame">
+                    <div class="v-window-bar">
+                      <div class="v-window-controls" aria-hidden="true">
+                        <span class="v-control-dot v-dot-close"></span>
+                        <span class="v-control-dot v-dot-min"></span>
+                        <span class="v-control-dot v-dot-max"></span>
+                      </div>
+                      <div class="v-window-address">
+                        <span class="v-window-lock" aria-hidden="true">🔒</span>
+                        <span class="v-window-url">app.astrai.in/velocity/dashboard</span>
+                      </div>
+                      <div class="v-window-meta">
+                        <span class="v-window-status"
+                          ><span class="v-status-indicator"></span>Active Session</span
+                        >
+                      </div>
+                    </div>
+                    <div class="v-window-content">
+                      <img
+                        src="/Pictures/velocity-dashboard-light.png"
+                        alt="Velocity dashboard showing stock and daily activity"
+                        class="v-showcase-img"
+                        width="2940"
+                        height="1842"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
