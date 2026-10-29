@@ -4391,53 +4391,127 @@
   font-family: 'Lora', serif;
 }
 
-/* Hero capability strip */
+/* Hero capability card */
 .velocity-page .v-hero-capabilities {
   margin: 32px auto 0;
   max-width: 860px;
   width: 100%;
-  padding: 14px 20px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 32px 36px;
+  border-radius: 20px;
+  background: #242424;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
   box-sizing: border-box;
+  text-align: left;
+  font-family: 'Geist Variable', sans-serif;
 }
-.velocity-page .v-hero-capabilities-label {
+.velocity-page .v-hero-capabilities-eyebrow {
+  display: inline-block;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #8c887b;
-  margin: 0 0 10px 0;
+  color: var(--v-gold, #e6cd99);
+  margin-bottom: 8px;
 }
-.velocity-page .v-hero-capabilities-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 12px 24px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.velocity-page .v-hero-capability-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.velocity-page .v-hero-capability-link {
-  color: #e5e2da;
-  text-decoration: none;
+.velocity-page .v-hero-capabilities-heading {
   font-family: 'Geist Variable', sans-serif;
-  font-size: 0.88rem;
-  border-bottom: 1px dotted rgba(255, 255, 255, 0.25);
-  transition: color 0.2s, border-color 0.2s;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #e8e5df;
+  margin: 0;
+  letter-spacing: normal;
 }
-.velocity-page .v-hero-capability-link:hover,
-.velocity-page .v-hero-capability-link:focus-visible {
-  color: #fff;
-  border-bottom-color: var(--v-gold, #e6cd99);
+.velocity-page .v-hero-capabilities-desc {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b8b5af;
+  max-width: 65ch;
+  margin: 8px 0 0;
+}
+.velocity-page .v-hero-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+.velocity-page .v-hero-feature-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #d8d5ce;
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 13px;
+  font-weight: 450;
+  line-height: 1.4;
+  box-sizing: border-box;
+  min-height: 64px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.velocity-page .v-hero-feature-cell:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.velocity-page .v-hero-feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--v-gold, #e6cd99);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.velocity-page .v-hero-feature-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.velocity-page .v-hero-feature-badge {
+  font-size: 9.5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(230, 205, 153, 0.12);
+  color: var(--v-gold, #e6cd99);
+  border: 1px solid rgba(230, 205, 153, 0.25);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+@media (max-width: 860px) {
+  .velocity-page .v-hero-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .velocity-page .v-hero-capabilities {
+    padding: 20px;
+  }
+  .velocity-page .v-hero-capabilities-heading {
+    font-size: 18px;
+  }
+  .velocity-page .v-hero-capabilities-desc {
+    font-size: 13.5px;
+  }
+  .velocity-page .v-hero-capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .velocity-page .v-hero-feature-cell {
+    font-size: 12.5px;
+    padding: 9px 12px;
+    min-height: auto;
+  }
 }
 .velocity-page .v-capability-tier-badge {
   display: inline-block;
