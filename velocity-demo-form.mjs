@@ -118,11 +118,12 @@ function escapeHtml(str) {
  * @param {HTMLElement | null} root
  * @param {{
  *   send?: (fields: Record<string, unknown>) => Promise<boolean>,
+ *   sheetUrl?: string,
  *   observer?: { started: () => void, succeeded: () => void }
  * }} [options]
  * @returns {() => void} Cleanup function
  */
-export function initVelocityDemoForm(root, { send, observer } = {}) {
+export function initVelocityDemoForm(root, { send, observer, sheetUrl } = {}) {
   if (!root || typeof root !== 'object') {
     return () => {};
   }
@@ -143,7 +144,10 @@ export function initVelocityDemoForm(root, { send, observer } = {}) {
   const sender =
     send ||
     (typeof window !== 'undefined' && typeof window.fetch === 'function'
-      ? createEnquirySender(window.fetch.bind(window))
+      ? createEnquirySender(window.fetch.bind(window), {
+          endpoint: '/api/enquiry',
+          sheetUrl: sheetUrl || '',
+        })
       : async () => true);
 
   const submitButton = form.querySelector('[type="submit"]');

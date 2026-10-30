@@ -3665,16 +3665,32 @@
 
 @media (min-width: 1024px) {
   .velocity-page .v-demo-grid {
-    grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+    grid-template-columns: minmax(0, 0.44fr) minmax(0, 0.56fr);
     gap: 56px;
     align-items: center;
   }
 }
 
 .velocity-page .v-demo-intro {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.velocity-page .v-demo-watermark {
+  position: absolute;
+  z-index: -1;
+  top: -64px;
+  left: -12px;
+  color: var(--v-gold);
+  opacity: 0.045;
+  font-family: serif;
+  font-size: clamp(100px, 14vw, 220px);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .velocity-page .v-demo-intro .v-eyebrow {
@@ -3727,143 +3743,179 @@
 
 /* Demo Card */
 .velocity-page .v-demo-card {
-  background: #101010;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  font-family: 'Geist Variable', sans-serif;
+  position: relative;
+  min-width: 0;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  padding: 36px 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  font-family: 'Lora', serif;
+}
+
+/* Reuse Connect's grain asset, clipped to the card instead of the viewport. */
+.velocity-page .v-demo-card > .grain-overlay {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.velocity-page .v-demo-brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--v-gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.16em;
+}
+
+.velocity-page .v-demo-brand span {
+  color: #737373;
 }
 
 .velocity-page .v-demo-card-title {
-  font-family: 'Lora', serif;
-  font-size: 24px;
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
   line-height: 1.25;
   color: #f5f3ee;
   margin: 0 0 8px;
-  font-weight: 400;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .velocity-page .v-demo-card-intro {
+  font-family: 'Lora', serif;
+  font-style: italic;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #a3a3a3;
-  margin: 0 0 6px;
-}
-
-.velocity-page .v-demo-card-note {
-  font-size: 0.8rem;
-  color: #737373;
-  margin: 0 0 24px;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 28px;
 }
 
 /* Form Layout */
 .velocity-page .v-demo-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.velocity-page .v-demo-row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 28px;
 }
 
-@media (min-width: 640px) {
-  .velocity-page .v-demo-row {
-    grid-template-columns: 1fr 1fr;
-  }
+.velocity-page .v-demo-field-full,
+.velocity-page .v-demo-status,
+.velocity-page .v-demo-submit-wrapper,
+.velocity-page .v-demo-card-footer {
+  grid-column: 1 / -1;
 }
 
 .velocity-page .v-demo-field {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
 .velocity-page .v-demo-label {
-  font-size: 0.85rem;
+  font-family: 'Space Grotesk', 'JetBrains Mono', sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.5;
   font-weight: 500;
-  color: #d4d4d4;
-  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 500ms ease;
+  display: block;
+}
+
+.velocity-page .group:focus-within .v-demo-label {
+  color: var(--v-gold, #e6cd99);
 }
 
 /* Form Controls */
 .velocity-page .v-demo-input,
 .velocity-page .v-demo-select {
-  height: 48px;
-  min-height: 48px;
-  padding: 0 14px;
-  background: #181818;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  color: #f5f3ee;
-  font-family: 'Geist Variable', sans-serif;
-  font-size: 16px;
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease;
+  color-scheme: dark;
+  min-width: 0;
+  height: 44px;
+  min-height: 44px;
+  padding: 8px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  color: #ffffff;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
   box-sizing: border-box;
   width: 100%;
+  transition: color 300ms ease;
 }
 
 .velocity-page .v-demo-input::placeholder {
-  color: #666;
+  color: rgba(255, 255, 255, 0.35);
+  font-style: italic;
+}
+
+.velocity-page .v-demo-input:autofill {
+  background-color: #111111;
+  color: #f5f3ee;
+  caret-color: #f5f3ee;
+  box-shadow: inset 0 0 0 1000px #111111;
+}
+
+.velocity-page .v-demo-input:-webkit-autofill,
+.velocity-page .v-demo-input:-webkit-autofill:hover,
+.velocity-page .v-demo-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f5f3ee;
+  caret-color: #f5f3ee;
+  -webkit-box-shadow: inset 0 0 0 1000px #111111;
 }
 
 .velocity-page .v-demo-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e6cd99' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
+  background-position: right 4px center;
+  padding-right: 24px;
   cursor: pointer;
 }
 
 .velocity-page .v-demo-select option {
-  background-color: #1a1a1a;
+  background-color: #121212;
   color: #f5f3ee;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 .velocity-page .v-demo-input:focus,
 .velocity-page .v-demo-select:focus {
   outline: none;
-  border-color: var(--v-gold, #e6cd99);
-  background-color: #1f1f1f;
-  box-shadow: 0 0 0 2px rgba(230, 205, 153, 0.25);
-}
-
-.velocity-page .v-demo-input[aria-invalid='true'],
-.velocity-page .v-demo-select[aria-invalid='true'] {
-  border-color: #f87171;
+  box-shadow: none;
 }
 
 /* Phone Group with Country Selector */
 .velocity-page .v-demo-phone-group {
-  display: flex;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 136px minmax(0, 1fr);
+  gap: 16px;
   width: 100%;
 }
 
 .velocity-page .v-demo-country-select {
-  flex: 0 0 auto;
-  width: auto;
-  min-width: 130px;
-  max-width: 160px;
-  padding-left: 10px;
-  padding-right: 28px;
-  font-size: 14px;
-}
-
-.velocity-page .v-demo-phone-group .v-demo-input {
-  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 24px;
+  font-size: 0.95rem;
 }
 
 /* Error Message */
 .velocity-page .v-demo-error {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #f87171;
   min-height: 18px;
   line-height: 1.3;
@@ -3884,49 +3936,35 @@
   display: none;
 }
 
-/* Submit Button */
+/* Submit Button Reusing liquid-glass-button */
+.velocity-page .v-demo-submit-wrapper {
+  grid-column: 1 / -1;
+  padding-top: 6px;
+}
+
 .velocity-page .v-demo-submit-btn {
-  width: 100%;
-  height: 50px;
-  min-height: 48px;
-  background: var(--v-gold, #e6cd99);
-  color: #0d0d0d;
-  font-family: 'Geist Variable', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
+  width: 100% !important;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background-color 180ms ease,
-    opacity 180ms ease,
-    transform 120ms ease;
-  margin-top: 4px;
-}
-
-.velocity-page .v-demo-submit-btn:hover:not(:disabled) {
-  background: #f0dbaa;
-}
-
-.velocity-page .v-demo-submit-btn:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 3px;
+  letter-spacing: 0.35em !important;
+  text-transform: uppercase;
+  border: 1px solid rgba(230, 205, 153, 0.25) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
 }
 
 .velocity-page .v-demo-submit-btn:disabled {
-  opacity: 0.65;
+  opacity: 0.55;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* Footer & Privacy Note */
 .velocity-page .v-demo-card-footer {
   font-size: 0.8rem;
   line-height: 1.4;
-  color: #737373;
-  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 6px 0 0;
   text-align: center;
 }
 
@@ -3984,14 +4022,26 @@
   }
   .velocity-page .v-demo-card {
     padding: 20px;
-    border-radius: 16px;
   }
   .velocity-page .v-demo-phone-group {
-    flex-direction: column;
+    grid-template-columns: 116px minmax(0, 1fr);
   }
   .velocity-page .v-demo-country-select {
     width: 100%;
     max-width: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .velocity-page .v-demo-form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 359px) {
+  .velocity-page .v-demo-phone-group {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 .velocity-page .v-skip {

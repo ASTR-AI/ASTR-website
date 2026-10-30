@@ -21,24 +21,48 @@ export function getEnquiryContext(search) {
   return null;
 }
 
-export function createEnquirySender(fetchImpl) {
+export function createEnquirySender(
+  fetchImpl,
+  {
+    endpoint = 'https://formsubmit.co/ajax/hello@astrai.in',
+    sheetUrl = typeof window !== 'undefined'
+      ? window.ASTR_CONFIG?.GOOGLE_SHEETS_URL
+      : undefined,
+  } = {}
+) {
   let pending = false;
   return async (fields) => {
     if (pending) return false;
     pending = true;
     try {
-      const response = await fetchImpl(
-        'https://formsubmit.co/ajax/hello@astrai.in',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify(fields),
-          signal: AbortSignal.timeout(20000),
+      if (sheetUrl) {
+        try {
+          // Sheets is best effort: opaque responses cannot confirm a saved row.
+          // Plain text is CORS-safelisted; Apps Script parses the JSON body.
+          void Promise.resolve(
+            fetchImpl(sheetUrl, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+              body: JSON.stringify(fields),
+              keepalive: true,
+            })
+          ).catch(() => {});
+        } catch {
+          // A synchronous Sheets transport failure must not prevent email.
         }
-      );
+      }
+      const response = await fetchImpl(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(fields),
+        signal: AbortSignal.timeout(
+          endpoint === '/api/enquiry' ? 30000 : 20000
+        ),
+      });
       const data = await response.json();
       if (
         !response.ok ||
@@ -112,7 +136,10 @@ if (typeof document !== 'undefined') {
         'Book a Velocity demo';
       label.textContent = 'Request a demo';
     }
-    const send = createEnquirySender(window.fetch.bind(window));
+    const send = createEnquirySender(window.fetch.bind(window), {
+      endpoint: '/api/enquiry',
+      sheetUrl: '',
+    });
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (button.disabled || !form.reportValidity()) return;

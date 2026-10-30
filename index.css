@@ -150,7 +150,9 @@
   .reveal.visible:not([data-gsap-revealed]) {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal[data-gsap-revealed].visible {
     opacity: 1;
@@ -161,7 +163,9 @@
     opacity: 0;
     transform: translateY(30px);
     will-change: transform, opacity;
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .footer-reveal.visible {
     opacity: 1;
@@ -189,7 +193,10 @@
     opacity: 0;
     filter: blur(6px);
     transform: translateY(6px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, filter, transform;
   }
   .text-animate-char.visible {
@@ -215,6 +222,17 @@
     );
     background-size: 100% 4px;
     opacity: 0.05; /* Reduced opacity */
+  }
+
+  /* Shared enquiry surface, used by Connect and the inline Velocity form. */
+  .protocol-box {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 100%
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
   }
 
   .grain-overlay {
@@ -271,8 +289,67 @@
   }
 
   input:focus + .field-bottom-line::after,
-  textarea:focus + .field-bottom-line::after {
+  textarea:focus + .field-bottom-line::after,
+  select:focus + .field-bottom-line::after {
     width: 100%;
+  }
+
+  input[aria-invalid='true'] + .field-bottom-line::after,
+  select[aria-invalid='true'] + .field-bottom-line::after {
+    width: 100%;
+    background: #f87171;
+  }
+
+  /* Architectural corner brackets for protocol cards */
+  .corner-bracket {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #e6cd99;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .bracket-tl {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+  }
+  .bracket-tr {
+    top: -2px;
+    right: -2px;
+    border-left: none;
+    border-bottom: none;
+  }
+  .bracket-bl {
+    bottom: -2px;
+    left: -2px;
+    border-right: none;
+    border-top: none;
+  }
+  .bracket-br {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+  }
+
+  /* Ethereal focus aura on field container */
+  .field-focus-glow {
+    position: absolute;
+    inset: -15px;
+    background: radial-gradient(
+      circle at center,
+      rgba(230, 205, 153, 0.05) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+  }
+  .group:focus-within .field-focus-glow {
+    opacity: 1;
   }
 
   .hud-element {
@@ -1254,6 +1331,54 @@
     }
     100% {
       transform: translate(10%, 10%);
+    }
+  }
+
+  .liquid-glass-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+    pointer-events: none;
+  }
+
+  .establish-btn {
+    transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .establish-btn:hover:not(:disabled) {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow:
+      0 15px 50px rgba(230, 205, 153, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .data-streak {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(230, 205, 153, 0.25),
+      transparent
+    );
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+
+  .liquid-glass-button:hover:not(:disabled) .data-streak,
+  .establish-btn:hover:not(:disabled) .data-streak {
+    animation: dataStreak 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes dataStreak {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
     }
   }
 

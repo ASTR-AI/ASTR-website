@@ -2,6 +2,112 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createEnquirySender, getEnquiryContext } from '../connect-form.mjs';
 
+const sheetUrl = 'https://script.google.com/macros/s/test-deployment/exec';
+
+test('dispatches Sheets in parallel without waiting for its response', async () => {
+  const requests = [];
+  let acceptEmail;
+  const fields = {
+    name: 'Demo Person',
+    email: 'demo@example.com',
+    organizationType: 'Hospital',
+    organizationName: 'City Hospital',
+    phone: '+91 9876543210',
+    product: 'Velocity',
+  };
+  const send = createEnquirySender(
+    (url, options) => {
+      requests.push({ url, ...options });
+      if (url === sheetUrl) return new Promise(() => {});
+      return new Promise((resolve) => {
+        acceptEmail = resolve;
+      });
+    },
+    { sheetUrl }
+  );
+
+  const result = send(fields);
+  assert.equal(await send(fields), false);
+  assert.equal(requests.length, 2);
+  const sheetRequest = requests.find((request) => request.url === sheetUrl);
+  assert.equal(sheetRequest.method, 'POST');
+  assert.equal(sheetRequest.mode, 'no-cors');
+  assert.equal(
+    sheetRequest.headers['Content-Type'],
+    'text/plain;charset=UTF-8'
+  );
+  assert.equal(sheetRequest.keepalive, true);
+  assert.deepEqual(JSON.parse(sheetRequest.body), fields);
+  acceptEmail({ ok: true, json: async () => ({ success: true }) });
+  assert.equal(await result, true);
+});
+
+for (const failure of ['sync', 'async', 'opaque']) {
+  test(`Sheets ${failure} response cannot fail an accepted email`, async () => {
+    let sheetCalls = 0;
+    const send = createEnquirySender(
+      (url) => {
+        if (url === sheetUrl) {
+          sheetCalls++;
+          if (failure === 'sync') throw new Error('Sheets unavailable');
+          if (failure === 'async')
+            return Promise.reject(new Error('Sheets unavailable'));
+          return Promise.resolve({ type: 'opaque', status: 0, ok: false });
+        }
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ success: true }),
+        });
+      },
+      { sheetUrl }
+    );
+    assert.equal(await send({ name: 'Demo Person' }), true);
+    assert.equal(sheetCalls, 1);
+  });
+}
+
+test('Sheets dispatch does not turn email rejection into success and allows retry', async () => {
+  let sheetCalls = 0;
+  let emailCalls = 0;
+  const send = createEnquirySender(
+    async (url) => {
+      if (url === sheetUrl) {
+        sheetCalls++;
+        return {};
+      }
+      emailCalls++;
+      return { ok: true, json: async () => ({ success: emailCalls > 1 }) };
+    },
+    { sheetUrl }
+  );
+  await assert.rejects(send({}), /accepted/);
+  assert.equal(await send({}), true);
+  assert.equal(sheetCalls, 2);
+});
+
+test('uses optional browser configuration and permits disabling Sheets explicitly', async () => {
+  const previousWindow = globalThis.window;
+  globalThis.window = { ASTR_CONFIG: { GOOGLE_SHEETS_URL: sheetUrl } };
+  try {
+    const urls = [];
+    const fetchImpl = async (url) => {
+      urls.push(url);
+      return { ok: true, json: async () => ({ success: true }) };
+    };
+    assert.equal(await createEnquirySender(fetchImpl)({}), true);
+    assert.equal(urls.includes(sheetUrl), true);
+    urls.length = 0;
+    assert.equal(
+      await createEnquirySender(fetchImpl, { sheetUrl: '' })({}),
+      true
+    );
+    assert.deepEqual(urls, ['https://formsubmit.co/ajax/hello@astrai.in']);
+  } finally {
+    if (previousWindow === undefined) delete globalThis.window;
+    else globalThis.window = previousWindow;
+  }
+});
+
 for (const success of [true, 'true']) {
   test(`accepts explicit success ${JSON.stringify(success)}`, async () => {
     let request;
@@ -212,4 +318,21 @@ test('Observer transport error does not break form submission', async () => {
   });
 
   assert.equal(accepted, true);
+});
+
+test('same-origin API confirms acceptance without a browser request to FormSubmit', async () => {
+  const urls = [];
+  const send = createEnquirySender(
+    async (url, options) => {
+      urls.push(url);
+      assert.equal(JSON.parse(options.body).email, 'demo@example.com');
+      return { ok: true, json: async () => ({ success: true }) };
+    },
+    { endpoint: '/api/enquiry', sheetUrl: '' }
+  );
+  assert.equal(
+    await send({ name: 'Demo Person', email: 'demo@example.com' }),
+    true
+  );
+  assert.deepEqual(urls, ['/api/enquiry']);
 });

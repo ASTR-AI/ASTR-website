@@ -3263,6 +3263,7 @@
       <section id="demo" class="v-section v-demo">
         <div class="v-container v-demo-grid">
           <div class="v-demo-intro">
+            <span class="v-demo-watermark" aria-hidden="true">अस्त्र</span>
             <span class="v-eyebrow">VELOCITY DEMO</span>
             <h2>
               See how your pharmacy could work with <em>a clearer view.</em>
@@ -3283,12 +3284,19 @@
             </p>
           </div>
 
-          <div class="v-demo-card" data-demo-card>
+          <div class="protocol-box v-demo-card relative" data-demo-card>
+            <!-- Brackets -->
+            <div class="corner-bracket bracket-tl"></div>
+            <div class="corner-bracket bracket-tr"></div>
+            <div class="corner-bracket bracket-bl"></div>
+            <div class="corner-bracket bracket-br"></div>
+
+            <div class="grain-overlay" aria-hidden="true"></div>
+            <div class="v-demo-brand">ASTR AI <span>/</span> VELOCITY</div>
             <h3 class="v-demo-card-title">Request your demo</h3>
             <p class="v-demo-card-intro">
-              Share your details and our team will contact you to arrange a time.
+              We’ll contact you to arrange a time. All fields are required.
             </p>
-            <p class="v-demo-card-note">All fields are required.</p>
 
             <form id="velocityDemoForm" class="v-demo-form" novalidate>
               <input type="hidden" name="product" value="Velocity" />
@@ -3298,18 +3306,22 @@
                 value="Velocity demo request — ASTR AI"
               />
 
-              <div class="v-demo-field v-demo-field-full">
+              <div class="v-demo-field space-y-2 group relative">
+                <div class="field-focus-glow"></div>
                 <label for="vDemoName" class="v-demo-label">Your name</label>
-                <input
-                  type="text"
-                  id="vDemoName"
-                  name="name"
-                  class="v-demo-input"
-                  placeholder="Full name"
-                  autocomplete="name"
-                  required
-                  aria-required="true"
-                />
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="vDemoName"
+                    name="name"
+                    class="v-demo-input"
+                    placeholder="Full name"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                  />
+                  <div class="field-bottom-line"></div>
+                </div>
                 <span
                   class="v-demo-error"
                   id="name-error"
@@ -3319,11 +3331,12 @@
                 ></span>
               </div>
 
-              <div class="v-demo-row">
-                <div class="v-demo-field">
-                  <label for="vDemoEmail" class="v-demo-label"
-                    >Email address</label
-                  >
+              <div class="v-demo-field space-y-2 group relative">
+                <div class="field-focus-glow"></div>
+                <label for="vDemoEmail" class="v-demo-label"
+                  >Email address</label
+                >
+                <div class="relative">
                   <input
                     type="email"
                     id="vDemoEmail"
@@ -3334,20 +3347,84 @@
                     required
                     aria-required="true"
                   />
-                  <span
-                    class="v-demo-error"
-                    id="email-error"
-                    data-error-for="email"
-                    role="alert"
-                    aria-live="polite"
-                  ></span>
+                  <div class="field-bottom-line"></div>
                 </div>
+                <span
+                  class="v-demo-error"
+                  id="email-error"
+                  data-error-for="email"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
 
-                <div class="v-demo-field">
-                  <label for="vDemoPhone" class="v-demo-label"
-                    >Phone number</label
+              <div class="v-demo-field space-y-2 group relative">
+                <div class="field-focus-glow"></div>
+                <label for="vDemoOrgType" class="v-demo-label"
+                  >Organisation type</label
+                >
+                <div class="relative">
+                  <select
+                    id="vDemoOrgType"
+                    name="orgType"
+                    class="v-demo-select"
+                    required
+                    aria-required="true"
                   >
-                  <div class="v-demo-phone-group">
+                    <option value="" disabled selected>Select type</option>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Retail pharmacy">Retail pharmacy</option>
+                    <option value="Clinic">Clinic</option>
+                    <option value="Nursing home">Nursing home</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="field-bottom-line"></div>
+                </div>
+                <span
+                  class="v-demo-error"
+                  id="orgType-error"
+                  data-error-for="orgType"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="v-demo-field space-y-2 group relative">
+                <div class="field-focus-glow"></div>
+                <label for="vDemoOrgName" class="v-demo-label"
+                  >Organisation name</label
+                >
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="vDemoOrgName"
+                    name="orgName"
+                    class="v-demo-input"
+                    placeholder="Organisation name"
+                    autocomplete="organization"
+                    required
+                    aria-required="true"
+                  />
+                  <div class="field-bottom-line"></div>
+                </div>
+                <span
+                  class="v-demo-error"
+                  id="orgName-error"
+                  data-error-for="orgName"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div
+                class="v-demo-field v-demo-field-full space-y-2 group relative"
+              >
+                <div class="field-focus-glow"></div>
+                <label for="vDemoPhone" class="v-demo-label"
+                  >Phone number</label
+                >
+                <div class="v-demo-phone-group">
+                  <div class="relative">
                     <select
                       id="vDemoCountryCode"
                       name="countryCode"
@@ -3357,14 +3434,15 @@
                       <option value="+91" selected>India (+91)</option>
                       <option value="+1">United States / Canada (+1)</option>
                       <option value="+44">United Kingdom (+44)</option>
-                      <option value="+971">
-                        United Arab Emirates (+971)
-                      </option>
+                      <option value="+971">United Arab Emirates (+971)</option>
                       <option value="+65">Singapore (+65)</option>
                       <option value="+61">Australia (+61)</option>
                       <option value="+966">Saudi Arabia (+966)</option>
                       <option value="+49">Germany (+49)</option>
                     </select>
+                    <div class="field-bottom-line"></div>
+                  </div>
+                  <div class="relative">
                     <input
                       type="tel"
                       id="vDemoPhone"
@@ -3375,64 +3453,13 @@
                       required
                       aria-required="true"
                     />
+                    <div class="field-bottom-line"></div>
                   </div>
-                  <span
-                    class="v-demo-error"
-                    id="phone-error"
-                    data-error-for="phone"
-                    role="alert"
-                    aria-live="polite"
-                  ></span>
                 </div>
-              </div>
-
-              <div class="v-demo-field v-demo-field-full">
-                <label for="vDemoOrgType" class="v-demo-label"
-                  >Organisation type</label
-                >
-                <select
-                  id="vDemoOrgType"
-                  name="orgType"
-                  class="v-demo-select"
-                  required
-                  aria-required="true"
-                >
-                  <option value="" disabled selected>
-                    Select organisation type
-                  </option>
-                  <option value="Hospital">Hospital</option>
-                  <option value="Retail pharmacy">Retail pharmacy</option>
-                  <option value="Clinic">Clinic</option>
-                  <option value="Nursing home">Nursing home</option>
-                  <option value="Other">Other</option>
-                </select>
                 <span
                   class="v-demo-error"
-                  id="orgType-error"
-                  data-error-for="orgType"
-                  role="alert"
-                  aria-live="polite"
-                ></span>
-              </div>
-
-              <div class="v-demo-field v-demo-field-full">
-                <label for="vDemoOrgName" class="v-demo-label"
-                  >Organisation name</label
-                >
-                <input
-                  type="text"
-                  id="vDemoOrgName"
-                  name="orgName"
-                  class="v-demo-input"
-                  placeholder="Your organisation's name"
-                  autocomplete="organization"
-                  required
-                  aria-required="true"
-                />
-                <span
-                  class="v-demo-error"
-                  id="orgName-error"
-                  data-error-for="orgName"
+                  id="phone-error"
+                  data-error-for="phone"
                   role="alert"
                   aria-live="polite"
                 ></span>
@@ -3445,9 +3472,15 @@
                 aria-live="polite"
               ></div>
 
-              <button type="submit" class="v-button v-demo-submit-btn">
-                <span>Request a demo</span>
-              </button>
+              <div class="v-demo-submit-wrapper">
+                <button
+                  type="submit"
+                  class="liquid-glass-button establish-btn group/btn v-demo-submit-btn !py-4.5 !px-10"
+                >
+                  <span class="relative z-10">[REQUEST_A_DEMO]</span>
+                  <div class="data-streak"></div>
+                </button>
+              </div>
 
               <p class="v-demo-card-footer">
                 We'll use these details to respond to your demo request.

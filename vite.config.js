@@ -1,10 +1,38 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
+import { createEnquiryHandler } from './server/enquiry-handler.mjs';
 
 export default defineConfig({
   plugins: [
     react(),
+    {
+      name: 'enquiry-api',
+      configureServer(server) {
+        const handle = createEnquiryHandler();
+        server.middlewares.use('/api/enquiry', async (req, res) => {
+          let body = '';
+          for await (const chunk of req) {
+            body += chunk;
+            if (Buffer.byteLength(body) > 65536) {
+              res.statusCode = 413;
+              res.end();
+              return;
+            }
+          }
+          req.body = body;
+          res.status = (code) => {
+            res.statusCode = code;
+            return res;
+          };
+          res.json = (data) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(data));
+          };
+          await handle(req, res);
+        });
+      },
+    },
     {
       name: 'dev-link-logger',
       configureServer(server) {

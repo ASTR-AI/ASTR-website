@@ -83,3 +83,7 @@ npm run build
 ```
 
 The build output will be in the `dist/` directory, including all pages.
+
+## Optional Google Sheets enquiry capture
+
+Keep FormSubmit email delivery and copy submissions to Google Sheets using the [Apps Script setup guide](docs/integrations/google-sheets.md). Sheets capture remains disabled until a deployed webhook URL is configured.
