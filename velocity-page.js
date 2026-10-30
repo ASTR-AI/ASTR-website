@@ -1,5 +1,6 @@
 import './components.js';
 import './velocity-supply.css';
+import './velocity-operations.css';
 import { initHeroTransition } from './velocity-hero.mjs';
 import { inject, track } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';

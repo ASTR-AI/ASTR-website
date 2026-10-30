@@ -1,0 +1,328 @@
+/* Corner rules: README large containers 64px / pills 100px;
+   design-system/astr-ai/MASTER.md standard cards 16px. */
+.velocity-page #operations {
+  --operations-stage-radius: 64px;
+  --operations-inset-radius: calc(var(--operations-stage-radius) - 12px);
+  --operations-card-radius: 16px;
+  --operations-pill-radius: 100px;
+}
+.velocity-page #operations .v-operations-intro {
+  max-width: 900px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+.velocity-page #operations .v-operations-intro h2 {
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.velocity-page #operations .v-operations-intro .v-lead {
+  max-width: 650px;
+  margin: 22px auto 0;
+}
+.velocity-page #operations .v-operations-controls {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 5px;
+  gap: 4px;
+  border-radius: var(--operations-pill-radius);
+  background: #101110;
+}
+.velocity-page #operations .v-operations-controls button {
+  min-height: 44px;
+  padding: 12px 22px;
+  border-radius: var(--operations-pill-radius);
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+.velocity-page #operations .v-operations-controls button[aria-selected='true'] {
+  background: #e6cd99;
+  color: #19170f;
+  border-color: #e6cd99;
+  box-shadow: 0 2px 12px #e6cd9912;
+}
+.velocity-page #operations .v-operations-controls button:focus-visible {
+  outline: 2px solid #e6cd99;
+  outline-offset: 3px;
+}
+.velocity-page #operations .v-operations-panel {
+  --showcase-glow: #e0c38f;
+  --showcase-secondary: #7c8dba;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: stretch;
+  gap: 0;
+  min-height: 610px;
+  margin-top: 28px;
+  border: 1px solid #ffffff16;
+  border-radius: var(--operations-stage-radius);
+  background: #13161c;
+  background-image:
+    radial-gradient(
+      ellipse at 100% 0%,
+      color-mix(in srgb, var(--showcase-glow) 32%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse at 75% 100%,
+      color-mix(in srgb, var(--showcase-secondary) 38%, transparent),
+      transparent 64%
+    ),
+    linear-gradient(115deg, #101113 28%, #1d222c 72%, #282730);
+  overflow: hidden;
+}
+.velocity-page #operations #ward-operations {
+  --showcase-glow: #b8c8b4;
+  --showcase-secondary: #6f929e;
+}
+.velocity-page #operations #accounts {
+  --showcase-glow: #dcc39d;
+  --showcase-secondary: #8d88b0;
+}
+.velocity-page #operations #visibility {
+  --showcase-glow: #a4bacb;
+  --showcase-secondary: #8f83b7;
+}
+.velocity-page #operations .v-operations-panel[hidden] {
+  display: none;
+}
+.velocity-page #operations .v-operations-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  margin: 12px 0 12px 12px;
+  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid #ffffff05;
+  border-radius: var(--operations-inset-radius);
+  background: linear-gradient(125deg, #10110ff5, #11120feb);
+}
+.velocity-page #operations .v-operations-copy > .v-operations-eyebrow {
+  margin: 0 0 36px;
+  color: #d4bd91;
+  font:
+    500 0.64rem/1.6 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.09em;
+}
+.velocity-page #operations .v-operations-copy h3 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.2;
+}
+.velocity-page #operations .v-operations-copy > p:not(.v-operations-eyebrow) {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.velocity-page #operations .v-operations-copy ul {
+  margin-top: 22px;
+}
+.velocity-page #operations .v-operations-copy li {
+  padding-left: 24px;
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+.velocity-page #operations .v-operations-copy li::before {
+  content: '✓';
+  width: auto;
+  height: auto;
+  top: 0;
+  background: none;
+  color: #d4bd91;
+  font-size: 0.8rem;
+}
+.velocity-page #operations .v-operations-copy > p.v-operations-context {
+  margin-top: 30px;
+  color: #a4a69d;
+  font-size: 0.72rem;
+}
+.velocity-page #operations .v-operations-visual {
+  align-self: stretch;
+  display: grid;
+  grid-template-rows: 20px minmax(420px, 1fr) 40px;
+  row-gap: 16px;
+  max-width: 550px;
+  padding: 32px clamp(20px, 3vw, 44px);
+}
+.velocity-page #operations .v-operations-visual figcaption {
+  color: #d5d4c9;
+  font-size: 0.57rem;
+  letter-spacing: 0.02em;
+}
+.velocity-page #operations .v-operations-document {
+  min-height: 420px;
+  height: 100%;
+  padding: 28px;
+  border-color: #ffffff80;
+  border-radius: var(--operations-card-radius);
+  box-shadow:
+    0 24px 70px -28px #000b,
+    0 1px 0 #fff9 inset;
+}
+.velocity-page #operations .v-operations-visual-note {
+  margin: 18px 0 0;
+  color: #d5d4c9;
+  font-size: 0.68rem;
+  text-align: center;
+}
+.velocity-page #operations .v-operations-availability {
+  margin-top: 20px;
+  padding-top: 0;
+  border: 0;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.velocity-page
+  #operations.v-operations-enhanced
+  .v-operations-panel:not([hidden])
+  > * {
+  animation: operations-reveal 400ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+@keyframes operations-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 1023px) {
+  .velocity-page #operations .v-operations-copy {
+    padding: 30px;
+  }
+  .velocity-page #operations .v-operations-controls button {
+    padding-inline: 14px;
+  }
+  .velocity-page #operations .v-operations-document {
+    padding: 24px;
+  }
+}
+@media (max-width: 800px) {
+  .velocity-page #operations .v-operations-panel {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    border-radius: var(--operations-stage-radius);
+  }
+  .velocity-page #operations .v-operations-copy {
+    max-width: none;
+    margin: 10px 10px 0;
+    padding: 30px;
+    border-radius: calc(var(--operations-stage-radius) - 10px);
+  }
+  .velocity-page #operations .v-operations-copy > .v-operations-eyebrow {
+    margin-bottom: 22px;
+  }
+  .velocity-page #operations .v-operations-copy h3 br {
+    display: initial;
+  }
+  .velocity-page #operations .v-operations-visual {
+    padding: 28px;
+    max-width: 510px;
+  }
+}
+@media (max-width: 767px) {
+  .velocity-page #operations .v-operations-intro {
+    margin-bottom: 28px;
+  }
+  .velocity-page #operations .v-operations-intro h2 br {
+    display: none;
+  }
+  .velocity-page #operations .v-operations-intro .v-lead {
+    font-size: 0.94rem;
+  }
+  .velocity-page #operations .v-operations-controls {
+    width: 100%;
+    border-radius: var(--operations-card-radius);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .velocity-page #operations .v-operations-controls button {
+    padding: 12px 8px;
+    border-radius: var(--operations-pill-radius);
+    font-size: 0.78rem;
+    white-space: normal;
+  }
+  .velocity-page #operations .v-operations-copy {
+    padding: 26px 22px;
+  }
+  .velocity-page #operations .v-operations-copy > p.v-operations-context {
+    margin-top: 24px;
+  }
+  .velocity-page #operations .v-operations-document {
+    min-height: 0;
+    padding: 22px;
+  }
+}
+@media (max-width: 380px) {
+  .velocity-page #operations .v-operations-visual {
+    padding: 24px 16px;
+  }
+  .velocity-page #operations .v-operations-document {
+    padding: 20px 16px;
+  }
+  .velocity-page #operations .v-operations-copy {
+    padding: 24px 18px;
+  }
+  .velocity-page #operations .v-operations-controls button {
+    font-size: 0.72rem;
+  }
+  .velocity-page #operations .v-operations-export-file {
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .velocity-page
+    #operations.v-operations-enhanced
+    .v-operations-panel:not([hidden])
+    > * {
+    animation: none;
+  }
+}
+
+.velocity-page #operations .v-sync-badge {
+  color: #69501e;
+  background: #e7d7b1;
+  border-color: #b79a5b;
+}
+
+/* Every workflow contributes to the same grid size. Inactive panels reserve
+   space but stay invisible, unfocusable, and absent from the accessibility tree. */
+.velocity-page #operations.v-operations-enhanced .v-operations-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 28px;
+}
+.velocity-page
+  #operations.v-operations-enhanced
+  .v-operations-showcase
+  > .v-operations-panel {
+  grid-area: 1 / 1;
+  margin-top: 0;
+}
+.velocity-page #operations.v-operations-enhanced .v-operations-panel[hidden] {
+  display: grid;
+  visibility: hidden;
+  pointer-events: none;
+}
+@media (max-width: 800px) {
+  .velocity-page #operations.v-operations-enhanced .v-operations-showcase {
+    grid-template-rows: auto auto;
+  }
+  .velocity-page
+    #operations.v-operations-enhanced
+    .v-operations-showcase
+    > .v-operations-panel {
+    grid-area: 1 / 1 / span 2 / span 1;
+    grid-template-rows: subgrid;
+  }
+  .velocity-page #operations .v-operations-visual {
+    grid-template-rows: 20px minmax(0, 1fr) 40px;
+  }
+  .velocity-page #operations .v-operations-copy {
+    justify-content: flex-start;
+  }
+}
