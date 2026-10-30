@@ -35,11 +35,11 @@
 - Produces: `validateDemoFields(fields)`, `initVelocityDemoForm(root, options)`
 - Consumes: `createEnquirySender` from `./connect-form.mjs`, `createVelocityTracker`, `createVelocityFormObserver` from `./velocity-analytics.mjs`
 
-- [ ] **Step 1: Write tests for validation rules and form submission lifecycle**
-- [ ] **Step 2: Run test to verify it fails**
-- [ ] **Step 3: Implement `velocity-demo-form.mjs`**
-- [ ] **Step 4: Run tests to verify they pass**
-- [ ] **Step 5: Commit changes**
+- [x] **Step 1: Write tests for validation rules and form submission lifecycle**
+- [x] **Step 2: Run test to verify it fails**
+- [x] **Step 3: Implement `velocity-demo-form.mjs`**
+- [x] **Step 4: Run tests to verify they pass**
+- [x] **Step 5: Commit changes**
 
 ---
 
@@ -51,10 +51,10 @@
 **Interfaces:**
 - Produces: `#demo` two-column layout with `#velocityDemoForm`, updated demo CTAs pointing to `#demo`.
 
-- [ ] **Step 1: Update navigation, hero, Why Velocity, and mobile conversion bar CTAs to point to `#demo` and read "Request a demo"**
-- [ ] **Step 2: Replace `#demo` section with two-column editorial layout and form card**
-- [ ] **Step 3: Verify existing tests continue to pass**
-- [ ] **Step 4: Commit changes**
+- [x] **Step 1: Update navigation, hero, Why Velocity, and mobile conversion bar CTAs to point to `#demo` and read "Request a demo"**
+- [x] **Step 2: Replace `#demo` section with two-column editorial layout and form card**
+- [x] **Step 3: Verify existing tests continue to pass**
+- [x] **Step 4: Commit changes**
 
 ---
 
@@ -66,11 +66,11 @@
 **Interfaces:**
 - Scoped styles for `.v-demo`, `.v-demo-grid`, `.v-demo-intro`, `.v-demo-card`, `.v-demo-form`, `.v-demo-field`, `.v-demo-row`, `.v-demo-error`, `.v-demo-success`.
 
-- [ ] **Step 1: Add desktop 44%/56% grid, vertical centering, 96px padding, and mobile stacked layout (<= 1024px)**
-- [ ] **Step 2: Style charcoal card (`#101010`), 20px radius, 32px padding (20px mobile), input controls with Geist font and 48px minimum height**
-- [ ] **Step 3: Style gold submit button (`#e6cd99`), focus outlines, error messages, and success container**
-- [ ] **Step 4: Run build check to verify CSS compiles cleanly**
-- [ ] **Step 5: Commit changes**
+- [x] **Step 1: Add desktop 44%/56% grid, vertical centering, 96px padding, and mobile stacked layout (<= 1024px)**
+- [x] **Step 2: Style charcoal card (`#101010`), 20px radius, 32px padding (20px mobile), input controls with Geist font and 48px minimum height**
+- [x] **Step 3: Style gold submit button (`#e6cd99`), focus outlines, error messages, and success container**
+- [x] **Step 4: Run build check to verify CSS compiles cleanly**
+- [x] **Step 5: Commit changes**
 
 ---
 
@@ -82,9 +82,9 @@
 **Interfaces:**
 - Initializes demo form on page load and lifecycle (`pageshow`/`pagehide`).
 
-- [ ] **Step 1: Import and hook `initVelocityDemoForm` in `velocity-page.js`**
-- [ ] **Step 2: Run all tests to verify integration**
-- [ ] **Step 3: Commit changes**
+- [x] **Step 1: Import and hook `initVelocityDemoForm` in `velocity-page.js`**
+- [x] **Step 2: Run all tests to verify integration**
+- [x] **Step 3: Commit changes**
 
 ---
 
@@ -93,7 +93,15 @@
 **Files:**
 - Run: Full Node test suite, ESLint, Vite build, and responsive preview checks.
 
-- [ ] **Step 1: Run `node --test tests/*.test.mjs`**
-- [ ] **Step 2: Run `npm run build`**
-- [ ] **Step 3: Verify responsive layout at 320px, 390px, 768px, 1024px, and 1440px**
-- [ ] **Step 4: Commit and finalize**
+- [x] **Step 1: Run `node --test tests/*.test.mjs`**
+- [x] **Step 2: Run `npm run build`**
+- [x] **Step 3: Verify responsive layout at 320px, 390px, 768px, 1024px, and 1440px**
+- [x] **Step 4: Commit and finalize**
+
+## Verification Results
+- **Node test suite:** 84/84 tests pass (including 4 new end-to-end unit and lifecycle tests in `tests/velocity-demo-form.test.mjs`).
+- **ESLint & Prettier:** Passed with zero errors or warnings on `velocity-page.js`, `velocity-demo-form.mjs`, and tests.
+- **Production Build:** `npm run build` compiles clean Vite distribution in ~897ms with `dist/velocity.html` and bundled JS/CSS assets.
+- **Headless Chrome Responsive Verification:** Tested at 320px, 390px, 768px, 1024px, and 1440px viewports. Document scroll width exactly equals viewport width with 0px overflow across all breakpoints.
+- **Screenshots:** Captured and saved to `/tmp/velocity-demo-{320,390,768,1024,1440}.png`.
+
