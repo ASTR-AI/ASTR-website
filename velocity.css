@@ -3649,29 +3649,350 @@
   padding: 0 30px 25px 0;
   font-size: 0.9rem;
 }
+/* Inline Demo Section */
 .velocity-page .v-demo {
-  text-align: center;
+  padding: 96px 0;
+  text-align: left;
   background: transparent;
 }
-.velocity-page .v-demo h2 {
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+
+.velocity-page .v-demo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
 }
-.velocity-page .v-demo .v-lead {
-  margin: 28px auto 32px;
+
+@media (min-width: 1024px) {
+  .velocity-page .v-demo-grid {
+    grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+    gap: 56px;
+    align-items: center;
+  }
 }
-.velocity-page .v-demo .v-small {
-  margin-top: 22px;
+
+.velocity-page .v-demo-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.velocity-page .v-email {
-  margin-top: 20px;
-  font-size: 0.9rem;
+
+.velocity-page .v-demo-intro .v-eyebrow {
+  color: var(--v-gold, #e6cd99);
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
-.velocity-page .v-email a {
-  color: var(--v-gold);
+
+.velocity-page .v-demo-intro h2 {
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
+  line-height: 1.15;
+  color: #f5f3ee;
+  margin: 0;
+}
+
+.velocity-page .v-demo-intro h2 em {
+  font-style: italic;
+  font-family: 'Lora', serif;
+}
+
+.velocity-page .v-demo-intro .v-lead {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #b5b5b5;
+  margin: 0;
+}
+
+.velocity-page .v-demo-email-alt {
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 0.95rem;
+  color: #8c8c8c;
+  margin-top: 8px;
+}
+
+.velocity-page .v-demo-email-alt a {
+  color: var(--v-gold, #e6cd99);
   text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 180ms ease;
 }
-.velocity-page .v-demo .v-small a {
+
+.velocity-page .v-demo-email-alt a:hover {
+  color: #f6dfb2;
+}
+
+/* Demo Card */
+.velocity-page .v-demo-card {
+  background: #101010;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  font-family: 'Geist Variable', sans-serif;
+}
+
+.velocity-page .v-demo-card-title {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #f5f3ee;
+  margin: 0 0 8px;
+  font-weight: 400;
+}
+
+.velocity-page .v-demo-card-intro {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #a3a3a3;
+  margin: 0 0 6px;
+}
+
+.velocity-page .v-demo-card-note {
+  font-size: 0.8rem;
+  color: #737373;
+  margin: 0 0 24px;
+}
+
+/* Form Layout */
+.velocity-page .v-demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.velocity-page .v-demo-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 640px) {
+  .velocity-page .v-demo-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.velocity-page .v-demo-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.velocity-page .v-demo-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #d4d4d4;
+  letter-spacing: 0.01em;
+}
+
+/* Form Controls */
+.velocity-page .v-demo-input,
+.velocity-page .v-demo-select {
+  height: 48px;
+  min-height: 48px;
+  padding: 0 14px;
+  background: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #f5f3ee;
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 16px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.velocity-page .v-demo-input::placeholder {
+  color: #666;
+}
+
+.velocity-page .v-demo-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.velocity-page .v-demo-select option {
+  background-color: #1a1a1a;
+  color: #f5f3ee;
+}
+
+.velocity-page .v-demo-input:focus,
+.velocity-page .v-demo-select:focus {
+  outline: none;
+  border-color: var(--v-gold, #e6cd99);
+  background-color: #1f1f1f;
+  box-shadow: 0 0 0 2px rgba(230, 205, 153, 0.25);
+}
+
+.velocity-page .v-demo-input[aria-invalid='true'],
+.velocity-page .v-demo-select[aria-invalid='true'] {
+  border-color: #f87171;
+}
+
+/* Phone Group with Country Selector */
+.velocity-page .v-demo-phone-group {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.velocity-page .v-demo-country-select {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 130px;
+  max-width: 160px;
+  padding-left: 10px;
+  padding-right: 28px;
+  font-size: 14px;
+}
+
+.velocity-page .v-demo-phone-group .v-demo-input {
+  flex: 1 1 auto;
+}
+
+/* Error Message */
+.velocity-page .v-demo-error {
+  font-size: 0.8rem;
+  color: #f87171;
+  min-height: 18px;
+  line-height: 1.3;
+}
+
+.velocity-page .v-demo-error:empty {
+  display: none;
+}
+
+/* Status Alert */
+.velocity-page .v-demo-status {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #e6cd99;
+}
+
+.velocity-page .v-demo-status:empty {
+  display: none;
+}
+
+/* Submit Button */
+.velocity-page .v-demo-submit-btn {
+  width: 100%;
+  height: 50px;
+  min-height: 48px;
+  background: var(--v-gold, #e6cd99);
+  color: #0d0d0d;
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 180ms ease,
+    opacity 180ms ease,
+    transform 120ms ease;
+  margin-top: 4px;
+}
+
+.velocity-page .v-demo-submit-btn:hover:not(:disabled) {
+  background: #f0dbaa;
+}
+
+.velocity-page .v-demo-submit-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.velocity-page .v-demo-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Footer & Privacy Note */
+.velocity-page .v-demo-card-footer {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #737373;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.velocity-page .v-demo-card-footer a {
+  color: #a3a3a3;
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.velocity-page .v-demo-card-footer a:hover {
+  color: var(--v-gold, #e6cd99);
+}
+
+/* Success Confirmation State */
+.velocity-page .v-demo-success {
+  text-align: center;
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.velocity-page .v-demo-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(230, 205, 153, 0.15);
+  border: 1px solid var(--v-gold, #e6cd99);
+  color: var(--v-gold, #e6cd99);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.velocity-page .v-demo-success .v-demo-card-title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.velocity-page .v-demo-success .v-demo-card-intro {
+  margin: 0;
+  max-width: 420px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .velocity-page .v-demo {
+    padding: 56px 0;
+  }
+  .velocity-page .v-demo-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  .velocity-page .v-demo-phone-group {
+    flex-direction: column;
+  }
+  .velocity-page .v-demo-country-select {
+    width: 100%;
+    max-width: none;
+  }
 }
 .velocity-page .v-skip {
   position: fixed;
