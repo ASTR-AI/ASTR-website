@@ -1,4 +1,5 @@
 import './components.js';
+import './velocity-supply.css';
 import { initHeroTransition } from './velocity-hero.mjs';
 import { inject, track } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';
@@ -7,6 +8,8 @@ import { initWhyVelocity } from './velocity-why.mjs';
 import { createVelocityTracker } from './velocity-analytics.mjs';
 import { initVelocityConversion } from './velocity-conversion.mjs';
 import { initComparisonDisclosure } from './velocity-comparison.mjs';
+import { initSupplyBento } from './velocity-supply-bento.mjs';
+import { initSupplyDemo } from './velocity-supply.mjs';
 
 inject();
 const velocityTracker = createVelocityTracker(track);
@@ -51,40 +54,10 @@ if (productHeader && productMenu && productFeatures) {
 }
 
 const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const supplySteps = [...document.querySelectorAll('[data-supply-step]')];
-let supplyObserver;
-
-function updateSupplyMotion() {
-  supplyObserver?.disconnect();
-  supplySteps.forEach((el) => el.classList.remove('is-active'));
-
-  if (preference.matches || !('IntersectionObserver' in window)) return;
-
-  supplyObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-active');
-        }
-      });
-    },
-    { rootMargin: '-20% 0px -30% 0px', threshold: 0.2 }
-  );
-
-  supplySteps.forEach((el) => supplyObserver.observe(el));
-}
-
-let resizeFrame;
-function onResize() {
-  cancelAnimationFrame(resizeFrame);
-  resizeFrame = requestAnimationFrame(updateSupplyMotion);
-}
 
 preference.addEventListener('change', () => {
-  updateSupplyMotion();
   updateReorderMotion();
 });
-window.addEventListener('resize', onResize);
 
 // Reorder showcase entrance animation
 const reorderPanel = document.querySelector('[data-reorder-panel]');
@@ -177,9 +150,21 @@ function initHero() {
   );
 }
 
-window.addEventListener('pageshow', () => {
+let supplyCleanup = null;
+let supplyDemoCleanup = null;
+function initSupply(alignOnInit = true) {
+  supplyCleanup?.();
+  supplyDemoCleanup?.();
+  const supplyEl = document.querySelector('#supply');
+  supplyCleanup = initSupplyBento(supplyEl, {
+    alignOnInit,
+  });
+  supplyDemoCleanup = initSupplyDemo(supplyEl);
+}
+
+window.addEventListener('pageshow', (event) => {
   initHero();
-  updateSupplyMotion();
+  initSupply(!event.persisted);
   updateReorderMotion();
   initCarousel();
   initOperations();
@@ -190,9 +175,9 @@ window.addEventListener('pageshow', () => {
 
 window.addEventListener('pagehide', () => {
   heroCleanup?.();
-  supplyObserver?.disconnect();
+  supplyCleanup?.();
+  supplyDemoCleanup?.();
   reorderObserver?.disconnect();
-  cancelAnimationFrame(resizeFrame);
   inventoryCleanup?.();
   operationsCleanup?.();
   whyCleanup?.();
@@ -200,7 +185,7 @@ window.addEventListener('pagehide', () => {
   comparisonCleanup?.();
 });
 
-updateSupplyMotion();
+initSupply();
 updateReorderMotion();
 initCarousel();
 initOperations();

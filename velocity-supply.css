@@ -1,0 +1,759 @@
+/* Hospital supply section. Scoped entirely to .velocity-page #supply */
+.velocity-page #supply {
+  scroll-margin-top: var(--v-header-offset, 88px);
+  position: relative;
+}
+
+.velocity-page #supply .v-hospital-intro {
+  margin-bottom: 44px;
+}
+
+@media (max-width: 767px) {
+  .velocity-page #supply .v-hospital-intro {
+    margin-bottom: 32px;
+  }
+}
+
+/* 2-column panel layout matching .v-operations-panel */
+.velocity-page #supply .v-supply-panel {
+  margin-top: 0;
+  min-height: auto;
+}
+
+/* Two-Team Department Handoff Container */
+.velocity-page #supply .v-supply-departments {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+/* Department Card */
+.velocity-page #supply .v-supply-dept-card {
+  padding: 18px 20px;
+  border: 1px solid #ffffff14;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.velocity-page #supply .v-supply-dept-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: #ffffff22;
+}
+
+.velocity-page #supply .v-supply-dept-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ffffff10;
+}
+
+.velocity-page #supply .v-supply-dept-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #f5f3ee;
+}
+
+.velocity-page #supply .v-supply-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.velocity-page #supply .v-supply-dot.is-amber {
+  background: var(--v-gold, #e6cd99);
+  box-shadow: 0 0 8px rgba(230, 205, 153, 0.5);
+}
+
+.velocity-page #supply .v-supply-dot.is-blue {
+  background: #60a5fa;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+.velocity-page #supply .v-supply-dept-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #8e8b82;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Steps inside Department Cards */
+.velocity-page #supply .v-supply-dept-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.velocity-page #supply .v-supply-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.velocity-page #supply .v-supply-step:focus-visible {
+  outline: 2px solid var(--v-gold, #e6cd99);
+  outline-offset: 2px;
+}
+
+.velocity-page #supply .v-supply-step.is-active,
+.velocity-page #supply .v-supply-step[aria-current='step'] {
+  background: rgba(230, 205, 153, 0.08);
+  border-color: rgba(230, 205, 153, 0.35);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.velocity-page #supply .v-supply-step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #7a7872;
+  line-height: 1.45;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.velocity-page #supply .v-supply-step.is-active .v-supply-step-num {
+  color: var(--v-gold, #e6cd99);
+}
+
+.velocity-page #supply .v-supply-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.velocity-page #supply .v-supply-step-content strong {
+  font-family: 'Geist Variable', 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #d8d5ce;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.velocity-page #supply .v-supply-step.is-active .v-supply-step-content strong {
+  color: #ffffff;
+}
+
+.velocity-page #supply .v-supply-step-content span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  color: #8c8981;
+  line-height: 1.45;
+  transition: color 0.2s ease;
+}
+
+.velocity-page #supply .v-supply-step.is-active .v-supply-step-content span {
+  color: #c4c1b9;
+}
+
+/* Real-Time 2-Way Sync Bridge */
+.velocity-page #supply .v-supply-sync-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--v-gold, #e6cd99);
+  padding-block: 2px;
+  user-select: none;
+}
+
+.velocity-page #supply .v-supply-bridge-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(230, 205, 153, 0.25),
+    transparent
+  );
+}
+
+.velocity-page #supply .v-supply-bridge-text {
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+
+/* Playback & interactive controls */
+.velocity-page #supply .v-supply-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.velocity-page #supply .v-supply-controls[hidden] {
+  display: none;
+}
+
+.velocity-page #supply .v-supply-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.velocity-page #supply .v-supply-nav-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff18;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d8d5ce;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.velocity-page #supply .v-supply-nav-btn:hover {
+  background: rgba(230, 205, 153, 0.12);
+  border-color: rgba(230, 205, 153, 0.4);
+  color: var(--v-gold, #e6cd99);
+}
+
+.velocity-page #supply .v-supply-nav-btn:focus-visible {
+  outline: 2px solid var(--v-gold, #e6cd99);
+  outline-offset: 2px;
+}
+
+.velocity-page #supply .v-supply-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #8c8981;
+  letter-spacing: 0.04em;
+}
+
+.velocity-page #supply .v-supply-ctrl-btn {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid #ffffff18;
+  border-radius: 8px;
+  background: transparent;
+  color: #aaa9a5;
+  font:
+    500 0.74rem/1 'JetBrains Mono',
+    monospace;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.velocity-page #supply .v-supply-ctrl-btn:hover {
+  background: rgba(230, 205, 153, 0.08);
+  border-color: rgba(230, 205, 153, 0.3);
+  color: var(--v-gold, #e6cd99);
+}
+
+.velocity-page #supply .v-supply-ctrl-btn:focus-visible {
+  outline: 2px solid var(--v-gold, #e6cd99);
+  outline-offset: 2px;
+}
+
+/* Natural card heights keep every document footer inside the stage. */
+.velocity-page #supply .v-supply-shuffle-stage {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 0;
+  isolation: isolate;
+}
+
+.velocity-page #supply .v-supply-shuffle-card {
+  position: relative;
+  inset: auto;
+  min-width: 0;
+  width: 100%;
+  min-height: 0;
+  background: #f5f2eb;
+  color: #2c3028;
+  border: 1px solid #e5e2d9;
+  border-radius: 18px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  opacity: 1;
+  transform: none;
+}
+
+.velocity-page #supply [data-supply-enhanced] .v-supply-shuffle-stage {
+  gap: 0;
+  padding: 12px 12px 36px;
+}
+
+.velocity-page #supply [data-supply-enhanced] .v-supply-shuffle-card {
+  grid-area: 1 / 1;
+  transform-origin: 50% 55%;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 14px 32px -16px #0009;
+}
+
+.velocity-page #supply [data-supply-enhanced] .tier-0 {
+  z-index: 4;
+  transform: translateY(0) rotate(0deg) scale(1);
+}
+.velocity-page #supply [data-supply-enhanced] .tier-1 {
+  z-index: 3;
+  transform: translateY(8px) rotate(-2deg) scale(0.98);
+}
+.velocity-page #supply [data-supply-enhanced] .tier-2 {
+  z-index: 2;
+  transform: translateY(16px) rotate(2deg) scale(0.96);
+}
+.velocity-page #supply [data-supply-enhanced] .tier-3 {
+  z-index: 1;
+  transform: translateY(24px) rotate(-1deg) scale(0.94);
+}
+/* Only the opaque paper edges show behind the current document. */
+.velocity-page #supply [data-supply-enhanced] [aria-hidden='true'] > * {
+  visibility: hidden;
+}
+.velocity-page #supply [data-supply-enhanced] [data-shuffling] {
+  animation: supply-shuffle-return 1000ms cubic-bezier(0.45, 0, 0.2, 1) both;
+}
+.velocity-page #supply [data-supply-enhanced] [data-shuffling] > * {
+  visibility: visible;
+  animation: supply-shuffle-content 1000ms both;
+}
+@keyframes supply-shuffle-return {
+  0% {
+    transform: translate(0, 0) rotate(0) scale(1);
+    z-index: 5;
+  }
+  45% {
+    transform: translate(var(--supply-shuffle-x, 22%), -16%)
+      rotate(var(--supply-shuffle-rotation, 9deg)) scale(0.96);
+    z-index: 5;
+  }
+  50% {
+    transform: translate(var(--supply-shuffle-x, 22%), -16%)
+      rotate(var(--supply-shuffle-rotation, 9deg)) scale(0.96);
+    z-index: 0;
+  }
+  100% {
+    transform: translateY(24px) rotate(-1deg) scale(0.94);
+    z-index: 0;
+  }
+}
+@keyframes supply-shuffle-content {
+  0%,
+  49% {
+    visibility: visible;
+  }
+  50%,
+  100% {
+    visibility: hidden;
+  }
+}
+
+/* Right-side Document Styling (Inherits .v-operations-document baseline) */
+.velocity-page #supply .v-supply-document {
+  background: #f5f2eb;
+}
+
+/* Route bar linking Requesting and Fulfilling locations */
+.velocity-page #supply .v-supply-route-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(44, 48, 40, 0.04);
+  border: 1px solid rgba(44, 48, 40, 0.08);
+}
+
+.velocity-page #supply .v-supply-route-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.velocity-page #supply .v-supply-route-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7a7e74;
+}
+
+.velocity-page #supply .v-supply-route-cell strong {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2c3028;
+}
+
+.velocity-page #supply .v-supply-route-arrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555b4e;
+}
+
+.velocity-page #supply .v-supply-route-arrow span {
+  width: 24px;
+  height: 1px;
+  background: rgba(44, 48, 40, 0.2);
+}
+
+/* Status strip */
+.velocity-page #supply .v-supply-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: rgba(44, 48, 40, 0.04);
+  border: 1px solid rgba(44, 48, 40, 0.08);
+}
+
+.velocity-page #supply .v-supply-status-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #63685c;
+}
+
+.velocity-page #supply .v-supply-status-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.velocity-page #supply .v-supply-status-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #2c3028;
+}
+
+.velocity-page #supply .v-document-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid #c7c9c0;
+  border-radius: 5px;
+  background: #e4e5df;
+  color: #454740;
+  font:
+    600 0.65rem/1.3 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.velocity-page #supply .v-badge-amber {
+  background: #fef3c7;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+.velocity-page #supply .v-badge-blue {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+.velocity-page #supply .v-badge-purple {
+  background: #f3e8ff;
+  border-color: #d8b4fe;
+  color: #6b21a8;
+}
+
+.velocity-page #supply .v-badge-received {
+  background: #d6e2cf;
+  border-color: #b5c7ad;
+  color: #314429;
+}
+
+.velocity-page #supply .v-pill-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+.velocity-page #supply .v-pill-tag.is-blue {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+}
+
+.velocity-page #supply .v-inward-match {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: #166534;
+  background: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.velocity-page #supply .v-supply-runner-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(44, 48, 40, 0.04);
+  border: 1px solid rgba(44, 48, 40, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.velocity-page #supply .v-supply-runner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.velocity-page #supply .v-supply-runner-info strong {
+  font-size: 0.8rem;
+  color: #2c3028;
+}
+
+.velocity-page #supply .v-supply-runner-token {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.velocity-page #supply .v-supply-runner-token strong {
+  font-size: 0.88rem;
+  color: #6b21a8;
+}
+
+.velocity-page #supply .v-supply-seal-note {
+  font-size: 0.72rem;
+  color: #63685c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(44, 48, 40, 0.03);
+  margin-bottom: 12px;
+}
+
+.velocity-page #supply .v-supply-reconciliation-callout {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Table item details */
+.velocity-page #supply .v-supply-table td .v-mono-batch {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #2c3028;
+}
+
+.velocity-page #supply .v-supply-table td .v-mono-expiry {
+  display: block;
+  font-size: 0.62rem;
+  color: #63685c;
+  margin-top: 2px;
+}
+
+/* Footer note text inside document */
+.velocity-page #supply .v-supply-doc-footer p span:first-child {
+  display: block;
+  font-weight: 500;
+  color: #2c3028;
+}
+
+.velocity-page #supply .v-supply-doc-footer p span:last-child {
+  display: block;
+  color: #63685c;
+  font-size: 0.62rem;
+  margin-top: 2px;
+}
+
+/* State-based transitions */
+.velocity-page #supply [data-supply-state='request'] .v-badge-received {
+  background: #ece8dd;
+  border-color: #d6cfbe;
+  color: #5c533e;
+}
+
+.velocity-page #supply [data-supply-state='pick'] .v-badge-received {
+  background: #e1ebef;
+  border-color: #c4d7de;
+  color: #2a4c58;
+}
+
+.velocity-page #supply [data-supply-state='dispatch'] .v-badge-received {
+  background: #ebe4f2;
+  border-color: #d8cde3;
+  color: #4b3662;
+}
+
+.velocity-page #supply [data-supply-state='receive'] .v-badge-received {
+  background: #d6e2cf;
+  border-color: #b5c7ad;
+  color: #314429;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1023px) {
+  .velocity-page #supply .v-supply-panel {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .velocity-page #supply .v-supply-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .velocity-page #supply .v-supply-copy {
+    max-width: 600px;
+  }
+
+  .velocity-page #supply .v-supply-visual {
+    max-width: 510px;
+    width: 100%;
+  }
+
+  .velocity-page #supply .v-supply-shuffle-stage {
+    max-width: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .velocity-page #supply .v-supply-shuffle-stage {
+    min-height: 0;
+    --supply-shuffle-x: 8%;
+    --supply-shuffle-rotation: 4deg;
+  }
+
+  .velocity-page #supply .v-supply-shuffle-card {
+    padding: 18px 20px;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .velocity-page #supply .v-supply-dept-card {
+    padding: 14px 16px;
+  }
+
+  .velocity-page #supply .v-supply-step {
+    padding: 8px 10px;
+    gap: 10px;
+  }
+
+  .velocity-page #supply .v-supply-route-nodes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .velocity-page #supply .v-supply-route-arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .velocity-page #supply .v-supply-step,
+  .velocity-page #supply .v-supply-shuffle-card {
+    transition: none !important;
+    animation: none !important;
+  }
+  .velocity-page #supply .v-supply-shuffle-stage {
+    display: flex !important;
+    flex-direction: column;
+    gap: 20px !important;
+    padding: 0 !important;
+  }
+  .velocity-page #supply .v-supply-shuffle-card {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .velocity-page #supply .v-supply-shuffle-card > * {
+    visibility: visible !important;
+    animation: none !important;
+  }
+}
+
+/* Keep reading controls beside the document on narrow screens. */
+.velocity-page #supply .v-supply-visual .v-supply-controls {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 10px;
+}
+@media (max-width: 800px) {
+  .velocity-page #supply .v-supply-visual .v-supply-controls {
+    position: sticky;
+    top: calc(var(--v-header-offset, 64px) + 8px);
+    z-index: 6;
+    padding: 8px;
+    border: 1px solid #ffffff14;
+    border-radius: 10px;
+    background: #10110f;
+  }
+}
+@media (max-width: 480px) {
+  .velocity-page #supply .v-supply-status-bar,
+  .velocity-page #supply .v-supply-status-right {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
