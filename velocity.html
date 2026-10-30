@@ -82,11 +82,11 @@
         </details>
         <a
           class="v-nav-demo"
-          href="/connect?product=velocity"
+          href="#demo"
           data-velocity-cta
           data-placement="nav"
           data-action="demo"
-          >Book a demo <span aria-hidden="true">↗</span></a
+          >Request a demo <span aria-hidden="true">→</span></a
         >
       </nav>
     </header>
@@ -103,11 +103,11 @@
           <div class="v-actions">
             <a
               class="v-button"
-              href="/connect?product=velocity"
+              href="#demo"
               data-velocity-cta
               data-placement="hero"
               data-action="demo"
-              >Book a demo <span aria-hidden="true">↗</span></a
+              >Request a demo <span aria-hidden="true">→</span></a
             ><a class="v-text-link" href="#inventory"
               >Explore the system <span aria-hidden="true">↓</span></a
             >
@@ -2970,12 +2970,12 @@
             <div class="v-why-bottom-cta">
               <a
                 class="v-text-link"
-                href="/connect?product=velocity"
+                href="#demo"
                 data-velocity-cta
                 data-placement="final"
                 data-action="demo"
               >
-                Book a demo <span aria-hidden="true">→</span>
+                Request a demo <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
@@ -3261,40 +3261,200 @@
         </div>
       </section>
       <section id="demo" class="v-section v-demo">
-        <div class="v-container">
-          <h2>
-            See how your pharmacy could<br />work with <em>a clearer view.</em>
-          </h2>
-          <p class="v-lead">
-            Explore stock, purchasing, billing, and hospital supply in a demo
-            built around your team’s needs.
-          </p>
-          <a
-            class="v-button"
-            href="/connect?product=velocity"
-            data-velocity-cta
-            data-placement="final"
-            data-action="demo"
-            >Book a demo <span aria-hidden="true">↗</span></a
-          >
-          <p class="v-small">
-            Continue to our enquiry form to share your name, organisation, and
-            contact details.
-          </p>
-          <p class="v-email">
-            Or email
-            <a
-              href="mailto:hello@astrai.in?subject=Velocity%20demo%20request"
-              data-velocity-cta
-              data-placement="final"
-              data-action="email"
-              >hello@astrai.in</a
-            >
-          </p>
-          <p class="v-small">
-            Please do not send patient or prescription information.
-            <a href="/mission-docs.html#privacy">Privacy policy</a>
-          </p>
+        <div class="v-container v-demo-grid">
+          <div class="v-demo-intro">
+            <span class="v-eyebrow">VELOCITY DEMO</span>
+            <h2>
+              See how your pharmacy could work with <em>a clearer view.</em>
+            </h2>
+            <p class="v-lead">
+              Explore stock, purchasing, billing, and hospital supply in a demo
+              built around your team’s needs.
+            </p>
+            <p class="v-demo-email-alt">
+              Prefer email?
+              <a
+                href="mailto:hello@astrai.in?subject=Velocity%20demo%20request"
+                data-velocity-cta
+                data-placement="final"
+                data-action="email"
+                >hello@astrai.in</a
+              >
+            </p>
+          </div>
+
+          <div class="v-demo-card" data-demo-card>
+            <h3 class="v-demo-card-title">Request your demo</h3>
+            <p class="v-demo-card-intro">
+              Share your details and our team will contact you to arrange a time.
+            </p>
+            <p class="v-demo-card-note">All fields are required.</p>
+
+            <form id="velocityDemoForm" class="v-demo-form" novalidate>
+              <input type="hidden" name="product" value="Velocity" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="Velocity demo request — ASTR AI"
+              />
+
+              <div class="v-demo-field v-demo-field-full">
+                <label for="vDemoName" class="v-demo-label">Your name</label>
+                <input
+                  type="text"
+                  id="vDemoName"
+                  name="name"
+                  class="v-demo-input"
+                  placeholder="Full name"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                />
+                <span
+                  class="v-demo-error"
+                  id="name-error"
+                  data-error-for="name"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="v-demo-row">
+                <div class="v-demo-field">
+                  <label for="vDemoEmail" class="v-demo-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    id="vDemoEmail"
+                    name="email"
+                    class="v-demo-input"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                  />
+                  <span
+                    class="v-demo-error"
+                    id="email-error"
+                    data-error-for="email"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <div class="v-demo-field">
+                  <label for="vDemoPhone" class="v-demo-label"
+                    >Phone number</label
+                  >
+                  <div class="v-demo-phone-group">
+                    <select
+                      id="vDemoCountryCode"
+                      name="countryCode"
+                      class="v-demo-select v-demo-country-select"
+                      aria-label="Country calling code"
+                    >
+                      <option value="+91" selected>India (+91)</option>
+                      <option value="+1">United States / Canada (+1)</option>
+                      <option value="+44">United Kingdom (+44)</option>
+                      <option value="+971">
+                        United Arab Emirates (+971)
+                      </option>
+                      <option value="+65">Singapore (+65)</option>
+                      <option value="+61">Australia (+61)</option>
+                      <option value="+966">Saudi Arabia (+966)</option>
+                      <option value="+49">Germany (+49)</option>
+                    </select>
+                    <input
+                      type="tel"
+                      id="vDemoPhone"
+                      name="phone"
+                      class="v-demo-input"
+                      placeholder="98765 43210"
+                      autocomplete="tel-national"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <span
+                    class="v-demo-error"
+                    id="phone-error"
+                    data-error-for="phone"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="v-demo-field v-demo-field-full">
+                <label for="vDemoOrgType" class="v-demo-label"
+                  >Organisation type</label
+                >
+                <select
+                  id="vDemoOrgType"
+                  name="orgType"
+                  class="v-demo-select"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>
+                    Select organisation type
+                  </option>
+                  <option value="Hospital">Hospital</option>
+                  <option value="Retail pharmacy">Retail pharmacy</option>
+                  <option value="Clinic">Clinic</option>
+                  <option value="Nursing home">Nursing home</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span
+                  class="v-demo-error"
+                  id="orgType-error"
+                  data-error-for="orgType"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="v-demo-field v-demo-field-full">
+                <label for="vDemoOrgName" class="v-demo-label"
+                  >Organisation name</label
+                >
+                <input
+                  type="text"
+                  id="vDemoOrgName"
+                  name="orgName"
+                  class="v-demo-input"
+                  placeholder="Your organisation's name"
+                  autocomplete="organization"
+                  required
+                  aria-required="true"
+                />
+                <span
+                  class="v-demo-error"
+                  id="orgName-error"
+                  data-error-for="orgName"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div
+                class="v-demo-status"
+                data-demo-status
+                role="status"
+                aria-live="polite"
+              ></div>
+
+              <button type="submit" class="v-button v-demo-submit-btn">
+                <span>Request a demo</span>
+              </button>
+
+              <p class="v-demo-card-footer">
+                We'll use these details to respond to your demo request.
+                <a href="/mission-docs.html#privacy">Privacy policy</a>
+              </p>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -3308,12 +3468,12 @@
         <div class="v-conversion-bar-inner">
           <a
             class="v-conversion-btn v-conversion-demo"
-            href="/connect?product=velocity"
+            href="#demo"
             data-velocity-cta
             data-placement="mobile"
             data-action="demo"
           >
-            Book a demo <span aria-hidden="true">↗</span>
+            Request a demo <span aria-hidden="true">→</span>
           </a>
           <a
             class="v-conversion-btn v-conversion-email"
