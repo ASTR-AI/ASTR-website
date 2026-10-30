@@ -20,8 +20,14 @@ test('validateDemoFields: validates all 5 required fields and trims whitespace',
   assert.equal(emptyResult.errors.name, 'Please enter your name.');
   assert.equal(emptyResult.errors.email, 'Please enter your email address.');
   assert.equal(emptyResult.errors.phone, 'Please enter your phone number.');
-  assert.equal(emptyResult.errors.orgType, 'Please select an organisation type.');
-  assert.equal(emptyResult.errors.orgName, "Please enter your organisation's name.");
+  assert.equal(
+    emptyResult.errors.orgType,
+    'Please select an organisation type.'
+  );
+  assert.equal(
+    emptyResult.errors.orgName,
+    "Please enter your organisation's name."
+  );
 
   // Invalid email formats
   const invalidEmail = validateDemoFields({
@@ -33,10 +39,17 @@ test('validateDemoFields: validates all 5 required fields and trims whitespace',
     orgName: 'City Hospital',
   });
   assert.equal(invalidEmail.isValid, false);
-  assert.equal(invalidEmail.errors.email, 'Please enter a valid email address.');
+  assert.equal(
+    invalidEmail.errors.email,
+    'Please enter a valid email address.'
+  );
 
   // Valid personal and work emails
-  for (const email of ['user@gmail.com', 'doctor@hospital.org.in', 'test.name+tag@sub.domain.co']) {
+  for (const email of [
+    'user@gmail.com',
+    'doctor@hospital.org.in',
+    'test.name+tag@sub.domain.co',
+  ]) {
     const res = validateDemoFields({
       name: 'Dr. Rao',
       email,
@@ -58,7 +71,10 @@ test('validateDemoFields: validates all 5 required fields and trims whitespace',
     orgName: 'Apollo Meds',
   });
   assert.equal(shortIndiaPhone.isValid, false);
-  assert.equal(shortIndiaPhone.errors.phone, 'Please enter a valid 10-digit phone number.');
+  assert.equal(
+    shortIndiaPhone.errors.phone,
+    'Please enter a valid 10-digit phone number.'
+  );
 
   const validIndiaPhone = validateDemoFields({
     name: 'Asha Rao',
@@ -92,7 +108,10 @@ test('validateDemoFields: validates all 5 required fields and trims whitespace',
     orgName: 'UK Health Ltd',
   });
   assert.equal(invalidIntlPhone.isValid, false);
-  assert.equal(invalidIntlPhone.errors.phone, 'Please enter a valid phone number.');
+  assert.equal(
+    invalidIntlPhone.errors.phone,
+    'Please enter a valid phone number.'
+  );
 
   // Organisation type validation against ALLOWED_ORG_TYPES
   for (const type of ALLOWED_ORG_TYPES) {
@@ -116,7 +135,10 @@ test('validateDemoFields: validates all 5 required fields and trims whitespace',
     orgName: 'Pharma Dist',
   });
   assert.equal(invalidOrgType.isValid, false);
-  assert.equal(invalidOrgType.errors.orgType, 'Please select an organisation type.');
+  assert.equal(
+    invalidOrgType.errors.orgType,
+    'Please select an organisation type.'
+  );
 });
 
 test('initVelocityDemoForm: handles null or missing root safely', () => {
@@ -297,12 +319,37 @@ test('initVelocityDemoForm: handles sending, success, and error retry lifecycle 
   };
 
   const elements = {
-    name: { name: 'name', value: 'Ananya Roy', setAttribute() {}, removeAttribute() {} },
-    email: { name: 'email', value: 'ananya@hospital.org', setAttribute() {}, removeAttribute() {} },
+    name: {
+      name: 'name',
+      value: 'Ananya Roy',
+      setAttribute() {},
+      removeAttribute() {},
+    },
+    email: {
+      name: 'email',
+      value: 'ananya@hospital.org',
+      setAttribute() {},
+      removeAttribute() {},
+    },
     countryCode: { name: 'countryCode', value: '+91' },
-    phone: { name: 'phone', value: '9876543210', setAttribute() {}, removeAttribute() {} },
-    orgType: { name: 'orgType', value: 'Hospital', setAttribute() {}, removeAttribute() {} },
-    orgName: { name: 'orgName', value: 'City Care Hospital', setAttribute() {}, removeAttribute() {} },
+    phone: {
+      name: 'phone',
+      value: '9876543210',
+      setAttribute() {},
+      removeAttribute() {},
+    },
+    orgType: {
+      name: 'orgType',
+      value: 'Hospital',
+      setAttribute() {},
+      removeAttribute() {},
+    },
+    orgName: {
+      name: 'orgName',
+      value: 'City Care Hospital',
+      setAttribute() {},
+      removeAttribute() {},
+    },
   };
 
   const btnLabel = { textContent: 'Request a demo' };
@@ -393,5 +440,8 @@ test('initVelocityDemoForm: handles sending, success, and error retry lifecycle 
   });
   // Check success message content
   assert.match(cardContent, /Thanks, Ananya Roy\./);
-  assert.match(cardContent, /We've received your request\. Our team will contact you to arrange your Velocity demo\./);
+  assert.match(
+    cardContent,
+    /We've received your request\. Our team will contact you to arrange your Velocity demo\./
+  );
 });

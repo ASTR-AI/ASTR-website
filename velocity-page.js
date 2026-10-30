@@ -11,6 +11,8 @@ import { initVelocityConversion } from './velocity-conversion.mjs';
 import { initComparisonDisclosure } from './velocity-comparison.mjs';
 import { initSupplyBento } from './velocity-supply-bento.mjs';
 import { initSupplyDemo } from './velocity-supply.mjs';
+import { initVelocityDemoForm } from './velocity-demo-form.mjs';
+import { createVelocityFormObserver } from './velocity-analytics.mjs';
 
 inject();
 const velocityTracker = createVelocityTracker(track);
@@ -151,6 +153,16 @@ function initHero() {
   );
 }
 
+let demoFormCleanup = null;
+function initDemoForm() {
+  demoFormCleanup?.();
+  const demoSection = document.querySelector('#demo');
+  if (demoSection) {
+    const observer = createVelocityFormObserver(velocityTracker);
+    demoFormCleanup = initVelocityDemoForm(demoSection, { observer });
+  }
+}
+
 let supplyCleanup = null;
 let supplyDemoCleanup = null;
 function initSupply(alignOnInit = true) {
@@ -172,6 +184,7 @@ window.addEventListener('pageshow', (event) => {
   initWhy();
   initConversion();
   initComparison();
+  initDemoForm();
 });
 
 window.addEventListener('pagehide', () => {
@@ -184,6 +197,7 @@ window.addEventListener('pagehide', () => {
   whyCleanup?.();
   conversionCleanup?.();
   comparisonCleanup?.();
+  demoFormCleanup?.();
 });
 
 initSupply();
@@ -193,5 +207,6 @@ initOperations();
 initWhy();
 initConversion();
 initComparison();
+initDemoForm();
 
 initHero();
