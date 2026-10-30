@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   getOperationsIndexForHash,
   getOperationsIndexForKey,
+  initOperationsTabs,
 } from '../velocity-operations.mjs';
 
 const ids = ['daily-work', 'ward-operations', 'accounts', 'visibility'];
@@ -33,4 +34,111 @@ test('unhandled keys and an empty tab list do not consume native keyboard behavi
   assert.equal(getOperationsIndexForKey('Tab', 0, 4), -1);
   assert.equal(getOperationsIndexForKey('ArrowDown', 0, 4), -1);
   assert.equal(getOperationsIndexForKey('ArrowRight', 0, 0), -1);
+});
+
+test('initOperationsTabs activates initial tab and updates slider indicator on selection', () => {
+  const listeners = new Map();
+  const makeElement = (tag, dataset = {}, id = '') => {
+    const elListeners = new Map();
+    const classList = new Set();
+    const attrs = new Map();
+    return {
+      id,
+      dataset,
+      style: {},
+      offsetLeft: 10,
+      offsetWidth: 120,
+      classList: {
+        add: (c) => classList.add(c),
+        remove: (c) => classList.delete(c),
+        toggle: (c, val) => (val ? classList.add(c) : classList.delete(c)),
+        contains: (c) => classList.has(c),
+      },
+      setAttribute: (k, v) => attrs.set(k, v),
+      getAttribute: (k) => attrs.get(k),
+      removeAttribute: (k) => attrs.delete(k),
+      addEventListener: (evt, fn) => {
+        if (!elListeners.has(evt)) elListeners.set(evt, []);
+        elListeners.get(evt).push(fn);
+      },
+      removeEventListener: (evt, fn) => {
+        const arr = elListeners.get(evt) || [];
+        const idx = arr.indexOf(fn);
+        if (idx >= 0) arr.splice(idx, 1);
+      },
+      dispatchEvent: (evt) => {
+        (elListeners.get(evt.type) || []).forEach((fn) => fn(evt));
+      },
+      focus: () => {},
+    };
+  };
+
+  const slider = makeElement('span');
+  const tabs = ids.map((id, index) => {
+    const tab = makeElement('button', { operationsTab: id }, `tab-${id}`);
+    tab.offsetLeft = index * 130;
+    tab.offsetWidth = 120;
+    return tab;
+  });
+  const panels = ids.map((id) => makeElement('article', {}, id));
+
+  const controls = makeElement('nav');
+  controls.querySelector = (sel) => (sel === '.nav-highlight' ? slider : null);
+
+  const rootClassList = new Set();
+  const root = {
+    id: 'operations',
+    classList: {
+      add: (c) => rootClassList.add(c),
+      remove: (c) => rootClassList.delete(c),
+    },
+    ownerDocument: {
+      defaultView: {
+        location: { hash: '' },
+        history: { replaceState: () => {} },
+        addEventListener: (evt, fn) => {
+          if (!listeners.has(evt)) listeners.set(evt, []);
+          listeners.get(evt).push(fn);
+        },
+        removeEventListener: (evt, fn) => {
+          const arr = listeners.get(evt) || [];
+          const idx = arr.indexOf(fn);
+          if (idx >= 0) arr.splice(idx, 1);
+        },
+      },
+    },
+    querySelector: (sel) =>
+      sel === '[data-operations-controls]' ? controls : null,
+    querySelectorAll: (sel) => {
+      if (sel === '[data-operations-tab]') return tabs;
+      if (sel === '[data-operations-panel]') return panels;
+      return [];
+    },
+  };
+
+  const cleanup = initOperationsTabs(root);
+
+  assert.equal(controls.hidden, false);
+  assert.equal(rootClassList.has('v-operations-enhanced'), true);
+  assert.equal(tabs[0].getAttribute('aria-selected'), 'true');
+  assert.equal(tabs[0].classList.contains('active'), true);
+  assert.equal(panels[0].hidden, false);
+  assert.equal(panels[1].hidden, true);
+  assert.equal(slider.style.width, '120px');
+  assert.equal(slider.style.left, '0px');
+
+  // Click on the 3rd tab (accounts)
+  tabs[2].dispatchEvent({ type: 'click' });
+  assert.equal(tabs[2].getAttribute('aria-selected'), 'true');
+  assert.equal(tabs[2].classList.contains('active'), true);
+  assert.equal(tabs[0].getAttribute('aria-selected'), 'false');
+  assert.equal(tabs[0].classList.contains('active'), false);
+  assert.equal(panels[2].hidden, false);
+  assert.equal(panels[0].hidden, true);
+  assert.equal(slider.style.width, '120px');
+  assert.equal(slider.style.left, '260px');
+
+  cleanup();
+  assert.equal(controls.hidden, true);
+  assert.equal(rootClassList.has('v-operations-enhanced'), false);
 });

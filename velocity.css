@@ -353,7 +353,6 @@
   text-align: center;
 }
 
-
 .velocity-page .v-hero-header h1 {
   font-family: 'Lora', serif;
   font-size: clamp(2.3rem, 4.6vw, 3.8rem);
@@ -2012,45 +2011,9 @@
     sans-serif;
   color: #b5b5b5;
 }
-.velocity-page .v-operations-controls {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  padding: 7px;
-  border: 1px solid #ffffff18;
-  border-radius: 16px;
-  background: #ffffff03;
-}
 .velocity-page .v-operations-controls[hidden],
 .velocity-page .v-operations-panel[hidden] {
   display: none;
-}
-.velocity-page .v-operations-controls button {
-  min-width: 0;
-  min-height: 50px;
-  padding: 12px 14px;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  background: transparent;
-  color: #aaa9a5;
-  font:
-    500 0.9rem/1.4 'Space Grotesk',
-    sans-serif;
-  text-align: center;
-  cursor: pointer;
-}
-.velocity-page .v-operations-controls button:hover {
-  background: #ffffff07;
-  color: #f5f3ee;
-}
-.velocity-page .v-operations-controls button[aria-selected='true'] {
-  background: #e6cd9910;
-  border-color: #e6cd9933;
-  color: #e6cd99;
-  box-shadow: 0 3px 12px #0002;
-}
-.velocity-page .v-operations-controls button:focus-visible {
-  outline-offset: 2px;
 }
 .velocity-page .v-operations-panel {
   display: grid;
@@ -2411,10 +2374,6 @@
   .velocity-page .v-operations-panel {
     gap: 40px;
   }
-  .velocity-page .v-operations-controls button {
-    padding-inline: 8px;
-    font-size: 0.8rem;
-  }
   .velocity-page .v-operations-document {
     padding: 24px;
   }
@@ -2441,17 +2400,6 @@
   }
   .velocity-page .v-operations-intro {
     margin-bottom: 28px;
-  }
-  .velocity-page .v-operations-controls {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px;
-    padding: 6px;
-    border-radius: 14px;
-  }
-  .velocity-page .v-operations-controls button {
-    font-size: 0.78rem;
-    min-height: 48px;
-    padding: 12px 6px;
   }
   .velocity-page .v-operations-enhanced .v-operations-panel {
     margin-top: 32px;
@@ -4177,7 +4125,7 @@
   .velocity-page .v-hero-feature-item {
     padding: 4px 12px;
   }
-  .velocity-page .v-hero-feature-item:nth-child(2n+1) {
+  .velocity-page .v-hero-feature-item:nth-child(2n + 1) {
     padding-left: 0;
     border-left: none;
   }
@@ -4303,7 +4251,9 @@
 }
 .velocity-page .v-comparison-eyebrow {
   color: #d4d4d4;
-  font: 500 0.7rem/1.5 'JetBrains Mono', monospace;
+  font:
+    500 0.7rem/1.5 'JetBrains Mono',
+    monospace;
   letter-spacing: 0.12em;
 }
 .velocity-page .v-comparison-header h2 {
@@ -4347,7 +4297,9 @@
   border-collapse: separate;
   border-spacing: 0;
   color: #c5c2ba;
-  font: 400 0.9rem/1.65 'Geist Variable', sans-serif;
+  font:
+    400 0.9rem/1.65 'Geist Variable',
+    sans-serif;
 }
 .velocity-page .v-comparison-table caption {
   text-align: left;
@@ -4356,9 +4308,15 @@
   color: #c5c2ba;
   font-size: 0.78rem;
 }
-.velocity-page .v-comparison-capability-col { width: 22%; }
-.velocity-page .v-comparison-question-col { width: 34%; }
-.velocity-page .v-comparison-velocity-col { width: 44%; }
+.velocity-page .v-comparison-capability-col {
+  width: 22%;
+}
+.velocity-page .v-comparison-question-col {
+  width: 34%;
+}
+.velocity-page .v-comparison-velocity-col {
+  width: 44%;
+}
 .velocity-page .v-comparison-table th,
 .velocity-page .v-comparison-table td {
   padding: 16px 24px;
@@ -4412,9 +4370,13 @@
   font-size: 0.82rem;
   line-height: 1.65;
 }
-.velocity-page .v-comparison-footer .v-button { flex-shrink: 0; }
+.velocity-page .v-comparison-footer .v-button {
+  flex-shrink: 0;
+}
 @media (max-width: 900px) {
-  .velocity-page .v-comparison-hint { display: block; }
+  .velocity-page .v-comparison-hint {
+    display: block;
+  }
   .velocity-page .v-comparison-table tr > :first-child {
     position: sticky;
     left: 0;
@@ -4433,11 +4395,17 @@
     min-width: 0;
     font-size: 0.82rem;
   }
-  .velocity-page .v-comparison-capability-col { width: 140px; }
+  .velocity-page .v-comparison-capability-col {
+    width: 140px;
+  }
   .velocity-page .v-comparison-question-col,
-  .velocity-page .v-comparison-velocity-col { width: calc(100vw - 182px); }
+  .velocity-page .v-comparison-velocity-col {
+    width: calc(100vw - 182px);
+  }
   .velocity-page .v-comparison-table th,
-  .velocity-page .v-comparison-table td { padding: 16px 12px; }
+  .velocity-page .v-comparison-table td {
+    padding: 16px 12px;
+  }
 }
 
 .velocity-page .v-comparison-table th + th,
@@ -4458,7 +4426,9 @@
   background: none;
   border: 0;
   color: #c5c2ba;
-  font: 400 0.8rem/1.5 'Geist Variable', sans-serif;
+  font:
+    400 0.8rem/1.5 'Geist Variable',
+    sans-serif;
   cursor: pointer;
 }
 .velocity-page .v-comparison-toggle-icon {
@@ -4469,13 +4439,15 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
 }
-.velocity-page .v-comparison-toggle:hover { color: #fff; }
+.velocity-page .v-comparison-toggle:hover {
+  color: #fff;
+}
 .velocity-page .v-comparison-toggle:focus-visible {
   outline: 2px solid #ddd;
   outline-offset: 5px;
   border-radius: 8px;
 }
-.velocity-page .v-comparison-toggle[aria-expanded="true"] svg {
+.velocity-page .v-comparison-toggle[aria-expanded='true'] svg {
   transform: rotate(180deg);
 }
 
@@ -4532,7 +4504,10 @@ aside.v-conversion-bar[hidden] {
     letter-spacing: 0.08em;
     border-radius: 8px;
     box-sizing: border-box;
-    transition: background 0.2s, color 0.2s, transform 0.15s;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      transform 0.15s;
     text-align: center;
     flex: 1;
   }

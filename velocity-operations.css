@@ -20,31 +20,8 @@
   max-width: 650px;
   margin: 22px auto 0;
 }
-.velocity-page #operations .v-operations-controls {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 5px;
-  gap: 4px;
-  border-radius: var(--operations-pill-radius);
-  background: #101110;
-}
-.velocity-page #operations .v-operations-controls button {
-  min-height: 44px;
-  padding: 12px 22px;
-  border-radius: var(--operations-pill-radius);
-  font-size: 0.84rem;
-  white-space: nowrap;
-}
-.velocity-page #operations .v-operations-controls button[aria-selected='true'] {
-  background: #e6cd99;
-  color: #19170f;
-  border-color: #e6cd99;
-  box-shadow: 0 2px 12px #e6cd9912;
-}
-.velocity-page #operations .v-operations-controls button:focus-visible {
-  outline: 2px solid #e6cd99;
-  outline-offset: 3px;
+.velocity-page #operations .v-operations-controls[hidden] {
+  display: none !important;
 }
 .velocity-page #operations .v-operations-panel {
   --showcase-glow: #e0c38f;
@@ -195,9 +172,6 @@
   .velocity-page #operations .v-operations-copy {
     padding: 30px;
   }
-  .velocity-page #operations .v-operations-controls button {
-    padding-inline: 14px;
-  }
   .velocity-page #operations .v-operations-document {
     padding: 24px;
   }
@@ -235,17 +209,6 @@
   .velocity-page #operations .v-operations-intro .v-lead {
     font-size: 0.94rem;
   }
-  .velocity-page #operations .v-operations-controls {
-    width: 100%;
-    border-radius: var(--operations-card-radius);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .velocity-page #operations .v-operations-controls button {
-    padding: 12px 8px;
-    border-radius: var(--operations-pill-radius);
-    font-size: 0.78rem;
-    white-space: normal;
-  }
   .velocity-page #operations .v-operations-copy {
     padding: 26px 22px;
   }
@@ -266,9 +229,6 @@
   }
   .velocity-page #operations .v-operations-copy {
     padding: 24px 18px;
-  }
-  .velocity-page #operations .v-operations-controls button {
-    font-size: 0.72rem;
   }
   .velocity-page #operations .v-operations-export-file {
     flex-wrap: wrap;

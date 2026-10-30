@@ -32,19 +32,60 @@ export function initOperationsTabs(root) {
     return () => {};
   }
 
+  const slider = controls.querySelector('.nav-highlight');
   const panelIds = panels.map((panel) => panel.id);
-  const pageWindow = root.ownerDocument.defaultView;
+  const pageWindow =
+    root.ownerDocument?.defaultView || globalThis.window || globalThis;
   const removeListeners = [];
+  let animationTimeout = null;
+
+  function moveSlider(tab) {
+    if (!slider || !tab) return;
+    const currentLeft = parseFloat(slider.style.left) || 0;
+    const targetLeft = tab.offsetLeft;
+    const targetWidth = tab.offsetWidth;
+
+    if (!targetWidth) return;
+
+    if (currentLeft !== 0 && Math.abs(currentLeft - targetLeft) > 5) {
+      const direction =
+        targetLeft > currentLeft ? 'moving-right' : 'moving-left';
+
+      if (animationTimeout) clearTimeout(animationTimeout);
+      slider.classList.remove('moving-left', 'moving-right', 'pulse');
+      if (typeof slider.offsetWidth === 'number') {
+        void slider.offsetWidth; // Trigger reflow
+      }
+      slider.classList.add(direction, 'pulse');
+
+      animationTimeout = setTimeout(() => {
+        slider.classList.remove('moving-left', 'moving-right', 'pulse');
+      }, 900);
+    }
+
+    slider.style.width = `${targetWidth}px`;
+    slider.style.left = `${targetLeft}px`;
+    slider.style.opacity = '1';
+  }
 
   function select(index, { focus = false, updateHash = false } = {}) {
     panels.forEach((panel, panelIndex) => {
       const selected = panelIndex === index;
       panel.hidden = !selected;
       tabs[panelIndex].setAttribute('aria-selected', String(selected));
+      tabs[panelIndex].classList.toggle('active', selected);
       tabs[panelIndex].tabIndex = selected ? 0 : -1;
     });
+    moveSlider(tabs[index]);
+    if (pageWindow.innerWidth <= 768 && tabs[index].scrollIntoView) {
+      tabs[index].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+    }
     if (focus) tabs[index].focus();
-    if (updateHash) {
+    if (updateHash && pageWindow.history?.replaceState) {
       // Updating the hash without native scrolling keeps the selectors in view.
       pageWindow.history.replaceState(null, '', `#${panelIds[index]}`);
     }
@@ -74,30 +115,77 @@ export function initOperationsTabs(root) {
     });
   });
 
-  const initial = getOperationsIndexForHash(pageWindow.location.hash, panelIds);
-  select(initial >= 0 ? initial : 0);
+  const initial = getOperationsIndexForHash(
+    pageWindow.location?.hash || '',
+    panelIds
+  );
+  const initialIndex = initial >= 0 ? initial : 0;
   controls.hidden = false;
   root.classList.add('v-operations-enhanced');
+  select(initialIndex);
+
+  // Position slider after styles are applied
+  if (pageWindow.requestAnimationFrame) {
+    pageWindow.requestAnimationFrame(() => moveSlider(tabs[initialIndex]));
+  } else {
+    setTimeout(() => moveSlider(tabs[initialIndex]), 50);
+  }
+
+  const onResize = () => {
+    const currentIndex = tabs.findIndex(
+      (t) => t.getAttribute('aria-selected') === 'true'
+    );
+    if (currentIndex >= 0 && slider) {
+      slider.style.transition = 'none';
+      moveSlider(tabs[currentIndex]);
+      if (pageWindow.requestAnimationFrame) {
+        pageWindow.requestAnimationFrame(() => {
+          slider.style.transition = '';
+        });
+      } else {
+        setTimeout(() => {
+          slider.style.transition = '';
+        }, 50);
+      }
+    }
+  };
+  if (pageWindow.addEventListener) {
+    pageWindow.addEventListener('resize', onResize);
+    removeListeners.push(() => {
+      pageWindow.removeEventListener('resize', onResize);
+    });
+  }
 
   function onHashChange() {
-    const index = getOperationsIndexForHash(pageWindow.location.hash, panelIds);
-    if (index < 0 && pageWindow.location.hash !== `#${root.id}`) return;
+    const index = getOperationsIndexForHash(
+      pageWindow.location?.hash || '',
+      panelIds
+    );
+    if (index < 0 && pageWindow.location?.hash !== `#${root.id}`) return;
     if (index >= 0) select(index);
-    root.scrollIntoView({ block: 'start', behavior: 'instant' });
+    root.scrollIntoView?.({ block: 'start', behavior: 'instant' });
   }
-  pageWindow.addEventListener('hashchange', onHashChange);
+  if (pageWindow.addEventListener) {
+    pageWindow.addEventListener('hashchange', onHashChange);
+  }
 
   // Font and image loading may continue; scroll after the enhanced layout exists.
   const anchorFrame =
-    initial >= 0 || pageWindow.location.hash === `#${root.id}`
+    (initial >= 0 || pageWindow.location?.hash === `#${root.id}`) &&
+    pageWindow.requestAnimationFrame
       ? pageWindow.requestAnimationFrame(() =>
-          root.scrollIntoView({ block: 'start', behavior: 'instant' })
+          root.scrollIntoView?.({ block: 'start', behavior: 'instant' })
         )
       : null;
 
   return () => {
-    if (anchorFrame !== null) pageWindow.cancelAnimationFrame(anchorFrame);
-    pageWindow.removeEventListener('hashchange', onHashChange);
+    if (animationTimeout) clearTimeout(animationTimeout);
+    if (anchorFrame !== null && pageWindow.cancelAnimationFrame) {
+      pageWindow.cancelAnimationFrame(anchorFrame);
+    }
+    if (pageWindow.removeEventListener) {
+      pageWindow.removeEventListener('hashchange', onHashChange);
+    }
     removeListeners.forEach((remove) => remove());
     controls.hidden = true;
     controls.removeAttribute('role');
@@ -107,6 +195,7 @@ export function initOperationsTabs(root) {
       ['role', 'aria-controls', 'aria-selected', 'tabindex'].forEach((name) =>
         tab.removeAttribute(name)
       );
+      tab.classList.remove('active');
     });
     panels.forEach((panel) => {
       panel.hidden = false;
