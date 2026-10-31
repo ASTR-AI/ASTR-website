@@ -331,33 +331,36 @@ export function initWhyVelocity(root) {
     });
   });
 
-  // Responsive DOM placement: Desktop (right host) vs Mobile (accordion item)
-  const pageWindow = root.ownerDocument.defaultView || window;
-  let mql = null;
-
-  if (pageWindow.matchMedia) {
-    mql = pageWindow.matchMedia('(max-width: 860px)');
-
-    const syncLayout = (e) => {
-      const isMobile = e.matches;
-      if (isMobile) {
-        panels.forEach((panel, i) => {
-          if (items[i] && panel && panel.parentElement !== items[i]) {
-            items[i].appendChild(panel);
-          }
-        });
-      } else if (desktopHost) {
-        panels.forEach((panel) => {
-          if (panel && panel.parentElement !== desktopHost) {
-            desktopHost.appendChild(panel);
-          }
-        });
+  // Ensure panels always live inside desktopHost
+  if (desktopHost) {
+    panels.forEach((panel) => {
+      if (panel && panel.parentElement !== desktopHost) {
+        desktopHost.appendChild(panel);
       }
-    };
+    });
+  }
 
-    mql.addEventListener('change', syncLayout);
-    syncLayout(mql);
-    removeListeners.push(() => mql.removeEventListener('change', syncLayout));
+  // Horizontal scroll synchronization on mobile
+  const selector = root.querySelector('.v-why-selector');
+  if (selector) {
+    let scrollTimeout = null;
+    const onSelectorScroll = () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const item = items[0];
+        if (!item) return;
+        const itemWidth = item.offsetWidth + 12; // width + gap
+        const index = Math.round(selector.scrollLeft / itemWidth);
+        if (index >= 0 && index < triggers.length) {
+          selectScenario(index);
+        }
+      }, 120);
+    };
+    selector.addEventListener('scroll', onSelectorScroll, { passive: true });
+    removeListeners.push(() => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      selector.removeEventListener('scroll', onSelectorScroll);
+    });
   }
 
   // Scenario 1 Sub-interaction: Filter Buttons inside mockup

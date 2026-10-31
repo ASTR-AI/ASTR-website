@@ -364,12 +364,12 @@
     z-index: 5;
   }
   45% {
-    transform: translate(var(--supply-shuffle-x, 22%), -16%)
+    transform: translate(var(--supply-shuffle-x, 22%), var(--supply-shuffle-y, -16%))
       rotate(var(--supply-shuffle-rotation, 9deg)) scale(0.96);
     z-index: 5;
   }
   50% {
-    transform: translate(var(--supply-shuffle-x, 22%), -16%)
+    transform: translate(var(--supply-shuffle-x, 22%), var(--supply-shuffle-y, -16%))
       rotate(var(--supply-shuffle-rotation, 9deg)) scale(0.96);
     z-index: 0;
   }
@@ -664,7 +664,7 @@
 @media (max-width: 800px) {
   .velocity-page #supply .v-supply-panel {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 28px;
   }
 
   .velocity-page #supply .v-supply-copy {
@@ -675,49 +675,307 @@
     max-width: 510px;
     width: 100%;
   }
-
-  .velocity-page #supply .v-supply-shuffle-stage {
-    max-width: 100%;
-    min-height: 0;
-  }
 }
 
-@media (max-width: 480px) {
-  .velocity-page #supply .v-supply-shuffle-stage {
-    min-height: 0;
-    --supply-shuffle-x: 4%;
-    --supply-shuffle-rotation: 2deg;
+@media (max-width: 767px) {
+  /* 01 / Department Cards: Horizontal Scroll Rail */
+  .velocity-page #supply .v-supply-departments {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 4px;
+    padding-inline: 2px;
   }
 
-  .velocity-page #supply .v-supply-shuffle-card {
-    padding: 16px 14px;
-    min-height: 0;
+  .velocity-page #supply .v-supply-departments::-webkit-scrollbar {
+    display: none;
   }
-}
 
-@media (max-width: 380px) {
-  .velocity-page #supply .v-supply-shuffle-stage {
-    --supply-shuffle-x: 2%;
-    --supply-shuffle-rotation: 1deg;
+  .velocity-page #supply .v-supply-sync-bridge {
+    display: none;
   }
 
   .velocity-page #supply .v-supply-dept-card {
+    flex: 0 0 86%;
+    min-width: 270px;
+    max-width: 320px;
+    scroll-snap-align: start;
+    box-sizing: border-box;
     padding: 14px 16px;
+    border-radius: 16px;
+    background: #151618;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .velocity-page #supply .v-supply-dept-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+
+  .velocity-page #supply .v-supply-dept-title {
+    font-size: 0.78rem;
+    min-width: 0;
+  }
+
+  .velocity-page #supply .v-supply-dept-role {
+    font-size: 0.6rem;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+
+  .velocity-page #supply .v-supply-dept-steps {
+    gap: 6px;
   }
 
   .velocity-page #supply .v-supply-step {
     padding: 8px 10px;
     gap: 10px;
+    border-radius: 10px;
+  }
+
+  .velocity-page #supply .v-supply-step-content strong {
+    font-size: 0.82rem;
+  }
+
+  .velocity-page #supply .v-supply-step-content span {
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+
+  /* 02 / Mockup Images / Cards below: Compact sizing ≤30% of mobile screen */
+  .velocity-page #supply .v-supply-shuffle-stage {
+    max-width: 100%;
+    zoom: 0.72;
+    min-height: 0;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .velocity-page #supply [data-supply-enhanced] .v-supply-shuffle-stage {
+    padding: 6px 6px 24px;
+  }
+
+  .velocity-page #supply .v-supply-shuffle-card {
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border-radius: 16px;
+    gap: 8px;
+    overflow: visible;
+    justify-content: flex-start;
+    --supply-shuffle-x: 5%;
+    --supply-shuffle-y: -4%;
+    --supply-shuffle-rotation: 1.5deg;
+  }
+
+  .velocity-page #supply .v-operations-doc-brand {
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+
+  .velocity-page #supply .v-operations-doc-heading {
+    margin: 3px 0 5px;
+  }
+
+  .velocity-page #supply .v-operations-doc-heading p {
+    font-size: 0.62rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .velocity-page #supply .v-operations-doc-heading h4 {
+    font-size: 0.88rem;
+    line-height: 1.25;
+    margin: 1px 0 0;
+  }
+
+  .velocity-page #supply .v-operations-doc-heading span {
+    font-size: 0.62rem;
   }
 
   .velocity-page #supply .v-supply-route-nodes {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    margin: 0 0 5px;
+    padding: 4px 8px;
+    gap: 6px;
+    border-radius: 6px;
   }
 
-  .velocity-page #supply .v-supply-route-arrow {
-    display: none;
+  .velocity-page #supply .v-supply-route-tag {
+    font-size: 0.54rem;
+  }
+
+  .velocity-page #supply .v-supply-route-cell strong {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .velocity-page #supply .v-supply-route-arrow span {
+    width: 14px;
+  }
+
+  .velocity-page #supply .v-supply-route-arrow svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .velocity-page #supply .v-supply-status-bar {
+    padding: 4px 8px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+  }
+
+  .velocity-page #supply .v-supply-status-label {
+    font-size: 0.56rem;
+  }
+
+  .velocity-page #supply .v-supply-status-value {
+    font-size: 0.7rem;
+  }
+
+  .velocity-page #supply .v-document-badge {
+    padding: 2px 6px;
+    font-size: 0.58rem;
+    border-radius: 4px;
+  }
+
+  .velocity-page #supply .v-operations-table.v-supply-table {
+    margin: 0;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .velocity-page #supply .v-operations-table thead th {
+    padding-block: 2px !important;
+    padding-inline: 4px;
+    font-size: 0.58rem;
+  }
+
+  .velocity-page #supply .v-operations-table tbody th,
+  .velocity-page #supply .v-operations-table td {
+    padding-block: 3px !important;
+    padding-inline: 4px;
+    font-size: 0.64rem;
+    line-height: 1.2 !important;
+  }
+
+  .velocity-page #supply .v-supply-table th span {
+    display: inline-block;
+    margin-left: 3px;
+    font-size: 0.58rem;
+  }
+
+  .velocity-page #supply .v-supply-table td .v-mono-batch {
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+
+  .velocity-page #supply .v-supply-table td .v-mono-expiry {
+    font-size: 0.56rem;
+    margin-top: 1px;
+    line-height: 1.2;
+  }
+
+  .velocity-page #supply .v-supply-runner-card {
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+  }
+
+  .velocity-page #supply .v-supply-runner-info strong {
+    font-size: 0.7rem;
+  }
+
+  .velocity-page #supply .v-supply-runner-token strong {
+    font-size: 0.72rem;
+  }
+
+  .velocity-page #supply .v-supply-seal-note {
+    padding: 3px 6px;
+    margin-bottom: 4px;
+    font-size: 0.6rem;
+    gap: 6px;
+    border-radius: 4px;
+  }
+
+  .velocity-page #supply .v-supply-reconciliation-callout {
+    padding: 3px 6px;
+    margin: 3px 0;
+    font-size: 0.6rem;
+    border-radius: 6px;
+  }
+
+  .velocity-page #supply .v-operations-doc-footer.v-supply-doc-footer {
+    margin-top: auto;
+    padding-top: 4px;
+    gap: 6px;
+  }
+
+  .velocity-page #supply .v-operations-doc-footer p span:first-child {
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+
+  .velocity-page #supply .v-operations-doc-footer p span:last-child {
+    font-size: 0.58rem;
+    line-height: 1.2;
+  }
+
+  .velocity-page #supply .v-operations-doc-check {
+    font-size: 0.7rem;
+  }
+
+  .velocity-page #supply .v-supply-visual .v-supply-controls {
+    position: static;
+    margin: 0 auto 14px;
+    padding: 4px 8px;
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .velocity-page #supply .v-supply-ctrl-btn {
+    padding: 3px 10px;
+    font-size: 0.72rem;
+  }
+
+  .velocity-page #supply .v-supply-counter {
+    font-size: 0.72rem;
+  }
+
+  .velocity-page #supply .v-operations-visual-note {
+    margin-top: 10px;
+    font-size: 0.72rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .velocity-page #supply .v-supply-status-bar,
+  .velocity-page #supply .v-supply-status-right {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 380px) {
+  .velocity-page #supply .v-supply-dept-card {
+    flex: 0 0 90%;
+    min-width: 250px;
+    padding: 12px 14px;
+  }
+
+  .velocity-page #supply .v-supply-step {
+    padding: 6px 8px;
+    gap: 8px;
   }
 }
 
@@ -749,7 +1007,7 @@
   max-width: 480px;
   margin: 0 auto 10px;
 }
-@media (max-width: 800px) {
+@media (min-width: 768px) and (max-width: 800px) {
   .velocity-page #supply .v-supply-visual .v-supply-controls {
     position: sticky;
     top: calc(var(--v-header-offset, 64px) + 8px);
