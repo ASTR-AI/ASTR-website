@@ -266,7 +266,7 @@
         "DIV.v-hero-scene",
         "DIV.v-hero-pin",
         "FIGURE.v-hero-media",
-        "DIV.v-purchase-connector"
+        "BUTTON.v-inventory-dot"
       ],
       "width": 901,
       "height": 800,
@@ -283,7 +283,7 @@
         "DIV.v-hero-scene",
         "DIV.v-hero-pin",
         "FIGURE.v-hero-media",
-        "FORM.v-demo-form"
+        "BUTTON.v-inventory-dot"
       ],
       "width": 1023,
       "height": 800,
