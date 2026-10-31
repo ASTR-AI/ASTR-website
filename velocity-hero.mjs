@@ -338,13 +338,15 @@ export function initHeroTransition(root) {
         copyScrollRaf = null;
         if (enabled || disposed) return;
         const scrollLeft = copy.scrollLeft || 0;
-        const cardWidth = chapters[0]?.offsetWidth || 1;
-        const gap = 16;
+        const pitch =
+          chapters[1] && chapters[0]
+            ? chapters[1].offsetLeft - chapters[0].offsetLeft
+            : (chapters[0]?.offsetWidth || 1) + 20;
         const targetIndex = Math.max(
           0,
           Math.min(
             chapters.length - 1,
-            Math.round(scrollLeft / (cardWidth + gap))
+            Math.round(scrollLeft / (pitch || 1))
           )
         );
         if (targetIndex !== activeChapter) {

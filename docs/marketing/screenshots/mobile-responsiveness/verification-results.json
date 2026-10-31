@@ -7,11 +7,11 @@
       "hasHorizontalOverflow": false,
       "overflowDelta": 0,
       "overflowingElements": [
-        "DETAILS.v-product-menu",
-        "SUMMARY.v-product-menu-toggle",
-        "SECTION.v-hero.v-container",
-        "DIV.v-hero-scene",
-        "DIV.v-hero-pin"
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
       ],
       "width": 320,
       "height": 740,
@@ -126,11 +126,11 @@
       "hasHorizontalOverflow": false,
       "overflowDelta": 0,
       "overflowingElements": [
+        "SECTION.v-hero.v-container.v-hero-chapters-ready.v-hero-motion",
+        "DIV.v-hero-scene",
+        "DIV.v-hero-pin",
         "FIGURE.v-hero-media",
-        "DIV.v-hero-scroll-copy",
-        "DETAILS.v-hero-chapter",
-        "SUMMARY",
-        "FORM.v-demo-form"
+        "DIV.v-hero-scroll-copy"
       ],
       "width": 1440,
       "height": 900,

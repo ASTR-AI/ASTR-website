@@ -4159,13 +4159,16 @@
     width: calc(100% - 40px);
   }
   .velocity-page .v-hero {
-    padding-top: calc(var(--v-header-offset, 64px) + 32px);
-    padding-bottom: 48px;
+    padding-top: calc(var(--v-header-offset, 64px) + 68px);
+    padding-bottom: 64px;
+  }
+  .velocity-page .v-hero-category {
+    display: none !important;
   }
   .velocity-page .v-hero-header h1 {
-    font-size: clamp(28px, 7.2vw, 36px);
+    font-size: clamp(32px, 8.5vw, 42px);
     line-height: 1.15;
-    margin-bottom: 14px;
+    margin-bottom: 40px;
     word-break: break-word;
   }
   .velocity-page .v-hero-header h1 em {
@@ -4177,48 +4180,47 @@
     display: inline;
   }
   .velocity-page .v-hero-intro {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 24px;
+    display: none !important;
   }
   .velocity-page .v-hero-header .v-actions {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    margin-bottom: 28px;
+    gap: 22px;
+    margin: 0 auto 76px;
     width: 100%;
   }
   .velocity-page .v-hero-header .v-button {
     width: auto;
-    max-width: none;
-    padding: 10px 22px;
+    min-width: 180px;
+    padding: 12px 28px;
     gap: 10px;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     letter-spacing: 0.08em;
-    min-height: 42px;
+    min-height: 46px;
+    border-radius: 9999px;
   }
   .velocity-page .v-hero-header .liquid-glass-button {
     width: auto;
-    max-width: none;
-    padding: 9px 20px !important;
+    min-width: 180px;
+    padding: 12px 28px !important;
     gap: 8px !important;
-    font-size: 0.72rem !important;
+    font-size: 0.8rem !important;
     letter-spacing: 0.06em !important;
     text-transform: none;
-    min-height: 42px;
+    min-height: 46px;
+    border-radius: 9999px !important;
   }
   .velocity-page .v-hero-header .v-text-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
+    gap: 8px;
+    font-size: 0.88rem;
     letter-spacing: 0.02em;
     text-transform: none;
     color: rgba(255, 255, 255, 0.85);
-    min-height: 42px;
+    min-height: 40px;
     padding: 0 4px;
   }
   .velocity-page .v-media-glow {
@@ -4718,7 +4720,7 @@
 @media (max-width: 520px) {
   .velocity-page .v-hero-capabilities {
     padding: 24px 20px;
-    margin-top: 28px;
+    margin-top: 56px;
   }
   .velocity-page .v-hero-capabilities-heading {
     font-size: 18px;
