@@ -756,3 +756,85 @@ test('scroll updates chapter progress indicators proportionally and cleans up on
   assert.equal(chapters[1].fillStyles.has('transform'), false);
   assert.equal(chapters[2].fillStyles.has('transform'), false);
 });
+
+test('hero nav arrows advance and rewind chapters and update disabled state', () => {
+  const fixture = createHeroFixture();
+  const desktop = fixture.win.matchMedia(
+    '(min-width: 1024px) and (min-height: 700px)'
+  );
+  desktop.matches = false;
+  const { chapters, panels } = withChapterControls(fixture);
+  const prevListeners = new Map();
+  const nextListeners = new Map();
+  const prevClasses = new Set();
+  const nextClasses = new Set();
+
+  const prevBtn = {
+    disabled: false,
+    classList: {
+      toggle(cls, on) {
+        if (on) prevClasses.add(cls);
+        else prevClasses.delete(cls);
+      },
+      contains: (cls) => prevClasses.has(cls),
+    },
+    setAttribute() {},
+    addEventListener: (evt, handler) => prevListeners.set(evt, handler),
+    removeEventListener: (evt) => prevListeners.delete(evt),
+  };
+
+  const nextBtn = {
+    disabled: false,
+    classList: {
+      toggle(cls, on) {
+        if (on) nextClasses.add(cls);
+        else nextClasses.delete(cls);
+      },
+      contains: (cls) => nextClasses.has(cls),
+    },
+    setAttribute() {},
+    addEventListener: (evt, handler) => nextListeners.set(evt, handler),
+    removeEventListener: (evt) => nextListeners.delete(evt),
+  };
+
+  const origQuery = fixture.root.querySelector;
+  fixture.root.querySelector = (sel) => {
+    if (sel === '[data-hero-nav="prev"]') return prevBtn;
+    if (sel === '[data-hero-nav="next"]') return nextBtn;
+    return origQuery(sel);
+  };
+
+  const cleanup = initHeroTransition(fixture.root);
+
+  // Initial state at chapter 0: prev is disabled, next is enabled
+  assert.equal(prevBtn.disabled, true);
+  assert.equal(prevBtn.classList.contains('is-disabled'), true);
+  assert.equal(nextBtn.disabled, false);
+  assert.equal(nextBtn.classList.contains('is-disabled'), false);
+
+  // Click next -> advances to chapter 1
+  let prevented = false;
+  nextListeners.get('click')({ preventDefault: () => { prevented = true; } });
+  assert.ok(prevented);
+  assert.equal(prevBtn.disabled, false);
+  assert.equal(prevBtn.classList.contains('is-disabled'), false);
+  assert.equal(nextBtn.disabled, false);
+  assert.equal(chapters[1].open, true);
+
+  // Click next again -> advances to chapter 2 (last)
+  nextListeners.get('click')({ preventDefault: () => {} });
+  assert.equal(prevBtn.disabled, false);
+  assert.equal(nextBtn.disabled, true);
+  assert.equal(nextBtn.classList.contains('is-disabled'), true);
+  assert.equal(chapters[2].open, true);
+
+  // Click prev -> back to chapter 1
+  prevListeners.get('click')({ preventDefault: () => {} });
+  assert.equal(prevBtn.disabled, false);
+  assert.equal(nextBtn.disabled, false);
+  assert.equal(chapters[1].open, true);
+
+  cleanup();
+  assert.equal(prevListeners.size, 0);
+  assert.equal(nextListeners.size, 0);
+});

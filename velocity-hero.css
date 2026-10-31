@@ -500,3 +500,100 @@
     opacity: 1 !important;
   }
 }
+
+/* Hero Carousel Navigation Arrows (OpenAI Style) */
+.velocity-page .v-hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.92);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(24, 24, 27, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.velocity-page .v-hero-nav-prev {
+  left: 14px;
+}
+
+.velocity-page .v-hero-nav-next {
+  right: 14px;
+}
+
+.velocity-page .v-hero-nav:hover:not(:disabled) {
+  background: rgba(38, 38, 44, 0.96);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+}
+
+.velocity-page .v-hero-nav:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.velocity-page .v-hero-nav:focus-visible {
+  outline: 2px solid var(--v-gold, #e6cd99);
+  outline-offset: 3px;
+}
+
+/* Hover popup behavior on desktop */
+@media (hover: hover) and (pointer: fine) {
+  .velocity-page .v-hero-nav {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) scale(0.85);
+  }
+  .velocity-page .v-hero-media:hover .v-hero-nav:not(:disabled),
+  .velocity-page .v-hero-pin:hover .v-hero-nav:not(:disabled),
+  .velocity-page .v-hero-nav:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* On touch/mobile devices: clearly visible so users know they can swipe / tap */
+@media (hover: none), (pointer: coarse), (max-width: 1023px) {
+  .velocity-page .v-hero-nav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+    width: 42px;
+    height: 42px;
+  }
+  .velocity-page .v-hero-nav-prev {
+    left: 8px;
+  }
+  .velocity-page .v-hero-nav-next {
+    right: 8px;
+  }
+}
+
+/* Disabled state */
+.velocity-page .v-hero-nav:disabled,
+.velocity-page .v-hero-nav.is-disabled {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-50%) scale(0.7) !important;
+  visibility: hidden;
+}

@@ -244,6 +244,24 @@ export function initHeroTransition(root) {
     }
   }
 
+  const prevBtn = root.querySelector?.('[data-hero-nav="prev"]');
+  const nextBtn = root.querySelector?.('[data-hero-nav="next"]');
+
+  function updateNavButtons(index) {
+    if (prevBtn) {
+      const isDisabled = index <= 0;
+      prevBtn.disabled = isDisabled;
+      prevBtn.classList?.toggle('is-disabled', isDisabled);
+      prevBtn.setAttribute?.('aria-disabled', String(isDisabled));
+    }
+    if (nextBtn) {
+      const isDisabled = index >= chapters.length - 1;
+      nextBtn.disabled = isDisabled;
+      nextBtn.classList?.toggle('is-disabled', isDisabled);
+      nextBtn.setAttribute?.('aria-disabled', String(isDisabled));
+    }
+  }
+
   function selectChapter(index, { showPanel = true } = {}) {
     if (!canSelect) return;
     activeChapter = index;
@@ -251,10 +269,62 @@ export function initHeroTransition(root) {
       updateDisclosure(chapter, position, index);
     });
     selectPanel(showPanel ? chapterKeys[index] : 'overview');
+    updateNavButtons(index);
   }
 
   if (canSelect) {
     root.classList.toggle('v-hero-chapters-ready', true);
+    updateNavButtons(activeChapter);
+
+    function navigateChapter(direction) {
+      const target = activeChapter + direction;
+      if (target < 0 || target >= chapters.length) return;
+      if (enabled && geometry) {
+        const targetScroll = getHeroChapterTarget(
+          target,
+          geometry.end,
+          geometry.step
+        );
+        if (targetScroll !== null) {
+          win.scrollTo({
+            top: targetScroll,
+            behavior: reduced.matches ? 'auto' : 'smooth',
+          });
+        }
+      } else {
+        selectChapter(target);
+        const targetChapter = chapters[target];
+        if (targetChapter && typeof targetChapter.scrollIntoView === 'function') {
+          targetChapter.scrollIntoView({
+            behavior: reduced.matches ? 'auto' : 'smooth',
+            inline: 'start',
+            block: 'nearest',
+          });
+        }
+      }
+    }
+
+    if (prevBtn) {
+      const onPrevClick = (e) => {
+        e?.preventDefault?.();
+        navigateChapter(-1);
+      };
+      prevBtn.addEventListener?.('click', onPrevClick);
+      removeChapterListeners.push(() =>
+        prevBtn.removeEventListener?.('click', onPrevClick)
+      );
+    }
+
+    if (nextBtn) {
+      const onNextClick = (e) => {
+        e?.preventDefault?.();
+        navigateChapter(1);
+      };
+      nextBtn.addEventListener?.('click', onNextClick);
+      removeChapterListeners.push(() =>
+        nextBtn.removeEventListener?.('click', onNextClick)
+      );
+    }
     panels.forEach((panel) => {
       panel.hidden = false;
       const onAnimEnd = (event) => {
