@@ -14,6 +14,7 @@ import { initSupplyDemo } from './velocity-supply.mjs';
 import { initVelocityDemoForm } from './velocity-demo-form.mjs';
 import { createVelocityFormObserver } from './velocity-analytics.mjs';
 import { initVelocityMotion } from './velocity-motion.mjs';
+import { initMobileRail } from './velocity-mobile-rails.mjs';
 
 inject();
 const velocityTracker = createVelocityTracker(track);
@@ -181,11 +182,51 @@ function initSupply(alignOnInit = true) {
   supplyDemoCleanup = initSupplyDemo(supplyEl);
 }
 
+let mobileRailsCleanup = null;
+function initMobileRails() {
+  mobileRailsCleanup?.();
+  const cleanups = [];
+  const purchaseRail = document.querySelector('[data-purchase-rail]');
+  const purchaseControls = document.querySelector('[data-purchase-controls]');
+  const purchasePrev = document.querySelector('[data-purchase-prev]');
+  const purchaseNext = document.querySelector('[data-purchase-next]');
+  if (purchaseRail && purchaseControls && purchasePrev && purchaseNext) {
+    cleanups.push(
+      initMobileRail({
+        rail: purchaseRail,
+        controls: purchaseControls,
+        prevBtn: purchasePrev,
+        nextBtn: purchaseNext,
+      })
+    );
+  }
+
+  const capsRail = document.querySelector('[data-capabilities-rail]');
+  const capsControls = document.querySelector('[data-capabilities-controls]');
+  const capsPrev = document.querySelector('[data-capabilities-prev]');
+  const capsNext = document.querySelector('[data-capabilities-next]');
+  if (capsRail && capsControls && capsPrev && capsNext) {
+    cleanups.push(
+      initMobileRail({
+        rail: capsRail,
+        controls: capsControls,
+        prevBtn: capsPrev,
+        nextBtn: capsNext,
+      })
+    );
+  }
+
+  mobileRailsCleanup = () => {
+    cleanups.forEach((c) => c());
+  };
+}
+
 window.addEventListener('pageshow', (event) => {
   initHero();
   initSupply(!event.persisted);
   updateReorderMotion();
   initCarousel();
+  initMobileRails();
   initOperations();
   initWhy();
   initConversion();
@@ -200,6 +241,7 @@ window.addEventListener('pagehide', () => {
   supplyDemoCleanup?.();
   reorderObserver?.disconnect();
   inventoryCleanup?.();
+  mobileRailsCleanup?.();
   operationsCleanup?.();
   whyCleanup?.();
   conversionCleanup?.();
@@ -212,6 +254,7 @@ window.addEventListener('pagehide', () => {
 initSupply();
 updateReorderMotion();
 initCarousel();
+initMobileRails();
 initOperations();
 initWhy();
 initConversion();

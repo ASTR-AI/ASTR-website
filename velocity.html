@@ -102,13 +102,30 @@
           </p>
           <div class="v-actions">
             <a
-              class="v-button"
+              class="liquid-glass-button group/btn w-fit !text-[0.7rem] !py-2 !px-5 !gap-2 !tracking-[2px] shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_45px_rgba(230,205,153,0.12)]"
               href="#demo"
               data-velocity-cta
               data-placement="hero"
               data-action="demo"
-              >Request a demo <span aria-hidden="true">→</span></a
-            ><a class="v-text-link" href="#inventory"
+            >
+              <span class="relative z-10">Request a demo</span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 16 16"
+                fill="none"
+                class="relative z-10 group-hover/btn:translate-x-1 transition-transform inline-block"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1 8H15M15 8L8 1M15 8L8 15"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a><a class="v-text-link" href="#inventory"
               >Explore the system <span aria-hidden="true">↓</span></a
             >
           </div>
@@ -767,7 +784,35 @@
               <li>Review &amp; approve</li>
               <li>Record receipt</li>
             </ol>
-            <div class="v-purchase-documents">
+            <div class="v-rail-controls v-purchase-rail-controls" hidden data-purchase-controls>
+              <p class="v-rail-hint">Swipe or use arrows to explore</p>
+              <div class="v-rail-arrows">
+                <button
+                  type="button"
+                  class="v-rail-arrow v-rail-prev"
+                  data-purchase-prev
+                  aria-label="Previous purchasing document"
+                  disabled
+                >
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                </button>
+                <button
+                  type="button"
+                  class="v-rail-arrow v-rail-next"
+                  data-purchase-next
+                  aria-label="Next purchasing document"
+                >
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="v-purchase-documents"
+              data-purchase-rail
+              tabindex="0"
+              role="region"
+              aria-label="Purchasing documents"
+            >
               <article
                 class="v-purchase-document v-purchase-order"
                 aria-labelledby="purchase-order-title"
@@ -2024,7 +2069,36 @@
             </p>
           </div>
 
-          <div class="v-capabilities-grid">
+          <div class="v-rail-controls v-capabilities-rail-controls" hidden data-capabilities-controls>
+            <p class="v-rail-hint">Swipe or use arrows to explore</p>
+            <div class="v-rail-arrows">
+              <button
+                type="button"
+                class="v-rail-arrow v-rail-prev"
+                data-capabilities-prev
+                aria-label="Previous medicine workflow feature"
+                disabled
+              >
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              </button>
+              <button
+                type="button"
+                class="v-rail-arrow v-rail-next"
+                data-capabilities-next
+                aria-label="Next medicine workflow feature"
+              >
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="v-capabilities-grid"
+            data-capabilities-rail
+            tabindex="0"
+            role="region"
+            aria-label="Medicine workflow features"
+          >
             <!-- Card 1: Stock & Medicines -->
             <article class="v-capability-card" aria-labelledby="v-card-1-title">
               <div

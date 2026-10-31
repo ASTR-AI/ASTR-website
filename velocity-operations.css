@@ -201,35 +201,65 @@
 }
 @media (max-width: 767px) {
   .velocity-page #operations .v-operations-intro {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
   .velocity-page #operations .v-operations-intro h2 br {
-    display: none;
+    display: inline;
   }
   .velocity-page #operations .v-operations-intro .v-lead {
-    font-size: 0.94rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .velocity-page #operations .v-operations-controls {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 999px;
+    padding: 4px;
+    gap: 4px;
+    justify-content: flex-start;
+  }
+  .velocity-page #operations .v-operations-controls .nav-item {
+    min-height: 44px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 16px;
+    font-size: 13px;
   }
   .velocity-page #operations .v-operations-copy {
-    padding: 26px 22px;
+    padding: 20px;
+    margin: 8px 8px 0;
   }
   .velocity-page #operations .v-operations-copy > p.v-operations-context {
-    margin-top: 24px;
+    margin-top: 20px;
+  }
+  .velocity-page #operations .v-operations-visual {
+    padding: 12px;
+    max-width: 100%;
   }
   .velocity-page #operations .v-operations-document {
     min-height: 0;
-    padding: 22px;
+    padding: 16px;
+  }
+}
+@media (max-width: 359px) {
+  .velocity-page #operations .v-operations-copy {
+    padding: 16px;
+  }
+  .velocity-page #operations .v-operations-visual {
+    padding: 12px;
+  }
+  .velocity-page #operations .v-operations-document {
+    padding: 16px;
+  }
+  .velocity-page #operations .v-operations-controls .nav-item {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
 @media (max-width: 380px) {
-  .velocity-page #operations .v-operations-visual {
-    padding: 24px 16px;
-  }
-  .velocity-page #operations .v-operations-document {
-    padding: 20px 16px;
-  }
-  .velocity-page #operations .v-operations-copy {
-    padding: 24px 18px;
-  }
   .velocity-page #operations .v-operations-export-file {
     flex-wrap: wrap;
   }

@@ -297,13 +297,68 @@ export function initHeroTransition(root) {
           }
         } else {
           selectChapter(index);
+          if (typeof chapter.scrollIntoView === 'function') {
+            chapter.scrollIntoView({
+              behavior: reduced.matches ? 'auto' : 'smooth',
+              inline: 'start',
+              block: 'nearest',
+            });
+          }
         }
       };
-      summary.addEventListener('click', onClick);
+      summary?.addEventListener?.('click', onClick);
       removeChapterListeners.push(() =>
-        summary.removeEventListener('click', onClick)
+        summary?.removeEventListener?.('click', onClick)
+      );
+
+      const onChapterClick = (event) => {
+        if (enabled) return;
+        if (event.target.closest('a')) return;
+        if (event.target.closest('summary')) return;
+        selectChapter(index);
+        if (typeof chapter.scrollIntoView === 'function') {
+          chapter.scrollIntoView({
+            behavior: reduced.matches ? 'auto' : 'smooth',
+            inline: 'start',
+            block: 'nearest',
+          });
+        }
+      };
+      chapter.addEventListener?.('click', onChapterClick);
+      removeChapterListeners.push(() =>
+        chapter.removeEventListener?.('click', onChapterClick)
       );
     });
+
+    let copyScrollRaf = null;
+    const onCopyScroll = () => {
+      if (enabled || disposed) return;
+      if (copyScrollRaf !== null) win.cancelAnimationFrame(copyScrollRaf);
+      copyScrollRaf = win.requestAnimationFrame(() => {
+        copyScrollRaf = null;
+        if (enabled || disposed) return;
+        const scrollLeft = copy.scrollLeft || 0;
+        const cardWidth = chapters[0]?.offsetWidth || 1;
+        const gap = 16;
+        const targetIndex = Math.max(
+          0,
+          Math.min(
+            chapters.length - 1,
+            Math.round(scrollLeft / (cardWidth + gap))
+          )
+        );
+        if (targetIndex !== activeChapter) {
+          selectChapter(targetIndex);
+        }
+      });
+    };
+    if (typeof copy?.addEventListener === 'function') {
+      copy.addEventListener('scroll', onCopyScroll, { passive: true });
+      removeChapterListeners.push(() => {
+        copy.removeEventListener?.('scroll', onCopyScroll);
+        if (copyScrollRaf !== null) win.cancelAnimationFrame(copyScrollRaf);
+      });
+    }
   }
 
   function render() {

@@ -127,7 +127,7 @@ export function initVelocityMotion(
 
     const buttons = [
       ...document.querySelectorAll(
-        '.v-button, .v-nav-demo, .v-demo-submit-btn'
+        '.v-button, .v-nav-demo, .v-demo-submit-btn, .v-hero .liquid-glass-button'
       ),
     ];
     buttons.forEach((button) => {

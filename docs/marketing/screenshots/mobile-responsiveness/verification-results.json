@@ -1,0 +1,341 @@
+{
+  "viewports": {
+    "phone-320": {
+      "innerWidth": 320,
+      "clientWidth": 320,
+      "scrollWidth": 320,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "DETAILS.v-product-menu",
+        "SUMMARY.v-product-menu-toggle",
+        "SECTION.v-hero.v-container",
+        "DIV.v-hero-scene",
+        "DIV.v-hero-pin"
+      ],
+      "width": 320,
+      "height": 740,
+      "passed": true
+    },
+    "phone-360": {
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "scrollWidth": 360,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 360,
+      "height": 800,
+      "passed": true
+    },
+    "phone-390": {
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 390,
+      "height": 844,
+      "passed": true
+    },
+    "phone-430": {
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "scrollWidth": 430,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 430,
+      "height": 932,
+      "passed": true
+    },
+    "phone-landscape-844": {
+      "innerWidth": 844,
+      "clientWidth": 844,
+      "scrollWidth": 844,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 844,
+      "height": 390,
+      "passed": true
+    },
+    "tablet-768": {
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 768,
+      "height": 1024,
+      "passed": true
+    },
+    "desktop-1024": {
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "SECTION.v-hero.v-container.v-hero-chapters-ready.v-hero-motion",
+        "DIV.v-hero-scene",
+        "DIV.v-hero-pin",
+        "FIGURE.v-hero-media",
+        "DIV.v-hero-scroll-copy"
+      ],
+      "width": 1024,
+      "height": 768,
+      "passed": true
+    },
+    "desktop-1440": {
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "FIGURE.v-hero-media",
+        "DIV.v-hero-scroll-copy",
+        "DETAILS.v-hero-chapter",
+        "SUMMARY",
+        "FORM.v-demo-form"
+      ],
+      "width": 1440,
+      "height": 900,
+      "passed": true
+    },
+    "transition-767": {
+      "innerWidth": 767,
+      "clientWidth": 767,
+      "scrollWidth": 767,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 767,
+      "height": 800,
+      "passed": true
+    },
+    "transition-768": {
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 768,
+      "height": 800,
+      "passed": true
+    },
+    "transition-800": {
+      "innerWidth": 800,
+      "clientWidth": 800,
+      "scrollWidth": 800,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 800,
+      "height": 800,
+      "passed": true
+    },
+    "transition-801": {
+      "innerWidth": 801,
+      "clientWidth": 801,
+      "scrollWidth": 801,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 801,
+      "height": 800,
+      "passed": true
+    },
+    "transition-860": {
+      "innerWidth": 860,
+      "clientWidth": 860,
+      "scrollWidth": 860,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 860,
+      "height": 800,
+      "passed": true
+    },
+    "transition-861": {
+      "innerWidth": 861,
+      "clientWidth": 861,
+      "scrollWidth": 861,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 861,
+      "height": 800,
+      "passed": true
+    },
+    "transition-900": {
+      "innerWidth": 900,
+      "clientWidth": 900,
+      "scrollWidth": 900,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "A",
+        "DETAILS.v-product-features",
+        "SUMMARY",
+        "DIV.v-product-dropdown",
+        "P"
+      ],
+      "width": 900,
+      "height": 800,
+      "passed": true
+    },
+    "transition-901": {
+      "innerWidth": 901,
+      "clientWidth": 901,
+      "scrollWidth": 901,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "SECTION.v-hero.v-container.v-hero-chapters-ready",
+        "DIV.v-hero-scene",
+        "DIV.v-hero-pin",
+        "FIGURE.v-hero-media",
+        "DIV.v-purchase-connector"
+      ],
+      "width": 901,
+      "height": 800,
+      "passed": true
+    },
+    "transition-1023": {
+      "innerWidth": 1023,
+      "clientWidth": 1023,
+      "scrollWidth": 1023,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "SECTION.v-hero.v-container.v-hero-chapters-ready",
+        "DIV.v-hero-scene",
+        "DIV.v-hero-pin",
+        "FIGURE.v-hero-media",
+        "FORM.v-demo-form"
+      ],
+      "width": 1023,
+      "height": 800,
+      "passed": true
+    },
+    "transition-1024": {
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "scrollWidth": 1024,
+      "hasHorizontalOverflow": false,
+      "overflowDelta": 0,
+      "overflowingElements": [
+        "SECTION.v-hero.v-container.v-hero-chapters-ready.v-hero-motion",
+        "DIV.v-hero-scene",
+        "DIV.v-hero-pin",
+        "FIGURE.v-hero-media",
+        "DIV.v-hero-scroll-copy"
+      ],
+      "width": 1024,
+      "height": 800,
+      "passed": true
+    }
+  },
+  "interactions": {
+    "purchaseInitial": {
+      "scrollLeft": 0,
+      "prevDisabled": true,
+      "nextDisabled": false
+    },
+    "purchaseScrolled": {
+      "scrollLeft": 302,
+      "prevDisabled": false,
+      "nextDisabled": true
+    },
+    "operationsTabState": {
+      "activeTab": "Reports & access",
+      "activePanelId": ""
+    }
+  },
+  "screenshots": [
+    "01-phone-390-hero.png",
+    "01b-phone-390-hero-options.png",
+    "01c-phone-390-hero-swipe.png",
+    "02-purchasing-rail-first.png",
+    "03-purchasing-rail-last.png",
+    "04-supply-stage-phone.png",
+    "05-operations-last-tab.png",
+    "06-capability-rail-phone.png",
+    "07-comparison-scrolled-right.png",
+    "08-demo-form-phone.png",
+    "09-tablet-768-overview.png",
+    "10-desktop-1440-overview.png"
+  ],
+  "overflowFailures": []
+}

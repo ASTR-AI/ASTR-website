@@ -598,16 +598,18 @@
 .velocity-page #supply .v-supply-table td .v-mono-batch {
   display: block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #2c3028;
+  line-height: 1.4;
 }
 
 .velocity-page #supply .v-supply-table td .v-mono-expiry {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   color: #63685c;
   margin-top: 2px;
+  line-height: 1.4;
 }
 
 /* Footer note text inside document */
@@ -615,13 +617,16 @@
   display: block;
   font-weight: 500;
   color: #2c3028;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .velocity-page #supply .v-supply-doc-footer p span:last-child {
   display: block;
   color: #63685c;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   margin-top: 2px;
+  line-height: 1.4;
 }
 
 /* State-based transitions */
@@ -680,17 +685,22 @@
 @media (max-width: 480px) {
   .velocity-page #supply .v-supply-shuffle-stage {
     min-height: 0;
-    --supply-shuffle-x: 8%;
-    --supply-shuffle-rotation: 4deg;
+    --supply-shuffle-x: 4%;
+    --supply-shuffle-rotation: 2deg;
   }
 
   .velocity-page #supply .v-supply-shuffle-card {
-    padding: 18px 20px;
+    padding: 16px 14px;
     min-height: 0;
   }
 }
 
 @media (max-width: 380px) {
+  .velocity-page #supply .v-supply-shuffle-stage {
+    --supply-shuffle-x: 2%;
+    --supply-shuffle-rotation: 1deg;
+  }
+
   .velocity-page #supply .v-supply-dept-card {
     padding: 14px 16px;
   }
