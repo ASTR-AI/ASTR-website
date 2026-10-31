@@ -353,6 +353,14 @@
   text-align: center;
 }
 
+.velocity-page .v-hero-category {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #e6cd99;
+}
+
 .velocity-page .v-hero-header h1 {
   font-family: 'Lora', serif;
   font-size: clamp(2.3rem, 4.6vw, 3.8rem);

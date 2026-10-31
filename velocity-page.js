@@ -13,6 +13,7 @@ import { initSupplyBento } from './velocity-supply-bento.mjs';
 import { initSupplyDemo } from './velocity-supply.mjs';
 import { initVelocityDemoForm } from './velocity-demo-form.mjs';
 import { createVelocityFormObserver } from './velocity-analytics.mjs';
+import { initVelocityMotion } from './velocity-motion.mjs';
 
 inject();
 const velocityTracker = createVelocityTracker(track);
@@ -106,6 +107,11 @@ let inventoryCleanup = null;
 let operationsCleanup = null;
 let whyCleanup = null;
 let comparisonCleanup = null;
+let motionCleanup = null;
+function initMotion() {
+  motionCleanup?.();
+  motionCleanup = initVelocityMotion();
+}
 function initComparison() {
   comparisonCleanup?.();
   comparisonCleanup = initComparisonDisclosure(
@@ -185,6 +191,7 @@ window.addEventListener('pageshow', (event) => {
   initConversion();
   initComparison();
   initDemoForm();
+  if (!motionCleanup) initMotion();
 });
 
 window.addEventListener('pagehide', () => {
@@ -198,6 +205,8 @@ window.addEventListener('pagehide', () => {
   conversionCleanup?.();
   comparisonCleanup?.();
   demoFormCleanup?.();
+  motionCleanup?.();
+  motionCleanup = null;
 });
 
 initSupply();
@@ -210,3 +219,8 @@ initComparison();
 initDemoForm();
 
 initHero();
+initMotion();
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => motionCleanup?.());
+}

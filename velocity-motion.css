@@ -1,0 +1,11 @@
+/* Motion owns button transforms; retain the existing colour and glow feedback. */
+@media (prefers-reduced-motion: no-preference) {
+  .v-motion-button {
+    transition-property:
+      background-color, border-color, color, box-shadow !important;
+  }
+
+  .v-motion-button:hover {
+    transform: none;
+  }
+}
