@@ -36,6 +36,21 @@
     <link rel="stylesheet" href="/velocity.css" />
     <link rel="stylesheet" href="/velocity-supply.css" />
     <link rel="stylesheet" href="/velocity-hero.css" />
+    <link
+      rel="stylesheet"
+      href="/velocity-risks-mobile.css"
+      media="(max-width: 767px)"
+    />
+    <link
+      rel="stylesheet"
+      href="/velocity-features-mobile.css"
+      media="(max-width: 767px)"
+    />
+    <link
+      rel="stylesheet"
+      href="/velocity-supply-mobile.css"
+      media="(max-width: 767px)"
+    />
   </head>
   <body
     class="velocity-page selection:bg-gold/30 selection:text-gold antialiased font-lora"
@@ -94,7 +109,9 @@
       <section id="overview" class="v-hero v-container" data-hero-transition>
         <div class="v-hero-header">
           <p class="v-hero-category">Pharmacy management software</p>
-          <h1>Manage your pharmacy.<br /><em>From stock to billing.</em></h1>
+          <h1 class="v-heading-hero">
+            Manage your pharmacy.<br /><em>From stock to billing.</em>
+          </h1>
           <p class="v-hero-intro">
             Manage medicine stock, purchases, billing and hospital supply in one
             system. Built for hospital pharmacies and independent medical
@@ -124,8 +141,8 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-              </svg>
-            </a><a class="v-text-link" href="#inventory"
+              </svg> </a
+            ><a class="v-text-link" href="#inventory"
               >Explore the system <span aria-hidden="true">↓</span></a
             >
           </div>
@@ -366,8 +383,7 @@
               Stock, purchases and billing in one system.
             </h2>
             <p class="v-hero-capabilities-desc">
-              Track stock by location, monitor batches and expiry dates, and
-              follow patient sales.
+              One workspace for day-to-day pharmacy operations.
             </p>
           </div>
           <div
@@ -404,11 +420,12 @@
       <section id="inventory" class="v-section v-inventory-section">
         <div class="v-container">
           <div class="v-copy">
-            <h2 id="inventory-heading">
-              Know what’s in stock at every location.
+            <h2 id="inventory-heading" class="v-heading-section">
+              Stock across locations
             </h2>
             <p class="v-lead">
-              Across locations, down to the batch. See the details that matter.
+              Find medicines by location, batch, expiry date, and available
+              quantity.
             </p>
           </div>
         </div>
@@ -434,7 +451,9 @@
               aria-label="1 of 4: Locations"
             >
               <div class="v-card-header">
-                <h3>Check stock across pharmacies and stores.</h3>
+                <h3 class="v-heading-card">
+                  Check stock across pharmacies and stores.
+                </h3>
                 <p class="v-card-desc">
                   Keep your warehouse, pharmacy, and hospital locations in view.
                 </p>
@@ -464,7 +483,7 @@
               aria-label="2 of 4: Batches"
             >
               <div class="v-card-header">
-                <h3>Track each medicine by batch.</h3>
+                <h3 class="v-heading-card">Track each medicine by batch.</h3>
                 <p class="v-card-desc">
                   Follow medicine batches and their stock details.
                 </p>
@@ -494,7 +513,9 @@
               aria-label="3 of 4: Expiry"
             >
               <div class="v-card-header">
-                <h3>Identify medicines nearing expiry.</h3>
+                <h3 class="v-heading-card">
+                  Identify medicines nearing expiry.
+                </h3>
                 <p class="v-card-desc">
                   Find medicines nearing expiry and review stock that needs
                   attention.
@@ -525,7 +546,9 @@
               aria-label="4 of 4: Packs & units"
             >
               <div class="v-card-header">
-                <h3>View the stock details your team needs.</h3>
+                <h3 class="v-heading-card">
+                  View the stock details your team needs.
+                </h3>
                 <p class="v-card-desc">
                   See quantities in each medicine’s configured packs and loose
                   units.
@@ -656,10 +679,10 @@
       <section id="reordering" class="v-section v-tinted v-reorder-section">
         <div class="v-container">
           <div class="v-reorder-intro">
-            <h2>Know what to reorder—<em>and how much.</em></h2>
+            <h2 class="v-heading-section">Smarter reordering</h2>
             <p class="v-lead">
-              Turn stock levels and consumption history into suggested reorder
-              quantities—ready for your team to review.
+              Review suggested quantities based on stock levels and consumption
+              history.
             </p>
           </div>
 
@@ -701,97 +724,100 @@
             </div>
           </div>
 
-          <div class="v-reorder-workflow">
-            <div class="v-workflow-steps">
-              <div class="v-workflow-step">
-                <svg
-                  aria-hidden="true"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="v-workflow-icon"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
-                <h3 class="v-workflow-title">Find medicines to reorder</h3>
-                <p class="v-workflow-desc">
-                  Spot medicines needing replenishment.
-                </p>
+          <details class="v-workflow-details">
+            <summary>How reorder suggestions work</summary>
+            <div class="v-reorder-workflow">
+              <div class="v-workflow-steps">
+                <div class="v-workflow-step">
+                  <svg
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="v-workflow-icon"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <h3 class="v-workflow-title">Find medicines to reorder</h3>
+                  <p class="v-workflow-desc">
+                    Spot medicines needing replenishment.
+                  </p>
+                </div>
+
+                <div class="v-workflow-sep" aria-hidden="true"></div>
+
+                <div class="v-workflow-step">
+                  <svg
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="v-workflow-icon"
+                  >
+                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                    <path
+                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                    />
+                    <path d="M12 11h4" />
+                    <path d="M12 16h4" />
+                    <path d="M8 11h.01" />
+                    <path d="M8 16h.01" />
+                  </svg>
+                  <h3 class="v-workflow-title">Review suggested quantities</h3>
+                  <p class="v-workflow-desc">
+                    Check suggested quantities against stock and usage.
+                  </p>
+                </div>
+
+                <div class="v-workflow-sep" aria-hidden="true"></div>
+
+                <div class="v-workflow-step">
+                  <svg
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="v-workflow-icon"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                  <h3 class="v-workflow-title">Prepare the order</h3>
+                  <p class="v-workflow-desc">
+                    Review suggestions before preparing a purchase order.
+                  </p>
+                </div>
               </div>
 
-              <div class="v-workflow-sep" aria-hidden="true"></div>
-
-              <div class="v-workflow-step">
-                <svg
-                  aria-hidden="true"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="v-workflow-icon"
-                >
-                  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                  <path
-                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-                  />
-                  <path d="M12 11h4" />
-                  <path d="M12 16h4" />
-                  <path d="M8 11h.01" />
-                  <path d="M8 16h.01" />
-                </svg>
-                <h3 class="v-workflow-title">Review suggested quantities</h3>
-                <p class="v-workflow-desc">
-                  Check suggested quantities against stock and usage.
-                </p>
-              </div>
-
-              <div class="v-workflow-sep" aria-hidden="true"></div>
-
-              <div class="v-workflow-step">
-                <svg
-                  aria-hidden="true"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="v-workflow-icon"
-                >
-                  <path
-                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                  />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <polyline points="10 9 9 9 8 9" />
-                </svg>
-                <h3 class="v-workflow-title">Prepare the order</h3>
-                <p class="v-workflow-desc">
-                  Review suggestions before preparing a purchase order.
+              <div class="v-workflow-footer">
+                <p class="v-workflow-statement">
+                  AI recommends. Your team decides.
                 </p>
               </div>
             </div>
-
-            <div class="v-workflow-footer">
-              <p class="v-workflow-statement">
-                AI recommends. Your team decides.
-              </p>
-            </div>
-          </div>
+          </details>
         </div>
       </section>
       <section
@@ -801,12 +827,12 @@
       >
         <div class="v-container">
           <div class="v-purchasing-intro">
-            <h2 id="purchasing-heading">
-              Track purchases<br /><em>from order to delivery.</em>
+            <h2 id="purchasing-heading" class="v-heading-section">
+              Purchasing and receiving
             </h2>
             <p class="v-lead">
-              Create purchase orders, review approvals, and receive medicines.
-              Keep supplier bills and payment records connected along the way.
+              Follow purchase orders, approvals, deliveries, and supplier
+              records.
             </p>
           </div>
 
@@ -825,7 +851,11 @@
               <li>Review &amp; approve</li>
               <li>Record receipt</li>
             </ol>
-            <div class="v-rail-controls v-purchase-rail-controls" hidden data-purchase-controls>
+            <div
+              class="v-rail-controls v-purchase-rail-controls"
+              hidden
+              data-purchase-controls
+            >
               <p class="v-rail-hint">Swipe or use arrows to explore</p>
               <div class="v-rail-arrows">
                 <button
@@ -835,7 +865,19 @@
                   aria-label="Previous purchasing document"
                   disabled
                 >
-                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                  <svg
+                    aria-hidden="true"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                  </svg>
                 </button>
                 <button
                   type="button"
@@ -843,7 +885,19 @@
                   data-purchase-next
                   aria-label="Next purchasing document"
                 >
-                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  <svg
+                    aria-hidden="true"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -1007,26 +1061,29 @@
             </p>
           </div>
 
-          <div class="v-purchase-features">
-            <article class="v-purchase-feature">
-              <h3>Create and approve purchase orders.</h3>
-              <p>Create purchase orders and review them before ordering.</p>
-            </article>
-            <article class="v-purchase-feature">
-              <h3>Record medicines received.</h3>
-              <p>
-                Record delivered quantities, batches, expiry dates, and supplier
-                bills.
-              </p>
-            </article>
-            <article class="v-purchase-feature">
-              <h3>Track supplier bills and payments.</h3>
-              <p>
-                Keep supplier details, recorded payments, and bill corrections
-                together.
-              </p>
-            </article>
-          </div>
+          <details class="v-workflow-details v-purchasing-details">
+            <summary>Explore the purchasing workflow</summary>
+            <div class="v-purchase-features">
+              <article class="v-purchase-feature">
+                <h3>Create and approve purchase orders.</h3>
+                <p>Create purchase orders and review them before ordering.</p>
+              </article>
+              <article class="v-purchase-feature">
+                <h3>Record medicines received.</h3>
+                <p>
+                  Record delivered quantities, batches, expiry dates, and
+                  supplier bills.
+                </p>
+              </article>
+              <article class="v-purchase-feature">
+                <h3>Track supplier bills and payments.</h3>
+                <p>
+                  Keep supplier details, recorded payments, and bill corrections
+                  together.
+                </p>
+              </article>
+            </div>
+          </details>
 
           <div class="v-purchase-footer">
             <hr class="v-purchase-divider" />
@@ -1043,13 +1100,12 @@
       >
         <div class="v-container">
           <div class="v-hospital-intro">
-            <h2 id="hospital-supply-heading">
-              Track medicine requests,<br /><em>dispatches and receipts.</em>
+            <h2 id="hospital-supply-heading" class="v-heading-section">
+              Hospital medicine supply
             </h2>
             <p class="v-lead">
-              Track every medicine indent, dispatch, and receipt between your
-              teams. Know what was requested, what was sent, and what reached
-              the store.
+              Follow medicine requests from the hospital store through dispatch
+              and receipt.
             </p>
           </div>
 
@@ -1060,6 +1116,83 @@
             role="region"
             aria-label="Hospital supply workflow demonstration"
           >
+            <ol
+              class="v-supply-journey v-supply-mobile-journey"
+              aria-label="Medicine supply steps"
+            >
+              <li>
+                <a
+                  class="v-supply-step-link"
+                  href="#supply-card-0"
+                  data-supply-mobile-step="request"
+                  aria-controls="supply-card-0"
+                >
+                  <span class="v-supply-step-number" aria-hidden="true"
+                    >01</span
+                  >
+                  <span
+                    ><strong>Request</strong
+                    ><span class="v-supply-step-owner"
+                      >Hospital store</span
+                    ></span
+                  >
+                </a>
+              </li>
+              <li>
+                <a
+                  class="v-supply-step-link"
+                  href="#supply-card-1"
+                  data-supply-mobile-step="pick"
+                  aria-controls="supply-card-1"
+                >
+                  <span class="v-supply-step-number" aria-hidden="true"
+                    >02</span
+                  >
+                  <span
+                    ><strong>Prepare</strong
+                    ><span class="v-supply-step-owner"
+                      >Central pharmacy</span
+                    ></span
+                  >
+                </a>
+              </li>
+              <li>
+                <a
+                  class="v-supply-step-link"
+                  href="#supply-card-2"
+                  data-supply-mobile-step="dispatch"
+                  aria-controls="supply-card-2"
+                >
+                  <span class="v-supply-step-number" aria-hidden="true"
+                    >03</span
+                  >
+                  <span
+                    ><strong>Dispatch</strong
+                    ><span class="v-supply-step-owner"
+                      >Central pharmacy</span
+                    ></span
+                  >
+                </a>
+              </li>
+              <li>
+                <a
+                  class="v-supply-step-link"
+                  href="#supply-card-3"
+                  data-supply-mobile-step="receive"
+                  aria-controls="supply-card-3"
+                >
+                  <span class="v-supply-step-number" aria-hidden="true"
+                    >04</span
+                  >
+                  <span
+                    ><strong>Receive</strong
+                    ><span class="v-supply-step-owner"
+                      >Hospital store</span
+                    ></span
+                  >
+                </a>
+              </li>
+            </ol>
             <div class="v-operations-copy v-supply-copy">
               <div class="v-supply-departments">
                 <!-- Department 1: Hospital Store (Requesting End) -->
@@ -1154,465 +1287,541 @@
               </p>
             </div>
 
-            <figure class="v-operations-visual v-supply-visual">
-              <figcaption>Illustrative preview · Demo data</figcaption>
-              <div class="v-supply-controls" data-supply-controls hidden>
-                <button
-                  type="button"
-                  class="v-supply-ctrl-btn"
-                  data-supply-playback
-                  aria-label="Pause workflow animation"
-                >
-                  Pause
-                </button>
-                <span class="v-supply-counter" data-supply-counter
-                  >Step 1 of 4</span
-                >
-              </div>
-
+            <div class="v-supply-example">
               <div
-                class="v-supply-shuffle-stage"
-                id="supplyDeckArea"
-                data-supply-card
+                class="v-supply-mobile-summary"
+                data-supply-mobile-summary
+                hidden
               >
-                <!-- Card 0: Store Requisition Slip -->
-                <article
-                  id="supply-card-0"
-                  class="v-operations-document v-supply-document v-supply-shuffle-card tier-0"
-                  aria-labelledby="supply-doc-title-0"
-                >
-                  <div class="v-operations-doc-brand">
-                    <span>VELOCITY ↗</span
-                    ><span>Step 1 · Hospital Main Store</span>
+                <p class="v-supply-summary-owner" data-supply-summary-owner>
+                  Hospital store
+                </p>
+                <div class="v-supply-summary-heading">
+                  <h3 class="v-supply-summary-title" data-supply-summary-title>
+                    Request raised
+                  </h3>
+                  <span
+                    class="v-supply-summary-verified"
+                    data-supply-summary-verified
+                    aria-hidden="true"
+                    hidden
+                    >✓</span
+                  >
+                </div>
+                <dl class="v-supply-summary-items">
+                  <div>
+                    <dt>Paracetamol 500 mg</dt>
+                    <dd>120 strips</dd>
                   </div>
-                  <div class="v-operations-doc-heading">
-                    <div>
-                      <p>Store Requisition Slip</p>
-                      <h4 id="supply-doc-title-0">Medicine request raised</h4>
-                    </div>
-                    <span>SR–0024</span>
+                  <div>
+                    <dt>Oral rehydration salts</dt>
+                    <dd>40 sachets</dd>
                   </div>
-
-                  <div class="v-supply-route-nodes">
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag">Originating</span>
-                      <strong>Hospital store</strong>
-                    </div>
-                    <div class="v-supply-route-arrow" aria-hidden="true">
-                      <span></span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </div>
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag">Fulfilling Queue</span>
-                      <strong>Central pharmacy</strong>
-                    </div>
-                  </div>
-
-                  <div class="v-supply-status-bar">
-                    <span class="v-supply-status-label">Status</span>
-                    <div class="v-supply-status-right">
-                      <strong class="v-supply-status-value" data-supply-status
-                        >Request raised</strong
-                      >
-                      <span
-                        class="v-document-badge v-badge-amber"
-                        data-supply-badge
-                        >Indent logged</span
-                      >
-                    </div>
-                  </div>
-
-                  <table class="v-operations-table v-supply-table">
-                    <caption class="sr-only">
-                      Illustrative medicine transfer request items and
-                      quantities
-                    </caption>
-                    <thead>
-                      <tr>
-                        <th scope="col">Medicine</th>
-                        <th scope="col">Batch &amp; Expiry</th>
-                        <th scope="col">Qty</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                          Paracetamol<span>500 mg · 10 tablets / strip</span>
-                        </th>
-                        <td>
-                          <span class="v-mono-batch">PCM–0426</span>
-                          <span class="v-mono-expiry">Apr 2028</span>
-                        </td>
-                        <td>120 strips</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          Oral rehydration salts<span
-                            >Single-dose sachet 21.8 g</span
-                          >
-                        </th>
-                        <td>
-                          <span class="v-mono-batch">ORS–1125</span>
-                          <span class="v-mono-expiry">Nov 2027</span>
-                        </td>
-                        <td>40 sachets</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div class="v-operations-doc-footer v-supply-doc-footer">
-                    <span class="v-operations-doc-check" aria-hidden="true"
-                      >✓</span
-                    >
-                    <p>
-                      <span data-supply-caption
-                        >Hospital store requests medicines from Central
-                        pharmacy.</span
-                      >
-                      <span>Demand logged into central dispensary queue.</span>
-                    </p>
-                  </div>
-                </article>
-
-                <!-- Card 1: FEFO Batch Allocation Picking Slip -->
-                <article
-                  id="supply-card-1"
-                  class="v-operations-document v-supply-document v-supply-shuffle-card tier-1"
-                  aria-labelledby="supply-doc-title-1"
-                >
-                  <div class="v-operations-doc-brand">
-                    <span>VELOCITY ↗</span
-                    ><span>Step 2 · Central Pharmacy Hub</span>
-                  </div>
-                  <div class="v-operations-doc-heading">
-                    <div>
-                      <p>FEFO Picking Slip</p>
-                      <h4 id="supply-doc-title-1">
-                        Earliest-expiring batch reserved
-                      </h4>
-                    </div>
-                    <span>PK–0024</span>
-                  </div>
-
-                  <div class="v-supply-route-nodes">
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag">Central Rack</span>
-                      <strong>Zone B-12 / Bay 4</strong>
-                    </div>
-                    <div class="v-supply-route-arrow" aria-hidden="true">
-                      <span></span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </div>
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag"
-                        >Allocation Strategy</span
-                      >
-                      <strong>First-Expired First-Out</strong>
-                    </div>
-                  </div>
-
-                  <div class="v-supply-status-bar">
-                    <span class="v-supply-status-label">Status</span>
-                    <div class="v-supply-status-right">
-                      <strong class="v-supply-status-value"
-                        >Stock prepared</strong
-                      >
-                      <span class="v-document-badge v-badge-blue"
-                        >Batch allocated</span
-                      >
-                    </div>
-                  </div>
-
-                  <table class="v-operations-table v-supply-table">
-                    <caption class="sr-only">
-                      Allocated batches and expiry dates for transfer
-                    </caption>
-                    <thead>
-                      <tr>
-                        <th scope="col">Medicine &amp; Batch</th>
-                        <th scope="col">Expiry Date</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                          Paracetamol 500mg<span
-                            >Batch PCM–0426 · 120 strips</span
-                          >
-                        </th>
-                        <td>
-                          <span class="v-mono-batch">Apr 2028</span>
-                          <span class="v-mono-expiry">Earliest expiry</span>
-                        </td>
-                        <td>
-                          <span class="v-pill-tag is-blue">Reserved</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          ORS Sachets 21.8g<span
-                            >Batch ORS–1125 · 40 sachets</span
-                          >
-                        </th>
-                        <td>
-                          <span class="v-mono-batch">Nov 2027</span>
-                          <span class="v-mono-expiry">Earliest expiry</span>
-                        </td>
-                        <td>
-                          <span class="v-pill-tag is-blue">Reserved</span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div class="v-operations-doc-footer v-supply-doc-footer">
-                    <span class="v-operations-doc-check" aria-hidden="true"
-                      >✓</span
-                    >
-                    <p>
-                      <span>Automated FEFO picking verified.</span>
-                      <span
-                        >Zero near-expiry stock overlooked in dispensary.</span
-                      >
-                    </p>
-                  </div>
-                </article>
-
-                <!-- Card 2: Security Gate Pass & Transit Note -->
-                <article
-                  id="supply-card-2"
-                  class="v-operations-document v-supply-document v-supply-shuffle-card tier-2"
-                  aria-labelledby="supply-doc-title-2"
-                >
-                  <div class="v-operations-doc-brand">
-                    <span>VELOCITY ↗</span
-                    ><span>Step 3 · Dispensary Transit</span>
-                  </div>
-                  <div class="v-operations-doc-heading">
-                    <div>
-                      <p>Security Gate Pass</p>
-                      <h4 id="supply-doc-title-2">Medicines dispatched</h4>
-                    </div>
-                    <span>GP–0842</span>
-                  </div>
-
-                  <div class="v-supply-route-nodes">
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag">Dispatched From</span>
-                      <strong>Dispensary Counter A</strong>
-                    </div>
-                    <div class="v-supply-route-arrow" aria-hidden="true">
-                      <span></span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </div>
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag">Destination</span>
-                      <strong>Hospital Main Store</strong>
-                    </div>
-                  </div>
-
-                  <div class="v-supply-status-bar">
-                    <span class="v-supply-status-label">Status</span>
-                    <div class="v-supply-status-right">
-                      <strong class="v-supply-status-value">Dispatched</strong>
-                      <span class="v-document-badge v-badge-purple"
-                        >In transit</span
-                      >
-                    </div>
-                  </div>
-
-                  <div class="v-supply-runner-card">
-                    <div class="v-supply-runner-info">
-                      <span class="v-supply-route-tag"
-                        >Assigned Internal Runner</span
-                      >
-                      <strong>Ramesh K. · Badge #14</strong>
-                    </div>
-                    <div class="v-supply-runner-token">
-                      <span class="v-supply-route-tag">OTP Token</span>
-                      <strong class="v-mono-batch">4921</strong>
-                    </div>
-                  </div>
-
-                  <div class="v-supply-seal-note">
-                    <span class="v-mono-batch">Seal #TS–9912</span>
-                    <span
-                      >Tamper-evident container sealed. Custody chain
-                      verified.</span
-                    >
-                  </div>
-
-                  <div class="v-operations-doc-footer v-supply-doc-footer">
-                    <span class="v-operations-doc-check" aria-hidden="true"
-                      >✓</span
-                    >
-                    <p>
-                      <span>Security gate pass issued &amp; en route.</span>
-                      <span
-                        >Zero unaccounted stock during internal handoff.</span
-                      >
-                    </p>
-                  </div>
-                </article>
-
-                <!-- Card 3: Goods Receipt Note & Reconciled Ledgers -->
-                <article
-                  id="supply-card-3"
-                  class="v-operations-document v-supply-document v-supply-shuffle-card tier-3"
-                  aria-labelledby="supply-doc-title-3"
-                >
-                  <div class="v-operations-doc-brand">
-                    <span>VELOCITY ↗</span
-                    ><span>Step 4 · Inward Verification</span>
-                  </div>
-                  <div class="v-operations-doc-heading">
-                    <div>
-                      <p>Goods Receipt Note</p>
-                      <h4 id="supply-doc-title-3">
-                        Medicine receipt confirmed
-                      </h4>
-                    </div>
-                    <span>GRN–0092</span>
-                  </div>
-
-                  <div class="v-supply-route-nodes">
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag">Received At</span>
-                      <strong>Hospital store</strong>
-                    </div>
-                    <div class="v-supply-route-arrow" aria-hidden="true">
-                      <span></span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </div>
-                    <div class="v-supply-route-cell">
-                      <span class="v-supply-route-tag"
-                        >Dual Ledger Balance</span
-                      >
-                      <strong>Synchronized 100%</strong>
-                    </div>
-                  </div>
-
-                  <div class="v-supply-status-bar">
-                    <span class="v-supply-status-label">Status</span>
-                    <div class="v-supply-status-right">
-                      <strong class="v-supply-status-value"
-                        >Receipt recorded</strong
-                      >
-                      <span class="v-document-badge v-badge-received"
-                        >Verified inward</span
-                      >
-                    </div>
-                  </div>
-
-                  <table class="v-operations-table v-supply-table">
-                    <caption class="sr-only">
-                      Verified inward medicine quantities and ledger
-                      reconciliations
-                    </caption>
-                    <thead>
-                      <tr>
-                        <th scope="col">Medicine &amp; Batch</th>
-                        <th scope="col">Delivered</th>
-                        <th scope="col">Inward Check</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">
-                          Paracetamol 500mg<span>Batch PCM–0426</span>
-                        </th>
-                        <td>120 strips</td>
-                        <td>
-                          <strong class="v-inward-match">✓ 120 / 120</strong>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">
-                          Oral rehydration salts<span>Batch ORS–1125</span>
-                        </th>
-                        <td>40 sachets</td>
-                        <td>
-                          <strong class="v-inward-match">✓ 40 / 40</strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div class="v-supply-reconciliation-callout">
-                    <span
-                      >Both central pharmacy &amp; hospital store ledgers
-                      balanced with 0 discrepancy.</span
-                    >
-                  </div>
-
-                  <div class="v-operations-doc-footer v-supply-doc-footer">
-                    <span class="v-operations-doc-check" aria-hidden="true"
-                      >✓</span
-                    >
-                    <p>
-                      <span
-                        >Hospital store reviews delivery &amp; records
-                        receipt.</span
-                      >
-                      <span>Both inventory ledgers balanced in real time.</span>
-                    </p>
-                  </div>
-                </article>
+                </dl>
               </div>
+              <details
+                class="v-supply-full-example"
+                data-supply-full-example
+                open
+              >
+                <summary>
+                  <span class="v-supply-example-closed-label"
+                    >View full example</span
+                  >
+                  <span class="v-supply-example-open-label"
+                    >Close full example</span
+                  >
+                  <span class="v-supply-example-indicator" aria-hidden="true"
+                    >↗</span
+                  >
+                </summary>
+                <figure
+                  class="v-operations-visual v-supply-visual v-supply-preview"
+                >
+                  <figcaption>Illustrative preview · Demo data</figcaption>
+                  <div class="v-supply-controls" data-supply-controls hidden>
+                    <button
+                      type="button"
+                      class="v-supply-ctrl-btn"
+                      data-supply-playback
+                      aria-label="Pause workflow animation"
+                    >
+                      Pause
+                    </button>
+                    <span class="v-supply-counter" data-supply-counter
+                      >Step 1 of 4</span
+                    >
+                  </div>
 
-              <p class="v-operations-visual-note">
-                Requests. Dispatches. Both stock ledgers kept in sync.
-              </p>
-            </figure>
+                  <div
+                    class="v-supply-shuffle-stage"
+                    id="supplyDeckArea"
+                    data-supply-card
+                  >
+                    <!-- Card 0: Store Requisition Slip -->
+                    <article
+                      id="supply-card-0"
+                      class="v-operations-document v-supply-document v-supply-shuffle-card tier-0"
+                      aria-labelledby="supply-doc-title-0"
+                    >
+                      <div class="v-operations-doc-brand">
+                        <span>VELOCITY ↗</span
+                        ><span>Step 1 · Hospital Main Store</span>
+                      </div>
+                      <div class="v-operations-doc-heading">
+                        <div>
+                          <p>Store Requisition Slip</p>
+                          <h4 id="supply-doc-title-0">
+                            Medicine request raised
+                          </h4>
+                        </div>
+                        <span>SR–0024</span>
+                      </div>
+
+                      <div class="v-supply-route-nodes">
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag">Originating</span>
+                          <strong>Hospital store</strong>
+                        </div>
+                        <div class="v-supply-route-arrow" aria-hidden="true">
+                          <span></span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag"
+                            >Fulfilling Queue</span
+                          >
+                          <strong>Central pharmacy</strong>
+                        </div>
+                      </div>
+
+                      <div class="v-supply-status-bar">
+                        <span class="v-supply-status-label">Status</span>
+                        <div class="v-supply-status-right">
+                          <strong
+                            class="v-supply-status-value"
+                            data-supply-status
+                            >Request raised</strong
+                          >
+                          <span
+                            class="v-document-badge v-badge-amber"
+                            data-supply-badge
+                            >Indent logged</span
+                          >
+                        </div>
+                      </div>
+
+                      <table class="v-operations-table v-supply-table">
+                        <caption class="sr-only">
+                          Illustrative medicine transfer request items and
+                          quantities
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">Medicine</th>
+                            <th scope="col">Batch &amp; Expiry</th>
+                            <th scope="col">Qty</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              Paracetamol<span
+                                >500 mg · 10 tablets / strip</span
+                              >
+                            </th>
+                            <td>
+                              <span class="v-mono-batch">PCM–0426</span>
+                              <span class="v-mono-expiry">Apr 2028</span>
+                            </td>
+                            <td>120 strips</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              Oral rehydration salts<span
+                                >Single-dose sachet 21.8 g</span
+                              >
+                            </th>
+                            <td>
+                              <span class="v-mono-batch">ORS–1125</span>
+                              <span class="v-mono-expiry">Nov 2027</span>
+                            </td>
+                            <td>40 sachets</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="v-operations-doc-footer v-supply-doc-footer">
+                        <span class="v-operations-doc-check" aria-hidden="true"
+                          >✓</span
+                        >
+                        <p>
+                          <span data-supply-caption
+                            >Hospital store requests medicines from Central
+                            pharmacy.</span
+                          >
+                          <span
+                            >Demand logged into central dispensary queue.</span
+                          >
+                        </p>
+                      </div>
+                    </article>
+
+                    <!-- Card 1: FEFO Batch Allocation Picking Slip -->
+                    <article
+                      id="supply-card-1"
+                      class="v-operations-document v-supply-document v-supply-shuffle-card tier-1"
+                      aria-labelledby="supply-doc-title-1"
+                    >
+                      <div class="v-operations-doc-brand">
+                        <span>VELOCITY ↗</span
+                        ><span>Step 2 · Central Pharmacy Hub</span>
+                      </div>
+                      <div class="v-operations-doc-heading">
+                        <div>
+                          <p>FEFO Picking Slip</p>
+                          <h4 id="supply-doc-title-1">
+                            Earliest-expiring batch reserved
+                          </h4>
+                        </div>
+                        <span>PK–0024</span>
+                      </div>
+
+                      <div class="v-supply-route-nodes">
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag">Central Rack</span>
+                          <strong>Zone B-12 / Bay 4</strong>
+                        </div>
+                        <div class="v-supply-route-arrow" aria-hidden="true">
+                          <span></span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag"
+                            >Allocation Strategy</span
+                          >
+                          <strong>First-Expired First-Out</strong>
+                        </div>
+                      </div>
+
+                      <div class="v-supply-status-bar">
+                        <span class="v-supply-status-label">Status</span>
+                        <div class="v-supply-status-right">
+                          <strong class="v-supply-status-value"
+                            >Stock prepared</strong
+                          >
+                          <span class="v-document-badge v-badge-blue"
+                            >Batch allocated</span
+                          >
+                        </div>
+                      </div>
+
+                      <table class="v-operations-table v-supply-table">
+                        <caption class="sr-only">
+                          Allocated batches and expiry dates for transfer
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">Medicine &amp; Batch</th>
+                            <th scope="col">Expiry Date</th>
+                            <th scope="col">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              Paracetamol 500mg<span
+                                >Batch PCM–0426 · 120 strips</span
+                              >
+                            </th>
+                            <td>
+                              <span class="v-mono-batch">Apr 2028</span>
+                              <span class="v-mono-expiry">Earliest expiry</span>
+                            </td>
+                            <td>
+                              <span class="v-pill-tag is-blue">Reserved</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              ORS Sachets 21.8g<span
+                                >Batch ORS–1125 · 40 sachets</span
+                              >
+                            </th>
+                            <td>
+                              <span class="v-mono-batch">Nov 2027</span>
+                              <span class="v-mono-expiry">Earliest expiry</span>
+                            </td>
+                            <td>
+                              <span class="v-pill-tag is-blue">Reserved</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="v-operations-doc-footer v-supply-doc-footer">
+                        <span class="v-operations-doc-check" aria-hidden="true"
+                          >✓</span
+                        >
+                        <p>
+                          <span>Automated FEFO picking verified.</span>
+                          <span
+                            >Zero near-expiry stock overlooked in
+                            dispensary.</span
+                          >
+                        </p>
+                      </div>
+                    </article>
+
+                    <!-- Card 2: Security Gate Pass & Transit Note -->
+                    <article
+                      id="supply-card-2"
+                      class="v-operations-document v-supply-document v-supply-shuffle-card tier-2"
+                      aria-labelledby="supply-doc-title-2"
+                    >
+                      <div class="v-operations-doc-brand">
+                        <span>VELOCITY ↗</span
+                        ><span>Step 3 · Dispensary Transit</span>
+                      </div>
+                      <div class="v-operations-doc-heading">
+                        <div>
+                          <p>Security Gate Pass</p>
+                          <h4 id="supply-doc-title-2">Medicines dispatched</h4>
+                        </div>
+                        <span>GP–0842</span>
+                      </div>
+
+                      <div class="v-supply-route-nodes">
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag"
+                            >Dispatched From</span
+                          >
+                          <strong>Dispensary Counter A</strong>
+                        </div>
+                        <div class="v-supply-route-arrow" aria-hidden="true">
+                          <span></span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag">Destination</span>
+                          <strong>Hospital Main Store</strong>
+                        </div>
+                      </div>
+
+                      <div class="v-supply-status-bar">
+                        <span class="v-supply-status-label">Status</span>
+                        <div class="v-supply-status-right">
+                          <strong class="v-supply-status-value"
+                            >Dispatched</strong
+                          >
+                          <span class="v-document-badge v-badge-purple"
+                            >In transit</span
+                          >
+                        </div>
+                      </div>
+
+                      <div class="v-supply-runner-card">
+                        <div class="v-supply-runner-info">
+                          <span class="v-supply-route-tag"
+                            >Assigned Internal Runner</span
+                          >
+                          <strong>Ramesh K. · Badge #14</strong>
+                        </div>
+                        <div class="v-supply-runner-token">
+                          <span class="v-supply-route-tag">OTP Token</span>
+                          <strong class="v-mono-batch">4921</strong>
+                        </div>
+                      </div>
+
+                      <div class="v-supply-seal-note">
+                        <span class="v-mono-batch">Seal #TS–9912</span>
+                        <span
+                          >Tamper-evident container sealed. Custody chain
+                          verified.</span
+                        >
+                      </div>
+
+                      <div class="v-operations-doc-footer v-supply-doc-footer">
+                        <span class="v-operations-doc-check" aria-hidden="true"
+                          >✓</span
+                        >
+                        <p>
+                          <span>Security gate pass issued &amp; en route.</span>
+                          <span
+                            >Zero unaccounted stock during internal
+                            handoff.</span
+                          >
+                        </p>
+                      </div>
+                    </article>
+
+                    <!-- Card 3: Goods Receipt Note & Reconciled Ledgers -->
+                    <article
+                      id="supply-card-3"
+                      class="v-operations-document v-supply-document v-supply-shuffle-card tier-3"
+                      aria-labelledby="supply-doc-title-3"
+                    >
+                      <div class="v-operations-doc-brand">
+                        <span>VELOCITY ↗</span
+                        ><span>Step 4 · Inward Verification</span>
+                      </div>
+                      <div class="v-operations-doc-heading">
+                        <div>
+                          <p>Goods Receipt Note</p>
+                          <h4 id="supply-doc-title-3">
+                            Medicine receipt confirmed
+                          </h4>
+                        </div>
+                        <span>GRN–0092</span>
+                      </div>
+
+                      <div class="v-supply-route-nodes">
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag">Received At</span>
+                          <strong>Hospital store</strong>
+                        </div>
+                        <div class="v-supply-route-arrow" aria-hidden="true">
+                          <span></span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div class="v-supply-route-cell">
+                          <span class="v-supply-route-tag"
+                            >Dual Ledger Balance</span
+                          >
+                          <strong>Synchronized 100%</strong>
+                        </div>
+                      </div>
+
+                      <div class="v-supply-status-bar">
+                        <span class="v-supply-status-label">Status</span>
+                        <div class="v-supply-status-right">
+                          <strong class="v-supply-status-value"
+                            >Receipt recorded</strong
+                          >
+                          <span class="v-document-badge v-badge-received"
+                            >Verified inward</span
+                          >
+                        </div>
+                      </div>
+
+                      <table class="v-operations-table v-supply-table">
+                        <caption class="sr-only">
+                          Verified inward medicine quantities and ledger
+                          reconciliations
+                        </caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">Medicine &amp; Batch</th>
+                            <th scope="col">Delivered</th>
+                            <th scope="col">Inward Check</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+                              Paracetamol 500mg<span>Batch PCM–0426</span>
+                            </th>
+                            <td>120 strips</td>
+                            <td>
+                              <strong class="v-inward-match"
+                                >✓ 120 / 120</strong
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">
+                              Oral rehydration salts<span>Batch ORS–1125</span>
+                            </th>
+                            <td>40 sachets</td>
+                            <td>
+                              <strong class="v-inward-match">✓ 40 / 40</strong>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="v-supply-reconciliation-callout">
+                        <span
+                          >Both central pharmacy &amp; hospital store ledgers
+                          balanced with 0 discrepancy.</span
+                        >
+                      </div>
+
+                      <div class="v-operations-doc-footer v-supply-doc-footer">
+                        <span class="v-operations-doc-check" aria-hidden="true"
+                          >✓</span
+                        >
+                        <p>
+                          <span
+                            >Hospital store reviews delivery &amp; records
+                            receipt.</span
+                          >
+                          <span
+                            >Both inventory ledgers balanced in real time.</span
+                          >
+                        </p>
+                      </div>
+                    </article>
+                  </div>
+
+                  <p class="v-operations-visual-note">
+                    Requests. Dispatches. Both stock ledgers kept in sync.
+                  </p>
+                </figure>
+              </details>
+            </div>
+            <p class="v-supply-qualification">
+              Stock movement uses approval workflows. Rejected deliveries have a
+              supported return process.
+            </p>
           </div>
         </div>
       </section>
@@ -1624,12 +1833,12 @@
       >
         <div class="v-container">
           <div class="v-operations-intro">
-            <h2 id="operations-heading">
-              Manage billing,<br /><em>medicine issues and accounts.</em>
+            <h2 id="operations-heading" class="v-heading-section">
+              Everyday operations
             </h2>
             <p class="v-lead">
-              Give every team a clearer view of the work that keeps your
-              pharmacy moving.
+              Manage billing, ward medicines, accounts, and reports in one
+              workspace.
             </p>
           </div>
           <nav
@@ -1724,7 +1933,10 @@
             >
               <div class="v-operations-copy">
                 <p class="v-operations-eyebrow">01 · BILLING &amp; PAYMENTS</p>
-                <h3>Manage patient billing<br /> <em>and payments.</em></h3>
+                <h3 class="v-heading-card">
+                  Manage patient billing<br />
+                  <em>and payments.</em>
+                </h3>
                 <p>
                   Record medicine sales, select batches automatically, and keep
                   each payment linked to its bill.
@@ -1804,7 +2016,10 @@
             >
               <div class="v-operations-copy">
                 <p class="v-operations-eyebrow">02 · WARD MEDICINES</p>
-                <h3>Record medicines<br /> <em>issued and returned.</em></h3>
+                <h3 class="v-heading-card">
+                  Record medicines<br />
+                  <em>issued and returned.</em>
+                </h3>
                 <p>
                   Follow medicines beyond the pharmacy, from ward issue to
                   recorded consumption and return.
@@ -1898,8 +2113,9 @@
             >
               <div class="v-operations-copy">
                 <p class="v-operations-eyebrow">03 · ACCOUNTS &amp; TALLY</p>
-                <h3>
-                  Export pharmacy records<br /> <em>for your accounts team.</em>
+                <h3 class="v-heading-card">
+                  Export pharmacy records<br />
+                  <em>for your accounts team.</em>
                 </h3>
                 <p>
                   Prepare pharmacy records for your accounts team, with the
@@ -2009,7 +2225,10 @@
             >
               <div class="v-operations-copy">
                 <p class="v-operations-eyebrow">04 · REPORTS &amp; ACCESS</p>
-                <h3>Review stock alerts<br /> <em>and daily activity.</em></h3>
+                <h3 class="v-heading-card">
+                  Review stock alerts<br />
+                  <em>and daily activity.</em>
+                </h3>
                 <p>
                   Bring stock risks, operational reports, and recorded activity
                   into one shared view.
@@ -2096,21 +2315,26 @@
       </section>
       <section
         id="features"
+        data-section-role="detail"
         class="v-section v-capabilities"
         aria-labelledby="v-capabilities-title"
       >
         <div class="v-container">
           <div class="v-capabilities-header">
-            <h2 id="v-capabilities-title">
-              Track medicines<br /><em>from purchase to dispensing.</em>
+            <h2 id="v-capabilities-title" class="v-heading-section">
+              Medicine workflows
             </h2>
             <p class="v-lead">
-              A clearer view of your stock, your daily work, and your next
-              decision.
+              Follow packs and loose units, order progress, and accounting
+              exports.
             </p>
           </div>
 
-          <div class="v-rail-controls v-capabilities-rail-controls" hidden data-capabilities-controls>
+          <div
+            class="v-rail-controls v-capabilities-rail-controls"
+            hidden
+            data-capabilities-controls
+          >
             <p class="v-rail-hint">Swipe or use arrows to explore</p>
             <div class="v-rail-arrows">
               <button
@@ -2120,7 +2344,19 @@
                 aria-label="Previous medicine workflow feature"
                 disabled
               >
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                <svg
+                  aria-hidden="true"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
               </button>
               <button
                 type="button"
@@ -2128,7 +2364,19 @@
                 data-capabilities-next
                 aria-label="Next medicine workflow feature"
               >
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                <svg
+                  aria-hidden="true"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
           </div>
@@ -2207,7 +2455,7 @@
                 </div>
               </div>
               <div class="v-capability-card-copy">
-                <h3 id="v-card-1-title">
+                <h3 id="v-card-1-title" class="v-heading-card">
                   Track stock in packs and loose units.
                 </h3>
                 <p>
@@ -2298,7 +2546,7 @@
                 </div>
               </div>
               <div class="v-capability-card-copy">
-                <h3 id="v-card-2-title">
+                <h3 id="v-card-2-title" class="v-heading-card">
                   Follow orders, stock receipts and dispensing.
                 </h3>
                 <p>
@@ -2485,7 +2733,7 @@
                 </div>
               </div>
               <div class="v-capability-card-copy">
-                <h3 id="v-card-3-title">
+                <h3 id="v-card-3-title" class="v-heading-card">
                   Plan purchases using stock and consumption reports.
                 </h3>
                 <p>
@@ -2504,17 +2752,17 @@
       </section>
       <section
         id="why-velocity"
+        data-section-role="detail"
         class="v-section v-why-section"
         aria-labelledby="v-why-title"
       >
         <div class="v-container">
           <div class="v-why-header">
-            <h2 id="v-why-title">
-              Spot low stock<br /><em>and upcoming expiries early.</em>
+            <h2 id="v-why-title" class="v-heading-section">
+              Risks and activity
             </h2>
             <p class="v-lead">
-              Know what needs attention, understand stock changes, and stay
-              informed when you’re away.
+              Review stock risks, trace adjustments, and check reports remotely.
             </p>
           </div>
 
@@ -3131,186 +3379,200 @@
             <p class="v-comparison-eyebrow">
               THE DETAILS THAT MAKE A DIFFERENCE
             </p>
-            <h2 id="v-comparison-title">
-              What to check before choosing pharmacy software.
+            <h2 id="v-comparison-title" class="v-heading-section">
+              Compare capabilities
             </h2>
             <p class="v-lead">
-              Look beyond billing. Compare how your team finds medicines, moves
-              stock, collects payments, and plans the next order.
+              Use this checklist to explore the capabilities your team needs.
             </p>
           </div>
-          <p id="v-comparison-scroll-hint" class="v-comparison-hint">
-            Scroll sideways to compare all columns.
-          </p>
-          <div
-            class="v-comparison-scroll"
-            tabindex="0"
-            role="region"
-            aria-label="Pharmacy software comparison"
-            aria-describedby="v-comparison-scroll-hint"
-          >
-            <table id="v-comparison-table" class="v-comparison-table">
-              <caption>
-                Pharmacy software evaluation checklist and Velocity capabilities
-              </caption>
-              <colgroup>
-                <col class="v-comparison-capability-col" />
-                <col class="v-comparison-question-col" />
-                <col class="v-comparison-velocity-col" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">Capability</th>
-                  <th scope="col">What to check in other software</th>
-                  <th scope="col">Velocity</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Search by salt composition</th>
-                  <td>
-                    Can you find stocked medicines with matching salt
-                    composition?
-                  </td>
-                  <td>
-                    Find medicines with the same salt composition and see where
-                    they are stocked.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Loose-medicine tracking</th>
-                  <td>Can you track individual units as well as full packs?</td>
-                  <td>
-                    Track loose units alongside full packs and see remaining
-                    quantities.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">POS on staff devices</th>
-                  <td>
-                    Can staff collect invoice payments from their own devices?
-                  </td>
-                  <td>
-                    Staff can collect invoice payments directly on their
-                    devices, helping customers avoid a separate billing queue.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">AI-powered reorder recommendations</th>
-                  <td>
-                    Do reorder suggestions use stock and consumption patterns?
-                  </td>
-                  <td>
-                    Use AI-based predictive analysis to recommend medicine
-                    reorders, with staff reviewing the suggestions.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Staff stock-transfer requests</th>
-                  <td>Can staff request stock from other locations?</td>
-                  <td>
-                    Staff across multiple locations can raise stock-transfer
-                    requests.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Stock across locations</th>
-                  <td>Can you check medicine availability at each location?</td>
-                  <td>
-                    See which medicines are available and in what quantities
-                    across locations.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Automatic narcotics tracking</th>
-                  <td>How are narcotic medicines tracked?</td>
-                  <td>
-                    Automatically track narcotic medicines within pharmacy
-                    operations.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Staff noticeboard and tasks</th>
-                  <td>Can staff see operational notices and assigned tasks?</td>
-                  <td>
-                    Give staff a shared place to see their tasks and operational
-                    notices.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">In-depth operational analytics</th>
-                  <td>Can you investigate operations beyond billing totals?</td>
-                  <td>
-                    Explore inventory, purchasing, sales, supplier, and hospital
-                    reports, including slow-moving stock and expiry risk.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Remote owner visibility</th>
-                  <td>Can owners access reports away from the pharmacy?</td>
-                  <td>
-                    Access available reports and recorded activity through a
-                    browser with an internet connection.
-                  </td>
-                </tr>
-              </tbody>
-              <tbody id="v-comparison-extra" data-comparison-extra>
-                <tr>
-                  <th scope="row">Vendor payment records</th>
-                  <td>
-                    Can you review supplier payments alongside purchasing
-                    records?
-                  </td>
-                  <td>
-                    Record vendor payments and review payment history alongside
-                    purchasing records.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Batch and expiry tracking</th>
-                  <td>
-                    Can you follow batches and identify stock nearing expiry?
-                  </td>
-                  <td>
-                    Track medicine batches and identify stock nearing expiry
-                    across locations.
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">One-click Tally sync and GST audit export</th>
-                  <td>How does pharmacy data reach the accounts team?</td>
-                  <td>One-click Tally sync and GST audit export.</td>
-                </tr>
-                <tr>
-                  <th scope="row">GST return filing</th>
-                  <td>Is direct return filing available today?</td>
-                  <td><span class="v-comparison-soon">Coming soon</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <button
-            class="v-comparison-toggle"
-            type="button"
-            data-comparison-toggle
-            aria-expanded="false"
-            aria-controls="v-comparison-extra"
-            hidden
-          >
-            <span class="v-comparison-toggle-icon" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </span>
-            <span data-comparison-toggle-label>Show 4 more features</span>
-          </button>
+          <details class="v-workflow-details v-comparison-details">
+            <summary>Open the comparison checklist</summary>
+            <p id="v-comparison-scroll-hint" class="v-comparison-hint">
+              Scroll sideways to compare all columns.
+            </p>
+            <div
+              class="v-comparison-scroll"
+              tabindex="0"
+              role="region"
+              aria-label="Pharmacy software comparison"
+              aria-describedby="v-comparison-scroll-hint"
+            >
+              <table id="v-comparison-table" class="v-comparison-table">
+                <caption>
+                  Pharmacy software evaluation checklist and Velocity
+                  capabilities
+                </caption>
+                <colgroup>
+                  <col class="v-comparison-capability-col" />
+                  <col class="v-comparison-question-col" />
+                  <col class="v-comparison-velocity-col" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">Capability</th>
+                    <th scope="col">What to check in other software</th>
+                    <th scope="col">Velocity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Search by salt composition</th>
+                    <td>
+                      Can you find stocked medicines with matching salt
+                      composition?
+                    </td>
+                    <td>
+                      Find medicines with the same salt composition and see
+                      where they are stocked.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Loose-medicine tracking</th>
+                    <td>
+                      Can you track individual units as well as full packs?
+                    </td>
+                    <td>
+                      Track loose units alongside full packs and see remaining
+                      quantities.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">POS on staff devices</th>
+                    <td>
+                      Can staff collect invoice payments from their own devices?
+                    </td>
+                    <td>
+                      Staff can collect invoice payments directly on their
+                      devices, helping customers avoid a separate billing queue.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">AI-powered reorder recommendations</th>
+                    <td>
+                      Do reorder suggestions use stock and consumption patterns?
+                    </td>
+                    <td>
+                      Use AI-based predictive analysis to recommend medicine
+                      reorders, with staff reviewing the suggestions.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Staff stock-transfer requests</th>
+                    <td>Can staff request stock from other locations?</td>
+                    <td>
+                      Staff across multiple locations can raise stock-transfer
+                      requests.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Stock across locations</th>
+                    <td>
+                      Can you check medicine availability at each location?
+                    </td>
+                    <td>
+                      See which medicines are available and in what quantities
+                      across locations.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Automatic narcotics tracking</th>
+                    <td>How are narcotic medicines tracked?</td>
+                    <td>
+                      Automatically track narcotic medicines within pharmacy
+                      operations.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Staff noticeboard and tasks</th>
+                    <td>
+                      Can staff see operational notices and assigned tasks?
+                    </td>
+                    <td>
+                      Give staff a shared place to see their tasks and
+                      operational notices.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">In-depth operational analytics</th>
+                    <td>
+                      Can you investigate operations beyond billing totals?
+                    </td>
+                    <td>
+                      Explore inventory, purchasing, sales, supplier, and
+                      hospital reports, including slow-moving stock and expiry
+                      risk.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Remote owner visibility</th>
+                    <td>Can owners access reports away from the pharmacy?</td>
+                    <td>
+                      Access available reports and recorded activity through a
+                      browser with an internet connection.
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody id="v-comparison-extra" data-comparison-extra>
+                  <tr>
+                    <th scope="row">Vendor payment records</th>
+                    <td>
+                      Can you review supplier payments alongside purchasing
+                      records?
+                    </td>
+                    <td>
+                      Record vendor payments and review payment history
+                      alongside purchasing records.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Batch and expiry tracking</th>
+                    <td>
+                      Can you follow batches and identify stock nearing expiry?
+                    </td>
+                    <td>
+                      Track medicine batches and identify stock nearing expiry
+                      across locations.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      One-click Tally sync and GST audit export
+                    </th>
+                    <td>How does pharmacy data reach the accounts team?</td>
+                    <td>One-click Tally sync and GST audit export.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">GST return filing</th>
+                    <td>Is direct return filing available today?</td>
+                    <td><span class="v-comparison-soon">Coming soon</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="v-comparison-toggle"
+              type="button"
+              data-comparison-toggle
+              aria-expanded="false"
+              aria-controls="v-comparison-extra"
+              hidden
+            >
+              <span class="v-comparison-toggle-icon" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </span>
+              <span data-comparison-toggle-label>Show 4 more features</span>
+            </button>
+          </details>
           <div class="v-comparison-footer">
             <p>
               Use these questions when evaluating other software. Capabilities
@@ -3322,10 +3584,9 @@
 
       <section id="faq" class="v-section v-container v-faq-grid">
         <div class="v-copy">
-          <h2>Your questions about Velocity,<br /><em>answered.</em></h2>
+          <h2 class="v-heading-section">Questions, answered</h2>
           <p class="v-lead">
-            A starting point for your team’s questions. We can explore your
-            specific setup during a demo.
+            Explore common questions, then discuss your setup in a demo.
           </p>
         </div>
         <div class="v-faq-list">
@@ -3406,10 +3667,10 @@
           <div class="v-demo-intro">
             <span class="v-demo-watermark" aria-hidden="true">अस्त्र</span>
             <span class="v-eyebrow">VELOCITY DEMO</span>
-            <h2>See how Velocity<br /><em>fits your pharmacy.</em></h2>
+            <h2 class="v-heading-section">See Velocity in action</h2>
             <p class="v-lead">
-              Explore stock, purchasing, billing, and hospital supply in a demo
-              built around your team’s needs.
+              Explore a demo built around your pharmacy and the way your team
+              works.
             </p>
             <p class="v-demo-email-alt">
               Prefer email?
@@ -3432,7 +3693,7 @@
 
             <div class="grain-overlay" aria-hidden="true"></div>
             <div class="v-demo-brand">ASTR AI <span>/</span> VELOCITY</div>
-            <h3 class="v-demo-card-title">Request your demo</h3>
+            <h3 class="v-demo-card-title v-heading-card">Request your demo</h3>
             <p class="v-demo-card-intro">
               We’ll contact you to arrange a time. All fields are required.
             </p>
@@ -3629,35 +3890,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Mobile Sticky Conversion Bar (< 768px) -->
-      <aside
-        class="v-conversion-bar"
-        data-conversion-bar
-        aria-label="Velocity enquiries"
-        hidden
-      >
-        <div class="v-conversion-bar-inner">
-          <a
-            class="v-conversion-btn v-conversion-demo"
-            href="#demo"
-            data-velocity-cta
-            data-placement="mobile"
-            data-action="demo"
-          >
-            Request a demo <span aria-hidden="true">→</span>
-          </a>
-          <a
-            class="v-conversion-btn v-conversion-email"
-            href="mailto:hello@astrai.in?subject=Velocity%20demo%20request"
-            data-velocity-cta
-            data-placement="mobile"
-            data-action="email"
-          >
-            Email enquiry
-          </a>
-        </div>
-      </aside>
     </main>
     <astr-footer
       class="bg-[#050505] text-white text-body leading-relaxed block"

@@ -1,0 +1,36 @@
+/* Give the medicine workflow rail a phone-sized chapter without stretching
+   its cards or changing the mockups' existing dimensions. */
+@media (max-width: 767px) {
+  .velocity-page #velocity-main > #features.v-capabilities {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - var(--v-header-offset, 64px));
+    box-sizing: border-box;
+    padding-block: 40px 48px;
+  }
+  .velocity-page #features > .v-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 32px;
+    min-width: 0;
+  }
+  .velocity-page #features > .v-container > * {
+    flex-shrink: 0;
+  }
+  .velocity-page #features .v-capabilities-header,
+  .velocity-page #features .v-capabilities-rail-controls,
+  .velocity-page #features .v-capabilities-grid,
+  .velocity-page #features .v-capability-footer {
+    margin-block: 0;
+  }
+}
+@media (max-width: 359px), (max-width: 767px) and (max-height: 740px) {
+  .velocity-page #velocity-main > #features.v-capabilities {
+    padding-block: 24px 32px;
+  }
+  .velocity-page #features > .v-container {
+    gap: 24px;
+  }
+}

@@ -303,7 +303,7 @@
 .velocity-page main h2 em {
   font-family: 'Lora', serif;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
 }
 .velocity-page main h2 {
@@ -375,7 +375,7 @@
 .velocity-page .v-hero-header h1 em {
   font-family: 'Lora', serif;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
   display: inline-block;
 }
@@ -1050,7 +1050,7 @@
 
 .velocity-page .v-reorder-intro h2 em {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.88);
 }
 
@@ -1322,16 +1322,10 @@
 
 .velocity-page .v-workflow-step h3,
 .velocity-page .v-workflow-title {
-  font-family:
-    'Space Grotesk',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif !important;
-  font-size: 18px !important;
+  font-family: 'Geist Variable', Arial, sans-serif !important;
+  font-size: var(--v-type-compact) !important;
   font-weight: 600 !important;
-  line-height: 1.35 !important;
+  line-height: 1.4 !important;
   color: #ffffff !important;
   margin: 0 0 10px !important;
   text-align: left;
@@ -1416,7 +1410,7 @@
 }
 .velocity-page .v-purchasing-intro h2 em {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.88);
 }
 .velocity-page .v-purchasing-intro .v-lead {
@@ -4397,7 +4391,10 @@
   background: rgba(255, 255, 255, 0.04);
   color: #f5f3ee;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
 .velocity-page .v-rail-arrow:hover:not(:disabled) {
   background: rgba(230, 205, 153, 0.15);
@@ -4421,6 +4418,11 @@
 @media (max-width: 767px) {
   .velocity-page {
     --v-header-offset: 64px;
+    --v-space-small: 8px;
+    --v-space-heading: 16px;
+    --v-space-content: 32px;
+    --v-space-card: 20px;
+    --v-space-section: 56px;
   }
   .velocity-page section[id] {
     scroll-margin-top: calc(var(--v-header-offset, 64px) + 16px);
@@ -4429,8 +4431,8 @@
     width: calc(100% - 40px);
   }
   .velocity-page .v-hero {
-    padding-top: calc(var(--v-header-offset, 64px) + 68px);
-    padding-bottom: 64px;
+    padding-top: calc(var(--v-header-offset, 64px) + 64px);
+    padding-bottom: var(--v-space-section);
   }
   .velocity-page .v-hero-category {
     display: none !important;
@@ -4438,7 +4440,7 @@
   .velocity-page .v-hero-header h1 {
     font-size: clamp(32px, 8.5vw, 42px);
     line-height: 1.15;
-    margin-bottom: 40px;
+    margin-bottom: var(--v-space-content);
     word-break: break-word;
   }
   .velocity-page .v-hero-header h1 em {
@@ -4457,8 +4459,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 22px;
-    margin: 0 auto 76px;
+    gap: 24px;
+    margin: 0 auto var(--v-space-content);
     width: 100%;
   }
   .velocity-page .v-hero-header .v-button {
@@ -4533,9 +4535,6 @@
     font-size: 0.75rem;
     line-height: 1.4;
   }
-  .velocity-page .v-section {
-    padding-block: 88px;
-  }
   .velocity-page main h2 {
     font-size: clamp(26px, 6.8vw, 32px);
     line-height: 1.2;
@@ -4555,10 +4554,6 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .velocity-page #inventory.v-section {
-    padding-top: 40px;
-    padding-bottom: 56px;
-  }
   .velocity-page .v-inventory-track {
     padding-left: 20px;
     padding-right: 20px;
@@ -4569,7 +4564,7 @@
     flex: 0 0 calc(100% - 32px);
     min-width: calc(100% - 32px);
     max-width: calc(100% - 32px);
-    padding: 24px 20px 20px;
+    padding: var(--v-space-card);
     border-radius: 18px;
     scroll-snap-align: start;
     box-sizing: border-box;
@@ -4581,7 +4576,7 @@
   .velocity-page .v-inventory-nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
+    gap: var(--v-space-heading);
   }
   .velocity-page .v-inventory-controls {
     width: 100%;
@@ -4621,12 +4616,12 @@
     min-height: 0;
   }
   .velocity-page .v-reorder-intro {
-    margin-bottom: 24px;
+    margin-bottom: var(--v-space-content);
   }
   .velocity-page .v-reorder-intro h2 {
     font-size: clamp(26px, 6.8vw, 32px);
     line-height: 1.2;
-    margin-bottom: 14px;
+    margin-bottom: 0;
   }
   .velocity-page .v-reorder-intro .v-lead {
     font-size: 1rem;
@@ -4656,20 +4651,15 @@
     gap: 12px;
   }
   .velocity-page .v-reorder-summary-card {
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    width: auto;
-    margin-top: 0;
-    padding: 14px 16px;
-    border-radius: 16px;
-    background: rgba(23, 24, 27, 0.94);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
-    z-index: 10;
+    position: static;
+    width: 100%;
+    margin-top: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
   }
   .velocity-page .v-summary-tag {
     font-size: 0.62rem;
@@ -4708,9 +4698,9 @@
     grid-template-columns: 20px 1fr;
     grid-template-rows: auto auto;
     column-gap: 12px;
-    row-gap: 2px;
+    row-gap: var(--v-space-small);
     align-items: start;
-    padding: 2px 0;
+    padding: 0;
   }
   .velocity-page .v-workflow-icon {
     grid-column: 1;
@@ -4724,9 +4714,9 @@
   .velocity-page .v-workflow-title {
     grid-column: 2;
     grid-row: 1;
-    font-size: 14px !important;
+    font-size: var(--v-type-compact) !important;
     font-weight: 600 !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
     color: #ffffff !important;
     margin: 0 !important;
   }
@@ -4763,27 +4753,24 @@
   }
 
   /* Purchasing section mobile redesign (OpenAI / Apple HIG style) */
-  .velocity-page #purchasing.v-purchasing-section {
-    padding-block: 96px;
-  }
   .velocity-page #purchasing .v-container {
     display: flex;
     flex-direction: column;
   }
   .velocity-page #purchasing .v-purchasing-intro {
     order: 1;
-    margin-bottom: 36px;
+    margin-bottom: var(--v-space-content);
   }
   .velocity-page #purchasing .v-purchasing-intro h2 {
     font-size: clamp(2rem, 5.5vw, 2.45rem);
     line-height: 1.2;
-    margin-bottom: 18px;
+    margin-bottom: 0;
   }
   .velocity-page #purchasing .v-purchasing-intro .v-lead {
     font-size: 1.05rem;
     line-height: 1.6;
     color: #a0a0a5;
-    margin-top: 16px;
+    margin-top: var(--v-space-heading);
     margin-bottom: 0;
   }
 
@@ -4820,7 +4807,7 @@
     max-width: calc(100% - 32px);
     scroll-snap-align: start;
     box-sizing: border-box;
-    padding: 20px;
+    padding: var(--v-space-card);
     border-radius: 16px;
   }
   .velocity-page #purchasing .v-purchase-connector {
@@ -4843,8 +4830,8 @@
     scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    gap: 12px;
-    padding: 6px 0 12px;
+    gap: var(--v-space-heading);
+    padding: 0 0 12px;
     margin-top: 12px;
     margin-bottom: 24px;
     max-width: 100%;
@@ -4862,14 +4849,15 @@
     background: #18181b !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 16px !important;
-    padding: 20px 18px !important;
+    padding: var(--v-space-card) !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
     box-sizing: border-box !important;
     border-left: none !important;
     border-top: none !important;
   }
   .velocity-page #purchasing .v-purchase-feature h3 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
     line-height: 1.35;
@@ -4877,7 +4865,8 @@
     margin: 0 0 8px 0;
   }
   .velocity-page #purchasing .v-purchase-feature p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 0.85rem;
     line-height: 1.55;
     color: #a0a0a5;
@@ -4889,15 +4878,12 @@
   }
 
   /* Capabilities phone rail */
-  .velocity-page #features.v-capabilities {
-    padding-block: 24px;
-  }
   .velocity-page #features .v-capabilities-header h2 {
     font-size: clamp(1.625rem, 6.8vw, 2rem);
     line-height: 1.2;
   }
   .velocity-page #features .v-capabilities-header .v-lead {
-    margin-top: 12px;
+    margin-top: var(--v-space-heading);
     font-size: 0.875rem;
     line-height: 1.5;
   }
@@ -4996,21 +4982,18 @@
   /* FAQ phone styling */
   .velocity-page .v-faq-grid details summary {
     min-height: 44px;
-    padding: 18px 0;
+    padding: 16px 0;
     font-size: 1.05rem;
   }
   .velocity-page .v-faq-grid details p {
     font-size: 0.95rem;
     line-height: 1.6;
-    padding: 0 10px 18px 0;
+    padding: 0 16px 16px 0;
   }
 
   /* Demo form phone styling */
-  .velocity-page .v-demo {
-    padding: 56px 0;
-  }
   .velocity-page .v-demo-card {
-    padding: 20px;
+    padding: var(--v-space-card);
     border-radius: 24px;
     min-width: 0;
     max-width: 100%;
@@ -5068,8 +5051,11 @@
     padding-right: 16px;
     scroll-padding-inline-start: 16px;
   }
+  .velocity-page {
+    --v-space-card: 16px;
+  }
   .velocity-page .v-demo-card {
-    padding: 16px;
+    padding: var(--v-space-card);
   }
   .velocity-page .v-demo-phone-group {
     grid-template-columns: minmax(0, 1fr);
@@ -5105,14 +5091,6 @@
 
 /* Keep the feature carousel within short phone screens, including fixed bars. */
 @media (max-width: 767px) and (max-height: 740px) {
-  .velocity-page #features.v-capabilities {
-    padding-block: 8px;
-  }
-  .velocity-page #features .v-capabilities-header h2 {
-    font-size: 1.375rem;
-    line-height: 1.15;
-  }
-  .velocity-page #features .v-capabilities-header .v-lead,
   .velocity-page #features .v-rail-hint,
   .velocity-page #features .v-mockup-header,
   .velocity-page #features .v-mockup-meta,
@@ -5684,13 +5662,332 @@ aside.v-conversion-bar[hidden] {
   word-break: break-word;
 }
 @media (max-width: 767px) {
-  .velocity-page astr-footer [class*="tracking-[6px]"] {
+  .velocity-page astr-footer [class*='tracking-[6px]'] {
     letter-spacing: 2px !important;
   }
-  .velocity-page astr-footer [class*="tracking-[3px]"] {
+  .velocity-page astr-footer [class*='tracking-[3px]'] {
     letter-spacing: 1.5px !important;
   }
   .velocity-page astr-footer .flex-wrap {
     gap: 12px !important;
+  }
+}
+
+/* Shared phone rhythm: one owner for section and introduction spacing.
+   Keep document/table micro-spacing in their component stylesheets. */
+@media (max-width: 767px) {
+  .velocity-page #velocity-main > section[id]:not(.v-hero) {
+    padding-block: var(--v-space-section);
+  }
+  .velocity-page
+    #velocity-main
+    :is(
+      .v-copy,
+      .v-reorder-intro,
+      .v-purchasing-intro,
+      .v-hospital-intro,
+      .v-operations-intro,
+      .v-capabilities-header,
+      .v-why-header,
+      .v-comparison-header
+    )
+    > h2 {
+    margin-block: 0;
+  }
+  .velocity-page
+    #velocity-main
+    :is(
+      .v-copy,
+      .v-reorder-intro,
+      .v-purchasing-intro,
+      .v-hospital-intro,
+      .v-operations-intro,
+      .v-capabilities-header,
+      .v-why-header,
+      .v-comparison-header
+    )
+    > p.v-lead,
+  .velocity-page #velocity-main .v-copy > h2 + p {
+    margin-block: var(--v-space-heading) 0;
+  }
+  .velocity-page
+    #velocity-main
+    :is(
+      .v-reorder-intro,
+      .v-purchasing-intro,
+      .v-hospital-intro,
+      .v-operations-intro,
+      .v-why-header,
+      .v-comparison-header
+    ) {
+    margin-bottom: var(--v-space-content);
+  }
+  .velocity-page #inventory .v-inventory-carousel {
+    margin-top: var(--v-space-content);
+  }
+  .velocity-page #faq.v-faq-grid {
+    gap: var(--v-space-content);
+  }
+  .velocity-page #features .v-capabilities-rail-controls {
+    margin-top: var(--v-space-content);
+  }
+  .velocity-page #features .v-capabilities-grid {
+    margin-top: 12px;
+  }
+  .velocity-page #velocity-main .v-comparison-eyebrow {
+    margin-bottom: var(--v-space-small);
+  }
+  .velocity-page .v-demo-intro {
+    gap: 0;
+  }
+  .velocity-page .v-demo-intro .v-eyebrow {
+    margin-bottom: var(--v-space-small);
+  }
+  .velocity-page .v-demo-intro .v-lead,
+  .velocity-page .v-demo-intro .v-demo-email-alt {
+    margin-top: var(--v-space-heading);
+  }
+  .velocity-page .v-demo-field {
+    gap: var(--v-space-small);
+  }
+  /* Tailwind space-y otherwise adds a second label-to-input gap. */
+  .velocity-page .v-demo-field > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .velocity-page .v-demo-card-intro {
+    margin-bottom: 24px;
+  }
+  .velocity-page .v-hero-capabilities {
+    margin-top: var(--v-space-content);
+    padding: var(--v-space-card);
+  }
+  .velocity-page .v-hero-capabilities-desc {
+    margin-top: var(--v-space-heading);
+  }
+}
+
+/* Marketing typography roles. Document previews keep their own type scale. */
+.velocity-page {
+  --v-type-hero: clamp(40px, 4.6vw, 64px);
+  --v-type-section: clamp(32px, 3.4vw, 48px);
+  --v-type-card: 24px;
+  --v-type-compact: 16px;
+}
+.velocity-page #velocity-main section h1.v-heading-hero {
+  font-family: 'Lora', serif;
+  font-size: var(--v-type-hero);
+  font-weight: 700;
+  line-height: 1.15;
+}
+.velocity-page #velocity-main section h2.v-heading-section {
+  font-family: 'Lora', serif;
+  font-size: var(--v-type-section);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.velocity-page #velocity-main section h3.v-heading-card {
+  font-family: 'Lora', serif;
+  font-size: var(--v-type-card);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+.velocity-page
+  #velocity-main
+  section
+  :is(.v-heading-hero, .v-heading-section, .v-heading-card)
+  em {
+  font-family: 'Lora', serif;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+}
+.velocity-page #velocity-main .v-purchase-feature h3,
+.velocity-page #velocity-main .v-why-item-title {
+  font-family: 'Geist Variable', Arial, sans-serif;
+  font-size: var(--v-type-compact);
+  font-weight: 600;
+  line-height: 1.4;
+}
+@media (max-width: 767px) {
+  .velocity-page {
+    --v-type-hero: 36px;
+    --v-type-section: 28px;
+    --v-type-card: 20px;
+  }
+}
+@media (max-width: 359px) {
+  .velocity-page {
+    --v-type-hero: 32px;
+  }
+}
+
+/* Reading rhythm: chapters, related detail, then supporting explanations. */
+.velocity-page {
+  --v-space-section: 80px;
+}
+.velocity-page #velocity-main > section[id]:not(.v-hero) {
+  padding-block: var(--v-space-section);
+}
+.velocity-page #velocity-main > section[data-section-role='detail'] {
+  --v-space-section: 56px;
+  --v-type-section: clamp(28px, 2.5vw, 36px);
+}
+.velocity-page #velocity-main section .v-heading-section + .v-lead {
+  font-family: 'Geist Variable', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 52ch;
+}
+.velocity-page .v-workflow-details {
+  margin-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.velocity-page .v-workflow-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  padding: 16px 0;
+  font:
+    500 16px/1.5 'Geist Variable',
+    Arial,
+    sans-serif;
+  color: #dedcd6;
+  cursor: pointer;
+  list-style: none;
+}
+.velocity-page .v-workflow-details > summary::-webkit-details-marker {
+  display: none;
+}
+.velocity-page .v-workflow-details > summary::after {
+  content: '+';
+  flex-shrink: 0;
+}
+.velocity-page .v-workflow-details[open] > summary::after {
+  content: '−';
+}
+.velocity-page .v-workflow-details > summary:focus-visible {
+  outline: 2px solid var(--v-gold);
+  outline-offset: 4px;
+}
+.velocity-page .v-workflow-details > div {
+  margin-top: 16px;
+}
+.velocity-page #purchasing .v-purchasing-details {
+  order: 3;
+}
+@media (max-width: 767px) {
+  .velocity-page {
+    --v-space-section: 56px;
+  }
+  .velocity-page #velocity-main > section[data-section-role='detail'] {
+    --v-space-section: 40px;
+    --v-type-section: 24px;
+  }
+  .velocity-page #velocity-main section .v-heading-section + .v-lead {
+    font-size: 16px;
+  }
+  .velocity-page
+    #velocity-main
+    :is(
+      .v-window-frame,
+      .v-inventory-card,
+      .v-reorder-panel,
+      .v-reorder-screen-wrap,
+      .v-capability-card-visual,
+      .v-mockup-doc,
+      .v-why-stage-box,
+      .v-why-floating-doc,
+      .v-demo-card
+    ) {
+    box-shadow: none;
+  }
+  .velocity-page #velocity-main .v-capability-card-visual {
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+  .velocity-page #velocity-main .v-mockup-doc {
+    padding: 20px;
+  }
+  .velocity-page #velocity-main .v-reorder-workflow {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+  .velocity-page #purchasing .v-purchasing-details .v-purchase-features {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    overflow: visible;
+    margin: 16px 0 0;
+    padding: 0;
+  }
+  .velocity-page #purchasing .v-purchasing-details .v-purchase-feature {
+    min-width: 0;
+    max-width: none;
+  }
+  .velocity-page #velocity-main .v-reorder-panel {
+    height: auto;
+    aspect-ratio: 1.6;
+    background: #18191b;
+    border-radius: 16px;
+  }
+  .velocity-page #velocity-main .v-reorder-screen-wrap {
+    inset: 0;
+    width: 100%;
+  }
+  .velocity-page #velocity-main .v-summary-title {
+    font:
+      500 20px/1.3 'Lora',
+      serif;
+    margin-block: 8px;
+  }
+  .velocity-page #velocity-main .v-reorder-summary-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .velocity-page #velocity-main .v-reorder-summary-card::before {
+    display: none;
+  }
+  .velocity-page #velocity-main .v-summary-body,
+  .velocity-page #velocity-main .v-summary-note {
+    font:
+      400 14px/1.6 'Geist Variable',
+      Arial,
+      sans-serif;
+    margin-block: 8px 0;
+  }
+  .velocity-page #velocity-main .v-hero-capabilities {
+    padding-inline: 0;
+    border: 0;
+    background: transparent;
+  }
+}
+
+@media (max-width: 767px) {
+  .velocity-page
+    #velocity-main
+    :is(
+      .v-copy,
+      .v-reorder-intro,
+      .v-purchasing-intro,
+      .v-hospital-intro,
+      .v-operations-intro,
+      .v-capabilities-header,
+      .v-why-header,
+      .v-comparison-header,
+      .v-demo-intro
+    ) {
+    text-align: left;
   }
 }

@@ -1,3 +1,5 @@
+import { initMobileSupplyDemo } from './velocity-supply-mobile.mjs';
+
 /** Automatic hospital supply shuffle; progressive enhancement with static fallbacks. */
 const STAGES = [
   {
@@ -24,7 +26,7 @@ const STAGES = [
 const STAGE_DURATION = 5000;
 const activeControllers = new WeakMap();
 
-export function initSupplyDemo(root, options = {}) {
+function initAutomaticSupplyDemo(root, options = {}) {
   if (!root?.querySelector) return () => {};
   activeControllers.get(root)?.();
   const win = options.window ?? (typeof window !== 'undefined' ? window : null);
@@ -193,5 +195,33 @@ export function initSupplyDemo(root, options = {}) {
   doc?.addEventListener?.('visibilitychange', onVisibility);
   motion?.addEventListener?.('change', onMotion);
   activeControllers.set(root, cleanup);
+  return cleanup;
+}
+
+// The preview has different interaction policies at the phone breakpoint.
+const responsiveControllers = new WeakMap();
+export function initSupplyDemo(root, options = {}) {
+  if (!root?.querySelector) return () => {};
+  responsiveControllers.get(root)?.();
+  const win = options.window ?? (typeof window !== 'undefined' ? window : null);
+  const phone = win?.matchMedia?.('(max-width: 767px)');
+  let modeCleanup = () => {};
+  function configure() {
+    modeCleanup();
+    modeCleanup = phone?.matches
+      ? initMobileSupplyDemo(root)
+      : initAutomaticSupplyDemo(root, options);
+  }
+  configure();
+  phone?.addEventListener?.('change', configure);
+  let disposed = false;
+  const cleanup = () => {
+    if (disposed) return;
+    disposed = true;
+    phone?.removeEventListener?.('change', configure);
+    modeCleanup();
+    responsiveControllers.delete(root);
+  };
+  responsiveControllers.set(root, cleanup);
   return cleanup;
 }

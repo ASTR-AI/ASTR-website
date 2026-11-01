@@ -465,3 +465,67 @@ test('real deck hides inactive documents and cleans up outgoing animation state'
   assert.equal(f.demo.hasAttribute('data-supply-enhanced'), false);
   assert.ok(cards.every((c) => !c.hasAttribute('aria-hidden')));
 });
+
+test('resizing switches between desktop autoplay and manual phone selection without stale state', () => {
+  const f = buildMockSupplyFixture();
+  const cards = Array.from({ length: 4 }, (_, i) =>
+    createMockElement('article', {
+      class: `v-supply-document v-supply-shuffle-card tier-${i}`,
+      id: `supply-card-${i}`,
+    })
+  );
+  const mobileSteps = ['request', 'pick', 'dispatch', 'receive'].map((id, i) =>
+    createMockElement('a', {
+      'data-supply-mobile-step': id,
+      href: `#supply-card-${i}`,
+    })
+  );
+  f.card.children.push(...cards);
+  f.demo.children.push(...mobileSteps);
+  const fullExample = createMockElement('details', { 'data-supply-full-example': '' });
+  fullExample.open = true;
+  const compactSummary = createMockElement('div', { 'data-supply-mobile-summary': '', hidden: '' });
+  f.demo.children.push(fullExample, compactSummary);
+  const env = createEnvironment();
+  const phone = new FakeMediaQueryList(false);
+  const originalMatchMedia = env.fakeWindow.matchMedia;
+  env.fakeWindow.matchMedia = (query) =>
+    query.includes('max-width: 767px') ? phone : originalMatchMedia(query);
+  const cleanup = initSupplyDemo(f.root, {
+    window: env.fakeWindow,
+    document: env.fakeDocument,
+    now: env.clock.now,
+  });
+  env
+    .getObserver()
+    .trigger({ target: f.card, isIntersecting: true, intersectionRatio: 1 });
+  assert.equal(env.clock.callbacks.size, 1);
+  phone.setMatches(true);
+  assert.equal(env.clock.callbacks.size, 0);
+  assert.equal(fullExample.open, false);
+  assert.equal(compactSummary.hidden, false);
+  assert.equal(f.controls.hidden, true);
+  assert.equal(f.demo.hasAttribute('data-supply-enhanced'), false);
+  mobileSteps[3].dispatchEvent({ type: 'click', preventDefault() {} });
+  assert.deepEqual(
+    cards.map((c) => c.hidden),
+    [true, true, true, false]
+  );
+  phone.setMatches(false);
+  assert.equal(fullExample.open, true);
+  assert.equal(compactSummary.hidden, true);
+  assert.ok(cards.every((c) => !c.hidden));
+  assert.equal(f.controls.hidden, false);
+  assert.equal(f.demo.hasAttribute('data-supply-enhanced'), true);
+  assert.equal(f.demo.hasAttribute('data-supply-manual'), false);
+  assert.equal(f.demo.getAttribute('data-supply-state'), 'request');
+  phone.setMatches(true);
+  mobileSteps[1].dispatchEvent({ type: 'click', preventDefault() {} });
+  assert.deepEqual(
+    cards.map((c) => c.hidden),
+    [true, false, true, true]
+  );
+  cleanup();
+  assert.ok(cards.every((c) => !c.hidden));
+  assert.equal(env.clock.callbacks.size, 0);
+});

@@ -1,0 +1,347 @@
+/* Mobile summary only. Desktop keeps the department cards and full document deck. */
+@media (max-width: 767px) {
+  /* Move space from the outer top edge into the content groups. */
+  .velocity-page #velocity-main > #supply.v-hospital-section {
+    padding-block: 24px 56px;
+  }
+  .velocity-page #velocity-main #supply .v-hospital-intro {
+    margin-bottom: 48px;
+  }
+  .velocity-page #supply .v-supply-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-top: 0;
+    min-height: 0;
+    border: 0;
+    background: transparent;
+    overflow: visible;
+  }
+  .velocity-page #supply .v-supply-copy,
+  .velocity-page #supply .v-supply-controls,
+  .velocity-page #supply .v-supply-visual > figcaption,
+  .velocity-page #supply .v-operations-visual-note,
+  .velocity-page #supply .v-supply-reconciliation-callout,
+  .velocity-page #supply .v-operations-doc-check {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-mobile-journey {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ffffff1a;
+  }
+  .velocity-page #supply .v-supply-mobile-journey li {
+    min-width: 0;
+    list-style: none;
+  }
+  .velocity-page #supply .v-supply-step-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    color: #969696;
+    font:
+      400 14px/1.5 'Geist Variable',
+      Arial,
+      sans-serif;
+  }
+  .velocity-page #supply .v-supply-step-link[aria-current='step'] {
+    color: #f5f3ee;
+    border-bottom-color: var(--v-gold);
+  }
+  .velocity-page #supply .v-supply-step-link:focus-visible {
+    outline: 2px solid var(--v-gold);
+    outline-offset: 4px;
+  }
+  .velocity-page #supply .v-supply-step-link strong {
+    font: inherit;
+  }
+  .velocity-page #supply .v-supply-step-number,
+  .velocity-page #supply .v-supply-step-owner {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-example {
+    padding: 32px 24px;
+    border-radius: 16px;
+    background: #f5f2eb;
+    color: #2c3028;
+  }
+  .velocity-page #supply .v-supply-mobile-summary[hidden],
+  .velocity-page #supply .v-supply-summary-verified[hidden] {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-summary-owner {
+    margin: 0 0 8px;
+    color: #6b7065;
+    font:
+      400 13px/1.5 'Geist Variable',
+      Arial,
+      sans-serif;
+  }
+  .velocity-page #supply .v-supply-summary-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .velocity-page #supply .v-supply-summary-title {
+    margin: 0;
+    color: #2c3028;
+    font:
+      500 20px/1.3 'Lora',
+      serif;
+    letter-spacing: -0.01em;
+  }
+  .velocity-page #supply .v-supply-summary-verified {
+    color: #38704b;
+    font-size: 20px;
+  }
+  .velocity-page #supply .v-supply-summary-items {
+    margin: 0;
+  }
+  .velocity-page #supply .v-supply-summary-items > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .velocity-page #supply .v-supply-summary-items > div + div {
+    border-top: 1px solid #2c30281a;
+  }
+  .velocity-page #supply .v-supply-summary-items :is(dt, dd) {
+    margin: 0;
+    color: #2c3028;
+    font:
+      400 14px/1.5 'Geist Variable',
+      Arial,
+      sans-serif;
+  }
+  .velocity-page #supply .v-supply-summary-items dd {
+    white-space: nowrap;
+  }
+  .velocity-page #supply .v-supply-full-example {
+    padding: 0;
+    margin: 24px 0 0;
+    border: 0;
+  }
+  .velocity-page #supply .v-supply-full-example > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 44px;
+    padding: 12px 0 0;
+    border-top: 1px solid #2c302825;
+    color: #565c50;
+    cursor: pointer;
+    list-style: none;
+    font:
+      400 14px/1.5 'Geist Variable',
+      Arial,
+      sans-serif;
+  }
+  .velocity-page
+    #supply
+    .v-supply-full-example
+    > summary::-webkit-details-marker {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-full-example > summary:focus-visible {
+    outline: 2px solid #8b713f;
+    outline-offset: 4px;
+  }
+  .velocity-page #supply .v-supply-example-open-label,
+  .velocity-page
+    #supply
+    .v-supply-full-example[open]
+    .v-supply-example-closed-label {
+    display: none;
+  }
+  .velocity-page
+    #supply
+    .v-supply-full-example[open]
+    .v-supply-example-open-label {
+    display: inline;
+  }
+  .velocity-page #supply .v-supply-example:has(.v-supply-full-example[open]) {
+    padding: 0;
+    background: transparent;
+  }
+  .velocity-page
+    #supply
+    .v-supply-example:has(.v-supply-full-example[open])
+    .v-supply-mobile-summary {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-full-example[open] {
+    margin-top: 0;
+  }
+  .velocity-page #supply .v-supply-full-example[open] > summary {
+    padding: 0 0 16px;
+    border: 0;
+    color: #b5b5b5;
+  }
+  .velocity-page #supply .v-supply-qualification {
+    display: block;
+    max-width: 760px;
+    margin: 16px 0 0;
+    font:
+      400 13px/1.6 'Geist Variable',
+      Arial,
+      sans-serif;
+    color: #9c9a94;
+  }
+  /* Full example: readable, natural-height document when explicitly opened. */
+  .velocity-page #supply .v-supply-visual {
+    display: block;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    overflow: visible;
+  }
+  .velocity-page #supply .v-supply-shuffle-stage {
+    zoom: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: none;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .velocity-page #supply .v-supply-document {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    box-shadow: none;
+    font-family: 'Geist Variable', Arial, sans-serif;
+    scroll-margin-top: calc(var(--v-header-offset, 64px) + 24px);
+  }
+  .velocity-page #supply .v-supply-document[hidden] {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-shuffle-card {
+    grid-area: auto;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+    animation: none;
+    gap: 0;
+  }
+  .velocity-page #supply .v-operations-doc-brand {
+    font-size: 12px;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .velocity-page #supply .v-operations-doc-heading {
+    margin-block: 16px;
+  }
+  .velocity-page #supply .v-operations-doc-heading p,
+  .velocity-page #supply .v-operations-doc-heading > span {
+    font-size: 12px;
+  }
+  .velocity-page #supply .v-operations-doc-heading h4 {
+    font-size: 18px;
+  }
+  .velocity-page #supply .v-supply-route-nodes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+  .velocity-page #supply .v-supply-route-arrow {
+    display: none;
+  }
+  .velocity-page #supply .v-supply-route-tag,
+  .velocity-page #supply .v-supply-status-label,
+  .velocity-page #supply .v-document-badge,
+  .velocity-page #supply .v-pill-tag {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+  .velocity-page #supply .v-supply-route-cell strong,
+  .velocity-page #supply .v-supply-status-value {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+  .velocity-page #supply .v-supply-status-bar,
+  .velocity-page #supply .v-supply-status-right {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .velocity-page #supply .v-operations-table {
+    table-layout: fixed;
+  }
+  .velocity-page #supply .v-operations-table thead th,
+  .velocity-page #supply .v-operations-table tbody th,
+  .velocity-page #supply .v-operations-table td {
+    padding: 10px 4px !important;
+    font-size: 12px;
+    line-height: 1.5 !important;
+    overflow-wrap: anywhere;
+  }
+  .velocity-page #supply .v-supply-table th:first-child {
+    width: 40%;
+  }
+  .velocity-page #supply .v-supply-table th:nth-child(2) {
+    width: 25%;
+  }
+  .velocity-page #supply .v-supply-table th:nth-child(3) {
+    width: 35%;
+  }
+  .velocity-page #supply .v-supply-table th span,
+  .velocity-page #supply .v-supply-table .v-mono-batch,
+  .velocity-page #supply .v-supply-table .v-mono-expiry {
+    display: block;
+    font-size: 11px;
+    margin-left: 0;
+  }
+  .velocity-page #supply .v-inward-match {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .velocity-page #supply .v-supply-runner-card,
+  .velocity-page #supply .v-supply-seal-note {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .velocity-page #supply .v-supply-doc-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+}
+@media (max-width: 359px) {
+  .velocity-page #supply .v-supply-example {
+    padding: 32px 20px;
+  }
+  .velocity-page #supply .v-supply-example:has(.v-supply-full-example[open]) {
+    padding: 0;
+  }
+  .velocity-page #supply .v-supply-document {
+    padding: 16px;
+  }
+}

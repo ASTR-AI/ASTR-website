@@ -1025,3 +1025,17 @@
     gap: 8px;
   }
 }
+
+/* Additional phone controls stay absent from the original desktop composition. */
+.velocity-page #supply .v-supply-mobile-journey,
+.velocity-page #supply .v-supply-qualification {
+  display: none;
+}
+
+/* Desktop continues to show its original full preview without a disclosure label. */
+.velocity-page #supply .v-supply-example {
+  min-width: 0;
+}
+.velocity-page #supply .v-supply-full-example > summary {
+  display: none;
+}
