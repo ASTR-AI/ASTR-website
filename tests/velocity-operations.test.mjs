@@ -36,6 +36,34 @@ test('unhandled keys and an empty tab list do not consume native keyboard behavi
   assert.equal(getOperationsIndexForKey('ArrowRight', 0, 0), -1);
 });
 
+test('2-column grid navigation moves across rows and columns with wrapping', () => {
+  // Grid layout (columns = 2):
+  // [0] [1]
+  // [2] [3]
+  // ArrowDown moves down a row, wraps to top
+  assert.equal(getOperationsIndexForKey('ArrowDown', 0, 4, 2), 2);
+  assert.equal(getOperationsIndexForKey('ArrowDown', 1, 4, 2), 3);
+  assert.equal(getOperationsIndexForKey('ArrowDown', 2, 4, 2), 0);
+  assert.equal(getOperationsIndexForKey('ArrowDown', 3, 4, 2), 1);
+
+  // ArrowUp moves up a row, wraps to bottom
+  assert.equal(getOperationsIndexForKey('ArrowUp', 2, 4, 2), 0);
+  assert.equal(getOperationsIndexForKey('ArrowUp', 3, 4, 2), 1);
+  assert.equal(getOperationsIndexForKey('ArrowUp', 0, 4, 2), 2);
+  assert.equal(getOperationsIndexForKey('ArrowUp', 1, 4, 2), 3);
+
+  // ArrowRight and ArrowLeft move horizontally
+  assert.equal(getOperationsIndexForKey('ArrowRight', 0, 4, 2), 1);
+  assert.equal(getOperationsIndexForKey('ArrowRight', 1, 4, 2), 2);
+  assert.equal(getOperationsIndexForKey('ArrowRight', 3, 4, 2), 0);
+  assert.equal(getOperationsIndexForKey('ArrowLeft', 0, 4, 2), 3);
+  assert.equal(getOperationsIndexForKey('ArrowLeft', 2, 4, 2), 1);
+
+  // Home and End reach start and finish
+  assert.equal(getOperationsIndexForKey('Home', 3, 4, 2), 0);
+  assert.equal(getOperationsIndexForKey('End', 0, 4, 2), 3);
+});
+
 test('initOperationsTabs activates initial tab and updates slider indicator on selection', () => {
   const listeners = new Map();
   const makeElement = (tag, dataset = {}, id = '') => {

@@ -6,12 +6,39 @@ export function getOperationsIndexForHash(hash, panelIds) {
   }
 }
 
-export function getOperationsIndexForKey(key, current, count) {
+export function getOperationsIndexForKey(key, current, count, columns = 1) {
   if (!count) return -1;
-  if (key === 'ArrowRight') return (current + 1) % count;
-  if (key === 'ArrowLeft') return (current - 1 + count) % count;
+  if (columns <= 1) {
+    if (key === 'ArrowRight') return (current + 1) % count;
+    if (key === 'ArrowLeft') return (current - 1 + count) % count;
+    if (key === 'Home') return 0;
+    if (key === 'End') return count - 1;
+    return -1;
+  }
+
+  // Multi-column grid navigation (e.g. 2-column mobile grid)
   if (key === 'Home') return 0;
   if (key === 'End') return count - 1;
+
+  const col = current % columns;
+  const numRows = Math.ceil(count / columns);
+
+  if (key === 'ArrowRight') {
+    return (current + 1) % count;
+  }
+  if (key === 'ArrowLeft') {
+    return (current - 1 + count) % count;
+  }
+  if (key === 'ArrowDown') {
+    const next = current + columns;
+    return next < count ? next : col;
+  }
+  if (key === 'ArrowUp') {
+    const prev = current - columns;
+    if (prev >= 0) return prev;
+    const bottomInCol = (numRows - 1) * columns + col;
+    return bottomInCol < count ? bottomInCol : (numRows - 2) * columns + col;
+  }
   return -1;
 }
 
@@ -43,7 +70,9 @@ export function initOperationsTabs(root) {
     if (!slider || !tab) return;
     const currentLeft = parseFloat(slider.style.left) || 0;
     const targetLeft = tab.offsetLeft;
+    const targetTop = tab.offsetTop;
     const targetWidth = tab.offsetWidth;
+    const targetHeight = tab.offsetHeight;
 
     if (!targetWidth) return;
 
@@ -65,6 +94,12 @@ export function initOperationsTabs(root) {
 
     slider.style.width = `${targetWidth}px`;
     slider.style.left = `${targetLeft}px`;
+    if (typeof targetTop === 'number') {
+      slider.style.top = `${targetTop}px`;
+    }
+    if (typeof targetHeight === 'number' && targetHeight > 0) {
+      slider.style.height = `${targetHeight}px`;
+    }
     slider.style.opacity = '1';
   }
 
@@ -102,7 +137,19 @@ export function initOperationsTabs(root) {
 
     const onClick = () => select(index, { updateHash: true });
     const onKeyDown = (event) => {
-      const next = getOperationsIndexForKey(event.key, index, tabs.length);
+      const isMobileGrid =
+        (typeof pageWindow.innerWidth === 'number' &&
+          pageWindow.innerWidth <= 768) ||
+        (pageWindow.matchMedia &&
+          pageWindow.matchMedia('(max-width: 767px)').matches) ||
+        false;
+      const columns = isMobileGrid ? 2 : 1;
+      const next = getOperationsIndexForKey(
+        event.key,
+        index,
+        tabs.length,
+        columns
+      );
       if (next < 0 || event.altKey || event.ctrlKey || event.metaKey) return;
       event.preventDefault();
       select(next, { focus: true, updateHash: true });

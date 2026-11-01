@@ -293,8 +293,12 @@
   font-size: 0.9em;
 }
 @media (max-width: 767px) {
+  .velocity-page .v-hero-chapters-ready .v-window-content {
+    aspect-ratio: auto;
+    min-height: 295px;
+  }
   .velocity-page .v-hero-stock-report {
-    padding: 16px 14px;
+    padding: 12px 14px;
     height: auto;
     min-height: 0;
   }
@@ -312,11 +316,17 @@
     font-size: 1.05rem;
     line-height: 1.25;
   }
-  .velocity-page .v-hero-stock-report .v-hero-report-period,
-  .velocity-page .v-hero-stock-report .v-hero-report-foot {
+  .velocity-page .v-hero-stock-report .v-hero-report-period {
     margin-top: 6px;
     font-size: 0.75rem;
     line-height: 1.4;
+    color: #4b5049;
+  }
+  .velocity-page .v-hero-stock-report .v-hero-report-foot {
+    margin-top: 6px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: #4b5049;
   }
   .velocity-page .v-hero-stock-report table {
     margin-top: 8px;
@@ -325,7 +335,7 @@
   }
   .velocity-page .v-hero-stock-report th,
   .velocity-page .v-hero-stock-report td {
-    padding: 6px 4px;
+    padding: 5px 4px;
   }
   .velocity-page .v-hero-stock-report th span {
     display: inline;
@@ -336,8 +346,12 @@
   }
 }
 @media (max-width: 600px) {
+  .velocity-page .v-hero-chapters-ready .v-window-content {
+    aspect-ratio: auto;
+    min-height: 285px;
+  }
   .velocity-page .v-hero-stock-report {
-    padding: 12px 10px;
+    padding: 10px 10px 12px;
     height: auto;
     min-height: 0;
   }
@@ -355,11 +369,17 @@
     font-size: 0.98rem;
     line-height: 1.2;
   }
-  .velocity-page .v-hero-stock-report .v-hero-report-period,
+  .velocity-page .v-hero-stock-report .v-hero-report-period {
+    margin-top: 4px;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: #4b5049;
+  }
   .velocity-page .v-hero-stock-report .v-hero-report-foot {
     margin-top: 4px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     line-height: 1.4;
+    color: #4b5049;
   }
   .velocity-page .v-hero-stock-report table {
     margin-top: 6px;

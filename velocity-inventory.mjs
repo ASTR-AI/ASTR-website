@@ -216,7 +216,12 @@ export function initInventoryCarousel(root) {
   // Initial sync with DOM geometry
   syncFromScroll();
 
+  const doc = root.ownerDocument || document;
+  const dialogEl = doc.querySelector('#inventory-preview-dialog');
+  const dialogCleanup = initInventoryPreviewDialog(dialogEl, root);
+
   return function cleanup() {
+    dialogCleanup();
     if (scrollRafId !== null) {
       cancelAnimationFrame(scrollRafId);
       scrollRafId = null;
@@ -237,5 +242,181 @@ export function initInventoryCarousel(root) {
     if (resizeObserver) {
       resizeObserver.disconnect();
     }
+  };
+}
+
+/**
+ * Accessible dialog controller for enlarging inventory screenshot previews.
+ *
+ * @param {HTMLElement} dialog - The dialog element.
+ * @param {HTMLElement} [root] - Container containing preview cards.
+ * @returns {() => void} Cleanup function.
+ */
+export function initInventoryPreviewDialog(dialog, root) {
+  if (!dialog) return () => {};
+
+  const doc = dialog.ownerDocument || globalThis.document;
+  const triggerContainer = root || doc;
+  const triggers = triggerContainer
+    ? [...triggerContainer.querySelectorAll('[data-enlarge-preview]')]
+    : [];
+  const closeBtn = dialog.querySelector('[data-dialog-close]');
+  const backdrop = dialog.querySelector('[data-dialog-backdrop]');
+  const dialogImg = dialog.querySelector('[data-dialog-img]');
+  const dialogTitle = dialog.querySelector('#inventory-preview-title');
+  const scrollBody = dialog.querySelector('.v-preview-dialog-body');
+
+  let activeTrigger = null;
+  const removeListeners = [];
+
+  function openDialog(trigger) {
+    activeTrigger = trigger;
+    const card =
+      trigger.closest?.('[data-inventory-card]') ||
+      trigger.closest?.('article, figure') ||
+      trigger.parentElement;
+    const img =
+      card?.querySelector?.('.v-card-img') || card?.querySelector?.('img');
+    const title =
+      card?.querySelector?.('h3')?.textContent?.trim() || 'Product preview';
+
+    if (dialogImg && img) {
+      dialogImg.src = img.currentSrc || img.getAttribute?.('src') || img.src || '';
+      dialogImg.alt = img.getAttribute?.('alt') || img.alt || 'Enlarged product preview';
+    }
+    if (dialogTitle) {
+      dialogTitle.textContent = title;
+    }
+
+    dialog.removeAttribute('hidden');
+    if (typeof dialog.showModal === 'function') {
+      try {
+        dialog.showModal();
+      } catch {
+        dialog.setAttribute('open', '');
+      }
+    } else {
+      dialog.setAttribute('open', '');
+    }
+
+    if (scrollBody) {
+      scrollBody.scrollTop = 0;
+      scrollBody.scrollLeft = 0;
+    }
+
+    if (closeBtn && typeof closeBtn.focus === 'function') {
+      closeBtn.focus();
+    } else if (typeof dialog.focus === 'function') {
+      dialog.focus();
+    }
+  }
+
+  function closeDialog() {
+    if (!dialog.hasAttribute('open') && dialog.hasAttribute('hidden')) return;
+
+    if (typeof dialog.close === 'function') {
+      try {
+        dialog.close();
+      } catch {
+        dialog.removeAttribute('open');
+      }
+    } else {
+      dialog.removeAttribute('open');
+    }
+    dialog.setAttribute('hidden', '');
+
+    if (activeTrigger && typeof activeTrigger.focus === 'function') {
+      activeTrigger.focus();
+      activeTrigger = null;
+    }
+  }
+
+  triggers.forEach((trigger) => {
+    const onClick = (e) => {
+      e.preventDefault();
+      openDialog(trigger);
+    };
+    trigger.addEventListener('click', onClick);
+    removeListeners.push(() => trigger.removeEventListener('click', onClick));
+  });
+
+  if (closeBtn) {
+    const onCloseClick = (e) => {
+      e.preventDefault();
+      closeDialog();
+    };
+    closeBtn.addEventListener('click', onCloseClick);
+    removeListeners.push(() =>
+      closeBtn.removeEventListener('click', onCloseClick)
+    );
+  }
+
+  if (backdrop) {
+    const onBackdropClick = (e) => {
+      e.preventDefault();
+      closeDialog();
+    };
+    backdrop.addEventListener('click', onBackdropClick);
+    removeListeners.push(() =>
+      backdrop.removeEventListener('click', onBackdropClick)
+    );
+  }
+
+  const onKeyDown = (e) => {
+    if (!dialog.hasAttribute('open') && dialog.hasAttribute('hidden')) return;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeDialog();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusables = [
+        ...dialog.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        ),
+      ].filter(
+        (el) =>
+          !el.hasAttribute('disabled') &&
+          el.getAttribute('aria-hidden') !== 'true'
+      );
+
+      if (focusables.length === 0) {
+        e.preventDefault();
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const currentActive = doc.activeElement;
+
+      if (e.shiftKey) {
+        if (currentActive === first || currentActive === dialog) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (currentActive === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  };
+
+  dialog.addEventListener('keydown', onKeyDown);
+  removeListeners.push(() => dialog.removeEventListener('keydown', onKeyDown));
+
+  const onCancel = (e) => {
+    e.preventDefault();
+    closeDialog();
+  };
+  dialog.addEventListener('cancel', onCancel);
+  removeListeners.push(() => dialog.removeEventListener('cancel', onCancel));
+
+  return function cleanup() {
+    closeDialog();
+    removeListeners.forEach((fn) => fn());
   };
 }
