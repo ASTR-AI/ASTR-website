@@ -38,6 +38,10 @@
     <link rel="stylesheet" href="/velocity-hero.css" />
     <link
       rel="stylesheet"
+      href="/velocity-captures.css?v=hero-captures-20261103-v1"
+    />
+    <link
+      rel="stylesheet"
       href="/velocity-risks-mobile.css"
       media="(max-width: 767px)"
     />
@@ -113,7 +117,8 @@
             Manage your pharmacy.<br /><em>From stock to billing.</em>
           </h1>
           <p class="v-hero-intro">
-            Stock, expiry tracking and billing for retail and hospital pharmacies.
+            Stock, expiry tracking and billing for retail and hospital
+            pharmacies.
           </p>
           <div class="v-actions">
             <a
@@ -177,92 +182,43 @@
                       data-hero-panel="overview"
                     >
                       <img
-                        src="/Pictures/velocity-dashboard-light.png"
-                        alt="Velocity pharmacy management software dashboard interface"
+                        src="/Pictures/velocity/hero-dashboard.png"
+                        alt="Velocity dashboard showing inventory health, inventory value, coverage, quick actions and procurement summary"
                         class="v-showcase-img"
                         width="2940"
-                        height="1842"
+                        height="1838"
                         loading="eager"
                       />
                     </div>
                     <div class="v-hero-panel" data-hero-panel="stock" hidden>
-                      <div class="v-hero-stock-report">
-                        <div class="v-hero-report-bar">
-                          <span>VELOCITY ↗</span
-                          ><span>Reports &amp; access</span>
-                        </div>
-                        <p class="v-hero-report-label">
-                          Stock attention report
-                        </p>
-                        <h3>Review stock alerts and daily activity.</h3>
-                        <p class="v-hero-report-period">
-                          Illustrative preview · Demo data · 01–30 Sep 2026
-                        </p>
-                        <table>
-                          <caption class="sr-only">
-                            Example medicines requiring stock review
-                          </caption>
-                          <thead>
-                            <tr>
-                              <th scope="col">Medicine</th>
-                              <th scope="col">Review</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">
-                                Amoxicillin <span>250 mg</span>
-                              </th>
-                              <td>
-                                <span class="v-hero-report-tag"
-                                  >Slow-moving</span
-                                >
-                              </td>
-                            </tr>
-                            <tr>
-                              <th scope="row">
-                                Paracetamol <span>500 mg</span>
-                              </th>
-                              <td>
-                                <span class="v-hero-report-tag"
-                                  >Near expiry</span
-                                >
-                              </td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Metformin <span>500 mg</span></th>
-                              <td>
-                                <span class="v-hero-report-tag"
-                                  >Expiry review</span
-                                >
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <p class="v-hero-report-foot">
-                          Check the reporting period and data freshness. Some
-                          reports use snapshots.
-                        </p>
-                      </div>
+                      <img
+                        src="/Pictures/velocity/hero-slow-moving.png"
+                        alt="Velocity inventory analytics showing slow-moving medicines, current stock, dead capital and days inactive"
+                        class="v-showcase-img"
+                        width="2940"
+                        height="1836"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <div class="v-hero-panel" data-hero-panel="reorder" hidden>
                       <img
-                        src="/Pictures/velocity-predictive-reorder.png"
-                        alt="Illustrative Velocity reorder suggestions for medicines"
+                        src="/Pictures/velocity/hero-reordering.png"
+                        alt="Velocity Predictive Reorder Analysis showing stock alerts, reorder thresholds and suggested order quantities"
                         class="v-showcase-img"
                         width="2940"
-                        height="1842"
+                        height="1838"
                         loading="eager"
                         decoding="async"
                       />
                     </div>
                     <div class="v-hero-panel" data-hero-panel="activity" hidden>
                       <img
-                        src="/Pictures/velocity-dashboard-light.png"
-                        alt="Velocity dashboard showing stock and daily activity"
+                        src="/Pictures/velocity/hero-overview.png"
+                        alt="Velocity dashboard showing procurement metrics, system warnings and recent stock and purchase activity"
                         class="v-showcase-img"
                         width="2940"
-                        height="1842"
+                        height="1836"
                         loading="eager"
                         decoding="async"
                       />
@@ -457,15 +413,32 @@
                 </p>
               </div>
               <figure class="v-card-media">
-                <div class="v-card-img-wrap">
-                  <img
-                    src="/Pictures/velocity-dashboard-light.png"
-                    alt="Velocity dashboard preview illustrating multi-location stock visibility"
-                    class="v-card-img"
-                    width="2940"
-                    height="1842"
-                    loading="lazy"
-                  />
+                <div class="v-card-img-wrap v-stock-stage">
+                  <div
+                    class="v-stock-document v-stock-locations"
+                    data-inventory-mockup
+                  >
+                    <div class="v-stock-minihead">
+                      <span>VELOCITY ↗</span><span>Locations</span>
+                    </div>
+                    <div class="v-stock-focus-title">
+                      Paracetamol <span>500 mg</span>
+                    </div>
+                    <dl class="v-stock-location-list">
+                      <div>
+                        <dt><i aria-hidden="true">01</i> Central warehouse</dt>
+                        <dd>120 <span>strips</span></dd>
+                      </div>
+                      <div>
+                        <dt><i aria-hidden="true">02</i> Main pharmacy</dt>
+                        <dd>30 <span>strips</span></dd>
+                      </div>
+                      <div>
+                        <dt><i aria-hidden="true">03</i> Ward store</dt>
+                        <dd>18 <span>strips</span></dd>
+                      </div>
+                    </dl>
+                  </div>
                   <button
                     type="button"
                     class="v-card-enlarge-btn"
@@ -494,7 +467,7 @@
                   </button>
                 </div>
                 <figcaption class="v-card-caption">
-                  Dashboard preview
+                  Illustrative preview · Demo data
                 </figcaption>
               </figure>
             </article>
@@ -513,15 +486,45 @@
                 </p>
               </div>
               <figure class="v-card-media">
-                <div class="v-card-img-wrap">
-                  <img
-                    src="/Pictures/velocity-dashboard-light.png"
-                    alt="Velocity dashboard preview illustrating batch tracking and stock details"
-                    class="v-card-img"
-                    width="2940"
-                    height="1842"
-                    loading="lazy"
-                  />
+                <div class="v-card-img-wrap v-stock-stage">
+                  <div
+                    class="v-stock-document v-stock-batches"
+                    data-inventory-mockup
+                  >
+                    <div class="v-stock-minihead">
+                      <span>VELOCITY ↗</span><span>Batch detail</span>
+                    </div>
+                    <div class="v-stock-focus-title">
+                      One medicine. <em>Two batches.</em>
+                    </div>
+                    <table class="v-stock-focus-table">
+                      <caption class="sr-only">
+                        Illustrative Paracetamol 500 mg batches
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Batch</th>
+                          <th scope="col">Expiry</th>
+                          <th scope="col">Stock</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">PCM–0426</th>
+                          <td>Apr 2028</td>
+                          <td>80 strips</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">PCM–0626</th>
+                          <td>Jun 2028</td>
+                          <td>40 strips</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="v-stock-context" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
                   <button
                     type="button"
                     class="v-card-enlarge-btn"
@@ -550,7 +553,7 @@
                   </button>
                 </div>
                 <figcaption class="v-card-caption">
-                  Dashboard preview
+                  Illustrative preview · Demo data
                 </figcaption>
               </figure>
             </article>
@@ -572,15 +575,31 @@
                 </p>
               </div>
               <figure class="v-card-media">
-                <div class="v-card-img-wrap">
-                  <img
-                    src="/Pictures/velocity-dashboard-light.png"
-                    alt="Velocity dashboard preview illustrating expiry tracking and alert views"
-                    class="v-card-img"
-                    width="2940"
-                    height="1842"
-                    loading="lazy"
-                  />
+                <div class="v-card-img-wrap v-stock-stage">
+                  <div
+                    class="v-stock-document v-stock-expiry"
+                    data-inventory-mockup
+                  >
+                    <div class="v-stock-minihead">
+                      <span>VELOCITY ↗</span><span>Expiry review</span>
+                    </div>
+                    <div class="v-stock-expiry-focus">
+                      <div>
+                        <span class="v-stock-expiry-label"
+                          >APPROACHING EXPIRY</span
+                        >
+                        <h4>Oral rehydration salts</h4>
+                        <p>40 sachets · Ward store</p>
+                      </div>
+                      <div class="v-stock-date">
+                        <span>JAN</span><strong>2027</strong>
+                      </div>
+                    </div>
+                    <div class="v-stock-expiry-note">
+                      <span aria-hidden="true">◷</span> Within the next 90
+                      days<span>As of 02 Nov 2026</span>
+                    </div>
+                  </div>
                   <button
                     type="button"
                     class="v-card-enlarge-btn"
@@ -609,7 +628,7 @@
                   </button>
                 </div>
                 <figcaption class="v-card-caption">
-                  Dashboard preview
+                  Illustrative preview · Demo data
                 </figcaption>
               </figure>
             </article>
@@ -631,15 +650,31 @@
                 </p>
               </div>
               <figure class="v-card-media">
-                <div class="v-card-img-wrap">
-                  <img
-                    src="/Pictures/velocity-dashboard-light.png"
-                    alt="Velocity dashboard preview illustrating pack and loose unit quantity views"
-                    class="v-card-img"
-                    width="2940"
-                    height="1842"
-                    loading="lazy"
-                  />
+                <div class="v-card-img-wrap v-stock-stage">
+                  <div
+                    class="v-stock-document v-stock-units"
+                    data-inventory-mockup
+                  >
+                    <div class="v-stock-minihead">
+                      <span>VELOCITY ↗</span><span>Packs &amp; units</span>
+                    </div>
+                    <div class="v-stock-focus-title">
+                      Paracetamol <span>10 tablets / strip</span>
+                    </div>
+                    <div class="v-stock-equation">
+                      <div><strong>12</strong><span>full strips</span></div>
+                      <b aria-hidden="true">+</b>
+                      <div><strong>6</strong><span>loose tablets</span></div>
+                      <b aria-hidden="true">=</b>
+                      <div class="v-stock-unit-result">
+                        <strong>126</strong><span>tablets in total</span>
+                      </div>
+                    </div>
+                    <p class="sr-only">
+                      12 strips of 10 tablets plus 6 loose tablets equals 126
+                      tablets.
+                    </p>
+                  </div>
                   <button
                     type="button"
                     class="v-card-enlarge-btn"
@@ -668,7 +703,7 @@
                   </button>
                 </div>
                 <figcaption class="v-card-caption">
-                  Dashboard preview
+                  Illustrative preview · Demo data
                 </figcaption>
               </figure>
             </article>
@@ -817,14 +852,14 @@
               class="v-preview-dialog-body"
               tabindex="0"
               role="region"
-              aria-label="Enlarged screenshot image scroll area"
+              aria-label="Enlarged product preview"
             >
-              <img
-                src=""
-                alt=""
-                class="v-preview-dialog-img"
-                data-dialog-img
-              />
+              <img src="" alt="" class="v-preview-dialog-img" data-dialog-img />
+              <div
+                class="v-stock-dialog-content"
+                data-dialog-mockup
+                hidden
+              ></div>
             </div>
           </div>
         </dialog>
@@ -855,10 +890,10 @@
                 </div>
                 <div class="v-reorder-image-surface">
                   <img
-                    src="/Pictures/velocity-predictive-reorder.png"
-                    alt="Velocity predictive reorder recommendations interface showing medicine inventory, consumption rates, and suggested purchase quantities"
-                    width="2940"
-                    height="1850"
+                    src="/Pictures/velocity/predictive-reorder.webp?v=3"
+                    alt="Velocity reorder recommendations showing current stock, reorder thresholds and suggested order quantities"
+                    width="2860"
+                    height="1520"
                     loading="lazy"
                     class="v-reorder-screen"
                   />
@@ -989,230 +1024,277 @@
             </p>
           </div>
 
-          <div
-            class="v-purchase-stage"
-            role="region"
-            aria-label="Purchasing workflow preview"
-          >
-            <div class="v-purchase-stage-caption">
-              <span class="v-purchase-stage-label"
-                >Illustrative workflow · Demo data</span
-              >
-            </div>
-            <ol class="v-purchase-sequence" aria-label="Purchasing steps">
-              <li>Create order</li>
-              <li>Review &amp; approve</li>
-              <li>Record receipt</li>
-            </ol>
-            <div
-              class="v-rail-controls v-purchase-rail-controls"
-              hidden
-              data-purchase-controls
-            >
-              <p class="v-rail-hint">Swipe or use arrows to explore</p>
-              <div class="v-rail-arrows">
-                <button
-                  type="button"
-                  class="v-rail-arrow v-rail-prev"
-                  data-purchase-prev
-                  aria-label="Previous purchasing document"
-                  disabled
-                >
-                  <svg
-                    aria-hidden="true"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  class="v-rail-arrow v-rail-next"
-                  data-purchase-next
-                  aria-label="Next purchasing document"
-                >
-                  <svg
-                    aria-hidden="true"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </button>
+          <figure class="v-purchase-preview v-purchase-capture">
+            <div class="v-purchase-focus">
+              <div class="v-purchase-focus-brand">
+                <span>VELOCITY ↗</span><span>Purchasing</span>
               </div>
+              <div class="v-purchase-focus-heading">
+                <h3>Purchase order <span>PO–0024</span></h3>
+                <span class="v-purchase-focus-status">Awaiting approval</span>
+              </div>
+              <p class="v-purchase-focus-supplier">
+                Supplier <strong>Northstar Pharma</strong>
+              </p>
+              <table class="v-purchase-focus-table">
+                <caption class="sr-only">
+                  Illustrative purchase order, demo data
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Medicine</th>
+                    <th scope="col">Ordered</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Paracetamol <span>500 mg</span></th>
+                    <td>60 strips</td>
+                  </tr>
+                </tbody>
+              </table>
+              <ol
+                class="v-purchase-focus-progress"
+                aria-label="Order progress: created, awaiting approval, receipt not yet recorded"
+              >
+                <li class="is-complete">
+                  <span aria-hidden="true">✓</span>Created
+                </li>
+                <li class="is-current">
+                  <span aria-hidden="true">02</span>Review &amp; approve
+                </li>
+                <li><span aria-hidden="true">03</span>Receive</li>
+              </ol>
             </div>
+            <figcaption>Illustrative preview · Demo data</figcaption>
+          </figure>
+          <details class="v-workflow-details v-purchase-illustration">
+            <summary>See the order-to-receipt steps</summary>
             <div
-              class="v-purchase-documents"
-              data-purchase-rail
-              tabindex="0"
+              class="v-purchase-stage"
               role="region"
-              aria-label="Purchasing documents"
+              aria-label="Purchasing workflow preview"
             >
-              <article
-                class="v-purchase-document v-purchase-order"
-                aria-labelledby="purchase-order-title"
-              >
-                <div class="v-document-topline">
-                  <span>VELOCITY <span aria-hidden="true">↗</span></span
-                  ><span>Purchasing</span>
-                </div>
-                <div class="v-document-heading">
-                  <div>
-                    <p class="v-document-kicker">Start with the details</p>
-                    <h3 id="purchase-order-title">Purchase order</h3>
-                  </div>
-                  <span class="v-document-id">PO–0024</span>
-                </div>
-                <dl class="v-document-supplier">
-                  <div>
-                    <dt>Supplier</dt>
-                    <dd>Northstar Pharma</dd>
-                  </div>
-                  <div>
-                    <dt>Order status</dt>
-                    <dd>
-                      <span class="v-document-badge">Pending approval</span>
-                    </dd>
-                  </div>
-                </dl>
-                <table class="v-document-table">
-                  <caption class="sr-only">
-                    Illustrative purchase order quantities in strips
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Medicine</th>
-                      <th scope="col">Qty / strips</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        Paracetamol <span>500 mg · 10 tablets / strip</span>
-                      </th>
-                      <td>120</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        Amoxicillin <span>250 mg · 10 capsules / strip</span>
-                      </th>
-                      <td>80</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="v-document-bottom">
-                  <span class="v-document-symbol" aria-hidden="true">↗</span>
-                  <p>
-                    Prepared for your team.<br /><strong
-                      >Ready for review.</strong
-                    >
-                  </p>
-                  <span class="v-document-count">02 items</span>
-                </div>
-              </article>
-
-              <div class="v-purchase-connector" aria-hidden="true">
-                <span></span
-                ><svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+              <div class="v-purchase-stage-caption">
+                <span class="v-purchase-stage-label"
+                  >Illustrative workflow · Demo data</span
                 >
-                  <path d="M4 12h16m-6-6 6 6-6 6" /></svg
-                ><span></span>
               </div>
-
-              <article
-                class="v-purchase-document v-purchase-receipt"
-                aria-labelledby="purchase-receipt-title"
+              <ol class="v-purchase-sequence" aria-label="Purchasing steps">
+                <li>Create order</li>
+                <li>Review &amp; approve</li>
+                <li>Record receipt</li>
+              </ol>
+              <div
+                class="v-rail-controls v-purchase-rail-controls"
+                hidden
+                data-purchase-controls
               >
-                <div class="v-document-topline">
-                  <span>VELOCITY <span aria-hidden="true">↗</span></span
-                  ><span>Receiving</span>
-                </div>
-                <div class="v-document-heading">
-                  <div>
-                    <p class="v-document-kicker">When the delivery arrives</p>
-                    <h3 id="purchase-receipt-title">Goods receipt</h3>
-                  </div>
-                  <span class="v-document-id">GR–0018</span>
-                </div>
-                <p class="v-receipt-context">
-                  Against PO–0024 · Showing 1 of 2 ordered medicines
-                </p>
-                <dl class="v-document-supplier">
-                  <div>
-                    <dt>Supplier</dt>
-                    <dd>Northstar Pharma</dd>
-                  </div>
-                  <div>
-                    <dt>Record</dt>
-                    <dd>
-                      <span class="v-document-badge v-badge-received"
-                        >Receipt excerpt</span
-                      >
-                    </dd>
-                  </div>
-                </dl>
-                <div class="v-receipt-item">
-                  <p>Paracetamol <span>500 mg</span></p>
-                  <span>120 strips received</span>
-                </div>
-                <dl class="v-receipt-details">
-                  <div>
-                    <dt>Batch number</dt>
-                    <dd>PCM–0426</dd>
-                  </div>
-                  <div>
-                    <dt>Expiry</dt>
-                    <dd>Apr 2028</dd>
-                  </div>
-                </dl>
-                <div class="v-document-bottom">
-                  <span class="v-document-symbol" aria-hidden="true"
-                    ><svg
+                <p class="v-rail-hint">Swipe or use arrows to explore</p>
+                <div class="v-rail-arrows">
+                  <button
+                    type="button"
+                    class="v-rail-arrow v-rail-prev"
+                    data-purchase-prev
+                    aria-label="Previous purchasing document"
+                    disabled
+                  >
+                    <svg
+                      aria-hidden="true"
                       width="18"
                       height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.8"
+                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <path d="m5 12 4 4L19 6" /></svg
-                  ></span>
-                  <p>
-                    Quantities, batches, expiry.<br /><strong
-                      >Recorded on receipt.</strong
+                      <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="v-rail-arrow v-rail-next"
+                    data-purchase-next
+                    aria-label="Next purchasing document"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     >
-                  </p>
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
-              </article>
+              </div>
+              <div
+                class="v-purchase-documents"
+                data-purchase-rail
+                tabindex="0"
+                role="region"
+                aria-label="Purchasing documents"
+              >
+                <article
+                  class="v-purchase-document v-purchase-order"
+                  aria-labelledby="purchase-order-title"
+                >
+                  <div class="v-document-topline">
+                    <span>VELOCITY <span aria-hidden="true">↗</span></span
+                    ><span>Purchasing</span>
+                  </div>
+                  <div class="v-document-heading">
+                    <div>
+                      <p class="v-document-kicker">Start with the details</p>
+                      <h3 id="purchase-order-title">Purchase order</h3>
+                    </div>
+                    <span class="v-document-id">PO–0024</span>
+                  </div>
+                  <dl class="v-document-supplier">
+                    <div>
+                      <dt>Supplier</dt>
+                      <dd>Northstar Pharma</dd>
+                    </div>
+                    <div>
+                      <dt>Order status</dt>
+                      <dd>
+                        <span class="v-document-badge">Pending approval</span>
+                      </dd>
+                    </div>
+                  </dl>
+                  <table class="v-document-table">
+                    <caption class="sr-only">
+                      Illustrative purchase order quantities in strips
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Medicine</th>
+                        <th scope="col">Qty / strips</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          Paracetamol <span>500 mg · 10 tablets / strip</span>
+                        </th>
+                        <td>120</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          Amoxicillin <span>250 mg · 10 capsules / strip</span>
+                        </th>
+                        <td>80</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="v-document-bottom">
+                    <span class="v-document-symbol" aria-hidden="true">↗</span>
+                    <p>
+                      Prepared for your team.<br /><strong
+                        >Ready for review.</strong
+                      >
+                    </p>
+                    <span class="v-document-count">02 items</span>
+                  </div>
+                </article>
+
+                <div class="v-purchase-connector" aria-hidden="true">
+                  <span></span
+                  ><svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M4 12h16m-6-6 6 6-6 6" /></svg
+                  ><span></span>
+                </div>
+
+                <article
+                  class="v-purchase-document v-purchase-receipt"
+                  aria-labelledby="purchase-receipt-title"
+                >
+                  <div class="v-document-topline">
+                    <span>VELOCITY <span aria-hidden="true">↗</span></span
+                    ><span>Receiving</span>
+                  </div>
+                  <div class="v-document-heading">
+                    <div>
+                      <p class="v-document-kicker">When the delivery arrives</p>
+                      <h3 id="purchase-receipt-title">Goods receipt</h3>
+                    </div>
+                    <span class="v-document-id">GR–0018</span>
+                  </div>
+                  <p class="v-receipt-context">
+                    Against PO–0024 · Showing 1 of 2 ordered medicines
+                  </p>
+                  <dl class="v-document-supplier">
+                    <div>
+                      <dt>Supplier</dt>
+                      <dd>Northstar Pharma</dd>
+                    </div>
+                    <div>
+                      <dt>Record</dt>
+                      <dd>
+                        <span class="v-document-badge v-badge-received"
+                          >Receipt excerpt</span
+                        >
+                      </dd>
+                    </div>
+                  </dl>
+                  <div class="v-receipt-item">
+                    <p>Paracetamol <span>500 mg</span></p>
+                    <span>120 strips received</span>
+                  </div>
+                  <dl class="v-receipt-details">
+                    <div>
+                      <dt>Batch number</dt>
+                      <dd>PCM–0426</dd>
+                    </div>
+                    <div>
+                      <dt>Expiry</dt>
+                      <dd>Apr 2028</dd>
+                    </div>
+                  </dl>
+                  <div class="v-document-bottom">
+                    <span class="v-document-symbol" aria-hidden="true"
+                      ><svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="m5 12 4 4L19 6" /></svg
+                    ></span>
+                    <p>
+                      Quantities, batches, expiry.<br /><strong
+                        >Recorded on receipt.</strong
+                      >
+                    </p>
+                  </div>
+                </article>
+              </div>
+              <p class="v-purchase-stage-note">
+                Illustrative stages: your team reviews and approves the order
+                before recording a delivery.
+              </p>
             </div>
-            <p class="v-purchase-stage-note">
-              Illustrative stages: your team reviews and approves the order
-              before recording a delivery.
-            </p>
-          </div>
+          </details>
 
           <details class="v-workflow-details v-purchasing-details">
             <summary>Explore the purchasing workflow</summary>
@@ -2544,66 +2626,27 @@
             <!-- Card 1: Stock & Medicines -->
             <article class="v-capability-card" aria-labelledby="v-card-1-title">
               <div
-                class="v-capability-card-visual"
-                role="img"
-                aria-label="Illustrative medicine stock card with packs, loose units, location, batch, and expiry details"
+                class="v-capability-card-visual v-med-stage"
+                role="group"
+                aria-label="Illustrative stock quantities"
               >
-                <div class="v-mockup-doc v-mockup-stock">
-                  <div class="v-mockup-header">
-                    <span class="v-mockup-brand">VELOCITY ↗</span>
-                    <span class="v-mockup-badge v-badge-active">In stock</span>
+                <div class="v-med-preview v-med-stock">
+                  <div class="v-med-topline">
+                    <span>VELOCITY ↗</span><span>Stock detail</span>
                   </div>
-                  <div class="v-mockup-medicine">
-                    <h4>Amoxicillin <span>500 mg</span></h4>
-                    <p class="v-mockup-meta">Broad-spectrum antibiotic</p>
+                  <h4>Paracetamol <small>500 mg</small></h4>
+                  <p class="v-med-muted">Main pharmacy · 10 tablets / strip</p>
+                  <div class="v-med-quantity">
+                    <div><strong>12</strong><span>Full strips</span></div>
+                    <span aria-hidden="true">+</span>
+                    <div><strong>6</strong><span>Loose tablets</span></div>
                   </div>
-                  <div class="v-mockup-quantities">
-                    <div class="v-mockup-qty-card">
-                      <span class="v-mockup-qty-num">42</span>
-                      <span class="v-mockup-qty-unit"
-                        >Packs <em>(10 strips)</em></span
-                      >
-                    </div>
-                    <div class="v-mockup-qty-card">
-                      <span class="v-mockup-qty-num">420</span>
-                      <span class="v-mockup-qty-unit">Loose units</span>
-                    </div>
+                  <div class="v-med-stock-total">
+                    <span>Total available</span
+                    ><strong>126 <small>tablets</small></strong>
                   </div>
-                  <div class="v-mockup-location">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                      />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <span>Shelf B-04 · Main Store</span>
-                  </div>
-                  <div class="v-mockup-subcard">
-                    <div class="v-mockup-subitem">
-                      <span class="v-mockup-sublabel">Batch</span>
-                      <strong>BX-8941</strong>
-                    </div>
-                    <div class="v-mockup-subitem">
-                      <span class="v-mockup-sublabel">Expiry</span>
-                      <strong>Nov 2027</strong>
-                    </div>
-                    <div class="v-mockup-subitem v-mockup-subright">
-                      <span
-                        class="v-mockup-status-dot"
-                        aria-hidden="true"
-                      ></span>
-                      <span class="v-mockup-status-text">Active</span>
-                    </div>
+                  <div class="v-med-footline">
+                    <span>Batch PCM–0426</span><span>Exp. Apr 2028</span>
                   </div>
                 </div>
               </div>
@@ -2621,81 +2664,38 @@
             <!-- Card 2: Operations Workflow -->
             <article class="v-capability-card" aria-labelledby="v-card-2-title">
               <div
-                class="v-capability-card-visual"
-                role="img"
-                aria-label="Illustrative workflow card showing 3 steps: order review, stock receipt, and dispensing"
+                class="v-capability-card-visual v-med-stage"
+                role="group"
+                aria-label="Illustrative order, receipt and dispensing progress"
               >
-                <div class="v-mockup-doc v-mockup-workflow">
-                  <div class="v-mockup-header">
-                    <span class="v-mockup-brand">VELOCITY ↗</span>
-                    <span class="v-mockup-badge">Workflow connected</span>
+                <div class="v-med-preview v-med-trail">
+                  <div class="v-med-topline">
+                    <span>VELOCITY ↗</span><span>Order trail</span>
                   </div>
-                  <ol class="v-mockup-timeline">
-                    <li class="v-mockup-step v-step-complete">
-                      <div class="v-step-indicator" aria-hidden="true">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="m5 12 4 4L19 6" />
-                        </svg>
-                      </div>
-                      <div class="v-step-info">
-                        <div class="v-step-head">
-                          <strong>Order review</strong>
-                          <span class="v-step-id">PO–0024</span>
-                        </div>
-                        <p>Purchase order approved</p>
+                  <h4>From order to counter.</h4>
+                  <ol class="v-med-steps">
+                    <li>
+                      <span class="v-med-step-mark" aria-hidden="true">✓</span>
+                      <div>
+                        <strong>Order approved</strong
+                        ><span>PO–0024 · Reviewed by your team</span>
                       </div>
                     </li>
-                    <li class="v-mockup-step v-step-complete">
-                      <div class="v-step-indicator" aria-hidden="true">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path d="m5 12 4 4L19 6" />
-                        </svg>
-                      </div>
-                      <div class="v-step-info">
-                        <div class="v-step-head">
-                          <strong>Stock receipt</strong>
-                          <span class="v-step-id">GR–0018</span>
-                        </div>
-                        <p>120 packs received &amp; logged</p>
+                    <li>
+                      <span class="v-med-step-mark" aria-hidden="true">✓</span>
+                      <div>
+                        <strong>Stock received</strong
+                        ><span>GR–0018 · 60 strips logged</span>
                       </div>
                     </li>
-                    <li class="v-mockup-step v-step-current">
-                      <div class="v-step-indicator" aria-hidden="true">
-                        <span class="v-step-pulse"></span>
-                      </div>
-                      <div class="v-step-info">
-                        <div class="v-step-head">
-                          <strong>Dispensing</strong>
-                          <span class="v-step-id">Ready</span>
-                        </div>
-                        <p>Available at counter &amp; wards</p>
+                    <li class="v-med-step-focus">
+                      <span class="v-med-step-mark" aria-hidden="true">→</span>
+                      <div>
+                        <strong>Ready for dispensing</strong
+                        ><span>Available at the pharmacy counter</span>
                       </div>
                     </li>
                   </ol>
-                  <div class="v-mockup-flow-footer">
-                    <span class="v-mockup-flow-check" aria-hidden="true"
-                      >✓</span
-                    >
-                    <span>Continuous inventory trail</span>
-                  </div>
                 </div>
               </div>
               <div class="v-capability-card-copy">
@@ -2712,176 +2712,43 @@
             <!-- Card 3: Reporting & Decisions -->
             <article class="v-capability-card" aria-labelledby="v-card-3-title">
               <div
-                class="v-capability-card-visual"
-                role="img"
-                aria-label="Illustrative reporting card with stock movement chart and accounting export status"
+                class="v-capability-card-visual v-med-stage"
+                role="group"
+                aria-label="Illustrative consumption report and accounting export"
               >
-                <div class="v-mockup-doc v-mockup-reporting">
-                  <div class="v-mockup-header">
-                    <span class="v-mockup-brand">VELOCITY ↗</span>
-                    <span class="v-mockup-badge">Shared workspace</span>
+                <div class="v-med-preview v-med-report">
+                  <div class="v-med-topline">
+                    <span>VELOCITY ↗</span><span>Report &amp; handoff</span>
                   </div>
-                  <div class="v-mockup-chart-header">
-                    <h4>Stock movement</h4>
-                    <span class="v-mockup-chart-period">Past 6 months</span>
-                  </div>
-                  <div class="v-mockup-chart" aria-hidden="true">
-                    <svg
-                      viewBox="0 0 260 76"
-                      preserveAspectRatio="none"
-                      class="v-chart-svg"
-                    >
-                      <!-- Grid lines -->
-                      <line
-                        x1="0"
-                        y1="18"
-                        x2="260"
-                        y2="18"
-                        stroke="#00000010"
-                        stroke-width="1"
-                      />
-                      <line
-                        x1="0"
-                        y1="46"
-                        x2="260"
-                        y2="46"
-                        stroke="#00000010"
-                        stroke-width="1"
-                      />
-                      <line
-                        x1="0"
-                        y1="74"
-                        x2="260"
-                        y2="74"
-                        stroke="#00000018"
-                        stroke-width="1"
-                      />
-                      <!-- Dual bars per month: received (dark slate) & dispensed (subtle sage) -->
-                      <!-- May -->
-                      <rect
-                        x="18"
-                        y="28"
-                        width="11"
-                        height="46"
-                        rx="2"
-                        fill="#2d3339"
-                      />
-                      <rect
-                        x="32"
-                        y="38"
-                        width="11"
-                        height="36"
-                        rx="2"
-                        fill="#889689"
-                      />
-                      <!-- Jun -->
-                      <rect
-                        x="58"
-                        y="20"
-                        width="11"
-                        height="54"
-                        rx="2"
-                        fill="#2d3339"
-                      />
-                      <rect
-                        x="72"
-                        y="32"
-                        width="11"
-                        height="42"
-                        rx="2"
-                        fill="#889689"
-                      />
-                      <!-- Jul -->
-                      <rect
-                        x="98"
-                        y="14"
-                        width="11"
-                        height="60"
-                        rx="2"
-                        fill="#2d3339"
-                      />
-                      <rect
-                        x="112"
-                        y="24"
-                        width="11"
-                        height="50"
-                        rx="2"
-                        fill="#889689"
-                      />
-                      <!-- Aug -->
-                      <rect
-                        x="138"
-                        y="26"
-                        width="11"
-                        height="48"
-                        rx="2"
-                        fill="#2d3339"
-                      />
-                      <rect
-                        x="152"
-                        y="30"
-                        width="11"
-                        height="44"
-                        rx="2"
-                        fill="#889689"
-                      />
-                      <!-- Sep -->
-                      <rect
-                        x="178"
-                        y="18"
-                        width="11"
-                        height="56"
-                        rx="2"
-                        fill="#2d3339"
-                      />
-                      <rect
-                        x="192"
-                        y="22"
-                        width="11"
-                        height="52"
-                        rx="2"
-                        fill="#889689"
-                      />
-                      <!-- Oct -->
-                      <rect
-                        x="218"
-                        y="10"
-                        width="11"
-                        height="64"
-                        rx="2"
-                        fill="#2d3339"
-                      />
-                      <rect
-                        x="232"
-                        y="16"
-                        width="11"
-                        height="58"
-                        rx="2"
-                        fill="#889689"
-                      />
-                    </svg>
-                    <div class="v-chart-labels">
-                      <span>May</span><span>Jun</span><span>Jul</span
-                      ><span>Aug</span><span>Sep</span><span>Oct</span>
+                  <h4>Consumption at a glance.</h4>
+                  <p class="v-med-muted">
+                    Paracetamol 500 mg · Tablets dispensed
+                  </p>
+                  <div
+                    class="v-med-bars"
+                    role="img"
+                    aria-label="Illustrative monthly consumption: August 80, September 120, October 100 tablets"
+                  >
+                    <div>
+                      <span>Aug</span><i style="--bar: 66.67%"></i
+                      ><strong>80</strong>
+                    </div>
+                    <div>
+                      <span>Sep</span><i style="--bar: 100%"></i
+                      ><strong>120</strong>
+                    </div>
+                    <div>
+                      <span>Oct</span><i style="--bar: 83.33%"></i
+                      ><strong>100</strong>
                     </div>
                   </div>
-                  <div class="v-mockup-export-panel">
-                    <div class="v-mockup-export-row">
-                      <div class="v-export-lead">
-                        <span class="v-export-tag">XML</span>
-                        <span>Tally XML export</span>
-                      </div>
-                      <span class="v-export-status">Ready ↗</span>
+                  <div class="v-med-handoff">
+                    <span class="v-med-file" aria-hidden="true">XML</span>
+                    <div>
+                      <strong>Tally export</strong
+                      ><span>Prepared for accounts review</span>
                     </div>
-                    <div class="v-mockup-export-row">
-                      <div class="v-export-lead">
-                        <span class="v-export-tag">REC</span>
-                        <span>Supplier payments</span>
-                      </div>
-                      <span class="v-export-status"
-                        >Settled · 0 discrepancies</span
-                      >
-                    </div>
+                    <span aria-hidden="true">↗</span>
                   </div>
                 </div>
               </div>
@@ -2923,7 +2790,6 @@
             <div class="v-why-grid">
               <!-- Left Column: Focused Interactive Visual Stage Host -->
               <div class="v-why-stage-col" data-why-desktop-host>
-                <!-- Visual Stage 01: Stock risks -->
                 <div
                   id="why-panel-0"
                   class="v-why-stage is-active"
@@ -2933,247 +2799,100 @@
                   tabindex="0"
                 >
                   <div
-                    class="v-why-stage-box"
-                    role="img"
-                    aria-label="Interactive medicine attention list showing low stock, expiring soon, and expired stock"
+                    class="v-risk-preview"
+                    role="group"
+                    aria-label="Stock attention"
                   >
-                    <div class="v-why-floating-doc">
-                      <div class="v-why-doc-topbar">
-                        <span class="v-why-doc-brand">VELOCITY ↗</span>
-                        <span class="v-why-doc-badge">Stock risks</span>
-                      </div>
-
-                      <!-- Filter controls inside mockup directly above records -->
-                      <div
-                        class="v-why-mini-filters"
-                        role="group"
-                        aria-label="Filter status"
+                    <div class="v-risk-brand">
+                      <span>VELOCITY ↗</span><span>Stock attention</span>
+                    </div>
+                    <h4>Know what needs a review.</h4>
+                    <div
+                      class="v-risk-controls"
+                      role="group"
+                      aria-label="Filter stock alerts"
+                    >
+                      <button
+                        type="button"
+                        data-stock-filter="low-stock"
+                        aria-pressed="true"
                       >
-                        <button
-                          type="button"
-                          class="v-why-mini-filter is-active"
-                          data-stock-filter="low-stock"
-                          aria-pressed="true"
-                        >
-                          Low stock (4)
-                        </button>
-                        <button
-                          type="button"
-                          class="v-why-mini-filter"
-                          data-stock-filter="expiring-soon"
-                          aria-pressed="false"
-                        >
-                          Expiring soon (3)
-                        </button>
-                        <button
-                          type="button"
-                          class="v-why-mini-filter"
-                          data-stock-filter="expired"
-                          aria-pressed="false"
-                        >
-                          Expired (3)
-                        </button>
+                        Low stock</button
+                      ><button
+                        type="button"
+                        data-stock-filter="expiring-soon"
+                        aria-pressed="false"
+                      >
+                        Near expiry</button
+                      ><button
+                        type="button"
+                        data-stock-filter="expired"
+                        aria-pressed="false"
+                      >
+                        Expired
+                      </button>
+                    </div>
+                    <div class="v-risk-alert" data-stock-category="low-stock">
+                      <span class="v-risk-label">BELOW REORDER LEVEL</span>
+                      <h5>Amoxicillin <small>500 mg</small></h5>
+                      <p class="v-risk-context">
+                        Main pharmacy · Batch BX–8941
+                      </p>
+                      <div class="v-risk-stock-level">
+                        <strong>6 <small>packs on hand</small></strong
+                        ><span>Reorder level: 20</span>
                       </div>
-
-                      <div class="v-why-records-list">
-                        <!-- Low stock records -->
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="low-stock"
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Amoxicillin 500 mg</strong>
-                            <span>Batch BX-8941 · Shelf B-04</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>6</strong> / 20 packs</span
-                            >
-                            <span class="v-why-tag v-tag-warn">Low stock</span>
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="low-stock"
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Metformin 500 mg</strong>
-                            <span>Batch MF-2041 · Shelf A-12</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>4</strong> / 15 packs</span
-                            >
-                            <span class="v-why-tag v-tag-warn">Low stock</span>
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="low-stock"
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Pantoprazole 40 mg</strong>
-                            <span>Batch PT-1108 · Shelf C-02</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>2</strong> / 12 packs</span
-                            >
-                            <span class="v-why-tag v-tag-danger">Critical</span>
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="low-stock"
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Cefixime 200 mg</strong>
-                            <span>Batch CX-3309 · Shelf B-08</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>5</strong> / 25 packs</span
-                            >
-                            <span class="v-why-tag v-tag-warn">Low stock</span>
-                          </div>
-                        </div>
-
-                        <!-- Expiring soon records -->
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="expiring-soon"
-                          hidden
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Azithromycin 250 mg</strong>
-                            <span>Batch AZ-4412 · Dec 2026</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>18</strong> packs</span
-                            >
-                            <span class="v-why-tag v-tag-warn">In 42 days</span>
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="expiring-soon"
-                          hidden
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Cough Syrup 100 ml</strong>
-                            <span>Batch CS-9021 · Nov 2026</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>8</strong> bottles</span
-                            >
-                            <span class="v-why-tag v-tag-danger"
-                              >In 18 days</span
-                            >
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="expiring-soon"
-                          hidden
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Atorvastatin 20 mg</strong>
-                            <span>Batch AT-1120 · Dec 2026</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>14</strong> packs</span
-                            >
-                            <span class="v-why-tag v-tag-warn">In 38 days</span>
-                          </div>
-                        </div>
-
-                        <!-- Expired records -->
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="expired"
-                          hidden
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Ceftriaxone 1 g Inj</strong>
-                            <span>Batch CF-7703 · Expired Sep 2026</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>5</strong> vials</span
-                            >
-                            <span class="v-why-tag v-tag-expired"
-                              >Expired · Quarantine</span
-                            >
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="expired"
-                          hidden
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Eye Drops 10 ml</strong>
-                            <span>Batch ED-1092 · Expired Oct 2026</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>3</strong> units</span
-                            >
-                            <span class="v-why-tag v-tag-expired"
-                              >Expired · Quarantine</span
-                            >
-                          </div>
-                        </div>
-
-                        <div
-                          class="v-why-record-row"
-                          data-stock-category="expired"
-                          hidden
-                        >
-                          <div class="v-why-record-main">
-                            <strong>Insulin Glargine 100 IU</strong>
-                            <span>Batch IN-5021 · Expired Oct 2026</span>
-                          </div>
-                          <div class="v-why-record-side">
-                            <span class="v-why-qty-val"
-                              ><strong>4</strong> pens</span
-                            >
-                            <span class="v-why-tag v-tag-expired"
-                              >Expired · Quarantine</span
-                            >
-                          </div>
+                      <div class="v-risk-meter" aria-hidden="true"><i></i></div>
+                      <p class="v-risk-note">
+                        Review stock before placing your next order.
+                      </p>
+                    </div>
+                    <div
+                      class="v-risk-alert"
+                      data-stock-category="expiring-soon"
+                      hidden
+                    >
+                      <span class="v-risk-label">APPROACHING EXPIRY</span>
+                      <h5>Azithromycin <small>250 mg</small></h5>
+                      <p class="v-risk-context">
+                        Main pharmacy · Batch AZ–4412
+                      </p>
+                      <div class="v-risk-expiry">
+                        <strong>DEC <span>2026</span></strong>
+                        <div>
+                          <b>18 packs</b
+                          ><span>Review this batch before expiry.</span>
                         </div>
                       </div>
-
-                      <div class="v-why-doc-summary-bar">
-                        <span class="v-why-summary-stat"
-                          ><strong>4 items</strong> requiring reorder</span
-                        >
-                        <span class="v-why-summary-val font-mono"
-                          >₹14,200 at risk</span
-                        >
+                      <p class="v-risk-note">
+                        Example review date · 02 Nov 2026
+                      </p>
+                    </div>
+                    <div
+                      class="v-risk-alert"
+                      data-stock-category="expired"
+                      hidden
+                    >
+                      <span class="v-risk-label v-risk-label-expired"
+                        >EXPIRY PASSED</span
+                      >
+                      <h5>Ceftriaxone <small>1 g injection</small></h5>
+                      <p class="v-risk-context">
+                        Main pharmacy · Batch CF–7703
+                      </p>
+                      <div class="v-risk-expiry">
+                        <strong>SEP <span>2026</span></strong>
+                        <div>
+                          <b>5 vials</b
+                          ><span>Flagged for your team's review.</span>
+                        </div>
                       </div>
-
-                      <div class="v-why-doc-subtle">
-                        <span
-                          >Low stock and batch expiry from recorded
-                          inventory.</span
-                        >
-                      </div>
+                      <p class="v-risk-note">
+                        Example review date · 02 Nov 2026
+                      </p>
                     </div>
                   </div>
                 </div>
-
-                <!-- Visual Stage 02: Stock changes -->
                 <div
                   id="why-panel-1"
                   class="v-why-stage"
@@ -3184,116 +2903,62 @@
                   hidden
                 >
                   <div
-                    class="v-why-stage-box"
-                    role="img"
-                    aria-label="Interactive activity timeline showing stock adjustment details"
+                    class="v-risk-preview"
+                    role="group"
+                    aria-label="Recorded inventory activity"
                   >
-                    <div class="v-why-floating-doc" data-activity-detail>
-                      <div class="v-why-doc-topbar">
-                        <span class="v-why-doc-brand">VELOCITY ↗</span>
-                        <span class="v-why-doc-badge">Activity record</span>
+                    <div data-activity-detail>
+                      <div class="v-risk-brand">
+                        <span>VELOCITY ↗</span><span>Recorded activity</span>
                       </div>
-
-                      <!-- Short activity list -->
+                      <h4>A reason behind each change.</h4>
                       <div
-                        class="v-why-activity-mini-list"
+                        class="v-risk-controls"
                         role="group"
                         aria-label="Recorded inventory actions"
                       >
                         <button
                           type="button"
-                          class="v-why-act-mini-btn is-active"
                           data-activity-id="act-1"
                           aria-pressed="true"
                         >
-                          <span class="v-act-mini-line">
-                            <strong class="v-act-type">Stock adjustment</strong>
-                            <span class="v-act-time">Today, 14:32</span>
-                          </span>
-                          <span class="v-act-summary"
-                            >Metformin 500 mg · Δ -5 packs</span
-                          >
-                        </button>
-
-                        <button
+                          Adjustment</button
+                        ><button
                           type="button"
-                          class="v-why-act-mini-btn"
                           data-activity-id="act-2"
                           aria-pressed="false"
                         >
-                          <span class="v-act-mini-line">
-                            <strong class="v-act-type">Goods receipt</strong>
-                            <span class="v-act-time">Today, 11:15</span>
-                          </span>
-                          <span class="v-act-summary"
-                            >Amoxicillin 500 mg · Δ +120 packs</span
-                          >
-                        </button>
-
-                        <button
+                          Receipt</button
+                        ><button
                           type="button"
-                          class="v-why-act-mini-btn"
                           data-activity-id="act-3"
                           aria-pressed="false"
                         >
-                          <span class="v-act-mini-line">
-                            <strong class="v-act-type">Counter dispense</strong>
-                            <span class="v-act-time">Today, 09:40</span>
-                          </span>
-                          <span class="v-act-summary"
-                            >Paracetamol 650 mg · Δ -2 strips</span
-                          >
+                          Dispense
                         </button>
                       </div>
-
-                      <!-- Revealed details for selected entry -->
-                      <div class="v-why-detail-box">
-                        <div class="v-why-detail-grid">
-                          <div>
-                            <span class="v-detail-label">Staff &amp; Role</span>
-                            <strong data-field="user"
-                              >P. Sharma · Pharmacist</strong
-                            >
-                          </div>
-                          <div>
-                            <span class="v-detail-label">Quantity Flow</span>
-                            <strong class="v-flow-num" data-field="flow"
-                              >45 → 40 packs (Δ -5)</strong
-                            >
-                          </div>
-                          <div>
-                            <span class="v-detail-label">Medicine</span>
-                            <strong data-field="medicine"
-                              >Metformin 500 mg (BX-8941)</strong
-                            >
-                          </div>
-                          <div>
-                            <span class="v-detail-label">Reference</span>
-                            <strong data-field="ref"
-                              >Adjustment #ADJ-104</strong
-                            >
-                          </div>
-                        </div>
-                        <div class="v-detail-reason">
-                          <span class="v-detail-label">Reason</span>
-                          <p data-field="reason">
-                            Physical count reconciliation: 5 damaged packs
-                            written off
-                          </p>
-                        </div>
+                      <p class="v-risk-context" data-field="medicine">
+                        Metformin 500 mg (BX-8941)
+                      </p>
+                      <div class="v-risk-change">
+                        <span>RECORDED STOCK CHANGE</span
+                        ><strong data-field="flow">45 → 40 packs (Δ -5)</strong>
                       </div>
-
-                      <div class="v-why-doc-subtle">
-                        <span
-                          >Reason and staff identity recorded for stock balance
-                          corrections.</span
-                        >
+                      <div class="v-risk-reason">
+                        <span>Reason</span>
+                        <p data-field="reason">
+                          Physical count reconciliation: 5 damaged packs written
+                          off
+                        </p>
+                      </div>
+                      <div class="v-risk-audit">
+                        <span data-field="user">P. Sharma · Pharmacist</span
+                        ><span data-field="time">Today, 14:32 IST</span
+                        ><span data-field="ref">Adjustment #ADJ-104</span>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <!-- Visual Stage 03: Remote visibility -->
                 <div
                   id="why-panel-2"
                   class="v-why-stage"
@@ -3304,88 +2969,64 @@
                   hidden
                 >
                   <div
-                    class="v-why-stage-box"
-                    role="img"
-                    aria-label="Interactive remote overview with period switcher and stock summary"
+                    class="v-risk-preview"
+                    role="group"
+                    aria-label="Pharmacy report snapshot"
                   >
-                    <div class="v-why-floating-doc" data-owner-overview>
-                      <div class="v-why-doc-topbar">
-                        <span class="v-why-doc-brand">VELOCITY ↗</span>
-                        <span class="v-why-doc-time" data-stat="updated"
-                          >Updated 18:45 IST · Snapshot</span
-                        >
+                    <div data-owner-overview>
+                      <div class="v-risk-brand">
+                        <span>VELOCITY ↗</span><span>Browser reports</span>
                       </div>
-
-                      <!-- Period switcher inside mockup -->
+                      <h4>Your pharmacy, in view.</h4>
                       <div
-                        class="v-why-mini-filters"
+                        class="v-risk-controls"
                         role="group"
                         aria-label="Reporting period"
                       >
                         <button
                           type="button"
-                          class="v-why-mini-filter is-active"
                           data-owner-period="today"
                           aria-pressed="true"
                         >
-                          Today
-                        </button>
-                        <button
+                          Today</button
+                        ><button
                           type="button"
-                          class="v-why-mini-filter"
                           data-owner-period="7d"
                           aria-pressed="false"
                         >
-                          Past 7 days
-                        </button>
-                        <button
+                          Past 7 days</button
+                        ><button
                           type="button"
-                          class="v-why-mini-filter"
                           data-owner-period="30d"
                           aria-pressed="false"
                         >
                           Past 30 days
                         </button>
                       </div>
-
-                      <!-- 4 compact metric tiles -->
-                      <div class="v-why-kpi-grid">
-                        <div class="v-kpi-card">
-                          <span class="v-kpi-label">Stock catalogue</span>
-                          <strong class="v-kpi-num" data-stat="skus"
-                            >1,248</strong
-                          >
-                          <span class="v-kpi-sub">Active medicines</span>
+                      <div class="v-risk-overview">
+                        <div class="v-risk-primary-stat">
+                          <span>Stock movements</span
+                          ><strong data-stat="movements">34 recorded</strong
+                          ><small>Receipts &amp; issues</small>
                         </div>
-                        <div class="v-kpi-card">
-                          <span class="v-kpi-label">Stock movements</span>
-                          <strong class="v-kpi-num" data-stat="movements"
-                            >34 recorded</strong
-                          >
-                          <span class="v-kpi-sub">Receipts &amp; issues</span>
+                        <div class="v-risk-report-row">
+                          <span>Counter sales</span
+                          ><strong data-stat="bills">28 bills</strong>
                         </div>
-                        <div class="v-kpi-card v-kpi-alert">
-                          <span class="v-kpi-label">Attention needed</span>
-                          <strong class="v-kpi-num" data-stat="attention"
-                            >5 items</strong
-                          >
-                          <span class="v-kpi-sub" data-stat="attention-detail"
-                            >3 low stock · 2 expiring</span
-                          >
-                        </div>
-                        <div class="v-kpi-card">
-                          <span class="v-kpi-label">Counter sales</span>
-                          <strong class="v-kpi-num" data-stat="bills"
-                            >28 bills</strong
-                          >
-                          <span class="v-kpi-sub">Settled transactions</span>
+                        <div class="v-risk-report-row">
+                          <span>Active medicines</span
+                          ><strong data-stat="skus">1,248</strong>
                         </div>
                       </div>
-
-                      <div class="v-why-status-bar">
-                        <span class="v-status-dot" aria-hidden="true"></span>
-                        <span>Browser access available · Snapshot</span>
+                      <div class="v-risk-attention">
+                        <strong data-stat="attention">5 items</strong
+                        ><span data-stat="attention-detail"
+                          >3 low stock · 2 expiring</span
+                        >
                       </div>
+                      <p class="v-risk-note" data-stat="updated">
+                        Updated 18:45 IST · Snapshot
+                      </p>
                     </div>
                   </div>
                 </div>

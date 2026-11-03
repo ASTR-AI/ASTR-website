@@ -246,7 +246,7 @@ export function initInventoryCarousel(root) {
 }
 
 /**
- * Accessible dialog controller for enlarging inventory screenshot previews.
+ * Accessible dialog controller for enlarging inventory previews.
  *
  * @param {HTMLElement} dialog - The dialog element.
  * @param {HTMLElement} [root] - Container containing preview cards.
@@ -263,6 +263,7 @@ export function initInventoryPreviewDialog(dialog, root) {
   const closeBtn = dialog.querySelector('[data-dialog-close]');
   const backdrop = dialog.querySelector('[data-dialog-backdrop]');
   const dialogImg = dialog.querySelector('[data-dialog-img]');
+  const dialogMockup = dialog.querySelector('[data-dialog-mockup]');
   const dialogTitle = dialog.querySelector('#inventory-preview-title');
   const scrollBody = dialog.querySelector('.v-preview-dialog-body');
 
@@ -280,9 +281,18 @@ export function initInventoryPreviewDialog(dialog, root) {
     const title =
       card?.querySelector?.('h3')?.textContent?.trim() || 'Product preview';
 
+    const mockup = card?.querySelector?.('[data-inventory-mockup]');
+    if (dialogMockup) {
+      dialogMockup.replaceChildren();
+      dialogMockup.hidden = !mockup;
+      if (mockup) dialogMockup.append(mockup.cloneNode(true));
+    }
+    if (dialogImg) dialogImg.hidden = Boolean(mockup);
     if (dialogImg && img) {
-      dialogImg.src = img.currentSrc || img.getAttribute?.('src') || img.src || '';
-      dialogImg.alt = img.getAttribute?.('alt') || img.alt || 'Enlarged product preview';
+      dialogImg.src =
+        img.currentSrc || img.getAttribute?.('src') || img.src || '';
+      dialogImg.alt =
+        img.getAttribute?.('alt') || img.alt || 'Enlarged product preview';
     }
     if (dialogTitle) {
       dialogTitle.textContent = title;

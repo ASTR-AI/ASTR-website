@@ -490,6 +490,7 @@ test('static mobile chapters can be selected and restore the unenhanced fallback
   desktop.matches = false;
   const { chapters, panels } = withChapterControls(fixture);
   const cleanup = initHeroTransition(fixture.root);
+  assert.equal(panels.find((panel) => panel.current).dataset.heroPanel, 'overview');
   chapters[2].summary.click();
   assert.deepEqual(
     chapters.map((chapter) => chapter.open),
@@ -811,6 +812,11 @@ test('hero nav arrows advance and rewind chapters and update disabled state', ()
   assert.equal(prevBtn.classList.contains('is-disabled'), true);
   assert.equal(nextBtn.disabled, false);
   assert.equal(nextBtn.classList.contains('is-disabled'), false);
+
+  // The opening dashboard advances to the first feature before chapter 1.
+  assert.equal(panels.find((panel) => panel.current).dataset.heroPanel, 'overview');
+  nextListeners.get('click')({ preventDefault() {} });
+  assert.equal(panels.find((panel) => panel.current).dataset.heroPanel, 'stock');
 
   // Click next -> advances to chapter 1
   let prevented = false;

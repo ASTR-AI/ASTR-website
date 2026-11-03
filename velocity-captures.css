@@ -1,0 +1,1476 @@
+/* Native product crops and high-resolution originals, without artificial upscaling. */
+.velocity-page .v-hero-chapters-ready .v-window-content {
+  aspect-ratio: 1430 / 760;
+}
+.velocity-page .v-card-img {
+  aspect-ratio: 1430 / 760;
+  object-fit: contain;
+}
+.velocity-page .v-card-img-wrap {
+  padding: 18px;
+  background: linear-gradient(145deg, #e5e7ed, #f5f4f0 55%, #d8dde6);
+}
+.velocity-page .v-card-img {
+  border-radius: 9px;
+  box-shadow: 0 8px 24px rgb(26 34 49 / 12%);
+}
+.velocity-page .v-card-enlarge-btn {
+  bottom: 24px;
+  right: 24px;
+}
+.velocity-page .v-preview-dialog-img {
+  aspect-ratio: 1430 / 760;
+}
+.velocity-page .v-reorder-screen {
+  aspect-ratio: 1430 / 760;
+  filter: blur(2px);
+}
+.velocity-page #reordering.v-section {
+  --v-space-section: 64px;
+}
+.velocity-page .v-reorder-intro {
+  margin-bottom: 28px;
+}
+.velocity-page .v-reorder-panel {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: clamp(12px, 2vw, 20px);
+}
+.velocity-page .v-reorder-screen-wrap {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  border-radius: 12px;
+}
+.velocity-page .v-reorder-showcase {
+  max-width: 820px;
+  margin-bottom: 20px;
+}
+.velocity-page .v-reorder-veil {
+  display: block;
+}
+.velocity-page .v-reorder-summary-card {
+  position: absolute;
+  inset: auto 36px 36px auto;
+  width: 300px;
+  margin: 0;
+}
+.velocity-page .v-product-capture {
+  margin: 40px 0 32px;
+  overflow: hidden;
+  border: 1px solid #dedbd4;
+  border-radius: 20px;
+  background: #f4f5f7;
+  box-shadow: 0 20px 60px -28px rgb(0 0 0 / 24%);
+}
+.velocity-page .v-product-capture-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e4e2dc;
+  font:
+    12px/1.5 'Geist Variable',
+    Arial,
+    sans-serif;
+  color: #555b63;
+}
+.velocity-page .v-product-capture-scroll {
+  overflow-x: auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #e5e7ed, #f5f4f0 55%, #d8dde6);
+}
+.velocity-page .v-product-capture-scroll:focus-visible {
+  outline: 2px solid #a17b37;
+  outline-offset: -3px;
+}
+.velocity-page .v-product-capture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgb(26 34 49 / 12%);
+}
+.velocity-page .v-product-capture figcaption {
+  padding: 14px 20px;
+  font:
+    13px/1.5 'Geist Variable',
+    Arial,
+    sans-serif;
+  color: #555b63;
+  border-top: 1px solid #e4e2dc;
+}
+.velocity-page .v-capture-swipe-hint {
+  display: none;
+}
+@media (max-width: 767px) {
+  .velocity-page #purchasing .v-purchase-capture {
+    order: 2;
+    margin-top: 0;
+  }
+  .velocity-page #purchasing .v-purchase-illustration {
+    order: 3;
+  }
+  .velocity-page .v-hero-chapters-ready .v-window-content {
+    min-height: 0;
+  }
+  .velocity-page .v-product-capture {
+    margin-top: 28px;
+    border-radius: 14px;
+  }
+  .velocity-page .v-product-capture img {
+    min-width: 760px;
+  }
+  .velocity-page .v-card-img-wrap,
+  .velocity-page .v-product-capture-scroll {
+    padding: 12px;
+  }
+  .velocity-page .v-card-enlarge-btn {
+    bottom: 16px;
+    right: 16px;
+  }
+  .velocity-page .v-capture-swipe-hint {
+    display: block;
+    margin-top: 4px;
+  }
+  .velocity-page .v-reorder-summary-card {
+    inset: auto 24px 24px;
+    width: auto;
+    margin: 0;
+  }
+  .velocity-page .v-reorder-panel {
+    min-height: 300px;
+  }
+  .velocity-page #reordering.v-section {
+    --v-space-section: 40px;
+  }
+}
+
+/* Compact, feature-specific inventory details, in the existing ivory palette. */
+.velocity-page .v-card-img-wrap.v-stock-stage {
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  box-shadow: none;
+}
+.velocity-page .v-stock-document {
+  box-sizing: border-box;
+  height: 250px;
+  padding: 20px 24px;
+  border: 1px solid #ffffff80;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f5f2eb;
+  color: #2c3028;
+  font:
+    13px/1.4 'Geist Variable',
+    Arial,
+    sans-serif;
+  text-align: left;
+  box-shadow: 0 12px 28px -20px #0006;
+}
+.velocity-page .v-stock-minihead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 14px;
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page .v-stock-minihead > span:first-child {
+  font:
+    600 10px/1.4 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.12em;
+  color: #4c513f;
+}
+.velocity-page .v-stock-focus-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #2c3028;
+  font:
+    500 21px/1.3 'Lora',
+    Georgia,
+    serif;
+  letter-spacing: -0.025em;
+}
+.velocity-page .v-stock-focus-title > span {
+  color: #63685c;
+  font:
+    11px/1.4 'Geist Variable',
+    Arial,
+    sans-serif;
+  letter-spacing: 0;
+}
+.velocity-page .v-stock-location-list {
+  margin: 0;
+}
+.velocity-page .v-stock-location-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 0;
+  border-top: 1px solid #2c30281f;
+}
+.velocity-page .v-stock-location-list dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.velocity-page .v-stock-location-list i {
+  color: #727767;
+  font:
+    10px/1 'JetBrains Mono',
+    monospace;
+}
+.velocity-page .v-stock-location-list dd {
+  margin: 0;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.velocity-page .v-stock-location-list dd span {
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page .v-stock-batches .v-stock-focus-title {
+  display: block;
+  font-size: 20px;
+}
+.velocity-page .v-stock-focus-title em {
+  color: #596448;
+  font-style: normal;
+}
+.velocity-page .v-stock-focus-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.velocity-page .v-stock-focus-table th,
+.velocity-page .v-stock-focus-table td {
+  text-align: left;
+  padding: 10px;
+  font-weight: 400;
+  border-bottom: 1px solid #2c30281a;
+  white-space: nowrap;
+}
+.velocity-page .v-stock-focus-table thead th {
+  font-size: 10px;
+  color: #63685c;
+  padding-block: 6px;
+}
+.velocity-page .v-stock-focus-table th:first-child {
+  background: #e5e9dd;
+  color: #35432d;
+  border-left: 2px solid #788461;
+}
+.velocity-page .v-stock-focus-table td {
+  color: #73786c;
+}
+.velocity-page .v-stock-context {
+  display: flex;
+  gap: 18px;
+  opacity: 0.24;
+  filter: blur(2px);
+  margin: 14px 10px 0;
+}
+.velocity-page .v-stock-context span {
+  height: 5px;
+  flex: 1;
+  background: #9b9f92;
+  border-radius: 2px;
+}
+.velocity-page .v-stock-expiry {
+  background: #f5f1e7;
+}
+.velocity-page .v-stock-expiry-focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 0;
+  border-block: 1px solid #8d71322b;
+}
+.velocity-page .v-stock-expiry-label {
+  color: #806025;
+  font:
+    9px/1.4 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.08em;
+}
+.velocity-page .v-stock-expiry-focus h4 {
+  margin: 8px 0 5px;
+  color: #2c3028;
+  font:
+    500 22px/1.2 'Lora',
+    Georgia,
+    serif;
+  letter-spacing: -0.025em;
+}
+.velocity-page .v-stock-expiry-focus p {
+  margin: 0;
+  color: #63685c;
+  font-size: 11px;
+}
+.velocity-page .v-stock-date {
+  flex-shrink: 0;
+  text-align: center;
+  border: 1px solid #bda976;
+  border-radius: 8px;
+  min-width: 70px;
+  overflow: hidden;
+}
+.velocity-page .v-stock-date span {
+  display: block;
+  background: #e9dfc9;
+  padding: 4px 10px;
+  color: #725622;
+  font:
+    10px/1.4 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.12em;
+}
+.velocity-page .v-stock-date strong {
+  display: block;
+  padding: 8px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.velocity-page .v-stock-expiry-note {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 15px;
+  color: #725622;
+  font-size: 11px;
+}
+.velocity-page .v-stock-expiry-note > span:last-child {
+  margin-left: auto;
+  color: #63685c;
+  font-size: 9px;
+}
+.velocity-page .v-stock-equation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #2c302825;
+}
+.velocity-page .v-stock-equation > div {
+  text-align: center;
+}
+.velocity-page .v-stock-equation strong {
+  display: block;
+  color: #2c3028;
+  font:
+    400 40px/1.2 'Lora',
+    Georgia,
+    serif;
+  letter-spacing: -0.04em;
+}
+.velocity-page .v-stock-equation span {
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  color: #63685c;
+}
+.velocity-page .v-stock-equation b {
+  color: #7d8274;
+  font-weight: 400;
+  font-size: 18px;
+}
+.velocity-page .v-stock-unit-result {
+  padding: 12px;
+  background: #e5e9dd;
+  border-radius: 10px;
+}
+.velocity-page .v-stock-unit-result strong {
+  color: #435336;
+}
+.velocity-page .v-stock-stage .v-card-enlarge-btn {
+  bottom: -48px;
+  right: 0;
+}
+.velocity-page .v-stock-stage .v-card-enlarge-btn span {
+  display: none;
+}
+.velocity-page .v-stock-stage .v-card-enlarge-btn {
+  padding: 10px;
+  min-width: 36px;
+  min-height: 36px;
+}
+.velocity-page #inventory .v-card-caption {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  padding-right: 44px;
+}
+.velocity-page .v-stock-dialog-content {
+  width: min(100%, 720px);
+}
+.velocity-page .v-stock-dialog-content[hidden],
+.velocity-page .v-preview-dialog-img[hidden] {
+  display: none;
+}
+.velocity-page .v-stock-dialog-content .v-stock-document {
+  height: auto;
+  min-height: 250px;
+}
+@media (max-width: 767px) {
+  .velocity-page .v-stock-document {
+    height: 200px;
+    padding: 14px;
+    font-size: 11px;
+  }
+  .velocity-page .v-stock-minihead {
+    padding-bottom: 12px;
+    font-size: 9px;
+  }
+  .velocity-page .v-stock-minihead > span:first-child {
+    font-size: 9px;
+  }
+  .velocity-page .v-stock-focus-title {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .velocity-page .v-stock-focus-title > span {
+    font-size: 9px;
+  }
+  .velocity-page .v-stock-location-list > div {
+    padding: 8px 0;
+  }
+  .velocity-page .v-stock-location-list dt {
+    gap: 6px;
+  }
+  .velocity-page .v-stock-location-list dd {
+    font-size: 15px;
+  }
+  .velocity-page .v-stock-batches .v-stock-focus-title {
+    font-size: 16px;
+  }
+  .velocity-page .v-stock-focus-table {
+    font-size: 10px;
+  }
+  .velocity-page .v-stock-focus-table th,
+  .velocity-page .v-stock-focus-table td {
+    padding: 8px 5px;
+  }
+  .velocity-page .v-stock-expiry-focus {
+    padding: 12px 0;
+    gap: 10px;
+  }
+  .velocity-page .v-stock-expiry-focus h4 {
+    font-size: 18px;
+  }
+  .velocity-page .v-stock-expiry-label {
+    font-size: 8px;
+  }
+  .velocity-page .v-stock-date {
+    min-width: 55px;
+  }
+  .velocity-page .v-stock-date strong {
+    font-size: 17px;
+    padding: 6px;
+  }
+  .velocity-page .v-stock-expiry-note {
+    flex-wrap: wrap;
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .velocity-page .v-stock-expiry-note > span:last-child {
+    font-size: 8px;
+  }
+  .velocity-page .v-stock-equation {
+    padding-top: 14px;
+    gap: 5px;
+  }
+  .velocity-page .v-stock-equation strong {
+    font-size: 30px;
+  }
+  .velocity-page .v-stock-equation span {
+    font-size: 9px;
+  }
+  .velocity-page .v-stock-unit-result {
+    padding: 10px 8px;
+  }
+}
+/* Override the page's generic definition-list typography inside the preview. */
+.velocity-page .v-stock-location-list dt {
+  margin: 0;
+  color: #2c3028;
+  font: inherit;
+}
+.velocity-page .v-stock-location-list dd {
+  color: #2c3028;
+  line-height: 1.4;
+}
+.velocity-page .v-stock-stage .v-card-enlarge-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+@media (max-width: 767px) {
+  .velocity-page .v-stock-document {
+    height: 174px;
+    padding: 12px;
+  }
+  .velocity-page #inventory .v-card-header {
+    margin-bottom: 12px;
+  }
+  .velocity-page #inventory .v-card-caption {
+    min-height: 32px;
+  }
+  .velocity-page .v-stock-minihead {
+    padding-bottom: 8px;
+  }
+  .velocity-page .v-stock-location-list > div {
+    padding: 6px 0;
+  }
+  .velocity-page .v-stock-location-list dd {
+    font-size: 14px;
+  }
+  .velocity-page .v-stock-expiry-focus {
+    padding: 8px 0;
+  }
+  .velocity-page .v-stock-expiry-focus h4 {
+    font-size: 16px;
+    margin: 5px 0 4px;
+  }
+  .velocity-page .v-stock-expiry-focus p {
+    font-size: 10px;
+  }
+  .velocity-page .v-stock-expiry-note {
+    margin-top: 8px;
+    font-size: 9px;
+  }
+  .velocity-page .v-stock-expiry-note > span:last-child {
+    font-size: 8px;
+  }
+  .velocity-page .v-stock-equation {
+    padding-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .velocity-page .v-stock-document {
+    height: 170px;
+  }
+  .velocity-page .v-stock-context {
+    display: none;
+  }
+  .velocity-page .v-stock-location-list > div {
+    padding-block: 5px;
+  }
+}
+
+/* A focused order preview replaces the full purchasing screenshot. */
+.velocity-page #purchasing.v-purchasing-section {
+  padding-block: 64px;
+}
+.velocity-page #purchasing > .v-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 20px 48px;
+}
+.velocity-page #purchasing .v-purchasing-intro {
+  margin: 0;
+}
+.velocity-page #purchasing .v-purchasing-intro .v-lead {
+  margin-bottom: 0;
+}
+.velocity-page #purchasing .v-purchase-preview {
+  margin: 0;
+  min-width: 0;
+}
+.velocity-page .v-purchase-focus {
+  padding: 22px 24px;
+  border: 1px solid #ffffff80;
+  border-radius: 16px;
+  color: #2c3028;
+  background: #f5f2eb;
+  font:
+    12px/1.5 'Geist Variable',
+    Arial,
+    sans-serif;
+}
+.velocity-page .v-purchase-focus-brand {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page .v-purchase-focus-brand > span:first-child {
+  font:
+    600 10px/1.5 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.12em;
+  color: #4c513f;
+}
+.velocity-page .v-purchase-focus-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+.velocity-page .v-purchase-focus-heading h3 {
+  margin: 0;
+  color: #2c3028;
+  font:
+    500 23px/1.25 'Lora',
+    Georgia,
+    serif;
+  letter-spacing: -0.025em;
+}
+.velocity-page .v-purchase-focus-heading h3 span {
+  display: block;
+  margin-top: 5px;
+  color: #63685c;
+  font:
+    10px/1.4 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0;
+}
+.velocity-page .v-purchase-focus-status {
+  padding: 5px 9px;
+  border: 1px solid #d8c49a;
+  border-radius: 6px;
+  color: #725622;
+  background: #eee6d3;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.velocity-page .v-purchase-focus-supplier {
+  margin: 14px 0;
+  color: #63685c;
+  font-size: 11px;
+}
+.velocity-page .v-purchase-focus-supplier strong {
+  margin-left: 8px;
+  font-weight: 400;
+  color: #2c3028;
+}
+.velocity-page .v-purchase-focus-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.velocity-page .v-purchase-focus-table thead th {
+  padding: 7px 0;
+  border-block: 1px solid #2c302825;
+  font-weight: 400;
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page .v-purchase-focus-table tbody th,
+.velocity-page .v-purchase-focus-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid #2c302825;
+  font-weight: 400;
+  color: #2c3028;
+  font-size: 12px;
+}
+.velocity-page .v-purchase-focus-table th:last-child,
+.velocity-page .v-purchase-focus-table td {
+  text-align: right;
+}
+.velocity-page .v-purchase-focus-table tbody th span {
+  margin-left: 6px;
+  font-size: 10px;
+  color: #63685c;
+}
+.velocity-page .v-purchase-focus-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  color: #76796f;
+  font-size: 10px;
+}
+.velocity-page .v-purchase-focus-progress li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.velocity-page .v-purchase-focus-progress li > span {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #d8dacd;
+  border-radius: 50%;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+.velocity-page .v-purchase-focus-progress .is-complete {
+  color: #536645;
+}
+.velocity-page .v-purchase-focus-progress .is-complete > span {
+  background: #e3e8dc;
+  border-color: #ccd4c2;
+}
+.velocity-page .v-purchase-focus-progress .is-current {
+  color: #725622;
+}
+.velocity-page .v-purchase-focus-progress .is-current > span {
+  border-color: #bda976;
+}
+.velocity-page #purchasing .v-purchase-preview figcaption {
+  margin-top: 10px;
+  color: #90928d;
+  font:
+    11px/1.5 'Geist Variable',
+    Arial,
+    sans-serif;
+}
+.velocity-page #purchasing > .v-container > .v-workflow-details {
+  grid-column: 1 / -1;
+  margin: 0;
+  width: 100%;
+}
+.velocity-page #purchasing .v-purchase-footer {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+.velocity-page #purchasing .v-purchase-closing {
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .velocity-page #purchasing.v-purchasing-section {
+    padding-block: 48px;
+  }
+  .velocity-page #purchasing > .v-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .velocity-page #purchasing .v-purchasing-intro {
+    margin-bottom: 4px;
+  }
+  .velocity-page #purchasing .v-purchase-preview {
+    margin: 0;
+  }
+  .velocity-page .v-purchase-focus {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .velocity-page .v-purchase-focus-heading h3 {
+    font-size: 20px;
+  }
+  .velocity-page .v-purchase-focus-heading {
+    gap: 8px;
+  }
+  .velocity-page .v-purchase-focus-status {
+    font-size: 9px;
+    padding: 4px 6px;
+  }
+  .velocity-page .v-purchase-focus-brand {
+    margin-bottom: 12px;
+  }
+  .velocity-page .v-purchase-focus-supplier {
+    margin-block: 10px;
+  }
+  .velocity-page .v-purchase-focus-progress {
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 9px;
+  }
+  .velocity-page .v-purchase-focus-progress li {
+    gap: 4px;
+  }
+  .velocity-page .v-purchase-focus-progress li > span {
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+  .velocity-page #purchasing .v-purchase-footer {
+    margin-top: 0;
+  }
+}
+@media (max-width: 360px) {
+  .velocity-page .v-purchase-focus-heading h3 {
+    font-size: 18px;
+  }
+}
+.velocity-page #purchasing.v-purchasing-section {
+  padding-block: 48px;
+}
+.velocity-page #purchasing > .v-container {
+  row-gap: 12px;
+}
+.velocity-page #purchasing .v-purchase-preview figcaption {
+  padding: 0;
+  border: 0;
+}
+.velocity-page #purchasing > .v-container > .v-workflow-details {
+  order: 3;
+}
+.velocity-page #purchasing .v-workflow-details > summary {
+  padding-block: 10px;
+}
+.velocity-page #purchasing .v-purchase-footer {
+  order: 4;
+}
+.velocity-page #purchasing .v-purchase-divider {
+  margin-bottom: 12px;
+}
+
+/* Medicine workflows: three focused, responsive product vignettes. */
+.velocity-page #features .v-med-stage {
+  height: 294px;
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.velocity-page #features .v-med-preview {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 22px;
+  border: 1px solid #e5e3d9;
+  border-radius: 14px;
+  background: #f4f2ea;
+  color: #2c3028;
+  font:
+    12px/1.45 'Geist Variable',
+    Arial,
+    sans-serif;
+}
+.velocity-page #features .v-med-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 15px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #2c302825;
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #features .v-med-topline > :first-child {
+  font:
+    10px/1.5 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.12em;
+}
+.velocity-page #features .v-med-preview h4 {
+  margin: 0;
+  color: #2c3028;
+  font:
+    23px/1.2 'Lora',
+    Georgia,
+    serif;
+  letter-spacing: -0.03em;
+}
+.velocity-page #features .v-med-preview h4 small {
+  font:
+    11px/1.4 'Geist Variable',
+    Arial,
+    sans-serif;
+  color: #63685c;
+  white-space: nowrap;
+}
+.velocity-page #features .v-med-muted {
+  margin: 7px 0 0;
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #features .v-med-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0;
+}
+.velocity-page #features .v-med-quantity div {
+  display: grid;
+  gap: 2px;
+}
+.velocity-page #features .v-med-quantity strong {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+.velocity-page #features .v-med-quantity span {
+  color: #63685c;
+  font-size: 11px;
+}
+.velocity-page #features .v-med-stock-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #e3e7d9;
+  color: #43513a;
+}
+.velocity-page #features .v-med-stock-total strong {
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 500;
+}
+.velocity-page #features .v-med-stock-total small {
+  font-size: 10px;
+  font-weight: 400;
+}
+.velocity-page #features .v-med-footline {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 13px;
+  font-size: 9px;
+  color: #63685c;
+}
+.velocity-page #features .v-med-steps {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+.velocity-page #features .v-med-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding: 0 0 19px;
+}
+.velocity-page #features .v-med-steps li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 24px;
+  background: #ccd2c2;
+  top: 27px;
+  left: 13px;
+}
+.velocity-page #features .v-med-step-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  height: 28px;
+  border: 1px solid #ccd2c2;
+  border-radius: 50%;
+  color: #536645;
+  background: #e7eadf;
+}
+.velocity-page #features .v-med-steps div {
+  display: grid;
+  gap: 3px;
+}
+.velocity-page #features .v-med-steps strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.velocity-page #features .v-med-steps div > span {
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #features .v-med-steps .v-med-step-focus {
+  padding: 10px;
+  margin: -2px -10px 0;
+  border-radius: 6px;
+  background: #e3e7d9;
+}
+.velocity-page #features .v-med-step-focus .v-med-step-mark {
+  background: #536645;
+  border-color: #536645;
+  color: #fff;
+}
+.velocity-page #features .v-med-bars {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+}
+.velocity-page #features .v-med-bars > div {
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+}
+.velocity-page #features .v-med-bars i {
+  display: block;
+  width: var(--bar);
+  height: 10px;
+  border-radius: 0 2px 2px 0;
+  background: #a3ad94;
+}
+.velocity-page #features .v-med-bars > div:nth-child(2) i {
+  background: #536645;
+}
+.velocity-page #features .v-med-bars strong {
+  font-weight: 400;
+  text-align: right;
+}
+.velocity-page #features .v-med-handoff {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #2c302825;
+  padding-top: 14px;
+}
+.velocity-page #features .v-med-file {
+  padding: 8px 5px;
+  border: 1px solid #c9cebe;
+  border-radius: 3px;
+  color: #536645;
+  font: 10px/1.4 monospace;
+}
+.velocity-page #features .v-med-handoff div {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+.velocity-page #features .v-med-handoff strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.velocity-page #features .v-med-handoff div > span {
+  font-size: 10px;
+  color: #63685c;
+}
+@media (max-width: 1100px) and (min-width: 768px) {
+  .velocity-page #features .v-med-preview {
+    padding: 16px;
+  }
+  .velocity-page #features .v-med-preview h4 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .velocity-page #features .v-med-stage {
+    height: 264px;
+    min-height: 0;
+    padding: 0;
+    border-radius: 12px;
+  }
+  .velocity-page #features .v-med-preview {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .velocity-page #features .v-med-topline {
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    font-size: 9px;
+  }
+  .velocity-page #features .v-med-topline > :first-child {
+    font-size: 9px;
+  }
+  .velocity-page #features .v-med-preview h4 {
+    font-size: 20px;
+  }
+  .velocity-page #features .v-med-quantity {
+    margin-block: 14px;
+  }
+  .velocity-page #features .v-med-quantity strong {
+    font-size: 28px;
+  }
+  .velocity-page #features .v-med-stock-total {
+    padding: 10px;
+  }
+  .velocity-page #features .v-med-steps li {
+    gap: 8px;
+    padding-bottom: 16px;
+  }
+  .velocity-page #features .v-med-steps strong {
+    font-size: 11px;
+  }
+  .velocity-page #features .v-med-steps div > span {
+    font-size: 9px;
+  }
+  .velocity-page #features .v-med-bars {
+    margin-block: 17px;
+  }
+}
+@media (max-width: 360px) {
+  .velocity-page #features .v-med-preview {
+    padding: 14px;
+  }
+  .velocity-page #features .v-med-preview h4 {
+    font-size: 18px;
+  }
+  .velocity-page #features .v-med-steps {
+    margin-top: 14px;
+  }
+  .velocity-page #features .v-med-bars {
+    margin-block: 14px;
+  }
+  .velocity-page #features .v-med-handoff {
+    padding-top: 10px;
+  }
+}
+
+/* Risks and activity: a focused alert, audit entry, and report snapshot. */
+.velocity-page #why-velocity .v-risk-preview {
+  min-height: 366px;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #e5e3d9;
+  background: #f4f2ea;
+  color: #2c3028;
+  box-sizing: border-box;
+  font:
+    12px/1.45 'Geist Variable',
+    Arial,
+    sans-serif;
+}
+.velocity-page #why-velocity .v-risk-brand {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #2c302825;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  font-size: 10px;
+  color: #63685c;
+}
+.velocity-page #why-velocity .v-risk-brand > :first-child {
+  font:
+    10px/1.5 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.12em;
+}
+.velocity-page #why-velocity .v-risk-preview h4 {
+  margin: 0;
+  color: #2c3028;
+  font:
+    26px/1.25 'Lora',
+    Georgia,
+    serif;
+  letter-spacing: -0.03em;
+}
+.velocity-page #why-velocity .v-risk-controls {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid #2c302825;
+  margin: 12px 0 18px;
+}
+.velocity-page #why-velocity .v-risk-controls button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  color: #63685c;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.velocity-page #why-velocity .v-risk-controls button[aria-pressed='true'] {
+  border-color: #536645;
+  color: #35442c;
+}
+.velocity-page #why-velocity .v-risk-controls button:hover {
+  background: #e9e9df;
+}
+.velocity-page #why-velocity .v-risk-controls button:focus-visible {
+  outline: 2px solid #536645;
+  outline-offset: 2px;
+}
+.velocity-page #why-velocity .v-risk-alert[hidden] {
+  display: none;
+}
+.velocity-page #why-velocity .v-risk-label {
+  color: #80602e;
+  font:
+    9px/1.5 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.08em;
+}
+.velocity-page #why-velocity .v-risk-label-expired {
+  color: #984c3e;
+}
+.velocity-page #why-velocity .v-risk-preview h5 {
+  margin: 8px 0 0;
+  color: #2c3028;
+  font-size: 19px;
+  font-weight: 400;
+}
+.velocity-page #why-velocity .v-risk-preview h5 small {
+  font-size: 11px;
+  color: #63685c;
+}
+.velocity-page #why-velocity .v-risk-context {
+  margin: 5px 0 0;
+  color: #63685c;
+  font-size: 11px;
+}
+.velocity-page #why-velocity .v-risk-stock-level {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 22px;
+}
+.velocity-page #why-velocity .v-risk-stock-level strong {
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+}
+.velocity-page #why-velocity .v-risk-stock-level small {
+  font-size: 11px;
+}
+.velocity-page #why-velocity .v-risk-stock-level > span {
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #why-velocity .v-risk-meter {
+  height: 7px;
+  margin: 12px 0 17px;
+  background: #e3dfd3;
+  border-radius: 2px;
+}
+.velocity-page #why-velocity .v-risk-meter i {
+  display: block;
+  width: 30%;
+  height: 100%;
+  background: #a37b3a;
+  border-radius: 2px;
+}
+.velocity-page #why-velocity .v-risk-note {
+  margin: 14px 0 0;
+  color: #63685c;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.velocity-page #why-velocity .v-risk-expiry {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+.velocity-page #why-velocity .v-risk-expiry > strong {
+  display: grid;
+  gap: 1px;
+  min-width: 56px;
+  padding: 8px;
+  border: 1px solid #d7c7a9;
+  border-radius: 6px;
+  background: #eee6d3;
+  color: #725622;
+  text-align: center;
+  font:
+    11px/1.4 'JetBrains Mono',
+    monospace;
+}
+.velocity-page #why-velocity .v-risk-expiry strong span {
+  font:
+    24px/1.2 'Lora',
+    Georgia,
+    serif;
+}
+.velocity-page #why-velocity .v-risk-expiry > div {
+  display: grid;
+  gap: 6px;
+}
+.velocity-page #why-velocity .v-risk-expiry b {
+  font-size: 17px;
+  font-weight: 400;
+}
+.velocity-page #why-velocity .v-risk-expiry div span {
+  font-size: 11px;
+  color: #63685c;
+}
+.velocity-page #why-velocity .v-risk-change {
+  padding: 14px;
+  margin-top: 12px;
+  background: #e3e7d9;
+  border-radius: 6px;
+  display: grid;
+  gap: 6px;
+  color: #43513a;
+}
+.velocity-page #why-velocity .v-risk-change > span {
+  font:
+    9px/1.5 'JetBrains Mono',
+    monospace;
+  letter-spacing: 0.05em;
+}
+.velocity-page #why-velocity .v-risk-change strong {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.velocity-page #why-velocity .v-risk-reason {
+  margin-top: 14px;
+}
+.velocity-page #why-velocity .v-risk-reason > span {
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #why-velocity .v-risk-reason p {
+  margin: 4px 0 0;
+  color: #2c3028;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.velocity-page #why-velocity .v-risk-audit {
+  border-top: 1px solid #2c302825;
+  padding-top: 12px;
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 10px;
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #why-velocity .v-risk-audit > :last-child {
+  flex-basis: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+}
+.velocity-page #why-velocity .v-risk-primary-stat {
+  display: grid;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+.velocity-page #why-velocity .v-risk-primary-stat > span {
+  color: #63685c;
+  font-size: 11px;
+}
+.velocity-page #why-velocity .v-risk-primary-stat strong {
+  color: #43513a;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+.velocity-page #why-velocity .v-risk-primary-stat small {
+  color: #63685c;
+  font-size: 10px;
+}
+.velocity-page #why-velocity .v-risk-report-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #2c302825;
+  padding-block: 9px;
+  font-size: 12px;
+}
+.velocity-page #why-velocity .v-risk-report-row strong {
+  font-weight: 500;
+}
+.velocity-page #why-velocity .v-risk-attention {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 6px;
+  background: #eee6d3;
+  color: #725622;
+  font-size: 10px;
+}
+.velocity-page #why-velocity .v-risk-attention strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  .velocity-page #why-velocity .v-risk-preview {
+    min-height: 0;
+    height: 340px;
+    padding: 18px;
+  }
+  .velocity-page #why-velocity .v-risk-brand {
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .velocity-page #why-velocity .v-risk-preview h4 {
+    font-size: 23px;
+  }
+  .velocity-page #why-velocity .v-risk-controls {
+    margin-block: 8px 14px;
+  }
+  .velocity-page #why-velocity .v-risk-controls button {
+    font-size: 10px;
+    padding-inline: 8px;
+  }
+  .velocity-page #why-velocity .v-risk-change {
+    padding: 10px 12px;
+  }
+  .velocity-page #why-velocity .v-risk-change strong {
+    font-size: 23px;
+  }
+  .velocity-page #why-velocity .v-risk-audit {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .velocity-page #why-velocity .v-risk-note {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .velocity-page #why-velocity .v-risk-preview {
+    padding: 14px;
+  }
+  .velocity-page #why-velocity .v-risk-preview h4 {
+    font-size: 21px;
+  }
+  .velocity-page #why-velocity .v-risk-change strong {
+    font-size: 21px;
+  }
+  .velocity-page #why-velocity .v-risk-stock-level small {
+    font-size: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .velocity-page #why-velocity .v-risk-preview {
+    height: auto;
+    min-height: 360px;
+  }
+  .velocity-page #why-velocity .v-risk-primary-stat {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2px 10px;
+  }
+  .velocity-page #why-velocity .v-risk-primary-stat strong {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    font-size: 25px;
+  }
+  .velocity-page #why-velocity .v-risk-report-row {
+    padding-block: 7px;
+  }
+}
+
+/* Reserve the tallest scenario's space so switching never resizes the mockup. */
+.velocity-page #why-velocity .v-why-stage-col[data-why-desktop-host] {
+  display: grid !important;
+}
+.velocity-page #why-velocity .v-why-stage {
+  display: block;
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+.velocity-page #why-velocity .v-why-stage[hidden] {
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+}
+.velocity-page #why-velocity .v-risk-preview {
+  height: 100%;
+}
+
+/* Real hero captures share the same screen crop beneath the Mac window bar. */
+.velocity-page .v-hero-chapters-ready .v-hero-panel img {
+  object-fit: cover;
+  object-position: center top;
+}

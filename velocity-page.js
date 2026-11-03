@@ -61,6 +61,17 @@ if (productHeader && productMenu && productFeatures) {
   window.addEventListener('pageshow', syncNavigation);
 }
 
+// Show the full purchasing sequence by default on larger screens.
+const purchaseSteps = document.querySelector('.v-purchase-illustration');
+const compactPurchaseSteps = window.matchMedia('(max-width: 767px)');
+if (purchaseSteps) {
+  const syncPurchaseSteps = () => {
+    purchaseSteps.open = !compactPurchaseSteps.matches;
+  };
+  syncPurchaseSteps();
+  compactPurchaseSteps.addEventListener('change', syncPurchaseSteps);
+}
+
 const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 preference.addEventListener('change', () => {

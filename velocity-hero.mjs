@@ -277,7 +277,9 @@ export function initHeroTransition(root) {
     updateNavButtons(activeChapter);
 
     function navigateChapter(direction) {
-      const target = activeChapter + direction;
+      const target = activePanel === 'overview' && direction > 0
+        ? 0
+        : activeChapter + direction;
       if (target < 0 || target >= chapters.length) return;
       if (enabled && geometry) {
         const targetScroll = getHeroChapterTarget(
@@ -508,7 +510,9 @@ export function initHeroTransition(root) {
       fills.forEach((fill) => fill?.style?.removeProperty?.('transform'));
       if (canSelect) {
         settlePanels();
-        selectChapter(activeChapter);
+        selectChapter(activeChapter, {
+          showPanel: activePanel !== null && activePanel !== 'overview',
+        });
       }
       if (frame !== null) win.cancelAnimationFrame(frame);
       frame = null;
