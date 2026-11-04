@@ -2,15 +2,15 @@
 @media (max-width: 767px) {
   /* Move space from the outer top edge into the content groups. */
   .velocity-page #velocity-main > #supply.v-hospital-section {
-    padding-block: 24px 56px;
+    padding-block: 40px;
   }
   .velocity-page #velocity-main #supply .v-hospital-intro {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
   }
   .velocity-page #supply .v-supply-panel {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 24px;
     margin-top: 0;
     min-height: 0;
     border: 0;
@@ -69,10 +69,15 @@
     display: none;
   }
   .velocity-page #supply .v-supply-example {
-    padding: 32px 24px;
+    padding: 24px;
     border-radius: 16px;
     background: #f5f2eb;
     color: #2c3028;
+  }
+  .velocity-page #supply .v-supply-qualification {
+    margin-top: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
   .velocity-page #supply .v-supply-mobile-summary[hidden],
   .velocity-page #supply .v-supply-summary-verified[hidden] {
@@ -91,7 +96,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .velocity-page #supply .v-supply-summary-title {
     margin: 0;

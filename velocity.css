@@ -4616,6 +4616,10 @@
   .velocity-page .v-container {
     width: calc(100% - 40px);
   }
+  .velocity-page #velocity-main > section:not(.v-hero) .v-container,
+  .velocity-page #velocity-main > section#faq.v-container {
+    width: calc(100% - 48px);
+  }
   .velocity-page .v-hero {
     padding-top: calc(var(--v-header-offset, 64px) + 64px);
     padding-bottom: var(--v-space-section);
@@ -4740,29 +4744,62 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .velocity-page #inventory.v-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
   .velocity-page .v-inventory-track {
-    padding-left: 20px;
-    padding-right: 20px;
-    scroll-padding-inline-start: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+    scroll-padding-inline-start: 24px;
     gap: 16px;
   }
   .velocity-page .v-inventory-card {
-    flex: 0 0 calc(100% - 32px);
-    min-width: calc(100% - 32px);
-    max-width: calc(100% - 32px);
-    padding: var(--v-space-card);
+    flex: 0 0 clamp(240px, calc(100vw - 80px), 360px);
+    min-width: 0;
+    max-width: 360px;
+    padding: 20px;
     border-radius: 18px;
     scroll-snap-align: start;
     box-sizing: border-box;
   }
+  .velocity-page #inventory .v-card-header {
+    margin-bottom: 16px;
+  }
   .velocity-page .v-inventory-card h3 {
-    font-size: 1.3rem;
+    font-size: 20px;
+    line-height: 26px;
     margin: 0 0 8px;
+  }
+  .velocity-page .v-inventory-card .v-card-desc {
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0;
+  }
+  .velocity-page #inventory .v-card-caption {
+    font-size: 13px;
+    line-height: 20px;
   }
   .velocity-page .v-inventory-nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--v-space-heading);
+    margin-top: 16px;
+    gap: 8px;
+  }
+  .velocity-page .v-inventory-instruction {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0;
+  }
+  .velocity-page .v-inventory-footer {
+    margin-top: 16px;
+  }
+  .velocity-page .v-inventory-divider {
+    margin: 0 0 12px;
+  }
+  .velocity-page .v-inventory-note {
+    font-size: 13px;
+    line-height: 20px;
   }
   .velocity-page .v-inventory-controls {
     width: 100%;
@@ -5214,12 +5251,17 @@
   .velocity-page .v-faq-grid details p {
     font-size: 0.95rem;
     line-height: 1.6;
-    padding: 0 16px 16px 0;
+    padding: 12px 16px 16px 0;
+    margin: 0;
   }
 
   /* Demo form phone styling */
+  .velocity-page #demo.v-demo {
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
   .velocity-page .v-demo-card {
-    padding: var(--v-space-card);
+    padding: 20px;
     border-radius: 24px;
     min-width: 0;
     max-width: 100%;
@@ -5227,7 +5269,14 @@
   }
   .velocity-page .v-demo-form {
     grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
+    gap: 24px;
+  }
+  .velocity-page .v-demo-label {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .velocity-page .v-demo-submit-wrapper {
+    margin-top: 24px;
   }
   .velocity-page .v-demo-input,
   .velocity-page .v-demo-select {
@@ -5268,8 +5317,24 @@
   }
 }
 
+@media (max-width: 439px) {
+  .velocity-page #velocity-main > section:not(.v-hero) .v-container,
+  .velocity-page #velocity-main > section#faq.v-container {
+    width: calc(100% - 40px);
+  }
+  .velocity-page .v-inventory-track {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-inline-start: 20px;
+  }
+}
+
 @media (max-width: 359px) {
   .velocity-page .v-container {
+    width: calc(100% - 32px);
+  }
+  .velocity-page #velocity-main > section:not(.v-hero) .v-container,
+  .velocity-page #velocity-main > section#faq.v-container {
     width: calc(100% - 32px);
   }
   .velocity-page .v-inventory-track {
@@ -5946,13 +6011,45 @@ aside.v-conversion-bar[hidden] {
       .v-why-header,
       .v-comparison-header
     ) {
-    margin-bottom: var(--v-space-content);
+    margin-bottom: 24px;
   }
   .velocity-page #inventory .v-inventory-carousel {
-    margin-top: var(--v-space-content);
+    margin-top: 24px;
+  }
+  .velocity-page #reordering .v-reorder-intro {
+    margin-bottom: 24px;
+  }
+  .velocity-page #reordering .v-reorder-showcase {
+    margin-bottom: 24px;
+  }
+  .velocity-page #reordering.v-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .velocity-page #purchasing .v-purchasing-intro {
+    margin-bottom: 24px;
+  }
+  .velocity-page #purchasing .v-purchase-stage {
+    margin-bottom: 24px;
+  }
+  .velocity-page #purchasing .v-purchasing-details {
+    margin-top: 24px;
+  }
+  .velocity-page #comparison .v-comparison-header {
+    margin-bottom: 24px;
+  }
+  .velocity-page #comparison .v-comparison-details {
+    margin-top: 24px;
+  }
+  .velocity-page #comparison .v-comparison-footer {
+    margin-top: 16px;
+  }
+  .velocity-page #comparison .v-comparison-footer p {
+    font-size: 13px;
+    line-height: 20px;
   }
   .velocity-page #faq.v-faq-grid {
-    gap: var(--v-space-content);
+    gap: 24px;
   }
   .velocity-page #features .v-capabilities-rail-controls {
     margin-top: var(--v-space-content);
@@ -5965,16 +6062,17 @@ aside.v-conversion-bar[hidden] {
   }
   .velocity-page .v-demo-intro {
     gap: 0;
+    margin-bottom: 32px;
   }
   .velocity-page .v-demo-intro .v-eyebrow {
     margin-bottom: var(--v-space-small);
   }
   .velocity-page .v-demo-intro .v-lead,
   .velocity-page .v-demo-intro .v-demo-email-alt {
-    margin-top: var(--v-space-heading);
+    margin-top: 16px;
   }
   .velocity-page .v-demo-field {
-    gap: var(--v-space-small);
+    gap: 8px;
   }
   /* Tailwind space-y otherwise adds a second label-to-input gap. */
   .velocity-page .v-demo-field > :not([hidden]) ~ :not([hidden]) {
@@ -5983,6 +6081,20 @@ aside.v-conversion-bar[hidden] {
   }
   .velocity-page .v-demo-card-intro {
     margin-bottom: 24px;
+  }
+  /* Velocity-only mobile footer spacing (components.js untouched) */
+  .velocity-page footer#footer {
+    padding-top: 32px !important;
+    padding-bottom: 32px;
+  }
+  .velocity-page footer#footer .mb-20 {
+    margin-bottom: 24px;
+  }
+  .velocity-page footer#footer .grid.gap-16 {
+    gap: 32px;
+  }
+  .velocity-page footer#footer .mt-24 {
+    margin-top: 24px;
   }
   .velocity-page .v-hero-capabilities {
     margin-top: var(--v-space-content);
@@ -6110,14 +6222,20 @@ aside.v-conversion-bar[hidden] {
 }
 @media (max-width: 767px) {
   .velocity-page {
-    --v-space-section: 56px;
+    --v-space-section: 40px;
+  }
+  .velocity-page #velocity-main > section[id]:not(.v-hero) {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .velocity-page #velocity-main > section[data-section-role='detail'] {
-    --v-space-section: 40px;
+    padding-top: 24px;
+    padding-bottom: 40px;
     --v-type-section: 24px;
   }
   .velocity-page #velocity-main section .v-heading-section + .v-lead {
     font-size: 16px;
+    line-height: 26px;
   }
   .velocity-page
     #velocity-main
