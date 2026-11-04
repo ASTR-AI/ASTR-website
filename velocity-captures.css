@@ -726,6 +726,7 @@
   border-color: #bda976;
 }
 .velocity-page #purchasing .v-purchase-preview figcaption {
+  min-height: 17px;
   margin-top: 10px;
   color: #90928d;
   font:

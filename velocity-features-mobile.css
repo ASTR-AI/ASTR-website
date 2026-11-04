@@ -17,6 +17,7 @@
     margin-bottom: 24px;
   }
   .velocity-page #features .v-capabilities-header h2 {
+    font-family: 'Cinzel', serif;
     font-size: 24px;
     line-height: 30px;
     margin-bottom: 0;
@@ -24,23 +25,233 @@
   .velocity-page #features .v-capabilities-header .v-lead {
     margin-top: 16px;
     margin-bottom: 0;
+    font-family: 'Geist Variable', sans-serif;
     font-size: 16px;
     line-height: 26px;
   }
   .velocity-page #features .v-capabilities-rail-controls {
     margin-top: 0;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     gap: 8px;
+  }
+  .velocity-page #features .v-rail-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
   }
   .velocity-page #features .v-capabilities-grid {
     margin-block: 0;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 0 0 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
+  .velocity-page #features .v-capabilities-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Unified Card Component for each workflow item */
+  .velocity-page #features .v-capability-card {
+    flex: 0 0 85%;
+    min-width: 270px;
+    max-width: 320px;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    background: #17181a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Mockup Box inside Card */
+  .velocity-page #features .v-capability-card-visual {
+    aspect-ratio: auto;
+    min-height: 0;
+    height: auto;
+    padding: 12px;
+    border-radius: 14px;
+    background: #101114;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: none;
+  }
+
+  /* Mockup Paper Card (light background: #f4f2ea) */
+  .velocity-page #features .v-med-preview {
+    padding: 16px;
+    border-radius: 10px;
+    background: #f4f2ea;
+    color: #2c3028;
+    box-sizing: border-box;
+  }
+
+  /* Mockup internal typography: high-contrast dark text on light cream paper */
+  .velocity-page #features .v-med-topline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #2c302820;
+    color: #63685c;
+  }
+  .velocity-page #features .v-med-preview h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #2c3028 !important;
+    margin: 0;
+  }
+  .velocity-page #features .v-med-preview h4 small {
+    font-family: 'Geist Variable', sans-serif;
+    color: #63685c !important;
+    font-size: 11px;
+    font-weight: 400;
+  }
+  .velocity-page #features .v-med-muted {
+    font-family: 'Geist Variable', sans-serif;
+    font-size: 11px;
+    color: #63685c !important;
+    margin-top: 3px;
+  }
+  .velocity-page #features .v-med-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 10px;
+    color: #2c3028;
+  }
+  .velocity-page #features .v-med-quantity strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #2c3028 !important;
+  }
+  .velocity-page #features .v-med-quantity span {
+    font-family: 'Geist Variable', sans-serif;
+    font-size: 11px;
+    color: #63685c !important;
+  }
+  .velocity-page #features .v-med-quantity span[aria-hidden="true"] {
+    color: #8a8e84 !important;
+    font-size: 14px;
+  }
+  .velocity-page #features .v-med-stock-total {
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: #e3e7d9 !important;
+    color: #43513a !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .velocity-page #features .v-med-stock-total strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #43513a !important;
+  }
+  .velocity-page #features .v-med-footline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: #63685c !important;
+    margin-top: 10px;
+  }
+
+  /* Card 2: Steps trail */
+  .velocity-page #features .v-med-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .velocity-page #features .v-med-steps li {
+    font-size: 11px;
+  }
+  .velocity-page #features .v-med-steps strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2c3028 !important;
+  }
+  .velocity-page #features .v-med-steps span {
+    font-family: 'Geist Variable', sans-serif;
+    font-size: 10px;
+    color: #63685c !important;
+  }
+
+  /* Card 3: Consumption bars & handoff */
+  .velocity-page #features .v-med-bars {
+    margin-top: 8px;
+    gap: 6px;
+  }
+  .velocity-page #features .v-med-bars span {
+    color: #63685c !important;
+    font-size: 10px;
+  }
+  .velocity-page #features .v-med-bars strong {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #2c3028 !important;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .velocity-page #features .v-med-handoff {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #2c302820;
+  }
+  .velocity-page #features .v-med-handoff strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2c3028 !important;
+  }
+  .velocity-page #features .v-med-handoff span {
+    font-family: 'Geist Variable', sans-serif;
+    font-size: 10px;
+    color: #63685c !important;
+  }
+
+  /* Card Copy below Visual: clear hierarchy on dark card */
+  .velocity-page #features .v-capability-card-copy {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .velocity-page #features .v-capability-card-copy h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #ffffff;
+    margin: 0;
+  }
+  .velocity-page #features .v-capability-card-copy p {
+    font-family: 'Geist Variable', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #b5b5b5;
+    margin: 0;
+  }
+
   .velocity-page #features .v-capability-footer {
-    margin-top: 16px;
+    margin-top: 20px;
     margin-bottom: 0;
   }
   .velocity-page #features .v-capability-footer p {
+    font-family: 'Geist Variable', sans-serif;
     font-size: 13px;
     line-height: 20px;
+    color: #888888;
   }
 }
