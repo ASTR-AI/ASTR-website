@@ -227,7 +227,10 @@
     color: #d2d0cb;
     list-style: none;
     cursor: pointer;
-    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease,
+      transform 0.2s ease;
   }
   .velocity-page .v-product-menu-toggle:hover,
   .velocity-page .v-product-menu-toggle:focus-visible {
@@ -335,7 +338,9 @@
     font-size: 15px;
     padding: 8px 12px;
     border-radius: 10px;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
   }
   .velocity-page .v-product-links > a:hover,
   .velocity-page .v-product-links > a:active,
@@ -1050,7 +1055,10 @@
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
   z-index: 2;
 }
 .velocity-page .v-card-light .v-card-enlarge-btn {
@@ -1145,7 +1153,10 @@
   border-radius: 10px;
   color: #d2d0cb;
   cursor: pointer;
-  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
 }
 .velocity-page .v-preview-dialog-close:hover {
   background: rgba(255, 255, 255, 0.08);
@@ -3417,12 +3428,9 @@
 }
 
 .velocity-page .v-why-item-num {
-  font-family:
-    'Space Grotesk',
-    -apple-system,
-    sans-serif;
-  font-size: clamp(2rem, 3vw, 2.75rem);
-  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1;
   color: rgba(255, 255, 255, 0.38);
@@ -3450,14 +3458,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  font-family:
-    'Space Grotesk',
-    -apple-system,
-    sans-serif;
-  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-family: 'Lora', serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.76);
-  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.35;
   letter-spacing: -0.01em;
   transition: color 0.25s ease;
 }
@@ -3558,7 +3563,7 @@
 .velocity-page .v-why-mini-filter {
   padding: 4px 10px;
   border-radius: 14px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Geist Variable', sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   background: #ffffff;
@@ -3674,7 +3679,7 @@
   border-radius: 7px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Geist Variable', sans-serif;
 }
 .velocity-page .v-why-act-mini-btn:hover {
   background: #f4f2ea;
@@ -4161,7 +4166,7 @@
   }
 
   .velocity-page .v-why-item-desc {
-    font-family: 'Geist Variable', 'Space Grotesk', sans-serif;
+    font-family: 'Geist Variable', sans-serif;
     font-size: 0.78rem;
     line-height: 1.4;
     color: #9c9a94;
@@ -6270,8 +6275,7 @@ aside.v-conversion-bar[hidden] {
   font-weight: 400;
   line-height: inherit;
 }
-.velocity-page #velocity-main .v-purchase-feature h3,
-.velocity-page #velocity-main .v-why-item-title {
+.velocity-page #velocity-main .v-purchase-feature h3 {
   font-family: 'Geist Variable', Arial, sans-serif;
   font-size: var(--v-type-compact);
   font-weight: 600;
