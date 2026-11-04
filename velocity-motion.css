@@ -9,3 +9,90 @@
     transform: none;
   }
 }
+
+/* Ambient Card Spotlight & Interactive Depth */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .velocity-page .v-ambient-card {
+    position: relative;
+    transition:
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s ease;
+  }
+
+  /* Interactive depth: subtle elevation on hover */
+  .velocity-page .v-inventory-card.v-ambient-card:hover,
+  .velocity-page .v-supply-dept-card.v-ambient-card:hover,
+  .velocity-page
+    .v-has-reorder-motion
+    .v-reorder-summary-card.is-revealed:hover,
+  .velocity-page .v-reorder-summary-card.v-ambient-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .velocity-page .v-reorder-panel.v-ambient-card:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Dark card hover shadows & subtle border luminescence */
+  .velocity-page .v-inventory-card.v-card-dark.v-ambient-card:hover,
+  .velocity-page .v-reorder-summary-card.v-ambient-card:hover {
+    box-shadow:
+      0 24px 50px -10px rgba(0, 0, 0, 0.7),
+      0 0 25px rgba(230, 205, 153, 0.06);
+    border-color: rgba(230, 205, 153, 0.22);
+  }
+
+  /* Light card hover shadow & gold border tint */
+  .velocity-page .v-inventory-card.v-card-light.v-ambient-card:hover {
+    box-shadow:
+      0 24px 50px -10px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(203, 168, 100, 0.08);
+    border-color: rgba(203, 168, 100, 0.28);
+  }
+
+  /* Hospital supply department card hover */
+  .velocity-page #supply .v-supply-dept-card.v-ambient-card:hover {
+    box-shadow:
+      0 16px 36px -8px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(230, 205, 153, 0.06);
+    border-color: rgba(230, 205, 153, 0.28);
+  }
+
+  /* Reorder panel hover shadow */
+  .velocity-page .v-reorder-panel.v-ambient-card:hover {
+    box-shadow:
+      0 28px 64px rgba(0, 0, 0, 0.55),
+      0 0 30px rgba(230, 205, 153, 0.08);
+  }
+
+  /* Spotlight overlay */
+  .velocity-page .v-ambient-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(
+      380px circle at var(--spotlight-x, -999px) var(--spotlight-y, -999px),
+      rgba(230, 205, 153, 0.09),
+      transparent 65%
+    );
+    z-index: 5;
+  }
+
+  /* Custom radial spotlight for light inventory cards */
+  .velocity-page .v-inventory-card.v-card-light.v-ambient-card::after {
+    background: radial-gradient(
+      380px circle at var(--spotlight-x, -999px) var(--spotlight-y, -999px),
+      rgba(203, 168, 100, 0.12),
+      transparent 65%
+    );
+  }
+
+  .velocity-page .v-ambient-card.has-spotlight::after {
+    opacity: 1;
+  }
+}

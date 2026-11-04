@@ -4,6 +4,7 @@ import './velocity-operations.css';
 import './velocity-supply-mobile.css';
 import './velocity-features-mobile.css';
 import './velocity-risks-mobile.css';
+import './velocity-motion.css';
 import { initHeroTransition } from './velocity-hero.mjs';
 import { inject, track } from '@vercel/analytics';
 import { initInventoryCarousel } from './velocity-inventory.mjs';

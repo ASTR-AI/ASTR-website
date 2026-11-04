@@ -1,5 +1,4 @@
 import { animate, hover, inView, stagger } from 'motion';
-import './velocity-motion.css';
 
 // Keep the page's existing interactive demos in charge of their own transforms.
 const headingGroups = [
@@ -173,6 +172,8 @@ export function initVelocityMotion(
       );
     });
 
+    stops.push(initCardSpotlight(root));
+
     // Keyboard users should never have to wait for an entrance to finish.
     const onFocus = (event) => {
       animations.forEach((animation, element) => {
@@ -196,5 +197,60 @@ export function initVelocityMotion(
   return () => {
     dispose();
     preference.removeEventListener('change', setup);
+  };
+}
+
+export function initCardSpotlight(
+  root = document.querySelector('#velocity-main')
+) {
+  if (!root) return () => {};
+  if (typeof window === 'undefined' || !window.matchMedia) return () => {};
+
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  if (preference.matches || !finePointer.matches) return () => {};
+
+  const cards = root.querySelectorAll(
+    '.v-inventory-card, .v-reorder-panel, .v-reorder-summary-card, .v-supply-dept-card, .v-capability-card-visual'
+  );
+  if (!cards.length) return () => {};
+
+  const cleanups = [];
+
+  cards.forEach((card) => {
+    card.classList.add('v-ambient-card');
+
+    const onEnter = () => {
+      card.classList.add('has-spotlight');
+    };
+
+    const onMove = (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = Math.round(event.clientX - rect.left);
+      const y = Math.round(event.clientY - rect.top);
+      card.style.setProperty('--spotlight-x', `${x}px`);
+      card.style.setProperty('--spotlight-y', `${y}px`);
+    };
+
+    const onLeave = () => {
+      card.classList.remove('has-spotlight');
+    };
+
+    card.addEventListener('pointerenter', onEnter);
+    card.addEventListener('pointermove', onMove, { passive: true });
+    card.addEventListener('pointerleave', onLeave);
+
+    cleanups.push(() => {
+      card.removeEventListener('pointerenter', onEnter);
+      card.removeEventListener('pointermove', onMove);
+      card.removeEventListener('pointerleave', onLeave);
+      card.classList.remove('v-ambient-card', 'has-spotlight');
+      card.style.removeProperty('--spotlight-x');
+      card.style.removeProperty('--spotlight-y');
+    });
+  });
+
+  return () => {
+    cleanups.forEach((cleanup) => cleanup());
   };
 }
