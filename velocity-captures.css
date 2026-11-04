@@ -147,7 +147,7 @@
   }
 }
 
-/* Compact, feature-specific inventory details, in the existing ivory palette. */
+/* Compact, feature-specific inventory details, in a crisp clinical white palette. */
 .velocity-page .v-card-img-wrap.v-stock-stage {
   padding: 0;
   overflow: visible;
@@ -160,24 +160,24 @@
   box-sizing: border-box;
   height: 250px;
   padding: 20px 24px;
-  border: 1px solid #ffffff80;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
   overflow: hidden;
-  background: #f5f2eb;
-  color: #2c3028;
+  background: #ffffff;
+  color: #0f172a;
   font:
     13px/1.4 'Geist Variable',
     Arial,
     sans-serif;
   text-align: left;
-  box-shadow: 0 12px 28px -20px #0006;
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.5);
 }
 .velocity-page .v-stock-minihead {
   display: flex;
   justify-content: space-between;
   gap: 10px;
   padding-bottom: 14px;
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page .v-stock-minihead > span:first-child {
@@ -185,7 +185,7 @@
     600 10px/1.4 'JetBrains Mono',
     monospace;
   letter-spacing: 0.12em;
-  color: #4c513f;
+  color: #334155;
 }
 .velocity-page .v-stock-focus-title {
   display: flex;
@@ -193,7 +193,7 @@
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 12px;
-  color: #2c3028;
+  color: #0f172a;
   font:
     500 21px/1.3 'Lora',
     Georgia,
@@ -201,7 +201,7 @@
   letter-spacing: -0.025em;
 }
 .velocity-page .v-stock-focus-title > span {
-  color: #63685c;
+  color: #64748b;
   font:
     11px/1.4 'Geist Variable',
     Arial,
@@ -217,7 +217,7 @@
   justify-content: space-between;
   gap: 8px;
   padding: 11px 0;
-  border-top: 1px solid #2c30281f;
+  border-top: 1px solid #e2e8f0;
 }
 .velocity-page .v-stock-location-list dt {
   display: flex;
@@ -225,7 +225,7 @@
   gap: 10px;
 }
 .velocity-page .v-stock-location-list i {
-  color: #727767;
+  color: #64748b;
   font:
     10px/1 'JetBrains Mono',
     monospace;
@@ -236,7 +236,7 @@
   white-space: nowrap;
 }
 .velocity-page .v-stock-location-list dd span {
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page .v-stock-batches .v-stock-focus-title {
@@ -244,7 +244,7 @@
   font-size: 20px;
 }
 .velocity-page .v-stock-focus-title em {
-  color: #596448;
+  color: #334155;
   font-style: normal;
 }
 .velocity-page .v-stock-focus-table {
@@ -257,21 +257,21 @@
   text-align: left;
   padding: 10px;
   font-weight: 400;
-  border-bottom: 1px solid #2c30281a;
+  border-bottom: 1px solid #e2e8f0;
   white-space: nowrap;
 }
 .velocity-page .v-stock-focus-table thead th {
   font-size: 10px;
-  color: #63685c;
+  color: #64748b;
   padding-block: 6px;
 }
 .velocity-page .v-stock-focus-table th:first-child {
-  background: #e5e9dd;
-  color: #35432d;
-  border-left: 2px solid #788461;
+  background: #f1f5f9;
+  color: #0f172a;
+  border-left: 2px solid #0284c7;
 }
 .velocity-page .v-stock-focus-table td {
-  color: #73786c;
+  color: #334155;
 }
 .velocity-page .v-stock-context {
   display: flex;
@@ -283,11 +283,11 @@
 .velocity-page .v-stock-context span {
   height: 5px;
   flex: 1;
-  background: #9b9f92;
+  background: #94a3b8;
   border-radius: 2px;
 }
 .velocity-page .v-stock-expiry {
-  background: #f5f1e7;
+  background: #ffffff;
 }
 .velocity-page .v-stock-expiry-focus {
   display: flex;
@@ -295,10 +295,10 @@
   justify-content: space-between;
   gap: 18px;
   padding: 18px 0;
-  border-block: 1px solid #8d71322b;
+  border-block: 1px solid #e2e8f0;
 }
 .velocity-page .v-stock-expiry-label {
-  color: #806025;
+  color: #b45309;
   font:
     9px/1.4 'JetBrains Mono',
     monospace;
@@ -306,7 +306,7 @@
 }
 .velocity-page .v-stock-expiry-focus h4 {
   margin: 8px 0 5px;
-  color: #2c3028;
+  color: #0f172a;
   font:
     500 22px/1.2 'Lora',
     Georgia,
@@ -315,22 +315,22 @@
 }
 .velocity-page .v-stock-expiry-focus p {
   margin: 0;
-  color: #63685c;
+  color: #64748b;
   font-size: 11px;
 }
 .velocity-page .v-stock-date {
   flex-shrink: 0;
   text-align: center;
-  border: 1px solid #bda976;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   min-width: 70px;
   overflow: hidden;
 }
 .velocity-page .v-stock-date span {
   display: block;
-  background: #e9dfc9;
+  background: #f1f5f9;
   padding: 4px 10px;
-  color: #725622;
+  color: #0f172a;
   font:
     10px/1.4 'JetBrains Mono',
     monospace;
@@ -347,12 +347,12 @@
   gap: 6px;
   align-items: center;
   margin-top: 15px;
-  color: #725622;
+  color: #b45309;
   font-size: 11px;
 }
 .velocity-page .v-stock-expiry-note > span:last-child {
   margin-left: auto;
-  color: #63685c;
+  color: #64748b;
   font-size: 9px;
 }
 .velocity-page .v-stock-equation {
@@ -361,14 +361,14 @@
   justify-content: space-between;
   gap: 10px;
   padding-top: 20px;
-  border-top: 1px solid #2c302825;
+  border-top: 1px solid #e2e8f0;
 }
 .velocity-page .v-stock-equation > div {
   text-align: center;
 }
 .velocity-page .v-stock-equation strong {
   display: block;
-  color: #2c3028;
+  color: #0f172a;
   font:
     400 40px/1.2 'Lora',
     Georgia,
@@ -379,20 +379,20 @@
   display: block;
   margin-top: 8px;
   font-size: 10px;
-  color: #63685c;
+  color: #64748b;
 }
 .velocity-page .v-stock-equation b {
-  color: #7d8274;
+  color: #94a3b8;
   font-weight: 400;
   font-size: 18px;
 }
 .velocity-page .v-stock-unit-result {
   padding: 12px;
-  background: #e5e9dd;
+  background: #f1f5f9;
   border-radius: 10px;
 }
 .velocity-page .v-stock-unit-result strong {
-  color: #435336;
+  color: #0f172a;
 }
 .velocity-page .v-stock-stage .v-card-enlarge-btn {
   bottom: -48px;
@@ -504,11 +504,11 @@
 /* Override the page's generic definition-list typography inside the preview. */
 .velocity-page .v-stock-location-list dt {
   margin: 0;
-  color: #2c3028;
+  color: #0f172a;
   font: inherit;
 }
 .velocity-page .v-stock-location-list dd {
-  color: #2c3028;
+  color: #0f172a;
   line-height: 1.4;
 }
 .velocity-page .v-stock-stage .v-card-enlarge-btn {
@@ -590,21 +590,22 @@
 }
 .velocity-page .v-purchase-focus {
   padding: 22px 24px;
-  border: 1px solid #ffffff80;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 16px;
-  color: #2c3028;
-  background: #f5f2eb;
+  color: #0f172a;
+  background: #ffffff;
   font:
     12px/1.5 'Geist Variable',
     Arial,
     sans-serif;
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.5);
 }
 .velocity-page .v-purchase-focus-brand {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 16px;
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page .v-purchase-focus-brand > span:first-child {
@@ -612,7 +613,7 @@
     600 10px/1.5 'JetBrains Mono',
     monospace;
   letter-spacing: 0.12em;
-  color: #4c513f;
+  color: #334155;
 }
 .velocity-page .v-purchase-focus-heading {
   display: flex;
@@ -622,7 +623,7 @@
 }
 .velocity-page .v-purchase-focus-heading h3 {
   margin: 0;
-  color: #2c3028;
+  color: #0f172a;
   font:
     500 23px/1.25 'Lora',
     Georgia,
@@ -632,7 +633,7 @@
 .velocity-page .v-purchase-focus-heading h3 span {
   display: block;
   margin-top: 5px;
-  color: #63685c;
+  color: #64748b;
   font:
     10px/1.4 'JetBrains Mono',
     monospace;
@@ -640,22 +641,22 @@
 }
 .velocity-page .v-purchase-focus-status {
   padding: 5px 9px;
-  border: 1px solid #d8c49a;
+  border: 1px solid #fed7aa;
   border-radius: 6px;
-  color: #725622;
-  background: #eee6d3;
+  color: #9a3412;
+  background: #fff7ed;
   font-size: 10px;
   white-space: nowrap;
 }
 .velocity-page .v-purchase-focus-supplier {
   margin: 14px 0;
-  color: #63685c;
+  color: #64748b;
   font-size: 11px;
 }
 .velocity-page .v-purchase-focus-supplier strong {
   margin-left: 8px;
   font-weight: 400;
-  color: #2c3028;
+  color: #0f172a;
 }
 .velocity-page .v-purchase-focus-table {
   width: 100%;
@@ -664,17 +665,17 @@
 }
 .velocity-page .v-purchase-focus-table thead th {
   padding: 7px 0;
-  border-block: 1px solid #2c302825;
+  border-block: 1px solid #e2e8f0;
   font-weight: 400;
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page .v-purchase-focus-table tbody th,
 .velocity-page .v-purchase-focus-table td {
   padding: 12px 0;
-  border-bottom: 1px solid #2c302825;
+  border-bottom: 1px solid #e2e8f0;
   font-weight: 400;
-  color: #2c3028;
+  color: #0f172a;
   font-size: 12px;
 }
 .velocity-page .v-purchase-focus-table th:last-child,
@@ -684,7 +685,7 @@
 .velocity-page .v-purchase-focus-table tbody th span {
   margin-left: 6px;
   font-size: 10px;
-  color: #63685c;
+  color: #64748b;
 }
 .velocity-page .v-purchase-focus-progress {
   display: flex;
@@ -694,7 +695,7 @@
   list-style: none;
   padding: 0;
   margin: 16px 0 0;
-  color: #76796f;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page .v-purchase-focus-progress li {
@@ -707,23 +708,24 @@
   place-items: center;
   width: 21px;
   height: 21px;
-  border: 1px solid #d8dacd;
+  border: 1px solid #cbd5e1;
   border-radius: 50%;
   font-size: 9px;
   flex-shrink: 0;
 }
 .velocity-page .v-purchase-focus-progress .is-complete {
-  color: #536645;
+  color: #166534;
 }
 .velocity-page .v-purchase-focus-progress .is-complete > span {
-  background: #e3e8dc;
-  border-color: #ccd4c2;
+  background: #dcfce7;
+  border-color: #86efac;
 }
 .velocity-page .v-purchase-focus-progress .is-current {
-  color: #725622;
+  color: #9a3412;
 }
 .velocity-page .v-purchase-focus-progress .is-current > span {
-  border-color: #bda976;
+  border-color: #fdba74;
+  background: #fff7ed;
 }
 .velocity-page #purchasing .v-purchase-preview figcaption {
   min-height: 17px;
@@ -844,14 +846,15 @@
   min-width: 0;
   box-sizing: border-box;
   padding: 22px;
-  border: 1px solid #e5e3d9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 14px;
-  background: #f4f2ea;
-  color: #2c3028;
+  background: #ffffff;
+  color: #0f172a;
   font:
     12px/1.45 'Geist Variable',
     Arial,
     sans-serif;
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.5);
 }
 .velocity-page #features .v-med-topline {
   display: flex;
@@ -859,8 +862,8 @@
   gap: 8px;
   padding-bottom: 15px;
   margin-bottom: 18px;
-  border-bottom: 1px solid #2c302825;
-  color: #63685c;
+  border-bottom: 1px solid #e2e8f0;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #features .v-med-topline > :first-child {
@@ -871,7 +874,7 @@
 }
 .velocity-page #features .v-med-preview h4 {
   margin: 0;
-  color: #2c3028;
+  color: #0f172a;
   font:
     23px/1.2 'Lora',
     Georgia,
@@ -883,12 +886,12 @@
     11px/1.4 'Geist Variable',
     Arial,
     sans-serif;
-  color: #63685c;
+  color: #64748b;
   white-space: nowrap;
 }
 .velocity-page #features .v-med-muted {
   margin: 7px 0 0;
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #features .v-med-quantity {
@@ -908,7 +911,7 @@
   font-weight: 400;
 }
 .velocity-page #features .v-med-quantity span {
-  color: #63685c;
+  color: #64748b;
   font-size: 11px;
 }
 .velocity-page #features .v-med-stock-total {
@@ -918,8 +921,8 @@
   gap: 8px;
   padding: 12px;
   border-radius: 6px;
-  background: #e3e7d9;
-  color: #43513a;
+  background: #f1f5f9;
+  color: #0f172a;
 }
 .velocity-page #features .v-med-stock-total strong {
   font-size: 23px;
@@ -936,7 +939,7 @@
   gap: 6px;
   margin-top: 13px;
   font-size: 9px;
-  color: #63685c;
+  color: #64748b;
 }
 .velocity-page #features .v-med-steps {
   list-style: none;
@@ -955,7 +958,7 @@
   position: absolute;
   width: 1px;
   height: 24px;
-  background: #ccd2c2;
+  background: #cbd5e1;
   top: 27px;
   left: 13px;
 }
@@ -964,10 +967,10 @@
   place-items: center;
   flex: 0 0 28px;
   height: 28px;
-  border: 1px solid #ccd2c2;
+  border: 1px solid #cbd5e1;
   border-radius: 50%;
-  color: #536645;
-  background: #e7eadf;
+  color: #0f172a;
+  background: #f8fafc;
 }
 .velocity-page #features .v-med-steps div {
   display: grid;
@@ -978,18 +981,18 @@
   font-weight: 500;
 }
 .velocity-page #features .v-med-steps div > span {
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #features .v-med-steps .v-med-step-focus {
   padding: 10px;
   margin: -2px -10px 0;
   border-radius: 6px;
-  background: #e3e7d9;
+  background: #f1f5f9;
 }
 .velocity-page #features .v-med-step-focus .v-med-step-mark {
-  background: #536645;
-  border-color: #536645;
+  background: #0f172a;
+  border-color: #0f172a;
   color: #fff;
 }
 .velocity-page #features .v-med-bars {
@@ -1009,10 +1012,10 @@
   width: var(--bar);
   height: 10px;
   border-radius: 0 2px 2px 0;
-  background: #a3ad94;
+  background: #94a3b8;
 }
 .velocity-page #features .v-med-bars > div:nth-child(2) i {
-  background: #536645;
+  background: #0f172a;
 }
 .velocity-page #features .v-med-bars strong {
   font-weight: 400;
@@ -1022,14 +1025,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border-top: 1px solid #2c302825;
+  border-top: 1px solid #e2e8f0;
   padding-top: 14px;
 }
 .velocity-page #features .v-med-file {
   padding: 8px 5px;
-  border: 1px solid #c9cebe;
+  border: 1px solid #cbd5e1;
   border-radius: 3px;
-  color: #536645;
+  color: #0f172a;
   font: 10px/1.4 monospace;
 }
 .velocity-page #features .v-med-handoff div {
@@ -1043,7 +1046,7 @@
 }
 .velocity-page #features .v-med-handoff div > span {
   font-size: 10px;
-  color: #63685c;
+  color: #64748b;
 }
 @media (max-width: 1100px) and (min-width: 768px) {
   .velocity-page #features .v-med-preview {
@@ -1121,24 +1124,25 @@
   min-height: 366px;
   padding: 24px;
   border-radius: 14px;
-  border: 1px solid #e5e3d9;
-  background: #f4f2ea;
-  color: #2c3028;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #ffffff;
+  color: #0f172a;
   box-sizing: border-box;
   font:
     12px/1.45 'Geist Variable',
     Arial,
     sans-serif;
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.5);
 }
 .velocity-page #why-velocity .v-risk-brand {
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  border-bottom: 1px solid #2c302825;
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 14px;
   margin-bottom: 18px;
   font-size: 10px;
-  color: #63685c;
+  color: #64748b;
 }
 .velocity-page #why-velocity .v-risk-brand > :first-child {
   font:
@@ -1148,7 +1152,7 @@
 }
 .velocity-page #why-velocity .v-risk-preview h4 {
   margin: 0;
-  color: #2c3028;
+  color: #0f172a;
   font:
     26px/1.25 'Lora',
     Georgia,
@@ -1158,7 +1162,7 @@
 .velocity-page #why-velocity .v-risk-controls {
   display: flex;
   gap: 4px;
-  border-bottom: 1px solid #2c302825;
+  border-bottom: 1px solid #e2e8f0;
   margin: 12px 0 18px;
 }
 .velocity-page #why-velocity .v-risk-controls button {
@@ -1169,48 +1173,48 @@
   border-radius: 0;
   min-height: 44px;
   padding: 8px 10px;
-  color: #63685c;
+  color: #64748b;
   font: inherit;
   font-size: 11px;
   cursor: pointer;
 }
 .velocity-page #why-velocity .v-risk-controls button[aria-pressed='true'] {
-  border-color: #536645;
-  color: #35442c;
+  border-color: #0f172a;
+  color: #0f172a;
 }
 .velocity-page #why-velocity .v-risk-controls button:hover {
-  background: #e9e9df;
+  background: #f1f5f9;
 }
 .velocity-page #why-velocity .v-risk-controls button:focus-visible {
-  outline: 2px solid #536645;
+  outline: 2px solid #0f172a;
   outline-offset: 2px;
 }
 .velocity-page #why-velocity .v-risk-alert[hidden] {
   display: none;
 }
 .velocity-page #why-velocity .v-risk-label {
-  color: #80602e;
+  color: #b45309;
   font:
     9px/1.5 'JetBrains Mono',
     monospace;
   letter-spacing: 0.08em;
 }
 .velocity-page #why-velocity .v-risk-label-expired {
-  color: #984c3e;
+  color: #dc2626;
 }
 .velocity-page #why-velocity .v-risk-preview h5 {
   margin: 8px 0 0;
-  color: #2c3028;
+  color: #0f172a;
   font-size: 19px;
   font-weight: 400;
 }
 .velocity-page #why-velocity .v-risk-preview h5 small {
   font-size: 11px;
-  color: #63685c;
+  color: #64748b;
 }
 .velocity-page #why-velocity .v-risk-context {
   margin: 5px 0 0;
-  color: #63685c;
+  color: #64748b;
   font-size: 11px;
 }
 .velocity-page #why-velocity .v-risk-stock-level {
@@ -1224,30 +1228,31 @@
   font-size: 32px;
   line-height: 1;
   font-weight: 400;
+  color: #0f172a;
 }
 .velocity-page #why-velocity .v-risk-stock-level small {
   font-size: 11px;
 }
 .velocity-page #why-velocity .v-risk-stock-level > span {
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #why-velocity .v-risk-meter {
   height: 7px;
   margin: 12px 0 17px;
-  background: #e3dfd3;
+  background: #e2e8f0;
   border-radius: 2px;
 }
 .velocity-page #why-velocity .v-risk-meter i {
   display: block;
   width: 30%;
   height: 100%;
-  background: #a37b3a;
+  background: #d97706;
   border-radius: 2px;
 }
 .velocity-page #why-velocity .v-risk-note {
   margin: 14px 0 0;
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
   line-height: 1.5;
 }
@@ -1262,10 +1267,10 @@
   gap: 1px;
   min-width: 56px;
   padding: 8px;
-  border: 1px solid #d7c7a9;
+  border: 1px solid #fed7aa;
   border-radius: 6px;
-  background: #eee6d3;
-  color: #725622;
+  background: #fff7ed;
+  color: #9a3412;
   text-align: center;
   font:
     11px/1.4 'JetBrains Mono',
@@ -1284,53 +1289,56 @@
 .velocity-page #why-velocity .v-risk-expiry b {
   font-size: 17px;
   font-weight: 400;
+  color: #0f172a;
 }
 .velocity-page #why-velocity .v-risk-expiry div span {
   font-size: 11px;
-  color: #63685c;
+  color: #64748b;
 }
 .velocity-page #why-velocity .v-risk-change {
   padding: 14px;
   margin-top: 12px;
-  background: #e3e7d9;
+  background: #f1f5f9;
   border-radius: 6px;
   display: grid;
   gap: 6px;
-  color: #43513a;
+  color: #0f172a;
 }
 .velocity-page #why-velocity .v-risk-change > span {
   font:
     9px/1.5 'JetBrains Mono',
     monospace;
   letter-spacing: 0.05em;
+  color: #64748b;
 }
 .velocity-page #why-velocity .v-risk-change strong {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: -0.03em;
+  color: #0f172a;
 }
 .velocity-page #why-velocity .v-risk-reason {
   margin-top: 14px;
 }
 .velocity-page #why-velocity .v-risk-reason > span {
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #why-velocity .v-risk-reason p {
   margin: 4px 0 0;
-  color: #2c3028;
+  color: #0f172a;
   font-size: 12px;
   line-height: 1.5;
 }
 .velocity-page #why-velocity .v-risk-audit {
-  border-top: 1px solid #2c302825;
+  border-top: 1px solid #e2e8f0;
   padding-top: 12px;
   margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px 10px;
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #why-velocity .v-risk-audit > :last-child {
@@ -1344,26 +1352,27 @@
   margin-bottom: 12px;
 }
 .velocity-page #why-velocity .v-risk-primary-stat > span {
-  color: #63685c;
+  color: #64748b;
   font-size: 11px;
 }
 .velocity-page #why-velocity .v-risk-primary-stat strong {
-  color: #43513a;
+  color: #0f172a;
   font-size: 32px;
   line-height: 1.2;
   font-weight: 400;
 }
 .velocity-page #why-velocity .v-risk-primary-stat small {
-  color: #63685c;
+  color: #64748b;
   font-size: 10px;
 }
 .velocity-page #why-velocity .v-risk-report-row {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  border-top: 1px solid #2c302825;
+  border-top: 1px solid #e2e8f0;
   padding-block: 9px;
   font-size: 12px;
+  color: #0f172a;
 }
 .velocity-page #why-velocity .v-risk-report-row strong {
   font-weight: 500;
@@ -1376,8 +1385,9 @@
   padding: 10px 12px;
   margin-top: 6px;
   border-radius: 6px;
-  background: #eee6d3;
-  color: #725622;
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #ffedd5;
   font-size: 10px;
 }
 .velocity-page #why-velocity .v-risk-attention strong {

@@ -2427,10 +2427,10 @@
   flex-direction: column;
   min-height: 430px;
   padding: 28px 30px;
-  border: 1px solid #ffffff70;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 16px;
-  background: #f5f2eb;
-  color: #2c3028;
+  background: #ffffff;
+  color: #0f172a;
   box-shadow:
     0 24px 60px -12px #0009,
     0 10px 24px -6px #0005;
@@ -2438,20 +2438,20 @@
 }
 .velocity-page .v-operations-ward,
 .velocity-page .v-operations-report {
-  background: #e9ede5;
+  background: #f8fafc;
 }
 .velocity-page .v-operations-doc-brand {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #2c30281c;
-  color: #63685c;
+  border-bottom: 1px solid #e2e8f0;
+  color: #64748b;
   font-size: 0.62rem;
   line-height: 1.5;
 }
 .velocity-page .v-operations-doc-brand > span:first-child {
-  color: #4c513f;
+  color: #334155;
   font:
     600 0.68rem/1.5 'JetBrains Mono',
     monospace;
@@ -2467,19 +2467,19 @@
 }
 .velocity-page .v-operations-doc-heading p {
   margin-bottom: 7px;
-  color: #63685c;
+  color: #64748b;
   font-size: 0.65rem;
   line-height: 1.5;
 }
 .velocity-page .v-operations-doc-heading h4 {
-  color: #2c3028;
+  color: #0f172a;
   font:
     500 clamp(1.2rem, 2vw, 1.6rem)/1.3 'Lora',
     serif;
   letter-spacing: -0.02em;
 }
 .velocity-page .v-operations-doc-heading > span {
-  color: #63685c;
+  color: #64748b;
   font:
     0.6rem/1.6 'JetBrains Mono',
     monospace;
@@ -2491,15 +2491,15 @@
 }
 .velocity-page .v-operations-table thead th {
   padding-block: 10px;
-  border-block: 1px solid #2c302825;
-  color: #63685c;
+  border-block: 1px solid #e2e8f0;
+  color: #64748b;
   font-size: 0.62rem;
   font-weight: 400;
 }
 .velocity-page .v-operations-table tbody th,
 .velocity-page .v-operations-table td {
   padding-block: 15px;
-  border-bottom: 1px solid #2c302818;
+  border-bottom: 1px solid #e2e8f0;
   font-size: 0.78rem;
   font-weight: 500;
   vertical-align: top;
@@ -2515,7 +2515,7 @@
 .velocity-page .v-operations-table tbody th > span {
   display: block;
   margin-top: 4px;
-  color: #63685c;
+  color: #64748b;
   font-size: 0.62rem;
   font-weight: 400;
 }
@@ -2570,14 +2570,15 @@
   flex-direction: column;
   gap: 6px;
   padding-bottom: 18px;
-  border-bottom: 1px solid #2c30281c;
+  border-bottom: 1px solid #e2e8f0;
 }
 .velocity-page .v-operations-ward-medicine strong {
   font-size: 0.8rem;
   font-weight: 500;
+  color: #0f172a;
 }
 .velocity-page .v-operations-ward-medicine > span {
-  color: #63685c;
+  color: #64748b;
   font-size: 0.62rem;
 }
 .velocity-page .v-operations-activity {
@@ -2590,7 +2591,7 @@
   align-items: center;
   gap: 12px;
   padding-block: 14px;
-  border-bottom: 1px solid #2c302814;
+  border-bottom: 1px solid #e2e8f0;
 }
 .velocity-page .v-operations-activity-symbol {
   color: #63724f;
@@ -2601,11 +2602,12 @@
   display: block;
   font-size: 0.75rem;
   font-weight: 500;
+  color: #0f172a;
 }
 .velocity-page .v-operations-activity div > span {
   display: block;
   margin-top: 3px;
-  color: #63685c;
+  color: #64748b;
   font-size: 0.62rem;
 }
 .velocity-page .v-operations-activity b {
@@ -2619,37 +2621,37 @@
   align-items: center;
   gap: 14px;
   padding-block: 18px;
-  border-top: 1px solid #2c30281c;
+  border-top: 1px solid #e2e8f0;
 }
 .velocity-page .v-operations-file-type {
   display: grid;
   place-items: center;
   flex: 0 0 42px;
   height: 48px;
-  border: 1px solid #7d805d33;
+  border: 1px solid #cbd5e1;
   border-radius: 5px 12px 5px 5px;
-  color: #5a6548;
-  background: #a4ac8712;
+  color: #0f172a;
+  background: #f1f5f9;
   font:
     0.65rem/1 'JetBrains Mono',
     monospace;
 }
 .velocity-page .v-operations-export-file h5 {
   margin: 0 0 5px;
-  color: #2c3028;
+  color: #0f172a;
   font-size: 0.8rem;
   font-weight: 500;
   line-height: 1.4;
 }
 .velocity-page .v-operations-export-file p {
-  color: #63685c;
+  color: #64748b;
   font-size: 0.63rem;
   line-height: 1.6;
 }
 .velocity-page .v-operations-export-file svg {
   margin-left: auto;
   flex: 0 0 18px;
-  color: #6b725c;
+  color: #64748b;
 }
 .velocity-page .v-operations-export-meta {
   display: flex;
@@ -2659,15 +2661,15 @@
 }
 .velocity-page .v-operations-export-meta > span {
   padding: 4px 8px;
-  border: 1px solid #6b725c30;
+  border: 1px solid #e2e8f0;
   border-radius: 5px;
-  color: #59634c;
+  color: #334155;
   font-size: 0.6rem;
   line-height: 1.6;
 }
 .velocity-page .v-operations-report-period {
   margin: -4px 0 20px;
-  color: #63685c;
+  color: #64748b;
   font-size: 0.63rem;
   line-height: 1.6;
 }
@@ -3573,8 +3575,8 @@
   transition: all 0.2s ease;
 }
 .velocity-page .v-why-mini-filter:hover {
-  background: #f4f2ea;
-  color: #1f221c;
+  background: #f1f5f9;
+  color: #0f172a;
   border-color: rgba(0, 0, 0, 0.2);
 }
 .velocity-page .v-why-mini-filter.is-active {
@@ -3682,12 +3684,12 @@
   font-family: 'Geist Variable', sans-serif;
 }
 .velocity-page .v-why-act-mini-btn:hover {
-  background: #f4f2ea;
+  background: #f1f5f9;
   border-color: rgba(0, 0, 0, 0.18);
 }
 .velocity-page .v-why-act-mini-btn.is-active {
-  background: #f1efe7;
-  border-color: #1f221c;
+  background: #e2e8f0;
+  border-color: #0f172a;
 }
 .velocity-page .v-why-act-mini-btn:focus-visible {
   outline: 2px solid #e6cd99;

@@ -61,7 +61,7 @@
     font-size: 18px !important;
     line-height: 1.25 !important;
     font-weight: 600 !important;
-    color: #2c3028 !important;
+    color: #0f172a !important;
   }
   .velocity-page #why-velocity .v-risk-controls {
     display: flex !important;
@@ -86,24 +86,24 @@
     font-family: 'Geist Variable', sans-serif !important;
     font-size: 14px !important;
     font-weight: 600 !important;
-    color: #2c3028 !important;
+    color: #0f172a !important;
     margin: 2px 0 0 !important;
   }
   .velocity-page #why-velocity .v-risk-context {
     font-family: 'Geist Variable', sans-serif !important;
     font-size: 11px !important;
-    color: #63685c !important;
+    color: #64748b !important;
     margin: 2px 0 6px !important;
   }
   .velocity-page #why-velocity .v-risk-stock-level {
     display: flex !important;
     justify-content: space-between !important;
     font-size: 11px !important;
-    color: #2c3028 !important;
+    color: #0f172a !important;
     margin-bottom: 4px !important;
   }
   .velocity-page #why-velocity .v-risk-stock-level strong {
-    color: #2c3028 !important;
+    color: #0f172a !important;
   }
   .velocity-page #why-velocity .v-risk-meter {
     height: 4px !important;
@@ -111,7 +111,7 @@
   .velocity-page #why-velocity .v-risk-note {
     font-family: 'Geist Variable', sans-serif !important;
     font-size: 10.5px !important;
-    color: #727a6e !important;
+    color: #64748b !important;
     margin-top: 6px !important;
   }
 
@@ -119,7 +119,7 @@
   .velocity-page #why-velocity .v-risk-change strong {
     font-family: 'Geist Variable', sans-serif !important;
     font-size: 20px !important;
-    color: #2c3028 !important;
+    color: #0f172a !important;
   }
   .velocity-page #why-velocity .v-risk-audit-row {
     padding-block: 4px !important;
@@ -128,7 +128,7 @@
   .velocity-page #why-velocity .v-risk-primary-stat strong {
     font-family: 'Geist Variable', sans-serif !important;
     font-size: 22px !important;
-    color: #2c3028 !important;
+    color: #0f172a !important;
   }
   .velocity-page #why-velocity .v-risk-report-row {
     padding-block: 5px !important;

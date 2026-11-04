@@ -229,13 +229,13 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #f5f4ee;
+  background: #ffffff;
 }
 .velocity-page .v-hero-stock-report {
   height: 100%;
   padding: clamp(14px, 2.5vw, 34px);
-  background: #f5f2eb;
-  color: #292c27;
+  background: #ffffff;
+  color: #0f172a;
   font-family: 'Geist Variable', Arial, sans-serif;
   text-align: left;
   line-height: 1.4;
@@ -244,7 +244,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 12px;
-  border-bottom: 1px solid #292c2720;
+  border-bottom: 1px solid #e2e8f0;
   font-family: 'JetBrains Mono', monospace;
   font-size: clamp(0.48rem, 0.75vw, 0.65rem);
   letter-spacing: 0.1em;
