@@ -18,6 +18,7 @@ import { initVelocityDemoForm } from './velocity-demo-form.mjs';
 import { createVelocityFormObserver } from './velocity-analytics.mjs';
 import { initVelocityMotion } from './velocity-motion.mjs';
 import { initMobileRail } from './velocity-mobile-rails.mjs';
+import { initScrollSync } from './velocity-scroll-sync.mjs';
 
 inject();
 const velocityTracker = createVelocityTracker(track);
@@ -31,16 +32,26 @@ const compactNavigation = window.matchMedia('(max-width: 900px)');
 if (productHeader && productMenu && productFeatures) {
   const closeNavigation = () => {
     productFeatures.open = false;
-    if (compactNavigation.matches) productMenu.open = false;
+    if (compactNavigation.matches) {
+      productMenu.open = false;
+      document.body.classList.remove('v-drawer-open');
+    }
   };
   const syncNavigation = () => {
     productMenu.open = !compactNavigation.matches;
     productFeatures.open = false;
+    document.body.classList.remove('v-drawer-open');
   };
   syncNavigation();
   compactNavigation.addEventListener('change', syncNavigation);
   productHeader.addEventListener('click', (event) => {
-    if (event.target.closest('a')) closeNavigation();
+    if (
+      event.target.closest('a') ||
+      event.target.closest('[data-drawer-close]') ||
+      event.target.closest('[data-drawer-backdrop]')
+    ) {
+      closeNavigation();
+    }
   });
   productHeader.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
@@ -48,7 +59,7 @@ if (productHeader && productMenu && productFeatures) {
       productFeatures.open = false;
       productFeatures.querySelector('summary').focus();
     } else if (compactNavigation.matches && productMenu.open) {
-      productMenu.open = false;
+      closeNavigation();
       productMenu.querySelector('summary').focus();
     }
   });
@@ -56,7 +67,12 @@ if (productHeader && productMenu && productFeatures) {
     if (!productHeader.contains(event.target)) closeNavigation();
   });
   productMenu.addEventListener('toggle', () => {
-    if (!productMenu.open) productFeatures.open = false;
+    if (!productMenu.open) {
+      productFeatures.open = false;
+      document.body.classList.remove('v-drawer-open');
+    } else if (compactNavigation.matches) {
+      document.body.classList.add('v-drawer-open');
+    }
   });
   window.addEventListener('pageshow', syncNavigation);
 }
@@ -235,6 +251,12 @@ function initMobileRails() {
   };
 }
 
+let scrollSyncCleanup = null;
+function initScrollState() {
+  scrollSyncCleanup?.();
+  scrollSyncCleanup = initScrollSync();
+}
+
 window.addEventListener('pageshow', (event) => {
   initHero();
   initSupply(!event.persisted);
@@ -246,6 +268,7 @@ window.addEventListener('pageshow', (event) => {
   initConversion();
   initComparison();
   initDemoForm();
+  initScrollState();
   if (!motionCleanup) initMotion();
 });
 
@@ -261,6 +284,7 @@ window.addEventListener('pagehide', () => {
   conversionCleanup?.();
   comparisonCleanup?.();
   demoFormCleanup?.();
+  scrollSyncCleanup?.();
   motionCleanup?.();
   motionCleanup = null;
 });
@@ -274,6 +298,7 @@ initWhy();
 initConversion();
 initComparison();
 initDemoForm();
+initScrollState();
 
 initHero();
 initMotion();
