@@ -91,6 +91,16 @@
 .velocity-page .v-product-features {
   position: relative;
 }
+.velocity-page .v-product-features .v-features-chevron {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.velocity-page .v-product-features[open] .v-features-chevron {
+  transform: rotate(180deg);
+}
 .velocity-page .v-product-features[open] > summary,
 .velocity-page .v-product-nav a:hover {
   color: var(--v-gold);
